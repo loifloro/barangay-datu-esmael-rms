@@ -1,0 +1,10 @@
+@use '../abstracts' as *;
+
+.patient-profile {
+    .history {
+        display: grid;
+        grid-template-columns: auto 30%;
+        column-gap: 3%;
+    }
+
+}

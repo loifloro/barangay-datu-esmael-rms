@@ -1,0 +1,82 @@
+/**
+ * Basic typography style for copy text
+ */
+
+@use '../abstracts' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Poppins:ital,wght@0,500;0,600;0,700;1,300&display=swap');
+
+body {
+    font-family: 'Inter', 'Montserrat', 'Outfit', 'Poppins', 'Tahoma', sans-serif;
+}
+
+h1,
+.h1 {
+    // font-size: clamp(42px, 1rem + 2vw, 48px);
+    // font-size: clamp(2.62rem, 1rem + 2vw, 3.5rem);
+    font-size: clamp(2rem, 1rem + 2vw, 2.45rem);
+    font-weight: 700;
+    color: $black-1;
+    line-height: 1;
+    
+}
+
+h2,
+.h2 {
+    // font-size: clamp(25px, .8rem + 2vw, 31px);
+    font-size: clamp(1.6rem, .6rem + 2vw, 1.9rem);
+    font-weight: 700;
+    color: $black-1;
+    line-height: 1.2;
+    
+}
+
+h3,
+.h3 {
+    // font-size: clamp(19px, .8rem + 2vw, 25px);
+    font-size: clamp(1.19rem, .4rem + 2vw, 1.6rem);
+    font-weight: 600;
+}
+
+h4,
+.h4 {
+    // font-size: clamp(18px, .8rem + 2vw, 20px);
+    font-size: clamp(1.12rem, .2rem + 2vw, 1.25rem);
+    font-weight: 500;
+    letter-spacing: .5px;
+    
+}
+
+.p-bold {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+p, 
+.p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: $black-2;
+
+}
+
+button {
+    font-weight: 700;
+}
+
+a,
+.back__btn,
+.view-profile__btn {
+    font-size: .8rem;
+    transition: $ease-in-out;
+    color: $green;
+    
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+}
+
+.gray {
+    font-size: .8rem;
+}

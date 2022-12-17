@@ -1,0 +1,17 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+$drop-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
+$ease-in-out: all ease-in-out 600ms;
+
+// Not yet finished
+$fade: all ease 600ms;
+
+
+/// Relative or absolute URL where all assets are served from
+/// @type String
+/// @example scss - When using a CDN
+///   $base-url: 'https://cdn.example.com/assets/';
+$base-url: '/assets/' !default;

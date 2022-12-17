@@ -1,0 +1,84 @@
+@use '../abstracts' as *;
+
+.user-profile {
+    hr {
+        @include hr;
+    }
+
+    &__desc {
+        @include title-above;
+    }
+
+    &__password {
+
+
+        &__form {
+            width: 80%;
+            margin-bottom: 3rem;
+
+            margin-top: calc(2vh + 1rem);
+            // @include form;
+            
+            label {
+                display: inline;
+                margin-right: auto;
+                // line-height: 1.2;
+            }
+
+            button {
+                // display: block;
+                margin-left: auto;
+            }
+
+            // Password Bar
+            .password {
+                display: flex;
+                width: 50%;
+                background: $white-3;
+                border-radius: .5vw;
+
+                &:hover, 
+                &:focus, 
+                &:active {
+                    outline: $green solid 1px;
+                    background: $white-1
+                }
+
+                &__bar {
+                    &__input {
+                        display: inline;    
+                        background: none !important;
+                        width: 100%;
+                       
+                        &:hover, 
+                        &:focus, 
+                        &:active {
+                            cursor: pointer;
+                            outline: none !important;
+                            // background: none;
+                        }
+                    }
+                    
+                    &__btn {
+                        display: inline;  
+                        margin-left: auto !important;
+                        margin-right: .5rem;  
+                    }
+                }
+
+            }
+
+            .btn-change {
+                display: block !important;
+                margin-left: auto;
+            }
+        }
+    }
+
+    .bhw-account {
+
+        button {
+            float: inline-end;
+        }
+    }
+}

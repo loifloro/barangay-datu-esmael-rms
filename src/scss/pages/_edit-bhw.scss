@@ -1,0 +1,5 @@
+@use '../abstracts' as *;
+
+.edit-bhw {
+    @include page-with-form-layout;
+}

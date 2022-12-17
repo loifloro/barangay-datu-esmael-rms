@@ -1,0 +1,95 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the sidebar component.
+// -----------------------------------------------------------------------------
+
+@use '../abstracts' as *;
+
+.sidebar {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 50px);
+    margin: 1.25rem;
+    box-sizing: border-box;
+
+    border-radius: 1.5vw;
+
+    background: $white-2;
+    width: 15vw;
+    // max-width: 20vw;
+
+    & > * {
+        color: $black-2;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3.12rem;
+        width: 15vw - 2vw;
+        // max-width: 20vw - 2vw;
+        padding-inline-start: unset;
+    }
+
+    &__line {
+        border-width: 100%;
+        color: $black-3;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    &__item {
+        display: flex;
+        align-items: center;
+        margin-bottom: .4rem;
+
+        border-radius: .6rem;
+        height: 3rem;
+
+        transition: $ease-in-out;
+        
+        &--active {
+            background: $white-3;
+            font-weight: 600;
+        }
+
+        &--margin-top {
+            margin-top: auto;
+        }
+        
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background: $active-green;
+            color: $green;
+            font-weight: 600;
+
+            // SVG path
+            path {
+                fill: $green;
+            }
+        }
+    }
+
+    &__icon {
+        margin-inline: 1.25rem;
+        
+        height: 1.5rem;
+        width: 1.5rem;
+        display: inline-block;
+        vertical-align: middle;
+        
+        path {
+            fill: $black-2;
+        }
+    }
+
+    &__link {
+        all: unset;
+
+        &:hover {
+            text-decoration: none;
+        }
+        
+    }
+}

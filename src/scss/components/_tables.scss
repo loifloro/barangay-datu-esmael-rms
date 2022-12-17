@@ -1,0 +1,196 @@
+@use '../abstracts' as *;
+
+
+.patient,
+.search-results {
+    &__table {
+        @include card(none);
+
+        &__row {
+            display: grid;
+            // grid-template-columns: repeat(5, minmax(80px, 1fr));
+            grid-template-columns: auto 20% 10% 25% 15%;
+            padding-inline-start: unset;
+            padding: 1rem 1.5rem;
+            margin-block: 0;
+        }
+    }
+
+    &__attributes {
+        color: $black-3;
+    }
+
+    &__info {
+        background: $white-2;
+        color: $black-2;
+    }
+
+    &__name {
+        color: $black-1;
+    }
+
+    &__option {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__availed-service--deworming {
+        font-size: .8rem;
+        color: $green;
+        background: $active-green;
+        padding: .5rem 1rem;
+        border-radius: 100vw;
+    }
+
+    &__availed-service--prenatal {
+        font-size: .8rem;
+        color: $yellow-1;
+        background: $yellow-2;
+        padding: .5rem 1rem;
+        border-radius: 100vw;
+    }
+
+}
+
+.backup {
+    &__table {
+        @include card(none);
+
+        &__row {
+            display: grid;
+            // grid-template-columns: repeat(5, minmax(80px, 1fr));
+            grid-template-columns: auto 15% 10% 15% 15% 10%;
+            column-gap: 1rem;
+            padding-inline-start: unset;
+            padding: 1rem 1.5rem;
+            margin-block: 0;
+        }
+    }
+
+    &__attributes {
+        color: $black-3;
+    }
+
+    &__info {
+        background: $white-2;
+        color: $black-2;
+    }
+
+    &__name {
+        color: $black-1;
+    }
+
+    &__status--available {
+        font-size: .8rem;
+        color: $green;
+        background: $active-green;
+        padding: .3rem 1rem;
+        border-radius: 100vw;
+    }
+
+    &__status--deleted {
+        font-size: .8rem;
+        color: $white-1;
+        background: $red;
+        padding: .3rem 1rem;
+        border-radius: 100vw;
+    }
+
+}
+
+.bhw-account {
+    margin-bottom: 5rem;
+    
+    &__table {
+        margin-block: 1rem;
+        @include card(none);
+
+        &__row {
+            display: grid;
+            align-items: center;
+            // grid-template-columns: repeat(5, minmax(80px, 1fr));
+            grid-template-columns: auto 20% 10% 15% 15%;
+            column-gap: 1rem;
+            padding-inline-start: unset;
+            padding: 1rem 1.5rem;
+            margin-block: 0;
+
+            li:last-child {
+                justify-self: center;
+            }
+        }
+    }
+
+    &__header {
+        color: $black-3;
+    }
+
+    &__info {
+        background: $white-2;
+        color: $black-2;
+    }
+
+    &__name {
+        color: $black-1;
+    }
+
+}
+
+.services {
+
+    &__table {
+        margin-block: 2rem;
+        @include card(none);
+        
+        &__row {
+            display: grid;
+            align-items: center;
+            // grid-template-columns: repeat(5, minmax(80px, 1fr));
+            grid-template-columns: auto 20% 10% 15% 15%;
+            column-gap: 1rem;
+            padding-inline-start: unset;
+            padding: 1rem 1.5rem;
+            margin-block: 0;
+    
+            li:last-child {
+                justify-self: center;
+            }
+        }
+    }
+
+    &__header {
+        color: $black-3;
+    }
+
+    &__info {
+        background: $white-2;
+        color: $black-2;
+    }
+
+    &__name,
+    &__attributes__item {
+        color: $black-1;
+
+        & > * {
+            vertical-align: middle;
+            display: inline;
+        }
+    }
+
+
+    &__option > * {
+        margin-right: 2rem;
+    }
+
+    &__checkbox {
+        display: inline;
+        margin-right: 1rem;
+        // vertical-align: middle;
+
+    }
+
+    &__btn {
+        float: inline-end;
+    }
+
+}

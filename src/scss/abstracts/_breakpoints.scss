@@ -1,0 +1,11 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass breakpoints.
+// -----------------------------------------------------------------------------
+
+
+// Breakpoints map
+$breakpoints: (
+  'small': 320px,
+  'medium': 768px,
+  'large': 1024px,
+) !default;

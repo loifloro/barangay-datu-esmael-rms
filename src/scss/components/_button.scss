@@ -1,0 +1,108 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+
+@use "../abstracts" as *;
+
+
+/*!
+ * Hover.css (http://ianlunn.github.io/Hover/)
+ * Version: 2.3.2
+ * Author: Ian Lunn @IanLunn
+ * Author URL: http://ianlunn.co.uk/
+ * Github: https://github.com/IanLunn/Hover
+ * Hover.css Copyright Ian Lunn 2017. Generated with Sass.
+ */
+
+/* Shutter Out Horizontal */
+button {
+    
+    &.btn-save {
+        width: 6rem;
+
+    }
+
+    &.btn-cancel,
+    &.btn-delete,
+    &.btn-change,
+    &.btn-add {
+        width: 8rem;
+    }
+
+    /* Styles for every green button */
+    &.btn-green {
+        /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
+        @include button-animation ($green, $white-1, $green, $active-green);
+
+    }
+    
+
+    /* Styles for every red button */
+    &.btn-red {
+        /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
+        @include button-animation ($active-green, $green, $white-1, $red);
+
+    }
+}
+
+.delete-icon,
+.edit-icon,
+.archive-icon,
+.search-icon,
+.password-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    // margin-right: 1.5rem;
+    
+    }
+
+.delete-icon,
+.archive-icon {
+    path {
+        fill: $black-3;
+    }
+
+    &:hover, 
+    &:focus, 
+    &:active {
+        cursor: pointer;
+        
+        path {
+            fill: $red;
+        }
+    }
+}
+
+.edit-icon {
+
+    path {
+        fill: $black-3;
+    }
+
+    &:hover, 
+    &:focus, 
+    &:active {
+        cursor: pointer;
+        
+        path {
+            fill: $green;
+        }
+    }
+}
+
+.password-icon {
+
+    path {
+        fill: $black-1;
+    }
+
+    &:hover, 
+    &:focus, 
+    &:active {
+        cursor: pointer;
+        
+        path {
+            fill: $green;
+        }
+    }
+}

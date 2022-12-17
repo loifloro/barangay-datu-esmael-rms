@@ -1,0 +1,53 @@
+// -----------------------------------------------------------------------------
+// This file contains styles that are specific to the home page.
+// -----------------------------------------------------------------------------
+
+@use '../abstracts' as *;
+
+.login {
+    background: $active-green;
+
+    display: grid;
+    place-content: center;
+    
+    &__card {
+        width: 26rem;
+        max-width: 30vw;
+
+        // See mixins.scss for referrence
+        @include card(3rem);
+
+    }
+
+    &__title,
+    &__desc {
+        text-align: center;
+    }
+
+    &__desc {
+        margin-bottom: 1.5rem;
+    }
+
+    label,
+    &__desc,
+    &__forgot {
+        font-size: .8rem;
+    }
+
+    &__contact,
+    &__password,
+    &__btn {
+        margin-bottom: 1.5rem;
+    }
+
+    &__btn,
+    &__contact,
+    &__password {
+        width: 100%;
+    }
+
+    &__forgot {
+        text-align: end;
+    }
+}
+

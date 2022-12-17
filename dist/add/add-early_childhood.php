@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Document</title>
+</head>
+<body class="grid">
+    <!-- Sidebar -->
+    <aside role="navigation" class="sidebar">
+        <ul role="list" class="sidebar__list">
+            <li class="sidebar__item sidebar__item--active">
+                <svg alt="Home" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                    <path d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z"/>
+                </svg>
+                Dashboard
+            </li>
+            <li class="sidebar__item">
+                <svg alt="Patient" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M12.3,12.22A4.92,4.92,0,0,0,14,8.5a5,5,0,0,0-10,0,4.92,4.92,0,0,0,1.7,3.72A8,8,0,0,0,1,19.5a1,1,0,0,0,2,0,6,6,0,0,1,12,0,1,1,0,0,0,2,0A8,8,0,0,0,12.3,12.22ZM9,11.5a3,3,0,1,1,3-3A3,3,0,0,1,9,11.5Zm9.74.32A5,5,0,0,0,15,3.5a1,1,0,0,0,0,2,3,3,0,0,1,3,3,3,3,0,0,1-1.5,2.59,1,1,0,0,0-.5.84,1,1,0,0,0,.45.86l.39.26.13.07a7,7,0,0,1,4,6.38,1,1,0,0,0,2,0A9,9,0,0,0,18.74,11.82Z"/>                
+                </svg>
+                Patient
+            </li>
+            <li class="sidebar__item">
+                <svg alt="Tutorial" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M21,14H20V4h1a1,1,0,0,0,0-2H3A1,1,0,0,0,3,4H4V14H3a1,1,0,0,0,0,2h8v1.15l-4.55,3A1,1,0,0,0,7,22a.94.94,0,0,0,.55-.17L11,19.55V21a1,1,0,0,0,2,0V19.55l3.45,2.28A.94.94,0,0,0,17,22a1,1,0,0,0,.55-1.83l-4.55-3V16h8a1,1,0,0,0,0-2Zm-3,0H6V4H18ZM9.61,12.26a1.73,1.73,0,0,0,1.76,0l3-1.74a1.76,1.76,0,0,0,0-3l-3-1.74a1.73,1.73,0,0,0-1.76,0,1.71,1.71,0,0,0-.87,1.52v3.48A1.71,1.71,0,0,0,9.61,12.26Zm1.13-4.58L13,9l-2.28,1.32Z"/>
+                </svg>
+                Tutorial
+            </li>
+            <li class="sidebar__item">
+                <svg alt="Backup" 
+                role="listitem" 
+                     class="sidebar__icon"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z"/>
+                </svg>
+                Backup
+            </li>
+            <hr class="sidebar__line">
+            <li class="sidebar__item">
+                <svg alt="Services" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     data-name="Layer 1"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM17,9H15V7a1,1,0,0,0-1-1H10A1,1,0,0,0,9,7V9H7a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H9v2a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V15h2a1,1,0,0,0,1-1V10A1,1,0,0,0,17,9Zm-1,4H14a1,1,0,0,0-1,1v2H11V14a1,1,0,0,0-1-1H8V11h2a1,1,0,0,0,1-1V8h2v2a1,1,0,0,0,1,1h2Z"/>
+                </svg>
+                Services
+            </li>
+            <li class="sidebar__item">
+                <svg alt="Masterlist" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     data-name="Layer 1"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M13,14H9a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2ZM17,4H15.82A3,3,0,0,0,13,2H11A3,3,0,0,0,8.18,4H7A3,3,0,0,0,4,7V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V7A3,3,0,0,0,17,4ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm8,14a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V7A1,1,0,0,1,7,6H8V7A1,1,0,0,0,9,8h6a1,1,0,0,0,1-1V6h1a1,1,0,0,1,1,1Zm-3-9H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z"/>
+                </svg>
+                Masterlist
+            </li>
+            <li class="sidebar__item sidebar__item--margin-top">
+                <svg alt="Settings" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     data-name="Layer 1"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M21.32,9.55l-1.89-.63.89-1.78A1,1,0,0,0,20.13,6L18,3.87a1,1,0,0,0-1.15-.19l-1.78.89-.63-1.89A1,1,0,0,0,13.5,2h-3a1,1,0,0,0-.95.68L8.92,4.57,7.14,3.68A1,1,0,0,0,6,3.87L3.87,6a1,1,0,0,0-.19,1.15l.89,1.78-1.89.63A1,1,0,0,0,2,10.5v3a1,1,0,0,0,.68.95l1.89.63-.89,1.78A1,1,0,0,0,3.87,18L6,20.13a1,1,0,0,0,1.15.19l1.78-.89.63,1.89a1,1,0,0,0,.95.68h3a1,1,0,0,0,.95-.68l.63-1.89,1.78.89A1,1,0,0,0,18,20.13L20.13,18a1,1,0,0,0,.19-1.15l-.89-1.78,1.89-.63A1,1,0,0,0,22,13.5v-3A1,1,0,0,0,21.32,9.55ZM20,12.78l-1.2.4A2,2,0,0,0,17.64,16l.57,1.14-1.1,1.1L16,17.64a2,2,0,0,0-2.79,1.16l-.4,1.2H11.22l-.4-1.2A2,2,0,0,0,8,17.64l-1.14.57-1.1-1.1L6.36,16A2,2,0,0,0,5.2,13.18L4,12.78V11.22l1.2-.4A2,2,0,0,0,6.36,8L5.79,6.89l1.1-1.1L8,6.36A2,2,0,0,0,10.82,5.2l.4-1.2h1.56l.4,1.2A2,2,0,0,0,16,6.36l1.14-.57,1.1,1.1L17.64,8a2,2,0,0,0,1.16,2.79l1.2.4ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+                </svg>
+                Settings
+            </li>
+            <li class="sidebar__item">
+                <svg alt="Feedback" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     data-name="Layer 1"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z"/>
+                </svg> 
+                Feedback
+            </li>
+            <li class="sidebar__item">
+                <svg alt="Logout" 
+                     role="listitem" 
+                     class="sidebar__icon"
+                     data-name="Layer 1"
+                     xmlns="http://www.w3.org/2000/svg" 
+                     viewBox="0 0 24 24">
+                     <path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z"/>
+                </svg>
+                Logout
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Nav Bar -->
+    <header class="navbar">
+        <nav class="navigation">
+            <h1 class="navigation__title h3">
+                <!-- This would change depending on the URL or the current page  -->
+                Dashboard
+            </h1>
+            <input type="text" 
+                    class="navigation__search"
+                    placeholder="Search patient last name"> 
+            <button class="navigation__btn btn-green">
+                Add New
+            </button>
+        </nav>
+    </header>
+
+    <!-- Contents -->
+    <main class="add-early_childhood">
+        <section class="form">
+            <p class="back__btn">
+                Back
+            </p>
+            <h2 class="add-early_childhood__title">
+                Add Early Childhood Care and Development Care
+            </h2>
+            <p class="add-early_childhood__desc">
+                Fill up necessary information to complete the process
+            </p>
+
+            <form action="function.php" method="POST" class="add-early_childhood__form">
+
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-clinic">Clinic/Health Center</label>
+                    <input type="text" name="early_childhood-clinic" id="early_childhood-clinic">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-barangay">Barangay</label>
+                    <input type="text" name="early_childhood-barangay" id="early_childhood-barangay">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-purol">Purol/Sitio</label>
+                    <input type="text" name="early_childhood-purol" id="early_childhood-purol">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-childname">Child Name</label>
+                    <input type="text" name="early_childhood-childname" id="early_childhood-childname">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-hospital">Hospital</label>
+                    <textarea name="early_childhood-hospital" id="early_childhood-hospital" cols="27" rows="7"></textarea>
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-lic">LIC</label>
+                    <input type="text" name="early_childhood-lic" id="early_childhood-lic">
+                </div>
+                <div class="add-early_childhood__form-item add-early_childhood__form-item--radio">
+                    <label for="early_childhood-sex">Sex</label>
+                    <div class="add-early_childhood__form--role-item">
+                        <div class="add-early_childhood__form-item">
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male">
+                            <label for="early_childhood-sex">Male</label>
+                        </div>
+                        <div class="add-early_childhood__form-item">
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female">
+                            <label for="early_childhood-sex">Female</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-street">Time Delivery</label>
+                    <input type="text" name="early_childhood-time" id="early_childhood-street">
+                </div>
+                
+                <!-- Divider -->
+                <hr>
+
+                <h2 class="add-early_childhood__title">
+                    Mother Information
+                </h2>
+                <p class="add-early_childhood__desc">
+                    Fill up necessary information to complete the process
+                </p>
+                
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-mother-name">Name</label>
+                    <input type="text" name="early_childhood-mother-name" id="early_childhood-mother-name">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-pregnancies">No. of Pregnancies</label>
+                    <input type="number" name="early_childhood-pregnancies" id="early_childhood-pregnancies">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-mother-education">Educational Attainment</label>
+                    <input type="text" name="early_childhood-mother-education" id="early_childhood-mother-education">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-mother-age">Age</label>
+                    <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-mother-occupation">Occupation</label>
+                    <input type="text" name="early_childhood-mother-occupation" id="early_childhood-mother-occupation">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-mother-birthdate">Birthdate</label>
+                    <input type="date" name="early_childhood-mother-birthdate" id="early_childhood-mother-birthdate">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-status">Status</label>
+                    <input type="text" name="early_childhood-status" id="early_childhood-status">
+                </div>
+
+                <!-- Divider -->
+                <hr>
+
+                <h2 class="add-early_childhood__title">
+                    Father Information
+                </h2>
+                <p class="add-early_childhood__desc">
+                    Fill up necessary information to complete the process
+                </p>
+                
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-father-name">Name</label>
+                    <input type="text" name="early_childhood-father-name" id="early_childhood-father-name">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-father-contact">Phone Number</label>
+                    <input type="number" name="early_childhood-father-contact" id="early_childhood-father-contact">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-father-education">Educational Attainment</label>
+                    <input type="text" name="early_childhood-father-education" id="early_childhood-father-education">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-father-age">Age</label>
+                    <input type="number" name="early_childhood-father-age" id="early_childhood-father-age">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-father-occupation">Occupation</label>
+                    <input type="text" name="early_childhood-father-occupation" id="early_childhood-father-occupation">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-father-birthdate">Birthdate</label>
+                    <input type="date" name="early_childhood-father-birthdate" id="early_childhood-father-birthdate">
+                </div>
+                
+                
+                <!-- Divider -->
+                <hr>
+
+                <h2 class="add-early_childhood__title">
+                    Childhood Information
+                </h2>
+                <p class="add-early_childhood__desc">
+                    Fill up necessary information to complete the process
+                </p>
+
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-child-birthdate">Birthdate</label>
+                    <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-gestational">Gestational Age of Birth</label>
+                    <input type="number" name="early_childhood-gestational" id="early_childhood-gestational">
+                </div>
+                <div class="add-early_childhood__form-item add-early_childhood__form-item--radio">
+                    <label for="early_childhood-birth">Type of Birth</label>
+                    <div class="add-early_childhood__form--role-item">
+                        <div class="add-early_childhood__form-item">
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal">
+                            <label for="early_childhood-birth">Normal</label>
+                        </div>
+                        <div class="add-early_childhood__form-item">
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS">
+                            <label for="early_childhood-birth">CS</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-birth-order">Birth Order</label>
+                    <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-birth-weight">Birth Weight</label>
+                    <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-birth-length">Birth Length</label>
+                    <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-birth-place">Place of Delivery</label>
+                    <!-- <input type="number" name="early_childhood-birth-lenght" id="early_childhood-birth-lenght"> -->
+                    <select name="early_childhood-birth-place" id="">
+                        <option value="Home">Home</option>
+                        <option value="Lying In">Lying In</option>
+                        <option value="Hospital">Hospital</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-child-accomodation">Date of Birth Accomodation</label>
+                    <input type="date" name="early_childhood-child-accomodation" id="early_childhood-child-accomodation">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-birth-attendant">Birth Attendant</label>
+                    <!-- <input type="number" name="early_childhood-birth-lenght" id="early_childhood-birth-lenght"> -->
+                    <select name="early_childhood-birth-attendant" id="">
+                        <option value="Doctor">Doctor</option>
+                        <option value="Midwife">Midwife</option>
+                        <option value="Nurse">Nurse</option>
+                        <option value="Hilot">Hilot</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+
+
+                <!-- Divider -->
+                <hr>
+
+                <h2 class="add-early_childhood__title">
+                    Vaccine Remarks
+                </h2>
+                <p class="add-early_childhood__desc">
+                    Fill up necessary information to complete the process
+                </p>
+                
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            BCG
+                        </p>
+                        <p class="dose-indication">
+                            Tubercolosis
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-bgc-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-bgc-1" id="early_childhood-bgc-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-bgc-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-bgc-2" id="early_childhood-bgc-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-bgc-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-bgc-3" id="early_childhood-bgc-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-catch-up" id="early_childhood-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            HEP B
+                        </p>
+                        <p class="dose-indication">
+                            Hepatatitis B
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-hebp-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-hebp-1" id="early_childhood-hebp-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-hebp-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-hebp-2" id="early_childhood-hebp-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-hebp-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-hebp-3" id="early_childhood-hebp-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-hebp-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-hebp-catch-up" id="early_childhood-hebp-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            Pentavalent
+                        </p>
+                        <p class="dose-indication">
+                            Dipterya, Tetano, Hepa  B, Pertussis, Pulmonya, Meningitis
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-pentavalent-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-pentavalent-1" id="early_childhood-pentavalent-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-hebp-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-pentavalent-2" id="early_childhood-pentavalent-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-hebp-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-pentavalent-3" id="early_childhood-pentavalent-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-hebp-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-pentavalent-catch-up" id="early_childhood-pentavalent-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            Oral Polio Vaccine
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-opv-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-opv-1" id="early_childhood-opv-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-opv-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-opv-2" id="early_childhood-opv-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-opv-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-opv-3" id="early_childhood-opv-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-opv-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-opv-catch-up" id="early_childhood-opv-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            Inactivated Polio Vaccine
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-ipv-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-ipv-1" id="early_childhood-ipv-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-ipv-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-ipv-2" id="early_childhood-ipv-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-ipv-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-ipv-3" id="early_childhood-ipv-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-ipv-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-ipv-catch-up" id="early_childhood-ipv-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            Pneumococcal Conjugate Vaccine
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-pcv-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-pcv-1" id="early_childhood-pcv-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-pcv-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-pcv-2" id="early_childhood-pcv-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-pcv-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-pcv-3" id="early_childhood-pcv-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-pcv-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-pcv-catch-up" id="early_childhood-pcv-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            Measles Containing Vaccine
+                        </p>
+                        <p class="dose-indication">
+                            Pulmonya Meningitis
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-mcv-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-mcv-1" id="early_childhood-mcv-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-mcv-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-mcv-2" id="early_childhood-mcv-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-mcv-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-mcv-3" id="early_childhood-mcv-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-mcv-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-mcv-catch-up" id="early_childhood-mcv-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                <div class="add-early_childhood__form-doses">
+                    <div class="add-early_childhood__form-label">
+                        <p class="dose-title">
+                            Vitamin A Supplementation
+                        </p>
+                    </div>
+                    <div class="add-early_childhood__form-input">
+                        <label for="early_childhood-child-early_childhood-vitA-1">First Dose Date</label>
+                        <input type="date" name="early_childhood-vitA-1" id="early_childhood-vitA-1" placeholder="First Dose Date">
+                        <label for="early_childhood-child-early_childhood-vitA-2">Second Dose Date</label>
+                        <input type="date" name="early_childhood-vitA-2" id="early_childhood-vitA-2" placeholder="Second Dose Date">
+                        <label for="early_childhood-child-early_childhood-vitA-3">Third Dose Date</label>
+                        <input type="date" name="early_childhood-vitA-3" id="early_childhood-vitA-3" placeholder="Third Dose Date">
+                        <label for="early_childhood-child-early_childhood-vitA-catch-up">Catch up Dose Date</label>
+                        <input type="date" name="early_childhood-vitA-catch-up" id="early_childhood-vitA-catch-up" placeholder="Catch up Dose Date">
+                    </div>
+                </div>
+                
+                <!-- Divider -->
+                <hr>
+
+                <div class="add-early_childhood__form-btn">
+                    <button type="submit" class="btn-green btn-add" name="save_early_childhood">
+                        Add
+                    </button>
+                    <button class="btn-red btn-cancel">
+                        Clear
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <section class="contents">
+            <ul class="contents__list">
+                <li class="content__item content__item--active">
+                    <a href="">Add Early Childhood Care and Development</a>
+                </li>
+                <li class="content__item content__item--active">
+                    <a href="">Mother Information</a>
+                </li>
+                <li class="content__item">
+                    <a href="">Father Information</a>
+                </li>
+                <li class="content__item">
+                    <a href="">Child Information</a>
+                </li>
+                <li class="content__item">
+                    <a href="">Vaccine Remarks</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>

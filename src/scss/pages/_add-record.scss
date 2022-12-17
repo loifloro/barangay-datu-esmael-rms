@@ -1,0 +1,13 @@
+@use "../abstracts" as *;
+
+.add-deworming,
+.add-consultation,
+.add-prenatal,
+.add-postnatal,
+.add-search_destroy,
+.add-early_childhood,
+.add-child_care-male,
+.add-child_care-female,
+.add-maternal_care {
+    @include page-with-form-layout;
+}

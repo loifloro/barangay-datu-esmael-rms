@@ -1,0 +1,31 @@
+.grid {
+    display: grid;
+    grid-template-columns: calc(15vw + 2.5rem) auto;
+    grid-template-rows: calc(5vh + 2.5rem) auto;
+    grid-template-areas: 
+            "sidebar navbar"
+            "sidebar main";
+
+    .sidebar {
+        grid-area: sidebar;
+    }
+
+    .navbar {
+        grid-area: navbar;
+    }
+    
+    main {
+        grid-area: main;
+        margin-top: 1rem;
+    }
+
+    .navbar,
+    main {
+        // margin-right: 5vw;
+        // margin-left: 1rem;
+
+        padding-right: 5vw;
+        padding-left: 1rem;
+    }
+}
+
