@@ -44,6 +44,9 @@
             // transition: all ease-linear 600ms !important;
             transition: $fade;
 
+            @media (max-width: 62rem) {
+                width: 15ch;
+            }
             
             &::placeholder{
                 font-size: .8rem;
@@ -56,14 +59,17 @@
                 cursor: pointer;
                 outline: none !important;
                 width: 30ch;
+
+                @media (max-width: 62rem) {
+                    width: 20ch;
+                }
+                
             }
         }
 
         &__btn {
             display: inline;
             margin-right: .5rem;
-
-            
 
         }
        
@@ -96,5 +102,25 @@
     // Add New
     &__btn {
         width: 8.5rem;
+        vertical-align: middle;
+
+        &__icon {
+            display: none;
+        }
+    
+        @media (max-width: 61rem) {
+            width: 2.5rem;
+            border-radius: 100vw;
+            
+            &__icon {
+                display: inline;
+            }
+
+            p {
+                display: none !important;
+            }
+        }
+
+
     }
 }

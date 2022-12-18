@@ -15,18 +15,24 @@
     border-radius: 1.5vw;
 
     background: $white-2;
-    width: 15vw;
-    // max-width: 20vw;
+    width: 13rem;
+    // min-width: 10rem;
+    // max-width: 17rem;
 
     & > * {
         color: $black-2;
+    }
+
+    @media (max-width: 51rem) {
+        width: 6rem;
     }
 
     &__list {
         display: flex;
         flex-direction: column;
         margin-top: 3.12rem;
-        width: 15vw - 2vw;
+        // width: 15vw - 2vw;
+        width: calc(100% - 2rem);
         // max-width: 20vw - 2vw;
         padding-inline-start: unset;
     }
@@ -47,10 +53,19 @@
         height: 3rem;
 
         transition: $ease-in-out;
+        box-sizing: border-box;
         
+        @media (max-width: 51rem) {
+            width: 4rem;
+        }
+
         &--active {
             background: $white-3;
-            font-weight: 600;
+
+
+            .sidebar__caption {
+                font-weight: 600;
+            }
         }
 
         &--margin-top {
@@ -61,12 +76,16 @@
         &:focus {
             cursor: pointer;
             background: $active-green;
-            color: $green;
             font-weight: 600;
 
             // SVG path
             path {
                 fill: $green;
+            }
+
+            .sidebar__caption {
+                color: $green;
+                font-weight: 600;
             }
         }
     }
@@ -86,10 +105,20 @@
 
     &__link {
         all: unset;
+        display: flex;
+        width: auto;
 
         &:hover {
             text-decoration: none;
         }
-        
+    }
+
+    &__caption {
+        display: inline;
+
+        @media (max-width: 51rem) {
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 }
