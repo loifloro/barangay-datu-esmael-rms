@@ -134,7 +134,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="function.php" method="POST"
+            <form action="add_query.php" method="POST"
                   class="add-user__form">
 
                 <div class="add-user__form-item">

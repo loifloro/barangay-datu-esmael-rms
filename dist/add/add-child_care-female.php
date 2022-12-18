@@ -134,8 +134,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action=""
-                  class="add-child_care-female__form">
+            <form action="add_query.php" method="POST" class="add-child_care-female__form"> <!--ACTION AND METHOD ADDED-->
 
                 <!-- <div class="add-child_care-female__form-item">
                     <label for="child_care-female-number">No.</label>
@@ -157,11 +156,11 @@
                     <label for="se-status">SE Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-nhts">
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS"> <!--value added-->
                             <label for="bhw-chn">NHTS</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-non-nhts">
+                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS"> <!--value added-->
                             <label for="bhw-bhw">NON NHTS</label>
                         </div>
                     </div>
@@ -191,11 +190,11 @@
                     <label for="se-status">Sex</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-m">
+                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-m" value="Male"> <!--value added-->
                             <label for="child_care-female-sex-m">Male</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-f">
+                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-f" value="Female"> <!--value added-->
                             <label for="child_care-female-sex-f">Fefemale</label>
                         </div>
                     </div>
@@ -212,7 +211,7 @@
                             <label for="child_care-female-mother-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-last-name" id="child_care-female-last-name">
+                            <input type="text" name="child_care-female-mother-last-name" id="child_care-female-last-name"> <!--child_care-female-last-name CHANGE INTO child_care-female-mother-last-name-->
                             <label for="child_care-female-last-name">Last Name</label>
                         </div>
                     </div>                    
@@ -229,11 +228,11 @@
                     <label for="child_care-female--cpab">Child Protected at Birth (CPAB)</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt2">
+                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt2" value="TT2/Td2 given a month prior to delivery">
                             <label for="child_care-female--tt2">TT2/Td2 given a month prior to delivery</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt3">
+                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt3" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery">
                             <label for="child_care-female--tt3">TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery</label>
                         </div>
                     </div>
@@ -261,15 +260,15 @@
                     <label for="child_care-female-newborn-weight">Weight at Birth <br>(kg)</label>
                         <div class="add-user__form--role-item">
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight" id="child_care-female-newborn-weight-low">
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-low" value="low: < 2500gms"><!--child_care-female-newborn-weight CHANGE INTO child_care-female-newborn-weight-status--> <!--value added-->
                                 <label for="child_care-female-newborn-weight-low">L: low: < 2500gms </label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight" id="child_care-female-newborn-weight-normal">
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-normal" value="normal: >= 2500gms"><!--child_care-female-newborn-weight CHANGE INTO child_care-female-newborn-weight-status--> <!--value added-->
                                 <label for="child_care-female-newborn-weight-normal">N:normal: >= 2500gms </label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight" id="child_care-female-newborn-weight-unknown">
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-unknown" value="unknown"><!--child_care-female-newborn-weight CHANGE INTO child_care-female-newborn-weight-status--> <!--value added-->
                                 <label for="child_care-female-newborn-weight-unknown">U:unknown </label>
                             </div>
                         </div>
@@ -340,23 +339,23 @@
                     <label for="child_care-female-1mos-status">Status</label>
                         <div class="add-user__form--role-item">
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-underweight">
+                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-underweight" value="underweight"><!--value added-->
                                 <label for="child_care-female-1mos-status-underweight">UW = underweight</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-stunted">
+                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-stunted" value="stunted"><!--value added-->
                                 <label for="child_care-female-1mos-status-stunted">S = stunted</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-wasted">
+                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-wasted" value="wasted"><!--value added-->
                                 <label for="child_care-female-1mos-status-wasted">W = wasted</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-obese">
+                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-obese" value="obese/overweight"><!--value added-->
                                 <label for="child_care-female-1mos-status-obese">O = obese/overweight</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-normal">
+                                <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-normal" value="normal"><!--value added-->
                                 <label for="child_care-female-1mos-status-normal">N = normal</label>
                             </div>
                         </div>
@@ -449,15 +448,15 @@
                     </div>
                     <div class="add-child_care-female__form--role-item">
                         <div class="add-child_care-female__form-item">
-                            <input type="checkbox" name="child_care-female--breastfeeding" id="child_care-female--breastfeeding-1">
+                            <input type="checkbox" name="child_care-female--breastfeeding1" id="child_care-female--breastfeeding-1"><!--child_care-female--breastfeeding CHANGE INTO child_care-female--breastfeeding1--><!--value added-->
                             <label class="checkbox-label" for="child_care-female--breastfeeding-1">1 ½ mos</label>
                         </div>
                         <div class="add-child_care-female__form-item">
-                            <input type="checkbox" name="child_care-female--breastfeeding" id="child_care-female--breastfeeding-2">
+                            <input type="checkbox" name="child_care-female--breastfeeding2" id="child_care-female--breastfeeding-2"><!--child_care-female--breastfeeding CHANGE INTO child_care-female--breastfeeding2--><!--value added-->
                             <label class="checkbox-label" for="child_care-female--breastfeeding-2">2 ½ mos</label>
                         </div>
                         <div class="add-child_care-female__form-item">
-                            <input type="checkbox" name="child_care-female--breastfeeding" id="child_care-female--breastfeeding-3">
+                            <input type="checkbox" name="child_care-female--breastfeeding3" id="child_care-female--breastfeeding-3"><!--child_care-female--breastfeeding CHANGE INTO child_care-female--breastfeeding3--><!--value added-->
                             <label class="checkbox-label" for="child_care-female--breastfeeding-3">3 ½ mos</label>
                         </div>
                     </div>
@@ -506,23 +505,23 @@
                     <label for="child_care-female-6mos-status">Status</label>
                         <div class="add-user__form--role-item">
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-underweight">
+                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-underweight" value="underweight"><!--value added-->
                                 <label for="child_care-female-6mos-status-underweight">UW = underweight</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-stunted">
+                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-stunted" value="stunted"><!--value added-->
                                 <label for="child_care-female-6mos-status-stunted">S = stunted</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-wasted">
+                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-wasted" value="wasted"><!--value added-->
                                 <label for="child_care-female-6mos-status-wasted">W = wasted</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-obese">
+                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-obese" value="obese/overweight"><!--value added-->
                                 <label for="child_care-female-6mos-status-obese">O = obese/overweight</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-normal">
+                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-normal" value="normal"><!--value added-->
                                 <label for="child_care-female-6mos-status-normal">N = normal</label>
                             </div>
                         </div>
@@ -532,11 +531,11 @@
                     <label for="child_care-female-6mos-breastfed">Exclusively* Breastfed up to 6 months</label>
                         <div class="add-user__form--role-item">
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-underweight">
+                                <input type="radio" name="child_care-female-6mos-status-exclusive" id="child_care-female-6mos-status-underweight" value="Yes"><!--child_care-female-6mos-status CHANGE INTO child_care-female-6mos-status-exclusive--><!--value added-->
                                 <label for="child_care-female-6mos-status-breastfed-yes">Yes</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-stunted">
+                                <input type="radio" name="child_care-female-6mos-status-exclusive" id="child_care-female-6mos-status-stunted" value="No"><!--child_care-female-6mos-status CHANGE INTO child_care-female-6mos-status-exclusive--><!--value added-->
                                 <label for="child_care-female-6mos-status-breastfed-no">No</label>
                             </div>
                         </div>
@@ -631,23 +630,23 @@
                     <label for="child_care-female-12mos-status">Status</label>
                         <div class="add-user__form--role-item">
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-underweight">
+                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-underweight" value="underweight"><!--value added-->
                                 <label for="child_care-female-12mos-status-underweight">UW = underweight</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-stunted">
+                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-stunted" value="stunted"><!--value added-->
                                 <label for="child_care-female-12mos-status-stunted">S = stunted</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-wasted">
+                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-wasted" value="wasted"><!--value added-->
                                 <label for="child_care-female-12mos-status-wasted">W = wasted</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-obese">
+                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-obese" value="obese/overweight"><!--value added-->
                                 <label for="child_care-female-12mos-status-obese">O = obese/overweight</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-normal">
+                                <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-normal" value="normal"><!--value added-->
                                 <label for="child_care-female-12mos-status-normal">N = normal</label>
                             </div>
                         </div>
@@ -686,7 +685,7 @@
                     </div>
                     <div class="add-child_care-female__form-input">
                         <label for="child_care-female-12mos-mmr">Date Given</label>
-                        <input type="date" name="child_care-female-12mos-mmr" id="child_care-female-cic" placeholder="First Dose Date">    
+                        <input type="date" name="child_care-female-12mos-cic" id="child_care-female-cic" placeholder="First Dose Date">  <!--child_care-female-12mos-mmr CHANGE INTO child_care-female-12mos-cic-->
                     </div>
                 </div>
                 <div class="add-child_care-female__form-item">
@@ -698,7 +697,7 @@
                 <hr>
 
                 <div class="add-child_care-female__form-btn">
-                    <button type="submit" class="btn-green btn-add">
+                    <button type="submit" class="btn-green btn-add" name="add_childcare_female"> <!--name added-->
                         Add
                     </button>
                     <button class="btn-red btn-cancel">

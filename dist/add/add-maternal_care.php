@@ -134,8 +134,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action=""
-                  class="add-maternal_care__form">
+            <form action="add_query.php" method='POST' class="add-maternal_care__form"> <!--method and action added-->
 
                 <div class="add-maternal_care__form-item">
                     <label for="maternal_care-registration">Date of Registration</label>
@@ -170,11 +169,11 @@
                     <label for="bhw-contact">Socio Economic Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-nhts">
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS"> <!--Added value-->
                             <label for="bhw-chn">NHTS</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-non-nhts">
+                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS"> <!--Added value-->
                             <label for="bhw-bhw">NON NHTS</label>
                         </div>
                     </div>
@@ -314,7 +313,7 @@
                             <label for="maternal_care-iron-3-tablet">Number of Tablets Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-iron-1-date" id="maternal_care-iron-3-date">
+                            <input type="date" name="maternal_care-iron-3-date" id="maternal_care-iron-3-date"> <!--maternal_care-iron-1-date change into maternal_care-iron-3-date-->
                             <label for="maternal_care-iron-3-date">Date Given</label>
                         </div>
                     </div>
@@ -327,7 +326,7 @@
                             <label for="maternal_care-iron-4-tablet">Number of Tablets Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-iron-1-date" id="maternal_care-iron-4-date">
+                            <input type="date" name="maternal_care-iron-4-date" id="maternal_care-iron-4-date"> <!--maternal_care-iron-1-date change into maternal_care-iron-4-date-->
                             <label for="maternal_care-iron-4-date">Date Given</label>
                         </div>
                     </div>
@@ -358,7 +357,7 @@
                             <label for="maternal_care-calcium-3-capsule">Number of Capsule Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-calcium-1-date" id="maternal_care-calcium-3-date">
+                            <input type="date" name="maternal_care-calcium-3-date" id="maternal_care-calcium-3-date"> <!--maternal_care-calcium-1-date change into maternal_care-calcium-3-date-->
                             <label for="maternal_care-calcium-3-date">Date Given</label>
                         </div>
                     </div>
@@ -371,7 +370,7 @@
                             <label for="maternal_care-calcium-4-capsule">Number of Capsule Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-calcium-1-date" id="maternal_care-calcium-4-date">
+                            <input type="date" name="maternal_care-calcium-4-date" id="maternal_care-calcium-4-date"> <!--maternal_care-calcium-1-date change into maternal_care-calcium-4-date-->
                             <label for="maternal_care-calcium-4-date">Date Given</label>
                         </div>
                     </div>
@@ -444,11 +443,11 @@
                     <label for="maternal_care-syphilis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-positive">
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-positive" value="Positive"> <!--Value added-->
                             <label for="maternal_care-syphilis-screening-status-positive">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-negative">
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-negative" value="Negative"> <!--Value added-->
                             <label for="maternal_care-syphilis-screening-status-negative">Negative</label>
                         </div>
                     </div>
@@ -471,11 +470,11 @@
                     <label for="maternal_care-hepatitis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-positive">
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-positive" value="Positive"> <!--Value added-->
                             <label for="maternal_care-hepatitis-screening-status-positive">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-negative">
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-negative" value="Negative"> <!--Value added-->
                             <label for="maternal_care-hepatitis-screening-status-negative">Negative</label>
                         </div>
                     </div>
@@ -499,7 +498,7 @@
                 <hr>
 
                 <div class="add-maternal_care__form-btn">
-                    <button type="submit" class="btn-green btn-add">
+                    <button type="submit" class="btn-green btn-add" name="add_maternal_list"> <!--added name-->
                         Add
                     </button>
                     <button class="btn-red btn-cancel">
