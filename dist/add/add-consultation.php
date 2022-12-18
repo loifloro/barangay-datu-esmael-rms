@@ -134,7 +134,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="function.php" method="POST" class="add-consultation__form">
+            <form action="add_query.php" method="POST" class="add-consultation__form">
 
                 <div class="add-consultation__form-item">
                     <label for="consultation-date">Date</label>

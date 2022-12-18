@@ -134,7 +134,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="function.php" method="POST" class="add-postnatal__form">
+            <form action="add_query.php" method="POST" class="add-postnatal__form">
 
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-date">Date</label>

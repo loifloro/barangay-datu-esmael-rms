@@ -134,7 +134,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="function.php" method="POST" class="add-search_destroy__form">
+            <form action="add_query.php" method="POST" class="add-search_destroy__form">
 
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-barangay">Name of Barangay</label>

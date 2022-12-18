@@ -139,7 +139,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="function.php" method="POST" class="add-early_childhood__form">
+            <form action="add_query.php" method="POST" class="add-early_childhood__form">
 
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-clinic">Clinic/Health Center</label>
