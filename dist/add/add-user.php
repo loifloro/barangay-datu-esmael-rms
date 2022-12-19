@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,42 +143,8 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="add_query.php" method="POST"
+            <form action="../includes/add_query.php" method="POST"
                   class="add-user__form">
-
-                <div class="add-user__form-item">
-                    <label for="add-user-date">Date Registered</label>
-                    <input type="date" name="add-user-date" id="add-user-date">
-                </div>
-
-                <div class="add-user__form-item">
-                    <label for="add-user-fname">First Name</label>
-                    <input type="text" name="add-user-fname" id="add-user-fname">
-                </div>
-
-                <div class="add-user__form-item">
-                    <label for="add-user-mname">Middle Name</label>
-                    <input type="text" name="add-user-mname" id="add-user-mname">
-                </div>
-
-                <div class="add-user__form-item">
-                    <label for="add-user-lname">Last Name</label>
-                    <input type="text" name="add-user-lname" id="add-user-lname">
-                </div>
-
-                <div class="add-user__form-item add-user__form-item--radio">
-                    <label for="add-user-sex">Gender</label>
-                    <div class="add-user__form--role-item">
-                        <div class="add-user__form-item">
-                            <input type="radio" name="add-user-sex" id="add-user-sex--female" value="Male"> <!--Nilagyan ko Value para masave sa database-->
-                            <label for="add-user-sex">Male</label>
-                        </div>
-                        <div class="add-user__form-item">
-                            <input type="radio" name="add-user-sex" id="add-user-sex--female" value="Female">
-                            <label for="add-user-sex">Female</label>
-                        </div>
-                    </div>
-                </div>
 
                 <div class="add-user__form-item">
                     <label for="bhw-contact">Contact Number</label>
@@ -216,3 +186,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

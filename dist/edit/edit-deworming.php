@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,11 +143,11 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="edit_query.php" method='POST'
+            <form action="../includes/edit_query.php" method='POST'
                   class="edit-deworming__form">
 
                   <?php
-                    include "../connection.php";
+                    include "../includes/connection.php";
                     if(isset($_GET['id']))
                     {
                         $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -180,11 +184,11 @@
                     <label for="deworming-sex">Gender</label>
                     <div class="edit-deworming__form--role-item">
                         <div class="edit-deworming__form-item">
-                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value= "Male" <?=$patient['sex']? "CHECKED" : " " ?>>
+                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
                             <label for="deworming-sex">Male</label>
                         </div>
                         <div class="edit-deworming__form-item">
-                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value = "Female" <?=$patient['sex']? "CHECKED" : " " ?>>
+                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
                             <label for="deworming-sex">Female</label>
                         </div>
                     </div>
@@ -217,26 +221,27 @@
                 </p>
 
                 <!-- Radio Buttons -->
-                <div class="edit-deworming__form-item">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name">
+                
+                <div class="edit-deworming__form-item--reason">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
-                <div class="edit-deworming__form-item">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender">
+                <div class="edit-deworming__form-item--reason">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
-                <div class="edit-deworming__form-item">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
+                <div class="edit-deworming__form-item--reason">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
-                <div class="edit-deworming__form-item">
-                    <input type="radio" name="edit-reason" id="patient-wrong-address">
+                <div class="edit-deworming__form-item--reason">
+                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address">
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
-                <div class="edit-deworming__form-item">
+                <div class="edit-deworming__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
-                    <input type="text" name="patient-others" id="patient-others">
+                    <input type="text" name="patient-others" id="patient-others" value="Others">
                 </div>
                 
 
@@ -259,6 +264,24 @@
                     }
                     }
                  ?>
+                 <!-- Query to get the user session name -->
+                <?php 
+                    include '../includes/connection.php';
+                    $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        foreach($query_run as $user){
+                ?>
+
+                 <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                 <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+
+                <?php
+                    }
+                    }
+                ?> 
+                 <!-- QUERY END -->
             </form>
         </section>
 
@@ -275,3 +298,11 @@
     </main>
 </body>
 </html>
+<?php
+}
+
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

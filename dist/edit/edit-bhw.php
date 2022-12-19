@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +36,7 @@
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="tutorial.php" class="sidebar__link">
                     <svg alt="Tutorial" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -42,7 +46,7 @@
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -53,7 +57,7 @@
             </li>
             <hr class="sidebar__line" />
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="services-consultation.php" class="sidebar__link">
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -62,6 +66,7 @@
                     <p class="sidebar__caption sidebar__caption--active">Services</p>
                 </a>
             </li>
+
             <li class="sidebar__item">
                     <a href="" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
@@ -73,7 +78,7 @@
                 </a>
             </li>
             <li class="sidebar__item sidebar__item--margin-top">
-                <a href="" class="sidebar__link">
+                <a href="user-profile.php" class="sidebar__link">
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -93,7 +98,7 @@
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="logout.php" class="sidebar__link">
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -139,9 +144,9 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="edit_query.php" method='POST' class="edit-bhw__form">
+            <form action="../includes/edit_query.php" method='POST' class="edit-bhw__form">
                     <?php
-                        include "../connection.php";
+                        include "../includes/connection.php";
                         if(isset($_GET['id']))
                         {
                             $user_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -170,11 +175,11 @@
                     <label for="bhw-sex">Sex</label>
                     <div class="edit-bhw__form--role-item">
                         <div class="edit-bhw__form-item">
-                            <input type="radio" name="bhw-sex" id="bhw-sex--female" value="Male">
+                            <input type="radio" name="bhw-sex" id="bhw-sex--female" value="Male" <?= ($user['sex']=='Male')? 'checked' : '' ?>>
                             <label for="bhw-sex">Male</label>
                         </div>
                         <div class="edit-bhw__form-item">
-                            <input type="radio" name="bhw-sex" id="bhw-sex--female" value="Female">
+                            <input type="radio" name="bhw-sex" id="bhw-sex--female" value="Female" <?= ($user['sex']=='Female')? 'checked' : '' ?>>
                             <label for="bhw-sex">Female</label>
                         </div>
                     </div>
@@ -264,3 +269,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

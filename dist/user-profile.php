@@ -141,7 +141,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </h2>
         <section class="user-profile__card">
             <?php 
-                    include 'connection.php';
+                    include 'includes/connection.php';
                     $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
                     $query_run = mysqli_query($conn, $query);
 
@@ -288,7 +288,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
                 <!-- To be put in the loop -->
                     <?php 
-                        include 'connection.php';
+                        include 'includes/connection.php';
                         $query = "SELECT * FROM account_information WHERE position = 'Barangay Health Worker'";
                         $query_run = mysqli_query($conn, $query);
 
