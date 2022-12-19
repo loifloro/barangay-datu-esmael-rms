@@ -8,7 +8,7 @@
             "sidebar main";
 
     @media (max-width: 51rem) {
-        grid-template-columns: 8rem auto;
+        grid-template-columns: 8rem 1fr;
     }
 
     .sidebar {
