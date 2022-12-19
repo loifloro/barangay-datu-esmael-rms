@@ -112,6 +112,10 @@ textarea {
 		outline: $green solid 1px;
 		background: $white-1;
 	}
+
+	@media (max-width: 45rem) {
+		width: 100%;
+	}
 }
 
 /* Button Controls

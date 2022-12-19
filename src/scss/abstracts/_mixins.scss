@@ -124,6 +124,7 @@
     display: inline;
     margin-right: auto;
     // line-height: 1.2;
+    
   }
   
   hr {
@@ -155,6 +156,13 @@
   select {
     display: inline;
     width: 50%;
+
+
+    @media (max-width: 45rem) {
+      display: block;
+      width: 100%;
+      margin-top: .3rem;
+    }
   }
   
   
@@ -162,6 +170,7 @@
   input[type=radio] {
     display: inline;
     margin-right: 1rem;
+
   }
   
   
@@ -172,6 +181,21 @@
     display: flex;
     align-items: center;
 
+    @media (max-width: 45rem) {
+      flex-wrap: wrap;
+      flex-direction: column;
+
+      &--reason {
+        flex-direction: row;
+
+        input[type="text"] {
+          display: inline !important;
+          width: 60%;
+          margin-left: 1rem;
+        }
+      }
+
+    }
 
     .three-input,
     .two-input {
@@ -202,10 +226,20 @@
 
     .three-input {
       grid-template-columns: 40% 1fr 40%;
+
+      @media (max-width: 45rem) {
+        width: 100%;
+  
+      }
     }
     
     .two-input {
       grid-template-columns: repeat(2, 1fr);
+
+      @media (max-width: 45rem) {
+        width: 100%;
+  
+      }
     }
 
     &--radio {
@@ -214,19 +248,34 @@
       label {
         margin-right: auto;
         width: 40%;
+
+        @media (max-width: 45rem) {
+          margin-bottom: .4rem;
+          width: auto;
+
+    
+        }        
       }
       
       div {
         margin-right: auto;
         // margin-left: 3rem;
         margin-left: auto;
-        width: 55%;
+        width: 60%;
         
+        @media (max-width: 45rem) {
+          width: auto;
+        }
+
         label {
           width: unset;
           // margin-bottom: .5rem;
         }
       }
+    }
+
+    &--role-item {
+      flex-direction: unset !important;
     }
 
     &--checkbox {
@@ -242,6 +291,10 @@
         // margin-left: 3rem;
         width: 60%;
         
+        @media (max-width: 62rem) {
+          width: auto;
+        }
+
         label {
           width: unset;
           // margin-bottom: .5rem;
@@ -252,7 +305,13 @@
     &--textarea {
       label {
         width: 40%;
+        
+        @media (max-width: 45rem) {
+          width: auto;
+          margin-bottom: .2rem;
+        }
       }
+
     } 
   }
 
@@ -262,6 +321,10 @@
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 1rem;
     
+    @media (max-width: 45rem) {
+      display: block;
+    }
+
     input[type=date],
     input[type=text] {
       width: 100%;
@@ -282,6 +345,9 @@
       margin-bottom: unset;
       max-width: 70%;
 
+      @media (max-width: 45rem) {
+        margin-top: 2rem;
+      }
     }
     
     .dose-indication {
@@ -290,31 +356,31 @@
       max-width: 70%;
     }
 
-    // .two-input {
-    //   display: grid;
-    //   grid-template-columns: repeat(2, 1fr);
+    &--checkbox {
+      justify-content: unset;
 
-    //   label,
-    //   input {
-    //     display: block;
-    //   }
-
-    //   input {
-    //     width: 100%;
-    //     margin-bottom: .3rem;
-    //   }
+      label {
+        margin-right: auto;
+        width: 50%;
+      }
       
-    //   & > * {
-    //     margin-right: 1rem;
-    //   }
+      div {
+        margin-right: auto;
+        // margin-left: 3rem;
+        width: 60%;
+        
+        @media (max-width: 62rem) {
+          width: auto;
+          flex-direction: row;
+        }
 
-    //   label {
-    //     font-size: 0.75rem;
-    //     color: $black-3;
-    //     text-align: center;
-    //     margin-right: unset;
-    //   }
-    // }
+        label {
+          width: unset;
+          // margin-bottom: .5rem;
+        }
+      }
+    }
+
   }
 
   &-btn {
@@ -336,6 +402,10 @@
   grid-template-areas: 
         "form section-link";
 
+  @media (max-width: 62rem) {
+    display: block;
+  }
+  
   &__title {
     // line-height: 1.2;
     margin-top: .5rem;
@@ -371,6 +441,11 @@
     &__list {
       padding-inline-start: unset;
     }
+
+    @media (max-width: 62rem) {
+      display: none;
+    }
+
   }
 }
 
