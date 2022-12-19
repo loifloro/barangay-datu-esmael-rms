@@ -1,35 +1,28 @@
 <?php
 session_start();
-include "../connection.php";
+include "connection.php";
 
 // ADD BHW
-if(isset($_POST['save_bhw']))
-{   
-    $register_date = mysqli_real_escape_string($conn, $_POST['add-user-date']);
-    $fname = mysqli_real_escape_string($conn, $_POST['add-user-fname']);
-    $mname = mysqli_real_escape_string($conn, $_POST['add-user-mname']);
-    $lname = mysqli_real_escape_string($conn, $_POST['add-user-lname']);
-    $sex = mysqli_real_escape_string($conn, $_POST['add-user-sex']);
+if(isset($_POST['save_bhw'])){   
 
     $phone_num = mysqli_real_escape_string($conn, $_POST['bhw-contact']);
     $password = mysqli_real_escape_string($conn, $_POST['bhw-pass']);
     $position = mysqli_real_escape_string($conn, $_POST['bhw-role']);
 
+    $date_added = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO account_information 
-              (date_registered, firstname, middlename, lastname, sex, phone_num, password, position) 
+              (phone_num, password, position, date_registered) 
               VALUES 
-              ('$register_date', '$fname', '$mname', '$lname', '$sex', '$phone_num', '$password', '$position')";
+              ('$phone_num', '$password', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
         header("Location: ../user-profile.php");
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
         header("Location: ../user-profile.php");
         exit(0);
@@ -37,8 +30,7 @@ if(isset($_POST['save_bhw']))
 }
 
 // ADD DEWORMING RECORD
-if(isset($_POST['save_deworming']))
-{
+if(isset($_POST['save_deworming'])){
     $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
@@ -57,14 +49,12 @@ if(isset($_POST['save_deworming']))
               ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', 'Deworming')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
         header("Location: ../services-consultation.php");
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services-consultation.php");
         exit(0);
@@ -72,8 +62,7 @@ if(isset($_POST['save_deworming']))
 }
 
 // ADD CONSULTATION RECORD
-if(isset($_POST['save_consultation']))
-{
+if(isset($_POST['save_consultation'])){
     $consultation_date = mysqli_real_escape_string($conn, $_POST['consultation-date']);
     $lastname = mysqli_real_escape_string($conn, $_POST['consultation-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['consultation-fname']);
@@ -100,14 +89,12 @@ if(isset($_POST['save_consultation']))
               ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', '$symptomps', '$blood_pressure', '$weight', '$abnormal', '$prescriptions', 'Consultation')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
         header("Location: ../services-consultation.php");
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services-consultation.php");
         exit(0);
@@ -116,8 +103,7 @@ if(isset($_POST['save_consultation']))
 
 
 // ADD PRENATAL RECORD
-if(isset($_POST['save_prenatal']))
-{
+if(isset($_POST['save_prenatal'])){
     $prenatal_date = mysqli_real_escape_string($conn, $_POST['prenatal-date']);
     $lastname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
@@ -154,14 +140,12 @@ if(isset($_POST['save_prenatal']))
               ('$prenatal_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', '$presentation', '$abnormal', '$prescriptions', 'Prenatal')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
         header("Location: ../services-consultation.php");
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services-consultation.php");
         exit(0);
@@ -170,8 +154,7 @@ if(isset($_POST['save_prenatal']))
 
 
 // ADD POSTNATAL RECORD
-if(isset($_POST['save_postnatal']))
-{
+if(isset($_POST['save_postnatal'])){
     $postnatal_date = mysqli_real_escape_string($conn, $_POST['postnatal-date']);
     $lastname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['postnatal-fname']);
@@ -208,14 +191,12 @@ if(isset($_POST['save_postnatal']))
               ('$postnatal_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', '$presentation', '$abnormal', '$prescriptions', 'Post-natal')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
         header("Location: ../services-consultation.php");
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services-consultation.php");
         exit(0);
@@ -223,8 +204,7 @@ if(isset($_POST['save_postnatal']))
 }
 
 // ADD SEARCH_DESTROY RECORD
-if(isset($_POST['save_search_destroy']))
-{
+if(isset($_POST['save_search_destroy'])){
     $barangay = mysqli_real_escape_string($conn, $_POST['search_destroy-barangay']);
     $total_household = mysqli_real_escape_string($conn, $_POST['search_destroy-household-visited']);
     $total_positive = mysqli_real_escape_string($conn, $_POST['search_destroy-household-positive']);
@@ -236,22 +216,18 @@ if(isset($_POST['save_search_destroy']))
     $con_num = mysqli_real_escape_string($conn, $_POST['search_destroy-number-container']);
     $remarks = mysqli_real_escape_string($conn, $_POST['search_destroy-remarks']);
    
-
-
     $query = "INSERT INTO search_destroy 
               (barangay, total_household_visit, total_positive_larva, block, date_visit, owner_name, address, container_name, container_num, remarks, label) 
               VALUES 
               ('$barangay', '$total_household', '$total_positive', '$block', '$date_visit', '$owner_name', '$address', '$con_name', '$con_num', '$remarks', 'Search and Destroy')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
         header("Location: ../services-consultation.php");
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services-consultation.php");
         exit(0);
@@ -260,8 +236,7 @@ if(isset($_POST['save_search_destroy']))
 
 
 // ADD EARLY CHILDHOOD RECORD
-if(isset($_POST['save_early_childhood']))
-{
+if(isset($_POST['save_early_childhood'])){
     $clinic = mysqli_real_escape_string($conn, $_POST['early_childhood-clinic']);
     $barangay = mysqli_real_escape_string($conn, $_POST['early_childhood-barangay']);
     $purok = mysqli_real_escape_string($conn, $_POST['early_childhood-purol']);
@@ -353,14 +328,12 @@ if(isset($_POST['save_early_childhood']))
               ('$clinic', '$barangay', '$purok', '$child_name', '$hospital', '$lic', '$sex', '$time_delivery', '$mother_name', '$no_pregnancies', '$mother_educ', '$mother_age', '$mother_occupation', '$mother_birthdate', '$status', '$father_name', '$phone_num', '$father_educ', '$father_age', '$father_occupation', '$father_birthdate', '$child_birthdate', '$gestational_age', '$birth_type', '$birth_order', '$birth_weight', '$birth_length', '$place_delivery', '$birth_accomodate', '$birth_attendant', '$bcg1_date', '$bcg2_date', '$bcg3_date', '$bcg_catchup_date', '$hepb1_date', '$hepb2_date', '$hepb3_date', '$hepb_catchup_date', '$penta1_date', '$penta2_date', '$penta3_date', '$penta_catchup_date', '$oral_polio1_date', '$oral_polio2_date', '$oral_polio3_date', '$oral_polio_catchup_date', '$inactive_polio1_date', '$inactive_polio2_date', '$inactive_polio3_date', '$inactive_polio_catchup_date', '$pneumoco1_date', '$pneumoco2_date', '$pneumoco3_date', '$pneumoco_catchup_date', '$measle1_date', '$measle2_date', '$measle3_date', '$measle_catchup_date', '$vitamin1_date', '$vitamin2_date', '$vitamin3_date', '$vitamin_catchup_date', 'Early Childhood')";
               
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
         header("Location: ../services-consultation.php");
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services-consultation.php");
         exit(0);
@@ -369,8 +342,7 @@ if(isset($_POST['save_early_childhood']))
 
 
 // ADD TARGET CLIENT LIST FOR MATERNAL CARE
-if(isset($_POST['add_maternal_list'])) //no page yet for this query
-{
+if(isset($_POST['add_maternal_list'])){ //no page yet for this query
     $date_registered = mysqli_real_escape_string($conn, $_POST['maternal_care-registration']);
     $serial = mysqli_real_escape_string($conn, $_POST['maternal_care-family-serial']);
     $firstname = mysqli_real_escape_string($conn, $_POST['maternal_care-first-name']);
@@ -425,8 +397,6 @@ if(isset($_POST['add_maternal_list'])) //no page yet for this query
     $hepatitis_status = mysqli_real_escape_string($conn, $_POST['maternal_care-hepatitis-screening-status']);
     $hiv_screen_date = mysqli_real_escape_string($conn, $_POST['maternal_care-hiv-screening-date']);
    
-
-
     $query = "INSERT INTO target_maternal 
               (date_registered, serial, firstname, middle_initial, lastname, complete_address, socio_status,
               age, birthday, lmp, gp, edc, tri1_pre_checkup, tri2_pre_checkup, tri3_pre_checkup, td1_tetanus,
@@ -445,23 +415,20 @@ if(isset($_POST['add_maternal_list'])) //no page yet for this query
               '$syphilis_status', '$hepatitis_date', '$hepatitis_status', '$hiv_screen_date', 'Target Client List for Maternal Care')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services_target_list.php"); //will change depending on the name of the services page
+        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services_target_list.php"); //will change depending on the name of the services page
+        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
         exit(0);
     }
 }
 
 // ADD TARGET CLIENT LIST FOR CHILD CARE MALE
-if(isset($_POST['add_childcare_male'])) //no page yet for this query
-{
+if(isset($_POST['add_childcare_male'])){ //no page yet for this query
     $date_registered = mysqli_real_escape_string($conn, $_POST['child_care-male-registration']);
     $birthday = mysqli_real_escape_string($conn, $_POST['child_care-male-birthdate']);
     $serial = mysqli_real_escape_string($conn, $_POST['child_care-male-family-serial']);
@@ -567,24 +534,21 @@ if(isset($_POST['add_childcare_male'])) //no page yet for this query
               '$weight_month_12', '$weight_date_month_12', '$status_month_12', '$mmr_month_12', '$fic_month_12', '$cic', '$remarks', 'Target Client List for Childcare Male')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services_target_list.php"); //will change depending on the name of the services page
+        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services_target_list.php"); //will change depending on the name of the services page
+        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
         exit(0);
     }
 }
 
 
 // ADD TARGET CLIENT LIST FOR CHILD CARE FEMALE
-if(isset($_POST['add_childcare_female'])) //no page yet for this query
-{
+if(isset($_POST['add_childcare_female'])){ //no page yet for this query
     $date_registered = mysqli_real_escape_string($conn, $_POST['child_care-female-registration']);
     $birthday = mysqli_real_escape_string($conn, $_POST['child_care-female-birthdate']);
     $serial = mysqli_real_escape_string($conn, $_POST['child_care-female-family-serial']);
@@ -690,16 +654,14 @@ if(isset($_POST['add_childcare_female'])) //no page yet for this query
               '$weight_month_12', '$weight_date_month_12', '$status_month_12', '$mmr_month_12', '$fic_month_12', '$cic', '$remarks', 'Target Client List for Childcare Male')";
 
     $query_run = mysqli_query($conn, $query);
-    if($query_run)
-    {
+    if($query_run){
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services_target_list.php"); //will change depending on the name of the services page
+        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
         exit(0);
     }
-    else
-    {
+    else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services_target_list.php"); //will change depending on the name of the services page
+        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
         exit(0);
     }
 }
