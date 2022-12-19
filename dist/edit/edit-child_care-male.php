@@ -1,10 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
 </head>
 <body class="grid">
@@ -134,34 +138,46 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action=""
-                  class="edit-child_care-male__form">
+            <form action="../includes/edit_query.php" method='POST' class="edit-child_care-male__form"> <!--form action and method added-->
 
                 <!-- <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-number">No.</label>
                     <input type="text" name="child_care-male-number" id="child_care-male-number">
                 </div> -->
+
+                <!-- START QUERY -->
+                <?php
+                    include "../includes/connection.php";
+                    if(isset($_GET['id'])){
+                        $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                        $query = "SELECT * FROM target_childcare_male WHERE target_childcare_male_id='$patient_id'";
+                        $query_run = mysqli_query($conn, $query);
+
+                        if(mysqli_num_rows($query_run) > 0){
+                            $patient = mysqli_fetch_array($query_run);
+                ?>
+                <input type="hidden" name="target_childcare_male_id" value="<?= $patient['target_childcare_male_id']; ?>"> <!--nakahide sya para access ID sa edit-->
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-registration">Date of Registration</label>
-                    <input type="date" name="child_care-male-registration" id="child_care-male-registration">
+                    <input type="date" name="child_care-male-registration" id="child_care-male-registration" value="<?= $patient['date_registered']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-birthdate">Date of Birthdate</label>
-                    <input type="date" name="child_care-male-birthdate" id="child_care-male-birthdate">
+                    <input type="date" name="child_care-male-birthdate" id="child_care-male-birthdate" value="<?= $patient['birthday']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-family-serial">Family Serial No.</label>
-                    <input type="text" name="child_care-male-family-serial" id="child_care-male-family-serial">
+                    <input type="text" name="child_care-male-family-serial" id="child_care-male-family-serial" value="<?= $patient['serial']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item edit-child_care-male__form-item--radio">
                     <label for="se-status">SE Status</label>
                     <div class="edit-user__form--role-item">
                         <div class="edit-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-nhts">
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS" <?= ($patient['status']=='NHTS')? 'checked' : '' ?>> 
                             <label for="bhw-chn">NHTS</label>
                         </div>
                         <div class="edit-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-non-nhts">
+                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS" <?= ($patient['status']=='NON NHTS')? 'checked' : '' ?>>
                             <label for="bhw-bhw">NON NHTS</label>
                         </div>
                     </div>
@@ -174,15 +190,15 @@
                     <label for="child_care-male-child-name">Name of Child</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="child_care-male-first-name" id="child_care-male-first-name">
+                            <input type="text" name="child_care-male-first-name" id="child_care-male-first-name" value="<?= $patient['child_firstname']; ?>">
                             <label for="child_care-male-first-name">First Name</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-male-middle-inital" id="child_care-male-middle-inital">
+                            <input type="text" name="child_care-male-middle-inital" id="child_care-male-middle-inital" value="<?= $patient['child_middle_initial']; ?>">
                             <label for="child_care-male-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-male-last-name" id="child_care-male-last-name">
+                            <input type="text" name="child_care-male-last-name" id="child_care-male-last-name" value="<?= $patient['child_lastname']; ?>">
                             <label for="child_care-male-last-name">Last Name</label>
                         </div>
                     </div>                    
@@ -191,11 +207,11 @@
                     <label for="se-status">Sex</label>
                     <div class="edit-user__form--role-item">
                         <div class="edit-user__form-item">
-                            <input type="radio" name="child_care-male-sex" id="child_care-male-sex-m">
+                            <input type="radio" name="child_care-male-sex" id="child_care-male-sex-m" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
                             <label for="child_care-male-sex-m">Male</label>
                         </div>
                         <div class="edit-user__form-item">
-                            <input type="radio" name="child_care-male-sex" id="child_care-male-sex-f">
+                            <input type="radio" name="child_care-male-sex" id="child_care-male-sex-f" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>> 
                             <label for="child_care-male-sex-f">Female</label>
                         </div>
                     </div>
@@ -204,22 +220,22 @@
                     <label for="child_care-male-mother-name">Complete Name of Mother</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="child_care-male-mother-first-name" id="child_care-male-mother-first-name">
+                            <input type="text" name="child_care-male-mother-first-name" id="child_care-male-mother-first-name" value="<?= $patient['mother_firstname']; ?>">
                             <label for="child_care-male-first-name">First Name</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-male-mother-middle-inital" id="child_care-male-mother-middle-inital">
+                            <input type="text" name="child_care-male-mother-middle-inital" id="child_care-male-mother-middle-inital" value="<?= $patient['mother_middle_initial']; ?>">
                             <label for="child_care-male-mother-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-male-last-name" id="child_care-male-last-name">
+                            <input type="text" name="child_care-male-mother-last-name" id="child_care-male-last-name" value="<?= $patient['mother_lastname']; ?>">
                             <label for="child_care-male-last-name">Last Name</label>
                         </div>
                     </div>                    
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-address">Complete Address</label>
-                    <textarea name="child_care-male-address" id="child_care-male-address" cols="27" rows="5"></textarea>
+                    <textarea name="child_care-male-address" id="child_care-male-address" cols="27" rows="5"><?= $patient['complete_address']; ?></textarea>
                 </div>
 
                 <!-- Divider -->
@@ -229,11 +245,11 @@
                     <label for="child_care-male--cpab">Child Protected at Birth (CPAB)</label>
                     <div class="edit-user__form--role-item">
                         <div class="edit-user__form-item">
-                            <input type="radio" name="child_care-male--cpab" id="child_care-male--tt2">
+                            <input type="radio" name="child_care-male--cpab" id="child_care-male--tt2" value="TT2/Td2 given a month prior to delivery" <?= ($patient['cpab']=='TT2/Td2 given a month prior to delivery')? 'checked' : '' ?>>
                             <label for="child_care-male--tt2">TT2/Td2 given a month prior to delivery</label>
                         </div>
                         <div class="edit-user__form-item">
-                            <input type="radio" name="child_care-male--cpab" id="child_care-male--tt3">
+                            <input type="radio" name="child_care-male--cpab" id="child_care-male--tt3" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery" <?= ($patient['cpab']=='TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery')? 'checked' : '' ?>>
                             <label for="child_care-male--tt3">TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery</label>
                         </div>
                     </div>
@@ -251,25 +267,25 @@
                 
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-newborn-length">Length at Birth <br>(cm)</label>
-                    <input type="text" name="child_care-male-newborn-length" id="child_care-male-newborn-length">
+                    <input type="text" name="child_care-male-newborn-length" id="child_care-male-newborn-length" value="<?= $patient['length_newborn']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male--newbornweight">Status(Birth Weight)     <br>(kg)</label>
-                    <input type="tel" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight">
+                    <input type="tel" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight" value="<?= $patient['weight_newborn']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item edit-child_care-male__form-item--radio">
                     <label for="child_care-male-newborn-weight">Weight at Birth <br>(kg)</label>
                         <div class="edit-user__form--role-item">
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight-low">
+                                <input type="radio" name="child_care-male-newborn-weight-status" id="child_care-male-newborn-weight-low" value="low: < 2500gms" <?= ($patient['status_newborn']=='low: < 2500gms')? 'checked' : '' ?>>
                                 <label for="child_care-male-newborn-weight-low">L: low: < 2500gms </label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight-normal">
+                                <input type="radio" name="child_care-male-newborn-weight-status" id="child_care-male-newborn-weight-normal" value="normal: >= 2500gms" <?= ($patient['status_newborn']=='normal: >= 2500gms')? 'checked' : '' ?>>
                                 <label for="child_care-male-newborn-weight-normal">N:normal: >= 2500gms </label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight-unknown">
+                                <input type="radio" name="child_care-male-newborn-weight-status" id="child_care-male-newborn-weight-unknown" value="unknown" <?= ($patient['status_newborn']=='unknown')? 'checked' : '' ?>>
                                 <label for="child_care-male-newborn-weight-unknown">U:unknown </label>
                             </div>
                         </div>
@@ -279,7 +295,7 @@
                     <label for="child_care-male-newborn-initiation">
                         Initiation of breastfeeding immediately after birth lasting for at least 90 minutes
                     </label>
-                    <textarea name="child_care-male-newborn-initiation" id="child_care-male-newborn-initiation" cols="27" rows="5"></textarea>
+                    <textarea name="child_care-male-newborn-initiation" id="child_care-male-newborn-initiation" cols="27" rows="5"><?= $patient['breastfeeding_newborn']; ?></textarea>
                 </div>
                 <div class="edit-child_care-male__form-doses">
                     <div class="edit-child_care-male__form-label">
@@ -289,9 +305,9 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-newborn-bcg">BCG</label>
-                        <input type="date" name="child_care-male-newborn-bgc" id="child_care-male-newborn-bcg">
+                        <input type="date" name="child_care-male-newborn-bgc" id="child_care-male-newborn-bcg" value="<?= $patient['bcg_newborn']; ?>">
                         <label for="child_care-male-newborn-hepa-b">Hepa B- BD</label>
-                        <input type="date" name="child_care-male-newborn-hepa-b" id="child_care-male-newborn-hepa-b">
+                        <input type="date" name="child_care-male-newborn-hepa-b" id="child_care-male-newborn-hepa-b" value="<?= $patient['hepa_newborn']; ?>">
                     </div>
                 </div>
                 
@@ -308,17 +324,17 @@
 
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-age">Age in months</label>
-                    <input type="number" name="child_care-male-1mos-age" id="child_care-male-1mos-age">
+                    <input type="number" name="child_care-male-1mos-age" id="child_care-male-1mos-age"  value="<?= $patient['age_month_1_3']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-1mos-legth">Length</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-1mos-length-cm" id="child_care-male-1mos-length-cm">
+                            <input type="text" name="child_care-male-1mos-length-cm" id="child_care-male-1mos-length-cm"  value="<?= $patient['length_month_1_3']; ?>">
                             <label for="child_care-male-length-cm">cm</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="child_care-male-1mos-length-date" id="child_care-male-1mos-length-date">
+                            <input type="date" name="child_care-male-1mos-length-date" id="child_care-male-1mos-length-date"  value="<?= $patient['length_date_month_1_3']; ?>"> 
                             <label for="child_care-male-1mos-length-date">Date Taken</label>
                         </div>
                     </div>
@@ -327,11 +343,11 @@
                     <label for="child_care-male-1mos-weight">Weight</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-1mos-weight-kg" id="child_care-male-1mos-weight-kg">
+                            <input type="text" name="child_care-male-1mos-weight-kg" id="child_care-male-1mos-weight-kg" value="<?= $patient['weight_month_1_3']; ?>">
                             <label for="child_care-male-weight-kg">kg</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="child_care-male-1mos-weight-date" id="child_care-male-1mos-weight-date">
+                            <input type="date" name="child_care-male-1mos-weight-date" id="child_care-male-1mos-weight-date" value="<?= $patient['weight_date_month_1_3']; ?>">
                             <label for="child_care-male-weight-date">Date Taken</label>
                         </div>
                     </div>
@@ -340,23 +356,23 @@
                     <label for="child_care-male-1mos-status">Status</label>
                         <div class="edit-user__form--role-item">
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-underweight">
+                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-underweight" value="underweight" <?= ($patient['status_month_1_3']=='underweight')? 'checked' : '' ?>>
                                 <label for="child_care-male-1mos-status-underweight">UW = underweight</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-stunted">
+                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-stunted" value="stunted" <?= ($patient['status_month_1_3']=='stunted')? 'checked' : '' ?>> 
                                 <label for="child_care-male-1mos-status-stunted">S = stunted</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-wasted">
+                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-wasted" value="wasted" <?= ($patient['status_month_1_3']=='wasted')? 'checked' : '' ?>> 
                                 <label for="child_care-male-1mos-status-wasted">W = wasted</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-obese">
+                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-obese" value="obese/overweight" <?= ($patient['status_month_1_3']=='obese/overweight')? 'checked' : '' ?>> 
                                 <label for="child_care-male-1mos-status-obese">O = obese/overweight</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-normal">
+                                <input type="radio" name="child_care-male-1mos-status" id="child_care-male-1mos-status-normal" value="normal" <?= ($patient['status_month_1_3']=='normal')? 'checked' : '' ?>> 
                                 <label for="child_care-male-1mos-status-normal">N = normal</label>
                             </div>
                         </div>
@@ -372,11 +388,11 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-low-weight-1mo">1 &frac12 mo</label>
-                        <input type="date" name="child_care-male-low-weight-1mo" id="child_care-male-low-weight-1mo">
+                        <input type="date" name="child_care-male-low-weight-1mo" id="child_care-male-low-weight-1mo" value="<?= $patient['iron_1mos_month_1_3']; ?>">
                         <label for="child_care-male-low-weight-2mos">2 &frac12 mos</label>
-                        <input type="date" name="child_care-male-low-weight-2mos" id="child_care-male-low-weight-2mos">
+                        <input type="date" name="child_care-male-low-weight-2mos" id="child_care-male-low-weight-2mos" value="<?= $patient['iron_2mos_month_1_3']; ?>">
                         <label for="child_care-male-low-weight-3mos">3 &frac12 mos</label>
-                        <input type="date" name="child_care-male-low-weight-3mos" id="child_care-male-low-weight-3mos">
+                        <input type="date" name="child_care-male-low-weight-3mos" id="child_care-male-low-weight-3mos" value="<?= $patient['iron_3mos_month_1_3']; ?>">
                     </div>
                 </div>
                 <p class="edit-child_care-male__desc edit-child_care-male__desc--bold">
@@ -390,11 +406,11 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-dpt-1">First Dose Date</label>
-                        <input type="date" name="child_care-male-dpt-1" id="child_care-male-dpt-1">
+                        <input type="date" name="child_care-male-dpt-1" id="child_care-male-dpt-1" value="<?= $patient['dpt_1dos_month_1_3']; ?>">
                         <label for="child_care-male-dpt-2">Second Dose Date</label>
-                        <input type="date" name="child_care-male-dpt-2" id="child_care-male-dpt-2">
+                        <input type="date" name="child_care-male-dpt-2" id="child_care-male-dpt-2" value="<?= $patient['dpt_2dos_month_1_3']; ?>">
                         <label for="child_care-male-dpt-3">Third Dose Date</label>
-                        <input type="date" name="child_care-male-dpt-3" id="child_care-male-dpt-3">
+                        <input type="date" name="child_care-male-dpt-3" id="child_care-male-dpt-3" value="<?= $patient['dpt_3dos_month_1_3']; ?>">
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-doses">
@@ -405,11 +421,11 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-opv-1">First Dose Date</label>
-                        <input type="date" name="child_care-male-opv-1" id="child_care-male-opv-1">
+                        <input type="date" name="child_care-male-opv-1" id="child_care-male-opv-1" value="<?= $patient['opv_1dos_month_1_3']; ?>">
                         <label for="child_care-male-opv-2">Second Dose Date</label>
-                        <input type="date" name="child_care-male-opv-2" id="child_care-male-opv-2">
+                        <input type="date" name="child_care-male-opv-2" id="child_care-male-opv-2" value="<?= $patient['opv_2dos_month_1_3']; ?>">
                         <label for="child_care-male-opv-3">Third Dose Date</label>
-                        <input type="date" name="child_care-male-opv-3" id="child_care-male-opv-3">
+                        <input type="date" name="child_care-male-opv-3" id="child_care-male-opv-3" value="<?= $patient['opv_3dos_month_1_3']; ?>">
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-doses">
@@ -420,11 +436,11 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-pcv-1">First Dose Date</label>
-                        <input type="date" name="child_care-male-pcv-1" id="child_care-male-pcv-1">
+                        <input type="date" name="child_care-male-pcv-1" id="child_care-male-pcv-1" value="<?= $patient['pcv_1dos_month_1_3']; ?>">
                         <label for="child_care-male-pcv-2">Second Dose Date</label>
-                        <input type="date" name="child_care-male-pcv-2" id="child_care-male-pcv-2">
+                        <input type="date" name="child_care-male-pcv-2" id="child_care-male-pcv-2" value="<?= $patient['pcv_2dos_month_1_3']; ?>">
                         <label for="child_care-male-pcv-3">Third Dose Date</label>
-                        <input type="date" name="child_care-male-pcv-3" id="child_care-male-pcv-3">
+                        <input type="date" name="child_care-male-pcv-3" id="child_care-male-pcv-3" value="<?= $patient['pcv_3dos_month_1_3']; ?>">
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-doses">
@@ -435,7 +451,7 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-ipv">3 1/2 mos</label>
-                        <input type="date" name="child_care-male-ipv-1" id="child_care-male-ipv-1">
+                        <input type="date" name="child_care-male-ipv-1" id="child_care-male-ipv-1" value="<?= $patient['ipv_1dos_month_1_3']; ?>">
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-doses edit-child_care-male__form-doses--checkbox">
@@ -449,15 +465,15 @@
                     </div>
                     <div class="edit-child_care-male__form--role-item">
                         <div class="edit-child_care-male__form-item">
-                            <input type="checkbox" name="child_care-male--breastfeeding" id="child_care-male--breastfeeding-1">
+                            <input type="checkbox" name="child_care-male--breastfeeding1" id="child_care-male--breastfeeding-1" value="1 ½ mos" <?= ($patient['breastfeed1_month_1_3']=='1 ½ mos')? 'checked' : '' ?>> 
                             <label class="checkbox-label" for="child_care-male--breastfeeding-1">1 ½ mos</label>
                         </div>
                         <div class="edit-child_care-male__form-item">
-                            <input type="checkbox" name="child_care-male--breastfeeding" id="child_care-male--breastfeeding-2">
+                            <input type="checkbox" name="child_care-male--breastfeeding2" id="child_care-male--breastfeeding-2" value="2 ½ mos" <?= ($patient['breastfeed2_month_1_3']=='2 ½ mos')? 'checked' : '' ?>> 
                             <label class="checkbox-label" for="child_care-male--breastfeeding-2">2 ½ mos</label>
                         </div>
                         <div class="edit-child_care-male__form-item">
-                            <input type="checkbox" name="child_care-male--breastfeeding" id="child_care-male--breastfeeding-3">
+                            <input type="checkbox" name="child_care-male--breastfeeding3" id="child_care-male--breastfeeding-3" value="3 ½ mos" <?= ($patient['breastfeed3_month_1_3']=='3 ½ mos')? 'checked' : '' ?>>
                             <label class="checkbox-label" for="child_care-male--breastfeeding-3">3 ½ mos</label>
                         </div>
                     </div>
@@ -474,17 +490,17 @@
                 </p>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-age">Age in months</label>
-                    <input type="number" name="child_care-male-6mos-age" id="child_care-male-6mos-age">
+                    <input type="number" name="child_care-male-6mos-age" id="child_care-male-6mos-age"  value="<?= $patient['age_month_6_11']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-6mos-legth">Length</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-6mos-length-cm" id="child_care-male-6mos-length-cm">
+                            <input type="text" name="child_care-male-6mos-length-cm" id="child_care-male-6mos-length-cm"  value="<?= $patient['length_month_6_11']; ?>">
                             <label for="child_care-male-length-cm">cm</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="child_care-male-6mos-length-date" id="child_care-male-6mos-length-date">
+                            <input type="date" name="child_care-male-6mos-length-date" id="child_care-male-6mos-length-date"  value="<?= $patient['length_date_month_6_11']; ?>">
                             <label for="child_care-male-6mos-length-date">Date Taken</label>
                         </div>
                     </div>
@@ -493,11 +509,11 @@
                     <label for="child_care-male-6mos-weight">Weight</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-6mos-weight-kg" id="child_care-male-6mos-weight-kg">
+                            <input type="text" name="child_care-male-6mos-weight-kg" id="child_care-male-6mos-weight-kg" value="<?= $patient['weight_month_6_11']; ?>">
                             <label for="child_care-male-weight-kg">kg</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="child_care-male-6mos-weight-date" id="child_care-male-6mos-weight-date">
+                            <input type="date" name="child_care-male-6mos-weight-date" id="child_care-male-6mos-weight-date" value="<?= $patient['weight_date_month_6_11']; ?>">
                             <label for="child_care-male-weight-date">Date Taken</label>
                         </div>
                     </div>
@@ -506,23 +522,23 @@
                     <label for="child_care-male-6mos-status">Status</label>
                         <div class="edit-user__form--role-item">
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-underweight">
+                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-underweight" value="underweight" <?= ($patient['status_month_6_11']=='underweight')? 'checked' : '' ?>>
                                 <label for="child_care-male-6mos-status-underweight">UW = underweight</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-stunted">
+                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-stunted" value="stunted" <?= ($patient['status_month_6_11']=='stunted')? 'checked' : '' ?>> 
                                 <label for="child_care-male-6mos-status-stunted">S = stunted</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-wasted">
+                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-wasted" value="wasted" <?= ($patient['status_month_6_11']=='wasted')? 'checked' : '' ?>> 
                                 <label for="child_care-male-6mos-status-wasted">W = wasted</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-obese">
+                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-obese" value="obese/overweight" <?= ($patient['status_month_6_11']=='obese/overweight')? 'checked' : '' ?>>
                                 <label for="child_care-male-6mos-status-obese">O = obese/overweight</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-normal">
+                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-normal" value="normal" <?= ($patient['status_month_6_11']=='normal')? 'checked' : '' ?>>
                                 <label for="child_care-male-6mos-status-normal">N = normal</label>
                             </div>
                         </div>
@@ -532,11 +548,11 @@
                     <label for="child_care-male-6mos-breastfed">Exclusively* Breastfed up to 6 months</label>
                         <div class="edit-user__form--role-item">
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-underweight">
+                                <input type="radio" name="child_care-male-6mos-status-exclusive" id="child_care-male-6mos-status-underweight" value="Yes" <?= ($patient['breastfeed_month_6_11']=='Yes')? 'checked' : '' ?>>
                                 <label for="child_care-male-6mos-status-breastfed-yes">Yes</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-6mos-status" id="child_care-male-6mos-status-stunted">
+                                <input type="radio" name="child_care-male-6mos-status-exclusive" id="child_care-male-6mos-status-stunted" value="No" <?= ($patient['breastfeed_month_6_11']=='No')? 'checked' : '' ?>>
                                 <label for="child_care-male-6mos-status-breastfed-no">No</label>
                             </div>
                         </div>
@@ -545,11 +561,11 @@
                     <label for="child_care-male-complementary-feeding">Introduction of Complementary Feeding** at 6 months old</label>
                         <div class="add-user__form--role-item">
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-male-complementary-feeding" id="child_care-male-complementary-feeding-1">
+                                <input type="radio" name="child_care-male-complementary-feeding" id="child_care-male-complementary-feeding-1" value="with continued breastfeeding" <?= ($patient['complementary_month_6_11']=='with continued breastfeeding')? 'checked' : '' ?>>
                                 <label for="child_care-male-6mos-status-breastfed-yes">1 - with continued breastfeeding</label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-male-complementary-feeding" id="child_care-male-complementary-feeding-2">
+                                <input type="radio" name="child_care-male-complementary-feeding" id="child_care-male-complementary-feeding-2" value="no longer breastfeeding or never breastfed" <?= ($patient['complementary_month_6_11']=='no longer breastfeeding or never breastfed')? 'checked' : '' ?>>
                                 <label for="child_care-male-6mos-status-breastfed-no">2 - no longer breastfeeding or never breastfed</label>
                             </div>
                         </div>
@@ -562,7 +578,7 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-vit-a">Date Given</label>
-                        <input type="date" name="child_care-male-vit-a" id="child_care-male-vit-a" placeholder="First Dose Date">    
+                        <input type="date" name="child_care-male-vit-a" id="child_care-male-vit-a" placeholder="First Dose Date" value="<?= $patient['vitamin_month_6_11']; ?>">     
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-doses">
@@ -573,7 +589,7 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-mnp">Date when 90 sachets given</label>
-                        <input type="date" name="child_care-male-mnp" id="child_care-male-mnp" placeholder="First Dose Date">    
+                        <input type="date" name="child_care-male-mnp" id="child_care-male-mnp" placeholder="First Dose Date" value="<?= $patient['mnp_month_6_11']; ?>">    
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-doses">
@@ -584,7 +600,7 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-mmr">Date Given</label>
-                        <input type="date" name="child_care-male-mmr" id="child_care-male-mmr" placeholder="First Dose Date">    
+                        <input type="date" name="child_care-male-mmr" id="child_care-male-mmr" placeholder="First Dose Date" value="<?= $patient['mmr_month_6_11']; ?>">    
                     </div>
                 </div>
 
@@ -599,17 +615,17 @@
                 </p>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-age">Age in months</label>
-                    <input type="number" name="child_care-male-12mos-age" id="child_care-male-12mos-age">
+                    <input type="number" name="child_care-male-12mos-age" id="child_care-male-12mos-age" value="<?= $patient['age_month_12']; ?>">
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-12mos-legth">Length</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-12mos-length-cm" id="child_care-male-12mos-length-cm">
+                            <input type="text" name="child_care-male-12mos-length-cm" id="child_care-male-12mos-length-cm" value="<?= $patient['length_month_12']; ?>">
                             <label for="child_care-male-length-cm">cm</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="child_care-male-12mos-length-date" id="child_care-male-12mos-length-date">
+                            <input type="date" name="child_care-male-12mos-length-date" id="child_care-male-12mos-length-date" value="<?= $patient['length_date_month_12']; ?>">
                             <label for="child_care-male-12mos-length-date">Date Taken</label>
                         </div>
                     </div>
@@ -618,11 +634,11 @@
                     <label for="child_care-male-12mos-weight">Weight</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-12mos-weight-kg" id="child_care-male-12mos-weight-kg">
+                            <input type="text" name="child_care-male-12mos-weight-kg" id="child_care-male-12mos-weight-kg" value="<?= $patient['weight_month_12']; ?>">
                             <label for="child_care-male-weight-kg">kg</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="child_care-male-12mos-weight-date" id="child_care-male-12mos-weight-date">
+                            <input type="date" name="child_care-male-12mos-weight-date" id="child_care-male-12mos-weight-date" value="<?= $patient['weight_date_month_12']; ?>">
                             <label for="child_care-male-weight-date">Date Taken</label>
                         </div>
                     </div>
@@ -631,23 +647,23 @@
                     <label for="child_care-male-12mos-status">Status</label>
                         <div class="edit-user__form--role-item">
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-underweight">
+                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-underweight" value="underweight" <?= ($patient['status_month_12']=='underweight')? 'checked' : '' ?>> 
                                 <label for="child_care-male-12mos-status-underweight">UW = underweight</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-stunted">
+                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-stunted" value="stunted" <?= ($patient['status_month_12']=='stunted')? 'checked' : '' ?>>
                                 <label for="child_care-male-12mos-status-stunted">S = stunted</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-wasted">
+                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-wasted" value="wasted" <?= ($patient['status_month_12']=='wasted')? 'checked' : '' ?>>
                                 <label for="child_care-male-12mos-status-wasted">W = wasted</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-obese">
+                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-obese" value="obese/overweight" <?= ($patient['status_month_12']=='obese/overweight')? 'checked' : '' ?>>
                                 <label for="child_care-male-12mos-status-obese">O = obese/overweight</label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-normal">
+                                <input type="radio" name="child_care-male-12mos-status" id="child_care-male-12mos-status-normal" value="normal" <?= ($patient['status_month_12']=='normal')? 'checked' : '' ?>>
                                 <label for="child_care-male-12mos-status-normal">N = normal</label>
                             </div>
                         </div>
@@ -660,7 +676,7 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-12mos-mmr">Date Given</label>
-                        <input type="date" name="child_care-male-12mos-mmr" id="child_care-male-12mos-mmr" placeholder="First Dose Date">    
+                        <input type="date" name="child_care-male-12mos-mmr" id="child_care-male-12mos-mmr" placeholder="First Dose Date" value="<?= $patient['mmr_month_12']; ?>">    
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-doses">
@@ -671,7 +687,7 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-fic">Date</label>
-                        <input type="date" name="child_care-male-fic" id="child_care-male-fic" placeholder="First Dose Date">    
+                        <input type="date" name="child_care-male-fic" id="child_care-male-fic" placeholder="First Dose Date" value="<?= $patient['fic_month_12']; ?>">    
                     </div>
                 </div>
 
@@ -686,12 +702,12 @@
                     </div>
                     <div class="edit-child_care-male__form-input">
                         <label for="child_care-male-12mos-mmr">Date Given</label>
-                        <input type="date" name="child_care-male-12mos-mmr" id="child_care-male-cic" placeholder="First Dose Date">    
+                        <input type="date" name="child_care-male-12mos-cic" id="child_care-male-cic" placeholder="First Dose Date" value="<?= $patient['cic']; ?>">    
                     </div>
                 </div>
                 <div class="edit-child_care-male__form-item">
                     <label for="child_care-male-remarks">Remarks</label>
-                    <textarea name="child_care-male-remarks" id="child_care-male-remarks" cols="27" rows="5"></textarea>
+                    <textarea name="child_care-male-remarks" id="child_care-male-remarks" cols="27" rows="5"><?= $patient['remarks']; ?></textarea>
                 </div>  
                 
                 <!-- Divider -->
@@ -705,23 +721,23 @@
                 </p>
 
                 <!-- Radio Buttons -->
-                <div class="edit-child_care-male__form-item">
+                <div class="edit-child_care-male__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-mispelled-name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
-                <div class="edit-child_care-male__form-item">
+                <div class="edit-child_care-male__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
-                <div class="edit-child_care-male__form-item">
+                <div class="edit-child_care-male__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
-                <div class="edit-child_care-male__form-item">
+                <div class="edit-child_care-male__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-wrong-address">
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
-                <div class="edit-child_care-male__form-item">
+                <div class="edit-child_care-male__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
                     <input type="text" name="patient-others" id="patient-others">
@@ -732,13 +748,22 @@
                 <hr>
 
                 <div class="edit-child_care-male__form-btn">
-                    <button type="submit" class="btn-green btn-save">
+                    <button type="submit" class="btn-green btn-save" name="edit_childcare_male"> <!--added name-->
                         Save
                     </button>
                     <button class="btn-red btn-cancel">
                         Clear
                     </button>
                 </div>
+                <?php
+                    }
+                    else
+                    {
+                        echo "<h4>No Such Id Found</h4>";
+                    }
+                    }
+                 ?>
+                 <!-- END OF QUERY -->
             </form>
         </section>
 
@@ -767,3 +792,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

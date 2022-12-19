@@ -1,10 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="../css/main.css">
     <title>Document</title>
 </head>
 <body class="grid">
@@ -134,47 +138,57 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action=""
-                  class="edit-maternal_care__form">
+            <form action="../includes/edit_query.php" method='POST' class="edit-maternal_care__form"> <!--added action and method-->
+                <!-- Start Query -->
+                <?php
+                    include "../includes/connection.php";
+                    if(isset($_GET['id'])){
+                        $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                        $query = "SELECT * FROM target_maternal WHERE target_maternal_id='$patient_id'";
+                        $query_run = mysqli_query($conn, $query);
 
+                        if(mysqli_num_rows($query_run) > 0){
+                            $patient = mysqli_fetch_array($query_run);
+                ?>
+                <input type="hidden" name="target_maternal_id" value="<?= $patient['target_maternal_id']; ?>"> <!--nakahide sya para access ID sa edit-->
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-registration">Date of Registration</label>
-                    <input type="date" name="maternal_care-registration" id="maternal_care-registration">
+                    <input type="date" name="maternal_care-registration" id="maternal_care-registration" value="<?= $patient['date_registered']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-family-serial">Family Serial No.</label>
-                    <input type="text" name="maternal_care-family-serial" id="maternal_care-family-serial">
+                    <input type="text" name="maternal_care-family-serial" id="maternal_care-family-serial" value="<?= $patient['serial']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-child-name">Name</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="maternal_care-first-name" id="maternal_care-first-name">
+                            <input type="text" name="maternal_care-first-name" id="maternal_care-first-name" value="<?= $patient['firstname']; ?>">
                             <label for="maternal_care-first-name">First Name</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="maternal_care-middle-inital" id="maternal_care-middle-inital">
+                            <input type="text" name="maternal_care-middle-inital" id="maternal_care-middle-inital" value="<?= $patient['middle_initial']; ?>">
                             <label for="maternal_care-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="maternal_care-last-name" id="maternal_care-last-name">
+                            <input type="text" name="maternal_care-last-name" id="maternal_care-last-name" value="<?= $patient['lastname']; ?>">
                             <label for="maternal_care-last-name">Last Name</label>
                         </div>
                     </div>                    
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-address">Complete Address</label>
-                    <textarea name="maternal_care-address" id="maternal_care-address" cols="27" rows="5"></textarea>
+                    <textarea name="maternal_care-address" id="maternal_care-address" cols="27" rows="5"><?= $patient['complete_address']; ?></textarea>
                 </div>
                 <div class="edit-maternal_care__form-item edit-maternal_care__form-item--radio">
                     <label for="bhw-contact">Socio Economic Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-nhts">
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS" <?= ($patient['socio_status']=='NHTS')? 'checked' : '' ?>>
                             <label for="bhw-chn">NHTS</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-non-nhts">
+                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS" <?= ($patient['socio_status']=='NON NHTS')? 'checked' : '' ?>>
                             <label for="bhw-bhw">NON NHTS</label>
                         </div>
                     </div>
@@ -183,26 +197,26 @@
                     <label for="maternal_care-1mos-legth">Age</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-age" id="maternal_care-age">                            
+                            <input type="number" name="maternal_care-age" id="maternal_care-age" value="<?= $patient['age']; ?>">                            
                             <label for="maternal_care-age">Age</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-birthday" id="maternal_care-birthday">
+                            <input type="date" name="maternal_care-birthday" id="maternal_care-birthday" value="<?= $patient['birthday']; ?>">
                             <label for="maternal_care-birthday">Birthday</label>
                         </div>
                     </div>
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-lmp">LMP</label>
-                    <input type="date" name="maternal_care-lmp" id="maternal_care-lmp">
+                    <input type="date" name="maternal_care-lmp" id="maternal_care-lmp" value="<?= $patient['lmp']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-gp">G-P</label>
-                    <input type="number" name="maternal_care-gp" id="maternal_care-gp">
+                    <input type="number" name="maternal_care-gp" id="maternal_care-gp" value="<?= $patient['gp']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-edc">EDC</label>
-                    <input type="date" name="maternal_care-edc" id="maternal_care-edc">
+                    <input type="date" name="maternal_care-edc" id="maternal_care-edc" value="<?= $patient['edc']; ?>">
                 </div>
                 
                 <!-- Divider -->
@@ -217,15 +231,15 @@
 
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-1st-tri">1st Tri</label>
-                    <input type="date" name="maternal_care-1st-tri" id="maternal_care-1st-tri">
+                    <input type="date" name="maternal_care-1st-tri" id="maternal_care-1st-tri" value="<?= $patient['tri1_pre_checkup']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-2nd-tri">2nd Tri</label>
-                    <input type="date" name="maternal_care-2nd-tri" id="maternal_care-2nd-tri">
+                    <input type="date" name="maternal_care-2nd-tri" id="maternal_care-2nd-tri" value="<?= $patient['tri2_pre_checkup']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-3rd-tri">3rd Tri</label>
-                    <input type="date" name="maternal_care-3rd-tri" id="maternal_care-3rd-tri">
+                    <input type="date" name="maternal_care-3rd-tri" id="maternal_care-3rd-tri" value="<?= $patient['tri3_pre_checkup']; ?>">
                 </div>
 
 
@@ -246,15 +260,15 @@
                     </div>
                     <div class="edit-maternal_care__form-input">
                         <label for="maternal_care-td1">Td1/TT1</label>
-                        <input type="text" name="maternal_care-td1" id="maternal_care-td1">
+                        <input type="text" name="maternal_care-td1" id="maternal_care-td1" value="<?= $patient['td1_tetanus']; ?>">
                         <label for="maternal_care-td2">Td2/TT2</label>
-                        <input type="text" name="maternal_care-td2" id="maternal_care-td2">
+                        <input type="text" name="maternal_care-td2" id="maternal_care-td2" value="<?= $patient['td2_tetanus']; ?>">
                         <label for="maternal_care-td3">Td3/TT3</label>
-                        <input type="text" name="maternal_care-td3" id="maternal_care-td3">
+                        <input type="text" name="maternal_care-td3" id="maternal_care-td3" value="<?= $patient['td3_tetanus']; ?>">
                         <label for="maternal_care-td4">Td4/TT4</label>
-                        <input type="text" name="maternal_care-td4" id="maternal_care-td4">
+                        <input type="text" name="maternal_care-td4" id="maternal_care-td4" value="<?= $patient['td4_tetanus']; ?>">
                         <label for="maternal_care-td5">Td5/TT5</label>
-                        <input type="text" name="maternal_care-td5" id="maternal_care-td5">
+                        <input type="text" name="maternal_care-td5" id="maternal_care-td5" value="<?= $patient['td5_tetanus']; ?>">
                     </div>
                 </div>
                 <div class="edit-maternal_care__form-item edit-maternal_care__form-item--checkbox">
@@ -262,7 +276,7 @@
                     </label>
                     <div class="edit-maternal_care__form--role-item">
                         <div class="edit-maternal_care__form-item">
-                            <input type="checkbox" name="maternal_care-fim" id="maternal_care-fim">
+                            <input type="checkbox" name="maternal_care-fim" id="maternal_care-fim" value="FIM Status" <?= ($patient['fim_status']=='FIM Status')? 'checked' : '' ?>>
                             <label for="maternal_care-fim">FIM Status</label>
                         </div>
                     </div>
@@ -284,11 +298,11 @@
                     <label for="maternal_care-iron-1">1st visit (1st tri) </label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-iron-1-tablet" id="maternal_care-iron-1-tablet">                            
+                            <input type="number" name="maternal_care-iron-1-tablet" id="maternal_care-iron-1-tablet"  value="<?= $patient['tri1_tablet_iron']; ?>">                            
                             <label for="maternal_care-iron-1-tablet">Number of Tablets Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-iron-1-date" id="maternal_care-iron-1-date">
+                            <input type="date" name="maternal_care-iron-1-date" id="maternal_care-iron-1-date" value="<?= $patient['tri1_date_iron']; ?>">
                             <label for="maternal_care-iron-1-date">Date Given</label>
                         </div>
                     </div>
@@ -297,11 +311,11 @@
                     <label for="maternal_care-iron-2">2nd visit (2nd tri)</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-iron-2-tablet" id="maternal_care-iron-2-tablet">                            
+                            <input type="number" name="maternal_care-iron-2-tablet" id="maternal_care-iron-2-tablet" value="<?= $patient['tri2_tablet_iron']; ?>">                            
                             <label for="maternal_care-iron-2-tablet">Number of Tablets Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-iron-2-date" id="maternal_care-iron-2-date">
+                            <input type="date" name="maternal_care-iron-2-date" id="maternal_care-iron-2-date" value="<?= $patient['tri2_date_iron']; ?>">
                             <label for="maternal_care-iron-2-date">Date Given</label>
                         </div>
                     </div>
@@ -310,11 +324,11 @@
                     <label for="maternal_care-iron-3">3rd visit (3rd tri)</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-iron-3-tablet" id="maternal_care-iron-3-tablet">                            
+                            <input type="number" name="maternal_care-iron-3-tablet" id="maternal_care-iron-3-tablet" value="<?= $patient['tri3_tablet_iron']; ?>">                            
                             <label for="maternal_care-iron-3-tablet">Number of Tablets Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-iron-1-date" id="maternal_care-iron-3-date">
+                            <input type="date" name="maternal_care-iron-3-date" id="maternal_care-iron-3-date" value="<?= $patient['tri3_date_iron']; ?>"><!--maternal_care-iron-1-date CHANGE TO maternal_care-iron-3-date-->
                             <label for="maternal_care-iron-3-date">Date Given</label>
                         </div>
                     </div>
@@ -323,11 +337,11 @@
                     <label for="maternal_care-iron-4">4rd visit (4rd tri)</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-iron-4-tablet" id="maternal_care-iron-4-tablet">                            
+                            <input type="number" name="maternal_care-iron-4-tablet" id="maternal_care-iron-4-tablet" value="<?= $patient['tri4_tablet_iron']; ?>">                            
                             <label for="maternal_care-iron-4-tablet">Number of Tablets Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-iron-1-date" id="maternal_care-iron-4-date">
+                            <input type="date" name="maternal_care-iron-4-date" id="maternal_care-iron-4-date" value="<?= $patient['tri4_date_iron']; ?>"><!--maternal_care-iron-1-date CHANGE TO maternal_care-iron-4-date-->
                             <label for="maternal_care-iron-4-date">Date Given</label>
                         </div>
                     </div>
@@ -341,11 +355,11 @@
                     <label for="maternal_care-calcium-2">2nd visit (2nd tri) </label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-calcium-2-capsule" id="maternal_care-calcium-2-capsule">                            
+                            <input type="number" name="maternal_care-calcium-2-capsule" id="maternal_care-calcium-2-capsule" value="<?= $patient['tri2_tablet_calcium']; ?>">                            
                             <label for="maternal_care-calcium-2-capsule">Number of Capsules Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-calcium-2-date" id="maternal_care-calcium-2-date">
+                            <input type="date" name="maternal_care-calcium-2-date" id="maternal_care-calcium-2-date" value="<?= $patient['tri2_date_calcium']; ?>">
                             <label for="maternal_care-calcium-2-date">Date Given</label>
                         </div>
                     </div>
@@ -354,11 +368,11 @@
                     <label for="maternal_care-calcium-3">3rd visit (3rd tri)</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-calcium-3-capsule" id="maternal_care-calcium-3-capsule">                            
+                            <input type="number" name="maternal_care-calcium-3-capsule" id="maternal_care-calcium-3-capsule" value="<?= $patient['tri3_tablet_calcium']; ?>">                            
                             <label for="maternal_care-calcium-3-capsule">Number of Capsule Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-calcium-1-date" id="maternal_care-calcium-3-date">
+                            <input type="date" name="maternal_care-calcium-3-date" id="maternal_care-calcium-3-date" value="<?= $patient['tri3_date_calcium']; ?>">
                             <label for="maternal_care-calcium-3-date">Date Given</label>
                         </div>
                     </div>
@@ -367,11 +381,11 @@
                     <label for="maternal_care-calcium-4">4rd visit (4rd tri)</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-calcium-4-capsule" id="maternal_care-calcium-4-capsule">                            
+                            <input type="number" name="maternal_care-calcium-4-capsule" id="maternal_care-calcium-4-capsule" value="<?= $patient['tri4_tablet_calcium']; ?>">                            
                             <label for="maternal_care-calcium-4-capsule">Number of Capsule Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-calcium-1-date" id="maternal_care-calcium-4-date">
+                            <input type="date" name="maternal_care-calcium-4-date" id="maternal_care-calcium-4-date" value="<?= $patient['tri4_date_calcium']; ?>"><!--maternal_care-calcium-1-date CHANGE TO maternal_care-calcium-4-date-->
                             <label for="maternal_care-calcium-4-date">Date Given</label>
                         </div>
                     </div>
@@ -385,11 +399,11 @@
                     <label for="maternal_care-iodine-1">1st visit (1st tri) </label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-iodine-1-capsule" id="maternal_care-iodine-1-capsule">                            
+                            <input type="number" name="maternal_care-iodine-1-capsule" id="maternal_care-iodine-1-capsule" value="<?= $patient['tri1_tablet_iodine']; ?>">                            
                             <label for="maternal_care-iodine-1-capsule">Number of Capsules Given</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-iodine-1-date" id="maternal_care-iodine-1-date">
+                            <input type="date" name="maternal_care-iodine-1-date" id="maternal_care-iodine-1-date" value="<?= $patient['tri1_date_iodine']; ?>">
                             <label for="maternal_care-iodine-1-date">Date Given</label>
                         </div>
                     </div>
@@ -404,7 +418,7 @@
                 </p>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-1st-tri-weight">Weight</label>
-                    <input type="text" name="maternal_care-1st-tri-weight" id="maternal_care-1st-tri-weight">
+                    <input type="text" name="maternal_care-1st-tri-weight" id="maternal_care-1st-tri-weight" value="<?= $patient['weight']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-doses">
                     <div class="edit-maternal_care__form-label">
@@ -414,7 +428,7 @@
                     </div>
                     <div class="edit-maternal_care__form-input">
                         <label for="maternal_care-deworming-tablet">Date Given 2nd or 3rd Tris</label>
-                        <input type="date" name="maternal_care-deworming-tablet" id="maternal_care-deworming-tablet">
+                        <input type="date" name="maternal_care-deworming-tablet" id="maternal_care-deworming-tablet" value="<?= $patient['deworming_tablet']; ?>">
                     </div>
                 </div>
 
@@ -437,18 +451,18 @@
                     </div>
                     <div class="edit-maternal_care__form-input">
                         <label for="maternal_care-syphilis-screening-date">Date</label>
-                        <input type="date" name="maternal_care-syphilis-screening-date" id="maternal_care-syphilis-screening-date">
+                        <input type="date" name="maternal_care-syphilis-screening-date" id="maternal_care-syphilis-screening-date" value="<?= $patient['syphilis_date']; ?>">
                     </div>
                 </div>
                 <div class="edit-maternal_care__form-item edit-maternal_care__form-item--radio">
                     <label for="maternal_care-syphilis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-positive">
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-positive" value="Positive" <?= ($patient['syphilis_status']=='Positive')? 'checked' : '' ?>>
                             <label for="maternal_care-syphilis-screening-status-positive">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-negative">
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-negative" value="Negative" <?= ($patient['syphilis_status']=='Negative')? 'checked' : '' ?>> 
                             <label for="maternal_care-syphilis-screening-status-negative">Negative</label>
                         </div>
                     </div>
@@ -464,18 +478,18 @@
                     </div>
                     <div class="edit-maternal_care__form-input">
                         <label for="maternal_care-hepatitis-screening-date">Date</label>
-                        <input type="date" name="maternal_care-hepatitis-screening-date" id="maternal_care-hepatitis-screening-date">
+                        <input type="date" name="maternal_care-hepatitis-screening-date" id="maternal_care-hepatitis-screening-date" value="<?= $patient['hepatitis_date']; ?>">
                     </div>
                 </div>
                 <div class="edit-maternal_care__form-item edit-maternal_care__form-item--radio">
                     <label for="maternal_care-hepatitis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-positive">
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-positive" value="Positive" <?= ($patient['hepatitis_status']=='Positive')? 'checked' : '' ?>>
                             <label for="maternal_care-hepatitis-screening-status-positive">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-negative">
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-negative" value="Negative" <?= ($patient['hepatitis_status']=='Negative')? 'checked' : '' ?>>
                             <label for="maternal_care-hepatitis-screening-status-negative">Negative</label>
                         </div>
                     </div>
@@ -491,7 +505,7 @@
                     </div>
                     <div class="edit-maternal_care__form-input">
                         <label for="maternal_care-hiv-screening-date">Date Screened</label>
-                        <input type="date" name="maternal_care-hiv-screening-date" id="maternal_care-hiv-screening-date">
+                        <input type="date" name="maternal_care-hiv-screening-date" id="maternal_care-hiv-screening-date" value="<?= $patient['hiv_screen_date']; ?>">
                     </div>
                 </div>  
                 
@@ -506,23 +520,23 @@
                 </p>
 
                 <!-- Radio Buttons -->
-                <div class="edit-maternal_care-female__form-item">
+                <div class="edit-maternal_care-female__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-mispelled-name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
-                <div class="edit-maternal_care-female__form-item">
+                <div class="edit-maternal_care-female__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
-                <div class="edit-maternal_care-female__form-item">
+                <div class="edit-maternal_care-female__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
-                <div class="edit-maternal_care-female__form-item">
+                <div class="edit-maternal_care-female__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-wrong-address">
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
-                <div class="edit-maternal_care-female__form-item">
+                <div class="edit-maternal_care-female__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
                     <input type="text" name="patient-others" id="patient-others">
@@ -532,13 +546,21 @@
                 <hr>
 
                 <div class="edit-maternal_care__form-btn">
-                    <button type="submit" class="btn-green btn-add">
+                    <button type="submit" class="btn-green btn-add" name="edit_maternal_list"> <!--name added-->
                         Save
                     </button>
                     <button class="btn-red btn-cancel">
                         Clear
                     </button>
                 </div>
+                <?php
+                    }
+                    else
+                    {
+                        echo "<h4>No Such Id Found</h4>";
+                    }
+                    }
+                 ?>
             </form>
         </section>
 
@@ -570,3 +592,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>
