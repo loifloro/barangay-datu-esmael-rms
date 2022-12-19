@@ -598,6 +598,21 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   height: 1.5rem;
 }
 
+.sort-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline;
+}
+.sort-icon path {
+  fill: #909087;
+}
+.sort-icon:hover, .sort-icon:focus, .sort-icon:active {
+  cursor: pointer;
+}
+.sort-icon:hover path, .sort-icon:focus path, .sort-icon:active path {
+  fill: #414134;
+}
+
 .delete-icon path,
 .archive-icon path {
   fill: #909087;
@@ -2404,6 +2419,33 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .login__forgot {
   text-align: end;
+}
+.login__btn {
+  margin-top: 2rem;
+}
+.login .password {
+  display: flex;
+  width: 100%;
+  background: #F0F0F0;
+  border-radius: 0.5vw;
+}
+.login .password:hover, .login .password:focus, .login .password:active {
+  outline: #034A23 solid 1px;
+  background: #FFFFFF;
+}
+.login .password__bar__input {
+  display: inline;
+  background: none !important;
+  width: 100%;
+}
+.login .password__bar__input:hover, .login .password__bar__input:focus, .login .password__bar__input:active {
+  cursor: pointer;
+  outline: none !important;
+}
+.login .password__bar__btn {
+  display: inline;
+  margin-left: auto !important;
+  margin-right: 0.5rem;
 }
 
 .dashboard {
