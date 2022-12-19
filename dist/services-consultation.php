@@ -174,7 +174,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </ul>
 
             <?php 
-                include 'connection.php';
+                include 'includes/connection.php';
                 $query = "SELECT * FROM deworming ORDER BY firstname";
                 $query_run = mysqli_query($conn, $query);
                 if(mysqli_num_rows($query_run) > 0)
@@ -243,7 +243,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'connection.php';
+                    include 'includes/connection.php';
                     $query = "SELECT * FROM consultation ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -311,7 +311,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'connection.php';
+                    include 'includes/connection.php';
                     $query = "SELECT * FROM prenatal ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -380,7 +380,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'connection.php';
+                    include 'includes/connection.php';
                     $query = "SELECT * FROM postnatal ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -448,7 +448,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'connection.php';
+                    include 'includes/connection.php';
                     $query = "SELECT * FROM search_destroy ORDER BY date_visit";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -516,7 +516,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'connection.php';
+                    include 'includes/connection.php';
                     $query = "SELECT * FROM early_childhood ORDER BY child_name";
                     $query_run = mysqli_query($conn, $query);
                     

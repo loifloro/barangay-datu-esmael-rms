@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -207,3 +211,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

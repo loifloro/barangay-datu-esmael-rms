@@ -154,7 +154,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    include 'connection.php';
+                    include 'includes/connection.php';
                     $query = "SELECT deworming_id, firstname, lastname, sex, deworming_date FROM deworming 
                             UNION ALL 
                             SELECT consultation_id, firstname, lastname, sex, consultation_date FROM consultation 
