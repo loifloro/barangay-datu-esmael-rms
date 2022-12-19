@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,9 +138,9 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="edit_query.php" method='POST' class="edit-early_childhood__form">
+            <form action="../includes/edit_query.php" method='POST' class="edit-early_childhood__form">
                     <?php
-                        include "../connection.php";
+                        include "../includes/connection.php";
                         if(isset($_GET['id']))
                         {
                             $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -178,11 +182,11 @@
                     <label for="early_childhood-sex">Sex</label>
                     <div class="edit-early_childhood__form--role-item">
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female">
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
                             <label for="early_childhood-sex">Male</label>
                         </div>
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female">
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
                             <label for="early_childhood-sex">Female</label>
                         </div>
                     </div>
@@ -289,11 +293,11 @@
                     <label for="early_childhood-birth">Type of Birth</label>
                     <div class="edit-early_childhood__form--role-item">
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal">
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" <?= ($patient['birth_type']=='Normal')? 'checked' : '' ?>>
                             <label for="early_childhood-birth">Normal</label>
                         </div>
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs">
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS" <?= ($patient['birth_type']=='CS')? 'checked' : '' ?>>
                             <label for="early_childhood-birth">CS</label>
                         </div>
                     </div>
@@ -328,11 +332,11 @@
                     <label for="early_childhood-birth-attendant">Birth Attendant</label>
                     <!-- <input type="number" name="early_childhood-birth-lenght" id="early_childhood-birth-lenght"> -->
                     <select name="early_childhood-birth-attendant" id="">
-                        <option value="Doctor">Doctor</option>
-                        <option value="Midwife">Midwife</option>
-                        <option value="Nurse">Nurse</option>
-                        <option value="Hilot">Hilot</option>
-                        <option value="Others">Others</option>
+                        <option value="Doctor" <?= ($patient['birth_attendant']=='Doctor')? 'selected' : '' ?>>Doctor</option>
+                        <option value="Midwife" <?= ($patient['birth_attendant']=='Midwife')? 'selected' : '' ?>>Midwife</option>
+                        <option value="Nurse" <?= ($patient['birth_attendant']=='Nurse')? 'selected' : '' ?>>Nurse</option>
+                        <option value="Hilot" <?= ($patient['birth_attendant']=='Hilot')? 'selected' : '' ?>>Hilot</option>
+                        <option value="Others" <?= ($patient['birth_attendant']=='Others')? 'selected' : '' ?>>Others</option>
                     </select>
                 </div>
 
@@ -507,23 +511,23 @@
                 </p>
 
                 <!-- Radio Buttons -->
-                <div class="edit-early_childhood__form-item">
+                <div class="edit-early_childhood__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-mispelled-name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
-                <div class="edit-early_childhood__form-item">
+                <div class="edit-early_childhood__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
-                <div class="edit-early_childhood__form-item">
+                <div class="edit-early_childhood__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
-                <div class="edit-early_childhood__form-item">
+                <div class="edit-early_childhood__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-wrong-address">
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
-                <div class="edit-early_childhood__form-item">
+                <div class="edit-early_childhood__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
                     <input type="text" name="patient-others" id="patient-others">
@@ -576,3 +580,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,9 +138,9 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="edit_query.php" method='POST' class="edit-prenatal__form">
+            <form action="../includes/edit_query.php" method='POST' class="edit-prenatal__form">
                     <?php
-                        include "../connection.php";
+                        include "../includes/connection.php";
                         if(isset($_GET['id']))
                         {
                             $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -173,11 +177,11 @@
                     <label for="prenatal-sex">Gender</label>
                     <div class="edit-prenatal__form--role-item">
                         <div class="edit-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Male">
+                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
                             <label for="prenatal-sex">Male</label>
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Female">
+                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
                             <label for="prenatal-sex">Female</label>
                         </div>
                     </div>
@@ -342,23 +346,23 @@
                 </p>
 
                 <!-- Radio Buttons -->
-                <div class="edit-prenatal__form-item">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-mispelled-name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
-                <div class="edit-prenatal__form-item">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
-                <div class="edit-prenatal__form-item">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
-                <div class="edit-prenatal__form-item">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-wrong-address">
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
-                <div class="edit-prenatal__form-item">
+                <div class="edit-prenatal__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
                     <input type="text" name="patient-others" id="patient-others">
@@ -408,3 +412,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

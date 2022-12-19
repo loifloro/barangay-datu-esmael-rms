@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,9 +138,9 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="edit_query.php" method = 'POST' class="edit-search_destroy__form">
+            <form action="../includes/edit_query.php" method = 'POST' class="edit-search_destroy__form">
                   <?php
-                        include "../connection.php";
+                        include "../includes/connection.php";
                         if(isset($_GET['id']))
                         {
                             $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -186,7 +190,7 @@
                     <input type="text" name="search_destroy-owner" id="search_destroy-owner" value="<?= $patient['owner_name']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-editress">Complete editress</label>
+                    <label for="search_destroy-editress">Complete Address</label>
                     <textarea name="search_destroy-editress" id="search_destroy-editress" cols="27" rows="10"><?= $patient['address']; ?></textarea>
                 </div>
                 <div class="edit-search_destroy__form-item">
@@ -213,23 +217,23 @@
                 </p>
 
                 <!-- Radio Buttons -->
-                <div class="edit-search_destroy__form-item">
+                <div class="edit-search_destroy__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-mispelled-name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
-                <div class="edit-search_destroy__form-item">
+                <div class="edit-search_destroy__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
-                <div class="edit-search_destroy__form-item">
+                <div class="edit-search_destroy__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
-                <div class="edit-search_destroy__form-item">
+                <div class="edit-search_destroy__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-wrong-editress">
                     <label for="patient-mispelled">Wrong address</label>
                 </div>
-                <div class="edit-search_destroy__form-item">
+                <div class="edit-search_destroy__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
                     <input type="text" name="patient-others" id="patient-others">
@@ -274,3 +278,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>
