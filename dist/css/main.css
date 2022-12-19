@@ -319,6 +319,11 @@ textarea:active, textarea:focus {
   outline: #034A23 solid 1px;
   background: #FFFFFF;
 }
+@media (max-width: 45rem) {
+  textarea {
+    width: 100%;
+  }
+}
 
 /* Button Controls
 -----------------------------------------------*/
@@ -1280,7 +1285,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 @media (max-width: 51rem) {
   .grid {
-    grid-template-columns: 8rem auto;
+    grid-template-columns: 8rem 1fr;
   }
 }
 .grid .sidebar {
@@ -1312,6 +1317,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   grid-template-columns: auto 20%;
   column-gap: 5%;
   grid-template-areas: "form section-link";
+}
+@media (max-width: 62rem) {
+  .add-deworming,
+  .add-consultation,
+  .add-prenatal,
+  .add-postnatal,
+  .add-search_destroy,
+  .add-early_childhood,
+  .add-child_care-male,
+  .add-child_care-female,
+  .add-maternal_care {
+    display: block;
+  }
 }
 .add-deworming__title,
 .add-consultation__title,
@@ -1531,6 +1549,147 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline;
   width: 50%;
 }
+@media (max-width: 45rem) {
+  .add-deworming__form input[type=date],
+  .add-deworming__form input[type=datetime],
+  .add-deworming__form input[type=datetime-local],
+  .add-deworming__form input[type=email],
+  .add-deworming__form input[type=month],
+  .add-deworming__form input[type=number],
+  .add-deworming__form input[type=password],
+  .add-deworming__form input[type=range],
+  .add-deworming__form input[type=search],
+  .add-deworming__form input[type=tel],
+  .add-deworming__form input[type=text],
+  .add-deworming__form input[type=time],
+  .add-deworming__form input[type=url],
+  .add-deworming__form input[type=week],
+  .add-deworming__form select,
+  .add-consultation__form input[type=date],
+  .add-consultation__form input[type=datetime],
+  .add-consultation__form input[type=datetime-local],
+  .add-consultation__form input[type=email],
+  .add-consultation__form input[type=month],
+  .add-consultation__form input[type=number],
+  .add-consultation__form input[type=password],
+  .add-consultation__form input[type=range],
+  .add-consultation__form input[type=search],
+  .add-consultation__form input[type=tel],
+  .add-consultation__form input[type=text],
+  .add-consultation__form input[type=time],
+  .add-consultation__form input[type=url],
+  .add-consultation__form input[type=week],
+  .add-consultation__form select,
+  .add-prenatal__form input[type=date],
+  .add-prenatal__form input[type=datetime],
+  .add-prenatal__form input[type=datetime-local],
+  .add-prenatal__form input[type=email],
+  .add-prenatal__form input[type=month],
+  .add-prenatal__form input[type=number],
+  .add-prenatal__form input[type=password],
+  .add-prenatal__form input[type=range],
+  .add-prenatal__form input[type=search],
+  .add-prenatal__form input[type=tel],
+  .add-prenatal__form input[type=text],
+  .add-prenatal__form input[type=time],
+  .add-prenatal__form input[type=url],
+  .add-prenatal__form input[type=week],
+  .add-prenatal__form select,
+  .add-postnatal__form input[type=date],
+  .add-postnatal__form input[type=datetime],
+  .add-postnatal__form input[type=datetime-local],
+  .add-postnatal__form input[type=email],
+  .add-postnatal__form input[type=month],
+  .add-postnatal__form input[type=number],
+  .add-postnatal__form input[type=password],
+  .add-postnatal__form input[type=range],
+  .add-postnatal__form input[type=search],
+  .add-postnatal__form input[type=tel],
+  .add-postnatal__form input[type=text],
+  .add-postnatal__form input[type=time],
+  .add-postnatal__form input[type=url],
+  .add-postnatal__form input[type=week],
+  .add-postnatal__form select,
+  .add-search_destroy__form input[type=date],
+  .add-search_destroy__form input[type=datetime],
+  .add-search_destroy__form input[type=datetime-local],
+  .add-search_destroy__form input[type=email],
+  .add-search_destroy__form input[type=month],
+  .add-search_destroy__form input[type=number],
+  .add-search_destroy__form input[type=password],
+  .add-search_destroy__form input[type=range],
+  .add-search_destroy__form input[type=search],
+  .add-search_destroy__form input[type=tel],
+  .add-search_destroy__form input[type=text],
+  .add-search_destroy__form input[type=time],
+  .add-search_destroy__form input[type=url],
+  .add-search_destroy__form input[type=week],
+  .add-search_destroy__form select,
+  .add-early_childhood__form input[type=date],
+  .add-early_childhood__form input[type=datetime],
+  .add-early_childhood__form input[type=datetime-local],
+  .add-early_childhood__form input[type=email],
+  .add-early_childhood__form input[type=month],
+  .add-early_childhood__form input[type=number],
+  .add-early_childhood__form input[type=password],
+  .add-early_childhood__form input[type=range],
+  .add-early_childhood__form input[type=search],
+  .add-early_childhood__form input[type=tel],
+  .add-early_childhood__form input[type=text],
+  .add-early_childhood__form input[type=time],
+  .add-early_childhood__form input[type=url],
+  .add-early_childhood__form input[type=week],
+  .add-early_childhood__form select,
+  .add-child_care-male__form input[type=date],
+  .add-child_care-male__form input[type=datetime],
+  .add-child_care-male__form input[type=datetime-local],
+  .add-child_care-male__form input[type=email],
+  .add-child_care-male__form input[type=month],
+  .add-child_care-male__form input[type=number],
+  .add-child_care-male__form input[type=password],
+  .add-child_care-male__form input[type=range],
+  .add-child_care-male__form input[type=search],
+  .add-child_care-male__form input[type=tel],
+  .add-child_care-male__form input[type=text],
+  .add-child_care-male__form input[type=time],
+  .add-child_care-male__form input[type=url],
+  .add-child_care-male__form input[type=week],
+  .add-child_care-male__form select,
+  .add-child_care-female__form input[type=date],
+  .add-child_care-female__form input[type=datetime],
+  .add-child_care-female__form input[type=datetime-local],
+  .add-child_care-female__form input[type=email],
+  .add-child_care-female__form input[type=month],
+  .add-child_care-female__form input[type=number],
+  .add-child_care-female__form input[type=password],
+  .add-child_care-female__form input[type=range],
+  .add-child_care-female__form input[type=search],
+  .add-child_care-female__form input[type=tel],
+  .add-child_care-female__form input[type=text],
+  .add-child_care-female__form input[type=time],
+  .add-child_care-female__form input[type=url],
+  .add-child_care-female__form input[type=week],
+  .add-child_care-female__form select,
+  .add-maternal_care__form input[type=date],
+  .add-maternal_care__form input[type=datetime],
+  .add-maternal_care__form input[type=datetime-local],
+  .add-maternal_care__form input[type=email],
+  .add-maternal_care__form input[type=month],
+  .add-maternal_care__form input[type=number],
+  .add-maternal_care__form input[type=password],
+  .add-maternal_care__form input[type=range],
+  .add-maternal_care__form input[type=search],
+  .add-maternal_care__form input[type=tel],
+  .add-maternal_care__form input[type=text],
+  .add-maternal_care__form input[type=time],
+  .add-maternal_care__form input[type=url],
+  .add-maternal_care__form input[type=week],
+  .add-maternal_care__form select {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
+  }
+}
 .add-deworming__form input[type=checkbox],
 .add-deworming__form input[type=radio],
 .add-consultation__form input[type=checkbox],
@@ -1565,6 +1724,44 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-left: 1rem;
   display: flex;
   align-items: center;
+}
+@media (max-width: 45rem) {
+  .add-deworming__form-item,
+  .add-consultation__form-item,
+  .add-prenatal__form-item,
+  .add-postnatal__form-item,
+  .add-search_destroy__form-item,
+  .add-early_childhood__form-item,
+  .add-child_care-male__form-item,
+  .add-child_care-female__form-item,
+  .add-maternal_care__form-item {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .add-deworming__form-item--reason,
+  .add-consultation__form-item--reason,
+  .add-prenatal__form-item--reason,
+  .add-postnatal__form-item--reason,
+  .add-search_destroy__form-item--reason,
+  .add-early_childhood__form-item--reason,
+  .add-child_care-male__form-item--reason,
+  .add-child_care-female__form-item--reason,
+  .add-maternal_care__form-item--reason {
+    flex-direction: row;
+  }
+  .add-deworming__form-item--reason input[type=text],
+  .add-consultation__form-item--reason input[type=text],
+  .add-prenatal__form-item--reason input[type=text],
+  .add-postnatal__form-item--reason input[type=text],
+  .add-search_destroy__form-item--reason input[type=text],
+  .add-early_childhood__form-item--reason input[type=text],
+  .add-child_care-male__form-item--reason input[type=text],
+  .add-child_care-female__form-item--reason input[type=text],
+  .add-maternal_care__form-item--reason input[type=text] {
+    display: inline !important;
+    width: 60%;
+    margin-left: 1rem;
+  }
 }
 .add-deworming__form-item .three-input,
 .add-deworming__form-item .two-input,
@@ -1700,6 +1897,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-maternal_care__form-item .three-input {
   grid-template-columns: 40% 1fr 40%;
 }
+@media (max-width: 45rem) {
+  .add-deworming__form-item .three-input,
+  .add-consultation__form-item .three-input,
+  .add-prenatal__form-item .three-input,
+  .add-postnatal__form-item .three-input,
+  .add-search_destroy__form-item .three-input,
+  .add-early_childhood__form-item .three-input,
+  .add-child_care-male__form-item .three-input,
+  .add-child_care-female__form-item .three-input,
+  .add-maternal_care__form-item .three-input {
+    width: 100%;
+  }
+}
 .add-deworming__form-item .two-input,
 .add-consultation__form-item .two-input,
 .add-prenatal__form-item .two-input,
@@ -1710,6 +1920,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-child_care-female__form-item .two-input,
 .add-maternal_care__form-item .two-input {
   grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 45rem) {
+  .add-deworming__form-item .two-input,
+  .add-consultation__form-item .two-input,
+  .add-prenatal__form-item .two-input,
+  .add-postnatal__form-item .two-input,
+  .add-search_destroy__form-item .two-input,
+  .add-early_childhood__form-item .two-input,
+  .add-child_care-male__form-item .two-input,
+  .add-child_care-female__form-item .two-input,
+  .add-maternal_care__form-item .two-input {
+    width: 100%;
+  }
 }
 .add-deworming__form-item--radio,
 .add-consultation__form-item--radio,
@@ -1734,6 +1957,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .add-deworming__form-item--radio label,
+  .add-consultation__form-item--radio label,
+  .add-prenatal__form-item--radio label,
+  .add-postnatal__form-item--radio label,
+  .add-search_destroy__form-item--radio label,
+  .add-early_childhood__form-item--radio label,
+  .add-child_care-male__form-item--radio label,
+  .add-child_care-female__form-item--radio label,
+  .add-maternal_care__form-item--radio label {
+    margin-bottom: 0.4rem;
+    width: auto;
+  }
+}
 .add-deworming__form-item--radio div,
 .add-consultation__form-item--radio div,
 .add-prenatal__form-item--radio div,
@@ -1745,7 +1982,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-maternal_care__form-item--radio div {
   margin-right: auto;
   margin-left: auto;
-  width: 55%;
+  width: 60%;
+}
+@media (max-width: 45rem) {
+  .add-deworming__form-item--radio div,
+  .add-consultation__form-item--radio div,
+  .add-prenatal__form-item--radio div,
+  .add-postnatal__form-item--radio div,
+  .add-search_destroy__form-item--radio div,
+  .add-early_childhood__form-item--radio div,
+  .add-child_care-male__form-item--radio div,
+  .add-child_care-female__form-item--radio div,
+  .add-maternal_care__form-item--radio div {
+    width: auto;
+  }
 }
 .add-deworming__form-item--radio div label,
 .add-consultation__form-item--radio div label,
@@ -1757,6 +2007,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-child_care-female__form-item--radio div label,
 .add-maternal_care__form-item--radio div label {
   width: unset;
+}
+.add-deworming__form-item--role-item,
+.add-consultation__form-item--role-item,
+.add-prenatal__form-item--role-item,
+.add-postnatal__form-item--role-item,
+.add-search_destroy__form-item--role-item,
+.add-early_childhood__form-item--role-item,
+.add-child_care-male__form-item--role-item,
+.add-child_care-female__form-item--role-item,
+.add-maternal_care__form-item--role-item {
+  flex-direction: unset !important;
 }
 .add-deworming__form-item--checkbox,
 .add-consultation__form-item--checkbox,
@@ -1793,6 +2054,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 60%;
 }
+@media (max-width: 62rem) {
+  .add-deworming__form-item--checkbox div,
+  .add-consultation__form-item--checkbox div,
+  .add-prenatal__form-item--checkbox div,
+  .add-postnatal__form-item--checkbox div,
+  .add-search_destroy__form-item--checkbox div,
+  .add-early_childhood__form-item--checkbox div,
+  .add-child_care-male__form-item--checkbox div,
+  .add-child_care-female__form-item--checkbox div,
+  .add-maternal_care__form-item--checkbox div {
+    width: auto;
+  }
+}
 .add-deworming__form-item--checkbox div label,
 .add-consultation__form-item--checkbox div label,
 .add-prenatal__form-item--checkbox div label,
@@ -1815,6 +2089,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-maternal_care__form-item--textarea label {
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .add-deworming__form-item--textarea label,
+  .add-consultation__form-item--textarea label,
+  .add-prenatal__form-item--textarea label,
+  .add-postnatal__form-item--textarea label,
+  .add-search_destroy__form-item--textarea label,
+  .add-early_childhood__form-item--textarea label,
+  .add-child_care-male__form-item--textarea label,
+  .add-child_care-female__form-item--textarea label,
+  .add-maternal_care__form-item--textarea label {
+    width: auto;
+    margin-bottom: 0.2rem;
+  }
+}
 .add-deworming__form-doses,
 .add-consultation__form-doses,
 .add-prenatal__form-doses,
@@ -1828,6 +2116,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 1rem;
+}
+@media (max-width: 45rem) {
+  .add-deworming__form-doses,
+  .add-consultation__form-doses,
+  .add-prenatal__form-doses,
+  .add-postnatal__form-doses,
+  .add-search_destroy__form-doses,
+  .add-early_childhood__form-doses,
+  .add-child_care-male__form-doses,
+  .add-child_care-female__form-doses,
+  .add-maternal_care__form-doses {
+    display: block;
+  }
 }
 .add-deworming__form-doses input[type=date],
 .add-deworming__form-doses input[type=text],
@@ -1886,6 +2187,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-bottom: unset;
   max-width: 70%;
 }
+@media (max-width: 45rem) {
+  .add-deworming__form-doses .dose-title,
+  .add-consultation__form-doses .dose-title,
+  .add-prenatal__form-doses .dose-title,
+  .add-postnatal__form-doses .dose-title,
+  .add-search_destroy__form-doses .dose-title,
+  .add-early_childhood__form-doses .dose-title,
+  .add-child_care-male__form-doses .dose-title,
+  .add-child_care-female__form-doses .dose-title,
+  .add-maternal_care__form-doses .dose-title {
+    margin-top: 2rem;
+  }
+}
 .add-deworming__form-doses .dose-indication,
 .add-consultation__form-doses .dose-indication,
 .add-prenatal__form-doses .dose-indication,
@@ -1898,6 +2212,66 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   font-size: 0.85rem;
   color: #909087;
   max-width: 70%;
+}
+.add-deworming__form-doses--checkbox,
+.add-consultation__form-doses--checkbox,
+.add-prenatal__form-doses--checkbox,
+.add-postnatal__form-doses--checkbox,
+.add-search_destroy__form-doses--checkbox,
+.add-early_childhood__form-doses--checkbox,
+.add-child_care-male__form-doses--checkbox,
+.add-child_care-female__form-doses--checkbox,
+.add-maternal_care__form-doses--checkbox {
+  justify-content: unset;
+}
+.add-deworming__form-doses--checkbox label,
+.add-consultation__form-doses--checkbox label,
+.add-prenatal__form-doses--checkbox label,
+.add-postnatal__form-doses--checkbox label,
+.add-search_destroy__form-doses--checkbox label,
+.add-early_childhood__form-doses--checkbox label,
+.add-child_care-male__form-doses--checkbox label,
+.add-child_care-female__form-doses--checkbox label,
+.add-maternal_care__form-doses--checkbox label {
+  margin-right: auto;
+  width: 50%;
+}
+.add-deworming__form-doses--checkbox div,
+.add-consultation__form-doses--checkbox div,
+.add-prenatal__form-doses--checkbox div,
+.add-postnatal__form-doses--checkbox div,
+.add-search_destroy__form-doses--checkbox div,
+.add-early_childhood__form-doses--checkbox div,
+.add-child_care-male__form-doses--checkbox div,
+.add-child_care-female__form-doses--checkbox div,
+.add-maternal_care__form-doses--checkbox div {
+  margin-right: auto;
+  width: 60%;
+}
+@media (max-width: 62rem) {
+  .add-deworming__form-doses--checkbox div,
+  .add-consultation__form-doses--checkbox div,
+  .add-prenatal__form-doses--checkbox div,
+  .add-postnatal__form-doses--checkbox div,
+  .add-search_destroy__form-doses--checkbox div,
+  .add-early_childhood__form-doses--checkbox div,
+  .add-child_care-male__form-doses--checkbox div,
+  .add-child_care-female__form-doses--checkbox div,
+  .add-maternal_care__form-doses--checkbox div {
+    width: auto;
+    flex-direction: row;
+  }
+}
+.add-deworming__form-doses--checkbox div label,
+.add-consultation__form-doses--checkbox div label,
+.add-prenatal__form-doses--checkbox div label,
+.add-postnatal__form-doses--checkbox div label,
+.add-search_destroy__form-doses--checkbox div label,
+.add-early_childhood__form-doses--checkbox div label,
+.add-child_care-male__form-doses--checkbox div label,
+.add-child_care-female__form-doses--checkbox div label,
+.add-maternal_care__form-doses--checkbox div label {
+  width: unset;
 }
 .add-deworming__form-btn,
 .add-consultation__form-btn,
@@ -1948,6 +2322,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-child_care-female .contents__list,
 .add-maternal_care .contents__list {
   padding-inline-start: unset;
+}
+@media (max-width: 62rem) {
+  .add-deworming .contents,
+  .add-consultation .contents,
+  .add-prenatal .contents,
+  .add-postnatal .contents,
+  .add-search_destroy .contents,
+  .add-early_childhood .contents,
+  .add-child_care-male .contents,
+  .add-child_care-female .contents,
+  .add-maternal_care .contents {
+    display: none;
+  }
 }
 
 .add-user__desc {
@@ -2043,6 +2430,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   column-gap: 5%;
   grid-template-areas: "form section-link";
 }
+@media (max-width: 62rem) {
+  .edit-profile {
+    display: block;
+  }
+}
 .edit-profile__title {
   margin-top: 0.5rem;
 }
@@ -2085,6 +2477,27 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline;
   width: 50%;
 }
+@media (max-width: 45rem) {
+  .edit-profile__form input[type=date],
+  .edit-profile__form input[type=datetime],
+  .edit-profile__form input[type=datetime-local],
+  .edit-profile__form input[type=email],
+  .edit-profile__form input[type=month],
+  .edit-profile__form input[type=number],
+  .edit-profile__form input[type=password],
+  .edit-profile__form input[type=range],
+  .edit-profile__form input[type=search],
+  .edit-profile__form input[type=tel],
+  .edit-profile__form input[type=text],
+  .edit-profile__form input[type=time],
+  .edit-profile__form input[type=url],
+  .edit-profile__form input[type=week],
+  .edit-profile__form select {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
+  }
+}
 .edit-profile__form input[type=checkbox],
 .edit-profile__form input[type=radio] {
   display: inline;
@@ -2095,6 +2508,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-left: 1rem;
   display: flex;
   align-items: center;
+}
+@media (max-width: 45rem) {
+  .edit-profile__form-item {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .edit-profile__form-item--reason {
+    flex-direction: row;
+  }
+  .edit-profile__form-item--reason input[type=text] {
+    display: inline !important;
+    width: 60%;
+    margin-left: 1rem;
+  }
 }
 .edit-profile__form-item .three-input,
 .edit-profile__form-item .two-input {
@@ -2126,8 +2553,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-profile__form-item .three-input {
   grid-template-columns: 40% 1fr 40%;
 }
+@media (max-width: 45rem) {
+  .edit-profile__form-item .three-input {
+    width: 100%;
+  }
+}
 .edit-profile__form-item .two-input {
   grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 45rem) {
+  .edit-profile__form-item .two-input {
+    width: 100%;
+  }
 }
 .edit-profile__form-item--radio {
   justify-content: unset;
@@ -2136,13 +2573,27 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .edit-profile__form-item--radio label {
+    margin-bottom: 0.4rem;
+    width: auto;
+  }
+}
 .edit-profile__form-item--radio div {
   margin-right: auto;
   margin-left: auto;
-  width: 55%;
+  width: 60%;
+}
+@media (max-width: 45rem) {
+  .edit-profile__form-item--radio div {
+    width: auto;
+  }
 }
 .edit-profile__form-item--radio div label {
   width: unset;
+}
+.edit-profile__form-item--role-item {
+  flex-direction: unset !important;
 }
 .edit-profile__form-item--checkbox {
   justify-content: unset;
@@ -2155,17 +2606,33 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 60%;
 }
+@media (max-width: 62rem) {
+  .edit-profile__form-item--checkbox div {
+    width: auto;
+  }
+}
 .edit-profile__form-item--checkbox div label {
   width: unset;
 }
 .edit-profile__form-item--textarea label {
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .edit-profile__form-item--textarea label {
+    width: auto;
+    margin-bottom: 0.2rem;
+  }
+}
 .edit-profile__form-doses {
   padding-left: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 1rem;
+}
+@media (max-width: 45rem) {
+  .edit-profile__form-doses {
+    display: block;
+  }
 }
 .edit-profile__form-doses input[type=date],
 .edit-profile__form-doses input[type=text] {
@@ -2184,10 +2651,35 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-bottom: unset;
   max-width: 70%;
 }
+@media (max-width: 45rem) {
+  .edit-profile__form-doses .dose-title {
+    margin-top: 2rem;
+  }
+}
 .edit-profile__form-doses .dose-indication {
   font-size: 0.85rem;
   color: #909087;
   max-width: 70%;
+}
+.edit-profile__form-doses--checkbox {
+  justify-content: unset;
+}
+.edit-profile__form-doses--checkbox label {
+  margin-right: auto;
+  width: 50%;
+}
+.edit-profile__form-doses--checkbox div {
+  margin-right: auto;
+  width: 60%;
+}
+@media (max-width: 62rem) {
+  .edit-profile__form-doses--checkbox div {
+    width: auto;
+    flex-direction: row;
+  }
+}
+.edit-profile__form-doses--checkbox div label {
+  width: unset;
 }
 .edit-profile__form-btn {
   margin-block: 3rem;
@@ -2207,12 +2699,22 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-profile .contents__list {
   padding-inline-start: unset;
 }
+@media (max-width: 62rem) {
+  .edit-profile .contents {
+    display: none;
+  }
+}
 
 .edit-bhw {
   display: inline-grid;
   grid-template-columns: auto 20%;
   column-gap: 5%;
   grid-template-areas: "form section-link";
+}
+@media (max-width: 62rem) {
+  .edit-bhw {
+    display: block;
+  }
 }
 .edit-bhw__title {
   margin-top: 0.5rem;
@@ -2256,6 +2758,27 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline;
   width: 50%;
 }
+@media (max-width: 45rem) {
+  .edit-bhw__form input[type=date],
+  .edit-bhw__form input[type=datetime],
+  .edit-bhw__form input[type=datetime-local],
+  .edit-bhw__form input[type=email],
+  .edit-bhw__form input[type=month],
+  .edit-bhw__form input[type=number],
+  .edit-bhw__form input[type=password],
+  .edit-bhw__form input[type=range],
+  .edit-bhw__form input[type=search],
+  .edit-bhw__form input[type=tel],
+  .edit-bhw__form input[type=text],
+  .edit-bhw__form input[type=time],
+  .edit-bhw__form input[type=url],
+  .edit-bhw__form input[type=week],
+  .edit-bhw__form select {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
+  }
+}
 .edit-bhw__form input[type=checkbox],
 .edit-bhw__form input[type=radio] {
   display: inline;
@@ -2266,6 +2789,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-left: 1rem;
   display: flex;
   align-items: center;
+}
+@media (max-width: 45rem) {
+  .edit-bhw__form-item {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .edit-bhw__form-item--reason {
+    flex-direction: row;
+  }
+  .edit-bhw__form-item--reason input[type=text] {
+    display: inline !important;
+    width: 60%;
+    margin-left: 1rem;
+  }
 }
 .edit-bhw__form-item .three-input,
 .edit-bhw__form-item .two-input {
@@ -2297,8 +2834,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-bhw__form-item .three-input {
   grid-template-columns: 40% 1fr 40%;
 }
+@media (max-width: 45rem) {
+  .edit-bhw__form-item .three-input {
+    width: 100%;
+  }
+}
 .edit-bhw__form-item .two-input {
   grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 45rem) {
+  .edit-bhw__form-item .two-input {
+    width: 100%;
+  }
 }
 .edit-bhw__form-item--radio {
   justify-content: unset;
@@ -2307,13 +2854,27 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .edit-bhw__form-item--radio label {
+    margin-bottom: 0.4rem;
+    width: auto;
+  }
+}
 .edit-bhw__form-item--radio div {
   margin-right: auto;
   margin-left: auto;
-  width: 55%;
+  width: 60%;
+}
+@media (max-width: 45rem) {
+  .edit-bhw__form-item--radio div {
+    width: auto;
+  }
 }
 .edit-bhw__form-item--radio div label {
   width: unset;
+}
+.edit-bhw__form-item--role-item {
+  flex-direction: unset !important;
 }
 .edit-bhw__form-item--checkbox {
   justify-content: unset;
@@ -2326,17 +2887,33 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 60%;
 }
+@media (max-width: 62rem) {
+  .edit-bhw__form-item--checkbox div {
+    width: auto;
+  }
+}
 .edit-bhw__form-item--checkbox div label {
   width: unset;
 }
 .edit-bhw__form-item--textarea label {
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .edit-bhw__form-item--textarea label {
+    width: auto;
+    margin-bottom: 0.2rem;
+  }
+}
 .edit-bhw__form-doses {
   padding-left: 1rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 1rem;
+}
+@media (max-width: 45rem) {
+  .edit-bhw__form-doses {
+    display: block;
+  }
 }
 .edit-bhw__form-doses input[type=date],
 .edit-bhw__form-doses input[type=text] {
@@ -2355,10 +2932,35 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-bottom: unset;
   max-width: 70%;
 }
+@media (max-width: 45rem) {
+  .edit-bhw__form-doses .dose-title {
+    margin-top: 2rem;
+  }
+}
 .edit-bhw__form-doses .dose-indication {
   font-size: 0.85rem;
   color: #909087;
   max-width: 70%;
+}
+.edit-bhw__form-doses--checkbox {
+  justify-content: unset;
+}
+.edit-bhw__form-doses--checkbox label {
+  margin-right: auto;
+  width: 50%;
+}
+.edit-bhw__form-doses--checkbox div {
+  margin-right: auto;
+  width: 60%;
+}
+@media (max-width: 62rem) {
+  .edit-bhw__form-doses--checkbox div {
+    width: auto;
+    flex-direction: row;
+  }
+}
+.edit-bhw__form-doses--checkbox div label {
+  width: unset;
 }
 .edit-bhw__form-btn {
   margin-block: 3rem;
@@ -2378,6 +2980,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-bhw .contents__list {
   padding-inline-start: unset;
 }
+@media (max-width: 62rem) {
+  .edit-bhw .contents {
+    display: none;
+  }
+}
 
 .edit-deworming,
 .edit-consultation,
@@ -2391,6 +2998,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   grid-template-columns: auto 20%;
   column-gap: 5%;
   grid-template-areas: "form section-link";
+}
+@media (max-width: 62rem) {
+  .edit-deworming,
+  .edit-consultation,
+  .edit-prenatal,
+  .edit-search_destroy,
+  .edit-early_childhood,
+  .edit-child_care-male,
+  .edit-child_care-female,
+  .edit-maternal_care {
+    display: block;
+  }
 }
 .edit-deworming__title,
 .edit-consultation__title,
@@ -2588,6 +3207,132 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline;
   width: 50%;
 }
+@media (max-width: 45rem) {
+  .edit-deworming__form input[type=date],
+  .edit-deworming__form input[type=datetime],
+  .edit-deworming__form input[type=datetime-local],
+  .edit-deworming__form input[type=email],
+  .edit-deworming__form input[type=month],
+  .edit-deworming__form input[type=number],
+  .edit-deworming__form input[type=password],
+  .edit-deworming__form input[type=range],
+  .edit-deworming__form input[type=search],
+  .edit-deworming__form input[type=tel],
+  .edit-deworming__form input[type=text],
+  .edit-deworming__form input[type=time],
+  .edit-deworming__form input[type=url],
+  .edit-deworming__form input[type=week],
+  .edit-deworming__form select,
+  .edit-consultation__form input[type=date],
+  .edit-consultation__form input[type=datetime],
+  .edit-consultation__form input[type=datetime-local],
+  .edit-consultation__form input[type=email],
+  .edit-consultation__form input[type=month],
+  .edit-consultation__form input[type=number],
+  .edit-consultation__form input[type=password],
+  .edit-consultation__form input[type=range],
+  .edit-consultation__form input[type=search],
+  .edit-consultation__form input[type=tel],
+  .edit-consultation__form input[type=text],
+  .edit-consultation__form input[type=time],
+  .edit-consultation__form input[type=url],
+  .edit-consultation__form input[type=week],
+  .edit-consultation__form select,
+  .edit-prenatal__form input[type=date],
+  .edit-prenatal__form input[type=datetime],
+  .edit-prenatal__form input[type=datetime-local],
+  .edit-prenatal__form input[type=email],
+  .edit-prenatal__form input[type=month],
+  .edit-prenatal__form input[type=number],
+  .edit-prenatal__form input[type=password],
+  .edit-prenatal__form input[type=range],
+  .edit-prenatal__form input[type=search],
+  .edit-prenatal__form input[type=tel],
+  .edit-prenatal__form input[type=text],
+  .edit-prenatal__form input[type=time],
+  .edit-prenatal__form input[type=url],
+  .edit-prenatal__form input[type=week],
+  .edit-prenatal__form select,
+  .edit-search_destroy__form input[type=date],
+  .edit-search_destroy__form input[type=datetime],
+  .edit-search_destroy__form input[type=datetime-local],
+  .edit-search_destroy__form input[type=email],
+  .edit-search_destroy__form input[type=month],
+  .edit-search_destroy__form input[type=number],
+  .edit-search_destroy__form input[type=password],
+  .edit-search_destroy__form input[type=range],
+  .edit-search_destroy__form input[type=search],
+  .edit-search_destroy__form input[type=tel],
+  .edit-search_destroy__form input[type=text],
+  .edit-search_destroy__form input[type=time],
+  .edit-search_destroy__form input[type=url],
+  .edit-search_destroy__form input[type=week],
+  .edit-search_destroy__form select,
+  .edit-early_childhood__form input[type=date],
+  .edit-early_childhood__form input[type=datetime],
+  .edit-early_childhood__form input[type=datetime-local],
+  .edit-early_childhood__form input[type=email],
+  .edit-early_childhood__form input[type=month],
+  .edit-early_childhood__form input[type=number],
+  .edit-early_childhood__form input[type=password],
+  .edit-early_childhood__form input[type=range],
+  .edit-early_childhood__form input[type=search],
+  .edit-early_childhood__form input[type=tel],
+  .edit-early_childhood__form input[type=text],
+  .edit-early_childhood__form input[type=time],
+  .edit-early_childhood__form input[type=url],
+  .edit-early_childhood__form input[type=week],
+  .edit-early_childhood__form select,
+  .edit-child_care-male__form input[type=date],
+  .edit-child_care-male__form input[type=datetime],
+  .edit-child_care-male__form input[type=datetime-local],
+  .edit-child_care-male__form input[type=email],
+  .edit-child_care-male__form input[type=month],
+  .edit-child_care-male__form input[type=number],
+  .edit-child_care-male__form input[type=password],
+  .edit-child_care-male__form input[type=range],
+  .edit-child_care-male__form input[type=search],
+  .edit-child_care-male__form input[type=tel],
+  .edit-child_care-male__form input[type=text],
+  .edit-child_care-male__form input[type=time],
+  .edit-child_care-male__form input[type=url],
+  .edit-child_care-male__form input[type=week],
+  .edit-child_care-male__form select,
+  .edit-child_care-female__form input[type=date],
+  .edit-child_care-female__form input[type=datetime],
+  .edit-child_care-female__form input[type=datetime-local],
+  .edit-child_care-female__form input[type=email],
+  .edit-child_care-female__form input[type=month],
+  .edit-child_care-female__form input[type=number],
+  .edit-child_care-female__form input[type=password],
+  .edit-child_care-female__form input[type=range],
+  .edit-child_care-female__form input[type=search],
+  .edit-child_care-female__form input[type=tel],
+  .edit-child_care-female__form input[type=text],
+  .edit-child_care-female__form input[type=time],
+  .edit-child_care-female__form input[type=url],
+  .edit-child_care-female__form input[type=week],
+  .edit-child_care-female__form select,
+  .edit-maternal_care__form input[type=date],
+  .edit-maternal_care__form input[type=datetime],
+  .edit-maternal_care__form input[type=datetime-local],
+  .edit-maternal_care__form input[type=email],
+  .edit-maternal_care__form input[type=month],
+  .edit-maternal_care__form input[type=number],
+  .edit-maternal_care__form input[type=password],
+  .edit-maternal_care__form input[type=range],
+  .edit-maternal_care__form input[type=search],
+  .edit-maternal_care__form input[type=tel],
+  .edit-maternal_care__form input[type=text],
+  .edit-maternal_care__form input[type=time],
+  .edit-maternal_care__form input[type=url],
+  .edit-maternal_care__form input[type=week],
+  .edit-maternal_care__form select {
+    display: block;
+    width: 100%;
+    margin-top: 0.3rem;
+  }
+}
 .edit-deworming__form input[type=checkbox],
 .edit-deworming__form input[type=radio],
 .edit-consultation__form input[type=checkbox],
@@ -2619,6 +3364,41 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-left: 1rem;
   display: flex;
   align-items: center;
+}
+@media (max-width: 45rem) {
+  .edit-deworming__form-item,
+  .edit-consultation__form-item,
+  .edit-prenatal__form-item,
+  .edit-search_destroy__form-item,
+  .edit-early_childhood__form-item,
+  .edit-child_care-male__form-item,
+  .edit-child_care-female__form-item,
+  .edit-maternal_care__form-item {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .edit-deworming__form-item--reason,
+  .edit-consultation__form-item--reason,
+  .edit-prenatal__form-item--reason,
+  .edit-search_destroy__form-item--reason,
+  .edit-early_childhood__form-item--reason,
+  .edit-child_care-male__form-item--reason,
+  .edit-child_care-female__form-item--reason,
+  .edit-maternal_care__form-item--reason {
+    flex-direction: row;
+  }
+  .edit-deworming__form-item--reason input[type=text],
+  .edit-consultation__form-item--reason input[type=text],
+  .edit-prenatal__form-item--reason input[type=text],
+  .edit-search_destroy__form-item--reason input[type=text],
+  .edit-early_childhood__form-item--reason input[type=text],
+  .edit-child_care-male__form-item--reason input[type=text],
+  .edit-child_care-female__form-item--reason input[type=text],
+  .edit-maternal_care__form-item--reason input[type=text] {
+    display: inline !important;
+    width: 60%;
+    margin-left: 1rem;
+  }
 }
 .edit-deworming__form-item .three-input,
 .edit-deworming__form-item .two-input,
@@ -2741,6 +3521,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-maternal_care__form-item .three-input {
   grid-template-columns: 40% 1fr 40%;
 }
+@media (max-width: 45rem) {
+  .edit-deworming__form-item .three-input,
+  .edit-consultation__form-item .three-input,
+  .edit-prenatal__form-item .three-input,
+  .edit-search_destroy__form-item .three-input,
+  .edit-early_childhood__form-item .three-input,
+  .edit-child_care-male__form-item .three-input,
+  .edit-child_care-female__form-item .three-input,
+  .edit-maternal_care__form-item .three-input {
+    width: 100%;
+  }
+}
 .edit-deworming__form-item .two-input,
 .edit-consultation__form-item .two-input,
 .edit-prenatal__form-item .two-input,
@@ -2750,6 +3542,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female__form-item .two-input,
 .edit-maternal_care__form-item .two-input {
   grid-template-columns: repeat(2, 1fr);
+}
+@media (max-width: 45rem) {
+  .edit-deworming__form-item .two-input,
+  .edit-consultation__form-item .two-input,
+  .edit-prenatal__form-item .two-input,
+  .edit-search_destroy__form-item .two-input,
+  .edit-early_childhood__form-item .two-input,
+  .edit-child_care-male__form-item .two-input,
+  .edit-child_care-female__form-item .two-input,
+  .edit-maternal_care__form-item .two-input {
+    width: 100%;
+  }
 }
 .edit-deworming__form-item--radio,
 .edit-consultation__form-item--radio,
@@ -2772,6 +3576,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .edit-deworming__form-item--radio label,
+  .edit-consultation__form-item--radio label,
+  .edit-prenatal__form-item--radio label,
+  .edit-search_destroy__form-item--radio label,
+  .edit-early_childhood__form-item--radio label,
+  .edit-child_care-male__form-item--radio label,
+  .edit-child_care-female__form-item--radio label,
+  .edit-maternal_care__form-item--radio label {
+    margin-bottom: 0.4rem;
+    width: auto;
+  }
+}
 .edit-deworming__form-item--radio div,
 .edit-consultation__form-item--radio div,
 .edit-prenatal__form-item--radio div,
@@ -2782,7 +3599,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-maternal_care__form-item--radio div {
   margin-right: auto;
   margin-left: auto;
-  width: 55%;
+  width: 60%;
+}
+@media (max-width: 45rem) {
+  .edit-deworming__form-item--radio div,
+  .edit-consultation__form-item--radio div,
+  .edit-prenatal__form-item--radio div,
+  .edit-search_destroy__form-item--radio div,
+  .edit-early_childhood__form-item--radio div,
+  .edit-child_care-male__form-item--radio div,
+  .edit-child_care-female__form-item--radio div,
+  .edit-maternal_care__form-item--radio div {
+    width: auto;
+  }
 }
 .edit-deworming__form-item--radio div label,
 .edit-consultation__form-item--radio div label,
@@ -2793,6 +3622,16 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female__form-item--radio div label,
 .edit-maternal_care__form-item--radio div label {
   width: unset;
+}
+.edit-deworming__form-item--role-item,
+.edit-consultation__form-item--role-item,
+.edit-prenatal__form-item--role-item,
+.edit-search_destroy__form-item--role-item,
+.edit-early_childhood__form-item--role-item,
+.edit-child_care-male__form-item--role-item,
+.edit-child_care-female__form-item--role-item,
+.edit-maternal_care__form-item--role-item {
+  flex-direction: unset !important;
 }
 .edit-deworming__form-item--checkbox,
 .edit-consultation__form-item--checkbox,
@@ -2826,6 +3665,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: auto;
   width: 60%;
 }
+@media (max-width: 62rem) {
+  .edit-deworming__form-item--checkbox div,
+  .edit-consultation__form-item--checkbox div,
+  .edit-prenatal__form-item--checkbox div,
+  .edit-search_destroy__form-item--checkbox div,
+  .edit-early_childhood__form-item--checkbox div,
+  .edit-child_care-male__form-item--checkbox div,
+  .edit-child_care-female__form-item--checkbox div,
+  .edit-maternal_care__form-item--checkbox div {
+    width: auto;
+  }
+}
 .edit-deworming__form-item--checkbox div label,
 .edit-consultation__form-item--checkbox div label,
 .edit-prenatal__form-item--checkbox div label,
@@ -2846,6 +3697,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-maternal_care__form-item--textarea label {
   width: 40%;
 }
+@media (max-width: 45rem) {
+  .edit-deworming__form-item--textarea label,
+  .edit-consultation__form-item--textarea label,
+  .edit-prenatal__form-item--textarea label,
+  .edit-search_destroy__form-item--textarea label,
+  .edit-early_childhood__form-item--textarea label,
+  .edit-child_care-male__form-item--textarea label,
+  .edit-child_care-female__form-item--textarea label,
+  .edit-maternal_care__form-item--textarea label {
+    width: auto;
+    margin-bottom: 0.2rem;
+  }
+}
 .edit-deworming__form-doses,
 .edit-consultation__form-doses,
 .edit-prenatal__form-doses,
@@ -2858,6 +3722,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   margin-bottom: 1rem;
+}
+@media (max-width: 45rem) {
+  .edit-deworming__form-doses,
+  .edit-consultation__form-doses,
+  .edit-prenatal__form-doses,
+  .edit-search_destroy__form-doses,
+  .edit-early_childhood__form-doses,
+  .edit-child_care-male__form-doses,
+  .edit-child_care-female__form-doses,
+  .edit-maternal_care__form-doses {
+    display: block;
+  }
 }
 .edit-deworming__form-doses input[type=date],
 .edit-deworming__form-doses input[type=text],
@@ -2911,6 +3787,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-bottom: unset;
   max-width: 70%;
 }
+@media (max-width: 45rem) {
+  .edit-deworming__form-doses .dose-title,
+  .edit-consultation__form-doses .dose-title,
+  .edit-prenatal__form-doses .dose-title,
+  .edit-search_destroy__form-doses .dose-title,
+  .edit-early_childhood__form-doses .dose-title,
+  .edit-child_care-male__form-doses .dose-title,
+  .edit-child_care-female__form-doses .dose-title,
+  .edit-maternal_care__form-doses .dose-title {
+    margin-top: 2rem;
+  }
+}
 .edit-deworming__form-doses .dose-indication,
 .edit-consultation__form-doses .dose-indication,
 .edit-prenatal__form-doses .dose-indication,
@@ -2922,6 +3810,61 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   font-size: 0.85rem;
   color: #909087;
   max-width: 70%;
+}
+.edit-deworming__form-doses--checkbox,
+.edit-consultation__form-doses--checkbox,
+.edit-prenatal__form-doses--checkbox,
+.edit-search_destroy__form-doses--checkbox,
+.edit-early_childhood__form-doses--checkbox,
+.edit-child_care-male__form-doses--checkbox,
+.edit-child_care-female__form-doses--checkbox,
+.edit-maternal_care__form-doses--checkbox {
+  justify-content: unset;
+}
+.edit-deworming__form-doses--checkbox label,
+.edit-consultation__form-doses--checkbox label,
+.edit-prenatal__form-doses--checkbox label,
+.edit-search_destroy__form-doses--checkbox label,
+.edit-early_childhood__form-doses--checkbox label,
+.edit-child_care-male__form-doses--checkbox label,
+.edit-child_care-female__form-doses--checkbox label,
+.edit-maternal_care__form-doses--checkbox label {
+  margin-right: auto;
+  width: 50%;
+}
+.edit-deworming__form-doses--checkbox div,
+.edit-consultation__form-doses--checkbox div,
+.edit-prenatal__form-doses--checkbox div,
+.edit-search_destroy__form-doses--checkbox div,
+.edit-early_childhood__form-doses--checkbox div,
+.edit-child_care-male__form-doses--checkbox div,
+.edit-child_care-female__form-doses--checkbox div,
+.edit-maternal_care__form-doses--checkbox div {
+  margin-right: auto;
+  width: 60%;
+}
+@media (max-width: 62rem) {
+  .edit-deworming__form-doses--checkbox div,
+  .edit-consultation__form-doses--checkbox div,
+  .edit-prenatal__form-doses--checkbox div,
+  .edit-search_destroy__form-doses--checkbox div,
+  .edit-early_childhood__form-doses--checkbox div,
+  .edit-child_care-male__form-doses--checkbox div,
+  .edit-child_care-female__form-doses--checkbox div,
+  .edit-maternal_care__form-doses--checkbox div {
+    width: auto;
+    flex-direction: row;
+  }
+}
+.edit-deworming__form-doses--checkbox div label,
+.edit-consultation__form-doses--checkbox div label,
+.edit-prenatal__form-doses--checkbox div label,
+.edit-search_destroy__form-doses--checkbox div label,
+.edit-early_childhood__form-doses--checkbox div label,
+.edit-child_care-male__form-doses--checkbox div label,
+.edit-child_care-female__form-doses--checkbox div label,
+.edit-maternal_care__form-doses--checkbox div label {
+  width: unset;
 }
 .edit-deworming__form-btn,
 .edit-consultation__form-btn,
@@ -2968,6 +3911,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female .contents__list,
 .edit-maternal_care .contents__list {
   padding-inline-start: unset;
+}
+@media (max-width: 62rem) {
+  .edit-deworming .contents,
+  .edit-consultation .contents,
+  .edit-prenatal .contents,
+  .edit-search_destroy .contents,
+  .edit-early_childhood .contents,
+  .edit-child_care-male .contents,
+  .edit-child_care-female .contents,
+  .edit-maternal_care .contents {
+    display: none;
+  }
 }
 
 .backup__services {
