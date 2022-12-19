@@ -16,7 +16,7 @@
                     Welcome Back
                 </h1>
                 <p class="login__desc">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Exclusive only for Barangay Health Workers of Brgy. Datu Esmael
                 </p>
 
                 <!-- Error Display -->
