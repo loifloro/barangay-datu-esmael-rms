@@ -1,25 +1,82 @@
 @use '../abstracts' as *;
 
-.backup {
+// .backup {
     
-    &__services {
-        padding-inline-start: unset;
-        margin-top: 1.5rem;
-        display: flex;
+//     &__services {
+//         padding-inline-start: unset;
+//         margin-top: 1.5rem;
+//         display: flex;
         
-        &__item {
-            margin-right: 2rem;
-            color: $black-3;
+//         &__item {
+//             margin-right: 2rem;
+//             color: $black-3;
             
-            &--active {
-                color: $black-1;
-                font-weight: 600;
-            }
-        }
-    }
+//             &--active {
+//                 color: $black-1;
+//                 font-weight: 600;
+//             }
+//         }
+//     }
+
+//     hr {
+//         @include hr;
+//     }
+
+//     &__form {
+//         margin-block: 1rem;
+//         display: flex;
+//         justify-content: end;
+//         gap: 1rem;
+//     }
+// }
+
+.backup {
 
     hr {
-        @include hr;
+        width: 100%;
+        height: .2rem;
+        background-color: $white-3;
+        border: none;
+        z-index: -1;
+
+        margin: 0;
+    }
+
+    &__list {
+        padding-inline-start: .5rem;
+        margin-bottom: .2rem;
+        margin-top: 2rem;
+
+        
+        display: flex;
+        
+        
+        &__item {
+            font-size: 1rem;
+            font-weight: 600;
+            color: $black-3;
+
+            margin-right: 3rem;
+
+            &--active,
+            &:hover,
+            &:focus {
+                color: $green;
+                cursor: pointer;
+                
+                &::after {
+                    content: '';
+                    display: block;
+                    width: 100%;
+                    height: .2rem;
+                    background-color: $green;
+                    
+                    position: relative;
+                    top: .4rem;
+                }
+            }
+
+        }
     }
 
     &__form {
@@ -28,4 +85,14 @@
         justify-content: end;
         gap: 1rem;
     }
+
+    &__attributes__item > * {
+        display: inline;
+        vertical-align: middle;
+    }
+
+    &__option > * {
+        margin-left: 1.5rem;
+    }
+
 }

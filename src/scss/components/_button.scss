@@ -57,6 +57,27 @@ button {
     
     }
 
+.sort-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    display: inline;
+
+    path {
+        fill: $black-3;
+    }
+
+    &:hover, 
+    &:focus, 
+    &:active {
+        cursor: pointer;
+        
+        path {
+            fill: $black-2;
+        }
+    }
+}
+
 .delete-icon,
 .archive-icon {
     path {

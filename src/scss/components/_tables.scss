@@ -59,7 +59,7 @@
         &__row {
             display: grid;
             // grid-template-columns: repeat(5, minmax(80px, 1fr));
-            grid-template-columns: auto 15% 10% 15% 15% 10%;
+            grid-template-columns: auto 15% 10% 15% 10% 15%;
             column-gap: 1rem;
             padding-inline-start: unset;
             padding: 1rem 1.5rem;
