@@ -1,3 +1,7 @@
+<?php
+session_start();
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -139,7 +143,7 @@
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="add_query.php" method="POST" class="add-early_childhood__form">
+            <form action="../includes/add_query.php" method="POST" class="add-early_childhood__form">
 
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-clinic">Clinic/Health Center</label>
@@ -523,3 +527,10 @@
     </main>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

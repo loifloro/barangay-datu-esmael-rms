@@ -138,7 +138,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="add_query.php" method="POST" class="add-deworming__form">
+            <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
 
                 <div class="add-deworming__form-item">
                     <label for="deworming-date">Date</label>
