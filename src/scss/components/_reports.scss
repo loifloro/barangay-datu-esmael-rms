@@ -1,0 +1,57 @@
+@use '../abstracts' as *;
+
+.deworming-report {
+        &__table {
+            @include card(none);
+            width: 100vw;
+
+            &__row {
+                display: grid;
+                // grid-template-columns: repeat(5, minmax(80px, 1fr));
+                // grid-template-columns: repeat(8, auto);
+                grid-template-columns: 1fr repeat(3, 10%) 1fr 10%;
+                padding-inline-start: unset;
+                padding: 1rem 1.5rem;
+                margin-block: 0;
+            }
+        }
+        
+
+        &__header {
+            color: $black-3;
+
+        }
+
+        &__item {
+            background: $white-2;
+            border-radius: 0 0 1vw 1vw;
+        }
+}
+
+.search-and-destroy-report {
+        &__table {
+            @include card(none);
+            width: 100vw;
+
+            &__row {
+                display: grid;
+                // grid-template-columns: repeat(5, minmax(80px, 1fr));
+                // grid-template-columns: repeat(8, auto);
+                grid-template-columns: auto 10% 10% 10% 10% 10%;
+                padding-inline-start: unset;
+                padding: 1rem 1.5rem;
+                margin-block: 0;
+            }
+        }
+        
+
+        &__header {
+            color: $black-3;
+
+        }
+
+        &__item {
+            background: $white-2;
+            border-radius: 0 0 1vw 1vw;
+        }
+}
