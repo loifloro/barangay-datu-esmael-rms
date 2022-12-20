@@ -19,7 +19,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -29,7 +29,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="patients.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -39,7 +39,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="tutorial.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Tutorial" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -49,7 +49,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="back-up.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -60,7 +60,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </li>
             <hr class="sidebar__line" />
             <li class="sidebar__item sidebar__item--active">
-                <a href="" class="sidebar__link">
+                <a href="services-consultation.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -70,7 +70,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <li class="sidebar__item">
-                    <a href="" class="sidebar__link">
+                    <a href="dashboard-masterlist.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -79,8 +79,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Masterlist</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--margin-top">
-                <a href="" class="sidebar__link">
+            <li class="sidebar__item sidebar__item--margin-top"> <!--href link added-->
+                <a href="user-profile.php" class="sidebar__link">
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -100,7 +100,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="logout.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
