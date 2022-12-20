@@ -1,7 +1,7 @@
 <!-- Deworming - report -->
 
 
-<div id='deworming-modal' class="modal deworming-report__table">
+<div id='deworming-modal<?= $patient['deworming_id']; ?>' class="modal deworming-report__table">
             <ul class="deworming-report__table__row deworming-report__header" role="list">
                 <li class="deworming-report__table__item">
                     Name
@@ -22,6 +22,7 @@
                     Date Availed
                 </li>
             </ul>
+    
             <ul class="deworming-report__table__row deworming-report__item" role="list">
                 <li class="deworming-report__table__item">
                     <?= $patient['firstname']." " . $patient['lastname']; ?>
@@ -42,6 +43,7 @@
                     <?= $patient['deworming_date']; ?>
                 </li>
             </ul>
+            
 </div>
 
 
