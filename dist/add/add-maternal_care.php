@@ -507,13 +507,32 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-maternal_care__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="add_maternal_list"> <!--added name-->
+                    <button type="submit" class="btn-green btn-add" name="add_maternal_list" onclick="return  confirm('Do you want to add this record?')"> <!--added name-->
                         Add
                     </button>
-                    <button class="btn-red btn-cancel">
+                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>
+                <!-- Query to get the user session name -->
+                <?php 
+                    include '../includes/connection.php';
+                    $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        foreach($query_run as $user){
+                ?>
+
+                 <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                 <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                 <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+
+                <?php
+                    }
+                    }
+                ?> 
+                 <!-- END OF QUERY -->
             </form>
         </section>
 

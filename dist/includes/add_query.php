@@ -12,15 +12,42 @@ if(isset($_POST['save_bhw'])){
     $date_added = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO account_information 
-              (phone_num, password, position, date_registered) 
+              (firstname, phone_num, password, sex, position, date_registered) 
               VALUES 
-              ('$phone_num', '$password', '$position', '$date_added')";
+              ('N/A', '$phone_num', '$password', 'N/A', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE BHW
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['bhw-contact']);
+        // $patient_lname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, record_name)
+                VALUES 
+                ('New BHW', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', 'BHW')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../user-profile.php");
+            exit(0);}
+        //END OF QUERY
+        
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../user-profile.php");
-        exit(0);
+        // header("Location: ../user-profile.php");
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -50,9 +77,36 @@ if(isset($_POST['save_deworming'])){
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE DEWORMING
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Deworming')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-consultation.php");
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-consultation.php");
-        exit(0);
+        // header("Location: ../services-consultation.php");
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -86,13 +140,40 @@ if(isset($_POST['save_consultation'])){
     $query = "INSERT INTO consultation 
               (consultation_date, lastname, firstname, middlename, age, sex, birthdate, street_address, barangay, city, phone_number, symptoms, blood_pressure, weight, abnormal, prescriptions, label) 
               VALUES 
-              ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', '$symptomps', '$blood_pressure', '$weight', '$abnormal', '$prescriptions', 'Consultation')";
+              ('$consultation_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', '$symptomps', '$blood_pressure', '$weight', '$abnormal', '$prescriptions', 'Consultation')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE CONSULTATION
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['consultation-fname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['consultation-lname']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Consultation')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-consultation.php");
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-consultation.php");
-        exit(0);
+        // header("Location: ../services-consultation.php");
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -141,9 +222,36 @@ if(isset($_POST['save_prenatal'])){
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+         // QUERY TO RECENT UPDATE PRENATAL
+         $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+ 
+         // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+         $date = date('Y-m-d');
+         $time = date('H:i:s');
+ 
+         $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
+         $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
+         
+ 
+         $query2 = "INSERT INTO recent_activity 
+                 (reasons, user_fname, user_lname, user_role, changes_label, 
+                 date_edit, time_edit, patient_fname, patient_lname, record_name)
+                 VALUES 
+                 ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                 '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
+ 
+         $query_run2 = mysqli_query($conn, $query2);
+         if($query_run2){
+             header("Location: ../services-consultation.php");
+             exit(0);}
+         //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-consultation.php");
-        exit(0);
+        // header("Location: ../services-consultation.php");
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -192,9 +300,36 @@ if(isset($_POST['save_postnatal'])){
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE POSTNATAL
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['postnatal-fname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Postnatal')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-consultation.php");
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-consultation.php");
-        exit(0);
+        // header("Location: ../services-consultation.php");
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -223,9 +358,36 @@ if(isset($_POST['save_search_destroy'])){
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE SEARCH AND DESTROY
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['search_destroy-owner']);
+        // $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', 'Search/Destroy')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-consultation.php");
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-consultation.php");
-        exit(0);
+        // header("Location: ../services-consultation.php");
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -329,9 +491,36 @@ if(isset($_POST['save_early_childhood'])){
               
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE EARLY CHILDHOOD
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['early_childhood-childname']);
+        // $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', 'Childhood Care')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-consultation.php");
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-consultation.php");
-        exit(0);
+        // header("Location: ../services-consultation.php");
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -416,9 +605,36 @@ if(isset($_POST['add_maternal_list'])){ //no page yet for this query
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE TARGET MATERNAL CARE
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['maternal_care-first-name']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['maternal_care-last-name']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Target Maternal Care')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-target_list.php"); //temporary destination
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        exit(0);
+        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -535,9 +751,36 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE TARGET CHILDCARE MALE
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['child_care-male-first-name']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['child_care-male-last-name']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Target Childcare Male')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-target_list.php"); //temporary destination
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        exit(0);
+        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
@@ -655,9 +898,36 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+
+        // QUERY TO RECENT UPDATE TARGET CHILDCARE FEMALE
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['child_care-female-first-name']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['child_care-female-last-name']);
+        
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Target Childcare Female')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if($query_run2){
+            header("Location: ../services-target_list.php"); //temporary destination
+            exit(0);}
+        //END OF QUERY
+
         // $_SESSION['message'] = "Student Created Successfully";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        exit(0);
+        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        // exit(0);
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
