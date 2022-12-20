@@ -722,19 +722,19 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
                 <!-- Radio Buttons -->
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-wrong-address">
+                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address">
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">
@@ -748,10 +748,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="edit-child_care-female__form-btn">
-                    <button type="submit" class="btn-green btn-save" name="edit_childcare_female"> <!--name added-->
+                    <button type="submit" class="btn-green btn-save" name="edit_childcare_female" onclick="return  confirm('Do you want to edit this record?')"> <!--name added-->
                         Save
                     </button>
-                    <button class="btn-red btn-cancel">
+                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>
@@ -763,6 +763,24 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     }
                     }
                  ?>
+                 <!-- Query to get the user session name -->
+                <?php 
+                    include '../includes/connection.php';
+                    $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        foreach($query_run as $user){
+                ?>
+
+                 <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                 <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                 <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+
+                <?php
+                    }
+                    }
+                ?> 
                  <!-- END OF QUERY -->
             </form>
         </section>

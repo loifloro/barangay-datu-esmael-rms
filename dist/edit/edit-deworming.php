@@ -241,7 +241,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <div class="edit-deworming__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
-                    <input type="text" name="patient-others" id="patient-others" value="Others">
+                    <input type="text" name="patient-others" id="patient-others">
                 </div>
                 
 
@@ -249,10 +249,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="edit-deworming__form-btn">
-                    <button type="submit" class="btn-green btn-save" name="edit_deworming">
+                    <button type="submit" class="btn-green btn-save" name="edit_deworming" onclick="return  confirm('Do you want to edit this record?')">
                         Save
                     </button>
-                    <button class="btn-red btn-cancel">
+                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>
@@ -276,6 +276,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
                  <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
                  <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                 <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
 
                 <?php
                     }

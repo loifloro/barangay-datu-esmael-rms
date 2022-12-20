@@ -223,19 +223,19 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
                 <!-- Radio Buttons -->
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-wrong-editress">
+                    <input type="radio" name="edit-reason" id="patient-wrong-editress" value="Wrong address">
                     <label for="patient-mispelled">Wrong address</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">
@@ -248,10 +248,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="edit-search_destroy__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="edit_search_destroy">
+                    <button type="submit" class="btn-green btn-add" name="edit_search_destroy" onclick="return  confirm('Do you want to edit this record?')">
                         Save
                     </button>
-                    <button class="btn-red btn-cancel">
+                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>
@@ -263,6 +263,25 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     }
                     }
                  ?>
+                 <!-- Query to get the user session name -->
+                <?php 
+                    include '../includes/connection.php';
+                    $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        foreach($query_run as $user){
+                ?>
+
+                 <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                 <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                 <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+
+                <?php
+                    }
+                    }
+                ?> 
+                 <!-- QUERY END -->
             </form>
         </section>
 

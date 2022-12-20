@@ -238,7 +238,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
                 <!-- Buttons -->
                 <div class="edit-bhw__form-btn">
-                    <button type="submit" class="btn-green btn-save" name="edit_bhw">
+                    <button type="submit" class="btn-green btn-save" name="edit_bhw" onclick="return  confirm('Do you want to edit this account?')"> <!--onclick added-->
                         Save
                     </button>
                     <button class="btn-red btn-cancel">
