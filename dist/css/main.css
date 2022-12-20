@@ -1210,6 +1210,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: 0.3rem 1rem;
   border-radius: 100vw;
 }
+.backup__option > * {
+  margin-left: 1.5rem;
+}
 
 .bhw-account {
   margin-bottom: 5rem;
@@ -1290,6 +1293,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .services__btn {
   float: inline-end;
+  margin-block: 1rem;
 }
 
 .grid {
@@ -4009,9 +4013,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .backup__attributes__item > * {
   display: inline;
   vertical-align: middle;
-}
-.backup__option > * {
-  margin-left: 1.5rem;
 }
 
 .user-profile hr {

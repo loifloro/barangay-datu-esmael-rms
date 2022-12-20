@@ -96,6 +96,9 @@
         border-radius: 100vw;
     }
 
+    &__option > * {
+        margin-left: 1.5rem;
+    }
 }
 
 .bhw-account {
@@ -191,6 +194,7 @@
 
     &__btn {
         float: inline-end;
+        margin-block: 1rem;
     }
 
 }
