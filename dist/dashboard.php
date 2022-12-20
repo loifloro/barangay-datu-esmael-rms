@@ -211,14 +211,33 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <img class="editor__img"
                          src=""
                          alt="">
+                    <!-- Start Query -->
+                    <?php 
+                            include 'includes/connection.php';
+                            $query = "SELECT * FROM recent_activity ORDER BY recent_activity_id DESC LIMIT 3";
+                            $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                foreach($query_run as $user)
+                            {
+                    ?>     
                     <p class="editor__details">
                         <span class="editor__name">
-                            John Lois Floro
+                            <?= $user['user_fname']." ". $user['user_lname']; ?>
                         </span>
-                        <span class="editor__action editor__action--edited">edited </span>
-                        <span class="editor__subject">John Lois Floro’s profile</span> on 
-                        <span class="editor__date">January 15, 2000</span>
+                        <span class="editor__action editor__action--edited"><?= $user['changes_label']; ?> </span>
+                        <span class="editor__subject"><?= $user['patient_fname']." " . $user['patient_lname'] ." ". $user['record_name']; ?> record</span> on 
+                        <span class="editor__date"><?= $user['date_edit']; ?></span>
                     </p>
+                    <?php
+                            }
+                            }
+                            else
+                            {
+                                echo "<h5> No Record Found </h5>";
+                            }
+                    ?>  
+                    <!-- End Query -->
                 </div>
                 <p class="recent-updates__btn">
                     <a href="" class="recent-updates__btn">View All</a>
