@@ -11,7 +11,13 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
-    <title>Document</title>
+
+    <!-- jQuery-Modal -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-modal/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/jquery-modal/jquery.modal.min.css">
+
+    <title>Services</title>
 </head>
 
 <body class="grid">
@@ -168,7 +174,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <svg class='sort-icon' xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
-                    Contact Number
+                    Age
                     <svg class='sort-icon' xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
@@ -195,11 +201,13 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             ?>
             <!-- To be put in the loop -->
             <ul class="services__table__row services__info" role="list">
-                
+                <!-- Modal Trigger -->
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p><?= $patient['firstname']." " . $patient['lastname']; ?></p>
+                        <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname']." " . $patient['lastname']; ?></a>
+                        <?php include('./includes/reports/deworming.php'); ?>
                 </li>
+                <!-- End of Modal Trigger -->
                 <li class="services__num">
                     <?= $patient['age']; ?>
                 </li>
@@ -230,24 +238,25 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </div>
         <!-- End Tab for Deworming -->
 
-
         <!-- Start Tab for Consultation -->
         <div class="services__table" id="Consultation">
-            <ul class="services__table__row services__header" role="list" >
+            <ul class="services__table__row services__header" role="list">
                 <li class="services__attributes__item">
                     <input type="checkbox" name="" id="" class="services__checkbox">
                     <p>Name</p>
+                    <svg class='sort-icon' xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
-                    Contact Number
+                    Age
+                    <svg class='sort-icon' xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
                     Sex
-                    <!-- Put SVG here -->
+                    <svg class='sort-icon' xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
                     Date Availed
-                    <!-- Put SVG here -->
+                    <svg class='sort-icon' xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li>
 
@@ -297,7 +306,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </button>
         </div>
         <!-- End Tab for Consultation -->
-
 
         <!-- Start Tab for Pre-Natal -->
         <div class="services__table" id="Pre-Natal">
@@ -367,7 +375,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </div>
         <!-- End Tab for Pre-Natal -->
 
-
         <!-- Start Tab for Post-Natal -->
         <div class="services__table" id="Post-Natal">
             <ul class="services__table__row services__header" role="list" >
@@ -435,7 +442,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </div>
         <!-- End Tab for Post-Natal -->
 
-
         <!-- Start Tab for Search and Destroy -->
         <div class="services__table" id="Search and Destroy">
             <ul class="services__table__row services__header" role="list" >
@@ -444,10 +450,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <p>Name of Owner</p>
                 </li>
                 <li class="services__attributes__item">
-                    Block
+                    Container Num
                 </li>
                 <li class="services__attributes__item">
-                    Container Num
+                    Block
                     <!-- Put SVG here -->
                 </li>
                 <li class="services__attributes__item">
@@ -472,13 +478,13 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             <ul class="services__table__row services__info" role="list">
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p><?= $patient['owner_name']; ?></p>
+                    <a href="#search-and-destroy-modal" rel="modal:open"><?= $patient['owner_name']; ?></a>
                 </li>
                 <li class="services__num">
-                    <?= $patient['block']; ?>
+                    <?= $patient['container_num']; ?>
                 </li>
                 <li class="services__sex">
-                    <?= $patient['container_num']; ?>
+                    <?= $patient['block']; ?>
                 </li>
                 <li class="services__date--availed">
                     <?= $patient['date_visit']; ?>
@@ -503,7 +509,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </div>
         <!-- End Tab for Search and Destroy -->
         
-
         <!-- Start Tab for Early Childhood -->
         <div class="services__table" id="Childhood Care">
             <ul class="services__table__row services__header" role="list" >
@@ -571,6 +576,17 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </div>
         <!-- End Tab for Search and Destroy -->
 
+        
+
+
+        <!-- <p><a href="#ex1" rel="modal:open">Open Modal</a></p> -->
+
+
+        <!-- Modal link for deworming report -->
+        <?php 
+            // include('./includes/reports/deworming.php');
+            include('./includes/reports/search-and-destroy.php');
+        ?> 
 
     </section>
     </main>
@@ -596,7 +612,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <!-- End of Scripting -->
     
 </body>
-
 </html>
 
 <?php

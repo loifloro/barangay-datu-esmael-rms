@@ -96,6 +96,9 @@
         border-radius: 100vw;
     }
 
+    &__option > * {
+        margin-left: 1.5rem;
+    }
 }
 
 .bhw-account {
@@ -175,6 +178,11 @@
             vertical-align: middle;
             display: inline;
         }
+
+        a {
+            font: unset;
+            color: unset;
+        }
     }
 
 
@@ -190,7 +198,8 @@
     }
 
     &__btn {
-        float: inline-end;
+        float: right;
+        margin-block: 1rem;
     }
 
 }
