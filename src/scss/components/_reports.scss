@@ -28,7 +28,9 @@
         }
 }
 
-.search-and-destroy-report {
+.search-and-destroy {
+
+    &__record {
         &__table {
             @include card(none);
             width: 100vw;
@@ -37,7 +39,7 @@
                 display: grid;
                 // grid-template-columns: repeat(5, minmax(80px, 1fr));
                 // grid-template-columns: repeat(8, auto);
-                grid-template-columns: auto 10% 10% 10% 10% 10%;
+                grid-template-columns: 1fr 20% 20% 20% 15%;
                 padding-inline-start: unset;
                 padding: 1rem 1.5rem;
                 margin-block: 0;
@@ -54,4 +56,67 @@
             background: $white-2;
             border-radius: 0 0 1vw 1vw;
         }
+    }
+
+    &__report {
+        padding-block: 5vw !important;
+        padding-inline: 8vw !important;
+
+        &__title {
+            text-align: center;
+            color: $black-1;
+            font-weight: 600;
+        }
+
+        &__summary {
+            padding-inline-start: unset;
+            color: $black-2;
+        }
+
+        table, td, th {
+            border: 2px solid  $active-green;
+        }
+
+        &__table {
+            width: 100%;
+            border: 1px solid;
+            border-collapse: collapse;
+
+            &__header {
+                font-size: .85rem;
+                color: $black-3;
+            }
+
+
+            thead > tr > th {
+                font-weight: 300;
+            }
+
+            tr,
+            th {
+                width: 20%;
+            }
+            
+            td,
+            th {
+                padding-left: .5rem;
+                line-height: 1.6;
+            }
+
+            td {
+                color: $black-2;
+            }
+
+            &--date {
+                width: 15% !important;
+            }
+        }
+    }
+
+}
+
+
+@page { 
+    size: auto;  
+    margin: 0mm; 
 }
