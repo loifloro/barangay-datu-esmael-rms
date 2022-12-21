@@ -45,36 +45,46 @@
 
     
     <ul class="search-and-destroy__report__summary" role="list">
-        <li class="search-and-destroy__report__summary__item">Name of Barangay Visited: </li>
+        <li class="search-and-destroy__report__summary__item">Name of Barangay Visited: 
+            <span class="search-and-destroy__report__summary--value">
+                Datu Esmael
+            </span> 
+        </li>
         <!-- START QUERY -->
         <?php
-                $query = "SELECT
-                        count(*) AS total, 
-                        sum(total_positive_larva) AS total_p 
-                        FROM search_destroy";
+                $query = "SELECT count(*) AS total, sum(total_positive_larva) AS total_p FROM search_destroy";
                 $result = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_array($result)) {  
         ?>
-        <li class="search-and-destroy__report__summary__item">Total No. of Household Visited: <?php echo $row['total'] ?></li>
-        <li class="search-and-destroy__report__summary__item">Total No. of Household Positive for Larva: <?php echo $row['total_p']; ?></li>
+        <li class="search-and-destroy__report__summary__item">Total No. of Household Visited: <span class="search-and-destroy__report__summary--value"><?php echo $row['total'] ?></span></li>
+        <li class="search-and-destroy__report__summary__item">Total No. of Household Positive for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['total_p']; ?></span></li>
        
         <?php
         }
         ?>
         <!-- END QUERY -->
-        <?php 
+        <li class="search-and-destroy__report__summary__item">
+            Purok/Block Coverage: 
+
+            <span class="search-and-destroy__report__summary--value">
+
+                <?php 
                     include 'includes/connection.php';
                     $query = "SELECT * FROM search_destroy";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
                         foreach($query_run as $patient) // PROBLEM
-                    {
-        ?>
-        <li class="search-and-destroy__report__summary__item">Purok/Block Coverage: <?= $patient['block']; ?></li> <!--not yet fix-->
-        <?php 
+                        {
+                            ?>
+            
+            <?= $patient['block'] . '. '; ?>
+            
+            <?php 
                     }}
-        ?>                
+                    ?>                
+            </span>
+        </li> <!--not yet fix-->
     </ul>
     
 
