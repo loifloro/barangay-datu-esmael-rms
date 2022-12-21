@@ -1375,6 +1375,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .search-and-destroy__report__summary {
   padding-inline-start: unset;
   color: #414134;
+  font-size: 0.9rem;
+}
+.search-and-destroy__report__summary--value {
+  color: #212529;
+  font-weight: 700;
+  font-size: initial;
 }
 .search-and-destroy__report table, .search-and-destroy__report td, .search-and-destroy__report th {
   border: 2px solid #ECFCF2;
