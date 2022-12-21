@@ -22,7 +22,7 @@
                 </a>
             </li>
             <li class="sidebar__item sidebar__item--active">
-                <a href="" class="sidebar__link">
+                <a href="patients.php" class="sidebar__link">
                     <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -135,6 +135,37 @@
             Profile
         </h2>
         <section class="patient-profile__card">
+            <!-- Start QUERY -->
+            <?php 
+                include 'includes/connection.php';
+                if(isset($_GET['id']))
+                        {
+                            $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                            $query = "SELECT deworming_id, firstname, lastname, sex, deworming_date, label FROM deworming WHERE deworming_id ='$patient_id'
+                            UNION ALL 
+                            SELECT consultation_id, firstname, lastname, sex, consultation_date, label FROM consultation WHERE consultation_id ='$patient_id'
+                            UNION ALL 
+                            SELECT prenatal_id, firstname , lastname, sex, prenatal_date, label FROM prenatal WHERE prenatal_id ='$patient_id'
+                            UNION ALL 
+                            SELECT postnatal_id, firstname, lastname, sex, postnatal_date, label FROM postnatal WHERE postnatal_id ='$patient_id'
+                            UNION ALL 
+                            SELECT search_destroy_id, owner_name, block, barangay, date_visit, label FROM search_destroy WHERE search_destroy_id ='$patient_id'
+                            UNION ALL 
+                            SELECT early_childhood_id, child_name, mother_name, sex, child_birthdate, label FROM early_childhood WHERE early_childhood_id ='$patient_id'
+                            UNION ALL 
+                            SELECT target_childcare_female_id, child_firstname, child_lastname, sex, birthday, label FROM target_childcare_female WHERE target_childcare_female_id ='$patient_id'
+                            UNION ALL 
+                            SELECT target_childcare_male_id, child_firstname, child_lastname, sex, birthday, label FROM target_childcare_male WHERE target_childcare_male_id ='$patient_id'
+                            UNION ALL 
+                            SELECT target_maternal_id, firstname, lastname, middle_initial, date_registered, label FROM target_maternal WHERE target_maternal_id ='$patient_id'
+                            ";
+
+                            $query_run = mysqli_query($conn, $query);
+
+                            if(mysqli_num_rows($query_run) > 0)
+                            {
+                                $patient = mysqli_fetch_array($query_run);
+            ?>
             <ul class="patient-profile__list" role="list">
                 <!-- photo, name, patient-id, contact number -->
                 <ul class="patient-profile__item patient-profile__list--center" role="list">
@@ -147,7 +178,7 @@
                         #001
                     </li>
                     <li class="patient-profile__name h5">
-                        Arianne Quimpo
+                        <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </li>
                     <li class="patient-profile__contact">
                         093454566754
@@ -206,6 +237,14 @@
                     </li>
                 </ul>
             </ul>
+            <?php
+                    }
+                    }
+                    else
+                    {
+                        echo "<h5> No Record Found </h5>";
+                    }
+            ?>   
         </section>
 
         <!-- Medical History -->
