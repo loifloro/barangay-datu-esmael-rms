@@ -71,6 +71,13 @@
         &__summary {
             padding-inline-start: unset;
             color: $black-2;
+            font-size: .9rem;
+
+            &--value {
+                color: $black-1;
+                font-weight: 700;
+                font-size: initial;
+            }
         }
 
         table, td, th {
