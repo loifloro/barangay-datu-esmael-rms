@@ -1,14 +1,20 @@
 @use '../abstracts' as *;
 
+@page { 
+    size: auto;  
+    margin: 0mm; 
+    // font-size: .5rem;
+}
 
 @media print {
     body {
+        margin: unset;
     }
     
     .modal {
-        font-size: 12px !important;
+        font-size: 12pt !important;
         box-shadow: none !important;
-        width: 100% !important;
+        width: 100vw !important;
         height: 100vh;
 
     }
@@ -34,6 +40,16 @@
 
     abbr {
         text-decoration: none;
+    }
+
+    p,
+    span {
+        font-size: 10pt !important;
+    }
+
+    .value {
+        border-bottom: 1pt solid $black-1;
+
     }
 
 }
