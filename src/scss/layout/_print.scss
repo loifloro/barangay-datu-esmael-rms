@@ -3,11 +3,10 @@
 
 @media print {
     body {
-        // display: none !important;
-        // width: 100vw !important;
     }
-
+    
     .modal {
+        font-size: 12px !important;
         box-shadow: none !important;
         width: 100% !important;
         height: 100vh;
@@ -31,6 +30,10 @@
 
     table, td, th {
         border: 2px solid rgba(0, 0, 0, 0.719) !important;
+    }
+
+    abbr {
+        text-decoration: none;
     }
 
 }
