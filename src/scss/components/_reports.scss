@@ -122,8 +122,129 @@
 
 }
 
+.prenatal__report {
+
+
+    padding-block: 5vw !important;
+    padding-inline: 8vw !important;
+
+    &__title {
+        text-align: center;
+        color: $black-1;
+        font-weight: 600;
+        text-transform: uppercase;
+        line-height: 1.1;
+    }
+
+    &__city {
+        text-align: center;
+        // font-size: 1.2rem;
+        // text-transform: ;
+    }
+
+    &__subtitle {
+        text-align: center;
+    }
+
+    &__patient-record {
+        margin-bottom: unset;
+    }
+
+    &__personal-info {
+        text-transform: uppercase;
+        margin-block: 1.5rem;
+
+        display: grid;
+        grid-template-columns: 1fr 15% 30%;
+        grid-template-rows: 1fr 1fr 1fr;
+
+        grid-template-areas: 
+            "name age bday"
+            "address address phone";
+
+        &__name {
+            grid-area: name;
+        }
+
+        &__age {
+            grid-area: age;
+        }
+
+        &__bday {
+            grid-area: bday;
+        }
+
+        &__address {
+            grid-area: address;
+        }
+
+        &__phone {
+            grid-area: phone;
+        }
+
+    }
+
+    .padding-left {
+        padding-left: 2rem;
+    }
+
+    &__bmi {
+        display: flex;
+
+        
+        & > * {
+            margin-right: auto;
+        }
+    }
+
+    &__ob {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: space-evenly;
+        // width: 90%;
+    }
+
+    &__ob-title {
+        display: inline;
+        margin-block: unset;
+    }
+
+    &__ob__gp {
+        display: flex;
+        // justify-content: space-evenly;
+        width: 70%;
+        
+        & > * {
+            margin-right: auto;
+        }   
+    }
+
+    .value {
+        color: $black-1;
+        font-weight: 600;
+        font-size: 1.2rem;
+        // text-decoration: underline;
+        border-bottom: 1px solid $black-1;
+        padding-bottom: 2px;
+    }
+
+    &__signature {
+        float: right;
+    }
+    
+    
+}
+
+.block,
+.center {
+    display: grid;
+    justify-content: center;
+    // text-align: center;
+}
+
 
 @page { 
     size: auto;  
     margin: 0mm; 
+    font-size: .5rem;
 }
