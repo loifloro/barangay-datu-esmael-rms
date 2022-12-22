@@ -616,6 +616,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         foreach($query_run as $patient)
                     {
                 ?>
+                
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">

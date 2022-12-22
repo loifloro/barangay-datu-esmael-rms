@@ -10,6 +10,7 @@
 
                 if(mysqli_num_rows($query_run) > 0){
                     $patient = mysqli_fetch_array($query_run);
+                    
         ?>
     <ul class="patient-profile__list" role="list">
         <!-- photo, name, patient-id, contact number -->

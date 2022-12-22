@@ -188,14 +188,13 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     if(mysqli_num_rows($query_run) > 0){
                         $patient = mysqli_fetch_array($query_run);
                         include('includes/patient_profile/profile_postnatal.php');
-                        }
-
+                        } 
                 }
                 //SEARCH AND DESTROY
                 if(($patient_label == "Search and Destroy") AND (isset($_GET['id']))){
                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
                     $query = "SELECT * FROM search_destroy WHERE search_destroy_id='$patient_id'";
-                    $query_run = mysqli_query($conn, $query);
+                    $query_run = mysqli_query($conn, $query); 
 
                     if(mysqli_num_rows($query_run) > 0){
                         $patient = mysqli_fetch_array($query_run);
