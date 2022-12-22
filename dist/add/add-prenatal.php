@@ -209,7 +209,11 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <p class="add-prenatal__desc">
                     Fill up necessary information to complete the process
                 </p>
-                
+                <div class="add-prenatal__form-item">
+                    <label for="prenatal-symptoms">Symptoms</label>
+                    <textarea name="prenatal-symptoms" id="prenatal-symptoms" cols="27" rows="10"></textarea>
+                </div>
+
                 <div class="add-prenatal__form-doses">
                     <div class="add-prenatal__form-label">
                         <p class="dose-title">
