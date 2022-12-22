@@ -278,7 +278,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             <ul class="services__table__row services__info" role="list">
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p><?= $patient['firstname']." " . $patient['lastname']; ?></p>
+                    <a href="#consultation__report<?= $patient['consultation_id']; ?>" rel="modal:open"><?= $patient['firstname']." " . $patient['lastname']; ?></a>
+                    <?php include('./includes/reports/consultation.php'); ?>
                 </li>
                 <li class="services__num">
                     <?= $patient['age']; ?>
@@ -347,7 +348,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             <ul class="services__table__row services__info" role="list">
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p><?= $patient['firstname']." " . $patient['lastname']; ?></p>
+                    <a href="#prenatal__report<?= $patient['prenatal_id']; ?>" rel="modal:open"><?= $patient['firstname']." " . $patient['lastname']; ?></a>
+                    <?php include('./includes/reports/prenatal.php'); ?>
                 </li>
                 <li class="services__num">
                     <?= $patient['age']; ?>
