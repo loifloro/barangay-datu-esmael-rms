@@ -1,0 +1,36 @@
+@use '../abstracts' as *;
+
+
+@media print {
+    body {
+        // display: none !important;
+        // width: 100vw !important;
+    }
+
+    .modal {
+        box-shadow: none !important;
+        width: 100% !important;
+        height: 100vh;
+
+    }
+    .blocker {
+        background: #fff !important;
+    }
+    
+    .close-modal {
+        display: none !important;
+    }
+    
+    .services__btn  {
+        display: none !important;
+    }
+    
+    thead {
+        color: #000 !important;
+    }
+
+    table, td, th {
+        border: 2px solid rgba(0, 0, 0, 0.719) !important;
+    }
+
+}
