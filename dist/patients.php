@@ -227,7 +227,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient_profile/profile_deworming.php?id=<?= $patient['deworming_id'];?>">
+                    <a href="patient-profile.php?id=<?= $patient['deworming_id']?>&label=<?= $patient['label'];?>">
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -307,7 +307,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient_profile/profile_consultation.php?id=<?= $patient['consultation_id'].' '.$patient['label']; ?>">
+                    <a href="patient-profile.php?id=<?= $patient['consultation_id']?>&label=<?= $patient['label'];?>">
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -385,7 +385,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient_profile/profile_prenatal.php?id=<?= $patient['prenatal_id']; ?>"> <!--MAIN PROBLEM-->   
+                    <a href="patient-profile.php?id=<?= $patient['prenatal_id']?>&label=<?= $patient['label'];?>">
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -463,7 +463,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient_profile/profile_postnatal.php?id=<?= $patient['postnatal_id']; ?>">   
+                    <a href="patient-profile.php?id=<?= $patient['postnatal_id']?>&label=<?= $patient['label'];?>"> 
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -541,7 +541,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient_profile/profile_search_destroy.php?id=<?= $patient['search_destroy_id']; ?>"> 
+                    <a href="patient-profile.php?id=<?= $patient['search_destroy_id']?>&label=<?= $patient['label'];?>"> 
                         <?= $patient['owner_name']?>
                     </a>
                     </li>
@@ -619,7 +619,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient_profile/profile_childhood_care.php?id=<?= $patient['early_childhood_id']; ?>">
+                    <a href="patient-profile.php?id=<?= $patient['early_childhood_id']?>&label=<?= $patient['label'];?>">
                         <?= $patient['child_name']?>
                     </a>
                     </li>
