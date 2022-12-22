@@ -601,7 +601,7 @@ if(isset($_POST['add_maternal_list'])){ //no page yet for this query
               '$tri2_tablet_iron', '$tri2_date_iron', '$tri3_tablet_iron', '$tri3_date_iron', '$tri4_tablet_iron', '$tri4_date_iron', 
               '$tri2_tablet_calcium', '$tri2_date_calcium', '$tri3_tablet_calcium', '$tri3_date_calcium', '$tri4_tablet_calcium', 
               '$tri4_date_calcium', '$tri1_tablet_iodine', '$tri1_date_iodine', '$weight', '$deworming_tablet', '$syphilis_date', 
-              '$syphilis_status', '$hepatitis_date', '$hepatitis_status', '$hiv_screen_date', 'Target Maternal Care')";
+              '$syphilis_status', '$hepatitis_date', '$hepatitis_status', '$hiv_screen_date', 'Target Client List for Maternal Care')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -747,7 +747,7 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
               '$breastfeed3_month_1_3', '$age_month_6_11', '$length_month_6_11', '$length_date_month_6_11', '$weight_month_6_11', 
               '$weight_date_month_6_11', '$status_month_6_11', '$breastfeed_month_6_11', '$complementary_month_6_11', 
               '$vitamin_month_6_11', '$mnp_month_6_11', '$mmr_month_6_11', '$age_month_12', '$length_month_12', '$length_date_month_12', 
-              '$weight_month_12', '$weight_date_month_12', '$status_month_12', '$mmr_month_12', '$fic_month_12', '$cic', '$remarks', 'Target Childcare Male')";
+              '$weight_month_12', '$weight_date_month_12', '$status_month_12', '$mmr_month_12', '$fic_month_12', '$cic', '$remarks', 'Target Client List for Childcare Male')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -894,7 +894,7 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
               '$breastfeed3_month_1_3', '$age_month_6_11', '$length_month_6_11', '$length_date_month_6_11', '$weight_month_6_11', 
               '$weight_date_month_6_11', '$status_month_6_11', '$breastfeed_month_6_11', '$complementary_month_6_11', 
               '$vitamin_month_6_11', '$mnp_month_6_11', '$mmr_month_6_11', '$age_month_12', '$length_month_12', '$length_date_month_12', 
-              '$weight_month_12', '$weight_date_month_12', '$status_month_12', '$mmr_month_12', '$fic_month_12', '$cic', '$remarks', 'Target Childcare Female')";
+              '$weight_month_12', '$weight_date_month_12', '$status_month_12', '$mmr_month_12', '$fic_month_12', '$cic', '$remarks', 'Target Client List for Childcare Male')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
