@@ -431,6 +431,9 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <li class="content__item">
                     <a href="">Tetanus Toxoid Status</a>
                 </li>
+                <li class="content__item">
+                    <a href="">Reason</a>
+                </li>
             </ul>
         </section>
     </main>

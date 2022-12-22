@@ -1413,10 +1413,154 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   width: 15% !important;
 }
 
-@page {
-  size: auto;
-  margin: 0mm;
+.prenatal__report {
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
 }
+.prenatal__report__title {
+  text-align: center;
+  color: #212529;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+@media print {
+  .prenatal__report__title {
+    font-size: 12pt !important;
+  }
+}
+.prenatal__report__city {
+  text-align: center;
+}
+.prenatal__report__subtitle {
+  text-align: center;
+}
+.prenatal__report__patient-record {
+  margin-bottom: unset;
+}
+.prenatal__report__personal-info {
+  text-transform: uppercase;
+  margin-block: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 15% 30%;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "name age bday" "address address phone";
+}
+.prenatal__report__personal-info__name {
+  grid-area: name;
+}
+.prenatal__report__personal-info__age {
+  grid-area: age;
+}
+.prenatal__report__personal-info__bday {
+  grid-area: bday;
+}
+.prenatal__report__personal-info__address {
+  grid-area: address;
+}
+.prenatal__report__personal-info__phone {
+  grid-area: phone;
+}
+.prenatal__report .padding-left {
+  padding-left: 2rem;
+}
+.prenatal__report__bmi {
+  display: flex;
+}
+.prenatal__report__bmi > * {
+  margin-right: auto;
+}
+.prenatal__report__ob {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.prenatal__report__ob-title {
+  display: inline;
+  margin-block: unset;
+}
+.prenatal__report__ob__gp {
+  display: flex;
+  width: 70%;
+}
+.prenatal__report__ob__gp > * {
+  margin-right: auto;
+}
+.prenatal__report__signature {
+  text-align: right;
+}
+
+.consultation__report {
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
+}
+.consultation__report__title {
+  text-align: center;
+  color: #212529;
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+.consultation__report__city {
+  text-align: center;
+}
+.consultation__report__subtitle {
+  text-align: center;
+}
+.consultation__report__patient-record {
+  margin-bottom: unset;
+}
+.consultation__report__personal-info {
+  text-transform: uppercase;
+  margin-block: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 15% 30%;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "name age bday" "address address phone";
+}
+.consultation__report__personal-info__name {
+  grid-area: name;
+}
+.consultation__report__personal-info__age {
+  grid-area: age;
+}
+.consultation__report__personal-info__bday {
+  grid-area: bday;
+}
+.consultation__report__personal-info__address {
+  grid-area: address;
+}
+.consultation__report__personal-info__phone {
+  grid-area: phone;
+}
+.consultation__report .padding-left {
+  padding-left: 2rem;
+}
+.consultation__report__bmi {
+  margin-bottom: 2rem;
+}
+.consultation__report__bmi__item--weight {
+  margin-left: 2rem;
+}
+
+.block,
+.center {
+  display: grid;
+  justify-content: center;
+}
+
+.btn-print {
+  margin-block: 2rem;
+}
+
+.value {
+  color: #212529;
+  font-weight: 600;
+  font-size: 1.2rem;
+  border-bottom: 1px solid #212529;
+  padding-bottom: 2px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: 15rem auto;
@@ -1444,10 +1588,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-left: 1rem;
 }
 
+@page {
+  size: auto;
+  margin: 0mm;
+}
 @media print {
+  body {
+    margin: unset;
+  }
   .modal {
+    font-size: 12pt !important;
     box-shadow: none !important;
-    width: 100% !important;
+    width: 100vw !important;
     height: 100vh;
   }
   .blocker {
@@ -1464,6 +1616,16 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
   table, td, th {
     border: 2px solid rgba(0, 0, 0, 0.719) !important;
+  }
+  abbr {
+    text-decoration: none;
+  }
+  p,
+  span {
+    font-size: 10pt !important;
+  }
+  .value {
+    border-bottom: 1pt solid #212529;
   }
 }
 .add-deworming,
@@ -3178,6 +3340,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming,
 .edit-consultation,
 .edit-prenatal,
+.edit-postnatal,
 .edit-search_destroy,
 .edit-early_childhood,
 .edit-child_care-male,
@@ -3192,6 +3355,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming,
   .edit-consultation,
   .edit-prenatal,
+  .edit-postnatal,
   .edit-search_destroy,
   .edit-early_childhood,
   .edit-child_care-male,
@@ -3203,6 +3367,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__title,
 .edit-consultation__title,
 .edit-prenatal__title,
+.edit-postnatal__title,
 .edit-search_destroy__title,
 .edit-early_childhood__title,
 .edit-child_care-male__title,
@@ -3213,6 +3378,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__desc,
 .edit-consultation__desc,
 .edit-prenatal__desc,
+.edit-postnatal__desc,
 .edit-search_destroy__desc,
 .edit-early_childhood__desc,
 .edit-child_care-male__desc,
@@ -3223,6 +3389,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__desc--bold,
 .edit-consultation__desc--bold,
 .edit-prenatal__desc--bold,
+.edit-postnatal__desc--bold,
 .edit-search_destroy__desc--bold,
 .edit-early_childhood__desc--bold,
 .edit-child_care-male__desc--bold,
@@ -3234,6 +3401,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form,
 .edit-consultation__form,
 .edit-prenatal__form,
+.edit-postnatal__form,
 .edit-search_destroy__form,
 .edit-early_childhood__form,
 .edit-child_care-male__form,
@@ -3244,6 +3412,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form label,
 .edit-consultation__form label,
 .edit-prenatal__form label,
+.edit-postnatal__form label,
 .edit-search_destroy__form label,
 .edit-early_childhood__form label,
 .edit-child_care-male__form label,
@@ -3255,6 +3424,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form hr,
 .edit-consultation__form hr,
 .edit-prenatal__form hr,
+.edit-postnatal__form hr,
 .edit-search_destroy__form hr,
 .edit-early_childhood__form hr,
 .edit-child_care-male__form hr,
@@ -3266,6 +3436,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form p,
 .edit-consultation__form p,
 .edit-prenatal__form p,
+.edit-postnatal__form p,
 .edit-search_destroy__form p,
 .edit-early_childhood__form p,
 .edit-child_care-male__form p,
@@ -3318,6 +3489,21 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-prenatal__form input[type=url],
 .edit-prenatal__form input[type=week],
 .edit-prenatal__form select,
+.edit-postnatal__form input[type=date],
+.edit-postnatal__form input[type=datetime],
+.edit-postnatal__form input[type=datetime-local],
+.edit-postnatal__form input[type=email],
+.edit-postnatal__form input[type=month],
+.edit-postnatal__form input[type=number],
+.edit-postnatal__form input[type=password],
+.edit-postnatal__form input[type=range],
+.edit-postnatal__form input[type=search],
+.edit-postnatal__form input[type=tel],
+.edit-postnatal__form input[type=text],
+.edit-postnatal__form input[type=time],
+.edit-postnatal__form input[type=url],
+.edit-postnatal__form input[type=week],
+.edit-postnatal__form select,
 .edit-search_destroy__form input[type=date],
 .edit-search_destroy__form input[type=datetime],
 .edit-search_destroy__form input[type=datetime-local],
@@ -3442,6 +3628,21 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-prenatal__form input[type=url],
   .edit-prenatal__form input[type=week],
   .edit-prenatal__form select,
+  .edit-postnatal__form input[type=date],
+  .edit-postnatal__form input[type=datetime],
+  .edit-postnatal__form input[type=datetime-local],
+  .edit-postnatal__form input[type=email],
+  .edit-postnatal__form input[type=month],
+  .edit-postnatal__form input[type=number],
+  .edit-postnatal__form input[type=password],
+  .edit-postnatal__form input[type=range],
+  .edit-postnatal__form input[type=search],
+  .edit-postnatal__form input[type=tel],
+  .edit-postnatal__form input[type=text],
+  .edit-postnatal__form input[type=time],
+  .edit-postnatal__form input[type=url],
+  .edit-postnatal__form input[type=week],
+  .edit-postnatal__form select,
   .edit-search_destroy__form input[type=date],
   .edit-search_destroy__form input[type=datetime],
   .edit-search_destroy__form input[type=datetime-local],
@@ -3528,6 +3729,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-consultation__form input[type=radio],
 .edit-prenatal__form input[type=checkbox],
 .edit-prenatal__form input[type=radio],
+.edit-postnatal__form input[type=checkbox],
+.edit-postnatal__form input[type=radio],
 .edit-search_destroy__form input[type=checkbox],
 .edit-search_destroy__form input[type=radio],
 .edit-early_childhood__form input[type=checkbox],
@@ -3544,6 +3747,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item,
 .edit-consultation__form-item,
 .edit-prenatal__form-item,
+.edit-postnatal__form-item,
 .edit-search_destroy__form-item,
 .edit-early_childhood__form-item,
 .edit-child_care-male__form-item,
@@ -3558,6 +3762,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item,
   .edit-consultation__form-item,
   .edit-prenatal__form-item,
+  .edit-postnatal__form-item,
   .edit-search_destroy__form-item,
   .edit-early_childhood__form-item,
   .edit-child_care-male__form-item,
@@ -3569,6 +3774,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item--reason,
   .edit-consultation__form-item--reason,
   .edit-prenatal__form-item--reason,
+  .edit-postnatal__form-item--reason,
   .edit-search_destroy__form-item--reason,
   .edit-early_childhood__form-item--reason,
   .edit-child_care-male__form-item--reason,
@@ -3579,6 +3785,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item--reason input[type=text],
   .edit-consultation__form-item--reason input[type=text],
   .edit-prenatal__form-item--reason input[type=text],
+  .edit-postnatal__form-item--reason input[type=text],
   .edit-search_destroy__form-item--reason input[type=text],
   .edit-early_childhood__form-item--reason input[type=text],
   .edit-child_care-male__form-item--reason input[type=text],
@@ -3595,6 +3802,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-consultation__form-item .two-input,
 .edit-prenatal__form-item .three-input,
 .edit-prenatal__form-item .two-input,
+.edit-postnatal__form-item .three-input,
+.edit-postnatal__form-item .two-input,
 .edit-search_destroy__form-item .three-input,
 .edit-search_destroy__form-item .two-input,
 .edit-early_childhood__form-item .three-input,
@@ -3620,6 +3829,10 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-prenatal__form-item .three-input input,
 .edit-prenatal__form-item .two-input label,
 .edit-prenatal__form-item .two-input input,
+.edit-postnatal__form-item .three-input label,
+.edit-postnatal__form-item .three-input input,
+.edit-postnatal__form-item .two-input label,
+.edit-postnatal__form-item .two-input input,
 .edit-search_destroy__form-item .three-input label,
 .edit-search_destroy__form-item .three-input input,
 .edit-search_destroy__form-item .two-input label,
@@ -3648,6 +3861,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-consultation__form-item .two-input input,
 .edit-prenatal__form-item .three-input input,
 .edit-prenatal__form-item .two-input input,
+.edit-postnatal__form-item .three-input input,
+.edit-postnatal__form-item .two-input input,
 .edit-search_destroy__form-item .three-input input,
 .edit-search_destroy__form-item .two-input input,
 .edit-early_childhood__form-item .three-input input,
@@ -3667,6 +3882,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-consultation__form-item .two-input > *,
 .edit-prenatal__form-item .three-input > *,
 .edit-prenatal__form-item .two-input > *,
+.edit-postnatal__form-item .three-input > *,
+.edit-postnatal__form-item .two-input > *,
 .edit-search_destroy__form-item .three-input > *,
 .edit-search_destroy__form-item .two-input > *,
 .edit-early_childhood__form-item .three-input > *,
@@ -3685,6 +3902,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-consultation__form-item .two-input label,
 .edit-prenatal__form-item .three-input label,
 .edit-prenatal__form-item .two-input label,
+.edit-postnatal__form-item .three-input label,
+.edit-postnatal__form-item .two-input label,
 .edit-search_destroy__form-item .three-input label,
 .edit-search_destroy__form-item .two-input label,
 .edit-early_childhood__form-item .three-input label,
@@ -3703,6 +3922,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item .three-input,
 .edit-consultation__form-item .three-input,
 .edit-prenatal__form-item .three-input,
+.edit-postnatal__form-item .three-input,
 .edit-search_destroy__form-item .three-input,
 .edit-early_childhood__form-item .three-input,
 .edit-child_care-male__form-item .three-input,
@@ -3714,6 +3934,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item .three-input,
   .edit-consultation__form-item .three-input,
   .edit-prenatal__form-item .three-input,
+  .edit-postnatal__form-item .three-input,
   .edit-search_destroy__form-item .three-input,
   .edit-early_childhood__form-item .three-input,
   .edit-child_care-male__form-item .three-input,
@@ -3725,6 +3946,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item .two-input,
 .edit-consultation__form-item .two-input,
 .edit-prenatal__form-item .two-input,
+.edit-postnatal__form-item .two-input,
 .edit-search_destroy__form-item .two-input,
 .edit-early_childhood__form-item .two-input,
 .edit-child_care-male__form-item .two-input,
@@ -3736,6 +3958,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item .two-input,
   .edit-consultation__form-item .two-input,
   .edit-prenatal__form-item .two-input,
+  .edit-postnatal__form-item .two-input,
   .edit-search_destroy__form-item .two-input,
   .edit-early_childhood__form-item .two-input,
   .edit-child_care-male__form-item .two-input,
@@ -3747,6 +3970,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--radio,
 .edit-consultation__form-item--radio,
 .edit-prenatal__form-item--radio,
+.edit-postnatal__form-item--radio,
 .edit-search_destroy__form-item--radio,
 .edit-early_childhood__form-item--radio,
 .edit-child_care-male__form-item--radio,
@@ -3757,6 +3981,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--radio label,
 .edit-consultation__form-item--radio label,
 .edit-prenatal__form-item--radio label,
+.edit-postnatal__form-item--radio label,
 .edit-search_destroy__form-item--radio label,
 .edit-early_childhood__form-item--radio label,
 .edit-child_care-male__form-item--radio label,
@@ -3769,6 +3994,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item--radio label,
   .edit-consultation__form-item--radio label,
   .edit-prenatal__form-item--radio label,
+  .edit-postnatal__form-item--radio label,
   .edit-search_destroy__form-item--radio label,
   .edit-early_childhood__form-item--radio label,
   .edit-child_care-male__form-item--radio label,
@@ -3781,6 +4007,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--radio div,
 .edit-consultation__form-item--radio div,
 .edit-prenatal__form-item--radio div,
+.edit-postnatal__form-item--radio div,
 .edit-search_destroy__form-item--radio div,
 .edit-early_childhood__form-item--radio div,
 .edit-child_care-male__form-item--radio div,
@@ -3794,6 +4021,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item--radio div,
   .edit-consultation__form-item--radio div,
   .edit-prenatal__form-item--radio div,
+  .edit-postnatal__form-item--radio div,
   .edit-search_destroy__form-item--radio div,
   .edit-early_childhood__form-item--radio div,
   .edit-child_care-male__form-item--radio div,
@@ -3805,6 +4033,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--radio div label,
 .edit-consultation__form-item--radio div label,
 .edit-prenatal__form-item--radio div label,
+.edit-postnatal__form-item--radio div label,
 .edit-search_destroy__form-item--radio div label,
 .edit-early_childhood__form-item--radio div label,
 .edit-child_care-male__form-item--radio div label,
@@ -3815,6 +4044,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--role-item,
 .edit-consultation__form-item--role-item,
 .edit-prenatal__form-item--role-item,
+.edit-postnatal__form-item--role-item,
 .edit-search_destroy__form-item--role-item,
 .edit-early_childhood__form-item--role-item,
 .edit-child_care-male__form-item--role-item,
@@ -3825,6 +4055,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--checkbox,
 .edit-consultation__form-item--checkbox,
 .edit-prenatal__form-item--checkbox,
+.edit-postnatal__form-item--checkbox,
 .edit-search_destroy__form-item--checkbox,
 .edit-early_childhood__form-item--checkbox,
 .edit-child_care-male__form-item--checkbox,
@@ -3835,6 +4066,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--checkbox label,
 .edit-consultation__form-item--checkbox label,
 .edit-prenatal__form-item--checkbox label,
+.edit-postnatal__form-item--checkbox label,
 .edit-search_destroy__form-item--checkbox label,
 .edit-early_childhood__form-item--checkbox label,
 .edit-child_care-male__form-item--checkbox label,
@@ -3846,6 +4078,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--checkbox div,
 .edit-consultation__form-item--checkbox div,
 .edit-prenatal__form-item--checkbox div,
+.edit-postnatal__form-item--checkbox div,
 .edit-search_destroy__form-item--checkbox div,
 .edit-early_childhood__form-item--checkbox div,
 .edit-child_care-male__form-item--checkbox div,
@@ -3858,6 +4091,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item--checkbox div,
   .edit-consultation__form-item--checkbox div,
   .edit-prenatal__form-item--checkbox div,
+  .edit-postnatal__form-item--checkbox div,
   .edit-search_destroy__form-item--checkbox div,
   .edit-early_childhood__form-item--checkbox div,
   .edit-child_care-male__form-item--checkbox div,
@@ -3869,6 +4103,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--checkbox div label,
 .edit-consultation__form-item--checkbox div label,
 .edit-prenatal__form-item--checkbox div label,
+.edit-postnatal__form-item--checkbox div label,
 .edit-search_destroy__form-item--checkbox div label,
 .edit-early_childhood__form-item--checkbox div label,
 .edit-child_care-male__form-item--checkbox div label,
@@ -3879,6 +4114,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-item--textarea label,
 .edit-consultation__form-item--textarea label,
 .edit-prenatal__form-item--textarea label,
+.edit-postnatal__form-item--textarea label,
 .edit-search_destroy__form-item--textarea label,
 .edit-early_childhood__form-item--textarea label,
 .edit-child_care-male__form-item--textarea label,
@@ -3890,6 +4126,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-item--textarea label,
   .edit-consultation__form-item--textarea label,
   .edit-prenatal__form-item--textarea label,
+  .edit-postnatal__form-item--textarea label,
   .edit-search_destroy__form-item--textarea label,
   .edit-early_childhood__form-item--textarea label,
   .edit-child_care-male__form-item--textarea label,
@@ -3902,6 +4139,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses,
 .edit-consultation__form-doses,
 .edit-prenatal__form-doses,
+.edit-postnatal__form-doses,
 .edit-search_destroy__form-doses,
 .edit-early_childhood__form-doses,
 .edit-child_care-male__form-doses,
@@ -3916,6 +4154,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-doses,
   .edit-consultation__form-doses,
   .edit-prenatal__form-doses,
+  .edit-postnatal__form-doses,
   .edit-search_destroy__form-doses,
   .edit-early_childhood__form-doses,
   .edit-child_care-male__form-doses,
@@ -3930,6 +4169,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-consultation__form-doses input[type=text],
 .edit-prenatal__form-doses input[type=date],
 .edit-prenatal__form-doses input[type=text],
+.edit-postnatal__form-doses input[type=date],
+.edit-postnatal__form-doses input[type=text],
 .edit-search_destroy__form-doses input[type=date],
 .edit-search_destroy__form-doses input[type=text],
 .edit-early_childhood__form-doses input[type=date],
@@ -3946,6 +4187,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses label,
 .edit-consultation__form-doses label,
 .edit-prenatal__form-doses label,
+.edit-postnatal__form-doses label,
 .edit-search_destroy__form-doses label,
 .edit-early_childhood__form-doses label,
 .edit-child_care-male__form-doses label,
@@ -3957,6 +4199,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses .checkbox-label,
 .edit-consultation__form-doses .checkbox-label,
 .edit-prenatal__form-doses .checkbox-label,
+.edit-postnatal__form-doses .checkbox-label,
 .edit-search_destroy__form-doses .checkbox-label,
 .edit-early_childhood__form-doses .checkbox-label,
 .edit-child_care-male__form-doses .checkbox-label,
@@ -3968,6 +4211,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses .dose-title,
 .edit-consultation__form-doses .dose-title,
 .edit-prenatal__form-doses .dose-title,
+.edit-postnatal__form-doses .dose-title,
 .edit-search_destroy__form-doses .dose-title,
 .edit-early_childhood__form-doses .dose-title,
 .edit-child_care-male__form-doses .dose-title,
@@ -3980,6 +4224,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-doses .dose-title,
   .edit-consultation__form-doses .dose-title,
   .edit-prenatal__form-doses .dose-title,
+  .edit-postnatal__form-doses .dose-title,
   .edit-search_destroy__form-doses .dose-title,
   .edit-early_childhood__form-doses .dose-title,
   .edit-child_care-male__form-doses .dose-title,
@@ -3991,6 +4236,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses .dose-indication,
 .edit-consultation__form-doses .dose-indication,
 .edit-prenatal__form-doses .dose-indication,
+.edit-postnatal__form-doses .dose-indication,
 .edit-search_destroy__form-doses .dose-indication,
 .edit-early_childhood__form-doses .dose-indication,
 .edit-child_care-male__form-doses .dose-indication,
@@ -4003,6 +4249,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses--checkbox,
 .edit-consultation__form-doses--checkbox,
 .edit-prenatal__form-doses--checkbox,
+.edit-postnatal__form-doses--checkbox,
 .edit-search_destroy__form-doses--checkbox,
 .edit-early_childhood__form-doses--checkbox,
 .edit-child_care-male__form-doses--checkbox,
@@ -4013,6 +4260,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses--checkbox label,
 .edit-consultation__form-doses--checkbox label,
 .edit-prenatal__form-doses--checkbox label,
+.edit-postnatal__form-doses--checkbox label,
 .edit-search_destroy__form-doses--checkbox label,
 .edit-early_childhood__form-doses--checkbox label,
 .edit-child_care-male__form-doses--checkbox label,
@@ -4024,6 +4272,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses--checkbox div,
 .edit-consultation__form-doses--checkbox div,
 .edit-prenatal__form-doses--checkbox div,
+.edit-postnatal__form-doses--checkbox div,
 .edit-search_destroy__form-doses--checkbox div,
 .edit-early_childhood__form-doses--checkbox div,
 .edit-child_care-male__form-doses--checkbox div,
@@ -4036,6 +4285,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming__form-doses--checkbox div,
   .edit-consultation__form-doses--checkbox div,
   .edit-prenatal__form-doses--checkbox div,
+  .edit-postnatal__form-doses--checkbox div,
   .edit-search_destroy__form-doses--checkbox div,
   .edit-early_childhood__form-doses--checkbox div,
   .edit-child_care-male__form-doses--checkbox div,
@@ -4048,6 +4298,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-doses--checkbox div label,
 .edit-consultation__form-doses--checkbox div label,
 .edit-prenatal__form-doses--checkbox div label,
+.edit-postnatal__form-doses--checkbox div label,
 .edit-search_destroy__form-doses--checkbox div label,
 .edit-early_childhood__form-doses--checkbox div label,
 .edit-child_care-male__form-doses--checkbox div label,
@@ -4058,6 +4309,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-btn,
 .edit-consultation__form-btn,
 .edit-prenatal__form-btn,
+.edit-postnatal__form-btn,
 .edit-search_destroy__form-btn,
 .edit-early_childhood__form-btn,
 .edit-child_care-male__form-btn,
@@ -4070,6 +4322,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming__form-btn > *,
 .edit-consultation__form-btn > *,
 .edit-prenatal__form-btn > *,
+.edit-postnatal__form-btn > *,
 .edit-search_destroy__form-btn > *,
 .edit-early_childhood__form-btn > *,
 .edit-child_care-male__form-btn > *,
@@ -4080,6 +4333,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming .contents,
 .edit-consultation .contents,
 .edit-prenatal .contents,
+.edit-postnatal .contents,
 .edit-search_destroy .contents,
 .edit-early_childhood .contents,
 .edit-child_care-male .contents,
@@ -4094,6 +4348,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-deworming .contents__list,
 .edit-consultation .contents__list,
 .edit-prenatal .contents__list,
+.edit-postnatal .contents__list,
 .edit-search_destroy .contents__list,
 .edit-early_childhood .contents__list,
 .edit-child_care-male .contents__list,
@@ -4105,6 +4360,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-deworming .contents,
   .edit-consultation .contents,
   .edit-prenatal .contents,
+  .edit-postnatal .contents,
   .edit-search_destroy .contents,
   .edit-early_childhood .contents,
   .edit-child_care-male .contents,
