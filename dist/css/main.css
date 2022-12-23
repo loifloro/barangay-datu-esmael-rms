@@ -351,6 +351,21 @@ input::placeholder {
   background: rgba(236, 252, 242, 0.75) !important;
 }
 
+.swal2-popup {
+  border-radius: 1vw !important;
+}
+
+.swal2-styled {
+  background: #034A23 !important;
+}
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: 0 0 0 3px #87ffb3 !important;
+}
+
+.swal2-html-container {
+  margin-top: unset !important;
+}
+
 /**
  * Set up a decent box model on the root element
  */
