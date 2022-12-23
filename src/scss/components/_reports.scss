@@ -303,6 +303,95 @@
     }
 }
 
+.early__childhood__report {
+    padding-block: 5vw !important;
+    padding-inline: 8vw !important;
+
+    .doh-logo {
+        width: 60%;
+        height: auto;
+    }
+
+    &__header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        margin-bottom: 4rem;
+
+    }
+    
+    &__title > * {
+        color: $black-1;
+        font-weight: 600;
+        line-height: 1.1;
+    }
+
+    &__address,
+    &__child-info,
+    &__mother {
+        margin-bottom: 2rem;
+    }
+
+    &__two-column {
+        display: grid;
+        grid-template-columns: repeat(2, 60% 40%);
+    }
+
+    &__three-column {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 1rem ;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    table, td, th {
+        border: 2px solid  $active-green;
+        border-collapse: collapse;
+    }
+
+    &__table {
+        border: 1px solid;
+        border-collapse: collapse;
+        margin-block: 2rem;
+
+        &__header {
+            font-size: .85rem;
+            color: $black-3;
+        }
+
+
+        thead > tr > th {
+            font-weight: 300;
+        }
+
+        tr,
+        th {
+            width: 20%;
+        }
+        
+        td,
+        th {
+            // padding-left: .5rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        td {
+            color: $black-2;
+        }
+
+        .width-10 {
+            width: 10%;
+            border-bottom: none;
+        }
+    }
+}
+
 .block,
 .center {
     display: grid;
@@ -327,4 +416,5 @@
     //     font-size: 9pt !important;
     // }
 }
+
 
