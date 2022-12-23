@@ -55,6 +55,7 @@
 .backup {
     &__table {
         @include card(none);
+        overflow: hidden;
 
         &__row {
             display: grid;
@@ -64,6 +65,11 @@
             padding-inline-start: unset;
             padding: 1rem 1.5rem;
             margin-block: 0;
+        }
+
+        ul:nth-child(2n+1) {
+            background: $white-1;
+
         }
     }
 
@@ -106,6 +112,7 @@
     
     &__table {
         margin-block: 1rem;
+        overflow: hidden;
         @include card(none);
 
         &__row {
@@ -121,6 +128,12 @@
             li:last-child {
                 justify-self: center;
             }
+
+        }
+        
+        ul:nth-child(2n+1) {
+            background: $white-1;
+
         }
     }
 
@@ -143,8 +156,10 @@
 
     &__table {
         margin-block: 2rem;
+
         @include card(none);
         
+
         &__row {
             display: grid;
             align-items: center;
@@ -164,15 +179,24 @@
             float: left;
             margin-top: 1rem;
         }
+
+
+        ul:nth-child(2n+1) {
+            background: $white-1;
+
+        }
     }
 
     &__header {
         color: $black-3 !important;
         font-size: .85rem;
+        border-radius: 1vw;
+        
     }
 
     &__info {
         background: $white-2;
+        overflow: hidden;
         color: $black-2;
     }
 

@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+.swal2-popup {
+    border-radius: 1vw !important;
+}
+
+.swal2-styled {
+    background: $green !important;
+
+    &.swal2-confirm:focus {
+        box-shadow: 0 0 0 3px #87ffb3 !important;
+    }
+}
+
+.swal2-html-container {
+    margin-top: unset !important;
+}
