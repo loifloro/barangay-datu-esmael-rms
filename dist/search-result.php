@@ -208,7 +208,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     </li>
                     <li class="search-results__option">
                         <p class="view-profile__btn">
-                            <a href="patient-profile.php?id=<?= $search['deworming_id']?> & label=<?= $search['label'];?>">
+                            <a href="patient-profile.php?id=<?= $search['deworming_id']?>&label=<?= $search['label'];?>&fname=<?= $search['firstname'];?>&lname=<?= $search['lastname'];?>">
                                 View Profile
                             </a>
                         </p>
