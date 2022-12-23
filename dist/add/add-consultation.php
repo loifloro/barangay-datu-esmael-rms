@@ -134,7 +134,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="add-consultation">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="add-consultation__title">
                 Add New Consultation Record
@@ -145,10 +145,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <form action="../includes/add_query.php" method="POST" class="add-consultation__form">
 
-                <div class="add-consultation__form-item">
+                <!-- <div class="add-consultation__form-item">
                     <label for="consultation-date">Date</label>
                     <input type="date" name="consultation-date" id="consultation-date">
-                </div>
+                </div> -->
                 <div class="add-consultation__form-item">
                     <label for="consultation-lname">Last Name</label>
                     <input type="text" name="consultation-lname" id="consultation-lname">
@@ -196,7 +196,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-contact">Phone Number</label>
-                    <input type="number" name="consultation-contact" id="consultation-contact">
+                    <input type="number" name="consultation-contact" id="consultation-contact" maxlength="11" min="1">
                 </div>
                 
                 
