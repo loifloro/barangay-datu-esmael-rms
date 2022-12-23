@@ -23,10 +23,10 @@
                 #<?= $patient['early_childhood_id']; ?>
             </li>
             <li class="patient-profile__name h5">
-                <?= $patient['child_name']; ?> <!--Test if displays the fname and lname-->
+                <?= $patient['child_fname'].' '.$patient['child_lname']; ?> <!--Test if displays the fname and lname-->
             </li>
             <li class="patient-profile__contact">
-                N/A
+                <?= $patient['phone_num']; ?>
             </li>
         </ul>
         
@@ -41,7 +41,7 @@
             </li>
             <li class="patient-profile__last-date-added">
                 <span class="patient-profile__category">Date Added</span>
-                09/15/08
+                <?= $patient['early_childhood_date']; ?>
             </li>
         </ul>
         <ul class="patient-profile__item" role="list">
@@ -51,7 +51,7 @@
             </li>
             <li class="patient-profile__last-city">
                 <span class="patient-profile__category">City</span>
-                Dasmariñas
+                <?= $patient['city']; ?>
             </li>
             
         </ul>
@@ -107,7 +107,7 @@
             </ul>
             <!-- Query for Medical History -->
             <?php
-                        $patient_fname = $patient['child_name'];
+                        $patient_fname = $patient['child_fname'];
                         $query3 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname'
                         ORDER BY recent_activity_id";
                         $query_run3 = mysqli_query($conn, $query3);
@@ -147,7 +147,7 @@
                 <li class="edit-history__item">
                     <!-- Start Query For Recent Update -->
                     <?php
-                        $patient_fname = $patient['child_name'];
+                        $patient_fname = $patient['child_fname'];
                         $query2 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname'
                         ORDER BY recent_activity_id LIMIT 3";
                         $query_run2 = mysqli_query($conn, $query2);

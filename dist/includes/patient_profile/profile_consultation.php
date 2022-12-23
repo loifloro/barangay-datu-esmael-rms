@@ -108,7 +108,8 @@
             <!-- Query for Medical History -->
             <?php
                         $patient_fname = $patient['firstname'];
-                        $query3 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname'
+                        $patient_lname = $patient['lastname'];
+                        $query3 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname' AND patient_lname ='$patient_lname'
                         ORDER BY recent_activity_id";
                         $query_run3 = mysqli_query($conn, $query3);
                             if(mysqli_num_rows($query_run3) > 0){

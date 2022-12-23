@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'includes/connection.php';
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 ?>
 
@@ -131,17 +132,13 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <section class="patient">
         <!-- COUNT PATIENT QUERY -->
         <?php
-            include "includes/connection.php";
                 $query = "SELECT 
                 (select count(*) FROM deworming) + 
                 (select count(*) FROM consultation) +
                 (select count(*) FROM early_childhood) +
                 (select count(*) FROM postnatal) +
                 (select count(*) FROM prenatal) +
-                (select count(*) FROM search_destroy) +
-                (select count(*) FROM target_childcare_female) +
-                (select count(*) FROM target_childcare_male) +
-                (select count(*) FROM target_maternal)
+                (select count(*) FROM search_destroy)
                 As total";
                 $result = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_array($result)) {  
@@ -183,7 +180,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <div class="patient__table" id="Deworming">
             <!-- COUNT DEWORMING -->
             <?php
-                include "includes/connection.php";
                     $query = "SELECT count(*) FROM deworming";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
@@ -216,7 +212,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    include 'includes/connection.php';
                     $query = "SELECT * FROM deworming ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -263,7 +258,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <div class="patient__table" id="Consultation">
                 <!-- COUNT CONSULTATION -->
                 <?php
-                    include "includes/connection.php";
                         $query = "SELECT count(*) FROM consultation";
                         $result = mysqli_query($conn, $query);
                         while($row = mysqli_fetch_array($result)) {  
@@ -296,7 +290,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    include 'includes/connection.php';
                     $query = "SELECT * FROM consultation ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -341,7 +334,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <div class="patient__table" id="Pre-Natal">
             <!-- PRENATAL DEWORMING -->
             <?php
-                include "includes/connection.php";
                     $query = "SELECT count(*) FROM prenatal";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
@@ -374,7 +366,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    include 'includes/connection.php';
                     $query = "SELECT * FROM prenatal ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -419,7 +410,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <div class="patient__table" id="Post-Natal">
             <!-- COUNT POSTNATAL -->
             <?php
-                include "includes/connection.php";
                     $query = "SELECT count(*) FROM postnatal";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
@@ -452,7 +442,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    include 'includes/connection.php';
                     $query = "SELECT * FROM postnatal ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -497,7 +486,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <div class="patient__table" id="Search and Destroy">
             <!--  COUNT S/D -->
             <?php
-                include "includes/connection.php";
                     $query = "SELECT count(*) FROM search_destroy";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
@@ -530,8 +518,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    include 'includes/connection.php';
-                    $query = "SELECT * FROM search_destroy ORDER BY owner_name";
+                    $query = "SELECT * FROM search_destroy ORDER BY owner_fname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -542,7 +529,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     
                     <li class="patient__name p-bold">
                     <a href="patient-profile.php?id=<?= $patient['search_destroy_id']?>&label=<?= $patient['label'];?>"> 
-                        <?= $patient['owner_name']?>
+                        <?= $patient['owner_fname'].' '.$patient['owner_lname']?>
                     </a>
                     </li>
                     <li class="patient__num">
@@ -575,7 +562,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <div class="patient__table" id="Childhood Care">
             <!-- COUNT EC -->
             <?php
-                include "includes/connection.php";
                     $query = "SELECT count(*) FROM early_childhood";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
@@ -608,8 +594,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    include 'includes/connection.php';
-                    $query = "SELECT * FROM early_childhood ORDER BY child_name";
+                    $query = "SELECT * FROM early_childhood ORDER BY child_fname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -620,7 +605,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     
                     <li class="patient__name p-bold">
                     <a href="patient-profile.php?id=<?= $patient['early_childhood_id']?>&label=<?= $patient['label'];?>">
-                        <?= $patient['child_name']?>
+                        <?= $patient['child_fname'].' '.$patient['child_lname']?>
                     </a>
                     </li>
                     <li class="patient__num">

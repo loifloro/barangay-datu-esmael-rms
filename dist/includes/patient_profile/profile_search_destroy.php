@@ -9,6 +9,7 @@
                 $query_run = mysqli_query($conn, $query);
 
                 if(mysqli_num_rows($query_run) > 0){
+                    
                     $patient = mysqli_fetch_array($query_run);
         ?>
     <ul class="patient-profile__list" role="list">
@@ -17,23 +18,23 @@
             <li class="patient-profile__img">
                 <img class=""
                         src="./assets/img/patient-profile.svg"
-                        alt="">
+                        alt=""> 
             </li>
             <li class="patient-profile__id patient-profile__category">
                 #<?= $patient['search_destroy_id']; ?>
             </li>
             <li class="patient-profile__name h5">
-                <?= $patient['owner_name']; ?> <!--Test if displays the fname and lname-->
+                <?= $patient['owner_fname'].' '.$patient['owner_lname']; ?> <!--Test if displays the fname and lname-->
             </li>
             <li class="patient-profile__contact">
-                N/A
+                <?= $patient['phone_num']; ?>
             </li>
         </ul>
         
         <ul class="patient-profile__item " role="list">
             <li class="patient-profile__sex">
                 <span class="patient-profile__category">Sex</span>
-                N/A
+                <?= $patient['sex']; ?>
             </li>
             <li class="patient-profile__street">
                 <span class="patient-profile__category">Street Address</span>
@@ -41,17 +42,17 @@
             </li>
             <li class="patient-profile__last-date-added">
                 <span class="patient-profile__category">Date Added</span>
-                <?= $patient['date_visit']; ?>
+                <?= $patient['search_destroy_date']; ?>
             </li>
         </ul>
         <ul class="patient-profile__item" role="list">
             <li class="patient-profile__last-modified">
                 <span class="patient-profile__category">Birthday</span>
-                N/A
+                <?= $patient['birthdate']; ?>
             </li>
             <li class="patient-profile__last-city">
                 <span class="patient-profile__category">City</span>
-                N/A
+                <?= $patient['city']; ?>
             </li>
         </ul>
         <ul class="patient-profile__item" role="list">
@@ -105,7 +106,7 @@
             </ul>
             <!-- Query for Medical History -->
             <?php
-                        $patient_fname = $patient['owner_name'];
+                        $patient_fname = $patient['owner_fname'];
                         $query3 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname'
                         ORDER BY recent_activity_id";
                         $query_run3 = mysqli_query($conn, $query3);
@@ -144,7 +145,7 @@
                 <li class="edit-history__item">
                     <!-- Start Query For Recent Update -->
                     <?php
-                        $patient_fname = $patient['owner_name'];
+                        $patient_fname = $patient['owner_fname'];
                         $query2 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname'
                         ORDER BY recent_activity_id LIMIT 3";
                         $query_run2 = mysqli_query($conn, $query2);

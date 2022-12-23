@@ -25,7 +25,7 @@
                 <?= $patient['firstname']." " . $patient['lastname']; ?> <!--Test if displays the fname and lname-->
             </li>
             <li class="patient-profile__contact">
-                N/A
+                <?= $patient['phone_num']; ?> <!--added phone num-->
             </li>
         </ul>
         
@@ -40,7 +40,7 @@
             </li>
             <li class="patient-profile__last-date-added">
                 <span class="patient-profile__category">Date Added</span>
-                09/15/08
+                    <?= $patient['deworming_date']; ?> <!--added date-->
             </li>
         </ul>
         <ul class="patient-profile__item" role="list">
