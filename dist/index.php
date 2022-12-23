@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./css/main.css">
-    <title>Document</title>
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+
+    <title>Brgy. Datu Esmael Patient Record Management System</title>
 </head>
 <body class="login">
     <main>
@@ -20,8 +22,15 @@
                 </p>
 
                 <!-- Error Display -->
-                <?php if (isset($_GET['error'])){ ?>
-                    <p class="error"><?php echo $_GET['error']; ?></p>
+                <?php if (isset($_GET['error'])){ ?>           
+                    <script>
+                        Swal.fire({
+                        icon: 'error',
+                        title: 'Invalid',
+                        text: '<?php echo $_GET['error']; ?>',
+                        // confirmButton: '#034A23'
+                        })
+                    </script>
                 <?php } ?> 
                 <!--Display ERROR-->
                 
@@ -47,5 +56,6 @@
         </div>
     </main>
     
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
