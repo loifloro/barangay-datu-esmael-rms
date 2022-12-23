@@ -13,7 +13,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
     if (empty($username)) { /*if else statement for validation*/
-        header("Location: index.php?error=Username is required"); /*Error Alert*/
+        header("Location: index.php?error=Contact number is required"); /*Error Alert*/
         exit();
     } 
 

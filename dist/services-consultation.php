@@ -234,6 +234,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         echo "<h5> No Record Found </h5>";
                     }
             ?>   
+        <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a>
         <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
             <p>Add</p>  
         </button>
@@ -529,17 +530,19 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <li class="services__attributes__item">
                     <input type="checkbox" name="" id="" class="services__checkbox">
                     <p>Child Name</p>
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
                     Mother Name
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
                     Phone Number
-                    <!-- Put SVG here -->
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
                     Child Bithdate
-                    <!-- Put SVG here -->
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li>
 
@@ -558,7 +561,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             <ul class="services__table__row services__info" role="list">
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p><?= $patient['child_name']; ?></p>
+                    <a href="#early__childhood__report<?= $patient['early_childhood_id']; ?>" rel="modal:open"><?= $patient['child_name']; ?></a>
+                    <?php include('./includes/reports/early__childhood.php'); ?>
                 </li>
                 <li class="services__num">
                     <?= $patient['mother_name']; ?>
