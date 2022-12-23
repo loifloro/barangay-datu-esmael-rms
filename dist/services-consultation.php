@@ -234,6 +234,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         echo "<h5> No Record Found </h5>";
                     }
             ?>   
+        <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a>
         <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
             <p>Add</p>  
         </button>
