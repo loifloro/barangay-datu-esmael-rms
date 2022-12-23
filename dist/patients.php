@@ -222,7 +222,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient-profile.php?id=<?= $patient['deworming_id']?>&label=<?= $patient['label'];?>">
+                    <a href="patient-profile.php?id=<?= $patient['deworming_id']?>&label=<?= $patient['label'];?>&fname=<?= $patient['firstname'];?>&lname=<?= $patient['lastname'];?>">
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -300,7 +300,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient-profile.php?id=<?= $patient['consultation_id']?>&label=<?= $patient['label'];?>">
+                    <a href="patient-profile.php?id=<?= $patient['consultation_id']?>&label=<?= $patient['label'];?>&fname=<?= $patient['firstname'];?>&lname=<?= $patient['lastname'];?>">
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -376,7 +376,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient-profile.php?id=<?= $patient['prenatal_id']?>&label=<?= $patient['label'];?>">
+                    <a href="patient-profile.php?id=<?= $patient['prenatal_id']?>&label=<?= $patient['label'];?>&fname=<?= $patient['firstname'];?>&lname=<?= $patient['lastname'];?>">
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -452,7 +452,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient-profile.php?id=<?= $patient['postnatal_id']?>&label=<?= $patient['label'];?>"> 
+                    <a href="patient-profile.php?id=<?= $patient['postnatal_id']?>&label=<?= $patient['label'];?>&fname=<?= $patient['firstname'];?>&lname=<?= $patient['lastname'];?>"> 
                         <?= $patient['firstname']." " . $patient['lastname']; ?>
                     </a>
                     </li>
@@ -528,7 +528,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient-profile.php?id=<?= $patient['search_destroy_id']?>&label=<?= $patient['label'];?>"> 
+                    <a href="patient-profile.php?id=<?= $patient['search_destroy_id']?>&label=<?= $patient['label'];?>&fname=<?= $patient['owner_fname'];?>&lname=<?= $patient['owner_lname'];?>"> 
                         <?= $patient['owner_fname'].' '.$patient['owner_lname']?>
                     </a>
                     </li>
@@ -604,7 +604,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <ul class="patient__table__row patient__info" role="list">
                     
                     <li class="patient__name p-bold">
-                    <a href="patient-profile.php?id=<?= $patient['early_childhood_id']?>&label=<?= $patient['label'];?>">
+                    <a href="patient-profile.php?id=<?= $patient['early_childhood_id']?>&label=<?= $patient['label'];?>&fname=<?= $patient['child_fname'];?>&lname=<?= $patient['child_lname'];?>">
                         <?= $patient['child_fname'].' '.$patient['child_lname']?>
                     </a>
                     </li>
