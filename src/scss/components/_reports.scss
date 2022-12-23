@@ -1,5 +1,31 @@
 @use '../abstracts' as *;
 
+.deworming-reports {
+    padding-block: 5vw !important;
+    padding-inline: 8vw !important;
+
+
+    table, td, th {
+        border: 2px solid  $active-green;
+    }
+
+    &__table {
+        width: 100%;
+        border: 1px solid;
+        border-collapse: collapse;
+
+        &__header {
+            font-size: .85rem;
+            color: $black-3;
+        }
+
+
+        thead > tr > th {
+            font-weight: 300;
+        }
+    }
+}
+
 .deworming-report {
         &__table {
             @include card(none);
