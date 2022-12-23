@@ -58,7 +58,8 @@ if(isset($_POST['save_bhw'])){
 
 // ADD DEWORMING RECORD
 if(isset($_POST['save_deworming'])){
-    $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
+    // $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
+    $deworming_date = date('Y-m-d'); //new date initialization
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['deworming-mname']);
@@ -68,12 +69,13 @@ if(isset($_POST['save_deworming'])){
     $street_add = mysqli_real_escape_string($conn, $_POST['deworming-street']);
     $barangay = mysqli_real_escape_string($conn, $_POST['deworming-barangay']);
     $city = mysqli_real_escape_string($conn, $_POST['deworming-city']);
+    $phone_num = mysqli_real_escape_string($conn, $_POST['deworming-phone_num']); //added phone_num
 
 
     $query = "INSERT INTO deworming 
-              (deworming_date, lastname, firstname, middlename, age, sex, birthdate, street_address, barangay, city, label) 
+              (deworming_date, lastname, firstname, middlename, age, sex, birthdate, street_address, barangay, city, phone_num, label) 
               VALUES 
-              ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', 'Deworming')";
+              ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', 'Deworming')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -117,7 +119,7 @@ if(isset($_POST['save_deworming'])){
 
 // ADD CONSULTATION RECORD
 if(isset($_POST['save_consultation'])){
-    $consultation_date = mysqli_real_escape_string($conn, $_POST['consultation-date']);
+    $consultation_date = date('Y-m-d'); //changed
     $lastname = mysqli_real_escape_string($conn, $_POST['consultation-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['consultation-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['consultation-mname']);
@@ -185,18 +187,19 @@ if(isset($_POST['save_consultation'])){
 
 // ADD PRENATAL RECORD
 if(isset($_POST['save_prenatal'])){
-    $prenatal_date = mysqli_real_escape_string($conn, $_POST['prenatal-date']);
+    $prenatal_date = date('Y-m-d'); //changed
     $lastname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['prenatal-mname']);
     $age = mysqli_real_escape_string($conn, $_POST['prenatal-age']);
-    $sex = mysqli_real_escape_string($conn, $_POST['prenatal-sex']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['prenatal-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['prenatal-street']);
     $barangay = mysqli_real_escape_string($conn, $_POST['prenatal-barangay']);
     $city = mysqli_real_escape_string($conn, $_POST['prenatal-city']);
     $phone_num = mysqli_real_escape_string($conn, $_POST['prenatal-contact']);
 
+    $symptomps = mysqli_real_escape_string($conn, $_POST['prenatal-symptoms']);
     $blood_pressure = mysqli_real_escape_string($conn, $_POST['prenatal-bp']);
     $weight = mysqli_real_escape_string($conn, $_POST['prenatal-weight']);
     $height = mysqli_real_escape_string($conn, $_POST['prenatal-height']);
@@ -216,38 +219,60 @@ if(isset($_POST['save_prenatal'])){
 
 
     $query = "INSERT INTO prenatal 
-              (prenatal_date, lastname, firstname, middlename, age, sex, birthdate, street_address, barangay, city, phone_num, blood_pressure, weight, height, gravida, preterm, last_menstrual, edc, aog, fetal_heart, fetal_heart_tones, presentation, a, p, label) 
+              (prenatal_date, lastname, firstname, middlename, age, sex, birthdate, 
+              street_address, barangay, city, phone_num, blood_pressure, weight, height, gravida, 
+              preterm, last_menstrual, edc, aog, fetal_heart, fetal_heart_tones, 
+              presentation, a, p, label, symptoms) 
               VALUES 
-              ('$prenatal_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', '$presentation', '$abnormal', '$prescriptions', 'Prenatal')";
+              ('$prenatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', 
+              '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', 
+              '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', 
+              '$presentation', '$abnormal', '$prescriptions', 'Prenatal', '$symptomps')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
+        
+                // QUERY TO MAKE COPY OF PRENATAL TO POSTNATAL
+                $post_query = "INSERT INTO postnatal 
+                        (postnatal_date, lastname, firstname, middlename, age, sex, birthdate, street_address, 
+                        barangay, city, phone_num, blood_pressure, weight, height, gravida, preterm, last_menstrual, 
+                        edc, aog, fetal_heart, fetal_heart_tones, presentation, a, p, label, symptoms) 
+                        VALUES 
+                        ('$prenatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', '$street_add', 
+                        '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', '$preterm', '$lmp', 
+                        '$edc', '$aog', '$fh', '$fht', '$presentation', '$abnormal', '$prescriptions', 'Postnatal', '$symptoms')";
 
-         // QUERY TO RECENT UPDATE PRENATAL
-         $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
-         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
-         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
- 
-         // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-         $date = date('Y-m-d');
-         $time = date('H:i:s');
- 
-         $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
-         $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
+                $post_query_run = mysqli_query($conn, $post_query);
+
+                if($post_query_run){
+                    // QUERY TO RECENT UPDATE PRENATAL
+                        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+                        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+                        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+                
+                        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+                        $date = date('Y-m-d');
+                        $time = date('H:i:s');
+                
+                        $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
+                        $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
+                        
+                
+                        $query2 = "INSERT INTO recent_activity 
+                                (reasons, user_fname, user_lname, user_role, changes_label, 
+                                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                                VALUES 
+                                ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                                '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
+                
+                        $query_run2 = mysqli_query($conn, $query2);
+                        if($query_run2){
+                            header("Location: ../services-consultation.php");
+                            exit(0);}
+                    //END OF QUERY
+                }
+
          
- 
-         $query2 = "INSERT INTO recent_activity 
-                 (reasons, user_fname, user_lname, user_role, changes_label, 
-                 date_edit, time_edit, patient_fname, patient_lname, record_name)
-                 VALUES 
-                 ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
-                 '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
- 
-         $query_run2 = mysqli_query($conn, $query2);
-         if($query_run2){
-             header("Location: ../services-consultation.php");
-             exit(0);}
-         //END OF QUERY
 
         // $_SESSION['message'] = "Student Created Successfully";
         // header("Location: ../services-consultation.php");
@@ -263,7 +288,7 @@ if(isset($_POST['save_prenatal'])){
 
 // ADD POSTNATAL RECORD
 if(isset($_POST['save_postnatal'])){
-    $postnatal_date = mysqli_real_escape_string($conn, $_POST['postnatal-date']);
+    $postnatal_date = date('Y-m-d'); //changed
     $lastname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['postnatal-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['postnatal-mname']);
@@ -275,6 +300,7 @@ if(isset($_POST['save_postnatal'])){
     $city = mysqli_real_escape_string($conn, $_POST['postnatal-city']);
     $phone_num = mysqli_real_escape_string($conn, $_POST['postnatal-contact']);
 
+    $symptoms = mysqli_real_escape_string($conn, $_POST['postnatal-symptoms']);//added
     $blood_pressure = mysqli_real_escape_string($conn, $_POST['postnatal-bp']);
     $weight = mysqli_real_escape_string($conn, $_POST['postnatal-weight']);
     $height = mysqli_real_escape_string($conn, $_POST['postnatal-height']);
@@ -294,9 +320,15 @@ if(isset($_POST['save_postnatal'])){
 
 
     $query = "INSERT INTO postnatal 
-              (postnatal_date, lastname, firstname, middlename, age, sex, birthdate, street_address, barangay, city, phone_num, blood_pressure, weight, height, gravida, preterm, last_menstrual, edc, aog, fetal_heart, fetal_heart_tones, presentation, a, p, label) 
+              (postnatal_date, lastname, firstname, middlename, age, sex, birthdate, 
+              street_address, barangay, city, phone_num, blood_pressure, weight, height, gravida, 
+              preterm, last_menstrual, edc, aog, fetal_heart, fetal_heart_tones, 
+              presentation, a, p, label, symptoms) 
               VALUES 
-              ('$postnatal_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', '$presentation', '$abnormal', '$prescriptions', 'Post-natal')";
+              ('$postnatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', 
+              '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', 
+              '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', 
+              '$presentation', '$abnormal', '$prescriptions', 'Post-natal', '$symptoms')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -340,21 +372,34 @@ if(isset($_POST['save_postnatal'])){
 
 // ADD SEARCH_DESTROY RECORD
 if(isset($_POST['save_search_destroy'])){
+    
+    $search_destroy_date = date('Y-m-d'); // added
+    $owner_fname = mysqli_real_escape_string($conn, $_POST['search_destroy-owner_fname']); // added
+    $owner_lname = mysqli_real_escape_string($conn, $_POST['search_destroy-owner_lname']); // added
+    $owner_mname = mysqli_real_escape_string($conn, $_POST['search_destroy-owner_mname']); // added
+    $phone_num = mysqli_real_escape_string($conn, $_POST['search_destroy-pnumber']); // added
+    $sex = mysqli_real_escape_string($conn, $_POST['search_destroy-sex']); // added
+    $birthdate = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']); // added
+    $city = mysqli_real_escape_string($conn, $_POST['search_destroy-city']); // added
+
     $barangay = mysqli_real_escape_string($conn, $_POST['search_destroy-barangay']);
-    $total_household = mysqli_real_escape_string($conn, $_POST['search_destroy-household-visited']);
-    $total_positive = mysqli_real_escape_string($conn, $_POST['search_destroy-household-positive']);
+    // $total_household = mysqli_real_escape_string($conn, $_POST['search_destroy-household-visited']);
+    // $total_positive = mysqli_real_escape_string($conn, $_POST['search_destroy-household-positive']);
     $block = mysqli_real_escape_string($conn, $_POST['search_destroy-purok']);
     $date_visit = mysqli_real_escape_string($conn, $_POST['search_destroy-date']);
-    $owner_name = mysqli_real_escape_string($conn, $_POST['search_destroy-owner']);
+    
     $address = mysqli_real_escape_string($conn, $_POST['search_destroy-address']);
     $con_name = mysqli_real_escape_string($conn, $_POST['search_destroy-name-container']);
     $con_num = mysqli_real_escape_string($conn, $_POST['search_destroy-number-container']);
-    $remarks = mysqli_real_escape_string($conn, $_POST['search_destroy-remarks']);
+
+    $remark_status = mysqli_real_escape_string($conn, $_POST['search_destroy-remarks']); // changed
    
     $query = "INSERT INTO search_destroy 
-              (barangay, total_household_visit, total_positive_larva, block, date_visit, owner_name, address, container_name, container_num, remarks, label) 
+              (search_destroy_date, owner_fname, owner_lname, owner_mname, phone_num, sex, birthdate, city,
+               barangay, block, date_visit, address, container_name, container_num, remark_status, label) 
               VALUES 
-              ('$barangay', '$total_household', '$total_positive', '$block', '$date_visit', '$owner_name', '$address', '$con_name', '$con_num', '$remarks', 'Search and Destroy')";
+              ('$search_destroy_date', '$owner_fname', '$owner_lname', '$owner_mname', '$phone_num', '$sex', '$birthdate', '$city',
+                '$barangay', '$block', '$date_visit', '$address', '$con_name', '$con_num', '$remark_status', 'Search and Destroy')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -368,16 +413,16 @@ if(isset($_POST['save_search_destroy'])){
         $date = date('Y-m-d');
         $time = date('H:i:s');
 
-        $patient_fname = mysqli_real_escape_string($conn, $_POST['search_destroy-owner']);
-        // $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['search_destroy-owner_fname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['search_destroy-owner_lname']);
         
 
         $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
-                date_edit, time_edit, patient_fname, record_name)
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
                 ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
-                '$date', '$time', '$patient_fname', 'Search/Destroy')";
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Search/Destroy')";
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
@@ -399,13 +444,22 @@ if(isset($_POST['save_search_destroy'])){
 
 // ADD EARLY CHILDHOOD RECORD
 if(isset($_POST['save_early_childhood'])){
+
+
+    $child_fname = mysqli_real_escape_string($conn, $_POST['early_childhood-childfname']); //added firstname *
+    $child_lname = mysqli_real_escape_string($conn, $_POST['early_childhood-childlname']); //added lastname *
+    $child_mname = mysqli_real_escape_string($conn, $_POST['early_childhood-childmname']); //added middlename *
+    $street_add = mysqli_real_escape_string($conn, $_POST['early_childhood-street']); //added street add *
+    $early_childhood_date = date('Y-m-d'); //added date added
+    $city = mysqli_real_escape_string($conn, $_POST['early_childhood-city']); //added city *
+
     $clinic = mysqli_real_escape_string($conn, $_POST['early_childhood-clinic']);
-    $barangay = mysqli_real_escape_string($conn, $_POST['early_childhood-barangay']);
+    $barangay = mysqli_real_escape_string($conn, $_POST['early_childhood-barangay']);//*
     $purok = mysqli_real_escape_string($conn, $_POST['early_childhood-purol']);
-    $child_name = mysqli_real_escape_string($conn, $_POST['early_childhood-childname']);
+    
     $hospital = mysqli_real_escape_string($conn, $_POST['early_childhood-hospital']);
     $lic = mysqli_real_escape_string($conn, $_POST['early_childhood-lic']);
-    $sex = mysqli_real_escape_string($conn, $_POST['early_childhood-sex']);
+    $sex = mysqli_real_escape_string($conn, $_POST['early_childhood-sex']); //*
     $time_delivery = mysqli_real_escape_string($conn, $_POST['early_childhood-time']);
     
     // MOTHER INFORMATION
@@ -419,14 +473,14 @@ if(isset($_POST['save_early_childhood'])){
 
     //FATHER INFORMATION
     $father_name = mysqli_real_escape_string($conn, $_POST['early_childhood-father-name']);
-    $phone_num = mysqli_real_escape_string($conn, $_POST['early_childhood-father-contact']);
+    $phone_num = mysqli_real_escape_string($conn, $_POST['early_childhood-father-contact']);//*
     $father_educ = mysqli_real_escape_string($conn, $_POST['early_childhood-father-education']);
     $father_age = mysqli_real_escape_string($conn, $_POST['early_childhood-father-age']);
     $father_occupation = mysqli_real_escape_string($conn, $_POST['early_childhood-father-occupation']);
     $father_birthdate = mysqli_real_escape_string($conn, $_POST['early_childhood-father-birthdate']);
 
     //CHILD INFORMATION
-    $child_birthdate = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
+    $child_birthdate = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);//*
     $gestational_age = mysqli_real_escape_string($conn, $_POST['early_childhood-gestational']);
     $birth_type = mysqli_real_escape_string($conn, $_POST['early_childhood-birth']);
     $birth_order = mysqli_real_escape_string($conn, $_POST['early_childhood-birth-order']);
@@ -485,9 +539,35 @@ if(isset($_POST['save_early_childhood'])){
     $vitamin_catchup_date = mysqli_real_escape_string($conn, $_POST['early_childhood-vitA-catch-up']);
 
     $query = "INSERT INTO early_childhood 
-              (clinic, barangay, purok, child_name, hospital, lic, sex, time_delivery, mother_name, no_pregnancies, mother_educ, mother_age, mother_occupation, mother_birthdate, status, father_name, phone_num, father_educ, father_age, father_occupation, father_birthdate, child_birthdate, gestational_age, birth_type, birth_order, birth_weight, birth_length, place_delivery, birth_accomodate, birth_attendant, bcg1_date, bcg2_date, bcg3_date, bcg_catchup_date, hepb1_date, hepb2_date, hepb3_date, hepb_catchup_date, penta1_date, penta2_date, penta3_date, penta_catchup_date, oral_polio1_date, oral_polio2_date, oral_polio3_date, oral_polio_catchup_date, inactive_polio1_date, inactive_polio2_date, inactive_polio3_date, inactive_polio_catchup_date, pneumoco1_date, pneumoco2_date, pneumoco3_date, pneumoco_catchup_date, measle1_date, measle2_date, measle3_date, measle_catchup_date, vitamin1_date, vitamin2_date, vitamin3_date, vitamin_catchup_date, label) 
+              (child_fname, child_lname, child_mname, street_address, early_childhood_date, city, 
+              clinic, barangay, purok, hospital, lic, 
+              sex, time_delivery, mother_name, no_pregnancies, mother_educ, 
+              mother_age, mother_occupation, mother_birthdate, status, father_name, 
+              phone_num, father_educ, father_age, father_occupation, father_birthdate, 
+              child_birthdate, gestational_age, birth_type, birth_order, birth_weight, 
+              birth_length, place_delivery, birth_accomodate, birth_attendant, bcg1_date, 
+              bcg2_date, bcg3_date, bcg_catchup_date, hepb1_date, hepb2_date, hepb3_date, 
+              hepb_catchup_date, penta1_date, penta2_date, penta3_date, penta_catchup_date, 
+              oral_polio1_date, oral_polio2_date, oral_polio3_date, oral_polio_catchup_date, 
+              inactive_polio1_date, inactive_polio2_date, inactive_polio3_date, 
+              inactive_polio_catchup_date, pneumoco1_date, pneumoco2_date, pneumoco3_date, 
+              pneumoco_catchup_date, measle1_date, measle2_date, measle3_date, measle_catchup_date, 
+              vitamin1_date, vitamin2_date, vitamin3_date, vitamin_catchup_date, label) 
               VALUES 
-              ('$clinic', '$barangay', '$purok', '$child_name', '$hospital', '$lic', '$sex', '$time_delivery', '$mother_name', '$no_pregnancies', '$mother_educ', '$mother_age', '$mother_occupation', '$mother_birthdate', '$status', '$father_name', '$phone_num', '$father_educ', '$father_age', '$father_occupation', '$father_birthdate', '$child_birthdate', '$gestational_age', '$birth_type', '$birth_order', '$birth_weight', '$birth_length', '$place_delivery', '$birth_accomodate', '$birth_attendant', '$bcg1_date', '$bcg2_date', '$bcg3_date', '$bcg_catchup_date', '$hepb1_date', '$hepb2_date', '$hepb3_date', '$hepb_catchup_date', '$penta1_date', '$penta2_date', '$penta3_date', '$penta_catchup_date', '$oral_polio1_date', '$oral_polio2_date', '$oral_polio3_date', '$oral_polio_catchup_date', '$inactive_polio1_date', '$inactive_polio2_date', '$inactive_polio3_date', '$inactive_polio_catchup_date', '$pneumoco1_date', '$pneumoco2_date', '$pneumoco3_date', '$pneumoco_catchup_date', '$measle1_date', '$measle2_date', '$measle3_date', '$measle_catchup_date', '$vitamin1_date', '$vitamin2_date', '$vitamin3_date', '$vitamin_catchup_date', 'Early Childhood')";
+              ('$child_fname', '$child_lname', '$child_mname', '$street_add', '$early_childhood_date', '$city',
+              '$clinic', '$barangay', '$purok', '$hospital', '$lic', 
+              '$sex', '$time_delivery', '$mother_name', '$no_pregnancies', '$mother_educ', 
+              '$mother_age', '$mother_occupation', '$mother_birthdate', '$status', '$father_name', 
+              '$phone_num', '$father_educ', '$father_age', '$father_occupation', '$father_birthdate', 
+              '$child_birthdate', '$gestational_age', '$birth_type', '$birth_order', '$birth_weight', 
+              '$birth_length', '$place_delivery', '$birth_accomodate', '$birth_attendant', '$bcg1_date', 
+              '$bcg2_date', '$bcg3_date', '$bcg_catchup_date', '$hepb1_date', '$hepb2_date', '$hepb3_date', 
+              '$hepb_catchup_date', '$penta1_date', '$penta2_date', '$penta3_date', '$penta_catchup_date', 
+              '$oral_polio1_date', '$oral_polio2_date', '$oral_polio3_date', '$oral_polio_catchup_date', 
+              '$inactive_polio1_date', '$inactive_polio2_date', '$inactive_polio3_date', 
+              '$inactive_polio_catchup_date', '$pneumoco1_date', '$pneumoco2_date', '$pneumoco3_date', 
+              '$pneumoco_catchup_date', '$measle1_date', '$measle2_date', '$measle3_date', '$measle_catchup_date', 
+              '$vitamin1_date', '$vitamin2_date', '$vitamin3_date', '$vitamin_catchup_date', 'Early Childhood')";
               
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -501,16 +581,16 @@ if(isset($_POST['save_early_childhood'])){
         $date = date('Y-m-d');
         $time = date('H:i:s');
 
-        $patient_fname = mysqli_real_escape_string($conn, $_POST['early_childhood-childname']);
-        // $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['early_childhood-childfname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['early_childhood-childlname']);
         
 
         $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
-                date_edit, time_edit, patient_fname, record_name)
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
                 ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
-                '$date', '$time', '$patient_fname', 'Childhood Care')";
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Childhood Care')";
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){

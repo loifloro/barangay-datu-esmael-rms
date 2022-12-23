@@ -25,7 +25,7 @@
                 <?= $patient['firstname']." " . $patient['lastname']; ?> <!--Test if displays the fname and lname-->
             </li>
             <li class="patient-profile__contact">
-                N/A
+                <?= $patient['phone_num']; ?> <!--added phone num-->
             </li>
         </ul>
         
@@ -40,7 +40,7 @@
             </li>
             <li class="patient-profile__last-date-added">
                 <span class="patient-profile__category">Date Added</span>
-                09/15/08
+                    <?= $patient['deworming_date']; ?> <!--added date-->
             </li>
         </ul>
         <ul class="patient-profile__item" role="list">
@@ -122,7 +122,30 @@
                     <?= $patient['deworming_date']; ?>
                 </li>
                 <li class="medical-history__item medical-history__btn">
-                    <a href="">View More</a>
+                    <!-- START QUERY FOR EDIT DI PA NAGANA -->
+                    <?php
+                        if(isset($_GET['label'])){
+                            $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
+                                //C0NSULTATION
+                                if(($patient_label == "Consultation") AND (isset($_GET['id']))){
+                                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                                    $query = "SELECT * FROM consultation WHERE consultation_id='$patient_id'";
+                                    $query_run = mysqli_query($conn, $query);
+                
+                                    if(mysqli_num_rows($query_run) > 0){
+                                        $patient_link = $patient['consultation_id'];
+                                        $link = "edit/edit-deworming.php?id=". $patient['consultation_id'];
+                                    }
+                                }
+                           
+                    ?>
+                    <a href="edit/edit-deworming.php?id=<?= $link; ?>">
+                        <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate"><defs><clipPath id="a"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#a)"><path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z"/></g></svg>
+                    </a>
+                    <?php
+                         }
+                    ?>
+                    <!-- END QUERY FOR EDIT DI PANAGANA -->
                 </li>
             </ul>
             <?php

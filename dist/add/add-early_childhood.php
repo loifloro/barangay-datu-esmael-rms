@@ -134,7 +134,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="add-early_childhood">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="add-early_childhood__title">
                 Add Early Childhood Care and Development Care
@@ -150,16 +150,32 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <input type="text" name="early_childhood-clinic" id="early_childhood-clinic">
                 </div>
                 <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-street">Street Address</label>
+                    <input type="text" name="early_childhood-street" id="early_childhood-barangay">
+                </div>
+                <div class="add-early_childhood__form-item">
                     <label for="early_childhood-barangay">Barangay</label>
                     <input type="text" name="early_childhood-barangay" id="early_childhood-barangay">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-city">City</label>
+                    <input type="text" name="early_childhood-city" id="early_childhood-barangay">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-purol">Purol/Sitio</label>
                     <input type="text" name="early_childhood-purol" id="early_childhood-purol">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-childname">Child Name</label>
-                    <input type="text" name="early_childhood-childname" id="early_childhood-childname">
+                    <label for="early_childhood-childfname">Child First Name</label>
+                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-childmname">Child Middle Name</label>
+                    <input type="text" name="early_childhood-childmname" id="early_childhood-childname">
+                </div>
+                <div class="add-early_childhood__form-item">
+                    <label for="early_childhood-childlname">Child Last Name</label>
+                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-hospital">Hospital</label>
@@ -242,7 +258,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-contact">Phone Number</label>
-                    <input type="number" name="early_childhood-father-contact" id="early_childhood-father-contact">
+                    <input type="number" name="early_childhood-father-contact" id="early_childhood-father-contact" maxlength="11" min="1">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-education">Educational Attainment</label>

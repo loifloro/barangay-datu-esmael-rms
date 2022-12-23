@@ -134,7 +134,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="edit-consultation">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="edit-consultation__title">
                 Edit Consultation Record
@@ -159,7 +159,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <input type="hidden" name="consultation_id" value="<?= $patient['consultation_id']; ?>"> <!--nakahide sya para access ID sa edit-->
 
                 <div class="edit-consultation__form-item">
-                    <label for="consultation-date">Date</label>
+                    <label for="consultation-date">Registration Date</label>
                     <input type="date" name="consultation-date" id="consultation-date" value="<?= $patient['consultation_date']; ?>">
                 </div>
                 <div class="edit-consultation__form-item">

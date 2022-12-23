@@ -10,7 +10,124 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Document</title>
+    <!-- START QUERY FOR DISPLAYING TITLE TAB -->
+    <?php
+            if(isset($_GET['label'])){
+                $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
+
+                //Deworming
+                if(($patient_label == "Deworming") AND (isset($_GET['id']))){
+                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                    $query = "SELECT * FROM deworming WHERE deworming_id='$patient_id'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        $patient = mysqli_fetch_array($query_run);
+                            if(isset($_GET['fname']) && isset($_GET['lname'])){
+                                $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                                $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                                if($patient['firstname'] == $patient_fname && $patient['lastname'] == $patient_lname){
+                                    $patient_tab = $patient['firstname'].' '.$patient['lastname'];
+                                } 
+                            }
+                        }
+                    }       
+                
+                //Consultation
+                if(($patient_label == "Consultation") AND (isset($_GET['id']))){
+                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                    $query = "SELECT * FROM consultation WHERE consultation_id='$patient_id'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        $patient = mysqli_fetch_array($query_run);
+                            if(isset($_GET['fname']) && isset($_GET['lname'])){
+                                $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                                $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                                if($patient['firstname'] == $patient_fname && $patient['lastname'] == $patient_lname){
+                                    $patient_tab = $patient['firstname'].' '.$patient['lastname'];
+                                } 
+                            }
+                        }
+                    }          
+                
+                //Prenatal
+                if(($patient_label == "Prenatal") AND (isset($_GET['id']))){
+                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                    $query = "SELECT * FROM prenatal WHERE prenatal_id='$patient_id'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        $patient = mysqli_fetch_array($query_run);
+                            if(isset($_GET['fname']) && isset($_GET['lname'])){
+                                $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                                $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                                if($patient['firstname'] == $patient_fname && $patient['lastname'] == $patient_lname){
+                                    $patient_tab = $patient['firstname'].' '.$patient['lastname'];
+                                } 
+                            }
+                        }
+                    }   
+
+                //Postnatal
+                if(($patient_label == "Postnatal") AND (isset($_GET['id']))){
+                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                    $query = "SELECT * FROM postnatal WHERE postnatal_id='$patient_id'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        $patient = mysqli_fetch_array($query_run);
+                            if(isset($_GET['fname']) && isset($_GET['lname'])){
+                                $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                                $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                                if($patient['firstname'] == $patient_fname && $patient['lastname'] == $patient_lname){
+                                    $patient_tab = $patient['firstname'].' '.$patient['lastname'];
+                                } 
+                            }
+                        }
+                    }          
+
+                //Search and Destroy
+                if(($patient_label == "Search and Destroy") AND (isset($_GET['id']))){
+                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                    $query = "SELECT * FROM search_destroy WHERE search_destroy_id='$patient_id'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        $patient = mysqli_fetch_array($query_run);
+                            if(isset($_GET['fname']) && isset($_GET['lname'])){
+                                $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                                $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                                if($patient['owner_fname'] == $patient_fname && $patient['owner_lname'] == $patient_lname){
+                                    $patient_tab = $patient['owner_fname'].' '.$patient['owner_lname'];
+                                } 
+                            }
+                        }
+                    }
+                
+                //Early Childhood
+                if(($patient_label == "Early Childhood") AND (isset($_GET['id']))){
+                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                    $query = "SELECT * FROM early_childhood WHERE early_childhood_id='$patient_id'";
+                    $query_run = mysqli_query($conn, $query);
+
+                    if(mysqli_num_rows($query_run) > 0){
+                        $patient = mysqli_fetch_array($query_run);
+                            if(isset($_GET['fname']) && isset($_GET['lname'])){
+                                $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                                $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                                if($patient['child_fname'] == $patient_fname && $patient['child_lname'] == $patient_lname){
+                                    $patient_tab = $patient['child_fname'].' '.$patient['child_lname'];
+                                } 
+                            }
+                        }
+                    }           
+        ?>                   
+    <title><?= $patient_tab; ?></title>
+    <?php
+            }
+    ?>   
+    <!-- END QUERY FOR DISPLAYING TITLE TAB -->
 </head>
 <body class="grid">
     <!-- Sidebar -->

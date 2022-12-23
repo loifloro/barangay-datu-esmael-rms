@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../includes/connection.php';
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 ?>
 <!DOCTYPE html>
@@ -134,7 +135,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="add-postnatal">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="add-postnatal__title">
                 Add New Prenatal Record
@@ -145,10 +146,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <form action="../includes/add_query.php" method="POST" class="add-postnatal__form">
 
-                <div class="add-postnatal__form-item">
+                <!-- <div class="add-postnatal__form-item">
                     <label for="postnatal-date">Date</label>
                     <input type="date" name="postnatal-date" id="postnatal-date">
-                </div>
+                </div> -->
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lname">Last Name</label>
                     <input type="text" name="postnatal-lname" id="postnatal-lname">
@@ -165,7 +166,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <label for="postnatal-age">Age</label>
                     <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1">
                 </div>
-                <div class="add-postnatal__form-item add-postnatal__form-item--radio">
+                <!-- <div class="add-postnatal__form-item add-postnatal__form-item--radio">
                     <label for="postnatal-sex">Gender</label>
                     <div class="add-postnatal__form--role-item">
                         <div class="add-postnatal__form-item">
@@ -177,7 +178,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                             <label for="postnatal-sex">Female</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-birthday">Birthday</label>
                     <input type="date" name="postnatal-birthday" id="postnatal-birthday">
@@ -209,7 +210,11 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <p class="add-postnatal__desc">
                     Fill up necessary information to complete the process
                 </p>
-                
+                <div class="add-postnatal__form-item"><!--added-->
+                    <label for="prenatal-symptoms">Symptoms</label>
+                    <textarea name="postnatal-symptoms" id="prenatal-symptoms" cols="27" rows="10"></textarea>
+                </div>
+
                 <div class="add-postnatal__form-doses">
                     <div class="add-postnatal__form-label">
                         <p class="dose-title">
@@ -340,7 +345,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </div>
                 <!-- Query to get the user session name -->
                 <?php 
-                    include '../includes/connection.php';
+                    
                     $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
                     $query_run = mysqli_query($conn, $query);
 

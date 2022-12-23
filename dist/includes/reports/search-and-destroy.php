@@ -19,7 +19,7 @@
     </ul>
     <ul class="search-and-destroy__record__table__row search-and-destroy__record__item" role="list">
         <li class="search-and-destroy__record__table__item">
-            <?= $patient['owner_name']; ?>    
+            <?= $patient['owner_fname'].' '.$patient['owner_lname']; ?>    
         </li>
         <li class="search-and-destroy__record__table__item">
             <?= $patient['container_name']; ?>
@@ -52,7 +52,7 @@
         </li>
         <!-- START QUERY -->
         <?php
-                $query = "SELECT count(*) AS total, sum(total_positive_larva) AS total_p FROM search_destroy";
+                $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy";
                 $result = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_array($result)) {  
         ?>
@@ -125,10 +125,10 @@
         <tbody class="search-and-destroy__report__table__item">
             <tr>
                 <td class="search-and-destroy__report__table--date"><?= $patient['date_visit']; ?></td>
-                <th><?= $patient['owner_name']; ?></th>
+                <th><?= $patient['owner_fname'].' '.$patient['owner_lname']; ?></th>
                 <td><?= $patient['address'].' '. $patient['block']; ?></td>
                 <td><?= $patient['container_name']; ?></td>
-                <td><?= $patient['total_positive_larva']; ?></td>
+                <td><?= $patient['container_num']; ?></td>
             </tr>
         </tbody>
         <?php 

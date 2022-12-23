@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'includes/connection.php';
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
 ?>
@@ -126,9 +127,9 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- This would change depending on the URL or the current page  -->
                 Services
             </h1>
-            <form class="navigation__search">
-                <input type="text" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
-                --><button type="submit" class="navigation__search__btn">
+            <form class="navigation__search" action="search-result.php" method="GET">
+                <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
+                --><button type="submit" name="search_btn class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>
             </form>
@@ -192,7 +193,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </ul>
 
             <?php 
-                include 'includes/connection.php';
                 $query = "SELECT * FROM deworming ORDER BY firstname";
                 $query_run = mysqli_query($conn, $query);
                 if(mysqli_num_rows($query_run) > 0)
@@ -268,7 +268,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'includes/connection.php';
                     $query = "SELECT * FROM consultation ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -338,7 +337,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'includes/connection.php';
                     $query = "SELECT * FROM prenatal ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -353,7 +351,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <?php include('./includes/reports/prenatal.php'); ?>
                 </li>
                 <li class="services__num">
-                    <?= $patient['age']; ?>
+                    <?= $patient['phone_num']; ?>
                 </li>
                 <li class="services__sex">
                     <?= $patient['sex']; ?>
@@ -409,7 +407,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'includes/connection.php';
                     $query = "SELECT * FROM postnatal ORDER BY firstname";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
@@ -423,7 +420,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <p><?= $patient['firstname']." " . $patient['lastname']; ?></p>
                 </li>
                 <li class="services__num">
-                    <?= $patient['age']; ?>
+                    <?= $patient['phone_num']; ?>
                 </li>
                 <li class="services__sex">
                     <?= $patient['sex']; ?>
@@ -460,7 +457,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
-                    Container
+                    Status
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
@@ -478,8 +475,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'includes/connection.php';
-                    $query = "SELECT * FROM search_destroy ORDER BY date_visit";
+                    $query = "SELECT * FROM search_destroy";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -489,12 +485,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             <ul class="services__table__row services__info" role="list">
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                    <a href="#search-and-destroy-modal<?= $patient['search_destroy_id']; ?>" rel="modal:open"><?= $patient['owner_name']; ?></a>
-                    <?php include('./includes/reports/search-and-destroy.php'); ?>
-
+                    <a href="#search-and-destroy-modal<?= $patient['search_destroy_id'];?>" rel="modal:open"><?= $patient['owner_fname'].' '.$patient['owner_lname']; ?></a>
                 </li>
                 <li class="services__num">
-                    <?= $patient['container_name']; ?>
+                    <?= $patient['remark_status']; ?>
                 </li>
                 <li class="services__sex">
                     <?= $patient['container_num']; ?>
@@ -504,10 +498,11 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </li>
                 <li class="services__option">
                     <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
-                    <a href="edit/edit-search_destroy.php?id=<?= $patient['search_destroy_id']; ?>"><svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate"><defs><clipPath id="a"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#a)"><path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z"/></g></svg></a>
+                    <a href="edit/edit-search_destroy.php?id=<?= $patient['search_destroy_id'];?>"><svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate"><defs><clipPath id="a"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#a)"><path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z"/></g></svg></a>
                 </li>
             </ul>
             <?php
+                    include('./includes/reports/search-and-destroy.php'); //moved caused of error when in top
                     }
                     }
                     else
@@ -515,6 +510,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         echo "<h5> No Record Found </h5>";
                     }
             ?>
+            
             <!-- End of Query -->
             <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a>
             <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-search_destroy.php'">
@@ -541,7 +537,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li class="services__attributes__item">
-                    Child Bithdate
+                    Date Availed
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                 </li>
                 <li>
@@ -551,8 +547,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <!-- To be put in the loop -->
             <?php 
-                    include 'includes/connection.php';
-                    $query = "SELECT * FROM early_childhood ORDER BY child_name";
+                    $query = "SELECT * FROM early_childhood ORDER BY child_fname";
                     $query_run = mysqli_query($conn, $query);
                     
                     if (mysqli_num_rows($query_run) > 0){
@@ -561,7 +556,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             <ul class="services__table__row services__info" role="list">
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                    <a href="#early__childhood__report<?= $patient['early_childhood_id']; ?>" rel="modal:open"><?= $patient['child_name']; ?></a>
+                    <a href="#early__childhood__report<?= $patient['early_childhood_id']; ?>" rel="modal:open"><?= $patient['child_fname'].' '.$patient['child_lname']; ?></a>
                     <?php include('./includes/reports/early__childhood.php'); ?>
                 </li>
                 <li class="services__num">
@@ -571,7 +566,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <?= $patient['phone_num']; ?>
                 </li>
                 <li class="services__date--availed">
-                    <?= $patient['child_birthdate']; ?>
+                    <?= $patient['early_childhood_date']; ?>
                 </li>
                 <li class="services__option">
                     <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>

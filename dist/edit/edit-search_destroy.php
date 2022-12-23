@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "../includes/connection.php";
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 ?>
 <!DOCTYPE html>
@@ -134,7 +135,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="edit-search_destroy">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="edit-search_destroy__title">
                 Edit Search and Destroy Record
@@ -143,9 +144,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="../includes/edit_query.php" method = 'POST' class="edit-search_destroy__form">
+            <form action="../includes/edit_query.php" method= "POST" class="edit-search_destroy__form">
                   <?php
-                        include "../includes/connection.php";
                         if(isset($_GET['id']))
                         {
                             $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -157,18 +157,18 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                                 $patient = mysqli_fetch_array($query_run);
                     ?>
                 <input type="hidden" name="search_destroy_id" value="<?= $patient['search_destroy_id']; ?>"> <!--nakahide sya para access ID sa edit-->
-
+                
+                <div class="edit-search_destroy__form-item">
+                    <label for="search_destroy_date_added">Registration Date</label>
+                    <input type="date" name="search_destroy_date_added" id="early_childhood-clinic" value="<?= $patient['search_destroy_date']; ?>">
+                </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-barangay">Name of Barangay</label>
                     <input type="text" name="search_destroy-barangay" id="search_destroy-barangay" value="<?= $patient['barangay']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-household-visited">Total No. of Household Visited:</label>
-                    <input type="number" name="search_destroy-household-visited" id="search_destroy-household-visited" value="<?= $patient['total_household_visit']; ?>">
-                </div>
-                <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-household-positive">Total No. Household Positive for Larva:</label>
-                    <input type="text" name="search_destroy-household-positive" id="search_destroy-household-positive" value="<?= $patient['total_positive_larva']; ?>">
+                <label for="search_destroy-city">City</label>
+                    <input type="text" name="search_destroy-city" id="search_destroy-barangay" value="<?= $patient['city']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-purok">Purok/Block Coverage</label>
@@ -188,15 +188,44 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-date">Date Visited</label>
-                    <input type="date" name="search_destroy-date" id="search_destroy-date" value="<?= $patient['date_visit']; ?>">
+                    <input type="date" name="search_destroy-date_visit" id="search_destroy-date" value="<?= $patient['date_visit']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-owner">Owner of the House</label>
-                    <input type="text" name="search_destroy-owner" id="search_destroy-owner" value="<?= $patient['owner_name']; ?>">
+                    <label for="search_destroy-owner_fname">Owner First Name</label>
+                    <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner" value="<?= $patient['owner_fname']; ?>">
+                </div>
+                <div class="edit-search_destroy__form-item">
+                    <label for="search_destroy-owner_mname">Owner Middle Name</label>
+                    <input type="text" name="search_destroy-owner_mname" id="search_destroy-owner" value="<?= $patient['owner_mname']; ?>">
+                </div>
+                <div class="edit-search_destroy__form-item">
+                    <label for="search_destroy-owner_lname">Owner Last Name</label>
+                    <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner" value="<?= $patient['owner_lname']; ?>">
+                </div>
+                <div class="edit-search_destroy__form-item">
+                    <label for="search_destroy-date">Birthdate</label>
+                    <input type="date" name="search_destroy-bdate" id="search_destroy-date" value="<?= $patient['birthdate']; ?>">
+                </div>
+                <div class="edit-deworming__form-item add-deworming__form-item--radio">
+                    <label for="deworming-sex">Gender</label>
+                    <div class="add-deworming__form--role-item">
+                        <div class="add-deworming__form-item">
+                            <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
+                            <label for="deworming-sex">Male</label>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
+                            <label for="deworming-sex">Female</label>
+                        </div>
+                    </div>
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-editress">Complete Address</label>
                     <textarea name="search_destroy-editress" id="search_destroy-editress" cols="27" rows="10"><?= $patient['address']; ?></textarea>
+                </div>
+                <div class="edit-search_destroy__form-item">
+                    <label for="search_destroy-pnumber">Phone Number</label>
+                    <input type="number" name="search_destroy-pnumber" id="search_destroy-number-container" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-name-container">Name of Container Positive for Larva</label>
@@ -206,9 +235,18 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <label for="search_destroy-number-container">No. of Container Positive for Larva</label>
                     <input type="text" name="search_destroy-number-container" id="search_destroy-number-container" value="<?= $patient['container_num']; ?>">
                 </div>
-                <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-remarks">Remarks</label>
-                    <textarea name="search_destroy-remarks" id="search_destroy-remarks" cols="27" rows="10"><?= $patient['remarks']; ?></textarea>
+                <div class="edit-deworming__form-item add-deworming__form-item--radio">
+                    <label for="deworming-sex">Remarks</label>
+                    <div class="add-deworming__form--role-item">
+                        <div class="add-deworming__form-item">
+                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive" <?= ($patient['remark_status']=='Positive')? 'checked' : '' ?>> 
+                            <label for="deworming-sex">Positive</label>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Negative" <?= ($patient['remark_status']=='Negative')? 'checked' : '' ?>>
+                            <label for="deworming-sex">Negative</label>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Divider -->

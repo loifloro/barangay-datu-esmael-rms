@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "../includes/connection.php";
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 ?>
 <!DOCTYPE html>
@@ -134,7 +135,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="edit-postnatal">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="edit-postnatal__title">
                 Edit Prenatal Record
@@ -145,7 +146,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <form action="../includes/edit_query.php" methhod='POST' class="edit-postnatal__form">
                     <?php
-                        include "../includes/connection.php";
                         if(isset($_GET['id']))
                         {
                             $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -178,19 +178,19 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <label for="postnatal-age">Age</label>
                     <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1" value="<?= $patient['age']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item edit-postnatal__form-item--radio">
+                <!-- <div class="edit-postnatal__form-item edit-postnatal__form-item--radio">
                     <label for="postnatal-sex">Gender</label>
                     <div class="edit-postnatal__form--role-item">
                         <div class="edit-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
+                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female" value="Male">
                             <label for="postnatal-sex">Male</label>
                         </div>
                         <div class="edit-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
+                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female" value="Female">
                             <label for="postnatal-sex">Female</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="edit-postnatal__form-item">
                     <label for="postnatal-birthday">Birthday</label>
                     <input type="date" name="postnatal-birthday" id="postnatal-birthday" value="<?= $patient['birthdate']; ?>">
@@ -222,7 +222,11 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <p class="edit-postnatal__desc">
                     Fill up necessary information to complete the process
                 </p>
-                
+                <div class="edit-postnatal__form-item"><!--added-->
+                    <label for="prenatal-symptoms">Symptoms</label>
+                    <textarea name="postnatal-symptoms" id="prenatal-symptoms" cols="27" rows="10"><?= $patient['symptoms']; ?></textarea>
+                </div>
+
                 <div class="edit-postnatal__form-doses">
                     <div class="edit-postnatal__form-label">
                         <p class="dose-title">
@@ -266,8 +270,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <input type="text" name="postnatal-gravida" id="postnatal-gravida" value="<?= $patient['gravida']; ?>">
                 </div>
                 <div class="edit-postnatal__form-item">
-                    <label for="postnatal-p">P</label>
-                    <input type="text" name="postnatal-p" id="postnatal-p" value="<?= $patient['preterm']; ?>">
+                    <label for="postnatal-preterm">P</label>
+                    <input type="text" name="postnatal-preterm" id="postnatal-p" value="<?= $patient['preterm']; ?>">
                 </div>
                 <div class="edit-postnatal__form-item">
                     <label for="postnatal-lmp">LMP</label>
@@ -332,12 +336,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </p>
                 
                 <div class="edit-postnatal__form-item">
-                    <label for="postnatal-a">A</label>
-                    <textarea name="postnatal-a" id="postnatal-a" cols="27" rows="10"><?= $patient['a']; ?></textarea>
+                    <label for="postnatal-abnormal">A</label>
+                    <textarea name="postnatal-abnormal" id="postnatal-a" cols="27" rows="10"><?= $patient['a']; ?></textarea>
                 </div>
                 <div class="edit-postnatal__form-item">
-                    <label for="postnatal-p">P</label>
-                    <input type="text" name="postnatal-p" id="postnatal-p" value="<?= $patient['p']; ?>">
+                    <label for="postnatal-prescrip">P</label>
+                    <input type="text" name="postnatal-prescrip" id="postnatal-p" value="<?= $patient['p']; ?>">
                 </div>
                 
                 <!-- Divider -->
@@ -394,7 +398,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                  ?>
                  <!-- Query to get the user session name -->
                 <?php 
-                    include '../includes/connection.php';
                     $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
                     $query_run = mysqli_query($conn, $query);
 

@@ -1,3 +1,8 @@
+<?php
+session_start();
+include "includes/connection.php";
+if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,9 +117,10 @@
                 <!-- This would change depending on the URL or the current page  -->
                 Patient
             </h1>
-            <form class="navigation__search">
-                <input type="text" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
-                --><button type="submit" class="navigation__search__btn">
+            <!-- SEARCH FORM ACTION -->
+            <form class="navigation__search" action="" method="GET">
+                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" value="<?php echo $_GET['search_input']; ?>"/><!--  
+                --><button name="search_btn" type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>
             </form>
@@ -152,27 +158,79 @@
                 </ul>
 
                 <!-- To be put in the loop -->
+                <?php
+                    if(isset($_GET['search_input'])) //get the search value
+                    {
+                        $filtervalues = $_GET['search_input']; //GET QUERY captures data
+                        $query = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
+                                  FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
+                                  LIKE '%$filtervalues%' 
+                                  UNION ALL
+                                  SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
+                                  FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
+                                  LIKE '%$filtervalues%'
+                                  UNION ALL
+                                  SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
+                                  FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
+                                  LIKE '%$filtervalues%'
+                                  UNION ALL
+                                  SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
+                                  FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
+                                  LIKE '%$filtervalues%'
+                                  UNION ALL
+                                  SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
+                                  FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
+                                  LIKE '%$filtervalues%'
+                                  UNION ALL
+                                  SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
+                                  FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
+                                  LIKE '%$filtervalues%'
+                                  ";
+                        $query_run = mysqli_query($conn, $query);
+                        if(mysqli_num_rows($query_run) > 0)
+                        {
+                            foreach($query_run as $search)
+                            {
+                ?>
                 <ul class="search-results__table__row patient__info" role="list">
                     <li class="search-results__name p-bold">
-                        Name
+                        <?= $search['firstname'].' '.$search['lastname']; ?>
                     </li>
                     <li class="search-results__num">
-                        Contact Number
+                        <?= $search['phone_num']; ?>
                     </li>
                     <li class="search-results__sex">
-                        Sex
+                        <?= $search['sex']; ?>
                     </li>
                     <li class="search-results__availed-service">
-                        <span class="search-results__availed-service--deworming">Deworming</span>
-                        <span class="search-results__availed-service--prenatal">Prenatal</span>
+                        <span class="search-results__availed-service--deworming"><?= $search['label']; ?></span>
+                        <!-- <span class="search-results__availed-service--prenatal">Prenatal</span> -->
                     </li>
                     <li class="search-results__option">
                         <p class="view-profile__btn">
-                            View Profile
+                            <a href="patient-profile.php?id=<?= $search['deworming_id']?>&label=<?= $search['label'];?>&fname=<?= $search['firstname'];?>&lname=<?= $search['lastname'];?>">
+                                View Profile
+                            </a>
                         </p>
                     </li>
                 </ul>
+                <?php
+                    }
+                        }
+                    else
+                        {
+                            echo "No record found";
+                        }
+                    }
+                ?>
             </div>
         </section>
 </body>
 </html>
+<?php
+}
+else{
+    header("Location: index.php"); /*Redirect to this page if successful*/
+    exit();
+}
+?>

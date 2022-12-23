@@ -1,5 +1,6 @@
 <?php
 session_start();
+include '../includes/connection.php';
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 ?>
 <!DOCTYPE html>
@@ -134,7 +135,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="edit-prenatal">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="edit-prenatal__title">
                 Edit Prenatal Record
@@ -145,7 +146,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
             <form action="../includes/edit_query.php" method='POST' class="edit-prenatal__form">
                     <?php
-                        include "../includes/connection.php";
                         if(isset($_GET['id']))
                         {
                             $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -159,7 +159,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <input type="hidden" name="prenatal_id" value="<?= $patient['prenatal_id']; ?>"> <!--nakahide sya para access ID sa edit-->
 
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-date">Date</label>
+                    <label for="prenatal-date">Date Registered</label>
                     <input type="date" name="prenatal-date" id="prenatal-date" value="<?= $patient['prenatal_date']; ?>">
                 </div>
                 <div class="edit-prenatal__form-item">
@@ -178,19 +178,19 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <label for="prenatal-age">Age</label>
                     <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" value="<?= $patient['age']; ?>">
                 </div>
-                <div class="edit-prenatal__form-item edit-prenatal__form-item--radio">
+                <!-- <div class="edit-prenatal__form-item edit-prenatal__form-item--radio">
                     <label for="prenatal-sex">Gender</label>
                     <div class="edit-prenatal__form--role-item">
                         <div class="edit-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
+                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Male">
                             <label for="prenatal-sex">Male</label>
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
+                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Female">
                             <label for="prenatal-sex">Female</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="edit-prenatal__form-item">
                     <label for="prenatal-birthday">Birthday</label>
                     <input type="date" name="prenatal-birthday" id="prenatal-birthday" value="<?= $patient['birthdate']; ?>">
@@ -209,7 +209,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-prenatal__form-item">
                     <label for="prenatal-contact">Phone Number</label>
-                    <input type="number" name="prenatal-contact" id="prenatal-contact" value="<?= $patient['phone_num']; ?>">
+                    <input type="number" name="prenatal-contact" id="prenatal-contact" value="<?= $patient['phone_num']; ?>" maxlength="11" min="1">
                 </div>
                 
                 
@@ -224,7 +224,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </p>
                 <div class="edit-prenatal__form-item">
                     <label for="prenatal-symptoms">Symptoms</label>
-                    <textarea name="prenatal-symptoms" id="prenatal-symptoms" cols="27" rows="10"></textarea>
+                    <textarea name="prenatal-symptoms" id="prenatal-symptoms" cols="27" rows="10"><?= $patient['symptoms']; ?></textarea>
                 </div>
                 
                 <div class="edit-prenatal__form-doses">
@@ -398,7 +398,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                  ?>
                  <!-- Query to get the user session name -->
                 <?php 
-                    include '../includes/connection.php';
                     $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
                     $query_run = mysqli_query($conn, $query);
 
