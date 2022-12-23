@@ -134,10 +134,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="edit-early_childhood">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="edit-early_childhood__title">
-                Add Early Childhood Care and Development Care
+                Edit Early Childhood Care and Development Care
             </h2>
             <p class="edit-early_childhood__desc">
                 Fill up necessary information to complete the process
@@ -158,22 +158,42 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     ?>
 
                 <input type="hidden" name="early_childhood_id" value="<?= $patient['early_childhood_id']; ?>"> <!--nakahide sya para access ID sa edit-->
-
+                
+                <div class="edit-early_childhood__form-item">
+                    <label for="early_childhood-date">Registration Date</label>
+                    <input type="date" name="early_childhood-added_date" id="early_childhood-clinic" value="<?= $patient['early_childhood_date']; ?>">
+                </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-clinic">Clinic/Health Center</label>
                     <input type="text" name="early_childhood-clinic" id="early_childhood-clinic" value="<?= $patient['clinic']; ?>">
+                </div>
+                <div class="edit-early_childhood__form-item">
+                    <label for="early_childhood-street">Street Address</label>
+                    <input type="text" name="early_childhood-streetadd" id="early_childhood-barangay" value="<?= $patient['street_address']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-barangay">Barangay</label>
                     <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" value="<?= $patient['barangay']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
+                    <label for="early_childhood-city">City Address</label>
+                    <input type="text" name="early_childhood-city" id="early_childhood-barangay" value="<?= $patient['city']; ?>">
+                </div>
+                <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-purol">Purol/Sitio</label>
                     <input type="text" name="early_childhood-purol" id="early_childhood-purol" value="<?= $patient['purok']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-childname">Child Name</label>
-                    <input type="text" name="early_childhood-childname" id="early_childhood-childname" value="<?= $patient['child_name']; ?>">
+                    <label for="early_childhood-childfname">Child First Name</label>
+                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname" value="<?= $patient['child_fname']; ?>">
+                </div>
+                <div class="edit-early_childhood__form-item">
+                    <label for="early_childhood-childmname">Child Middle Name</label>
+                    <input type="text" name="early_childhood-childmname" id="early_childhood-childname" value="<?= $patient['child_mname']; ?>">
+                </div>
+                <div class="edit-early_childhood__form-item">
+                    <label for="early_childhood-childlname">Child Last Name</label>
+                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname" value="<?= $patient['child_lname']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-hospital">Hospital</label>
@@ -198,7 +218,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-street">Time Delivery</label>
-                    <input type="text" name="early_childhood-street" id="early_childhood-street" value="<?= $patient['time_delivery']; ?>">
+                    <input type="text" name="early_childhood-time" id="early_childhood-street" value="<?= $patient['time_delivery']; ?>">
                 </div>
                 
                 <!-- Divider -->
@@ -256,7 +276,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-father-contact">Phone Number</label>
-                    <input type="number" name="early_childhood-father-contact" id="early_childhood-father-contact" value="<?= $patient['phone_num']; ?>">
+                    <input type="number" name="early_childhood-father-contact" id="early_childhood-father-contact" value="<?= $patient['phone_num']; ?>" maxlength="11" min="1">
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-father-education">Educational Attainment</label>
@@ -323,10 +343,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <label for="early_childhood-birth-place">Place of Delivery</label>
                     <!-- <input type="number" name="early_childhood-birth-lenght" id="early_childhood-birth-lenght"> -->
                     <select name="early_childhood-birth-place" id="">
-                        <option value="Home">Home</option>
-                        <option value="Lying In">Lying In</option>
-                        <option value="Hospital">Hospital</option>
-                        <option value="Others">Others</option>
+                        <option value="Home" <?= ($patient['place_delivery']=='Home')? 'selected' : '' ?>>Home</option>
+                        <option value="Lying In" <?= ($patient['place_delivery']=='Lying In')? 'selected' : '' ?>>Lying In</option>
+                        <option value="Hospital" <?= ($patient['place_delivery']=='Hospital')? 'selected' : '' ?>>Hospital</option>
+                        <option value="Others" <?= ($patient['place_delivery']=='Others')? 'selected' : '' ?>>Others</option>
                     </select>
                 </div>
                 <div class="edit-early_childhood__form-item">

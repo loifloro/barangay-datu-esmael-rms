@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "../includes/connection.php";
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 ?>
 <!DOCTYPE html>
@@ -134,7 +135,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="edit-deworming">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
             </p>
             <h2 class="edit-deworming__title">
                 Edit Deworming Record
@@ -147,7 +148,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                   class="edit-deworming__form">
 
                   <?php
-                    include "../includes/connection.php";
                     if(isset($_GET['id']))
                     {
                         $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -161,7 +161,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <input type="hidden" name="deworming_id" value="<?= $patient['deworming_id']; ?>"> <!--nakahide sya para access ID sa edit-->
 
                 <div class="edit-deworming__form-item">
-                    <label for="deworming-date">Date</label>
+                    <label for="deworming-date">Registration Date</label>
                     <input type="date" name="deworming-date" id="deworming-date" value="<?= $patient['deworming_date']; ?>">
                 </div>
                 <div class="edit-deworming__form-item">
@@ -179,6 +179,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <div class="edit-deworming__form-item">
                     <label for="deworming-age">Age</label>
                     <input type="number" name="deworming-age" id="deworming-age" maxlength="2" min="1" value="<?= $patient['age']; ?>">
+                </div>
+                <div class="edit-deworming__form-item">
+                    <label for="deworming-age">Phone Number</label>
+                    <input type="number" name="deworming-phone_num" id="deworming-age" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">
                 </div>
                 <div class="edit-deworming__form-item edit-deworming__form-item--radio">
                     <label for="deworming-sex">Gender</label>
@@ -266,7 +270,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                  ?>
                  <!-- Query to get the user session name -->
                 <?php 
-                    include '../includes/connection.php';
                     $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
                     $query_run = mysqli_query($conn, $query);
 
