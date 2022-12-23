@@ -1188,6 +1188,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .backup__table__row {
   display: grid;
@@ -1196,6 +1197,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-inline-start: unset;
   padding: 1rem 1.5rem;
   margin-block: 0;
+}
+.backup__table ul:nth-child(2n+1) {
+  background: #FFFFFF;
 }
 .backup__attributes {
   color: #909087;
@@ -1230,6 +1234,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .bhw-account__table {
   margin-block: 1rem;
+  overflow: hidden;
   background: #FFFFFF;
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
   border: #ECFCF2 1px solid;
@@ -1248,6 +1253,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .bhw-account__table__row li:last-child {
   justify-self: center;
+}
+.bhw-account__table ul:nth-child(2n+1) {
+  background: #FFFFFF;
 }
 .bhw-account__header {
   color: #909087;
@@ -1285,12 +1293,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   float: left;
   margin-top: 1rem;
 }
+.services__table ul:nth-child(2n+1) {
+  background: #FFFFFF;
+}
 .services__header {
   color: #909087 !important;
   font-size: 0.85rem;
+  border-radius: 1vw;
 }
 .services__info {
   background: #FBFBFB;
+  overflow: hidden;
   color: #414134;
 }
 .services__name, .services__attributes__item {
@@ -1543,6 +1556,74 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-left: 2rem;
 }
 
+.early__childhood__report {
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
+}
+.early__childhood__report .doh-logo {
+  width: 60%;
+  height: auto;
+}
+.early__childhood__report__header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+.early__childhood__report__title > * {
+  color: #212529;
+  font-weight: 600;
+  line-height: 1.1;
+}
+.early__childhood__report__address, .early__childhood__report__child-info, .early__childhood__report__mother {
+  margin-bottom: 2rem;
+}
+.early__childhood__report__two-column {
+  display: grid;
+  grid-template-columns: repeat(2, 60% 40%);
+}
+.early__childhood__report__three-column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: 1rem;
+}
+.early__childhood__report table {
+  width: 100%;
+}
+.early__childhood__report table, .early__childhood__report td, .early__childhood__report th {
+  border: 2px solid #ECFCF2;
+  border-collapse: collapse;
+}
+.early__childhood__report__table {
+  border: 1px solid;
+  border-collapse: collapse;
+  margin-block: 2rem;
+}
+.early__childhood__report__table__header {
+  font-size: 0.85rem;
+  color: #909087;
+}
+.early__childhood__report__table thead > tr > th {
+  font-weight: 300;
+}
+.early__childhood__report__table tr,
+.early__childhood__report__table th {
+  width: 20%;
+}
+.early__childhood__report__table td,
+.early__childhood__report__table th {
+  text-align: center;
+  line-height: 1.6;
+}
+.early__childhood__report__table td {
+  color: #414134;
+}
+.early__childhood__report__table .width-10 {
+  width: 10%;
+  border-bottom: none;
+}
+
 .block,
 .center {
   display: grid;
@@ -1626,6 +1707,10 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
   .value {
     border-bottom: 1pt solid #212529;
+  }
+  .doh-image {
+    width: 1in !important;
+    height: auto !important;
   }
 }
 .add-deworming,
