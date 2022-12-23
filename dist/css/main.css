@@ -1344,6 +1344,26 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-block: 1rem;
 }
 
+.deworming-reports {
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
+}
+.deworming-reports table, .deworming-reports td, .deworming-reports th {
+  border: 2px solid #ECFCF2;
+}
+.deworming-reports__table {
+  width: 100%;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+.deworming-reports__table__header {
+  font-size: 0.85rem;
+  color: #909087;
+}
+.deworming-reports__table thead > tr > th {
+  font-weight: 300;
+}
+
 .deworming-report__table {
   background: #FFFFFF;
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
