@@ -36,7 +36,7 @@
         <p class="early__childhood__report__childname">
             Childname: 
             <span class="value">
-                <?= $patient['child_name']; ?>
+                <?= $patient['child_fname'].' '.$patient['child_lname']; ?>
             </span>
         </p>
         <div class="early__childhood__report__two-column">
