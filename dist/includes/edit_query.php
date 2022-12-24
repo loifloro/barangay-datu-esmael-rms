@@ -32,10 +32,10 @@ if(isset($_POST['edit_bhw']))
     if($query_run)
     {
         if($password=='' && $cpassword==''){
-            echo '<script>alert("Enter Password Please")</script>';
+            echo "<script>alert('Enter Password Please!');</script>";
         }
         else if ($password != $cpassword){
-            echo '<script>alert("Password Mismatch")</script>';
+            echo "<script>alert('Password Mismatch!');</script>";
         }
         else {
             // $_SESSION['message'] = "Student Created Successfully";

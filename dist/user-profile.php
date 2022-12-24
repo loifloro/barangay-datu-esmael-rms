@@ -322,7 +322,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         <?= $patient['date_registered']; ?>
                     </li>
                     <li class="bhw-account__option">
-                        <form action="includes/delete_query.php" method="POST"> <!--delete query not working yet-->
+                        <form action="includes/delete_query.php" method="POST">
                             <input type="hidden" name="position" value="<?= $user['position']; ?>"/> 
                             <input type="hidden" name="account_id" value="<?= $patient['account_id']; ?>"/>  
                             <!-- Buttons -->
