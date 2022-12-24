@@ -169,45 +169,86 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
         <!-- Start Tab for Deworming -->
         <div class="services__table" id="Deworming">
+        <!-- SORT QUERY -->
+        <form action="" method="POST">
             <ul class="services__table__row services__header" role="list" >
                 <li class="services__attributes__item">
                     <input type="checkbox" name="" id="" class="services__checkbox">
                     <p>Name</p>
+                <!-- BUTTON FOR NAME -->
+                <button type="submit" name="sort_name" value="1">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li class="services__attributes__item">
                     Age
+                <!-- BUTTON FOR AGE -->
+                <button type="submit" name="sort_age" value="2">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li class="services__attributes__item">
                     Sex
+                <!-- BUTTON FOR SEX -->
+                <button type="submit" name="sort_sex" value="3">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li class="services__attributes__item">
                     Date Availed
+                <!-- SEX FOR DATE AVAILED -->
+                <button type="submit" name="sort_date_availed" value="4">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li>
 
                 </li>
             </ul>
+            </form>
+            <!-- END OF SORT -->
 
-            <?php 
-                $query = "SELECT * FROM deworming ORDER BY firstname";
+            <?php
+                $query = "SELECT * FROM deworming";
                 $query_run = mysqli_query($conn, $query);
                 if(mysqli_num_rows($query_run) > 0)
-                {
-                    foreach($query_run as $patient)
-                {
+                {   
+                    if (isset($_POST['sort_name'])) {
+                        $sort_id = $_POST['sort_name'];
+                        if($sort_id == 1){
+                            $query = "SELECT * FROM deworming ORDER BY lastname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    } 
+                    if (isset($_POST['sort_age'])) {
+                        $sort_id = $_POST['sort_age'];
+                        if($sort_id == 2){
+                            $query = "SELECT * FROM deworming ORDER BY age";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    } 
+                    if (isset($_POST['sort_sex'])) {
+                        $sort_id = $_POST['sort_sex'];
+                        if($sort_id == 3){
+                            $query = "SELECT * FROM deworming ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    } 
+                    if (isset($_POST['sort_date_availed'])) {
+                        $sort_id = $_POST['sort_date_availed'];
+                        if($sort_id == 3){
+                            $query = "SELECT * FROM deworming ORDER BY deworming_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    } 
+                    foreach($query_run as $patient){
             ?>
             <!-- To be put in the loop -->
             <ul class="services__table__row services__info" role="list">
                 <!-- Modal Trigger -->
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
-                        <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname']." " . $patient['lastname']; ?></a>
-                        <?php include('./includes/reports/deworming.php'); ?>   
-
+                        <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname']." " . $patient['lastname']; ?></a> 
                 </li>
                 <!-- End of Modal Trigger -->
                 <li class="services__num">
@@ -227,6 +268,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </li>
             </ul>
             <?php
+                    include('./includes/reports/deworming.php'); //moved here it ruin the display in table
                     }
                     }
                     else
@@ -243,37 +285,80 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
         <!-- Start Tab for Consultation -->
         <div class="services__table" id="Consultation">
+        <!-- START OF FORM ACTION -->
+        <form action="" method="POST">
             <ul class="services__table__row services__header" role="list">
                 <li class="services__attributes__item">
                     <input type="checkbox" name="" id="" class="services__checkbox">
                     <p>Name</p>
+                <!-- BUTTON FOR NAME -->
+                <button type="submit" name="sort_name" value="1">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li class="services__attributes__item">
                     Age
+                <!-- BUTTON FOR AGE -->
+                <button type="submit" name="sort_age" value="2">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li class="services__attributes__item">
                     Sex
+                <!-- BUTTON FOR SEX -->
+                <button type="submit" name="sort_sex" value="3">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li class="services__attributes__item">
                     Date Availed
+                <!-- BUTTON FOR DATE AVAILED -->
+                <button type="submit" name="sort_date_availed" value="4">
                     <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                </button>
                 </li>
                 <li>
 
                 </li>
             </ul>
+        </form>
+            <!-- END OF FORM -->
 
             <!-- To be put in the loop -->
             <?php 
-                    $query = "SELECT * FROM consultation ORDER BY firstname";
+                    $query = "SELECT * FROM consultation";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
-                    {
-                        foreach($query_run as $patient)
-                    {
+                    {   
+                        if (isset($_POST['sort_name'])) {
+                            $sort_id = $_POST['sort_name'];
+                            if($sort_id == 1){
+                                $query = "SELECT * FROM consultation ORDER BY lastname";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                        } 
+                        if (isset($_POST['sort_age'])) {
+                            $sort_id = $_POST['sort_age'];
+                            if($sort_id == 2){
+                                $query = "SELECT * FROM consultation ORDER BY age";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                        } 
+                        if (isset($_POST['sort_sex'])) {
+                            $sort_id = $_POST['sort_sex'];
+                            if($sort_id == 3){
+                                $query = "SELECT * FROM consultation ORDER BY sex";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                        } 
+                        if (isset($_POST['sort_date_availed'])) {
+                            $sort_id = $_POST['sort_date_availed'];
+                            if($sort_id == 3){
+                                $query = "SELECT * FROM consultation ORDER BY consultation_date";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                        } 
+                        foreach($query_run as $patient){
             ?>
             <ul class="services__table__row services__info" role="list">
                 <li class="services__name p-bold">
