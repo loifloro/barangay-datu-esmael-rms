@@ -276,51 +276,50 @@ if(isset($_POST['edit_prenatal']))
 // EDIT POSTNATAL RECORD
 if(isset($_POST['edit_postnatal']))
 {   
-    $postnatal_id = mysqli_real_escape_string($conn, $_POST['postnatal_id']);
-    $postnatal_date = mysqli_real_escape_string($conn, $_POST['postnatal-date']);
-    $lastname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
-    $firstname = mysqli_real_escape_string($conn, $_POST['postnatal-fname']);
-    $middlename = mysqli_real_escape_string($conn, $_POST['postnatal-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['postnatal-age']);
-    // $sex = mysqli_real_escape_string($conn, $_POST['postnatal-sex']);
-    $birthdate = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
-    $street_add = mysqli_real_escape_string($conn, $_POST['postnatal-street']);
-    $barangay = mysqli_real_escape_string($conn, $_POST['postnatal-barangay']);
-    $city = mysqli_real_escape_string($conn, $_POST['postnatal-city']);
-    $phone_num = mysqli_real_escape_string($conn, $_POST['postnatal-contact']);
+    $postnatal_id = mysqli_real_escape_string($conn, $_POST['prenatal_id']);
+    $postnatal_date = mysqli_real_escape_string($conn, $_POST['prenatal-date']);
+    $lastname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
+    $firstname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
+    $middlename = mysqli_real_escape_string($conn, $_POST['prenatal-mname']);
+    $age = mysqli_real_escape_string($conn, $_POST['prenatal-age']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['prenatal-sex']); removed
+    $birthdate = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
+    $street_add = mysqli_real_escape_string($conn, $_POST['prenatal-street']);
+    $barangay = mysqli_real_escape_string($conn, $_POST['prenatal-barangay']);
+    $city = mysqli_real_escape_string($conn, $_POST['prenatal-city']);
+    $phone_num = mysqli_real_escape_string($conn, $_POST['prenatal-contact']);
 
-    $symptoms = mysqli_real_escape_string($conn, $_POST['postnatal-symptoms']);
-    $blood_pressure = mysqli_real_escape_string($conn, $_POST['postnatal-bp']);
-    $weight = mysqli_real_escape_string($conn, $_POST['postnatal-weight']);
-    $height = mysqli_real_escape_string($conn, $_POST['postnatal-height']);
+    $symptoms = mysqli_real_escape_string($conn, $_POST['prenatal-symptoms']);
+    $blood_pressure = mysqli_real_escape_string($conn, $_POST['prenatal-bp']);
+    $weight = mysqli_real_escape_string($conn, $_POST['prenatal-weight']);
+    $height = mysqli_real_escape_string($conn, $_POST['prenatal-height']);
 
-    $gravida = mysqli_real_escape_string($conn, $_POST['postnatal-gravida']);
-    $preterm = mysqli_real_escape_string($conn, $_POST['postnatal-preterm']);
-    $lmp = mysqli_real_escape_string($conn, $_POST['postnatal-lmp']);
-    $edc = mysqli_real_escape_string($conn, $_POST['postnatal-edc']);
-    $aog = mysqli_real_escape_string($conn, $_POST['postnatal-aog']);
+    $gravida = mysqli_real_escape_string($conn, $_POST['prenatal-gravida']);
+    $preterm = mysqli_real_escape_string($conn, $_POST['prenatal-p']);
+    $lmp = mysqli_real_escape_string($conn, $_POST['prenatal-lmp']);
+    $edc = mysqli_real_escape_string($conn, $_POST['prenatal-edc']);
+    $aog = mysqli_real_escape_string($conn, $_POST['prenatal-aog']);
 
-    $fh = mysqli_real_escape_string($conn, $_POST['postnatal-fh']);
-    $fht = mysqli_real_escape_string($conn, $_POST['postnatal-fht']);
-    $presentation = mysqli_real_escape_string($conn, $_POST['postnatal-presentation']);
+    $fh = mysqli_real_escape_string($conn, $_POST['prenatal-fh']);
+    $fht = mysqli_real_escape_string($conn, $_POST['prenatal-fht']);
+    $presentation = mysqli_real_escape_string($conn, $_POST['prenatal-presentation']);
 
-    $abnormal = mysqli_real_escape_string($conn, $_POST['postnatal-abnormal']);
-    $prescriptions = mysqli_real_escape_string($conn, $_POST['postnatal-prescrip']);
+    $abnormal = mysqli_real_escape_string($conn, $_POST['prenatal-a']);
+    $prescriptions = mysqli_real_escape_string($conn, $_POST['prenatal-p']);
 
 
-   
-    $query ="UPDATE postnatal SET postnatal_date='$postnatal_date', lastname='$lastname', firstname='$firstname', 
-            middlename='$middlename', age='$age', birthdate='$birthdate', street_address='$street_add', 
-            barangay='$barangay', city='$city', phone_num='$phone_num', blood_pressure='$blood_pressure', 
-            weight='$weight', height='$height', gravida='$gravida', preterm='$preterm', last_menstrual='$lmp', 
-            edc='$edc', aog='$aog', fetal_heart='$fh', fetal_heart_tones='$fht', presentation='$presentation', a='$abnormal', 
-            p='$prescriptions', symptoms='$symptoms' WHERE postnatal_id='$postnatal_id'";
-
+    $query = "UPDATE postnatal SET postnatal_date = '$postnatal_date', lastname = '$lastname', firstname = '$firstname', 
+            middlename = '$middlename', age = '$age', birthdate = '$birthdate', street_address = '$street_add', 
+            barangay = '$barangay', city = '$city', phone_num = '$phone_num', blood_pressure = '$blood_pressure', 
+            weight = '$weight', height = '$height', gravida = '$gravida', preterm = '$preterm', last_menstrual = '$lmp', 
+            edc = '$edc', aog = '$aog', fetal_heart = '$fh', fetal_heart_tones = '$fht', presentation = '$presentation', a = '$abnormal', 
+            p = '$prescriptions', symptoms='$symptoms' WHERE postnatal_id='$postnatal_id'";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run)
     {   
-        // QUERY TO RECENT UPDATE POSTNATAL
+
+        // QUERY TO RECENT UPDATE PRENATAL
         $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
@@ -331,8 +330,8 @@ if(isset($_POST['edit_postnatal']))
         $date = date('Y-m-d');
         $time = date('H:i:s');
 
-        $patient_fname = mysqli_real_escape_string($conn, $_POST['postnatal-fname']);
-        $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
         
 
         $query2 = "INSERT INTO recent_activity 
@@ -340,7 +339,7 @@ if(isset($_POST['edit_postnatal']))
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
                 ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
-                '$date', '$time', '$patient_fname', '$patient_lname', 'Postnatal')";
+                '$date','$time', '$patient_fname', '$patient_lname', 'Postnatal')";
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
