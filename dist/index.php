@@ -27,7 +27,7 @@
                         Swal.fire({
                         icon: 'error',
                         title: 'Invalid',
-                        text: '<?php echo $_GET['error']; ?>',
+                        text: '<?php echo $_GET['error']; ?>'
                         // confirmButton: '#034A23'
                         })
                     </script>
@@ -56,6 +56,5 @@
         </div>
     </main>
     
-    <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 </body>
 </html>
