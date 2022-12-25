@@ -135,8 +135,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="edit-deworming">
         <section class="form">
             <p class="back__btn">
-                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
-            </p>
+                <a href="#" onclick="backAlert()">Back</a>   
+            </p></p>
             <h2 class="edit-deworming__title">
                 Edit Deworming Record
             </h2>

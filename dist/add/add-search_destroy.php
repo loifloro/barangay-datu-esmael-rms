@@ -134,8 +134,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="add-search_destroy">
         <section class="form">
             <p class="back__btn">
-                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
-            </p>
+                <a href="#" onclick="backAlert()">Back</a>   
+            </p></p>
             <h2 class="add-search_destroy__title">
                 Add New Search and Destroy Record
             </h2>

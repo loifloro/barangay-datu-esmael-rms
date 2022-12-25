@@ -134,8 +134,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="add-consultation">
         <section class="form">
             <p class="back__btn">
-                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
-            </p>
+                <a href="#" onclick="backAlert()">Back</a>   
+            </p></p>
             <h2 class="add-consultation__title">
                 Add New Consultation Record
             </h2>

@@ -1,16 +1,23 @@
 <?php
 session_start();
 include '../includes/connection.php';
-if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+    header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
+    exit();
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
     <link rel="stylesheet" href="../css/main.css">
-    <title>Document</title>
+
+    <title>Add New Deworming Record</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -134,8 +141,9 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <!-- Contents -->
     <main class="add-deworming">
         <section class="form">
+
             <p class="back__btn">
-                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
+                <a href="#" onclick="backAlert()">Back</a>
             </p>
             <h2 class="add-deworming__title">
                 Add New Deworming Record
@@ -145,18 +153,13 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
-
-                <!-- <div class="add-deworming__form-item">
-                    <label for="deworming-date">Date</label>
-                    <input type="date" name="deworming-date" id="deworming-date">
-                </div> -->
                 <div class="add-deworming__form-item">
                     <label for="deworming-lname">Last Name</label>
-                    <input type="text" name="deworming-lname" id="deworming-lname">
+                    <input type="text" name="deworming-lname" id="deworming-lname" required>
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-fname">First Name</label>
-                    <input type="text" name="deworming-fname" id="deworming-fname">
+                    <input type="text" name="deworming-fname" id="deworming-fname" >
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-mname">Middle Name</label>
@@ -244,12 +247,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </ul>
         </section>
     </main>
+
+    <script src="../js/app.js"></script>
+
 </body>
 </html>
-<?php
-}
-else{
-    header("Location: index.php"); /*Redirect to this page if successful*/
-    exit();
-}
-?>

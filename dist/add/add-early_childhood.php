@@ -134,7 +134,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="add-early_childhood">
         <section class="form">
             <p class="back__btn">
-                <a href="../services-consultation.php" onclick="return  confirm('Do you want to cancel?')">Back</a>
+                <a href="#" onclick="backAlert()">Back</a>   
             </p>
             <h2 class="add-early_childhood__title">
                 Add Early Childhood Care and Development Care
