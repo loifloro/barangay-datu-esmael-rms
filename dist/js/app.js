@@ -78,21 +78,21 @@ navBar.addEventListener ('click', () => {
         inputValidator: (value) => {
           return new Promise((resolve) => {
             if (value === 'deworming') {
-              window.location.href = 'add/add-deworming.php';
+              window.location.href = '/barangay-datu-esmael-rms/dist/add/add-deworming.php';
             } else if (value === 'consultation') {
-                window.location.href = 'add/add-consultation.php';
+                window.location.href = '/barangay-datu-esmael-rms/dist/add/add-consultation.php';
             } else if (value === 'childhood') {
-                window.location.href = 'add/add-early_childhood.php';
+                window.location.href = '/barangay-datu-esmael-rms/dist/add/add-early_childhood.php';
             } else if (value === 'prenatal') {
-                window.location.href = 'add/add-prenatal.php';
+                window.location.href = '/barangay-datu-esmael-rms/dist/add/add-prenatal.php';
             } else if (value === 'postnatal') {
-                window.location.href = 'add/add-postnatal.php';
+                window.location.href = '/barangay-datu-esmael-rms/dist/add/add-postnatal.php';
             } 
           })}
     })
 })
 
-document.getElementsByClassName('services__list__item')[0].click() //default display first item
+// document.getElementsByClassName('services__list__item')[0].click() //default display first item
 function services(evt, servicesName) {
   var i, services__table, services__list__item;
   services__table = document.getElementsByClassName("services__table");
@@ -105,6 +105,7 @@ function services(evt, servicesName) {
     services__list__item[i].className = services__list__item[i].className.replace(" services__list__item--active", "");
   }
   document.getElementById(servicesName).style.display = "block";
+  
   evt.currentTarget.className += " services__list__item--active";
 }
 
