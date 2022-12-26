@@ -153,7 +153,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             
             <!-- Cards -->
             <section class="services__card-list">
-                    <div class="services__card services__card--consultation">
+                    <div class="services__card services__card--consultation" onclick="window.location.href = './services-consultation.php?service=prenatal'">
                     <p class="services__card-title">
                         Consultation
                     </p>
