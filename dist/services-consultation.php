@@ -1,8 +1,10 @@
 <?php
 session_start();
 include 'includes/connection.php';
-if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
-
+if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+    header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +16,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
 
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+
     <!-- jQuery-Modal -->
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/jquery-modal/jquery.modal.min.js"></script>
@@ -21,6 +25,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
     <title>Services</title>
 </head>
+
+  
 
 <body class="grid">
     <!-- Sidebar -->
@@ -129,7 +135,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </h1>
             <form class="navigation__search" action="search-result.php" method="GET">
                 <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
-                --><button type="submit" name="search_btn class="navigation__search__btn">
+                --><button type="submit" name="search_btn" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>
             </form>
@@ -139,7 +145,31 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <svg class="add-icon navigation__btn__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512"><path fill="#231f20" d="M468.3,212.7H305.2v-169c0-24.2-19.6-43.8-43.8-43.8c-24.2,0-43.8,19.6-43.8,43.8v169h-174 C19.6,212.7,0,232.3,0,256.5c0,24.2,19.6,43.8,43.8,43.8h174v168c0,24.2,19.6,43.8,43.8,43.8c24.2,0,43.8-19.6,43.8-43.8v-168h163.1 c24.2,0,43.8-19.6,43.8-43.8C512,232.3,492.5,212.7,468.3,212.7z"/></svg>
             </button>
         </nav>
-    </header>
+    </header> 
+
+    <?php 
+    if (isset($_GET['status'])){ 
+        if ($_GET['status'] == 'success') {
+        ?>
+            <script>
+                Swal.fire({
+                icon: 'success',
+                title: 'Added Succesfully',
+                })
+            </script>
+        <?php
+        } elseif ($_GET['status'] == 'error') {
+        ?>
+            <script>
+                Swal.fire({
+                icon: 'error',
+                title: 'Error when adding',
+                })
+            </script>
+        <?php
+        }
+    }
+    ?>  
 
     <!-- Contents -->
     <main class="services">
@@ -589,48 +619,11 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </div>
         <!-- End Tab for Search and Destroy -->
 
-        
-
-
-        <!-- <p><a href="#ex1" rel="modal:open">Open Modal</a></p> -->
-
-
-        <!-- Modal link for deworming report -->
-        <?php 
-            // include('./includes/reports/deworming.php');
-            include('./includes/reports/search-and-destroy.php');
-        ?> 
 
     </section>
     </main>
 
-    <!-- Scripting -->
-    <script>
-    document.getElementsByClassName('services__list__item')[0].click() //default display first item
-    function services(evt, servicesName) {
-      var i, services__table, services__list__item;
-      services__table = document.getElementsByClassName("services__table");
-
-      for (i = 0; i < services__table.length; i++) {
-        services__table[i].style.display = "none";
-      }
-      services__list__item = document.getElementsByClassName("services__list__item");
-      for (i = 0; i < services__list__item.length; i++) {
-        services__list__item[i].className = services__list__item[i].className.replace(" active", "");
-      }
-      document.getElementById(servicesName).style.display = "block";
-      evt.currentTarget.className += " active";
-    }
-    </script>
-    <!-- End of Scripting -->
+    <script src="./js/app.js"></script>
     
 </body>
 </html>
-
-<?php
-}
-else{
-    header("Location: index.php"); /*Redirect to this page if successful*/
-    exit();
-}
-?>

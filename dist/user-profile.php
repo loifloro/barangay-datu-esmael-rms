@@ -1,6 +1,9 @@
 <?php
 session_start();
-if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+    header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -338,12 +341,3 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
 </body>
 </html>
-
-<?php
-}
-
-else{
-    header("Location: index.php"); /*Redirect to this page if successful*/
-    exit();
-}
-?>
