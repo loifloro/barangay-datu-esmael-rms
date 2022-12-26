@@ -5,6 +5,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "includes/functions.php";
+hide_content();
+//END OF FUNCTION
 ?>
 
 <!DOCTYPE html>
@@ -53,8 +57,9 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="back-up.php" class="sidebar__link"> <!--href link added-->
+
+            <li class="sidebar__item" id="backup_sidebar"> <!--added ID-->
+                <a href="back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -74,8 +79,9 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                    <a href="dashboard-masterlist.php" class="sidebar__link"> <!--href link added-->
+
+            <a href="dashboard-masterlist.php" class="sidebar__link">
+                <li class="sidebar__item" id="masterlist_sidebar"><!--added ID-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -135,6 +141,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <p>Add New</p>
 
                 <svg class="add-icon navigation__btn__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512"><path fill="#231f20" d="M468.3,212.7H305.2v-169c0-24.2-19.6-43.8-43.8-43.8c-24.2,0-43.8,19.6-43.8,43.8v169h-174 C19.6,212.7,0,232.3,0,256.5c0,24.2,19.6,43.8,43.8,43.8h174v168c0,24.2,19.6,43.8,43.8,43.8c24.2,0,43.8-19.6,43.8-43.8v-168h163.1 c24.2,0,43.8-19.6,43.8-43.8C512,232.3,492.5,212.7,468.3,212.7z"/></svg>
+
             </button>
         </nav>
     </header> 
@@ -260,6 +267,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     </main>
 
      <script src="./js/app.js"></script>
+
 </body>
 
 </html>

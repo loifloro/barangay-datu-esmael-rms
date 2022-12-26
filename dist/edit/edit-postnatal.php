@@ -3,9 +3,9 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -137,158 +137,159 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     </header>
 
     <!-- Contents -->
-    <main class="edit-postnatal">
+    <main class="edit-prenatal">
         <section class="form">
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
-            </p></p>
+            </p>
             <h2 class="edit-postnatal__title">
-                Edit Prenatal Record
+                Edit Postnatal Record
+
             </h2>
-            <p class="edit-postnatal__desc">
+            <p class="edit-prenatal__desc">
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="../includes/edit_query.php" methhod='POST' class="edit-postnatal__form">
+            <form action="../includes/edit_query.php" method='POST' class="edit-prenatal__form">
                     <?php
                         if(isset($_GET['id']))
                         {
                             $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                            $query = "SELECT * FROM postnatal WHERE postnatal_id='$patient_id'";
+                            $query = "SELECT * FROM postnatal WHERE postnatal_id='$patient_id' ";
                             $query_run = mysqli_query($conn, $query);
 
                             if(mysqli_num_rows($query_run) > 0)
                             {
                                 $patient = mysqli_fetch_array($query_run);
                     ?>
-                <input type="hidden" name="postnatal_id" value="<?= $patient['postnatal_id']; ?>"> <!--nakahide sya para access ID sa edit-->
+                <input type="hidden" name="prenatal_id" value="<?= $patient['postnatal_id']; ?>"> <!--nakahide sya para access ID sa edit-->
 
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-date">Date</label>
-                    <input type="date" name="postnatal-date" id="postnatal-date" value="<?= $patient['postnatal_date']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-date">Date Registered</label>
+                    <input type="date" name="prenatal-date" id="prenatal-date" value="<?= $patient['postnatal_date']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-lname">Last Name</label>
-                    <input type="text" name="postnatal-lname" id="postnatal-lname" value="<?= $patient['lastname']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-lname">Last Name</label>
+                    <input type="text" name="prenatal-lname" id="prenatal-lname" value="<?= $patient['lastname']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-fname">First Name</label>
-                    <input type="text" name="postnatal-fname" id="postnatal-fname" value="<?= $patient['firstname']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-fname">First Name</label>
+                    <input type="text" name="prenatal-fname" id="prenatal-fname" value="<?= $patient['firstname']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-mname">Middle Name</label>
-                    <input type="text" name="postnatal-mname" id="postnatal-mname" value="<?= $patient['middlename']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-mname">Middle Name</label>
+                    <input type="text" name="prenatal-mname" id="prenatal-mname" value="<?= $patient['middlename']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-age">Age</label>
-                    <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1" value="<?= $patient['age']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-age">Age</label>
+                    <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" value="<?= $patient['age']; ?>">
                 </div>
-                <!-- <div class="edit-postnatal__form-item edit-postnatal__form-item--radio">
-                    <label for="postnatal-sex">Gender</label>
-                    <div class="edit-postnatal__form--role-item">
-                        <div class="edit-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female" value="Male">
-                            <label for="postnatal-sex">Male</label>
+                <!-- <div class="edit-prenatal__form-item edit-prenatal__form-item--radio">
+                    <label for="prenatal-sex">Gender</label>
+                    <div class="edit-prenatal__form--role-item">
+                        <div class="edit-prenatal__form-item">
+                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Male">
+                            <label for="prenatal-sex">Male</label>
                         </div>
-                        <div class="edit-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female" value="Female">
-                            <label for="postnatal-sex">Female</label>
+                        <div class="edit-prenatal__form-item">
+                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Female">
+                            <label for="prenatal-sex">Female</label>
                         </div>
                     </div>
                 </div> -->
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-birthday">Birthday</label>
-                    <input type="date" name="postnatal-birthday" id="postnatal-birthday" value="<?= $patient['birthdate']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-birthday">Birthday</label>
+                    <input type="date" name="prenatal-birthday" id="prenatal-birthday" value="<?= $patient['birthdate']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-street">Street editress</label>
-                    <input type="text" name="postnatal-street" id="postnatal-street" value="<?= $patient['street_address']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-street">Street editress</label>
+                    <input type="text" name="prenatal-street" id="prenatal-street" value="<?= $patient['street_address']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-barangay">Barangay</label>
-                    <input type="text" name="postnatal-barangay" id="postnatal-barangay" value="<?= $patient['barangay']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-barangay">Barangay</label>
+                    <input type="text" name="prenatal-barangay" id="prenatal-barangay" value="<?= $patient['barangay']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-city">City</label>
-                    <input type="text" name="postnatal-city" id="postnatal-city" value="<?= $patient['city']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-city">City</label>
+                    <input type="text" name="prenatal-city" id="prenatal-city" value="<?= $patient['city']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-contact">Phone Number</label>
-                    <input type="number" name="postnatal-contact" id="postnatal-contact" value="<?= $patient['phone_num']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-contact">Phone Number</label>
+                    <input type="number" name="prenatal-contact" id="prenatal-contact" value="<?= $patient['phone_num']; ?>" maxlength="11" min="1">
                 </div>
                 
                 
                 <!-- Divider -->
                 <hr>
 
-                <h2 class="edit-postnatal__title">
+                <h2 class="edit-prenatal__title">
                     Symptoms
                 </h2>
-                <p class="edit-postnatal__desc">
+                <p class="edit-prenatal__desc">
                     Fill up necessary information to complete the process
                 </p>
-                <div class="edit-postnatal__form-item"><!--added-->
+                <div class="edit-prenatal__form-item">
                     <label for="prenatal-symptoms">Symptoms</label>
-                    <textarea name="postnatal-symptoms" id="prenatal-symptoms" cols="27" rows="10"><?= $patient['symptoms']; ?></textarea>
+                    <textarea name="prenatal-symptoms" id="prenatal-symptoms" cols="27" rows="10"><?= $patient['symptoms']; ?></textarea>
                 </div>
-
-                <div class="edit-postnatal__form-doses">
-                    <div class="edit-postnatal__form-label">
+                
+                <div class="edit-prenatal__form-doses">
+                    <div class="edit-prenatal__form-label">
                         <p class="dose-title">
                             Blood Pressure
                         </p>
                     </div>
-                    <div class="edit-postnatal__form-input">
-                        <label for="postnatal-bp">mmHg</label>
-                        <input type="text" name="postnatal-bp" id="postnatal-bp" value="<?= $patient['blood_pressure']; ?>">
+                    <div class="edit-prenatal__form-input">
+                        <label for="prenatal-bp">mmHg</label>
+                        <input type="text" name="prenatal-bp" id="prenatal-bp" value="<?= $patient['blood_pressure']; ?>">
                     </div>
                 </div>
-                <div class="edit-postnatal__form-doses">
-                    <div class="edit-postnatal__form-label">
+                <div class="edit-prenatal__form-doses">
+                    <div class="edit-prenatal__form-label">
                         <p class="dose-title">
                             Weight
                         </p>
                     </div>
-                    <div class="edit-postnatal__form-input">
-                        <label for="postnatal-weight">kg</label>
-                        <input type="text" name="postnatal-weight" id="postnatal-weight" value="<?= $patient['weight']; ?>">
+                    <div class="edit-prenatal__form-input">
+                        <label for="prenatal-weight">kg</label>
+                        <input type="text" name="prenatal-weight" id="prenatal-weight" value="<?= $patient['weight']; ?>">
                     </div>
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-height">Height</label>
-                    <input type="text" name="postnatal-height" id="postnatal-height" value="<?= $patient['height']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-height">Height</label>
+                    <input type="text" name="prenatal-height" id="prenatal-height" value="<?= $patient['height']; ?>">
                 </div>
 
 
                 <!-- Divider -->
                 <hr>
 
-                <h2 class="edit-postnatal__title">
+                <h2 class="edit-prenatal__title">
                     OB History
                 </h2>
-                <p class="edit-postnatal__desc">
+                <p class="edit-prenatal__desc">
                     Fill up necessary information to complete the process
                 </p>
 
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-gravida">Gravida</label>
-                    <input type="text" name="postnatal-gravida" id="postnatal-gravida" value="<?= $patient['gravida']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-gravida">Gravida</label>
+                    <input type="text" name="prenatal-gravida" id="prenatal-gravida" value="<?= $patient['gravida']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-preterm">P</label>
-                    <input type="text" name="postnatal-preterm" id="postnatal-p" value="<?= $patient['preterm']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-p">P</label>
+                    <input type="text" name="prenatal-p" id="prenatal-p" value="<?= $patient['preterm']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-lmp">LMP</label>
-                    <input type="text" name="postnatal-lmp" id="postnatal-lmp" value="<?= $patient['last_menstrual']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-lmp">LMP</label>
+                    <input type="text" name="prenatal-lmp" id="prenatal-lmp" value="<?= $patient['last_menstrual']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-edc">EDC</label>
-                    <input type="text" name="postnatal-edc" id="postnatal-edc" value="<?= $patient['edc']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-edc">EDC</label>
+                    <input type="text" name="prenatal-edc" id="prenatal-edc" value="<?= $patient['edc']; ?>">
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-aog">AOG</label>
-                    <input type="text" name="postnatal-aog" id="postnatal-aog" value="<?= $patient['aog']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-aog">AOG</label>
+                    <input type="text" name="prenatal-aog" id="prenatal-aog" value="<?= $patient['aog']; ?>">
                 </div>
 
 
@@ -296,87 +297,87 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <!-- Divider -->
                 <hr>
 
-                <h2 class="edit-postnatal__title">
+                <h2 class="edit-prenatal__title">
                     Abdomen
                 </h2>
-                <p class="edit-postnatal__desc">
+                <p class="edit-prenatal__desc">
                     Fill up necessary information to complete the process
                 </p>
                 
-                <div class="edit-postnatal__form-doses">
-                    <div class="edit-postnatal__form-label">
+                <div class="edit-prenatal__form-doses">
+                    <div class="edit-prenatal__form-label">
                         <p class="dose-title">
                             Fetal heart (FH)
                         </p>
                     </div>
-                    <div class="edit-postnatal__form-input">
-                        <label for="postnatal-fh">cm</label>
-                        <input type="text" name="postnatal-fh" id="postnatal-fh" value="<?= $patient['fetal_heart']; ?>">
+                    <div class="edit-prenatal__form-input">
+                        <label for="prenatal-fh">cm</label>
+                        <input type="text" name="prenatal-fh" id="prenatal-fh" value="<?= $patient['fetal_heart']; ?>">
                     </div>
                 </div>
-                <div class="edit-postnatal__form-doses">
-                    <div class="edit-postnatal__form-label">
+                <div class="edit-prenatal__form-doses">
+                    <div class="edit-prenatal__form-label">
                         <p class="dose-title">
                             Fetal heart tones (FHT)
                         </p>
                     </div>
-                    <div class="edit-postnatal__form-input">
-                        <label for="postnatal-fht">/min</label>
-                        <input type="text" name="postnatal-fht" id="postnatal-fht" value="<?= $patient['fetal_heart_tones']; ?>">
+                    <div class="edit-prenatal__form-input">
+                        <label for="prenatal-fht">/min</label>
+                        <input type="text" name="prenatal-fht" id="prenatal-fht" value="<?= $patient['fetal_heart_tones']; ?>">
                     </div>
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-presentation">Presentation</label>
-                    <input type="text" name="postnatal-presentation" id="postnatal-presentation" value="<?= $patient['presentation']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-presentation">Presentation</label>
+                    <input type="text" name="prenatal-presentation" id="prenatal-presentation" value="<?= $patient['presentation']; ?>">
                 </div>
 
                 <!-- Divider -->
                 <hr>
 
-                <h2 class="edit-postnatal__title">
+                <h2 class="edit-prenatal__title">
                     Tetanus Toxoid Status:
                 </h2>
-                <p class="edit-postnatal__desc">
+                <p class="edit-prenatal__desc">
                     Fill up necessary information to complete the process
                 </p>
                 
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-abnormal">A</label>
-                    <textarea name="postnatal-abnormal" id="postnatal-a" cols="27" rows="10"><?= $patient['a']; ?></textarea>
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-a">A</label>
+                    <textarea name="prenatal-a" id="prenatal-a" cols="27" rows="10"><?= $patient['a']; ?></textarea>
                 </div>
-                <div class="edit-postnatal__form-item">
-                    <label for="postnatal-prescrip">P</label>
-                    <input type="text" name="postnatal-prescrip" id="postnatal-p" value="<?= $patient['p']; ?>">
+                <div class="edit-prenatal__form-item">
+                    <label for="prenatal-p">P</label>
+                    <input type="text" name="prenatal-p" id="prenatal-p" value="<?= $patient['p']; ?>">
                 </div>
                 
                 <!-- Divider -->
                 <hr>
 
-                <h2 class="edit-postnatal__reason">
+                <h2 class="edit-prenatal__reason">
                     Reason
                 </h2>
-                <p class="edit-postnatal__reason-desc">
+                <p class="edit-prenatal__reason-desc">
                     Fill up necessary info
                 </p>
 
                 <!-- Radio Buttons -->
-                <div class="edit-postnatal__form-item--reason">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
-                <div class="edit-postnatal__form-item--reason">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
-                <div class="edit-postnatal__form-item--reason">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
-                <div class="edit-postnatal__form-item--reason">
+                <div class="edit-prenatal__form-item--reason">
                     <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address">
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
-                <div class="edit-postnatal__form-item--reason">
+                <div class="edit-prenatal__form-item--reason">
                     <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                     <label for="patient-others">Others: </label>
                     <input type="text" name="patient-others" id="patient-others">
@@ -385,11 +386,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <!-- Divider -->
                 <hr>
 
-                <div class="edit-postnatal__form-btn">
+                <div class="edit-prenatal__form-btn">
                     <button type="submit" class="btn-green btn-add" name="edit_postnatal" onclick="return  confirm('Do you want to edit this record?')">
                         Edit
                     </button>
-                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
+                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"><!--added type and onclick-->
                         Clear
                     </button>
                 </div>
@@ -438,9 +439,6 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </li>
                 <li class="content__item">
                     <a href="">Tetanus Toxoid Status</a>
-                </li>
-                <li class="content__item">
-                    <a href="">Reason</a>
                 </li>
             </ul>
         </section>
