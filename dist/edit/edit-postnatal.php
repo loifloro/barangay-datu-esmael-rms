@@ -442,10 +442,4 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     </main>
 </body>
 </html>
-<?php
-}
-else{
-    header("Location: index.php"); /*Redirect to this page if successful*/
-    exit();
-}
-?>
+ 
