@@ -134,26 +134,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <main class="patient">
         <section class="patient">
         <!-- COUNT PATIENT QUERY -->
-        <?php
-                $query = "SELECT 
-                (select count(*) FROM deworming) + 
-                (select count(*) FROM consultation) +
-                (select count(*) FROM early_childhood) +
-                (select count(*) FROM postnatal) +
-                (select count(*) FROM prenatal) +
-                (select count(*) FROM search_destroy)
-                As total";
-                $result = mysqli_query($conn, $query);
-                while($row = mysqli_fetch_array($result)) {  
-        ?>
-            <p class="patient__total">
-                Total records: <span class="patients__total--num h3"><?php echo $row['total']; ?></span>
-            </p>
-        <?php
-            }
+        <?php 
+            include_once "includes/functions.php";
+            total_patient(); 
         ?>
         <!-- END COUNT PATIENT QUERY -->
-            
+        
 
         <!-- TABS event initialization-->
         <ul role="list" class="services__list">
@@ -661,7 +647,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     </main>
     <!-- FUNCTION TO HIDE CONTENT BASED ON USER LEVEL -->
     <?php
-        require "includes/functions.php";
+        include_once "includes/functions.php";
         hide_content();
     ?>
     <!-- END OF FUNCTION -->

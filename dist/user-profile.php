@@ -350,7 +350,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     </main>
     <!-- FUNCTION TO HIDE CONTENT BASED ON USER LEVEL -->
     <?php
-        require "includes/functions.php";
+        include_once "includes/functions.php";
         hide_content();
     ?>
     <!-- END OF FUNCTION -->
