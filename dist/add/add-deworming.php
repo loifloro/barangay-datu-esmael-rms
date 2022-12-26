@@ -124,8 +124,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <!-- This would change depending on the URL or the current page  -->
                 Services
             </h1>
-            <form class="navigation__search">
-                <input type="text" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
+             <form class="navigation__search" action="../search-result.php" method="GET">
+
+
+
+                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
                 --><button type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>
@@ -152,10 +155,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
+            <form action="../includes/add_query.php" method="POST" class="add-deworming__form" onreset="confirmReset(this)">
                 <div class="add-deworming__form-item">
                     <label for="deworming-lname">Last Name</label>
-                    <input type="text" name="deworming-lname" id="deworming-lname" required>
+                    <input type="text" name="deworming-lname" id="deworming-lname">
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-fname">First Name</label>
@@ -211,10 +214,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-deworming__form-btn">
-                    <button type="submit" class="btn-green btn-save" name="save_deworming" onclick="return  confirm('Do you want to add this record?')">
+                    <button id='btn-submit' type="submit" class="btn-green btn-save" name="save_deworming">
                         Save
                     </button>
-                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
+                    <button type="reset" class="btn-red btn-cancel"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>

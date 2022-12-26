@@ -116,8 +116,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- This would change depending on the URL or the current page  -->
                 Services
             </h1>
-            <form class="navigation__search">
-                <input type="text" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
+             <form class="navigation__search" action="../search-result.php" method="GET">
+                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
                 --><button type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>

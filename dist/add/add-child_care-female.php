@@ -9,7 +9,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Document</title>
+    <title>Add Target Client list for Child Care Male</title>
 </head>
 <body class="grid">
     
@@ -117,8 +117,9 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- This would change depending on the URL or the current page  -->
                 Services
             </h1>
-            <form class="navigation__search">
-                <input type="text" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
+             <form class="navigation__search" action="../search-result.php" method="GET">
+
+                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
                 --><button type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>
@@ -145,14 +146,9 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-child_care-female__form"> <!--ACTION AND METHOD ADDED-->
-
-                <!-- <div class="add-child_care-female__form-item">
-                    <label for="child_care-female-number">No.</label>
-                    <input type="text" name="child_care-female-number" id="child_care-female-number">
-                </div> -->
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-registration">Date of Registration</label>
-                    <input type="date" name="child_care-female-registration" id="child_care-female-registration">
+                    <input type="date" name="child_care-female-registration" id="child_care-female-registration" >
                 </div>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-birthdate">Date of Birthdate</label>
