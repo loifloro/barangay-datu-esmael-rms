@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'includes/connection.php';
 if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 ?>
 
@@ -10,7 +11,24 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Document</title>
+    <!-- Title Tab Query -->
+    <?php 
+            $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+            $query_run = mysqli_query($conn, $query);
+
+            if(mysqli_num_rows($query_run) > 0){
+                foreach($query_run as $user){
+    ?>
+    <title><?= $user['firstname'].' '.$user['lastname']; ?></title>
+    <?php
+            }
+            }
+            else
+            {
+                echo "<h5> No Record Found </h5>";
+            }
+    ?>
+    <!-- End of Query -->
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -46,7 +64,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar"> <!--added id to use in hiding-->
                 <a href="back-up.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -67,7 +85,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar"> <!--added id to use in hiding-->
                     <a href="dashboard-masterlist.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -160,7 +178,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         #<?= $user['account_id']; ?>
                     </li>
                     <li class="user-profile__name h5">
-                        <?= $user['firstname']; ?>
+                        <?= $user['firstname'].' '.$user['lastname']; ?>
                     </li>
                     <li class="user-profile__contact">
                         <?= $user['phone_num']; ?>
@@ -176,9 +194,9 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         <span class="user-profile__category">Street Address</span>
                         <?= $user['street_add']; ?>
                     </li>
-                    <li class="user-profile__last-modified">
-                        <span class="user-profile__category">Last Modified Date</span>
-                        <?= $user['date_modified']; ?>
+                    <li class="user-profile__last-date-added">
+                        <span class="user-profile__category">Date Added</span>
+                        <?= $user['date_registered']; ?>
                     </li>
                 </ul>
                 <ul class="user-profile__item" role="list">
@@ -190,17 +208,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         <span class="user-profile__category">City</span>
                         <?= $user['city']; ?>
                     </li>
-                    <li class="user-profile__last-date-added">
-                        <span class="user-profile__category">Date Added</span>
-                        <?= $user['date_registered']; ?>
-                    </li>
-                </ul>
-                <ul class="user-profile__item" role="list">
                     <li class="user-profile__barangay">
                         <span class="user-profile__category">Barangay</span>
                         <?= $user['barangay']; ?>
                     </li>
-                    
+                </ul>
+                <ul class="user-profile__item" role="list">
                     <!-- Buttons -->
                     <li class="user-profile__btn">
                         <button type="submit" class="btn-green btn-save" onclick="window.location.href = 'edit/edit-bhw.php?id=<?= $user['account_id']; ?>'">
@@ -252,7 +265,6 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         </section>
 
         <hr>
-        
         <section class="bhw-account">
             <h2 class="bhw-profile__title">
                 BHW
@@ -309,8 +321,16 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                         <?= $patient['date_registered']; ?>
                     </li>
                     <li class="bhw-account__option">
-                        <form action="includes/delete_query.php" method="POST"> <!--delete query not working yet-->
-                            <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                        <form action="includes/delete_query.php" method="POST">
+                            <input type="hidden" name="position" value="<?= $user['position']; ?>"/> 
+                            <input type="hidden" name="account_id" value="<?= $patient['account_id']; ?>"/>  
+                            <!-- Buttons -->
+                                <button type="submit" name="delete_bhw" onclick="return confirm('Are you sure?')">  
+                                <span>
+                                    <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                                    </span>
+                                </button>
+                            <!--End Button-->
                         </form> <!--end delete query-->
                     </li>                
                 </ul>
@@ -328,6 +348,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </button>
         </section>
     </main>
+    <!-- FUNCTION TO HIDE CONTENT BASED ON USER LEVEL -->
+    <?php
+        include_once "includes/functions.php";
+        hide_content();
+    ?>
+    <!-- END OF FUNCTION -->
 </body>
 </html>
 

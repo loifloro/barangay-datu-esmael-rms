@@ -46,7 +46,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     Tutorial
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar"> <!--added ID-->
                 <a href="back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <a href="dashboard-masterlist.php" class="sidebar__link">
-                <li class="sidebar__item">
+                <li class="sidebar__item" id="masterlist_sidebar"><!--added ID-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -117,9 +117,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <!-- This would change depending on the URL or the current page  -->
                 Dashboard
             </h1>
-            <input type="text" 
-                    class="navigation__search"
-                    placeholder="Search patient last name"> 
+            <form class="navigation__search" action="search-result.php" method="GET">
+                <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
+                --><button type="submit" name="search_btn class="navigation__search__btn">
+                    <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
+                  </button>
+            </form>
             <button class="navigation__btn btn-green">
                 Add New
             </button>
@@ -245,6 +248,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </div>
         </section>
     </main>
+    <!-- FUNCTION TO HIDE CONTENT BASED ON USER LEVEL -->
+    <?php
+        include_once "includes/functions.php";
+        hide_content();
+    ?>
+    <!-- END OF FUNCTION -->
 </body>
 </html>
 

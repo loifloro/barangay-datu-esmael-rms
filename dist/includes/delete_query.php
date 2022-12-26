@@ -3,26 +3,23 @@ session_start();
 include "connection.php";
 
 //DELETE BHW ACCOUNT
-if(isset($_POST['delete_patient']))
-{
-    $patient_id = mysqli_real_escape_string($conn, $_POST['delete_patient']);
+if(isset($_POST['delete_bhw'])){   
+    $user_position = mysqli_real_escape_string($conn, $_POST['position']);
+    $user_id = mysqli_real_escape_string($conn, $_POST['account_id']);
 
-    $query = "DELETE FROM account_information WHERE id='$patient_id' ";
-    $query_run = mysqli_query($conn, $query);
+    if($user_position == 'City Health Nurse'){
+        $query = "DELETE FROM account_information WHERE account_id='$user_id'";
+        $query_run = mysqli_query($conn, $query);
+        if($query_run){
+            echo "<script>alert('Successfully Deleted!');document.location='../user-profile.php'</script>";
+            // header("Location: ../user-profile.php");
+            exit(0);
+        }
+    }
+    if($user_position == 'Barangay Health Worker'){
+        echo "<script>alert('Sorry only admin can delete account');document.location='../user-profile.php'</script>";
+            exit(0);
+    }
 
-    if($query_run)
-    {
-        // $_SESSION['message'] = "Student Deleted Successfully";
-        header("Location: ../user-profile.php");
-        exit(0);
-    }
-    else
-    {
-        // $_SESSION['message'] = "Student Not Deleted";
-        header("Location: ../user-profile.php");
-        exit(0);
-    }
 }
-
-
 ?>

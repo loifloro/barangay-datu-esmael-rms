@@ -263,16 +263,39 @@ if(isset($_POST['save_prenatal'])){
                                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                                 VALUES 
                                 ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
-                                '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
+                                '$date', '$time', '$patient_fname', '$patient_lname', 'Postnatal')";
                 
                         $query_run2 = mysqli_query($conn, $query2);
                         if($query_run2){
-                            header("Location: ../services-consultation.php");
-                            exit(0);}
+                            // QUERY TO RECENT UPDATE POSTNATAL
+                            $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+                            $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+                            $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+                            // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+                            $date = date('Y-m-d');
+                            $time = date('H:i:s');
+
+                            $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
+                            $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
+                            
+
+                            $query3 = "INSERT INTO recent_activity 
+                                    (reasons, user_fname, user_lname, user_role, changes_label, 
+                                    date_edit, time_edit, patient_fname, patient_lname, record_name)
+                                    VALUES 
+                                    ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
+                                    '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
+
+                            $query_run3 = mysqli_query($conn, $query3);
+                            if($query_run3){
+                                header("Location: ../services-consultation.php");
+                                exit(0);}
+                        //END OF QUERY 
                     //END OF QUERY
                 }
-
-         
+            }
+        
 
         // $_SESSION['message'] = "Student Created Successfully";
         // header("Location: ../services-consultation.php");

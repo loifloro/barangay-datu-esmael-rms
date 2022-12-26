@@ -153,7 +153,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 
                 <div class="add-user__form-item">
                     <label for="bhw-contact">Password</label>
-                    <input type="password" name="bhw-pass" id="bhw-contact">
+                    <input type="password" name="bhw-pass" id="bhw-contact" maxlength="11" min="1">
                 </div>
 
                 <div class="add-user__form-item add-user__form-item--role">
