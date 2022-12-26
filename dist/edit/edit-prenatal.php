@@ -1,7 +1,11 @@
 <?php
 session_start();
 include '../includes/connection.php';
-if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+    header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
+
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
