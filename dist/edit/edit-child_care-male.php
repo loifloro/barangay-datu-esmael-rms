@@ -124,7 +124,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             <input type="text" 
                     class="navigation__search"
                     placeholder="Search patient last name"> 
-            <button class="navigation__btn btn-green">
+            <button id="nav-btn" class="navigation__btn btn-green">
                 Add New
             </button>
         </nav>
