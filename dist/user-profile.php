@@ -1,7 +1,13 @@
 <?php
 session_start();
 include 'includes/connection.php';
-if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+    header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
+    exit();
+}
+//HIDE
+include_once "includes/functions.php";
+hide_content();
 ?>
 
 <!DOCTYPE html>
@@ -11,6 +17,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
     <!-- Title Tab Query -->
     <?php 
             $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
@@ -133,16 +140,16 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <nav class="navigation">
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
-                Patients
+                Services
             </h1>
-            <form class="navigation__search">
-                <input type="text" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
-                --><button type="submit" class="navigation__search__btn">
+            <form class="navigation__search" action="search-result.php" method="GET">
+                <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
+                --><button type="submit" name="search_btn" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>
             </form>
 
-            <button class="navigation__btn btn-green">
+            <button id="nav-btn" class="navigation__btn btn-green">
                 <p>Add New</p>
                 <svg class="add-icon navigation__btn__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512"><path fill="#231f20" d="M468.3,212.7H305.2v-169c0-24.2-19.6-43.8-43.8-43.8c-24.2,0-43.8,19.6-43.8,43.8v169h-174 C19.6,212.7,0,232.3,0,256.5c0,24.2,19.6,43.8,43.8,43.8h174v168c0,24.2,19.6,43.8,43.8,43.8c24.2,0,43.8-19.6,43.8-43.8v-168h163.1 c24.2,0,43.8-19.6,43.8-43.8C512,232.3,492.5,212.7,468.3,212.7z"/></svg>
             </button>
@@ -251,11 +258,16 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 <div class="edit-profile__form-item">
                     <label for="patient-password">Password</label>
                     <div class="password">
-                            <input type="password"  disabled class="password__bar__input"/><!--  
-                        --><button type="submit" class="password__bar__btn">
-                            <svg class="password-icon password__bar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/></svg>
-                          </button>
-                    </div>
+                    <input type="password"  class="password__bar__input" id='password' min="8" name="password"/><!--  
+                        --><button type="button" class="password__bar__btn"  onclick="passwordToggle()">
+                            <svg id='password-show' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+                            </svg>
+                            <svg id='password-hide' class="password-icon password__bar__icon password-hide password-icon--hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/>
+                            </svg>
+                        </button>
+                </div>
                 </div>
                 <button type="submit" class="btn-red btn-change">
                     <p>Change</p>
@@ -348,20 +360,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </button>
         </section>
     </main>
-    <!-- FUNCTION TO HIDE CONTENT BASED ON USER LEVEL -->
-    <?php
-        include_once "includes/functions.php";
-        hide_content();
-    ?>
-    <!-- END OF FUNCTION -->
+    <script src="./js/app.js"></script>
 </body>
+
 </html>
-
-<?php
-}
-
-else{
-    header("Location: index.php"); /*Redirect to this page if successful*/
-    exit();
-}
-?>

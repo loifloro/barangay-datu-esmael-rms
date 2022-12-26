@@ -1,6 +1,11 @@
 <?php
 session_start();
-if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
+include '../includes/connection.php';
+if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+    header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
+
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +14,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
+    <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
     <title>Target List</title>
 </head>
 <body class="grid">
@@ -119,7 +125,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             <input type="text" 
                     class="navigation__search"
                     placeholder="Search patient last name"> 
-            <button class="navigation__btn btn-green">
+            <button id="nav-btn" class="navigation__btn btn-green">
                 Add New
             </button>
         </nav>
@@ -808,12 +814,8 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </ul>
         </section>
     </main>
+    <script src="../js/app.js"></script>
 </body>
+
 </html>
-<?php
-}
-else{
-    header("Location: index.php"); /*Redirect to this page if successful*/
-    exit();
-}
-?>
+ 

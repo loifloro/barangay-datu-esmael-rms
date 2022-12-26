@@ -113,7 +113,7 @@ button {
     }
 }
 
-.password-icon {
+.password-show {
 
     path {
         fill: $black-1;
@@ -128,4 +128,23 @@ button {
             fill: $green;
         }
     }
+}
+
+.password-hide {
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+
+    &:hover, 
+    &:focus, 
+    &:active {
+        cursor: pointer;
+        
+        path {
+            stroke: $green;
+        }
+    }
+}
+
+.password-icon--hide {
+    display: none;
 }

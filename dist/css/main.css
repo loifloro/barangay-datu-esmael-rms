@@ -355,10 +355,11 @@ input::placeholder {
   border-radius: 1vw !important;
 }
 
-.swal2-styled {
+.swal2-confirm.swal2-styled {
+  background-color: unset !important;
   background: #034A23 !important;
 }
-.swal2-styled.swal2-confirm:focus {
+.swal2-confirm.swal2-styled:focus {
   box-shadow: 0 0 0 3px #87ffb3 !important;
 }
 
@@ -666,14 +667,29 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   fill: #034A23;
 }
 
-.password-icon path {
+.password-show path {
   fill: #212529;
 }
-.password-icon:hover, .password-icon:focus, .password-icon:active {
+.password-show:hover, .password-show:focus, .password-show:active {
   cursor: pointer;
 }
-.password-icon:hover path, .password-icon:focus path, .password-icon:active path {
+.password-show:hover path, .password-show:focus path, .password-show:active path {
   fill: #034A23;
+}
+
+.password-hide {
+  width: 1.2rem !important;
+  height: 1.2rem !important;
+}
+.password-hide:hover, .password-hide:focus, .password-hide:active {
+  cursor: pointer;
+}
+.password-hide:hover path, .password-hide:focus path, .password-hide:active path {
+  stroke: #034A23;
+}
+
+.password-icon--hide {
+  display: none;
 }
 
 .services__card-list {

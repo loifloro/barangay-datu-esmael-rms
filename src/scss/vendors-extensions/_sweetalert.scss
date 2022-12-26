@@ -4,10 +4,11 @@
     border-radius: 1vw !important;
 }
 
-.swal2-styled {
+.swal2-confirm.swal2-styled {
+    background-color: unset !important;
     background: $green !important;
 
-    &.swal2-confirm:focus {
+    &:focus {
         box-shadow: 0 0 0 3px #87ffb3 !important;
     }
 }
