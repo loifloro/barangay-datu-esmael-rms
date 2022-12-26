@@ -46,7 +46,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     Tutorial
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar"> <!--added ID-->
                 <a href="back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <a href="dashboard-masterlist.php" class="sidebar__link">
-                <li class="sidebar__item">
+                <li class="sidebar__item" id="masterlist_sidebar"><!--added ID-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -248,6 +248,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
             </div>
         </section>
     </main>
+    <!-- FUNCTION TO HIDE CONTENT BASED ON USER LEVEL -->
+    <?php
+        require "includes/functions.php";
+        hide_content();
+    ?>
+    <!-- END OF FUNCTION -->
 </body>
 </html>
 

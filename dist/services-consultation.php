@@ -56,7 +56,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar"> <!--added ID-->
                 <a href="back-up.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar"> <!--added id-->
                     <a href="dashboard-masterlist.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -335,6 +335,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                             if($sort_id == 1){
                                 $query = "SELECT * FROM consultation ORDER BY lastname";
                                 $query_run = mysqli_query($conn, $query);
+                                
                             }
                         } 
                         if (isset($_POST['sort_age'])) {
@@ -709,6 +710,12 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
     </script>
     <!-- End of Scripting -->
     
+    <!-- FUNCTION TO HIDE CONTENT BASED ON USER LEVEL -->
+    <?php
+        require "includes/functions.php";
+        hide_content();
+    ?>
+    <!-- END OF FUNCTION -->
 </body>
 </html>
 
