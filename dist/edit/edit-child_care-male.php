@@ -14,7 +14,8 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
-    <title>Document</title>
+    <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <title>Edit Childcare </title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -119,7 +120,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <nav class="navigation">
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
-                Dashboard
+                Edit Childcare Record
             </h1>
             <input type="text" 
                     class="navigation__search"
@@ -813,6 +814,8 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             </ul>
         </section>
     </main>
+    <script src="../js/app.js"></script>
 </body>
+
 </html>
  

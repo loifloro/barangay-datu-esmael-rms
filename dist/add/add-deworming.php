@@ -17,6 +17,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
     <link rel="stylesheet" href="../css/main.css">
+    <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
     <title>Add New Deworming Record</title>
 </head>
@@ -254,5 +255,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <script src="../js/app.js"></script>
 
+    <script src="./js/app.js"></script>
 </body>
+
 </html>

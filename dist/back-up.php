@@ -222,5 +222,6 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             </div>
         </section>
     </main>
+    <script src="./js/app.js"></script>
 </body>
 </html>
