@@ -169,6 +169,9 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <?php
         }
     }
+
+
+
     ?>  
 
     <!-- Contents -->
@@ -622,8 +625,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     </section>
     </main>
-
     <script src="./js/app.js"></script>
+
+    <?php
+    if (isset($_GET['service'])) {
+        if ($_GET['service'] === 'prenatal') {
+        ?>
+        <script>
+            window.onload =  services(onload, 'Pre-Natal');
+        </script>
+        <?php
+        }
+    }
+    ?>                                                                                              
 </body>
 
 </html>
