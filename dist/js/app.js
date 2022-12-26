@@ -58,6 +58,39 @@ function passwordToggle() {
     }
 }
 
+// Add Button on the navbar
+const navBar = document.getElementById('nav-btn');
+navBar.addEventListener ('click', () => {
+    const { value: service } =  Swal.fire({
+        icon: 'question',
+        title: 'Select a service',
+        input: 'select',
+        inputOptions: {
+            'deworming': 'Deworming' ,
+            'consultation': 'Consultation' ,
+            'childhood': 'Childhood Care' ,
+            'prenatal': 'Pre-natal' ,
+            'postnatal': 'Post-natal' ,
+            // 'icecream': 'Ice cream'
+        },
+        // inputPlaceholder: 'Select a fruit',
+        showCancelButton: true,
+        inputValidator: (value) => {
+          return new Promise((resolve) => {
+            if (value === 'deworming') {
+              window.location.href = 'add/add-deworming.php';
+            } else if (value === 'consultation') {
+                window.location.href = 'add/add-consultation.php';
+            } else if (value === 'childhood') {
+                window.location.href = 'add/add-early_childhood.php';
+            } else if (value === 'prenatal') {
+                window.location.href = 'add/add-prenatal.php';
+            } else if (value === 'postnatal') {
+                window.location.href = 'add/add-postnatal.php';
+            } 
+          })}
+    })
+})
 
 document.getElementsByClassName('services__list__item')[0].click() //default display first item
 function services(evt, servicesName) {
