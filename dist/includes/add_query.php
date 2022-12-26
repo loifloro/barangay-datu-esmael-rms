@@ -102,7 +102,7 @@ if(isset($_POST['save_deworming'])){
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?status=success");
             exit(0);}
         //END OF QUERY
 
@@ -112,7 +112,7 @@ if(isset($_POST['save_deworming'])){
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error");
         exit(0);
     }
 }
@@ -169,7 +169,7 @@ if(isset($_POST['save_consultation'])){
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?status=success");
             exit(0);}
         //END OF QUERY
 
@@ -179,7 +179,7 @@ if(isset($_POST['save_consultation'])){
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error");
         exit(0);
     }
 }
@@ -280,7 +280,7 @@ if(isset($_POST['save_prenatal'])){
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error");
         exit(0);
     }
 }
@@ -355,7 +355,7 @@ if(isset($_POST['save_postnatal'])){
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?status=success");
             exit(0);}
         //END OF QUERY
 
@@ -365,7 +365,7 @@ if(isset($_POST['save_postnatal'])){
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error");
         exit(0);
     }
 }
@@ -426,7 +426,7 @@ if(isset($_POST['save_search_destroy'])){
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?status=success");
             exit(0);}
         //END OF QUERY
 
@@ -436,7 +436,7 @@ if(isset($_POST['save_search_destroy'])){
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error");
         exit(0);
     }
 }
@@ -594,7 +594,7 @@ if(isset($_POST['save_early_childhood'])){
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?status=success");
             exit(0);}
         //END OF QUERY
 
@@ -604,7 +604,7 @@ if(isset($_POST['save_early_childhood'])){
     }
     else{
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error");
         exit(0);
     }
 }
