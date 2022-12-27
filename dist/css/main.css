@@ -367,12 +367,18 @@ input::placeholder {
   margin-top: unset !important;
 }
 
+.toast.swal2-icon-success {
+  color: #FFFFFF;
+  background-color: #034A23 !important;
+}
+
 /**
  * Set up a decent box model on the root element
  */
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
 /**
@@ -1168,6 +1174,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
+  margin-top: 2rem;
 }
 .patient__table__row,
 .search-results__table__row {
@@ -1176,6 +1183,10 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-inline-start: unset;
   padding: 1rem 1.5rem;
   margin-block: 0;
+}
+.patient__table ul:nth-child(2n+1),
+.search-results__table ul:nth-child(2n+1) {
+  background: #FFFFFF;
 }
 .patient__attributes,
 .search-results__attributes {
@@ -1189,6 +1200,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .patient__name,
 .search-results__name {
   color: #212529;
+}
+.patient__name a,
+.search-results__name a {
+  font: unset;
+  color: #207647;
 }
 .patient__option,
 .search-results__option {
@@ -4612,7 +4628,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .services__list {
   padding-inline-start: 0.5rem;
   margin-bottom: 0.2rem;
-  margin-top: 2rem;
   display: flex;
 }
 .services__list__item {
@@ -4633,6 +4648,15 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   background-color: #034A23;
   position: relative;
   top: 0.4rem;
+}
+
+.patient hr {
+  width: 100%;
+  height: 0.2rem;
+  background-color: #F0F0F0;
+  border: none;
+  z-index: -1;
+  margin: 0;
 }
 
 /*# sourceMappingURL=main.css.map */

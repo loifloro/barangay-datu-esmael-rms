@@ -133,9 +133,9 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="edit-maternal_care">
-        <section class="form">
+        <section class="form" id='edit-target'>
             <p class="back__btn">
-                Back
+                <a href="#" onclick="backAlert()">Back</a>   
             </p>
             <h2 class="edit-maternal_care__title">
                 Edit Target Client list for Maternal Care
@@ -226,7 +226,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='dates'>
                 
                 <h2 class="edit-maternal_care__title">
                     Dates of Pre-natal Check-ups
@@ -250,7 +250,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
 
                 <!-- Divider -->
-                <hr>
+                <hr id='immunization'>
                 
                 <h2 class="edit-maternal_care__title">
                     Immunization Status
@@ -288,7 +288,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     </div>
                 </div>
 
-                <hr>
+                <hr id='micronutrient'>
                 
                 <h2 class="edit-maternal_care__title">
                     Micronutrient Supplementation 
@@ -415,7 +415,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     </div>
                 </div>
 
-                <hr>    
+                <hr id='nutritional'>    
                 <h2 class="edit-maternal_care__title">
                     Nutritional Assessment
                 </h2>
@@ -439,7 +439,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
 
-                <hr>    
+                <hr id='infectious'>    
                 <h2 class="edit-maternal_care__title">
                     Infectious Disease Surveillance
                 </h2>
@@ -516,7 +516,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>  
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='reason'>
 
                 <h2 class="edit-maternal_care-female__reason">
                     Reason
@@ -592,25 +592,25 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Add Target Client list for Maternal Care </a>
+                    <a href="#edit-target">Edit Target Client list for Maternal Care </a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Dates of Prenatal Checkup </a>
+                    <a href="#dates">Dates of Prenatal Checkup </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Immunization Status </a>
+                    <a href="#immunization">Immunization Status </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Micronutrient Supplementation </a>
+                    <a href="#micronutrient">Micronutrient Supplementation </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Nutritional Assessment </a>
+                    <a href="#nutritional">Nutritional Assessment </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Infectious Disease Surveillance </a>
+                    <a href="#infectious">Infectious Disease Surveillance </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Reason </a>
+                    <a href="#reason">Reason </a>
                 </li>
             </ul>
         </section>

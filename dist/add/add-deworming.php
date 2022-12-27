@@ -148,7 +148,7 @@ hide_content_forms();
 
     <!-- Contents -->
     <main class="add-deworming">
-        <section class="form">
+        <section class="form" id='personal'>
 
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>
@@ -247,7 +247,7 @@ hide_content_forms();
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <!-- <li class="content__item">
                     <a href="">Reason</a>
@@ -257,8 +257,6 @@ hide_content_forms();
     </main>
 
     <script src="../js/app.js"></script>
-
-    <script src="./js/app.js"></script>
 </body>
 
 </html>

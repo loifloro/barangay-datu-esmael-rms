@@ -9,7 +9,7 @@ function backAlert() {
         confirmButtonColor: '#FBFBFB'
         }).then(function(result) {
             if (result.isConfirmed) {
-                return window.location.href = '../services-consultation.php';
+                return window.location.href = 'barangay-datu-esmael-rms/dist/services-consultation.php';
             }
         })
 }
@@ -18,8 +18,8 @@ function backAlert() {
 function confirmReset(form) {
     Swal.fire({
         icon: 'question',
-        title: 'Confirm cancel',
-        text: 'Do you want to cancel?',
+        title: 'Confirm reset fields',
+        text: 'Do you want to clear the form?',
         showCancelButton : true,
     }).then((result) => {
         if (result.isConfirmed) {
@@ -41,6 +41,7 @@ function recordStatus(state) {
     }
 }
 
+// Toggle the password icon
 function passwordToggle() {
     var passwordInput = document.getElementById('password');
     var passwordHide = document.getElementById('password-hide');
@@ -58,7 +59,7 @@ function passwordToggle() {
     }
 }
 
-// Add Button on the navbar
+// 'Add Button' on the navbar
 const navBar = document.getElementById('nav-btn');
 navBar.addEventListener ('click', () => {
     const { value: service } =  Swal.fire({
@@ -92,7 +93,7 @@ navBar.addEventListener ('click', () => {
     })
 })
 
-// document.getElementsByClassName('services__list__item')[0].click() //default display first item
+document.getElementsByClassName('services__list__item')[0].click() //default display first item
 function services(evt, servicesName) {
   var i, services__table, services__list__item;
   services__table = document.getElementsByClassName("services__table");
@@ -109,3 +110,18 @@ function services(evt, servicesName) {
   evt.currentTarget.className += " services__list__item--active";
 }
 
+// Patients table
+function patient(evt, servicesName) {
+var i, patient__table, services__list__item;
+patient__table = document.getElementsByClassName("patient__table");
+
+for (i = 0; i < patient__table.length; i++) {
+    patient__table[i].style.display = "none";
+}
+services__list__item = document.getElementsByClassName("services__list__item");
+for (i = 0; i < services__list__item.length; i++) {
+    services__list__item[i].className = services__list__item[i].className.replace(" services__list__item--active", "");
+}
+document.getElementById(servicesName).style.display = "block";
+evt.currentTarget.className += " services__list__item--active";
+}

@@ -141,7 +141,7 @@ hide_content_forms();
 
     <!-- Contents -->
     <main class="edit-consultation">
-        <section class="form">
+        <section class="form" id='personal'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -223,7 +223,7 @@ hide_content_forms();
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='symptom'>
 
                 <h2 class="edit-consultation__title">
                     Symptoms
@@ -246,7 +246,7 @@ hide_content_forms();
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='lab'>
 
                 <h2 class="edit-consultation__title">
                     Laboratory Results
@@ -265,7 +265,7 @@ hide_content_forms();
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='reason'>
 
                 <h2 class="edit-consultation__reason">
                     Reason
@@ -341,16 +341,16 @@ hide_content_forms();
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Symptom</a>
+                    <a href="#symptom">Symptom</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Laboratory Results</a>
+                    <a href="#lab">Laboratory Results</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Reason</a>
+                    <a href="#reason">Reason</a>
                 </li>
             </ul>
         </section>

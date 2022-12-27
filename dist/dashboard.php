@@ -24,6 +24,28 @@ hide_content();
     <title>Dashboard</title>
 </head>
 <body class="grid">
+
+    <?php
+    if (isset($_GET['success'])) {
+    ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true, 
+                })
+        </script>
+    <?php    
+    }
+    ?>
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">

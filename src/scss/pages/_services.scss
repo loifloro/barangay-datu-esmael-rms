@@ -15,7 +15,7 @@
     &__list {
         padding-inline-start: .5rem;
         margin-bottom: .2rem;
-        margin-top: 2rem;
+        // margin-top: 2rem;
 
         
         display: flex;
@@ -49,4 +49,16 @@
         }
     }
 
+}
+
+.patient {
+    hr {
+        width: 100%;
+        height: .2rem;
+        background-color: $white-3;
+        border: none;
+        z-index: -1;
+
+        margin: 0;
+    }
 }

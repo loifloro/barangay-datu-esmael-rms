@@ -18,7 +18,7 @@ hide_content_forms();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-    <title>Document</title>
+    <title>Add New Prenatal Record</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -144,7 +144,7 @@ hide_content_forms();
 
     <!-- Contents -->
     <main class="add-postnatal">
-        <section class="form">
+        <section class="form" id='personal'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -213,7 +213,7 @@ hide_content_forms();
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='symptom'>
 
                 <h2 class="add-postnatal__title">
                     Symptoms
@@ -255,7 +255,7 @@ hide_content_forms();
 
 
                 <!-- Divider -->
-                <hr>
+                <hr id='ob'>
 
                 <h2 class="add-postnatal__title">
                     OB History
@@ -288,7 +288,7 @@ hide_content_forms();
 
 
                 <!-- Divider -->
-                <hr>
+                <hr id='abdomen'>
 
                 <h2 class="add-postnatal__title">
                     Abdomen
@@ -325,7 +325,7 @@ hide_content_forms();
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='tetanus'>
 
                 <h2 class="add-postnatal__title">
                     Tetanus Toxoid Status:
@@ -347,7 +347,7 @@ hide_content_forms();
                 <hr>
 
                 <div class="add-postnatal__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="save_postnatal" onclick="return  confirm('Do you want to add this record?')">
+                    <button type="submit" class="btn-green btn-add" name="save_postnatal" ">
                         Add
                     </button>
                     <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
@@ -379,24 +379,24 @@ hide_content_forms();
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Symptoms</a>
+                    <a href="#symptom">Symptoms</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">OB History</a>
+                    <a href="#ob">OB History</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Abdomen</a>
+                    <a href="#abdomen">Abdomen</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Tetanus Toxoid Status</a>
+                    <a href="#tetanus">Tetanus Toxoid Status</a>
                 </li>
             </ul>
         </section>
     </main>
-    <script src="./js/app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>
