@@ -157,23 +157,23 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <div class="add-user__form-item">
                     <label for="bhw-contact">Contact Number</label>
-                    <input type="number" name="bhw-contact" id="bhw-contact">
+                    <input type="number" name="bhw-contact" id="bhw-contact" required>
                 </div>
                 
                 <div class="add-user__form-item">
                     <label for="bhw-contact">Password</label>
-                    <input type="password" name="bhw-pass" id="bhw-contact" maxlength="11" min="1">
+                    <input type="password" name="bhw-pass" id="bhw-contact" maxlength="11" min="1" required>
                 </div>
 
                 <div class="add-user__form-item add-user__form-item--role">
                     <label for="bhw-contact">Role</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="bhw-role" id="bhw-chn" value="City Health Nurse">
+                            <input type="radio" name="bhw-role" id="bhw-chn" value="City Health Nurse" required>
                             <label for="bhw-chn">City Health Nurse</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="bhw-role" id="bhw-bhw" value="Barangay Health Worker">
+                            <input type="radio" name="bhw-role" id="bhw-bhw" value="Barangay Health Worker" required>
                             <label for="bhw-bhw">Barangay Health Worker</label>
                         </div>
                     </div>

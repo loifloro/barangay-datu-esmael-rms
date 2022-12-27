@@ -175,15 +175,15 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-street">Street Address</label>
-                    <input type="text" name="early_childhood-streetadd" id="early_childhood-barangay" value="<?= $patient['street_address']; ?>">
+                    <input type="text" name="early_childhood-streetadd" id="early_childhood-barangay" value="<?= $patient['street_address']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-barangay">Barangay</label>
-                    <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" value="<?= $patient['barangay']; ?>">
+                    <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" value="<?= $patient['barangay']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-city">City Address</label>
-                    <input type="text" name="early_childhood-city" id="early_childhood-barangay" value="<?= $patient['city']; ?>">
+                    <input type="text" name="early_childhood-city" id="early_childhood-barangay" value="<?= $patient['city']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-purol">Purol/Sitio</label>
@@ -191,7 +191,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-childfname">Child First Name</label>
-                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname" value="<?= $patient['child_fname']; ?>">
+                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname" value="<?= $patient['child_fname']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-childmname">Child Middle Name</label>
@@ -199,7 +199,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-childlname">Child Last Name</label>
-                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname" value="<?= $patient['child_lname']; ?>">
+                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname" value="<?= $patient['child_lname']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-hospital">Hospital</label>
@@ -213,11 +213,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <label for="early_childhood-sex">Sex</label>
                     <div class="edit-early_childhood__form--role-item">
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?> required>
                             <label for="early_childhood-sex">Male</label>
                         </div>
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?> required>
                             <label for="early_childhood-sex">Female</label>
                         </div>
                     </div>
@@ -239,7 +239,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-mother-name">Name</label>
-                    <input type="text" name="early_childhood-mother-name" id="early_childhood-mother-name" value="<?= $patient['mother_name']; ?>">
+                    <input type="text" name="early_childhood-mother-name" id="early_childhood-mother-name" value="<?= $patient['mother_name']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-pregnancies">No. of Pregnancies</label>
@@ -251,7 +251,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-mother-age">Age</label>
-                    <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age" value="<?= $patient['mother_age']; ?>">
+                    <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age" value="<?= $patient['mother_age']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-mother-occupation">Occupation</label>
@@ -278,7 +278,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-father-name">Name</label>
-                    <input type="text" name="early_childhood-father-name" id="early_childhood-father-name" value="<?= $patient['father_name']; ?>">
+                    <input type="text" name="early_childhood-father-name" id="early_childhood-father-name" value="<?= $patient['father_name']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-father-contact">Phone Number</label>
@@ -290,7 +290,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-father-age">Age</label>
-                    <input type="number" name="early_childhood-father-age" id="early_childhood-father-age" value="<?= $patient['father_age']; ?>">
+                    <input type="number" name="early_childhood-father-age" id="early_childhood-father-age" value="<?= $patient['father_age']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-father-occupation">Occupation</label>
@@ -314,7 +314,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-child-birthdate">Birthdate</label>
-                    <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" value="<?= $patient['child_birthdate']; ?>">
+                    <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" value="<?= $patient['child_birthdate']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
                     <label for="early_childhood-gestational">Gestational Age of Birth</label>
@@ -324,11 +324,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <label for="early_childhood-birth">Type of Birth</label>
                     <div class="edit-early_childhood__form--role-item">
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" <?= ($patient['birth_type']=='Normal')? 'checked' : '' ?>>
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" <?= ($patient['birth_type']=='Normal')? 'checked' : '' ?> required>
                             <label for="early_childhood-birth">Normal</label>
                         </div>
                         <div class="edit-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS" <?= ($patient['birth_type']=='CS')? 'checked' : '' ?>>
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS" <?= ($patient['birth_type']=='CS')? 'checked' : '' ?> required>
                             <label for="early_childhood-birth">CS</label>
                         </div>
                     </div>
@@ -543,19 +543,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <!-- Radio Buttons -->
                 <div class="edit-early_childhood__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
                 <div class="edit-early_childhood__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
                 <div class="edit-early_childhood__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
                 <div class="edit-early_childhood__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address">
+                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address" required>
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
                 <div class="edit-early_childhood__form-item--reason">

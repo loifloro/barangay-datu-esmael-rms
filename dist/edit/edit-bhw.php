@@ -167,11 +167,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                   <div class="edit-bhw__form-item">
                       <label for="bhw-name">First Name</label>
-                      <input type="text" name="bhw-fname" id="bhw-name" value="<?= $user['firstname']; ?>">
+                      <input type="text" name="bhw-fname" id="bhw-name" value="<?= $user['firstname']; ?>" required>
                   </div>    
                   <div class="edit-bhw__form-item">
                       <label for="bhw-name">Last Name</label>
-                      <input type="text" name="bhw-lname" id="bhw-name" value="<?= $user['lastname']; ?>">
+                      <input type="text" name="bhw-lname" id="bhw-name" value="<?= $user['lastname']; ?>" required>
                   </div>    
                   <div class="edit-bhw__form-item">
                       <label for="bhw-name">Middle Name</label>
@@ -192,7 +192,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                   <div class="edit-bhw__form-item">
                       <label for="bhw-contact">Contact Number</label>
-                      <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>">
+                      <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>" required>
                   </div>
                   <div class="edit-bhw__form-item">
                     <label for="bhw-birthday">Birthday</label>
