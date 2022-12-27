@@ -138,7 +138,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="edit-prenatal">
-        <section class="form">
+        <section class="form" id='personal'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -219,7 +219,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='symptom'>
 
                 <h2 class="edit-prenatal__title">
                     Symptoms
@@ -261,7 +261,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
 
                 <!-- Divider -->
-                <hr>
+                <hr id='ob'>
 
                 <h2 class="edit-prenatal__title">
                     OB History
@@ -294,7 +294,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
 
                 <!-- Divider -->
-                <hr>
+                <hr id='abdomen'>
 
                 <h2 class="edit-prenatal__title">
                     Abdomen
@@ -331,7 +331,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='tetanus'>
 
                 <h2 class="edit-prenatal__title">
                     Tetanus Toxoid Status:
@@ -350,7 +350,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='reason'>
 
                 <h2 class="edit-prenatal__reason">
                     Reason
@@ -425,19 +425,22 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Symptoms</a>
+                    <a href="#symptom">Symptoms</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">OB History</a>
+                    <a href="#ob">OB History</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Abdomen</a>
+                    <a href="#abdomen">Abdomen</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Tetanus Toxoid Status</a>
+                    <a href="#tetanus">Tetanus Toxoid Status</a>
+                </li>
+                <li class="content__item">
+                    <a href="#reason">Reasons</a>
                 </li>
             </ul>
         </section>

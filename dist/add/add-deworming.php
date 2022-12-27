@@ -145,7 +145,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="add-deworming">
-        <section class="form">
+        <section class="form" id='personal'>
 
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>
@@ -244,7 +244,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <!-- <li class="content__item">
                     <a href="">Reason</a>

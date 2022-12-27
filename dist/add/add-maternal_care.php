@@ -141,7 +141,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="add-maternal_care">
-        <section class="form">
+        <section class="form" id='add-target'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p>
@@ -223,7 +223,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='dates'>
                 
                 <h2 class="add-maternal_care__title">
                     Dates of Pre-natal Check-ups
@@ -247,7 +247,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
 
                 <!-- Divider -->
-                <hr>
+                <hr id='immunization'>
                 
                 <h2 class="add-maternal_care__title">
                     Immunization Status
@@ -285,7 +285,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     </div>
                 </div>
 
-                <hr>
+                <hr id='micronutrient'>
                 
                 <h2 class="add-maternal_care__title">
                     Micronutrient Supplementation 
@@ -412,7 +412,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     </div>
                 </div>
 
-                <hr>    
+                <hr id='nutrional'>    
                 <h2 class="add-maternal_care__title">
                     Nutritional Assessment
                 </h2>
@@ -436,7 +436,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
 
-                <hr>    
+                <hr id='infectious'>    
                 <h2 class="add-maternal_care__title">
                     Infectious Disease Surveillance
                 </h2>
@@ -548,22 +548,22 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Add Target Client list for Maternal Care </a>
+                    <a href="#add-target">Add Target Client list for Maternal Care </a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Dates of Prenatal Checkup </a>
+                    <a href="#dates">Dates of Prenatal Checkup </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Immunization Status </a>
+                    <a href="#immunization">Immunization Status </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Micronutrient Supplementation </a>
+                    <a href="#micronutrient">Micronutrient Supplementation </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Nutritional Assessment </a>
+                    <a href="#nutrional">Nutritional Assessment </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Infectious Disease Surveillance </a>
+                    <a href="#infectious">Infectious Disease Surveillance </a>
                 </li>
             </ul>
         </section>

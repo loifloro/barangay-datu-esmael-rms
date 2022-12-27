@@ -133,12 +133,12 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="edit-child_care-female">
-        <section class="form">
+        <section class="form" id='add-early'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p>
             <h2 class="edit-child_care-female__title">
-                Add Target Client list for Child Care Female <!--Renamed from Male to Female-->
+                Edit Target Client list for Child Care Female <!--Renamed from Male to Female-->
             </h2>
             <p class="edit-child_care-female__desc">
                 Fill up necessary information to complete the process
@@ -262,7 +262,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='newborn'>
 
                 <h2 class="edit-child_care-female__title">
                     Newborn (0-28 days old)
@@ -318,7 +318,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='1-3'>
 
                 <h2 class="edit-child_care-female__title">
                     1-3 months old
@@ -486,7 +486,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='6-11'>
 
                 <h2 class="edit-child_care-female__title">
                     6-11 months old
@@ -611,7 +611,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='12'>
 
                 <h2 class="edit-child_care-female__title">
                     12 months old
@@ -717,7 +717,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>  
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='reasons'>
 
                 <h2 class="edit-child_care-female__reason">
                     Reason
@@ -794,22 +794,22 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Add Early Childhood Care and Development</a>
+                    <a href="#add-early">Edit Early Childhood Care and Development</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Newborn (0-28 days old) </a>
+                    <a href="#newborn">Newborn (0-28 days old) </a>
                 </li>
                 <li class="content__item">
-                    <a href="">1-3 months old</a>
+                    <a href="#1-3">1-3 months old</a>
                 </li>
                 <li class="content__item">
-                    <a href="">6-11 months old</a>
+                    <a href="#6-11">6-11 months old</a>
                 </li>
                 <li class="content__item">
-                    <a href="">12 months old </a>
+                    <a href="#12">12 months old </a>
                 </li>
                 <li class="content__item">
-                    <a href="">Reason</a>
+                    <a href="#reasons">Reason</a>
                 </li>
             </ul>
         </section>

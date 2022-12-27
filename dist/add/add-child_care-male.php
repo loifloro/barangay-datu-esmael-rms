@@ -141,7 +141,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="add-child_care-male">
-        <section class="form">
+        <section class="form" id='add-child_care'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p>
@@ -258,7 +258,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='newborn'>
 
                 <h2 class="add-child_care-male__title">
                     Newborn (0-28 days old)
@@ -314,7 +314,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='1-3'>
 
                 <h2 class="add-child_care-male__title">
                     1-3 months old
@@ -482,7 +482,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='6-11'>
 
                 <h2 class="add-child_care-male__title">
                     6-11 months old
@@ -607,7 +607,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='12'>
 
                 <h2 class="add-child_care-male__title">
                     12 months old
@@ -748,19 +748,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Add Early Childhood Care and Development</a>
+                    <a href="#add-child_care">Add Early Childhood Care and Development</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Newborn (0-28 days old) </a>
+                    <a href="#newborn">Newborn (0-28 days old) </a>
                 </li>
                 <li class="content__item">
-                    <a href="">1-3 months old</a>
+                    <a href="#1-3">1-3 months old</a>
                 </li>
                 <li class="content__item">
-                    <a href="">6-11 months old</a>
+                    <a href="#6-11">6-11 months old</a>
                 </li>
                 <li class="content__item">
-                    <a href="">12 months old </a>
+                    <a href="#12">12 months old </a>
                 </li>
             </ul>
         </section>

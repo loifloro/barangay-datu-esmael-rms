@@ -138,7 +138,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="edit-early_childhood">
-        <section class="form">
+        <section class="form" id='add-early'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -228,7 +228,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='mother'>
 
                 <h2 class="edit-early_childhood__title">
                     Mother Information
@@ -267,7 +267,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='father'>
 
                 <h2 class="edit-early_childhood__title">
                     Father Information
@@ -303,7 +303,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='child'>
 
                 <h2 class="edit-early_childhood__title">
                     Childhood Information
@@ -373,7 +373,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='vaccine'>
 
                 <h2 class="edit-early_childhood__title">
                     Vaccine Remarks
@@ -532,7 +532,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='reason'>
 
                 <h2 class="edit-early_childhood__reason">
                     Reason
@@ -608,22 +608,22 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Add Early Childhood Care and Development</a>
+                    <a href="#add-early">Edit Early Childhood Care and Development</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Mother Information</a>
+                    <a href="#mother">Mother Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Father Information</a>
+                    <a href="#father">Father Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Child Information</a>
+                    <a href="#child">Child Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Vaccine Remarks</a>
+                    <a href="#vaccine">Vaccine Remarks</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Reason</a>
+                    <a href="#reason">Reason</a>
                 </li>
             </ul>
         </section>

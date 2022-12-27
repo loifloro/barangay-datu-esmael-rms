@@ -141,7 +141,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="add-consultation">
-        <section class="form">
+        <section class="form" id='personal'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -210,7 +210,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='symptom'>
 
                 <h2 class="add-consultation__title">
                     Symptoms
@@ -233,7 +233,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='lab'>
 
                 <h2 class="add-consultation__title">
                     Laboratory Results
@@ -287,13 +287,13 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Symptom</a>
+                    <a href="#symptom">Symptom</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Laboratory Results</a>
+                    <a href="#lab">Laboratory Results</a>
                 </li>
             </ul>
         </section>
