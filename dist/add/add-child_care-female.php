@@ -16,7 +16,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
-    <title>Add Target Client list for Child Care Male</title>
+    <title>Add Target Client list for Child Care Female</title>
 </head>
 <body class="grid">
     
