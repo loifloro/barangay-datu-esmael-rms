@@ -9,7 +9,7 @@ function backAlert() {
         confirmButtonColor: '#FBFBFB'
         }).then(function(result) {
             if (result.isConfirmed) {
-                return window.location.href = 'barangay-datu-esmael-rms/dist/services-consultation.php';
+                return window.location.href = '/barangay-datu-esmael-rms/dist/services-consultation.php';
             }
         })
 }
