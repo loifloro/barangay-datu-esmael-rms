@@ -245,7 +245,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-search_destroy__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="save_search_destroy" onclick="return  confirm('Do you want to add this record?')">
+                    <button type="submit" class="btn-green btn-add" name="save_search_destroy" ">
                         Add
                     </button>
                     <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->

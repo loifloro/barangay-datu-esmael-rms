@@ -716,7 +716,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-child_care-male__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="add_childcare_male" onclick="return  confirm('Do you want to add this record?')"> <!--added name-->
+                    <button type="submit" class="btn-green btn-add" name="add_childcare_male" "> <!--added name-->
                         Add
                     </button>
                     <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->

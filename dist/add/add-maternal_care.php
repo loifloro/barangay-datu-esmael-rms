@@ -516,7 +516,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-maternal_care__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="add_maternal_list" onclick="return  confirm('Do you want to add this record?')"> <!--added name-->
+                    <button type="submit" class="btn-green btn-add" name="add_maternal_list" "> <!--added name-->
                         Add
                     </button>
                     <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
