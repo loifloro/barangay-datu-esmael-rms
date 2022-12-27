@@ -32,7 +32,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 $_SESSION['phone_num'] = $row['phone_num'];
                 $_SESSION['firstname'] = $row['firstname'];
                 $_SESSION['account_id'] = $row['account_id'];
-                header("Location: dashboard.php"); /*Redirect to this page if successful*/
+                header("Location: dashboard.php?success"); /*Redirect to this page if successful*/
                 exit();
             } 
 
