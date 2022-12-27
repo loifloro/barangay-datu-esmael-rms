@@ -1,4 +1,4 @@
-<?php
+    <?php
 session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
@@ -215,23 +215,32 @@ hide_content_forms();
                 </div>
 
                 <!-- Divider -->
-                <hr id='#password'>
+                <hr id='security'>
 
                 <h2 class="edit-bhw__title">
-                    Password
+                    Security Question
                 </h2>
                 <p class="edit-bhw__desc">
-                    Enter your account password to proceed
+                    The answer on the security would be needed when resetting a password
                 </p>
-                
-                <!-- <div class="edit-bhw__form-item">
-                    <label for="bhw-existing-password">Existing Password</label>
-                    <input type="text" name="bhw-existing-password" id="bhw-existing-password">
+                <div class="edit-bhw__form-item">
+                    <label for="bhw-security-question">Security Question</label>
+                    <!-- If it already has a value, it should be disabled -->
+                    <select name="bhw-security-question" id="">
+                        <option value="In what city were you born?">In what city were you born?</option>
+                        <option value="What is the name of your favorite pet?">What is the name of your favorite pet?</option>
+                        <option value="What high school did you attend?">What high school did you attend?</option>
+                        <option value="What was the name of your elementary school?">What was the name of your elementary school?</option>
+                        <option value="What was the make of your first car?">What was the make of your first car?</option>
+                    </select>
                 </div>
                 <div class="edit-bhw__form-item">
-                    <label for="bhw-confirm-existing-password">Confirm Existing Password</label>
-                    <input type="text" name="bhw-confirm-existing-password" id="bhw-confirm-existing-password">
-                </div> -->
+                    <label for="bhw-security-question-answer">Security Answer</label>
+                    <input type="text" name="bhw-security-question-answer" id="bhw-security-question-answer">
+                </div>
+
+                <!-- Divider
+                <hr id='password'>
                 <div class="edit-bhw__form-item">
                     <label for="bhw-new-password">New Password</label>
                     <input type="text" name="bhw-new-password" id="bhw-new-password" value="<?= $user['password']; ?>">
@@ -239,6 +248,42 @@ hide_content_forms();
                 <div class="edit-bhw__form-item">
                     <label for="bhw-confirm-new-password">Confirm New Password</label>
                     <input type="text" name="bhw-confirm-new-password" id="bhw-confirm-new-password">
+                </div> -->
+
+                <h2 class="edit-bhw__title">
+                    Password
+                </h2>
+                <p class="edit-bhw__desc">
+                    Enter your account password to proceed
+                </p>
+                <div class="edit-bhw__form-item">
+                    <label for="bhw-new-password">New Password</label>
+                    <div class="password">
+                        <input type="password"  class="password__bar__input" id="bhw-new-password" min="8" name="bhw-new-password" value="<?= $user['password']; ?>"/><!--  
+                        --><button type="button" class="password__bar__btn"  onclick="passwordToggle('bhw-new-password' , 'password-show-p' , 'password-hide-p')">
+                            <svg id='password-show-p' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+                            </svg>
+                            <svg id='password-hide-p' class="password-icon password__bar__icon password-hide password-icon--hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="edit-bhw__form-item">
+                    <label for="bhw-confirm-new-password">Confirm New Password</label>
+                    <div class="password">
+                        <input type="password"  class="password__bar__input" id="bhw-confirm-new-password" min="8" name="bhw-confirm-new-password" value="<?= $user['password']; ?>"/><!--  
+                        --><button type="button" class="password__bar__btn"  onclick="passwordToggle('bhw-confirm-new-password', 'password-show-np' , 'password-hide-np')">
+                            <svg id='password-show-np' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+                            </svg>
+                            <svg id='password-hide-np' class="password-icon password__bar__icon password-hide password-icon--hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
 
@@ -269,6 +314,9 @@ hide_content_forms();
             <ul class="contents__list">
                 <li class="content__item content__item--active">
                     <a href="#personal">Personal Information</a>
+                </li>
+                <li class="content__item content__item--active">
+                    <a href="#security">Security Question</a>
                 </li>
                 <li class="content__item">
                     <a href="#password">Password</a>
