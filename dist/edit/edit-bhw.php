@@ -45,7 +45,7 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="tutorial.php" class="sidebar__link">
+                <a href="../tutorial.php" class="sidebar__link">
                     <svg alt="Tutorial" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -55,7 +55,7 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item" id="backup_sidebar"> <!--added id-->
-                <a href="back-up.php" class="sidebar__link">
+                <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -65,17 +65,16 @@ hide_content_forms();
                 </a>
             </li>
             <hr class="sidebar__line" />
-            <li class="sidebar__item">
-                <a href="services-consultation.php" class="sidebar__link">
+            <li class="sidebar__item ">
+                <a href="../services-consultation.php" class="sidebar__link">
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                             d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM17,9H15V7a1,1,0,0,0-1-1H10A1,1,0,0,0,9,7V9H7a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H9v2a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V15h2a1,1,0,0,0,1-1V10A1,1,0,0,0,17,9Zm-1,4H14a1,1,0,0,0-1,1v2H11V14a1,1,0,0,0-1-1H8V11h2a1,1,0,0,0,1-1V8h2v2a1,1,0,0,0,1,1h2Z" />
                     </svg>
-                    <p class="sidebar__caption sidebar__caption--active">Services</p>
+                    <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-
             <li class="sidebar__item" id="masterlist_sidebar"> <!--added id-->
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
@@ -87,7 +86,7 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item sidebar__item--margin-top">
-                <a href="user-profile.php" class="sidebar__link">
+                <a href="../user-profile.php" class="sidebar__link">
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -107,7 +106,7 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="logout.php" class="sidebar__link">
+                <a href="../logout.php" class="sidebar__link">
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
