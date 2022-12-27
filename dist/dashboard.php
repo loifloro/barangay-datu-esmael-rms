@@ -165,8 +165,17 @@ hide_content();
                         Consultation
                     </p>
                     <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                        <!-- COUNT CONSULTATION -->
+                        <?php
+                                $query = "SELECT count(*) FROM consultation";
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                     </div>
                 <div class="services__card services__card--childhood">
@@ -174,8 +183,17 @@ hide_content();
                         Childhood Care
                     </p>
                     <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                        <!-- COUNT EARLY CHILDHOOD -->
+                        <?php
+                                $query = "SELECT count(*) FROM early_childhood";
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                 </div>
                 <div class="services__card services__card--prenatal">
@@ -183,8 +201,17 @@ hide_content();
                         Pre-natal
                     </p>
                     <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                        <!-- COUNT PRENATAL -->
+                        <?php
+                                $query = "SELECT count(*) FROM prenatal";
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                 </div>
                 <div class="services__card services__card--deworming">
@@ -192,8 +219,17 @@ hide_content();
                         Deworming
                     </p>
                     <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                        <!-- COUNT DEWORMING -->
+                        <?php
+                                $query = "SELECT count(*) FROM deworming";
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                 </div>
                 <div class="services__card services__card--searchdestroy">
@@ -201,8 +237,17 @@ hide_content();
                         Search and Destroy
                     </p>
                     <p class="services__card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                        <!-- COUNT DEWORMING -->
+                        <?php
+                                $query = "SELECT count(*) FROM search_destroy";
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                 </div>
             </section>
