@@ -135,7 +135,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <main class="edit-maternal_care">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="#" onclick="backAlert()">Back</a>   
             </p>
             <h2 class="edit-maternal_care__title">
                 Edit Target Client list for Maternal Care

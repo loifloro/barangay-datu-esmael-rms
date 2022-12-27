@@ -135,7 +135,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <main class="edit-child_care-female">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="#" onclick="backAlert()">Back</a>   
             </p>
             <h2 class="edit-child_care-female__title">
                 Add Target Client list for Child Care Female <!--Renamed from Male to Female-->

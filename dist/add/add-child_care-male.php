@@ -143,7 +143,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <main class="add-child_care-male">
         <section class="form">
             <p class="back__btn">
-                Back
+                <a href="#" onclick="backAlert()">Back</a>   
             </p>
             <h2 class="add-child_care-male__title">
                 Add Target Client list for Child Care Male
