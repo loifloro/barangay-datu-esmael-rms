@@ -241,8 +241,8 @@ hide_content();
 
                 </li>
             </ul>
-            </form>
-            <!-- END OF SORT -->
+        </form>
+        <!-- END OF SORT -->
 
             <?php
                 $query = "SELECT * FROM deworming";
@@ -358,7 +358,7 @@ hide_content();
                 </li>
             </ul>
         </form>
-            <!-- END OF FORM -->
+        <!-- END OF FORM -->
 
             <!-- To be put in the loop -->
             <?php 
