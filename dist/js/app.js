@@ -18,8 +18,8 @@ function backAlert() {
 function confirmReset(form) {
     Swal.fire({
         icon: 'question',
-        title: 'Confirm cancel',
-        text: 'Do you want to cancel?',
+        title: 'Confirm reset fields',
+        text: 'Do you want to clear the form?',
         showCancelButton : true,
     }).then((result) => {
         if (result.isConfirmed) {
