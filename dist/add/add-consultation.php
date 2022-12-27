@@ -15,7 +15,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-    <title>Document</title>
+    <title>Add New Consultation Record</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -141,7 +141,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="add-consultation">
-        <section class="form">
+        <section class="form" id='personal'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -210,7 +210,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='symptom'>
 
                 <h2 class="add-consultation__title">
                     Symptoms
@@ -233,7 +233,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='lab'>
 
                 <h2 class="add-consultation__title">
                     Laboratory Results
@@ -255,7 +255,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-consultation__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="save_consultation" onclick="return  confirm('Do you want to add this record?')">
+                    <button type="submit" class="btn-green btn-add" name="save_consultation" ">
                         Add
                     </button>
                     <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
@@ -287,18 +287,18 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Symptom</a>
+                    <a href="#symptom">Symptom</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Laboratory Results</a>
+                    <a href="#lab">Laboratory Results</a>
                 </li>
             </ul>
         </section>
     </main>
-    <script src="./js/app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>

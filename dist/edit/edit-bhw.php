@@ -139,9 +139,9 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="edit-bhw">
-        <section class="form">
+        <section class="form" id='personal'>
             <p class="back__btn">
-                Back
+                <a href="#" onclick="backAlert()">Back</a>   
             </p>
             <h2 class="edit-bhw__title">
                 Edit Profile
@@ -212,7 +212,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='#password'>
 
                 <h2 class="edit-bhw__title">
                     Password
@@ -265,10 +265,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Password</a>
+                    <a href="#password">Password</a>
                 </li>
             </ul>
         </section>

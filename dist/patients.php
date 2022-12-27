@@ -17,7 +17,9 @@ hide_content();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Document</title>
+    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+
+    <title>Patients</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -152,23 +154,79 @@ hide_content();
 
         <!-- TABS event initialization-->
         <ul role="list" class="services__list">
-            <li class="services__list__item services__list__item--active" onclick="services(event, 'Deworming')">
-                    Deworming
+            <li class="services__list__item services__list__item--active" onclick="patient(event, 'Deworming')">
+                <!-- COUNT DEWORMING -->
+                <?php
+                        $query = "SELECT count(*) FROM deworming";
+                        $result = mysqli_query($conn, $query);
+                        while($row = mysqli_fetch_array($result)) {  
+                ?>
+                <!-- END COUNT DEWORMING -->
+                    Deworming (<?php echo $row['count(*)']; ?>)
+                <?php
+                    }
+                ?>
             </li>
-            <li class="services__list__item" onclick="services(event, 'Consultation')">
-                    Consultation
+            <li class="services__list__item" onclick="patient(event, 'Consultation')">
+                            <!-- COUNT CONSULTATION -->
+                            <?php
+                        $query = "SELECT count(*) FROM consultation";
+                        $result = mysqli_query($conn, $query);
+                        while($row = mysqli_fetch_array($result)) {  
+                ?>
+                <!-- END COUNT CONSULTATION -->
+                    Consultation (<?php echo $row['count(*)']; ?>)
+                <?php
+                    }
+                ?>
             </li>
-            <li class="services__list__item" onclick="services(event, 'Pre-Natal')">
-                    Pre-Natal
+            <li class="services__list__item" onclick="patient(event, 'Pre-Natal')">
+                <!-- PRENATAL COUNT -->
+            <?php
+                    $query = "SELECT count(*) FROM prenatal";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_array($result)) {  
+            ?>
+                    Pre-Natal (<?php echo $row['count(*)']; ?>)
+            <?php
+                }
+            ?>
             </li>
-            <li class="services__list__item" onclick="services(event, 'Post-Natal')">
-                    Post-Natal
+            <li class="services__list__item" onclick="patient(event, 'Post-Natal')">
+            <!-- COUNT POSTNATAL -->
+            <?php
+                    $query = "SELECT count(*) FROM postnatal";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_array($result)) {  
+            ?>
+                   Post-Natal (<?php echo $row['count(*)']; ?>)
+            <?php
+                }
+            ?>
             </li>
-            <li class="services__list__item" onclick="services(event, 'Search and Destroy')">
-                    Search and Destroy
+            <li class="services__list__item" onclick="patient(event, 'Search and Destroy')">
+            <!--  COUNT S/D -->
+            <?php
+                    $query = "SELECT count(*) FROM search_destroy";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_array($result)) {  
+            ?>
+                    Search and Destroy (<?php echo $row['count(*)']; ?>)
+            <?php
+                }
+            ?>
             </li>
-            <li class="services__list__item" onclick="services(event, 'Childhood Care')">
-                    Childhood Care
+            <li class="services__list__item" onclick="patient(event, 'Childhood Care')">
+            <!-- COUNT EC -->
+            <?php
+                    $query = "SELECT count(*) FROM early_childhood";
+                    $result = mysqli_query($conn, $query);
+                    while($row = mysqli_fetch_array($result)) {  
+            ?>
+                    Childhood Care (<?php echo $row['count(*)']; ?>)
+            <?php
+                }
+            ?>
             </li>
         </ul>
         <!-- end of TABS event initialization -->
@@ -176,34 +234,26 @@ hide_content();
 
         <!-- Start Tab for Deworming -->
         <div class="patient__table" id="Deworming">
-            <!-- COUNT DEWORMING -->
-            <?php
-                    $query = "SELECT count(*) FROM deworming";
-                    $result = mysqli_query($conn, $query);
-                    while($row = mysqli_fetch_array($result)) {  
-            ?>
-                <p class="patient__total">
-                    Deworming Records: <span class="patients__total--num h3"><?php echo $row['count(*)']; ?></span>
-                </p>
-            <?php
-                }
-            ?>
-            <!-- END COUNT DEWORMING -->
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
+<svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                 </ul>
 
@@ -254,34 +304,26 @@ hide_content();
 
         <!-- Start Tab for Consultation -->
         <div class="patient__table" id="Consultation">
-                <!-- COUNT CONSULTATION -->
-                <?php
-                        $query = "SELECT count(*) FROM consultation";
-                        $result = mysqli_query($conn, $query);
-                        while($row = mysqli_fetch_array($result)) {  
-                ?>
-                    <p class="patient__total">
-                        Consultation Records: <span class="patients__total--num h3"><?php echo $row['count(*)']; ?></span>
-                    </p>
-                <?php
-                    }
-                ?>
-                <!-- END COUNT CONSULTATION -->
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
+<svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                 </ul>
 
@@ -330,34 +372,26 @@ hide_content();
         
         <!-- Start Tab for Prenatal -->
         <div class="patient__table" id="Pre-Natal">
-            <!-- PRENATAL DEWORMING -->
-            <?php
-                    $query = "SELECT count(*) FROM prenatal";
-                    $result = mysqli_query($conn, $query);
-                    while($row = mysqli_fetch_array($result)) {  
-            ?>
-                <p class="patient__total">
-                    Pre-Natal Records: <span class="patients__total--num h3"><?php echo $row['count(*)']; ?></span>
-                </p>
-            <?php
-                }
-            ?>
-            <!-- END PRENATAL DEWORMING -->
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
+<svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                 </ul>
 
@@ -406,34 +440,27 @@ hide_content();
 
         <!-- Start Tab for Post-Natal -->
         <div class="patient__table" id="Post-Natal">
-            <!-- COUNT POSTNATAL -->
-            <?php
-                    $query = "SELECT count(*) FROM postnatal";
-                    $result = mysqli_query($conn, $query);
-                    while($row = mysqli_fetch_array($result)) {  
-            ?>
-                <p class="patient__total">
-                    Post-Natal Records: <span class="patients__total--num h3"><?php echo $row['count(*)']; ?></span>
-                </p>
-            <?php
-                }
-            ?>
-            <!-- END COUNT POSTNATAL -->
+
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
+<svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                 </ul>
 
@@ -482,34 +509,26 @@ hide_content();
 
         <!-- Start Tab for Search and Destroy -->
         <div class="patient__table" id="Search and Destroy">
-            <!--  COUNT S/D -->
-            <?php
-                    $query = "SELECT count(*) FROM search_destroy";
-                    $result = mysqli_query($conn, $query);
-                    while($row = mysqli_fetch_array($result)) {  
-            ?>
-                <p class="patient__total">
-                    Search/Destroy Records: <span class="patients__total--num h3"><?php echo $row['count(*)']; ?></span>
-                </p>
-            <?php
-                }
-            ?>
-            <!-- END COUNT S/D -->
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
+<svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                 </ul>
 
@@ -558,34 +577,26 @@ hide_content();
         
         <!-- Start Tab for Early Childhood -->
         <div class="patient__table" id="Childhood Care">
-            <!-- COUNT EC -->
-            <?php
-                    $query = "SELECT count(*) FROM early_childhood";
-                    $result = mysqli_query($conn, $query);
-                    while($row = mysqli_fetch_array($result)) {  
-            ?>
-                <p class="patient__total">
-                    Early Childhood Records: <span class="patients__total--num h3"><?php echo $row['count(*)']; ?></span>
-                </p>
-            <?php
-                }
-            ?>
-            <!-- END COUNT EC -->
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
+<svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- Put SVG here -->
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+
                     </li>
                 </ul>
 
@@ -631,26 +642,6 @@ hide_content();
                 <!--End of Query -->
             </div>
         <!-- End Tab for Early Childhood -->
-
-        <!-- Scripting -->
-    <script>
-        document.getElementsByClassName('services__list__item')[0].click() //default display first item
-        function services(evt, servicesName) {
-        var i, patient__table, services__list__item;
-        patient__table = document.getElementsByClassName("patient__table");
-
-        for (i = 0; i < patient__table.length; i++) {
-            patient__table[i].style.display = "none";
-        }
-        services__list__item = document.getElementsByClassName("services__list__item");
-        for (i = 0; i < services__list__item.length; i++) {
-            services__list__item[i].className = services__list__item[i].className.replace(" active", "");
-        }
-        document.getElementById(servicesName).style.display = "block";
-        evt.currentTarget.className += " active";
-        }
-    </script>
-    <!-- End of Scripting -->
 
         </section>
     </main>

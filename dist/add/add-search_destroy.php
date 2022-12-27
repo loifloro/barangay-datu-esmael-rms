@@ -15,7 +15,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-    <title>Document</title>
+    <title>Add New Search and Destroy Record</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -141,7 +141,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="add-search_destroy">
-        <section class="form">
+        <section class="form" id='general'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -169,7 +169,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='detailed'>
 
                 <h2 class="add-search_destroy__title">
                     Detailed Summary
@@ -245,7 +245,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-search_destroy__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="save_search_destroy" onclick="return  confirm('Do you want to add this record?')">
+                    <button type="submit" class="btn-green btn-add" name="save_search_destroy" ">
                         Add
                     </button>
                     <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
@@ -277,16 +277,16 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">General Information</a>
+                    <a href="#general">General Information</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Detailed Summary</a>
+                    <a href="#detailed">Detailed Summary</a>
                 </li>
 
             </ul>
         </section>
     </main>
-    <script src="./js/app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>

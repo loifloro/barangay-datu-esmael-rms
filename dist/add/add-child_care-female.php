@@ -16,7 +16,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
-    <title>Add Target Client list for Child Care Male</title>
+    <title>Add Target Client list for Child Care Female</title>
 </head>
 <body class="grid">
     
@@ -141,11 +141,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="add-child_care-female">
-        <section class="form">
+        <section class="form" id='add-child_care-female'>
             <p class="back__btn">
-                Back
+                <a href="#" onclick="backAlert()">Back</a>   
             </p>
-            <h2 class="add-child_care-female__title">
+            <h2 class="add-child_care-female__title" >
                 Add Target Client list for Child Care Male
             </h2>
             <p class="add-child_care-female__desc">
@@ -252,7 +252,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr  id="newborn">
 
                 <h2 class="add-child_care-female__title">
                     Newborn (0-28 days old)
@@ -308,7 +308,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='1-3'>
 
                 <h2 class="add-child_care-female__title">
                     1-3 months old
@@ -476,7 +476,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='6-11'>
 
                 <h2 class="add-child_care-female__title">
                     6-11 months old
@@ -601,7 +601,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id="12">
 
                 <h2 class="add-child_care-female__title">
                     12 months old
@@ -710,7 +710,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-child_care-female__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="add_childcare_female" onclick="return  confirm('Do you want to add this record?')"> <!--name added-->
+                    <button type="submit" class="btn-green btn-add" name="add_childcare_female" "> <!--name added-->
                         Add
                     </button>
                     <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
@@ -742,19 +742,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Add Early Childhood Care and Development</a>
+                    <a href="#add-child_care-female">Add Early Childhood Care and Development</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Newborn (0-28 days old) </a>
+                    <a href="#newborn">Newborn (0-28 days old) </a>
                 </li>
                 <li class="content__item">
-                    <a href="">1-3 months old</a>
+                    <a href="#1-3">1-3 months old</a>
                 </li>
                 <li class="content__item">
-                    <a href="">6-11 months old</a>
+                    <a href="#6-11">6-11 months old</a>
                 </li>
                 <li class="content__item">
-                    <a href="">12 months old </a>
+                    <a href="#12">12 months old </a>
                 </li>
             </ul>
         </section>

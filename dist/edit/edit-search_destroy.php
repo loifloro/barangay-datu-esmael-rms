@@ -138,7 +138,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="edit-search_destroy">
-        <section class="form">
+        <section class="form" id='general'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -182,7 +182,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='detailed'>
 
                 <h2 class="edit-search_destroy__title">
                     Detailed Summary
@@ -255,7 +255,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
 
                 <!-- Divider -->
-                <hr>
+                <hr id='reason'>
 
                 <h2 class="edit-consultation__reason">
                     Reason
@@ -331,13 +331,13 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">General Information</a>
+                    <a href="#general">General Information</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Detailed Summary</a>
+                    <a href="#detailed">Detailed Summary</a>
                 </li>
                 <li class="content__item content__item--active">
-                    <a href="">Reason</a>
+                    <a href="#reason">Reason</a>
                 </li>
 
             </ul>

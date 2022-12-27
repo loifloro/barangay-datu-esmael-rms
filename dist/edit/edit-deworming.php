@@ -134,7 +134,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
 
     <!-- Contents -->
     <main class="edit-deworming">
-        <section class="form">
+        <section class="form" id='personal'>
             <p class="back__btn">
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
@@ -216,7 +216,7 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
                 </div>
                 
                 <!-- Divider -->
-                <hr>
+                <hr id='reason'>
 
                 <h2 class="edit-deworming__reason">
                     Reason
@@ -293,10 +293,10 @@ if (isset($_SESSION['account_id']) && isset($_SESSION['phone_num'])) {
         <section class="contents">
             <ul class="contents__list">
                 <li class="content__item content__item--active">
-                    <a href="">Personal Information</a>
+                    <a href="#personal">Personal Information</a>
                 </li>
                 <li class="content__item">
-                    <a href="">Reason</a>
+                    <a href="#reason">Reason</a>
                 </li>
             </ul>
         </section>
