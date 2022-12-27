@@ -42,16 +42,16 @@ function recordStatus(state) {
 }
 
 // Toggle the password icon
-function passwordToggle() {
-    var passwordInput = document.getElementById('password');
-    var passwordHide = document.getElementById('password-hide');
-    var passwordShow = document.getElementById('password-show');
+function passwordToggle(id, hide, show) {
+    var passwordInput = document.getElementById(id);
+    var passwordHide = document.getElementById(hide);
+    var passwordShow = document.getElementById(show);
 
-    console.log(passwordHide)
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
         passwordHide.classList.remove('password-icon--hide')
         passwordShow.classList.add('password-icon--hide')
+        
     } else {
         passwordInput.type = "password";
         passwordHide.classList.add('password-icon--hide')
