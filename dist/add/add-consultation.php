@@ -15,7 +15,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-    <title>Document</title>
+    <title>Add New Consultation Record</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -298,7 +298,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             </ul>
         </section>
     </main>
-    <script src="./js/app.js"></script>
+    <script src="../js/app.js"></script>
 </body>
 
 </html>
