@@ -160,7 +160,7 @@ hide_content();
     <!-- Contents -->
     <main class="user-profile">
         <p class="back__btn">
-            Back
+                <a href="#" onclick="backAlert()">Back</a>
         </p>
         <h2 class="user-profile__title">
             Profile
