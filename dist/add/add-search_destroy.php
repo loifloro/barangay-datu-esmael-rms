@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -72,7 +75,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -156,15 +159,15 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-barangay">Name of Barangay</label>
-                    <input type="text" name="search_destroy-barangay" id="search_destroy-barangay">
+                    <input type="text" name="search_destroy-barangay" id="search_destroy-barangay" required>
                 </div>
                 <div class="add-search_destroy__form-item"> <!--added-->
                     <label for="search_destroy-city">City</label>
-                    <input type="text" name="search_destroy-city" id="search_destroy-barangay">
+                    <input type="text" name="search_destroy-city" id="search_destroy-barangay" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-purok">Purok/Block Coverage</label>
-                    <input type="text" name="search_destroy-purok" id="search_destroy-purok">
+                    <input type="text" name="search_destroy-purok" id="search_destroy-purok" required>
                 </div>
                 
                 
@@ -180,11 +183,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-date">Date Visited</label>
-                    <input type="date" name="search_destroy-date" id="search_destroy-date">
+                    <input type="date" name="search_destroy-date" id="search_destroy-date" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-owner_fname">Owner First Name</label>
-                    <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner">
+                    <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-owner_mname">Owner Middle Name</label>
@@ -192,28 +195,28 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-owner_lname">Owner Last Name</label>
-                    <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner">
+                    <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-date">Birthdate</label>
-                    <input type="date" name="search_destroy-bdate" id="search_destroy-date">
+                    <input type="date" name="search_destroy-bdate" id="search_destroy-date" required>
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
                     <label for="deworming-sex">Gender</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Male"> <!--Nilagyan ko Value para masave sa database-->
+                            <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
                             <label for="deworming-sex">Male</label>
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Female">
+                            <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Female" required>
                             <label for="deworming-sex">Female</label>
                         </div>
                     </div>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-address">Complete Address</label>
-                    <textarea name="search_destroy-address" id="search_destroy-address" cols="27" rows="10"></textarea>
+                    <textarea name="search_destroy-address" id="search_destroy-address" cols="27" rows="10" required></textarea>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-pnumber">Phone Number</label>
@@ -221,21 +224,21 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-name-container">Name of Container Positive for Larva</label>
-                    <input type="text" name="search_destroy-name-container" id="search_destroy-name-container">
+                    <input type="text" name="search_destroy-name-container" id="search_destroy-name-container" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-number-container">No. of Container Positive for Larva</label>
-                    <input type="number" name="search_destroy-number-container" id="search_destroy-number-container">
+                    <input type="number" name="search_destroy-number-container" id="search_destroy-number-container" required>
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
                     <label for="deworming-sex">Remarks</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive"> <!--Nilagyan ko Value para masave sa database-->
+                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive" required> <!--Nilagyan ko Value para masave sa database-->
                             <label for="deworming-sex">Positive</label>
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Negative">
+                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Negative" required>
                             <label for="deworming-sex">Negative</label>
                         </div>
                     </div>

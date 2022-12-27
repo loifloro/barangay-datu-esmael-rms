@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar"> <!--added id-->
                 <a href="back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -73,7 +76,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </a>
             </li>
 
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar"> <!--added id-->
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -167,11 +170,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                   <div class="edit-bhw__form-item">
                       <label for="bhw-name">First Name</label>
-                      <input type="text" name="bhw-fname" id="bhw-name" value="<?= $user['firstname']; ?>">
+                      <input type="text" name="bhw-fname" id="bhw-name" value="<?= $user['firstname']; ?>" required>
                   </div>    
                   <div class="edit-bhw__form-item">
                       <label for="bhw-name">Last Name</label>
-                      <input type="text" name="bhw-lname" id="bhw-name" value="<?= $user['lastname']; ?>">
+                      <input type="text" name="bhw-lname" id="bhw-name" value="<?= $user['lastname']; ?>" required>
                   </div>    
                   <div class="edit-bhw__form-item">
                       <label for="bhw-name">Middle Name</label>
@@ -192,7 +195,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                   <div class="edit-bhw__form-item">
                       <label for="bhw-contact">Contact Number</label>
-                      <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>">
+                      <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>" required>
                   </div>
                   <div class="edit-bhw__form-item">
                     <label for="bhw-birthday">Birthday</label>

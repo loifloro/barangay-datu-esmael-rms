@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -72,7 +75,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -197,7 +200,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-owner_fname">Owner First Name</label>
-                    <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner" value="<?= $patient['owner_fname']; ?>">
+                    <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner" value="<?= $patient['owner_fname']; ?>" required>
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-owner_mname">Owner Middle Name</label>
@@ -205,11 +208,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-owner_lname">Owner Last Name</label>
-                    <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner" value="<?= $patient['owner_lname']; ?>">
+                    <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner" value="<?= $patient['owner_lname']; ?>" required>
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-date">Birthdate</label>
-                    <input type="date" name="search_destroy-bdate" id="search_destroy-date" value="<?= $patient['birthdate']; ?>">
+                    <input type="date" name="search_destroy-bdate" id="search_destroy-date" value="<?= $patient['birthdate']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item add-deworming__form-item--radio">
                     <label for="deworming-sex">Gender</label>
@@ -226,7 +229,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-editress">Complete Address</label>
-                    <textarea name="search_destroy-editress" id="search_destroy-editress" cols="27" rows="10"><?= $patient['address']; ?></textarea>
+                    <textarea name="search_destroy-editress" id="search_destroy-editress" cols="27" rows="10" required><?= $patient['address']; ?></textarea>
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-pnumber">Phone Number</label>
@@ -234,21 +237,21 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-name-container">Name of Container Positive for Larva</label>
-                    <input type="text" name="search_destroy-name-container" id="search_destroy-name-container" value="<?= $patient['container_name']; ?>">
+                    <input type="text" name="search_destroy-name-container" id="search_destroy-name-container" value="<?= $patient['container_name']; ?>" required>
                 </div>
                 <div class="edit-search_destroy__form-item">
                     <label for="search_destroy-number-container">No. of Container Positive for Larva</label>
-                    <input type="text" name="search_destroy-number-container" id="search_destroy-number-container" value="<?= $patient['container_num']; ?>">
+                    <input type="text" name="search_destroy-number-container" id="search_destroy-number-container" value="<?= $patient['container_num']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item add-deworming__form-item--radio">
                     <label for="deworming-sex">Remarks</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive" <?= ($patient['remark_status']=='Positive')? 'checked' : '' ?>> 
+                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive" <?= ($patient['remark_status']=='Positive')? 'checked' : '' ?> required> 
                             <label for="deworming-sex">Positive</label>
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Negative" <?= ($patient['remark_status']=='Negative')? 'checked' : '' ?>>
+                            <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Negative" <?= ($patient['remark_status']=='Negative')? 'checked' : '' ?> required>
                             <label for="deworming-sex">Negative</label>
                         </div>
                     </div>
@@ -266,19 +269,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <!-- Radio Buttons -->
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-wrong-editress" value="Wrong address">
+                    <input type="radio" name="edit-reason" id="patient-wrong-editress" value="Wrong address" required>
                     <label for="patient-mispelled">Wrong address</label>
                 </div>
                 <div class="edit-search_destroy__form-item--reason">

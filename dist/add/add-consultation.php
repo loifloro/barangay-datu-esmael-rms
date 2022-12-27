@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -72,7 +75,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -160,11 +163,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div> -->
                 <div class="add-consultation__form-item">
                     <label for="consultation-lname">Last Name</label>
-                    <input type="text" name="consultation-lname" id="consultation-lname">
+                    <input type="text" name="consultation-lname" id="consultation-lname" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-fname">First Name</label>
-                    <input type="text" name="consultation-fname" id="consultation-fname">
+                    <input type="text" name="consultation-fname" id="consultation-fname" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-mname">Middle Name</label>
@@ -172,36 +175,36 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-age">Age</label>
-                    <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1">
+                    <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1" required>
                 </div>
                 <div class="add-consultation__form-item add-consultation__form-item--radio">
                     <label for="consultation-sex">Gender</label>
                     <div class="add-consultation__form--role-item">
                         <div class="add-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Male">
+                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Male" required>
                             <label for="consultation-sex">Male</label>
                         </div>
                         <div class="add-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Female">
+                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Female" required>
                             <label for="consultation-sex">Female</label>
                         </div>
                     </div>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-birthday">Birthday</label>
-                    <input type="date" name="consultation-birthday" id="consultation-birthday">
+                    <input type="date" name="consultation-birthday" id="consultation-birthday" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-street">Street Address</label>
-                    <input type="text" name="consultation-street" id="consultation-street">
+                    <input type="text" name="consultation-street" id="consultation-street" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-barangay">Barangay</label>
-                    <input type="text" name="consultation-barangay" id="consultation-barangay">
+                    <input type="text" name="consultation-barangay" id="consultation-barangay" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-city">City</label>
-                    <input type="text" name="consultation-city" id="consultation-city">
+                    <input type="text" name="consultation-city" id="consultation-city" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-contact">Phone Number</label>
@@ -221,7 +224,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 <div class="add-consultation__form-item">
                     <label for="consultation-symptoms">Symptoms</label>
-                    <textarea name="consultation-symptoms" id="consultation-symptoms" cols="27" rows="10"></textarea>
+                    <textarea name="consultation-symptoms" id="consultation-symptoms" cols="27" rows="10" required></textarea>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-bp">Blood pressure</label>
@@ -248,7 +251,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-prescriptions">Prescriptions</label>
-                    <textarea name="consultation-prescriptions" id="consultation-prescriptions" cols="27" rows="10"></textarea>
+                    <textarea name="consultation-prescriptions" id="consultation-prescriptions" cols="27" rows="10" required></textarea>
                 </div>
                 
                 <!-- Divider -->

@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -72,7 +75,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -160,11 +163,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div> -->
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-lname">Last Name</label>
-                    <input type="text" name="prenatal-lname" id="prenatal-lname">
+                    <input type="text" name="prenatal-lname" id="prenatal-lname" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-fname">First Name</label>
-                    <input type="text" name="prenatal-fname" id="prenatal-fname">
+                    <input type="text" name="prenatal-fname" id="prenatal-fname" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-mname">Middle Name</label>
@@ -172,7 +175,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-age">Age</label>
-                    <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1">
+                    <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" required>
                 </div>
                 <!-- <div class="add-prenatal__form-item add-prenatal__form-item--radio">
                     <label for="prenatal-sex">Gender</label>
@@ -189,19 +192,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div> -->
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-birthday">Birthday</label>
-                    <input type="date" name="prenatal-birthday" id="prenatal-birthday">
+                    <input type="date" name="prenatal-birthday" id="prenatal-birthday" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-street">Street Address</label>
-                    <input type="text" name="prenatal-street" id="prenatal-street">
+                    <input type="text" name="prenatal-street" id="prenatal-street" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-barangay">Barangay</label>
-                    <input type="text" name="prenatal-barangay" id="prenatal-barangay">
+                    <input type="text" name="prenatal-barangay" id="prenatal-barangay" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-city">City</label>
-                    <input type="text" name="prenatal-city" id="prenatal-city">
+                    <input type="text" name="prenatal-city" id="prenatal-city" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-contact">Phone Number</label>
@@ -263,11 +266,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-gravida">Gravida</label>
-                    <input type="text" name="prenatal-gravida" id="prenatal-gravida">
+                    <input type="text" name="prenatal-gravida" id="prenatal-gravida" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-p">P</label>
-                    <input type="text" name="prenatal-p" id="prenatal-p">
+                    <input type="text" name="prenatal-p" id="prenatal-p" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-lmp">LMP</label>
@@ -275,11 +278,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-edc">EDC</label>
-                    <input type="text" name="prenatal-edc" id="prenatal-edc">
+                    <input type="text" name="prenatal-edc" id="prenatal-edc" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-aog">AOG</label>
-                    <input type="text" name="prenatal-aog" id="prenatal-aog">
+                    <input type="text" name="prenatal-aog" id="prenatal-aog" required>
                 </div>
 
 

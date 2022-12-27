@@ -5,9 +5,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
-//HIDE
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
 include_once "includes/functions.php";
 hide_content();
+//END OF FUNCTION
 ?>
 
 <!DOCTYPE html>

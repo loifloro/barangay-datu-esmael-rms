@@ -5,6 +5,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "includes/functions.php";
+hide_content();
+//END OF FUNCTION
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +56,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="back-up.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -73,7 +77,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                     <a href="dashboard-masterlist.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -143,35 +147,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <main class="search-results">
         <section class="search-results">
             <!-- COUNT PATIENT QUERY -->
-                <?php
-                    if(isset($_GET['search_input'])) //get the search value
-                    {
-                        $value = $_GET['search_input'];
-                        $query = "SELECT 
-                        (select count(*) FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
-                                  LIKE '%$value%') + 
-                        (select count(*) FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                                  LIKE '%$value%')
-                        As totalvalue";
-                        $result = mysqli_query($conn, $query);
-                        while($row = mysqli_fetch_array($result)) {
-                    
-                ?>
-            <p class="search-results__total">
-                Total results: <span class="search-results__total--num h3"><?php echo $row['totalvalue']; ?></span>
-            </p>
-                <?php
-                }
-                    }
-                ?>
+            <?php 
+                include_once "includes/functions.php";
+                total_result(); 
+            ?>
             <!-- END COUNT PATIENT QUERY -->
             <div class="search-results__table">
                 <ul class="search-results__table__row patient__attributes" role="list" >

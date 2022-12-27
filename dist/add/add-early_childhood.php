@@ -5,6 +5,10 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -71,7 +75,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -159,15 +163,15 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-street">Street Address</label>
-                    <input type="text" name="early_childhood-street" id="early_childhood-barangay">
+                    <input type="text" name="early_childhood-street" id="early_childhood-barangay" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-barangay">Barangay</label>
-                    <input type="text" name="early_childhood-barangay" id="early_childhood-barangay">
+                    <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-city">City</label>
-                    <input type="text" name="early_childhood-city" id="early_childhood-barangay">
+                    <input type="text" name="early_childhood-city" id="early_childhood-barangay" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-purol">Purol/Sitio</label>
@@ -175,7 +179,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-childfname">Child First Name</label>
-                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname">
+                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-childmname">Child Middle Name</label>
@@ -183,7 +187,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-childlname">Child Last Name</label>
-                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname">
+                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-hospital">Hospital</label>
@@ -197,11 +201,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <label for="early_childhood-sex">Sex</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male">
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" required>
                             <label for="early_childhood-sex">Male</label>
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female">
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female" required>
                             <label for="early_childhood-sex">Female</label>
                         </div>
                     </div>
@@ -223,7 +227,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-mother-name">Name</label>
-                    <input type="text" name="early_childhood-mother-name" id="early_childhood-mother-name">
+                    <input type="text" name="early_childhood-mother-name" id="early_childhood-mother-name" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-pregnancies">No. of Pregnancies</label>
@@ -235,7 +239,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-mother-age">Age</label>
-                    <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age">
+                    <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-mother-occupation">Occupation</label>
@@ -262,7 +266,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-name">Name</label>
-                    <input type="text" name="early_childhood-father-name" id="early_childhood-father-name">
+                    <input type="text" name="early_childhood-father-name" id="early_childhood-father-name" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-contact">Phone Number</label>
@@ -274,7 +278,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-age">Age</label>
-                    <input type="number" name="early_childhood-father-age" id="early_childhood-father-age">
+                    <input type="number" name="early_childhood-father-age" id="early_childhood-father-age" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-occupation">Occupation</label>
@@ -298,7 +302,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-child-birthdate">Birthdate</label>
-                    <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate">
+                    <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-gestational">Gestational Age of Birth</label>
@@ -308,11 +312,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <label for="early_childhood-birth">Type of Birth</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal">
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" required>
                             <label for="early_childhood-birth">Normal</label>
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS">
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS" required>
                             <label for="early_childhood-birth">CS</label>
                         </div>
                     </div>

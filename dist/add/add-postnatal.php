@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -72,7 +75,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -146,7 +149,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <a href="#" onclick="backAlert()">Back</a>   
             </p></p>
             <h2 class="add-postnatal__title">
-                Add New Prenatal Record
+                Add New Postnatal Record
             </h2>
             <p class="add-postnatal__desc">
                 Fill up necessary information to complete the process
@@ -160,11 +163,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div> -->
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lname">Last Name</label>
-                    <input type="text" name="postnatal-lname" id="postnatal-lname">
+                    <input type="text" name="postnatal-lname" id="postnatal-lname" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-fname">First Name</label>
-                    <input type="text" name="postnatal-fname" id="postnatal-fname">
+                    <input type="text" name="postnatal-fname" id="postnatal-fname" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-mname">Middle Name</label>
@@ -172,7 +175,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-age">Age</label>
-                    <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1">
+                    <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1" required>
                 </div>
                 <!-- <div class="add-postnatal__form-item add-postnatal__form-item--radio">
                     <label for="postnatal-sex">Gender</label>
@@ -189,19 +192,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div> -->
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-birthday">Birthday</label>
-                    <input type="date" name="postnatal-birthday" id="postnatal-birthday">
+                    <input type="date" name="postnatal-birthday" id="postnatal-birthday" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-street">Street Address</label>
-                    <input type="text" name="postnatal-street" id="postnatal-street">
+                    <input type="text" name="postnatal-street" id="postnatal-street" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-barangay">Barangay</label>
-                    <input type="text" name="postnatal-barangay" id="postnatal-barangay">
+                    <input type="text" name="postnatal-barangay" id="postnatal-barangay" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-city">City</label>
-                    <input type="text" name="postnatal-city" id="postnatal-city">
+                    <input type="text" name="postnatal-city" id="postnatal-city" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-contact">Phone Number</label>
@@ -263,11 +266,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-gravida">Gravida</label>
-                    <input type="text" name="postnatal-gravida" id="postnatal-gravida">
+                    <input type="text" name="postnatal-gravida" id="postnatal-gravida" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-p">P</label>
-                    <input type="text" name="postnatal-p" id="postnatal-p">
+                    <input type="text" name="postnatal-p" id="postnatal-p" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lmp">LMP</label>
@@ -275,11 +278,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-edc">EDC</label>
-                    <input type="text" name="postnatal-edc" id="postnatal-edc">
+                    <input type="text" name="postnatal-edc" id="postnatal-edc" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-aog">AOG</label>
-                    <input type="text" name="postnatal-aog" id="postnatal-aog">
+                    <input type="text" name="postnatal-aog" id="postnatal-aog" required>
                 </div>
 
 

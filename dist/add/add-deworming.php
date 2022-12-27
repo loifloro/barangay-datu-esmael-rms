@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 
 <!DOCTYPE html>
@@ -55,7 +58,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -76,7 +79,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -160,11 +163,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             <form action="../includes/add_query.php" method="POST" class="add-deworming__form" onreset="confirmReset(this)">
                 <div class="add-deworming__form-item">
                     <label for="deworming-lname">Last Name</label>
-                    <input type="text" name="deworming-lname" id="deworming-lname">
+                    <input type="text" name="deworming-lname" id="deworming-lname" required>
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-fname">First Name</label>
-                    <input type="text" name="deworming-fname" id="deworming-fname" >
+                    <input type="text" name="deworming-fname" id="deworming-fname" required>
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-mname">Middle Name</label>
@@ -172,7 +175,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-age">Age</label>
-                    <input type="number" name="deworming-age" id="deworming-age" maxlength="2" min="1">
+                    <input type="number" name="deworming-age" id="deworming-age" maxlength="2" min="1" required>
                 </div>
                 <div class="add-deworming__form-item"> <!--added input box-->
                     <label for="deworming-phone_num">Phone Number</label>
@@ -182,22 +185,22 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <label for="deworming-sex">Gender</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Male"> <!--Nilagyan ko Value para masave sa database-->
+                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
                             <label for="deworming-sex">Male</label>
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Female">
+                            <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Female" required>
                             <label for="deworming-sex">Female</label>
                         </div>
                     </div>
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-birthday">Birthday</label>
-                    <input type="date" name="deworming-birthday" id="deworming-birthday">
+                    <input type="date" name="deworming-birthday" id="deworming-birthday" required>
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-street">Street Address</label>
-                    <input type="text" name="deworming-street" id="deworming-street">
+                    <input type="text" name="deworming-street" id="deworming-street" required>
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-barangay">Barangay</label>

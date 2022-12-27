@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -51,7 +54,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar"> <!--added id-->
                 <a href="../back-up.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -72,7 +75,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -170,11 +173,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-lname">Last Name</label>
-                    <input type="text" name="consultation-lname" id="consultation-lname" value="<?= $patient['lastname']; ?>">
+                    <input type="text" name="consultation-lname" id="consultation-lname" value="<?= $patient['lastname']; ?>" required>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-fname">First Name</label>
-                    <input type="text" name="consultation-fname" id="consultation-fname" value="<?= $patient['firstname']; ?>">
+                    <input type="text" name="consultation-fname" id="consultation-fname" value="<?= $patient['firstname']; ?>" required>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-mname">Middle Name</label>
@@ -182,36 +185,36 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-age">Age</label>
-                    <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1" value="<?= $patient['age']; ?>">
+                    <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
                 </div>
                 <div class="edit-consultation__form-item edit-consultation__form-item--radio">
                     <label for="consultation-sex">Gender</label>
                     <div class="edit-consultation__form--role-item">
                         <div class="edit-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?>>
+                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?> required>
                             <label for="consultation-sex">Male</label>
                         </div>
                         <div class="edit-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?>>
+                            <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Female" <?= ($patient['sex']=='Female')? 'checked' : '' ?> required>
                             <label for="consultation-sex">Female</label>
                         </div>
                     </div>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-birthday">Birthday</label>
-                    <input type="date" name="consultation-birthday" id="consultation-birthday" value="<?= $patient['birthdate']; ?>">
+                    <input type="date" name="consultation-birthday" id="consultation-birthday" value="<?= $patient['birthdate']; ?>" required>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-street">Street Address</label>
-                    <input type="text" name="consultation-street" id="consultation-street" value="<?= $patient['street_address']; ?>">
+                    <input type="text" name="consultation-street" id="consultation-street" value="<?= $patient['street_address']; ?>" required>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-barangay">Barangay</label>
-                    <input type="text" name="consultation-barangay" id="consultation-barangay" value="<?= $patient['barangay']; ?>">
+                    <input type="text" name="consultation-barangay" id="consultation-barangay" value="<?= $patient['barangay']; ?>" required>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-city">City</label>
-                    <input type="text" name="consultation-city" id="consultation-city" value="<?= $patient['city']; ?>">
+                    <input type="text" name="consultation-city" id="consultation-city" value="<?= $patient['city']; ?>" required>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-contact">Phone Number</label>
@@ -231,7 +234,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 
                 <div class="edit-consultation__form-item">
                     <label for="consultation-symptoms">Symptoms</label>
-                    <textarea name="consultation-symptoms" id="consultation-symptoms" cols="27" rows="10" ><?= $patient['symptoms']; ?></textarea>
+                    <textarea name="consultation-symptoms" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['symptoms']; ?></textarea>
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-bp">Blood pressure</label>
@@ -258,7 +261,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </div>
                 <div class="edit-consultation__form-item">
                     <label for="consultation-prescriptions">Prescriptions</label>
-                    <textarea name="consultation-prescriptions" id="consultation-prescriptions" cols="27" rows="10"><?= $patient['prescriptions']; ?></textarea>
+                    <textarea name="consultation-prescriptions" id="consultation-prescriptions" cols="27" rows="10" required><?= $patient['prescriptions']; ?></textarea>
                 </div>
                 
                 <!-- Divider -->
@@ -273,19 +276,19 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
 
                 <!-- Radio Buttons -->
                 <div class="edit-consultation__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
                 <div class="edit-consultation__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
                 <div class="edit-consultation__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
                 <div class="edit-consultation__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address">
+                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address" required>
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
                 <div class="edit-consultation__form-item--reason">
