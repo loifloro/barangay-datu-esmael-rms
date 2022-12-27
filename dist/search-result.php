@@ -145,35 +145,10 @@ hide_content();
     <main class="search-results">
         <section class="search-results">
             <!-- COUNT PATIENT QUERY -->
-                <?php
-                    if(isset($_GET['search_input'])) //get the search value
-                    {
-                        $value = $_GET['search_input'];
-                        $query = "SELECT 
-                        (select count(*) FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
-                                  LIKE '%$value%') + 
-                        (select count(*) FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                                  LIKE '%$value%') +
-                        (select count(*) FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                                  LIKE '%$value%')
-                        As totalvalue";
-                        $result = mysqli_query($conn, $query);
-                        while($row = mysqli_fetch_array($result)) {
-                    
-                ?>
-            <p class="search-results__total">
-                Total results: <span class="search-results__total--num h3"><?php echo $row['totalvalue']; ?></span>
-            </p>
-                <?php
-                }
-                    }
-                ?>
+            <?php 
+                include_once "includes/functions.php";
+                total_result(); 
+            ?>
             <!-- END COUNT PATIENT QUERY -->
             <div class="search-results__table">
                 <ul class="search-results__table__row patient__attributes" role="list" >

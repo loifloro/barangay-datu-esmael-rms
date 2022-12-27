@@ -205,29 +205,8 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                          alt="">
                     <!-- Start Query -->
                     <?php 
-                            include 'includes/connection.php';
-                            $query = "SELECT * FROM recent_activity ORDER BY recent_activity_id DESC LIMIT 3";
-                            $query_run = mysqli_query($conn, $query);
-                            if(mysqli_num_rows($query_run) > 0)
-                            {
-                                foreach($query_run as $user)
-                            {
-                    ?>   
-                    <p class="editor__details">
-                        <span class="editor__name">
-                            <?= $user['user_fname']." " . $user['user_lname']; ?>
-                        </span>
-                        <span class="editor__action editor__action--edited"><?= $user['changes_label']; ?> </span>
-                        <span class="editor__subject"><?= $user['patient_fname']." " . $user['patient_lname'] ." ". $user['record_name']; ?> record</span> on 
-                        <span class="editor__date"><?= $user['date_edit']; ?></span>
-                    </p>
-                    <?php
-                            }
-                            }
-                            else
-                            {
-                                echo "<h5> No Record Found </h5>";
-                            }
+                        include_once "includes/functions.php";
+                        recent_update(); 
                     ?>  
                     <!-- End Query -->
                 </div>
