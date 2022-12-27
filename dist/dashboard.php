@@ -34,7 +34,7 @@ hide_content();
                 position: 'top-right',
                 icon: 'success',
                 iconColor: 'white',
-                title: 'Success',
+                title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
                 customClass: {
                     popup: 'toast'
                 },
