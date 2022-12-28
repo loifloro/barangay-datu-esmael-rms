@@ -54,13 +54,9 @@
                 <?php } ?>
                 <!--Display ERROR-->
 
-                <?php
-                if (isset($_GET['contact'])) { ?>
-                    <script>
-                        securityQuestion('contact' , 'security-question' , 'answer');
-                    </script>
-                <?php
-                }
+                <?php 
+                    include_once "includes/functions.php";
+                    forgot_password();
                 ?>
                 
                 <label for="contact-num">Contact Number:</label>
@@ -85,10 +81,6 @@
                     <p class="login__forgot" onclick="forgotPassword()">
                         Forgot Password?
                     </p>
-                    <?php 
-                        include_once "includes/functions.php";
-                        forgot_password();
-                    ?>
                 </a>
             </form>
         </div>
