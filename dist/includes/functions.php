@@ -125,4 +125,18 @@
 
     // Retrieve contact number on database
         // Pass the security question of that number
+    function forgot_password(){
+        include 'includes/connection.php';
+            
+            $query = "SELECT * FROM account_information WHERE phone_num='12342343'";
+            $query_run = mysqli_query($conn, $query);
+            if(mysqli_num_rows($query_run) > 0){
+                foreach($query_run as $user){
+                    $phone_num = $user['phone_num'];
+                    $security_question = $user['security_question'];
+                }
+                echo '<h4>'.$phone_num.'</h4>';
+                echo '<h4>'.$security_question.'</h4>';
+            }
+    }
 ?>
