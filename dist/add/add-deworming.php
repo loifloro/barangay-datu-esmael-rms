@@ -160,7 +160,7 @@ hide_content_forms();
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="../includes/add_query.php" method="POST" class="add-deworming__form" onreset="confirmReset(this)">
+            <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
                 <div class="add-deworming__form-item">
                     <label for="deworming-lname">Last Name</label>
                     <input type="text" name="deworming-lname" id="deworming-lname" required>
@@ -222,7 +222,7 @@ hide_content_forms();
                     <button id='btn-submit' type="submit" class="btn-green btn-save" name="save_deworming">
                         Save
                     </button>
-                    <button type="reset" class="btn-red btn-cancel"> <!--added type and onclick-->
+                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>
