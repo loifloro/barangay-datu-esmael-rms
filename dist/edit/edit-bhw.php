@@ -226,16 +226,16 @@ hide_content_forms();
                     <label for="bhw-security-question">Security Question</label>
                     <!-- If it already has a value, it should be disabled -->
                     <select name="bhw-security-question" id="">
-                        <option value="In what city were you born?">In what city were you born?</option>
-                        <option value="What is the name of your favorite pet?">What is the name of your favorite pet?</option>
-                        <option value="What high school did you attend?">What high school did you attend?</option>
-                        <option value="What was the name of your elementary school?">What was the name of your elementary school?</option>
-                        <option value="What was the make of your first car?">What was the make of your first car?</option>
+                        <option value="In what city were you born?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='In what city were you born?')? 'selected' : '' ?>>In what city were you born?</option>
+                        <option value="What is the name of your favorite pet?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What is the name of your favorite pet?')? 'selected' : '' ?>>What is the name of your favorite pet?</option>
+                        <option value="What high school did you attend?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What high school did you attend?')? 'selected' : '' ?>>What high school did you attend?</option>
+                        <option value="What was the name of your elementary school?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What was the name of your elementary school?')? 'selected' : '' ?>>What was the name of your elementary school?</option>
+                        <option value="What was the make of your first car?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What was the make of your first car?')? 'selected' : '' ?>>What was the make of your first car?</option>
                     </select>
                 </div>
                 <div class="edit-bhw__form-item">
                     <label for="bhw-security-question-answer">Security Answer</label>
-                    <input type="text" name="bhw-security-question-answer" id="bhw-security-question-answer">
+                    <input type="text" name="bhw-security-question-answer" id="bhw-security-question-answer"  value="<?= $user['security_answer']; ?>">
                 </div>
 
                 <!-- Divider
