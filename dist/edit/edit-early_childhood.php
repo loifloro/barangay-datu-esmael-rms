@@ -574,7 +574,7 @@ hide_content_forms();
                     <button type="submit" class="btn-green btn-add" name="edit_early_childhood" onclick="return  confirm('Do you want to edit this record?')">
                         Save
                     </button>
-                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
+                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>

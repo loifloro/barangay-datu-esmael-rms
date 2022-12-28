@@ -186,7 +186,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <button type="submit" class="btn-green btn-save" name="save_bhw" onclick="return  confirm('Do you want to add this account?')">
                         Save
                     </button>
-                    <button type="reset" class="btn-red btn-cancel" onclick="return  confirm('Do you want to clear?')"> <!--added type and onclick-->
+                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>

@@ -294,8 +294,8 @@ hide_content_forms();
                     <button type="submit" class="btn-green btn-save" name="edit_bhw" onclick="return  confirm('Do you want to edit this account?')"> <!--onclick added-->
                         Save
                     </button>
-                    <button class="btn-red btn-cancel">
-                        Cancel
+                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
+                        Clear
                     </button>
                 </div>
                 <?php
