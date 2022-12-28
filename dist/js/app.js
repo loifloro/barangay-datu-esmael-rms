@@ -103,13 +103,21 @@ function forgotPassword() {
       }).then(function(contactNum)  {
           if(contactNum.isConfirmed) {
               Swal.fire(`Entered contact: ` + contactNum.value).then(() =>
-                window.location.href = '/barangay-datu-esmael-rms/dist/includes/functions.php?f=retrieve&contact=' + contactNum.value
+                window.location.href = '/barangay-datu-esmael-rms/dist/index.php?contact=' + contactNum.value
                 );
           }
       })
       return false;
 }
 
+function securityQuestion() {
+    Swal.fire({
+        icon: 'question',
+        title: 'Logout',
+        text: 'Are you sure you want to logout?',
+        showCancelButton: true,
+    })
+}
 
 function logoutAlert() {
     Swal.fire({
@@ -123,6 +131,8 @@ function logoutAlert() {
         }
     })
 }
+
+
 
 document.getElementsByClassName('services__list__item')[0].click() //default display first item
 function services(evt, servicesName) {
