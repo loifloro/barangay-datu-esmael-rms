@@ -182,22 +182,82 @@ hide_content();
     <main class="services">
         <!-- TABS event initialization-->
         <ul role="list" class="services__list">
-            <li class="services__list__item services__list__item--active" onclick="services(event, 'Deworming')">
+            <?php
+                    $query = "SELECT * FROM deworming";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) == 0)
+                    { 
+                        $serviceRow = 0;
+                    } else {
+                        $serviceRow = 1;
+                    }
+            ?>
+            <li class="services__list__item" onclick="services(event, 'Deworming' , '<?= $serviceRow ?>')">
                     Deworming
             </li>
-            <li class="services__list__item" onclick="services(event, 'Consultation')">
+            <?php
+                    $query = "SELECT * FROM consultation";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) == 0)
+                    { 
+                        $serviceRow = 0;
+                    } else {
+                        $serviceRow = 1;
+                    }
+            ?>
+            <li class="services__list__item" onclick="services(event, 'Consultation', '<?= $serviceRow ?>')">
                     Consultation
             </li>
-            <li class="services__list__item" onclick="services(event, 'Pre-Natal')">
+            <?php
+                    $query = "SELECT * FROM prenatal";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) == 0)
+                    { 
+                        $serviceRow = 0;
+                    } else {
+                        $serviceRow = 1;
+                    }
+            ?>
+            <li class="services__list__item" onclick="services(event, 'Pre-Natal' , '<?= $serviceRow ?>')">
                     Pre-Natal
             </li>
-            <li class="services__list__item" onclick="services(event, 'Post-Natal')">
+            <?php
+                    $query = "SELECT * FROM postnatal";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) == 0)
+                    { 
+                        $serviceRow = 0;
+                    } else {
+                        $serviceRow = 1;
+                    }
+            ?>
+            <li class="services__list__item" onclick="services(event, 'Post-Natal' , '<?= $serviceRow ?>')">
                     Post-Natal
             </li>
-            <li class="services__list__item" onclick="services(event, 'Search and Destroy')">
+            <?php
+                    $query = "SELECT * FROM search_destroy";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) == 0)
+                    { 
+                        $serviceRow = 0;
+                    } else {
+                        $serviceRow = 1;
+                    }
+            ?>
+            <li class="services__list__item" onclick="services(event, 'Search-and-Destroy' , '<?= $serviceRow ?>')">
                     Search and Destroy
             </li>
-            <li class="services__list__item" onclick="services(event, 'Childhood Care')">
+            <?php
+                    $query = "SELECT * FROM early_childhood";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) == 0)
+                    { 
+                        $serviceRow = 0;
+                    } else {
+                        $serviceRow = 1;
+                    }
+            ?>
+            <li class="services__list__item" onclick="services(event, 'Childhood-Care' , '<?= $serviceRow ?>')">
                     Childhood Care
             </li>
         </ul>
@@ -308,26 +368,7 @@ hide_content();
                     include('./includes/reports/deworming.php'); //moved here it ruin the display in table
                     }
                     }
-                    else
-                    {
-                    ?>
-                        <script>
-                        Swal.fire({
-                            toast: true,
-                            position: 'top-right',
-                            icon: 'info',
-                            iconColor: 'white',
-                            title: 'No record found',
-                            customClass: {
-                                popup: 'no-record'
-                            },
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true, 
-                            })
-                        </script>
-                    <?php
-                    }
+
             ?>   
         <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a>
         <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
@@ -437,26 +478,7 @@ hide_content();
             <?php
                     }
                     }
-                    else
-                    {
-                                            ?>
-                        <script>
-                        Swal.fire({
-                            toast: true,
-                            position: 'top-right',
-                            icon: 'info',
-                            iconColor: 'white',
-                            title: 'No record found',
-                            customClass: {
-                                popup: 'no-record'
-                            },
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true, 
-                            })
-                        </script>
-                    <?php
-                    }
+ 
             ?>
             <!-- End of Query -->
             <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-consultation.php'">
@@ -522,26 +544,7 @@ hide_content();
             <?php
                     }
                     }
-                    else
-                    {
-                                            ?>
-                        <script>
-                        Swal.fire({
-                            toast: true,
-                            position: 'top-right',
-                            icon: 'info',
-                            iconColor: 'white',
-                            title: 'No record found',
-                            customClass: {
-                                popup: 'no-record'
-                            },
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true, 
-                            })
-                        </script>
-                    <?php
-                    }
+ 
             ?>
             <!-- End of Query -->
 
@@ -607,26 +610,7 @@ hide_content();
             <?php
                     }
                     }
-                    else
-                    {
-                                            ?>
-                        <script>
-                        Swal.fire({
-                            toast: true,
-                            position: 'top-right',
-                            icon: 'info',
-                            iconColor: 'white',
-                            title: 'No record found',
-                            customClass: {
-                                popup: 'no-record'
-                            },
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true, 
-                            })
-                        </script>
-                    <?php
-                    }
+ 
             ?>
             <!-- End of Query -->
             <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
@@ -636,7 +620,7 @@ hide_content();
         <!-- End Tab for Post-Natal -->
 
         <!-- Start Tab for Search and Destroy -->
-        <div class="services__table" id="Search and Destroy">            
+        <div class="services__table" id="Search-and-Destroy">            
             <ul class="services__table__row services__header" role="list" >
                 <li class="services__attributes__item">
                     <input type="checkbox" name="" id="" class="services__checkbox">
@@ -692,26 +676,7 @@ hide_content();
                     include('./includes/reports/search-and-destroy.php'); //moved caused of error when in top
                     }
                     }
-                    else
-                    {
-                                            ?>
-                        <script>
-                        Swal.fire({
-                            toast: true,
-                            position: 'top-right',
-                            icon: 'info',
-                            iconColor: 'white',
-                            title: 'No record found',
-                            customClass: {
-                                popup: 'no-record'
-                            },
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true, 
-                            })
-                        </script>
-                    <?php
-                    }
+ 
             ?>
             
             <!-- End of Query -->
@@ -724,7 +689,7 @@ hide_content();
         <!-- End Tab for Search and Destroy -->
         
         <!-- Start Tab for Early Childhood -->
-        <div class="services__table" id="Childhood Care">
+        <div class="services__table" id="Childhood-Care">
             <ul class="services__table__row services__header" role="list" >
                 <li class="services__attributes__item">
                     <input type="checkbox" name="" id="" class="services__checkbox">
@@ -779,26 +744,7 @@ hide_content();
             <?php
                     }
                     }
-                    else
-                    {
-                                            ?>
-                        <script>
-                        Swal.fire({
-                            toast: true,
-                            position: 'top-right',
-                            icon: 'info',
-                            iconColor: 'white',
-                            title: 'No record found',
-                            customClass: {
-                                popup: 'no-record'
-                            },
-                            showConfirmButton: false,
-                            timer: 2000,
-                            timerProgressBar: true, 
-                            })
-                        </script>
-                    <?php
-                    }
+ 
             ?>
             <!-- End of Query -->
 
@@ -812,20 +758,88 @@ hide_content();
     </section>
     </main>
     <script src="./js/app.js"></script>
-
     <?php
     if (isset($_GET['service'])) {
-        if ($_GET['service'] === 'prenatal') {
+        if ($_GET['service'] === 'deworming') {
+            $query = "SELECT * FROM deworming";
+            $query_run = mysqli_query($conn, $query);
+            if(mysqli_num_rows($query_run) == 0) { 
+            ?>
+            <script>
+                noRecord();
+            </script>
+            <?php
+            } 
         ?>
         <script>
-            window.onload =  services(onload, 'Pre-Natal');
+            window.onload =  services(event, 'Deworming', <?= $serviceRow ?>);
+        </script>
+        <?php
+        } else if ($_GET['service'] === 'childhood') {
+            $query = "SELECT * FROM early_childhood";
+            $query_run = mysqli_query($conn, $query);
+            if(mysqli_num_rows($query_run) == 0) { 
+            ?>
+            <script>
+                noRecord();
+            </script>
+            <?php
+            } 
+        ?>
+        <script>
+            window.onload =  services(event, 'Childhood-Care', <?= $serviceRow ?>);
+        </script>
+        <?php
+        } else if ($_GET['service'] === 'consultation') {
+            $query = "SELECT * FROM consultation";
+            $query_run = mysqli_query($conn, $query);
+            if(mysqli_num_rows($query_run) == 0) { 
+            ?>
+            <script>
+                noRecord();
+            </script>
+            <?php
+            } 
+        ?>
+        <script>
+            window.onload =  services(event, 'Consultation', <?= $serviceRow ?>);
+        </script>
+        <?php
+        } else if ($_GET['service'] === 'prenatal') {
+            $query = "SELECT * FROM prenatal";
+            $query_run = mysqli_query($conn, $query);
+            if(mysqli_num_rows($query_run) == 0) { 
+            ?>
+            <script>
+                noRecord();
+            </script>
+            <?php
+            } 
+        ?>
+        <script>
+            window.onload =  services(event, 'Pre-natal', <?= $serviceRow ?>);
+        </script>
+        <?php
+        } else if ($_GET['service'] === 'search-destroy') {
+            $query = "SELECT * FROM search_destroy";
+            $query_run = mysqli_query($conn, $query);
+            if(mysqli_num_rows($query_run) == 0) { 
+            ?>
+            <script>
+                noRecord();
+            </script>
+            <?php
+            } 
+        ?>
+        <script>
+            window.onload =  services(event, 'Search-and-Destroy', <?= $serviceRow ?>);
         </script>
         <?php
         }
     }
     ?>                                                                                              
-    </script>
     <!-- End of Scripting -->
+
 </body>
 
 </html>
