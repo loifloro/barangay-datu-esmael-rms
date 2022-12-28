@@ -165,7 +165,7 @@
                                         }
                                         }).then((result) => {
                                             // window.location.href = '/barangay-datu-esmael-rms/dist/index.php?contact=' + contactNum.value
-
+                                            // Please enter here what URL 
                                         })
                                 }
                             }
