@@ -182,7 +182,7 @@ hide_content();
             
             <!-- Cards -->
             <section class="services__card-list">
-                    <div class="services__card services__card--consultation" onclick="window.location.href = './services-consultation.php?service=prenatal'">
+                <div class="services__card services__card--consultation" onclick="window.location.href = './services-consultation.php?service=consultation'">
                     <p class="services__card-title">
                         Consultation
                     </p>
@@ -199,8 +199,8 @@ hide_content();
                         ?>
                         total record
                     </p>
-                    </div>
-                <div class="services__card services__card--childhood">
+                </div>
+                <div class="services__card services__card--childhood" onclick="window.location.href = './services-consultation.php?service=childhood'">
                     <p class="services__card-title">
                         Childhood Care
                     </p>
@@ -218,7 +218,7 @@ hide_content();
                         total record
                     </p>
                 </div>
-                <div class="services__card services__card--prenatal">
+                <div class="services__card services__card--prenatal" onclick="window.location.href = './services-consultation.php?service=prenatal'">
                     <p class="services__card-title">
                         Pre-natal
                     </p>
@@ -236,7 +236,7 @@ hide_content();
                         total record
                     </p>
                 </div>
-                <div class="services__card services__card--deworming">
+                <div class="services__card services__card--deworming" onclick="window.location.href = './services-consultation.php?service=deworming'">
                     <p class="services__card-title">
                         Deworming
                     </p>
@@ -254,7 +254,7 @@ hide_content();
                         total record
                     </p>
                 </div>
-                <div class="services__card services__card--searchdestroy">
+                <div class="services__card services__card--searchdestroy" onclick="window.location.href = './services-consultation.php?service=search-destroy'">
                     <p class="services__card-title">
                         Search and Destroy
                     </p>
