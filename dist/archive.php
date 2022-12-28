@@ -16,7 +16,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <link rel="stylesheet" href="./css/main.css">
     <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
-    <title>Backup and Archive</title>
+    <title>Archive</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -121,7 +121,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <nav class="navigation">
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
-                Backup and Archive
+                Archive
             </h1>
             <form class="navigation__search" action="search-result.php" method="GET">
                 <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
