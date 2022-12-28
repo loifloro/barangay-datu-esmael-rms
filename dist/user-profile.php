@@ -278,6 +278,37 @@ hide_content();
         </section>
 
         <hr>
+        <section class="user-profile__backup">
+            <h2 class="user-profile__title">
+                Backup
+            </h2>
+            <p class="user-profile__desc">
+                You can restore backup records here        
+            </p>
+
+            <div class="user-profile__backup__form">
+                    <label for="patient-password">
+                        <p class="backup-title">Restore</p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam fugit, aperiam culpa error repellat excepturi. Molestias ex iste iure facilis eveniet. Totam doloribus quo consectetur esse reprehenderit voluptate ea! Laudantium?
+                    </label>
+                    <button type="submit" class="btn-green btn-change btn-restore">
+                        <p>Restore</p>
+                    </button>
+            </div>
+
+            <div class="user-profile__backup__form">
+                    <label for="patient-password">
+                        <p class="backup-title">Backup</p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam fugit, aperiam culpa error repellat excepturi. Molestias ex iste iure facilis eveniet. Totam doloribus quo consectetur esse reprehenderit voluptate ea! Laudantium?
+                    </label>
+                    <button type="submit" class="btn-green btn-change btn-restore">
+                        <p>Backup</p>
+                    </button>
+            </div>
+
+        </section>
+
+        <hr>
         <section class="bhw-account">
             <h2 class="bhw-profile__title">
                 BHW
