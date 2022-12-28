@@ -122,4 +122,7 @@
             echo "<h5> No Record Found </h5>";
         }
     }
+
+    // Retrieve contact number on database
+        // Pass the security question of that number
 ?>
