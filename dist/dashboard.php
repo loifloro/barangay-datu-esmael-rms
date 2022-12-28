@@ -306,7 +306,7 @@ hide_content();
                     <!-- End Query -->
                 </div>
                 <p class="recent-updates__btn">
-                    <a href="" class="recent-updates__btn">View All</a>
+                    <a href="recent-update.php" class="recent-updates__btn">View All</a>
                 </p>
             </div>
         </section>
