@@ -322,7 +322,7 @@ hide_content();
                                 popup: 'no-record'
                             },
                             showConfirmButton: false,
-                            timer: 4000,
+                            timer: 2000,
                             timerProgressBar: true, 
                             })
                         </script>
@@ -451,7 +451,7 @@ hide_content();
                                 popup: 'no-record'
                             },
                             showConfirmButton: false,
-                            timer: 4000,
+                            timer: 2000,
                             timerProgressBar: true, 
                             })
                         </script>
@@ -536,7 +536,7 @@ hide_content();
                                 popup: 'no-record'
                             },
                             showConfirmButton: false,
-                            timer: 4000,
+                            timer: 2000,
                             timerProgressBar: true, 
                             })
                         </script>
@@ -621,7 +621,7 @@ hide_content();
                                 popup: 'no-record'
                             },
                             showConfirmButton: false,
-                            timer: 4000,
+                            timer: 2000,
                             timerProgressBar: true, 
                             })
                         </script>
@@ -706,7 +706,7 @@ hide_content();
                                 popup: 'no-record'
                             },
                             showConfirmButton: false,
-                            timer: 4000,
+                            timer: 2000,
                             timerProgressBar: true, 
                             })
                         </script>
@@ -793,7 +793,7 @@ hide_content();
                                 popup: 'no-record'
                             },
                             showConfirmButton: false,
-                            timer: 4000,
+                            timer: 2000,
                             timerProgressBar: true, 
                             })
                         </script>
