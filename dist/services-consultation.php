@@ -310,7 +310,23 @@ hide_content();
                     }
                     else
                     {
-                        echo "<h5> No Record Found </h5>";
+                    ?>
+                        <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                        </script>
+                    <?php
                     }
             ?>   
         <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a>
@@ -423,7 +439,23 @@ hide_content();
                     }
                     else
                     {
-                        echo "<h5> No Record Found </h5>";
+                                            ?>
+                        <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                        </script>
+                    <?php
                     }
             ?>
             <!-- End of Query -->
@@ -492,7 +524,23 @@ hide_content();
                     }
                     else
                     {
-                        echo "<h5> No Record Found </h5>";
+                                            ?>
+                        <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                        </script>
+                    <?php
                     }
             ?>
             <!-- End of Query -->
@@ -561,7 +609,23 @@ hide_content();
                     }
                     else
                     {
-                        echo "<h5> No Record Found </h5>";
+                                            ?>
+                        <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                        </script>
+                    <?php
                     }
             ?>
             <!-- End of Query -->
@@ -630,7 +694,23 @@ hide_content();
                     }
                     else
                     {
-                        echo "<h5> No Record Found </h5>";
+                                            ?>
+                        <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                        </script>
+                    <?php
                     }
             ?>
             
@@ -701,7 +781,23 @@ hide_content();
                     }
                     else
                     {
-                        echo "<h5> No Record Found </h5>";
+                                            ?>
+                        <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                        </script>
+                    <?php
                     }
             ?>
             <!-- End of Query -->
