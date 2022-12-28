@@ -56,6 +56,10 @@
                     <p class="login__forgot">
                         Forgot Password?
                     </p>
+                    <?php 
+                        include_once "includes/functions.php";
+                        forgot_password();
+                    ?>
                 </a>
             </form>
         </div>
