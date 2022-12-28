@@ -22,7 +22,8 @@
                 </p>
 
                 <!-- Error Display -->
-                <?php if (isset($_GET['error'])){ ?>           
+                <?php 
+                if (isset($_GET['error'])){ ?>           
                     <script>
                         Swal.fire({
                         icon: 'error',
@@ -32,7 +33,35 @@
                         })
                     </script>
                 <?php } ?> 
+                
+                <?php
+                if (isset($_GET['logout'])) { ?>
+                    <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'success',
+                            iconColor: 'white',
+                            title: 'Logout succesfully',
+                            customClass: {
+                                popup: 'logout'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                    </script>
+                <?php } ?>
                 <!--Display ERROR-->
+
+                <?php
+                if (isset($_GET['contact'])) { ?>
+                    <script>
+                        securityQuestion('contact' , 'security-question' , 'answer');
+                    </script>
+                <?php
+                }
+                ?>
                 
                 <label for="contact-num">Contact Number:</label>
                 <input id='contact-num' class="login__contact" type="number" minlength="11" name="username">
@@ -52,8 +81,8 @@
                 <button class="login__btn btn-green" type="submit" id="btn">
                     Sign in
                 </button>
-                <a href="">
-                    <p class="login__forgot">
+                <a href="#">
+                    <p class="login__forgot" onclick="forgotPassword()">
                         Forgot Password?
                     </p>
                 </a>
