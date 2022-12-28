@@ -93,6 +93,37 @@ navBar.addEventListener ('click', () => {
     })
 })
 
+function forgotPassword() {
+    const { value: contactNum } = Swal.fire({
+        title: 'Input contact number',
+        input: 'text',
+        inputLabel: 'Your contact number',
+        inputPlaceholder: 'Ex. 09788764512',
+        showCancelButton: true,
+      }).then(function(contactNum)  {
+          if(contactNum.isConfirmed) {
+              Swal.fire(`Entered contact: ` + contactNum.value).then(() =>
+                window.location.href = '/barangay-datu-esmael-rms/dist/includes/functions.php?f=retrieve&contact=' + contactNum.value
+                );
+          }
+      })
+      return false;
+}
+
+
+function logoutAlert() {
+    Swal.fire({
+        icon: 'question',
+        title: 'Logout',
+        text: 'Are you sure you want to logout?',
+        showCancelButton: true,
+    }).then(function(result) {
+        if (result.isConfirmed) {
+            window.location.href = '/barangay-datu-esmael-rms/dist/logout.php'
+        }
+    })
+}
+
 document.getElementsByClassName('services__list__item')[0].click() //default display first item
 function services(evt, servicesName) {
   var i, services__table, services__list__item;
