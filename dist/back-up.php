@@ -53,7 +53,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </a>
             </li>
             <li class="sidebar__item sidebar__item--active">
-                <a href="back-up.php" class="sidebar__link"> <!--href link added-->
+                <a href="archive.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
