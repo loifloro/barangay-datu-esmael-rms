@@ -16,6 +16,7 @@ function backAlert() {
 
 // Confirm alert when 'Reset' button is clicked
 function confirmReset(form) {
+    // form.preventDefault();
     Swal.fire({
         icon: 'question',
         title: 'Confirm reset fields',
@@ -24,10 +25,12 @@ function confirmReset(form) {
     }).then((result) => {
         if (result.isConfirmed) {
             form.reset();
-            return Swal.close();
+            // return Swal.close();
+        } else {
+            return Swal.close()
         }
+        // console.log(result)
     });
-    return false;
 }
 
 
