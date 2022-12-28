@@ -81,4 +81,28 @@
             float: inline-end;
         }
     }
+
+    &__backup {
+        
+        &__form {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-block: 2rem;
+
+            & > * {
+                width: 50%;
+            }
+
+            .backup-title {
+                color: $black-1;
+                font-size: 1.2rem;
+                font-weight: 700;
+            }
+
+            label {
+                color: $black-3;
+            }
+        }
+    }
 }
