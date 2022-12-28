@@ -4680,6 +4680,23 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .user-profile .bhw-account button {
   float: inline-end;
 }
+.user-profile__backup__form {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin-block: 2rem;
+}
+.user-profile__backup__form > * {
+  width: 50%;
+}
+.user-profile__backup__form .backup-title {
+  color: #212529;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.user-profile__backup__form label {
+  color: #909087;
+}
 
 .services hr {
   width: 100%;
