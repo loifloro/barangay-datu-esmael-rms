@@ -109,8 +109,8 @@ hide_content_forms();
                     <p class="sidebar__caption">Feedback</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="../logout.php" class="sidebar__link">
+            <li class="sidebar__item" onclick="logoutAlert()">
+                <a href="#" class="sidebar__link">
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path

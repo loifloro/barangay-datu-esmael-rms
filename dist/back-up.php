@@ -103,8 +103,8 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Feedback</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="logout.php" class="sidebar__link"> <!--href link added-->
+            <li class="sidebar__item" onclick="logoutAlert()">
+                <a href="#" class="sidebar__link"> <!--href link added-->
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
