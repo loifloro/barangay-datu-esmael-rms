@@ -135,10 +135,9 @@ function logoutAlert() {
     })
 }
 
-
-
-document.getElementsByClassName('services__list__item')[0].click() //default display first item
-function services(evt, servicesName) {
+//default display first item
+// document.getElementsByClassName('services__list__item')[0].click() 
+function services(evt, servicesName, rows) {
   var i, services__table, services__list__item;
   services__table = document.getElementsByClassName("services__table");
 
@@ -152,20 +151,40 @@ function services(evt, servicesName) {
   document.getElementById(servicesName).style.display = "block";
   
   evt.currentTarget.className += " services__list__item--active";
+
+  if (rows == 0) {
+    noRecord();
+  }
+}
+
+function noRecord() {
+    Swal.fire({
+        toast: true,
+        position: 'top-right',
+        icon: 'info',
+        iconColor: 'white',
+        title: 'No record found',
+        customClass: {
+            popup: 'no-record'
+        },
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true, 
+        })
 }
 
 // Patients table
 function patient(evt, servicesName) {
-var i, patient__table, services__list__item;
-patient__table = document.getElementsByClassName("patient__table");
+    var i, patient__table, services__list__item;
+    patient__table = document.getElementsByClassName("patient__table");
 
-for (i = 0; i < patient__table.length; i++) {
-    patient__table[i].style.display = "none";
-}
-services__list__item = document.getElementsByClassName("services__list__item");
-for (i = 0; i < services__list__item.length; i++) {
-    services__list__item[i].className = services__list__item[i].className.replace(" services__list__item--active", "");
-}
-document.getElementById(servicesName).style.display = "block";
-evt.currentTarget.className += " services__list__item--active";
-}
+    for (i = 0; i < patient__table.length; i++) {
+        patient__table[i].style.display = "none";
+    }
+    services__list__item = document.getElementsByClassName("services__list__item");
+    for (i = 0; i < services__list__item.length; i++) {
+        services__list__item[i].className = services__list__item[i].className.replace(" services__list__item--active", "");
+    }
+    document.getElementById(servicesName).style.display = "block";
+    evt.currentTarget.className += " services__list__item--active";
+    }
