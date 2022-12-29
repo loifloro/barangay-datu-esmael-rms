@@ -393,9 +393,9 @@ hide_content_forms();
                     <button type="submit" class="btn-green btn-add" name="edit_postnatal" onclick="return  confirm('Do you want to edit this record?')">
                         Edit
                     </button>
-                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
-                        Clear
-                    </button>                        Clear
+                    <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->
+                        Cancel
+                    </button>                        Cancel
                     </button>
                 </div>
                 <?php

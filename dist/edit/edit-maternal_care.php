@@ -555,8 +555,8 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <button type="submit" class="btn-green btn-add" name="edit_maternal_list" onclick="return  confirm('Do you want to edit this record?')"> <!--name added-->
                         Save
                     </button>
-                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
-                        Clear
+                    <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->
+                        Cancel
                     </button>
                 </div>
                 <?php

@@ -754,11 +754,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="edit-child_care-female__form-btn">
-                    <button type="submit" class="btn-green btn-save" name="edit_childcare_female" onclick="return  confirm('Do you want to edit this record?')"> <!--name added-->
+                    <button type="submit" class="btn-green btn-save" name="edit_childcare_female"> <!--name added-->
                         Save
                     </button>
-                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
-                        Clear
+                    <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->
+                        Cancel
                     </button>
                 </div>
                 <?php
