@@ -38,9 +38,18 @@ if(isset($_POST['edit_bhw']))
             echo "<script>alert('Password Mismatch!');</script>";
         }
         else {
-            // $_SESSION['message'] = "Student Created Successfully";
+            // QUERY FOR FORGOT PASSWORD
+            $security_question = mysqli_real_escape_string($conn, $_POST['bhw-security-question']);
+            $security_answer = mysqli_real_escape_string($conn, $_POST['bhw-security-question-answer']);
+
+            $query2 = "UPDATE account_information SET security_question ='$security_question', 
+            security_answer='$security_answer' WHERE account_id='$account_id'";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if($query_run2){
             header("Location: ../user-profile.php");
-            exit(0);
+            exit(0);}
+            //END OF QUERY
         }
     }
     else

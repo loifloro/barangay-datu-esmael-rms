@@ -9,13 +9,14 @@ function backAlert() {
         confirmButtonColor: '#FBFBFB'
         }).then(function(result) {
             if (result.isConfirmed) {
-                return window.location.href = 'barangay-datu-esmael-rms/dist/services-consultation.php';
+                return window.location.href = '/barangay-datu-esmael-rms/dist/services-consultation.php';
             }
         })
 }
 
 // Confirm alert when 'Reset' button is clicked
 function confirmReset(form) {
+    // form.preventDefault();
     Swal.fire({
         icon: 'question',
         title: 'Confirm reset fields',
@@ -24,10 +25,12 @@ function confirmReset(form) {
     }).then((result) => {
         if (result.isConfirmed) {
             form.reset();
-            return Swal.close();
+            // return Swal.close();
+        } else {
+            return Swal.close()
         }
+        // console.log(result)
     });
-    return false;
 }
 
 
@@ -42,16 +45,16 @@ function recordStatus(state) {
 }
 
 // Toggle the password icon
-function passwordToggle() {
-    var passwordInput = document.getElementById('password');
-    var passwordHide = document.getElementById('password-hide');
-    var passwordShow = document.getElementById('password-show');
+function passwordToggle(id, hide, show) {
+    var passwordInput = document.getElementById(id);
+    var passwordHide = document.getElementById(hide);
+    var passwordShow = document.getElementById(show);
 
-    console.log(passwordHide)
     if (passwordInput.type === "password") {
         passwordInput.type = "text";
         passwordHide.classList.remove('password-icon--hide')
         passwordShow.classList.add('password-icon--hide')
+        
     } else {
         passwordInput.type = "password";
         passwordHide.classList.add('password-icon--hide')
@@ -93,8 +96,48 @@ navBar.addEventListener ('click', () => {
     })
 })
 
-document.getElementsByClassName('services__list__item')[0].click() //default display first item
-function services(evt, servicesName) {
+function forgotPassword() {
+    const { value: contactNum } = Swal.fire({
+        title: 'Input contact number',
+        input: 'text',
+        inputLabel: 'Your contact number',
+        inputPlaceholder: 'Ex. 09788764512',
+        showCancelButton: true,
+      }).then(function(contactNum)  {
+          if(contactNum.isConfirmed) {
+              Swal.fire(`Entered contact: ` + contactNum.value).then(() =>
+                window.location.href = '/barangay-datu-esmael-rms/dist/index.php?contact=' + contactNum.value
+                );
+          }
+      })
+      return false;
+}
+
+function securityQuestion() {
+    Swal.fire({
+        icon: 'question',
+        title: 'Logout',
+        text: 'Are you sure you want to logout?',
+        showCancelButton: true,
+    })
+}
+
+function logoutAlert() {
+    Swal.fire({
+        icon: 'question',
+        title: 'Logout',
+        text: 'Are you sure you want to logout?',
+        showCancelButton: true,
+    }).then(function(result) {
+        if (result.isConfirmed) {
+            window.location.href = '/barangay-datu-esmael-rms/dist/logout.php'
+        }
+    })
+}
+
+//default display first item
+// document.getElementsByClassName('services__list__item')[0].click() 
+function services(evt, servicesName, rows) {
   var i, services__table, services__list__item;
   services__table = document.getElementsByClassName("services__table");
 
@@ -108,20 +151,40 @@ function services(evt, servicesName) {
   document.getElementById(servicesName).style.display = "block";
   
   evt.currentTarget.className += " services__list__item--active";
+
+  if (rows == 0) {
+    noRecord();
+  }
+}
+
+function noRecord() {
+    Swal.fire({
+        toast: true,
+        position: 'top-right',
+        icon: 'info',
+        iconColor: 'white',
+        title: 'No record found',
+        customClass: {
+            popup: 'no-record'
+        },
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true, 
+        })
 }
 
 // Patients table
 function patient(evt, servicesName) {
-var i, patient__table, services__list__item;
-patient__table = document.getElementsByClassName("patient__table");
+    var i, patient__table, services__list__item;
+    patient__table = document.getElementsByClassName("patient__table");
 
-for (i = 0; i < patient__table.length; i++) {
-    patient__table[i].style.display = "none";
-}
-services__list__item = document.getElementsByClassName("services__list__item");
-for (i = 0; i < services__list__item.length; i++) {
-    services__list__item[i].className = services__list__item[i].className.replace(" services__list__item--active", "");
-}
-document.getElementById(servicesName).style.display = "block";
-evt.currentTarget.className += " services__list__item--active";
-}
+    for (i = 0; i < patient__table.length; i++) {
+        patient__table[i].style.display = "none";
+    }
+    services__list__item = document.getElementsByClassName("services__list__item");
+    for (i = 0; i < services__list__item.length; i++) {
+        services__list__item[i].className = services__list__item[i].className.replace(" services__list__item--active", "");
+    }
+    document.getElementById(servicesName).style.display = "block";
+    evt.currentTarget.className += " services__list__item--active";
+    }

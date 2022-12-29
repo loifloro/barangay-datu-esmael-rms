@@ -122,4 +122,76 @@
             echo "<h5> No Record Found </h5>";
         }
     }
+
+
+    function forgot_password(){
+        include 'includes/connection.php';
+            
+            if (isset($_GET['contact'])) {
+                $contact = $_GET['contact'];
+                $query = "SELECT * FROM account_information WHERE phone_num = '$contact'";
+
+                $query_run = mysqli_query($conn, $query);
+                if(mysqli_num_rows($query_run) > 0){
+                    foreach($query_run as $user){
+                        $phone_num = $user['phone_num'];
+                        $security_question = $user['security_question'];
+                        $security_answer = $user['security_answer'];
+                    } ?>
+                    <script type="text/javascript">
+                        const { value: securityAnswer } = Swal.fire({
+                            title: '<?= $security_question ?>',
+                            input: 'text',
+                            showCancelButton: true,
+                            preConfirm: (securityAnswer) => {
+                                if(securityAnswer !== '<?= $security_answer ?>') {
+                                    Swal.showValidationMessage(`Incorrect answer`);
+                                } else {
+                                    Swal.fire({
+                                        title: 'Enter new password',
+                                        html: `<input type="password" id="login" class="swal2-input" placeholder="New Password">
+                                        <input type="password" id="password" class="swal2-input" placeholder="Confirm New Password">`,
+                                        confirmButtonText: 'Change',
+                                        focusConfirm: false,
+                                        preConfirm: () => {
+                                            const newPassword = Swal.getPopup().querySelector('#login').value
+                                            const confirmNewPassword = Swal.getPopup().querySelector('#password').value
+                                            if (!newPassword || !confirmNewPassword) {
+                                                Swal.showValidationMessage(`Please enter password`);
+                                            } else if (newPassword !== confirmNewPassword) {
+                                                Swal.showValidationMessage(`Password does not match `)
+                                            }
+                                            return { newPassword: newPassword, confirmNewPassword: confirmNewPassword }
+                                        }
+                                        }).then((result) => {
+                                            // window.location.href = '/barangay-datu-esmael-rms/dist/index.php?contact=' + contactNum.value
+                                            // Please enter here what URL 
+                                        })
+                                }
+                            }
+                        })
+
+                    </script>
+                <?php
+                } else { ?>
+                    <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true, 
+                            })
+                    </script>
+                    
+                <?php    
+                }
+            }
+    }
 ?>

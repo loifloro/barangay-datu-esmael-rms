@@ -174,13 +174,13 @@ hide_content();
                 </a>
             </li>
             <li class="sidebar__item" id="backup_sidebar"> <!--added ID-->
-                <a href="back-up.php" class="sidebar__link">
+                <a href="archive.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z" />
                     </svg>
-                    <p class="sidebar__caption">Backup</p>
+                    <p class="sidebar__caption">Archive</p>
                 </a>
             </li>
             <hr class="sidebar__line" />
@@ -224,8 +224,8 @@ hide_content();
                     <p class="sidebar__caption">Feedback</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="logout.php" class="sidebar__link"> <!--href link added-->
+            <li class="sidebar__item" onclick="logoutAlert()">
+                <a href="#" class="sidebar__link"> <!--href link added-->
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path

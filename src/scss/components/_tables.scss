@@ -1,5 +1,8 @@
 @use '../abstracts' as *;
 
+.patient__table {
+    display: none;
+}
 
 .patient,
 .search-results {
@@ -165,6 +168,7 @@
 .services {
 
     &__table {
+        display: none;
         margin-block: 2rem;
 
         @include card(none);
@@ -242,8 +246,157 @@
         float: right;
         margin-block: 1rem;
     }
+}
 
+.recent-update {
 
+    &__table {
+        @include card(none);
+        overflow: hidden;
 
+        &__row {
+            display: grid;
+            align-items: center;
+            // grid-template-columns: repeat(5, minmax(80px, 1fr));
+            grid-template-columns: 1fr 20% 10%;
+            column-gap: 1rem;
+            padding-inline-start: unset;
+            padding: 1rem 1.5rem;
+            margin-block: 0;
+    
+            li:last-child {
+                justify-self: center;
+            }
+        }
 
+        ul:nth-child(2n+1) {
+            background: $white-1;
+        }
+
+    }
+    &__attributes {
+        color: $black-3;
+    }
+    
+    &__header {
+        color: $black-3 !important;
+        font-size: .85rem;
+        border-radius: 1vw;
+        
+    }
+
+    &__info {
+        background: $white-2;
+        overflow: hidden;
+        color: $black-2;
+    }
+
+    &__attributes__item {
+        color: $black-3;
+
+        & > * {
+            vertical-align: middle;
+            // display: inline;
+        }
+
+        a {
+            font: unset;
+            color: $hover-green;
+        }
+
+    }
+
+    &__details {
+        letter-spacing: .2px;
+        .name {
+            color: $black-2;
+            font-weight: 500;
+        }
+
+        .update-activity {
+            border-radius: 100vw;
+            font-size: .8rem;
+            padding: .2rem .8rem;
+            margin-inline: .5rem;
+
+            &--delete {
+                color: $white-1;
+                background: $red;
+            }
+
+            &--edited {
+                color: $white-1;
+                background: $yellow-3;
+            }
+
+            &--archived {
+                color: $white-1;
+                background: #007f5f;
+            }
+        }
+
+        .edit-patient {
+            color: $black-1;
+            font-weight: 600;
+        }
+
+        .service {
+            border-radius: 100vw;
+            font-size: .8rem;
+            padding: .2rem .8rem;
+            margin-inline: 1rem;
+
+            &--deworming {
+                color: $white-1;
+                background: $red;
+            }
+
+            &--childhood {
+                color: $white-1;
+                background: $yellow-3;
+            }
+
+            &--prenatal {
+                color: $white-1;
+                background: #104911;
+            }
+
+            &--postnatal {
+                color: $white-1;
+                background: #e71d36;
+            }
+
+            &--search {
+                color: $white-1;
+                background: #28947f;
+            }
+        }
+
+        .edit-time {
+            font-style: italic;
+        }
+
+    }
+
+    &__role {
+
+        .role {
+            border-radius: 100vw;
+            font-size: .8rem;
+            padding: .2rem .8rem;
+            margin-inline: .2rem; 
+
+            &--bhw {
+                color: $white-1;
+                background: #e71d36;
+            }
+            
+            &--chn {
+                color: $white-1;
+                background: #893302;
+                
+            }
+        }
+
+    }
 }

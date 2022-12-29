@@ -59,13 +59,13 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item" id="backup_sidebar">
-                <a href="../back-up.php" class="sidebar__link">
+                <a href="../archive.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z" />
                     </svg>
-                    <p class="sidebar__caption">Backup</p>
+                    <p class="sidebar__caption">Archive</p>
                 </a>
             </li>
             <hr class="sidebar__line" />
@@ -109,8 +109,8 @@ hide_content_forms();
                     <p class="sidebar__caption">Feedback</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="../logout.php" class="sidebar__link">
+            <li class="sidebar__item" onclick="logoutAlert()">
+                <a href="#" class="sidebar__link">
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -160,7 +160,7 @@ hide_content_forms();
                 Fill up necessary information to complete the process
             </p>
 
-            <form action="../includes/add_query.php" method="POST" class="add-deworming__form" onreset="confirmReset(this)">
+            <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
                 <div class="add-deworming__form-item">
                     <label for="deworming-lname">Last Name</label>
                     <input type="text" name="deworming-lname" id="deworming-lname" required>
@@ -222,7 +222,7 @@ hide_content_forms();
                     <button id='btn-submit' type="submit" class="btn-green btn-save" name="save_deworming">
                         Save
                     </button>
-                    <button type="reset" class="btn-red btn-cancel"> <!--added type and onclick-->
+                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
                         Clear
                     </button>
                 </div>

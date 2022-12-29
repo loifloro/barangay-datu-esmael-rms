@@ -81,13 +81,13 @@ hide_content();
             </li>
 
             <li class="sidebar__item" id="backup_sidebar"> <!--added ID-->
-                <a href="back-up.php" class="sidebar__link">
+                <a href="archive.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z" />
                     </svg>
-                    <p class="sidebar__caption">Backup</p>
+                    <p class="sidebar__caption">Archive</p>
                 </a>
             </li>
             <hr class="sidebar__line" />
@@ -132,8 +132,8 @@ hide_content();
                     <p class="sidebar__caption">Feedback</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="logout.php" class="sidebar__link"> <!--href link added-->
+            <li class="sidebar__item" onclick="logoutAlert()">
+                <a href="#" class="sidebar__link"> <!--href link added-->
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -182,7 +182,7 @@ hide_content();
             
             <!-- Cards -->
             <section class="services__card-list">
-                    <div class="services__card services__card--consultation" onclick="window.location.href = './services-consultation.php?service=prenatal'">
+                <div class="services__card services__card--consultation" onclick="window.location.href = './services-consultation.php?service=consultation'">
                     <p class="services__card-title">
                         Consultation
                     </p>
@@ -199,8 +199,8 @@ hide_content();
                         ?>
                         total record
                     </p>
-                    </div>
-                <div class="services__card services__card--childhood">
+                </div>
+                <div class="services__card services__card--childhood" onclick="window.location.href = './services-consultation.php?service=childhood'">
                     <p class="services__card-title">
                         Childhood Care
                     </p>
@@ -218,7 +218,7 @@ hide_content();
                         total record
                     </p>
                 </div>
-                <div class="services__card services__card--prenatal">
+                <div class="services__card services__card--prenatal" onclick="window.location.href = './services-consultation.php?service=prenatal'">
                     <p class="services__card-title">
                         Pre-natal
                     </p>
@@ -236,7 +236,7 @@ hide_content();
                         total record
                     </p>
                 </div>
-                <div class="services__card services__card--deworming">
+                <div class="services__card services__card--deworming" onclick="window.location.href = './services-consultation.php?service=deworming'">
                     <p class="services__card-title">
                         Deworming
                     </p>
@@ -254,7 +254,7 @@ hide_content();
                         total record
                     </p>
                 </div>
-                <div class="services__card services__card--searchdestroy">
+                <div class="services__card services__card--searchdestroy" onclick="window.location.href = './services-consultation.php?service=search-destroy'">
                     <p class="services__card-title">
                         Search and Destroy
                     </p>
@@ -306,7 +306,7 @@ hide_content();
                     <!-- End Query -->
                 </div>
                 <p class="recent-updates__btn">
-                    <a href="" class="recent-updates__btn">View All</a>
+                    <a href="recent-update.php" class="recent-updates__btn">View All</a>
                 </p>
             </div>
         </section>

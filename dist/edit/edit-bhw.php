@@ -1,4 +1,4 @@
-<?php
+    <?php
 session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
@@ -45,7 +45,7 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="tutorial.php" class="sidebar__link">
+                <a href="../tutorial.php" class="sidebar__link">
                     <svg alt="Tutorial" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
@@ -55,27 +55,26 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item" id="backup_sidebar"> <!--added id-->
-                <a href="back-up.php" class="sidebar__link">
+                <a href="../archive.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z" />
                     </svg>
-                    <p class="sidebar__caption">Backup</p>
+                    <p class="sidebar__caption">Archive</p>
                 </a>
             </li>
             <hr class="sidebar__line" />
-            <li class="sidebar__item">
-                <a href="services-consultation.php" class="sidebar__link">
+            <li class="sidebar__item ">
+                <a href="../services-consultation.php" class="sidebar__link">
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                             d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM17,9H15V7a1,1,0,0,0-1-1H10A1,1,0,0,0,9,7V9H7a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H9v2a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V15h2a1,1,0,0,0,1-1V10A1,1,0,0,0,17,9Zm-1,4H14a1,1,0,0,0-1,1v2H11V14a1,1,0,0,0-1-1H8V11h2a1,1,0,0,0,1-1V8h2v2a1,1,0,0,0,1,1h2Z" />
                     </svg>
-                    <p class="sidebar__caption sidebar__caption--active">Services</p>
+                    <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-
             <li class="sidebar__item" id="masterlist_sidebar"> <!--added id-->
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
@@ -87,7 +86,7 @@ hide_content_forms();
                 </a>
             </li>
             <li class="sidebar__item sidebar__item--margin-top">
-                <a href="user-profile.php" class="sidebar__link">
+                <a href="../user-profile.php" class="sidebar__link">
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -106,8 +105,8 @@ hide_content_forms();
                     <p class="sidebar__caption">Feedback</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="logout.php" class="sidebar__link">
+            <li class="sidebar__item" onclick="logoutAlert()">
+                <a href="#" class="sidebar__link">
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -215,23 +214,32 @@ hide_content_forms();
                 </div>
 
                 <!-- Divider -->
-                <hr id='#password'>
+                <hr id='security'>
 
                 <h2 class="edit-bhw__title">
-                    Password
+                    Security Question
                 </h2>
                 <p class="edit-bhw__desc">
-                    Enter your account password to proceed
+                    The answer on the security would be needed when resetting a password
                 </p>
-                
-                <!-- <div class="edit-bhw__form-item">
-                    <label for="bhw-existing-password">Existing Password</label>
-                    <input type="text" name="bhw-existing-password" id="bhw-existing-password">
+                <div class="edit-bhw__form-item">
+                    <label for="bhw-security-question">Security Question</label>
+                    <!-- If it already has a value, it should be disabled -->
+                    <select name="bhw-security-question" id="">
+                        <option value="In what city were you born?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='In what city were you born?')? 'selected' : '' ?>>In what city were you born?</option>
+                        <option value="What is the name of your favorite pet?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What is the name of your favorite pet?')? 'selected' : '' ?>>What is the name of your favorite pet?</option>
+                        <option value="What high school did you attend?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What high school did you attend?')? 'selected' : '' ?>>What high school did you attend?</option>
+                        <option value="What was the name of your elementary school?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What was the name of your elementary school?')? 'selected' : '' ?>>What was the name of your elementary school?</option>
+                        <option value="What was the make of your first car?" value="<?= $user['security_question']; ?>" <?= ($user['security_question']=='What was the make of your first car?')? 'selected' : '' ?>>What was the make of your first car?</option>
+                    </select>
                 </div>
                 <div class="edit-bhw__form-item">
-                    <label for="bhw-confirm-existing-password">Confirm Existing Password</label>
-                    <input type="text" name="bhw-confirm-existing-password" id="bhw-confirm-existing-password">
-                </div> -->
+                    <label for="bhw-security-question-answer">Security Answer</label>
+                    <input type="text" name="bhw-security-question-answer" id="bhw-security-question-answer"  value="<?= $user['security_answer']; ?>">
+                </div>
+
+                <!-- Divider
+                <hr id='password'>
                 <div class="edit-bhw__form-item">
                     <label for="bhw-new-password">New Password</label>
                     <input type="text" name="bhw-new-password" id="bhw-new-password" value="<?= $user['password']; ?>">
@@ -239,6 +247,42 @@ hide_content_forms();
                 <div class="edit-bhw__form-item">
                     <label for="bhw-confirm-new-password">Confirm New Password</label>
                     <input type="text" name="bhw-confirm-new-password" id="bhw-confirm-new-password">
+                </div> -->
+
+                <h2 class="edit-bhw__title">
+                    Password
+                </h2>
+                <p class="edit-bhw__desc">
+                    Enter your account password to proceed
+                </p>
+                <div class="edit-bhw__form-item">
+                    <label for="bhw-new-password">New Password</label>
+                    <div class="password">
+                        <input type="password"  class="password__bar__input" id="bhw-new-password" min="8" name="bhw-new-password" value="<?= $user['password']; ?>"/><!--  
+                        --><button type="button" class="password__bar__btn"  onclick="passwordToggle('bhw-new-password' , 'password-show-p' , 'password-hide-p')">
+                            <svg id='password-show-p' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+                            </svg>
+                            <svg id='password-hide-p' class="password-icon password__bar__icon password-hide password-icon--hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="edit-bhw__form-item">
+                    <label for="bhw-confirm-new-password">Confirm New Password</label>
+                    <div class="password">
+                        <input type="password"  class="password__bar__input" id="bhw-confirm-new-password" min="8" name="bhw-confirm-new-password" value="<?= $user['password']; ?>"/><!--  
+                        --><button type="button" class="password__bar__btn"  onclick="passwordToggle('bhw-confirm-new-password', 'password-show-np' , 'password-hide-np')">
+                            <svg id='password-show-np' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z"/>
+                            </svg>
+                            <svg id='password-hide-np' class="password-icon password__bar__icon password-hide password-icon--hide" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"/>
+                            </svg>
+                        </button>
+                    </div>
                 </div>
 
 
@@ -250,8 +294,8 @@ hide_content_forms();
                     <button type="submit" class="btn-green btn-save" name="edit_bhw" onclick="return  confirm('Do you want to edit this account?')"> <!--onclick added-->
                         Save
                     </button>
-                    <button class="btn-red btn-cancel">
-                        Cancel
+                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
+                        Clear
                     </button>
                 </div>
                 <?php
@@ -269,6 +313,9 @@ hide_content_forms();
             <ul class="contents__list">
                 <li class="content__item content__item--active">
                     <a href="#personal">Personal Information</a>
+                </li>
+                <li class="content__item content__item--active">
+                    <a href="#security">Security Question</a>
                 </li>
                 <li class="content__item">
                     <a href="#password">Password</a>

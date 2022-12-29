@@ -16,13 +16,13 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <link rel="stylesheet" href="./css/main.css">
     <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
-    <title>Masterlist</title>
+    <title>Recent Update</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">
-            <li class="sidebar__item">
+            <li class="sidebar__item sidebar__item--active">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -52,9 +52,9 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Tutorial</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item ">
                 <a href="archive.php" class="sidebar__link"> <!--href link added-->
-                    <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
+                    <svg alt="recent-update" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
                         <path
                             d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z" />
@@ -73,7 +73,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item  sidebar__item--active">
+            <li class="sidebar__item">
                     <a href="dashboard-masterlist.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -83,8 +83,8 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Masterlist</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--margin-top">
-                <a href="user-profile.php" class="sidebar__link"> <!--href link added-->
+            <li class="sidebar__item sidebar__item--margin-top"> <!--href link added-->
+                <a href="user-profile.php" class="sidebar__link">
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
@@ -121,7 +121,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <nav class="navigation">
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
-                Services
+                Recent Updates
             </h1>
             <form class="navigation__search" action="search-result.php" method="GET">
                 <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name"/><!--  
@@ -137,88 +137,59 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         </nav>
     </header> 
 
-
     <!-- Contents -->
-    <main class="dashboard">
+    <main class="recent-update">
+            <div class="recent-update__table">
+                <ul class="recent-update__table__row recent-update__attributes" role="list" >
+                    <li class="recent-update__attributes__item">
+                        Details
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </button>
+                    <li class="recent-update__attributes__item">
+                        Reason
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </button>
+                    </li>
+                    <li class="recent-update__attributes__item">
+                        Role
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </button>
+                    </li>
+                </ul>
 
-        <!-- Services -->
-        <section class="services">
-            <h2 class="services__title">
-                Target Client List
-            </h2>
-            <p class="services__description">
-                Community Health Center Masterlist and Database
-            </p>
-            
-            <!-- Cards -->
-            <section class="services__card-list">
-                <div class="services__card services__card--childhood-male">
-                    <p class="services__card-title">
-                        Childhood Care (Male)
-                    </p>
-                    <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
-                    </p>
-                </div>
-                <div class="services__card services__card--childhood-female">
-                    <p class="services__card-title">
-                        Childhood Care (Female)
-                    </p>
-                    <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
-                    </p>
-                </div>
-                <div class="services__card services__card--maternal">
-                    <p class="services__card-title">
-                        Maternal Care
-                    </p>
-                    <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
-                    </p>
-                </div>
-            </section>
-        </section>
+                <!-- To be put in the loop -->
+                <ul class="recent-update__table__row recent-update__info" role="list">
+                    <li class="recent-update__details">
+                        <span class="name"> Name </span> <span class="update-activity update-activity--edited"> edited </span> <span class="edit-patient"> Patient Name's </span> <span class="service service--deworming"> deworming </span> record in <span class="edit-time"> edit date edit time </span>                       
+                    </li>
+                    <li class="recent-update__attributes__item">
+                        Reason
+                    </li>
+                    <li class="recent-update__role">
+                        <span class="role role--bhw">BHW</span>
+                        <!-- <span class="recent-update__status--available">Available</span> -->
+                    </li>
+                </ul>
 
-        <!-- Daily Reports -->
-        <section class="daily-reports">
-            <h2 class="daily-reports__title">
-                Daily Reports
-            </h2>
-            <p class="daily-reports__category">
-
-            </p>
-            <div class="daily-reports__card">
-
-            </div>
-        </section>
-
-        <!-- Recent Updates -->
-        <section class="recent-updates">
-            <h4 class="recent-updates__title">
-                Recent Updates
-            </h4>
-            <div class="recent-updates__card">
-                <div class="editor">
-                    <img class="editor__img"
-                         src=""
-                         alt="">
-                    <!-- Start Query -->
-                    <?php 
-                        include_once "includes/functions.php";
-                        recent_update(); 
-                    ?>  
-                    <!-- End Query -->
-                </div>
-                <p class="recent-updates__btn">
-                    <a href="" class="recent-updates__btn">View All</a>
-                </p>
+                <!-- To be put in the loop -->
+                <ul class="recent-update__table__row recent-update__info" role="list">
+                    <li class="recent-update__details">
+                        <span class="name"> Name </span> <span class="update-activity update-activity--edited"> edited </span> <span class="edit-patient"> Patient Name's </span> <span class="service service--deworming"> deworming </span> record in <span class="edit-time"> edit date edit time </span>                       
+                    </li>
+                    <li class="recent-update__attributes__item">
+                        Reason
+                    </li>
+                    <li class="recent-update__role">
+                        <span class="role role--bhw">BHW</span>
+                        <!-- <span class="recent-update__status--available">Available</span> -->
+                    </li>
+                </ul>
             </div>
         </section>
     </main>
     <script src="./js/app.js"></script>
 </body>
-
 </html>

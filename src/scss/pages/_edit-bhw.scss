@@ -2,4 +2,80 @@
 
 .edit-bhw {
     @include page-with-form-layout;
+
+    // Password Bar
+    .password {
+        display: flex;
+        width: 100%;
+        background: $white-3;
+        border-radius: .5vw;
+
+        &:hover, 
+        &:focus, 
+        &:active {
+            outline: $green solid 1px;
+            background: $white-1
+        }
+
+        &__bar {
+            &__input {
+                display: inline;    
+                background: none !important;
+                width: 100%;
+               
+                &:hover, 
+                &:focus, 
+                &:active {
+                    cursor: pointer;
+                    outline: none !important;
+                    // background: none;
+                }
+            }
+            
+            &__btn {
+                display: inline;  
+                margin-left: auto !important;
+                margin-right: .5rem;  
+            }
+        }
+
+    }
+
+    // Password Bar
+    .password {
+        display: flex;
+        width: 50%;
+        background: $white-3;
+        border-radius: .5vw;
+
+        &:hover, 
+        &:focus, 
+        &:active {
+            outline: $green solid 1px;
+            background: $white-1
+        }
+
+        &__bar {
+            &__input {
+                display: inline;    
+                background: none !important;
+                width: 100%;
+               
+                &:hover, 
+                &:focus, 
+                &:active {
+                    cursor: pointer;
+                    outline: none !important;
+                    // background: none;
+                }
+            }
+            
+            &__btn {
+                display: inline;  
+                margin-left: auto !important;
+                margin-right: .5rem;  
+            }
+        }
+
+    }
 }
