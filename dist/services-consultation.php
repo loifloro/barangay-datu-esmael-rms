@@ -192,7 +192,7 @@ hide_content();
                         $serviceRow = 1;
                     }
             ?>
-            <li class="services__list__item" onclick="services(event, 'Deworming' , '<?= $serviceRow ?>')">
+            <li class="services__list__item" id='services__list__item--deworming' onclick="services(event, 'Deworming' , '<?= $serviceRow ?>')">
                     Deworming
             </li>
             <?php
@@ -205,7 +205,7 @@ hide_content();
                         $serviceRow = 1;
                     }
             ?>
-            <li class="services__list__item" onclick="services(event, 'Consultation', '<?= $serviceRow ?>')">
+            <li class="services__list__item" id='services__list__item--consultation' onclick="services(event, 'Consultation', '<?= $serviceRow ?>')">
                     Consultation
             </li>
             <?php
@@ -218,7 +218,7 @@ hide_content();
                         $serviceRow = 1;
                     }
             ?>
-            <li class="services__list__item" onclick="services(event, 'Pre-Natal' , '<?= $serviceRow ?>')">
+            <li class="services__list__item" id='services__list__item--prenatal' onclick="services(event, 'Pre-Natal' , '<?= $serviceRow ?>')">
                     Pre-Natal
             </li>
             <?php
@@ -231,7 +231,7 @@ hide_content();
                         $serviceRow = 1;
                     }
             ?>
-            <li class="services__list__item" onclick="services(event, 'Post-Natal' , '<?= $serviceRow ?>')">
+            <li class="services__list__item" id='services__list__item--postnatal' onclick="services(event, 'Post-Natal' , '<?= $serviceRow ?>')">
                     Post-Natal
             </li>
             <?php
@@ -244,7 +244,7 @@ hide_content();
                         $serviceRow = 1;
                     }
             ?>
-            <li class="services__list__item" onclick="services(event, 'Search-and-Destroy' , '<?= $serviceRow ?>')">
+            <li class="services__list__item" id='services__list__item--search' onclick="services(event, 'Search-and-Destroy' , '<?= $serviceRow ?>')">
                     Search and Destroy
             </li>
             <?php
@@ -257,7 +257,7 @@ hide_content();
                         $serviceRow = 1;
                     }
             ?>
-            <li class="services__list__item" onclick="services(event, 'Childhood-Care' , '<?= $serviceRow ?>')">
+            <li class="services__list__item" id='services__list__item--childhood' onclick="services(event, 'Childhood-Care' , '<?= $serviceRow ?>')">
                     Childhood Care
             </li>
         </ul>
@@ -341,7 +341,7 @@ hide_content();
                     foreach($query_run as $patient){
             ?>
             <!-- To be put in the loop -->
-            <ul class="services__table__row services__info" role="list">
+            <ul class="services__table__row services__info" role="list" id='services__deworming'>
                 <!-- Modal Trigger -->
                 <li class="services__name p-bold">
                     <input type="checkbox" name="" id="" class="services__checkbox">
@@ -755,7 +755,48 @@ hide_content();
         <!-- End Tab for Search and Destroy -->
 
 
-    </section>
+        <section class="reports">
+            <h2 class="reports__title">
+                    Reports
+            </h2>
+            <p class="reports__desc">
+                Showing report for Deworming
+            </p>
+
+            <form action="" class="reports__form">
+                <div class="reports__input">
+                    <div class="reports__form__date">
+                        <label for="report__date"> Date </label>
+                        <input type="date" name="report__date" id="report__date">
+                    </div>
+                    <div class="reports__form__service">
+                        <label for="report__service"> Service </label>
+                        <select name="report__service" id="report__service" value>
+                            <option value="Deworming"> Deworming </option>
+                            <option value="Consultation"> Consultation </option>
+                            <option value="Pre-natal"> Pre-natal </option>
+                            <option value="Post-natal"> Post-natal </option>
+                            <option value="Search and Destroy"> Search and Destroy </option>
+                            <option value="Childhood Care"> Childhood Care </option>
+                        </select>
+                    </div>
+                </div>
+                <div class="reports__card">
+                    <!-- Deworming -->
+                    <div class="reports__card__item"> 
+                        <p class="reports__card__title">Total No. of Male Patients</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> 10 </p>
+                    </div>
+                </div>
+                <button type="submit" class="btn-green btn-add services__btn">
+                    <p>View Report</p>  
+                </button>
+            </form>
+        </section>
+
+
+
     </main>
     <script src="./js/app.js"></script>
     <?php
@@ -772,7 +813,7 @@ hide_content();
             } 
         ?>
         <script>
-            window.onload =  services(event, 'Deworming', <?= $serviceRow ?>);
+            servicesClick('services__list__item--deworming');
         </script>
         <?php
         } else if ($_GET['service'] === 'childhood') {
@@ -787,7 +828,8 @@ hide_content();
             } 
         ?>
         <script>
-            window.onload =  services(event, 'Childhood-Care', <?= $serviceRow ?>);
+            servicesClick('services__list__item--childhood');
+
         </script>
         <?php
         } else if ($_GET['service'] === 'consultation') {
@@ -801,8 +843,9 @@ hide_content();
             <?php
             } 
         ?>
-        <script>
-            window.onload =  services(event, 'Consultation', <?= $serviceRow ?>);
+        <script>    
+            servicesClick('services__list__item--consultation');
+
         </script>
         <?php
         } else if ($_GET['service'] === 'prenatal') {
@@ -817,7 +860,8 @@ hide_content();
             } 
         ?>
         <script>
-            window.onload =  services(event, 'Pre-natal', <?= $serviceRow ?>);
+            servicesClick('services__list__item--prenatal');
+
         </script>
         <?php
         } else if ($_GET['service'] === 'search-destroy') {
@@ -832,7 +876,8 @@ hide_content();
             } 
         ?>
         <script>
-            window.onload =  services(event, 'Search-and-Destroy', <?= $serviceRow ?>);
+            servicesClick('services__list__item--search');
+
         </script>
         <?php
         }
