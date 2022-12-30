@@ -168,7 +168,7 @@ hide_content();
                 Services
             </h2>
             <p class="services__description">
-                5 services are currently available
+                6 services are currently available
             </p>
             
             <!-- Cards -->
