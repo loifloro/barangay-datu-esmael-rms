@@ -140,7 +140,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 Add Target Client list for Maternal Care
             </h2>
             <p class="add-maternal_care__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/add_query.php" method='POST' class="add-maternal_care__form"> <!--method and action added-->
@@ -220,7 +220,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Dates of Pre-natal Check-ups
                 </h2>
                 <p class="add-maternal_care__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
 
                 <div class="add-maternal_care__form-item">
@@ -244,7 +244,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Immunization Status
                 </h2>
                 <p class="add-maternal_care__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 <div class="add-maternal_care__form-doses">
                     <div class="add-maternal_care__form-label">

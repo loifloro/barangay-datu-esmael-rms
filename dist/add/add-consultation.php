@@ -143,7 +143,7 @@ hide_content_forms();
                 Add New Consultation Record
             </h2>
             <p class="add-consultation__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-consultation__form">
@@ -210,7 +210,7 @@ hide_content_forms();
                     Symptoms
                 </h2>
                 <p class="add-consultation__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-consultation__form-item">
@@ -233,7 +233,7 @@ hide_content_forms();
                     Laboratory Results
                 </h2>
                 <p class="add-consultation__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-consultation__form-item">

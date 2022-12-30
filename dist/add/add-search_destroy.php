@@ -143,7 +143,7 @@ hide_content_forms();
                 Add New Search and Destroy Record
             </h2>
             <p class="add-search_destroy__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-search_destroy__form">
@@ -169,7 +169,7 @@ hide_content_forms();
                     Detailed Summary
                 </h2>
                 <p class="add-search_destroy__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-search_destroy__form-item">

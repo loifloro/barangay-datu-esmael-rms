@@ -140,7 +140,7 @@ hide_content_forms();
                 Edit Consultation Record
             </h2>
             <p class="edit-consultation__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/edit_query.php" method='POST' class="edit-consultation__form">
@@ -220,7 +220,7 @@ hide_content_forms();
                     Symptoms
                 </h2>
                 <p class="edit-consultation__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="edit-consultation__form-item">
@@ -243,7 +243,7 @@ hide_content_forms();
                     Laboratory Results
                 </h2>
                 <p class="edit-consultation__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="edit-consultation__form-item">
@@ -262,7 +262,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-consultation__reason-desc">
-                    Fill up necessary info
+                    Fill out  necessary info
                 </p>
 
                 <!-- Radio Buttons -->

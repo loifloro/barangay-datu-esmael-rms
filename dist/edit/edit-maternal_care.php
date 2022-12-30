@@ -132,7 +132,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 Edit Target Client list for Maternal Care
             </h2>
             <p class="edit-maternal_care__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/edit_query.php" method='POST' class="edit-maternal_care__form"> <!--added action and method-->
@@ -223,7 +223,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Dates of Pre-natal Check-ups
                 </h2>
                 <p class="edit-maternal_care__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
 
                 <div class="edit-maternal_care__form-item">
@@ -247,7 +247,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Immunization Status
                 </h2>
                 <p class="edit-maternal_care__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 <div class="edit-maternal_care__form-doses">
                     <div class="edit-maternal_care__form-label">
@@ -513,7 +513,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Reason
                 </h2>
                 <p class="edit-maternal_care-female__reason-desc">
-                    Fill up necessary info
+                    Fill out  necessary info
                 </p>
 
                 <!-- Radio Buttons -->

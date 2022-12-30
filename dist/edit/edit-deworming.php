@@ -140,7 +140,7 @@ hide_content_forms();
                 Edit Deworming Record
             </h2>
             <p class="edit-deworming__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/edit_query.php" method='POST'
@@ -220,7 +220,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-deworming__reason-desc">
-                    Fill up necessary info
+                    Fill out  necessary info
                 </p>
 
                 <!-- Radio Buttons -->

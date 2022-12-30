@@ -143,7 +143,7 @@ hide_content_forms();
                 Add New Postnatal Record
             </h2>
             <p class="add-postnatal__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-postnatal__form">
@@ -210,7 +210,7 @@ hide_content_forms();
                     Symptoms
                 </h2>
                 <p class="add-postnatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 <div class="add-postnatal__form-item"><!--added-->
                     <label for="prenatal-symptoms">Symptoms</label>
@@ -252,7 +252,7 @@ hide_content_forms();
                     OB History
                 </h2>
                 <p class="add-postnatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
 
                 <div class="add-postnatal__form-item">
@@ -285,7 +285,7 @@ hide_content_forms();
                     Abdomen
                 </h2>
                 <p class="add-postnatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-postnatal__form-doses">
@@ -322,7 +322,7 @@ hide_content_forms();
                     Tetanus Toxoid Status:
                 </h2>
                 <p class="add-postnatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-postnatal__form-item">

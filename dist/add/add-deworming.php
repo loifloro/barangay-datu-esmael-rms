@@ -148,7 +148,7 @@ hide_content_forms();
                 Add New Deworming Record
             </h2>
             <p class="add-deworming__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-deworming__form">

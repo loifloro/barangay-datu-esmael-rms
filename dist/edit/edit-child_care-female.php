@@ -132,7 +132,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 Edit Target Client list for Child Care Female <!--Renamed from Male to Female-->
             </h2>
             <p class="edit-child_care-female__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/edit_query.php" method='POST' class="edit-child_care-female__form"> <!--form action and method added-->
@@ -259,7 +259,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Newborn (0-28 days old)
                 </h2>
                 <p class="edit-child_care-female__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="edit-child_care-female__form-item">
@@ -714,7 +714,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Reason
                 </h2>
                 <p class="edit-child_care-female__reason-desc">
-                    Fill up necessary info
+                    Fill out  necessary info
                 </p>
 
                 <!-- Radio Buttons -->

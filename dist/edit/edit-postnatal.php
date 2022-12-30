@@ -141,7 +141,7 @@ hide_content_forms();
 
             </h2>
             <p class="edit-prenatal__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/edit_query.php" method='POST' class="edit-prenatal__form">
@@ -220,7 +220,7 @@ hide_content_forms();
                     Symptoms
                 </h2>
                 <p class="edit-prenatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 <div class="edit-prenatal__form-item">
                     <label for="prenatal-symptoms">Symptoms</label>
@@ -262,7 +262,7 @@ hide_content_forms();
                     OB History
                 </h2>
                 <p class="edit-prenatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
 
                 <div class="edit-prenatal__form-item">
@@ -295,7 +295,7 @@ hide_content_forms();
                     Abdomen
                 </h2>
                 <p class="edit-prenatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="edit-prenatal__form-doses">
@@ -332,7 +332,7 @@ hide_content_forms();
                     Tetanus Toxoid Status:
                 </h2>
                 <p class="edit-prenatal__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="edit-prenatal__form-item">
@@ -351,7 +351,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-prenatal__reason-desc">
-                    Fill up necessary info
+                    Fill out  necessary info
                 </p>
 
                 <!-- Radio Buttons -->

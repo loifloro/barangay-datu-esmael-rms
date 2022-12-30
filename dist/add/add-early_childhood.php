@@ -143,7 +143,7 @@ hide_content_forms();
                 Add Early Childhood Care and Development Care
             </h2>
             <p class="add-early_childhood__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-early_childhood__form">
@@ -213,7 +213,7 @@ hide_content_forms();
                     Mother Information
                 </h2>
                 <p class="add-early_childhood__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-early_childhood__form-item">
@@ -252,7 +252,7 @@ hide_content_forms();
                     Father Information
                 </h2>
                 <p class="add-early_childhood__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-early_childhood__form-item">
@@ -288,7 +288,7 @@ hide_content_forms();
                     Childhood Information
                 </h2>
                 <p class="add-early_childhood__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
 
                 <div class="add-early_childhood__form-item">
@@ -358,7 +358,7 @@ hide_content_forms();
                     Vaccine Remarks
                 </h2>
                 <p class="add-early_childhood__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-early_childhood__form-doses">

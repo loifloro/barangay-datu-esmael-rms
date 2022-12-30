@@ -140,7 +140,7 @@ hide_content_forms();
                 Edit Profile
             </h2>
             <p class="edit-bhw__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/edit_query.php" method='POST' class="edit-bhw__form">

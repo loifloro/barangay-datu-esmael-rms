@@ -140,7 +140,7 @@ hide_content_forms();
                 Edit Search and Destroy Record
             </h2>
             <p class="edit-search_destroy__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/edit_query.php" method= "POST" class="edit-search_destroy__form">
@@ -182,7 +182,7 @@ hide_content_forms();
                     Detailed Summary
                 </h2>
                 <p class="edit-search_destroy__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="edit-search_destroy__form-item">
@@ -255,7 +255,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-consultation__reason-desc">
-                    Fill up necessary info
+                    Fill out  necessary info
                 </p>
 
                 <!-- Radio Buttons -->

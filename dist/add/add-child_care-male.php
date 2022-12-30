@@ -140,7 +140,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 Add Target Client list for Child Care Male
             </h2>
             <p class="add-child_care-male__desc">
-                Fill up necessary information to complete the process
+                Fill out  necessary information to complete the process
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-child_care-male__form"> <!--ACTION AND METHOD ADDED-->
@@ -255,7 +255,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     Newborn (0-28 days old)
                 </h2>
                 <p class="add-child_care-male__desc">
-                    Fill up necessary information to complete the process
+                    Fill out  necessary information to complete the process
                 </p>
                 
                 <div class="add-child_care-male__form-item">
