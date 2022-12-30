@@ -235,9 +235,11 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                         // CONDITION FOR ROLE NAME
                         if($update['user_role'] == 'Barangay Health Worker'){
                             $class_role='role role--bhw';
+                            $display_role ='BHW';
                         }
                         if($update['user_role'] == 'City Health Nurse'){
                             $class_role='role role--chn';
+                            $display_role ='CHN';
                         }
                     // END OF QUERY
                     ?>
@@ -251,7 +253,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                         Other Reason
                     </li> -->
                     <li class="recent-update__role">
-                        <span class="<?= $class_role; ?>"><?= $update['user_role']; ?> </span>
+                        <span class="<?= $class_role; ?>"><?= $display_role; ?> </span>
                         <!-- <span class="recent-update__status--available">Available</span> -->
                     </li>
                 </ul>
