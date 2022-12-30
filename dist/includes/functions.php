@@ -13,6 +13,8 @@
             <style type="text/css">
             .bhw-account{
                 display:none;}
+            .user-profile__backup{
+                display:none;}
             #masterlist_sidebar{
                 display:none;}
             #backup_sidebar{

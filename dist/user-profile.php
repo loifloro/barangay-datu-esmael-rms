@@ -299,10 +299,6 @@ hide_content();
                     <input type="file" name="filename">
                     </button>
             </div>
-           
-                    
-            
-
             <div class="user-profile__backup__form">
                     <label for="patient-password">
                         <p class="backup-title">Backup</p>
@@ -313,7 +309,6 @@ hide_content();
                     </button>
             </div>
             </form>
-
         </section>
 
         <hr>
