@@ -142,7 +142,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             </p>
             
             <!-- Cards -->
-            <section class="services__card-list">
+            <section class="services__card-masterlist">
                 <div class="services__card services__card--childhood-male">
                     <p class="services__card-title">
                         Childhood Care (Male)
@@ -174,16 +174,41 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         </section>
 
         <!-- Daily Reports -->
-        <section class="daily-reports">
-            <h2 class="daily-reports__title">
-                Daily Reports
-            </h2>
-            <p class="daily-reports__category">
+        <section class="reports">
+            <form action="" class="reports__form">
+                <h2 class="reports__title">
+                        Reports
+                </h2>
+                <p class="reports__desc">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                </p>
 
-            </p>
-            <div class="daily-reports__card">
-
-            </div>
+                <div class="reports__input">
+                    <div class="reports__form__service">
+                        <label for="report__service"> Service </label>
+                        <select name="report__service" id="report__service" value>
+                            <option value="Childhood Care Male"> Childhood Care Male </option>
+                            <option value="Childhood Care Female"> Childhood Care Female </option>
+                            <option value="Maternal Care"> Maternal Care </option>
+                        </select>
+                    </div>
+                    <div class="reports__form__date">
+                        <label for="report__date"> Date </label>
+                        <input type="date" name="report__date" id="report__date">
+                    </div>
+                </div>
+                <div class="reports__card">
+                    <!-- Deworming -->
+                    <div class="reports__card__item"> 
+                        <p class="reports__card__title">Total No. of Male Patients</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> 10 </p>
+                    </div>
+                </div>
+                <button type="submit" class="btn-green btn-add services__btn">
+                    <p>View Report</p>  
+                </button>
+            </form>
         </section>
 
         <!-- Recent Updates -->
@@ -204,7 +229,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <!-- End Query -->
                 </div>
                 <p class="recent-updates__btn">
-                    <a href="" class="recent-updates__btn">View All</a>
+                    <a href="recent-update.php" class="recent-updates__btn">View All</a>
                 </p>
             </div>
         </section>
