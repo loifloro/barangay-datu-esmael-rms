@@ -272,20 +272,66 @@ hide_content();
                         total record
                     </p>
                 </div>
+                <div class="services__card services__card--prenatal" onclick="window.location.href = './services-consultation.php?service=postnatal'">
+                    <p class="services__card-title">
+                        Post-natal
+                    </p>
+                    <p class="services__card-visits">
+                        <!-- COUNT DEWORMING -->
+                        <?php
+                                $query = "SELECT count(*) FROM postnatal;";
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
+                    </p>
+                </div>
             </section>
         </section>
 
         <!-- Daily Reports -->
-        <section class="daily-reports">
-            <h2 class="daily-reports__title">
-                Daily Reports
-            </h2>
-            <p class="daily-reports__category">
+        <section class="reports">
+            <form action="" class="reports__form">
+                <h2 class="reports__title">
+                        Reports
+                </h2>
+                <p class="reports__desc">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                </p>
 
-            </p>
-            <div class="daily-reports__card">
-
-            </div>
+                <div class="reports__input">
+                    <div class="reports__form__service">
+                        <label for="report__service"> Service </label>
+                        <select name="report__service" id="report__service" value>
+                            <option value="Deworming"> Deworming </option>
+                            <option value="Consultation"> Consultation </option>
+                            <option value="Pre-natal"> Pre-natal </option>
+                            <option value="Post-natal"> Post-natal </option>
+                            <option value="Search and Destroy"> Search and Destroy </option>
+                            <option value="Childhood Care"> Childhood Care </option>
+                        </select>
+                    </div>
+                    <div class="reports__form__date">
+                        <label for="report__date"> Date </label>
+                        <input type="date" name="report__date" id="report__date">
+                    </div>
+                </div>
+                <div class="reports__card">
+                    <!-- Deworming -->
+                    <div class="reports__card__item"> 
+                        <p class="reports__card__title">Total No. of Male Patients</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> 10 </p>
+                    </div>
+                </div>
+                <button type="submit" class="btn-green btn-add services__btn">
+                    <p>View Report</p>  
+                </button>
+            </form>
         </section>
 
         <!-- Recent Updates -->
