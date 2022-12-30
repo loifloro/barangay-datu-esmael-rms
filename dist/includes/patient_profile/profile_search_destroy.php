@@ -90,18 +90,46 @@
             </ul>
             <!-- Query for Medical History -->
             <?php
-                        $patient_fname = $patient['owner_fname'];
-                        $patient_lname = $patient['owner_lname'];
-                        $query3 = "SELECT * FROM recent_activity WHERE patient_fname ='$patient_fname' AND patient_lname ='$patient_lname' GROUP BY record_name
-                        ORDER BY recent_activity_id";
-                        $query_run3 = mysqli_query($conn, $query3);
-                            if(mysqli_num_rows($query_run3) > 0){
-                            //  $recent2 = mysqli_fetch_array($query_run3);
-                                foreach($query_run3 as $recent2){
+                        // $patient_fname = $patient['owner_fname'];
+                        // $patient_lname = $patient['owner_lname'];
+                        // $query3 = "SELECT * FROM recent_activity WHERE patient_fname ='$patient_fname' AND patient_lname ='$patient_lname' GROUP BY record_name
+                        // ORDER BY recent_activity_id";
+                        // $query_run3 = mysqli_query($conn, $query3);
+                        //     if(mysqli_num_rows($query_run3) > 0){
+                        //         foreach($query_run3 as $recent2){
+
+                            $filtervalues = $patient['firstname'&&'lastname'&&'label'];
+                            $query3 = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
+                                      FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
+                                      LIKE '%$filtervalues%' 
+                                      UNION ALL
+                                      SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
+                                      FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
+                                      LIKE '%$filtervalues%'
+                                      UNION ALL
+                                      SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
+                                      FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
+                                      LIKE '%$filtervalues%'
+                                      UNION ALL
+                                      SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
+                                      FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
+                                      LIKE '%$filtervalues%'
+                                      UNION ALL
+                                      SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
+                                      FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
+                                      LIKE '%$filtervalues%'
+                                      UNION ALL
+                                      SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
+                                      FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
+                                      LIKE '%$filtervalues%'
+                                      ";
+                            $query_run3 = mysqli_query($conn, $query3); 
+                            if(mysqli_num_rows($query_run) > 0){
+                                foreach($query_run3 as $recent3){
                     ?>
             <ul class="medical-history__card__row" role="list">
                 <li class="medical-history__item medical-history__service p-bold">
-                    <?= $recent2['record_name']; ?>
+                    <?= $recent3['label']; ?>
                 </li>
                 <li class="medical-history__item medical-history__service__date-availed">
                     <?= $patient['date_visit']; ?>
@@ -110,7 +138,7 @@
                 <?php
                         if(isset($_GET['label'])){
                             $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
-                            $changes_label=$recent2['record_name'];
+                            $changes_label=$recent3['label'];
                             
                                 //DEWORMING
                                 if(($changes_label == "Deworming") AND (isset($_GET['id']))){
@@ -169,7 +197,7 @@
                                 }
 
                                 //SEARCH AND DESTROY
-                                if(($changes_label == "Search/Destroy") AND (isset($_GET['id']))){
+                                if(($changes_label == "Search and Destroy") AND (isset($_GET['id']))){
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
                                     $query = "SELECT * FROM search_destroy WHERE owner_fname='$patient_fname' AND owner_lname='$patient_lname'";
                                     $query_run = mysqli_query($conn, $query);
@@ -183,7 +211,7 @@
                                 }
 
                                 //EARLY CHILDHOOD
-                                if(($changes_label == "Childhood Care") AND (isset($_GET['id']))){
+                                if(($changes_label == "Early Childhood") AND (isset($_GET['id']))){
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
                                     $query = "SELECT * FROM early_childhood WHERE child_fname='$patient_fname' AND child_lname='$patient_lname'";
                                     $query_run = mysqli_query($conn, $query);
@@ -228,7 +256,7 @@
                         $patient_fname = $patient['owner_fname'];
                         $patient_lname = $patient['owner_lname'];
                         $query2 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname' AND patient_lname='$patient_lname'
-                        ORDER BY recent_activity_id LIMIT 3";
+                        ORDER BY recent_activity_id DESC LIMIT 3";
                         $query_run2 = mysqli_query($conn, $query2);
                             if(mysqli_num_rows($query_run2) > 0){
                             //  $recent = mysqli_fetch_array($query_run2);
