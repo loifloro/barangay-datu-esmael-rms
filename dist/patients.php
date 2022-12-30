@@ -158,7 +158,7 @@ hide_content();
             <li class="services__list__item services__list__item--active" onclick="patient(event, 'Deworming')">
                 <!-- COUNT DEWORMING -->
                 <?php
-                        $query = "SELECT count(*) FROM deworming";
+                        $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
                         $result = mysqli_query($conn, $query);
                         while($row = mysqli_fetch_array($result)) {  
                 ?>
@@ -171,7 +171,7 @@ hide_content();
             <li class="services__list__item" onclick="patient(event, 'Consultation')">
                             <!-- COUNT CONSULTATION -->
                             <?php
-                        $query = "SELECT count(*) FROM consultation";
+                        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
                         $result = mysqli_query($conn, $query);
                         while($row = mysqli_fetch_array($result)) {  
                 ?>
@@ -184,7 +184,7 @@ hide_content();
             <li class="services__list__item" onclick="patient(event, 'Pre-Natal')">
                 <!-- PRENATAL COUNT -->
             <?php
-                    $query = "SELECT count(*) FROM prenatal";
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label=''";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
             ?>
@@ -196,7 +196,7 @@ hide_content();
             <li class="services__list__item" onclick="patient(event, 'Post-Natal')">
             <!-- COUNT POSTNATAL -->
             <?php
-                    $query = "SELECT count(*) FROM postnatal";
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label=''";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
             ?>
@@ -208,7 +208,7 @@ hide_content();
             <li class="services__list__item" onclick="patient(event, 'Search and Destroy')">
             <!--  COUNT S/D -->
             <?php
-                    $query = "SELECT count(*) FROM search_destroy";
+                    $query = "SELECT count(*) FROM search_destroy WHERE archive_label=''";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
             ?>
@@ -220,7 +220,7 @@ hide_content();
             <li class="services__list__item" onclick="patient(event, 'Childhood Care')">
             <!-- COUNT EC -->
             <?php
-                    $query = "SELECT count(*) FROM early_childhood";
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
                     $result = mysqli_query($conn, $query);
                     while($row = mysqli_fetch_array($result)) {  
             ?>
@@ -261,7 +261,7 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    $query = "SELECT * FROM deworming ORDER BY firstname";
+                    $query = "SELECT * FROM deworming WHERE archive_label=''";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -347,7 +347,7 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    $query = "SELECT * FROM consultation ORDER BY firstname";
+                    $query = "SELECT * FROM consultation WHERE archive_label=''";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -431,7 +431,7 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    $query = "SELECT * FROM prenatal ORDER BY firstname";
+                    $query = "SELECT * FROM prenatal WHERE archive_label=''";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -516,7 +516,7 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    $query = "SELECT * FROM postnatal ORDER BY firstname";
+                    $query = "SELECT * FROM postnatal WHERE archive_label=''";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -600,7 +600,7 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    $query = "SELECT * FROM search_destroy ORDER BY owner_fname";
+                    $query = "SELECT * FROM search_destroy WHERE archive_label=''";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -684,7 +684,7 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php 
-                    $query = "SELECT * FROM early_childhood ORDER BY child_fname";
+                    $query = "SELECT * FROM early_childhood WHERE archive_label=''";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {

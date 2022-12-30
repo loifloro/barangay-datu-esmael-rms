@@ -49,12 +49,12 @@
     function total_patient(){
         include 'includes/connection.php';
         $query = "SELECT 
-                (select count(*) FROM deworming) + 
-                (select count(*) FROM consultation) +
-                (select count(*) FROM early_childhood) +
-                (select count(*) FROM postnatal) +
-                (select count(*) FROM prenatal) +
-                (select count(*) FROM search_destroy)
+                (select count(*) FROM deworming WHERE archive_label='') + 
+                (select count(*) FROM consultation WHERE archive_label='') +
+                (select count(*) FROM early_childhood WHERE archive_label='') +
+                (select count(*) FROM postnatal WHERE archive_label='') +
+                (select count(*) FROM prenatal WHERE archive_label='') +
+                (select count(*) FROM search_destroy WHERE archive_label='')
                 As total";
                 $result = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_array($result)) {  
