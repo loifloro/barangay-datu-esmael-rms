@@ -143,3 +143,8 @@ input::placeholder {
 form {
 	margin-bottom: unset;
 }
+
+input[type=range] {
+	accent-color: $green;
+	width: 60%;
+}

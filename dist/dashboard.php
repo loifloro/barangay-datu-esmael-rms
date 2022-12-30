@@ -69,16 +69,7 @@ hide_content();
                     <p class="sidebar__caption">Patient</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="tutorial.php" class="sidebar__link"> <!--href link added-->
-                    <svg alt="Tutorial" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M21,14H20V4h1a1,1,0,0,0,0-2H3A1,1,0,0,0,3,4H4V14H3a1,1,0,0,0,0,2h8v1.15l-4.55,3A1,1,0,0,0,7,22a.94.94,0,0,0,.55-.17L11,19.55V21a1,1,0,0,0,2,0V19.55l3.45,2.28A.94.94,0,0,0,17,22a1,1,0,0,0,.55-1.83l-4.55-3V16h8a1,1,0,0,0,0-2Zm-3,0H6V4H18ZM9.61,12.26a1.73,1.73,0,0,0,1.76,0l3-1.74a1.76,1.76,0,0,0,0-3l-3-1.74a1.73,1.73,0,0,0-1.76,0,1.71,1.71,0,0,0-.87,1.52v3.48A1.71,1.71,0,0,0,9.61,12.26Zm1.13-4.58L13,9l-2.28,1.32Z" />
-                    </svg>
-                    <p class="sidebar__caption">Tutorial</p>
-                </a>
-            </li>
+ 
 
             <li class="sidebar__item" id="backup_sidebar"> <!--added ID-->
                 <a href="archive.php" class="sidebar__link">
@@ -272,20 +263,66 @@ hide_content();
                         total record
                     </p>
                 </div>
+                <div class="services__card services__card--prenatal" onclick="window.location.href = './services-consultation.php?service=postnatal'">
+                    <p class="services__card-title">
+                        Post-natal
+                    </p>
+                    <p class="services__card-visits">
+                        <!-- COUNT DEWORMING -->
+                        <?php
+                                $query = "SELECT count(*) FROM postnatal;";
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
+                    </p>
+                </div>
             </section>
         </section>
 
         <!-- Daily Reports -->
-        <section class="daily-reports">
-            <h2 class="daily-reports__title">
-                Daily Reports
-            </h2>
-            <p class="daily-reports__category">
+        <section class="reports">
+            <form action="" class="reports__form">
+                <h2 class="reports__title">
+                        Reports
+                </h2>
+                <p class="reports__desc">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                </p>
 
-            </p>
-            <div class="daily-reports__card">
-
-            </div>
+                <div class="reports__input">
+                    <div class="reports__form__service">
+                        <label for="report__service"> Service </label>
+                        <select name="report__service" id="report__service" value>
+                            <option value="Deworming"> Deworming </option>
+                            <option value="Consultation"> Consultation </option>
+                            <option value="Pre-natal"> Pre-natal </option>
+                            <option value="Post-natal"> Post-natal </option>
+                            <option value="Search and Destroy"> Search and Destroy </option>
+                            <option value="Childhood Care"> Childhood Care </option>
+                        </select>
+                    </div>
+                    <div class="reports__form__date">
+                        <label for="report__date"> Date </label>
+                        <input type="date" name="report__date" id="report__date">
+                    </div>
+                </div>
+                <div class="reports__card">
+                    <!-- Deworming -->
+                    <div class="reports__card__item"> 
+                        <p class="reports__card__title">Total No. of Male Patients</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> 10 </p>
+                    </div>
+                </div>
+                <button type="submit" class="btn-green btn-add services__btn">
+                    <p>View Report</p>  
+                </button>
+            </form>
         </section>
 
         <!-- Recent Updates -->

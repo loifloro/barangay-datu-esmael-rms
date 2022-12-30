@@ -42,16 +42,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Patient</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="tutorial.php" class="sidebar__link"> <!--href link added-->
-                    <svg alt="Tutorial" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24">
-                        <path
-                            d="M21,14H20V4h1a1,1,0,0,0,0-2H3A1,1,0,0,0,3,4H4V14H3a1,1,0,0,0,0,2h8v1.15l-4.55,3A1,1,0,0,0,7,22a.94.94,0,0,0,.55-.17L11,19.55V21a1,1,0,0,0,2,0V19.55l3.45,2.28A.94.94,0,0,0,17,22a1,1,0,0,0,.55-1.83l-4.55-3V16h8a1,1,0,0,0,0-2Zm-3,0H6V4H18ZM9.61,12.26a1.73,1.73,0,0,0,1.76,0l3-1.74a1.76,1.76,0,0,0,0-3l-3-1.74a1.73,1.73,0,0,0-1.76,0,1.71,1.71,0,0,0-.87,1.52v3.48A1.71,1.71,0,0,0,9.61,12.26Zm1.13-4.58L13,9l-2.28,1.32Z" />
-                    </svg>
-                    <p class="sidebar__caption">Tutorial</p>
-                </a>
-            </li>
+ 
             <li class="sidebar__item sidebar__item--active">
                 <a href="archive.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
@@ -131,7 +122,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             </form>
 
             <button id="nav-btn" class="navigation__btn btn-green">
-                <p>Add New</p>
+                <p>Add Record</p>
                 <svg class="add-icon navigation__btn__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512"><path fill="#231f20" d="M468.3,212.7H305.2v-169c0-24.2-19.6-43.8-43.8-43.8c-24.2,0-43.8,19.6-43.8,43.8v169h-174 C19.6,212.7,0,232.3,0,256.5c0,24.2,19.6,43.8,43.8,43.8h174v168c0,24.2,19.6,43.8,43.8,43.8c24.2,0,43.8-19.6,43.8-43.8v-168h163.1 c24.2,0,43.8-19.6,43.8-43.8C512,232.3,492.5,212.7,468.3,212.7z"/></svg>
             </button>
         </nav>
