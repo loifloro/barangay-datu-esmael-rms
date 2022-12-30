@@ -880,6 +880,22 @@ hide_content();
 
         </script>
         <?php
+        } else if ($_GET['service'] === 'postnatal') {
+            $query = "SELECT * FROM postnatal";
+            $query_run = mysqli_query($conn, $query);
+            if(mysqli_num_rows($query_run) == 0) { 
+            ?>
+            <script>
+                noRecord();
+            </script>
+            <?php
+            } 
+        ?>
+        <script>
+            servicesClick('services__list__item--postnatal');
+
+        </script>
+        <?php
         }
     }
     ?>                                                                                              
