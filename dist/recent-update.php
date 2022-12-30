@@ -168,7 +168,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </ul>
             </form>
             <!-- End of Form Action -->
-                <!-- Start Query -->
+                <!-- Start Query for sort-->
                 <?php
                     $query = "SELECT * FROM recent_activity";
                     $query_run = mysqli_query($conn, $query);
@@ -202,8 +202,47 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 ?>
                 <!-- To be put in the loop -->
                 <ul class="recent-update__table__row recent-update__info" role="list">
+                    <?php
+                    // QUERY TO CHANGE CLASS COLOR BASED ON THE CHANGES LABEL
+                        if($update['changes_label'] == 'added'){
+                            $class_name='update-activity update-activity--archived';
+                        }
+                        if($update['changes_label'] == 'edited'){
+                            $class_name='update-activity update-activity--edited';
+                        }
+                        if($update['changes_label'] == 'deleted'){
+                            $class_name='update-activity update-activity--delete';
+                        }
+                        // CONDITION FOR RECORD NAME
+                        if($update['record_name'] == 'Deworming'){
+                            $class_record_name='service service--deworming';
+                        }
+                        if($update['record_name'] == 'Consultation'){
+                            $class_record_name='service service--childhood'; //no designated color for consultation
+                        }
+                        if($update['record_name'] == 'Prenatal'){
+                            $class_record_name='service service--prenatal';
+                        }
+                        if($update['record_name'] == 'Postnatal'){
+                            $class_record_name='service service--postnatal';
+                        }
+                        if($update['record_name'] == 'Search/Destroy'){
+                            $class_record_name='service service--search';
+                        }
+                        if($update['record_name'] == 'Childhood Care'){
+                            $class_record_name='service service--childhood';
+                        }
+                        // CONDITION FOR ROLE NAME
+                        if($update['user_role'] == 'Barangay Health Worker'){
+                            $class_role='role role--bhw';
+                        }
+                        if($update['user_role'] == 'City Health Nurse'){
+                            $class_role='role role--chn';
+                        }
+                    // END OF QUERY
+                    ?>
                     <li class="recent-update__details">
-                        <span class="name"> <?= $update['user_fname'].' '.$update['user_lname']; ?> </span> <span class="update-activity update-activity--edited"> <?= $update['changes_label']; ?> </span> <span class="edit-patient"> <?= $update['patient_fname'].' '.$update['patient_lname']; ?> </span> <span class="service service--deworming"> <?= $update['record_name']; ?> </span> record in <span class="edit-time"> <?= $update['date_edit'].' '.$update['time_edit']; ?> </span>                       
+                        <span class="name"> <?= $update['user_fname'].' '.$update['user_lname']; ?> </span> <span class="<?= $class_name; ?>"> <?= $update['changes_label']; ?> </span> <span class="edit-patient"> <?= $update['patient_fname'].' '.$update['patient_lname']; ?> </span> <span class="<?= $class_record_name; ?>"> <?= $update['record_name']; ?> </span> record in <span class="edit-time"> <?= $update['date_edit'].' '.$update['time_edit']; ?> </span>                       
                     </li>
                     <li class="recent-update__attributes__item">
                         <?= $update['reasons']; ?> 
@@ -212,7 +251,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                         Other Reason
                     </li> -->
                     <li class="recent-update__role">
-                        <span class="role role--bhw"><?= $update['user_role']; ?> </span>
+                        <span class="<?= $class_role; ?>"><?= $update['user_role']; ?> </span>
                         <!-- <span class="recent-update__status--available">Available</span> -->
                     </li>
                 </ul>
