@@ -154,18 +154,6 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <!-- end of TABS event initialization -->
         <hr>
 
-            <form action="" class="backup__form">
-                <input type="month" 
-                        name="backup__month" 
-                        id=""
-                        placeholder="Month:">
-                <input type="number" 
-                        name="backup__year" 
-                        id=""
-                        placeholder="Year:">
-
-            </form>
-
             <!-- DEWORMING SECTION -->
             <div class="backup__table" id="Deworming">
                 <ul class="backup__table__row backup__attributes" role="list" >
