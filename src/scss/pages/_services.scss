@@ -49,67 +49,66 @@
         }
     }
 
-}
-
-.patient {
-    hr {
-        width: 100%;
-        height: .2rem;
-        background-color: $white-3;
-        border: none;
-        z-index: -1;
-
-        margin: 0;
-    }
-}
-
-.reports {
-    margin-block: 5rem;
-
-    &__input {
-        display: flex;
-        justify-content: end;
-
-        label {
-            font-size: .85rem;
-        }
-
-        & > * {
-            margin-right: 1rem;
+    .patient {
+        hr {
+            width: 100%;
+            height: .2rem;
+            background-color: $white-3;
+            border: none;
+            z-index: -1;
+    
+            margin: 0;
         }
     }
-
-    select {
-        display: block;
-    }
-
-    &__card {
-        @include card(2rem);
-        margin-block: .8rem;
-
-        &__item {
+    
+    .reports {
+        margin-block: 5rem;
+    
+        &__input {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            & > * {
-                vertical-align: middle;
+            justify-content: end;
+    
+            label {
+                font-size: .85rem;
             }
-
+    
+            & > * {
+                margin-right: 1rem;
+            }
         }
-
-        &__title {
-            font-weight: 700;
-
+    
+        select {
+            display: block;
         }
-
-        &__total {
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        btn {
-            width: 9.5rem;
+    
+        &__card {
+            @include card(2rem);
+            margin-block: .8rem;
+    
+            &__item {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+    
+                & > * {
+                    vertical-align: middle;
+                }
+    
+            }
+    
+            &__title {
+                font-weight: 700;
+    
+            }
+    
+            &__total {
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+    
+            btn {
+                width: 9.5rem;
+            }
         }
     }
 }
