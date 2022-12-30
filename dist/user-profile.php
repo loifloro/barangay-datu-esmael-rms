@@ -276,27 +276,30 @@ hide_content();
             <p class="user-profile__desc">
                 You can restore backup records here        
             </p>
-
+             
+            <form action="includes/functions.php" method="POST">
             <div class="user-profile__backup__form">
                     <label for="patient-password">
                         <p class="backup-title">Restore</p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam fugit, aperiam culpa error repellat excepturi. Molestias ex iste iure facilis eveniet. Totam doloribus quo consectetur esse reprehenderit voluptate ea! Laudantium?
+                        Upload only sql file that you backup and then click the "Restore" button to restore all the record in the database system.
                     </label>
-                    <button type="submit" class="btn-green btn-change btn-restore">
+                    <button type="submit" class="btn-green btn-change btn-restore" name="restore_database" onclick="return  confirm('Do you want to restore the backup record?')">
                         <p>Restore</p>
                     </button>
+                    <button class="btn-green btn-change"> <!--upload-->
+                    <input type="file" name="filename">
+                    </button>
             </div>
-
             <div class="user-profile__backup__form">
                     <label for="patient-password">
                         <p class="backup-title">Backup</p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam fugit, aperiam culpa error repellat excepturi. Molestias ex iste iure facilis eveniet. Totam doloribus quo consectetur esse reprehenderit voluptate ea! Laudantium?
+                        Click the button to download in you're local file the backup of the database system.
                     </label>
-                    <button type="submit" class="btn-green btn-change btn-restore">
+                    <button type="submit" class="btn-green btn-change btn-restore" name="backup_database"  onclick="return  confirm('Do you want to create a backup?')">
                         <p>Backup</p>
                     </button>
             </div>
-
+            </form>
         </section>
 
         <hr>

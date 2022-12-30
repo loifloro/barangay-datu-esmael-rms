@@ -180,7 +180,7 @@ hide_content();
                     <p class="services-card-visits">
                         <!-- COUNT CONSULTATION -->
                         <?php
-                                $query = "SELECT count(*) FROM consultation";
+                                $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
                                 $result = mysqli_query($conn, $query);
                                 while($row = mysqli_fetch_array($result)) {  
                         ?>
@@ -198,7 +198,7 @@ hide_content();
                     <p class="services-card-visits">
                         <!-- COUNT EARLY CHILDHOOD -->
                         <?php
-                                $query = "SELECT count(*) FROM early_childhood";
+                                $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
                                 $result = mysqli_query($conn, $query);
                                 while($row = mysqli_fetch_array($result)) {  
                         ?>
@@ -216,7 +216,7 @@ hide_content();
                     <p class="services-card-visits">
                         <!-- COUNT PRENATAL -->
                         <?php
-                                $query = "SELECT count(*) FROM prenatal";
+                                $query = "SELECT count(*) FROM prenatal WHERE archive_label=''";
                                 $result = mysqli_query($conn, $query);
                                 while($row = mysqli_fetch_array($result)) {  
                         ?>
@@ -234,7 +234,7 @@ hide_content();
                     <p class="services-card-visits">
                         <!-- COUNT DEWORMING -->
                         <?php
-                                $query = "SELECT count(*) FROM deworming";
+                                $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
                                 $result = mysqli_query($conn, $query);
                                 while($row = mysqli_fetch_array($result)) {  
                         ?>
@@ -252,7 +252,7 @@ hide_content();
                     <p class="services__card-visits">
                         <!-- COUNT DEWORMING -->
                         <?php
-                                $query = "SELECT count(*) FROM search_destroy";
+                                $query = "SELECT count(*) FROM search_destroy WHERE archive_label=''";
                                 $result = mysqli_query($conn, $query);
                                 while($row = mysqli_fetch_array($result)) {  
                         ?>

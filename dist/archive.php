@@ -165,7 +165,9 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                         placeholder="Year:">
 
             </form>
-            <div class="backup__table">
+
+            <!-- DEWORMING SECTION -->
+            <div class="backup__table" id="Deworming">
                 <ul class="backup__table__row backup__attributes" role="list" >
                     <li class="backup__attributes__item">
                         Name
@@ -190,28 +192,511 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </ul>
 
                 <!-- To be put in the loop -->
+                <?php
+                    $query = "SELECT * FROM deworming WHERE archive_label = 'archived'";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $archive)
+                    {
+                ?>
                 <ul class="backup__table__row backup__info" role="list">
                     <li class="backup__name p-bold">
-                        Name
+                        <?= $archive['firstname']; ?>
                     </li>
                     <li class="backup__num">
-                        Contact Number
+                        <?= $archive['phone_num']; ?>
                     </li>
                     <li class="backup__sex">
-                        Sex
+                        <?= $archive['sex']; ?>
                     </li>
                     <li class="backup__date--availed">
-                        00/00/00
+                        <?= $archive['deworming_date']; ?>
                     </li>
                     <li class="backup__status">
-                        <span class="backup__status--deleted">Deleted</span>
+                        <span class="backup__status--deleted">Archived</span>
                         <!-- <span class="backup__status--available">Available</span> -->
                     </li>
+                    <form action="includes/delete_query.php" method="POST">
                     <li class="backup__option">
+                        <input type="hidden" name="deworming_id" value="<?= $archive['deworming_id']; ?>">
+                        <input type="hidden" name="deworming_fname" value="<?= $archive['firstname']; ?>">
+                        <input type="hidden" name="deworming_lname" value="<?= $archive['lastname']; ?>">
+                        <!-- RESTORE BUTTON -->
+                        <button type="submit" name="restore_deworming">
                         <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
-                        <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate"><defs><clipPath id="a"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#a)"><path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z"/></g></svg></a>
+                        </button>
+                        <!-- DELETE BUTTON -->
+                        <button type="submit" name="delete_deworming">
+                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                        </button>
+                    </li>
+                    <!-- Query to get the user session name -->
+                <?php 
+                            $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                            $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($query_run) > 0){
+                                foreach($query_run as $user){
+                        ?>
+                        <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                        <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                        <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+                        <?php
+                            }
+                            }
+                        ?> 
+                    <!-- END OF QUERY -->
+                    </form>
+                </ul>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+
+            <!-- CONSULTATION SECTION -->
+            <div class="backup__table" id="Consultation">
+                <ul class="backup__table__row backup__attributes" role="list" >
+                    <li class="backup__attributes__item">
+                        Name
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Contact No.
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Sex
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Date Availed
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Status
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                     </li>
                 </ul>
+
+                <!-- To be put in the loop -->
+                <?php
+                    $query = "SELECT * FROM consultation WHERE archive_label = 'archived'";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $archive)
+                    {
+                ?>
+                <ul class="backup__table__row backup__info" role="list">
+                    <li class="backup__name p-bold">
+                        <?= $archive['firstname']; ?>
+                    </li>
+                    <li class="backup__num">
+                        <?= $archive['phone_number']; ?>
+                    </li>
+                    <li class="backup__sex">
+                        <?= $archive['sex']; ?>
+                    </li>
+                    <li class="backup__date--availed">
+                        <?= $archive['consultation_date']; ?>
+                    </li>
+
+                    <li class="backup__status">
+                        <span class="backup__status--deleted">Archived</span>
+                        <!-- <span class="backup__status--available">Available</span> -->
+                    </li>
+                    <form action="includes/delete_query.php" method="POST">
+                    <li class="backup__option">
+                        <input type="hidden" name="consultation_id" value="<?= $archive['consultation_id']; ?>">
+                        <input type="hidden" name="consultation_fname" value="<?= $archive['firstname']; ?>">
+                        <input type="hidden" name="consultation_lname" value="<?= $archive['lastname']; ?>">
+                        <!-- RESTORE BUTTON -->
+                        <button type="submit" name="restore_consultation">
+                        <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
+                        </button>
+                        <!-- DELETE BUTTON -->
+                        <button type="submit" name="delete_consultation">
+                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                        </button>
+                    </li>
+                    <!-- Query to get the user session name -->
+                    <?php 
+                            $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                            $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($query_run) > 0){
+                                foreach($query_run as $user){
+                        ?>
+                        <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                        <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                        <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+                        <?php
+                            }
+                            }
+                        ?> 
+                    <!-- END OF QUERY -->
+                    </form>
+                </ul>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+            
+            <!-- PRENATAL SECTION -->
+            <div class="backup__table" id="Pre-Natal">
+                <ul class="backup__table__row backup__attributes" role="list" >
+                    <li class="backup__attributes__item">
+                        Name
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Contact No.
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Sex
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Date Availed
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Status
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                </ul>
+
+                <!-- To be put in the loop -->
+                <?php
+                    $query = "SELECT * FROM prenatal WHERE archive_label = 'archived'";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $archive)
+                    {
+                ?>
+                <ul class="backup__table__row backup__info" role="list">
+                    <li class="backup__name p-bold">
+                        <?= $archive['firstname']; ?>
+                    </li>
+                    <li class="backup__num">
+                        <?= $archive['phone_num']; ?>
+                    </li>
+                    <li class="backup__sex">
+                        <?= $archive['sex']; ?>
+                    </li>
+                    <li class="backup__date--availed">
+                        <?= $archive['prenatal_date']; ?>
+                    </li>
+
+                    <li class="backup__status">
+                        <span class="backup__status--deleted">Archived</span>
+                        <!-- <span class="backup__status--available">Available</span> -->
+                    </li>
+                    <form action="includes/delete_query.php" method="POST">
+                    <li class="backup__option">
+                        <input type="hidden" name="prenatal_id" value="<?= $archive['prenatal_id']; ?>">
+                        <input type="hidden" name="prenatal_fname" value="<?= $archive['firstname']; ?>">
+                        <input type="hidden" name="prenatal_lname" value="<?= $archive['lastname']; ?>">
+                        <!-- RESTORE BUTTON -->
+                        <button type="submit" name="restore_prenatal">
+                        <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
+                        </button>
+                        <!-- DELETE BUTTON -->
+                        <button type="submit" name="delete_prenatal">
+                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                        </button>
+                    </li>
+                    <!-- Query to get the user session name -->
+                    <?php 
+                            $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                            $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($query_run) > 0){
+                                foreach($query_run as $user){
+                        ?>
+                        <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                        <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                        <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+                        <?php
+                            }
+                            }
+                        ?> 
+                    <!-- END OF QUERY -->
+                    </form>
+                </ul>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+
+            <!-- POSTNATAL SECTION -->
+            <div class="backup__table" id="Pre-Natal">
+                <ul class="backup__table__row backup__attributes" role="list" >
+                    <li class="backup__attributes__item">
+                        Name
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Contact No.
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Sex
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Date Availed
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Status
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                </ul>
+
+                <!-- To be put in the loop -->
+                <?php
+                    $query = "SELECT * FROM postnatal WHERE archive_label = 'archived'";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $archive)
+                    {
+                ?>
+                <ul class="backup__table__row backup__info" role="list">
+                    <li class="backup__name p-bold">
+                        <?= $archive['firstname']; ?>
+                    </li>
+                    <li class="backup__num">
+                        <?= $archive['phone_num']; ?>
+                    </li>
+                    <li class="backup__sex">
+                        <?= $archive['sex']; ?>
+                    </li>
+                    <li class="backup__date--availed">
+                        <?= $archive['postnatal_date']; ?>
+                    </li>
+
+                    <li class="backup__status">
+                        <span class="backup__status--deleted">Archived</span>
+                        <!-- <span class="backup__status--available">Available</span> -->
+                    </li>
+                    <form action="includes/delete_query.php" method="POST">
+                    <li class="backup__option">
+                        <input type="hidden" name="postnatal_id" value="<?= $archive['postnatal_id']; ?>">
+                        <input type="hidden" name="postnatal_fname" value="<?= $archive['firstname']; ?>">
+                        <input type="hidden" name="postnatal_lname" value="<?= $archive['lastname']; ?>">
+                        <!-- RESTORE BUTTON -->
+                        <button type="submit" name="restore_postnatal">
+                        <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
+                        </button>
+                        <!-- DELETE BUTTON -->
+                        <button type="submit" name="delete_postnatal">
+                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                        </button>
+                    </li>
+                    <!-- Query to get the user session name -->
+                    <?php 
+                            $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                            $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($query_run) > 0){
+                                foreach($query_run as $user){
+                        ?>
+                        <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                        <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                        <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+                        <?php
+                            }
+                            }
+                        ?> 
+                    <!-- END OF QUERY -->
+                    </form>
+                </ul>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+
+            <!-- SEARCH AND DESTROY SECTION -->
+            <div class="backup__table" id="Pre-Natal">
+                <ul class="backup__table__row backup__attributes" role="list" >
+                    <li class="backup__attributes__item">
+                        Name
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Contact No.
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Sex
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Date Availed
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Status
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                </ul>
+
+                <!-- To be put in the loop -->
+                <?php
+                    $query = "SELECT * FROM search_destroy WHERE archive_label = 'archived'";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $archive)
+                    {
+                ?>
+                <ul class="backup__table__row backup__info" role="list">
+                    <li class="backup__name p-bold">
+                        <?= $archive['owner_fname']; ?>
+                    </li>
+                    <li class="backup__num">
+                        <?= $archive['phone_num']; ?>
+                    </li>
+                    <li class="backup__sex">
+                        <?= $archive['sex']; ?>
+                    </li>
+                    <li class="backup__date--availed">
+                        <?= $archive['search_destroy_date']; ?>
+                    </li>
+
+                    <li class="backup__status">
+                        <span class="backup__status--deleted">Archived</span>
+                        <!-- <span class="backup__status--available">Available</span> -->
+                    </li>
+                    <form action="includes/delete_query.php" method="POST">
+                    <li class="backup__option">
+                        <input type="hidden" name="search_destroy_id" value="<?= $archive['search_destroy_id']; ?>">
+                        <input type="hidden" name="search_destroy_fname" value="<?= $archive['owner_fname']; ?>">
+                        <input type="hidden" name="search_destroy_lname" value="<?= $archive['owner_lname']; ?>">
+                        <!-- RESTORE BUTTON -->
+                        <button type="submit" name="restore_search_destroy">
+                        <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
+                        </button>
+                        <!-- DELETE BUTTON -->
+                        <button type="submit" name="delete_search_destroy">
+                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                        </button>
+                    </li>
+                    </form>
+                     <!-- Query to get the user session name -->
+                     <?php 
+                            $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                            $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($query_run) > 0){
+                                foreach($query_run as $user){
+                        ?>
+                        <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                        <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                        <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+                        <?php
+                            }
+                            }
+                        ?> 
+                    <!-- END OF QUERY -->
+                </ul>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+
+            <!-- EARLY CHILDHOOD SECTION -->
+            <div class="backup__table" id="Pre-Natal">
+                <ul class="backup__table__row backup__attributes" role="list" >
+                    <li class="backup__attributes__item">
+                        Name
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Contact No.
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Sex
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Date Availed
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Status
+                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </li>
+                </ul>
+
+                <!-- To be put in the loop -->
+                <?php
+                    $query = "SELECT * FROM early_childhood WHERE archive_label = 'archived'";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) > 0)
+                    {
+                        foreach($query_run as $archive)
+                    {
+                ?>
+                <ul class="backup__table__row backup__info" role="list">
+                    <li class="backup__name p-bold">
+                        <?= $archive['child_fname']; ?>
+                    </li>
+                    <li class="backup__num">
+                        <?= $archive['phone_num']; ?>
+                    </li>
+                    <li class="backup__sex">
+                        <?= $archive['sex']; ?>
+                    </li>
+                    <li class="backup__date--availed">
+                        <?= $archive['early_childhood_date']; ?>
+                    </li>
+
+                    <li class="backup__status">
+                        <span class="backup__status--deleted">Archived</span>
+                        <!-- <span class="backup__status--available">Available</span> -->
+                    </li>
+                    <form action="includes/delete_query.php" method="POST">
+                    <li class="backup__option">
+                        <input type="hidden" name="early_childhood_id" value="<?= $archive['early_childhood_id']; ?>">
+                        <input type="hidden" name="early_childhood_fname" value="<?= $archive['child_fname']; ?>">
+                        <input type="hidden" name="early_childhood_lname" value="<?= $archive['child_lname']; ?>">
+                        <!-- RESTORE BUTTON -->
+                        <button type="submit" name="restore_early_childhood">
+                        <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
+                        </button>
+                         <!-- DELETE BUTTON -->
+                         <button type="submit" name="delete_early_childhood">
+                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                         </button>
+                    </li>
+                    <!-- Query to get the user session name -->
+                    <?php 
+                            $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
+                            $query_run = mysqli_query($conn, $query);
+                            if(mysqli_num_rows($query_run) > 0){
+                                foreach($query_run as $user){
+                        ?>
+                        <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
+                        <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
+                        <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+                        <?php
+                            }
+                            }
+                        ?> 
+                    <!-- END OF QUERY -->
+                    </form>
+                </ul>
+                <?php
+                    }
+                }
+                ?>
             </div>
         </section>
     </main>

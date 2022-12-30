@@ -131,53 +131,127 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <!-- Contents -->
     <main class="recent-update">
             <div class="recent-update__table">
+            <form action="" method="POST">
                 <ul class="recent-update__table__row recent-update__attributes" role="list" >
                     <li class="recent-update__attributes__item">
                         Details
-                    <button type="submit" name="sort_name" value="1">
+                    <button type="submit" name="sort_details" value="1">
                         <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                     </button>
                     <li class="recent-update__attributes__item">
                         Reason
-                    <button type="submit" name="sort_name" value="1">
+                    <button type="submit" name="sort_reason" value="2">
                         <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                     </button>
                     </li>
+                    <!-- <li class="recent-update__attributes__item">
+                        Other Reason
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
+                    </button>
+                    </li> -->
                     <li class="recent-update__attributes__item">
                         Role
-                    <button type="submit" name="sort_name" value="1">
+                    <button type="submit" name="sort_role" value="3">
                         <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
                     </button>
                     </li>
                 </ul>
+            </form>
+            <!-- End of Form Action -->
+                <!-- Start Query for sort-->
+                <?php
+                    $query = "SELECT * FROM recent_activity";
+                    $query_run = mysqli_query($conn, $query);
+                    if(mysqli_num_rows($query_run) > 0)
+                    {   
+                        if (isset($_POST['sort_details'])) {
+                            $sort_id = $_POST['sort_details'];
+                            if($sort_id == 1){
+                                $query = "SELECT * FROM recent_activity ORDER BY user_fname";
+                                $query_run = mysqli_query($conn, $query);
+                                
+                            }
+                        } 
+                        if (isset($_POST['sort_reason'])) {
+                            $sort_id = $_POST['sort_reason'];
+                            if($sort_id == 2){
+                                $query = "SELECT * FROM recent_activity ORDER BY reasons";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                        } 
+                        if (isset($_POST['sort_role'])) {
+                            $sort_id = $_POST['sort_role'];
+                            if($sort_id == 3){
+                                $query = "SELECT * FROM recent_activity ORDER BY user_role";
+                                $query_run = mysqli_query($conn, $query);
+                            }
+                        } 
 
+                        foreach($query_run as $update)
+                    {
+                ?>
                 <!-- To be put in the loop -->
                 <ul class="recent-update__table__row recent-update__info" role="list">
+                    <?php
+                    // QUERY TO CHANGE CLASS COLOR BASED ON THE CHANGES LABEL
+                        if($update['changes_label'] == 'added'){
+                            $class_name='update-activity update-activity--archived';
+                        }
+                        if($update['changes_label'] == 'edited'){
+                            $class_name='update-activity update-activity--edited';
+                        }
+                        if($update['changes_label'] == 'deleted'){
+                            $class_name='update-activity update-activity--delete';
+                        }
+                        // CONDITION FOR RECORD NAME
+                        if($update['record_name'] == 'Deworming'){
+                            $class_record_name='service service--deworming';
+                        }
+                        if($update['record_name'] == 'Consultation'){
+                            $class_record_name='service service--childhood'; //no designated color for consultation
+                        }
+                        if($update['record_name'] == 'Prenatal'){
+                            $class_record_name='service service--prenatal';
+                        }
+                        if($update['record_name'] == 'Postnatal'){
+                            $class_record_name='service service--postnatal';
+                        }
+                        if($update['record_name'] == 'Search/Destroy'){
+                            $class_record_name='service service--search';
+                        }
+                        if($update['record_name'] == 'Childhood Care'){
+                            $class_record_name='service service--childhood';
+                        }
+                        // CONDITION FOR ROLE NAME
+                        if($update['user_role'] == 'Barangay Health Worker'){
+                            $class_role='role role--bhw';
+                            $display_role ='BHW';
+                        }
+                        if($update['user_role'] == 'City Health Nurse'){
+                            $class_role='role role--chn';
+                            $display_role ='CHN';
+                        }
+                    // END OF QUERY
+                    ?>
                     <li class="recent-update__details">
-                        <span class="name"> Name </span> <span class="update-activity update-activity--edited"> edited </span> <span class="edit-patient"> Patient Name's </span> <span class="service service--deworming"> deworming </span> record in <span class="edit-time"> edit date edit time </span>                       
+                        <span class="name"> <?= $update['user_fname'].' '.$update['user_lname']; ?> </span> <span class="<?= $class_name; ?>"> <?= $update['changes_label']; ?> </span> <span class="edit-patient"> <?= $update['patient_fname'].' '.$update['patient_lname']; ?> </span> <span class="<?= $class_record_name; ?>"> <?= $update['record_name']; ?> </span> record in <span class="edit-time"> <?= $update['date_edit'].' '.$update['time_edit']; ?> </span>                       
                     </li>
                     <li class="recent-update__attributes__item">
-                        Reason
+                        <?= $update['reasons']; ?> 
                     </li>
+                    <!-- <li class="recent-update__attributes__item">
+                        Other Reason
+                    </li> -->
                     <li class="recent-update__role">
-                        <span class="role role--bhw">BHW</span>
+                        <span class="<?= $class_role; ?>"><?= $display_role; ?> </span>
                         <!-- <span class="recent-update__status--available">Available</span> -->
                     </li>
                 </ul>
-
-                <!-- To be put in the loop -->
-                <ul class="recent-update__table__row recent-update__info" role="list">
-                    <li class="recent-update__details">
-                        <span class="name"> Name </span> <span class="update-activity update-activity--edited"> edited </span> <span class="edit-patient"> Patient Name's </span> <span class="service service--deworming"> deworming </span> record in <span class="edit-time"> edit date edit time </span>                       
-                    </li>
-                    <li class="recent-update__attributes__item">
-                        Reason
-                    </li>
-                    <li class="recent-update__role">
-                        <span class="role role--bhw">BHW</span>
-                        <!-- <span class="recent-update__status--available">Available</span> -->
-                    </li>
-                </ul>
+                <?php
+                    }
+                    }
+                ?>
             </div>
         </section>
     </main>
