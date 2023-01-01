@@ -6,8 +6,21 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     exit();
 }
 //FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
-$phone_num = $_SESSION['phone_num'];
-    $query = "SELECT * FROM deworming WHERE phone_num='$phone_num'";
+    $phone_num = $_SESSION['phone_num'];
+    
+    // PATIENT ACCESS
+    $query = "SELECT label, phone_num FROM deworming WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_number FROM consultation WHERE phone_number='$phone_num'
+    UNION
+    SELECT label, phone_num FROM prenatal WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_num FROM postnatal WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_num FROM search_destroy WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_num FROM early_childhood WHERE phone_num='$phone_num'
+    ";
     $query_run = mysqli_query($conn, $query);
     if(mysqli_num_rows($query_run) > 0)
     {
@@ -15,7 +28,32 @@ $phone_num = $_SESSION['phone_num'];
     {
         if($patient['label'] == 'Deworming'){
             include_once "includes/functions.php";
-            hide_patient();
+            hide_patient_deworming();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Consultation'){
+            include_once "includes/functions.php";
+            hide_patient_consultation();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Prenatal'){
+            include_once "includes/functions.php";
+            hide_patient_prenatal();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Postnatal'){
+            include_once "includes/functions.php";
+            hide_patient_postnatal();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Search and Destroy'){
+            include_once "includes/functions.php";
+            hide_patient_search_destroy();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Early Childhood'){
+            include_once "includes/functions.php";
+            hide_patient_childhood();
             $input_search = $patient['phone_num'];
         }
     }

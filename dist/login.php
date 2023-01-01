@@ -23,7 +23,7 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
         exit();
     } 
     else {
-        if(($roles == 'City Health Nurse')){
+        if($roles == 'Health Worker'){
             $sql= "SELECT * FROM account_information WHERE phone_num='$username' AND password='$password'
             ";
             $result= mysqli_query($conn, $sql);
@@ -43,33 +43,34 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
             }
         }
 
-        if(($roles == 'Barangay Health Worker')){
-            $sql= "SELECT * FROM account_information WHERE phone_num='$username' AND password='$password'
+        if($roles == 'Patient'){
+            $sql= "SELECT firstname, phone_num, deworming_id, label FROM deworming 
+            WHERE phone_num='$username' AND firstname='$password'
+            UNION
+            SELECT firstname, phone_number, consultation_id, label FROM consultation 
+            WHERE phone_number='$username' AND firstname='$password'
+            UNION
+            SELECT firstname, phone_num, prenatal_id, label FROM prenatal 
+            WHERE phone_num='$username' AND firstname='$password'
+            UNION
+            SELECT firstname, phone_num, postnatal_id, label FROM postnatal 
+            WHERE phone_num='$username' AND firstname='$password'
+            UNION
+            SELECT owner_fname, phone_num, search_destroy_id, label FROM search_destroy 
+            WHERE phone_num='$username' AND owner_fname='$password'
+            UNION
+            SELECT child_fname, phone_num, early_childhood_id, label FROM early_childhood 
+            WHERE phone_num='$username' AND child_fname='$password'
             ";
-            $result= mysqli_query($conn, $sql);
-            if (mysqli_num_rows($result) == 1) {
-                $row = mysqli_fetch_assoc($result);
-                if ($row['password'] == $password && $row['phone_num'] == $username){
-                    $_SESSION['phone_num'] = $row['phone_num'];
-                    $_SESSION['firstname'] = $row['firstname'];
-                    $_SESSION['account_id'] = $row['account_id'];
-                    $_SESSION['position'] = $row['position'];
-                    header("Location: dashboard.php?success"); /*Redirect to this page if successful*/
-                    exit();
-                } 
-                else {
-                    header("Location: index.php?error=Incorrect Username or Password"); /*Error Alert*/
-                    exit();
-                }
-            }
-        }
 
-        if($roles == 'Deworming'){
-            $sql= "SELECT * FROM deworming WHERE phone_num='$username' AND firstname='$password'
-            ";
             $result= mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
+
+                // if($row['phone_num']){
+
+                // }
+
                 if ($row['firstname'] == $password && $row['phone_num'] == $username){
                     $_SESSION['phone_num'] = $row['phone_num'];
                     $_SESSION['firstname'] = $row['firstname'];
