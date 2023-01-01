@@ -58,7 +58,12 @@
                     include_once "includes/functions.php";
                     forgot_password();
                 ?>
-                
+                    <select name="roles" required>
+                        <option value="Barangay Health Worker">Barangay Health Worker</option>
+                        <option value="City Health Nurse">City Health Nurse</option>
+                        <option value="Patient">Patient</option>
+                    </select>
+                <br><br>
                 <label for="contact-num">Contact Number:</label>
                 <input id='contact-num' class="login__contact" type="number" minlength="11" name="username">
                 <label for="password">Password:</label>
@@ -74,7 +79,7 @@
                         </button>
                 </div>
 
-                <button class="login__btn btn-green" type="submit" id="btn">
+                <button class="login__btn btn-green" type="submit" id="btn" name="sign-in">
                     Sign in
                 </button>
                 <a href="#">

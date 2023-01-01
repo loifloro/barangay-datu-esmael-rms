@@ -6,8 +6,37 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     exit();
 }
 //FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
-include_once "includes/functions.php";
-hide_content();
+$phone_num = $_SESSION['phone_num'];
+    $query = "SELECT * FROM deworming WHERE phone_num='$phone_num'";
+    $query_run = mysqli_query($conn, $query);
+    if(mysqli_num_rows($query_run) > 0)
+    {
+        foreach($query_run as $patient)
+    {
+        if($patient['label'] == 'Deworming'){
+            include_once "includes/functions.php";
+            hide_patient();
+            $input_search = $patient['phone_num'];
+        }
+    }
+    }
+    
+    $query2 = "SELECT * FROM account_information WHERE phone_num='$phone_num'";
+    $query_run2 = mysqli_query($conn, $query2);
+    if(mysqli_num_rows($query_run2) > 0)
+    {
+        foreach($query_run2 as $patient)
+    {
+        if($patient['position'] == 'Barangay Health Worker'){
+            include_once "includes/functions.php";
+            hide_content();
+        }
+        if($patient['position'] == 'City Health Nurse'){
+            include_once "includes/functions.php";
+            hide_content();
+        }
+    }
+    }
 //END OF FUNCTION
 ?>
 
@@ -20,6 +49,11 @@ hide_content();
     <link rel="stylesheet" href="./css/main.css">
     <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
+    <!-- jQuery-Modal -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-modal/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/jquery-modal/jquery.modal.min.css">
+    
     <!-- START QUERY FOR DISPLAYING TITLE TAB -->
     <?php
             if(isset($_GET['label'])){
@@ -143,7 +177,7 @@ hide_content();
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="dashboard_sidebar">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -153,7 +187,7 @@ hide_content();
                     <p class="sidebar__caption">Dashboard</p>
                 </a>
             </li>
-            <li class="sidebar__item  sidebar__item--active">
+            <li class="sidebar__item  sidebar__item--active" id="patient_sidebar">
                 <a href="patients.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -174,8 +208,8 @@ hide_content();
                     <p class="sidebar__caption">Archive</p>
                 </a>
             </li>
-            <hr class="sidebar__line" />
-            <li class="sidebar__item">
+            <hr class="sidebar__line" id="line_sidebar" />
+            <li class="sidebar__item" id="services_sidebar">
                 <a href="services-consultation.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -195,7 +229,7 @@ hide_content();
                     <p class="sidebar__caption">Masterlist</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--margin-top"> <!--href link added-->
+            <li class="sidebar__item sidebar__item--margin-top" id="setting_sidebar"> <!--href link added-->
                 <a href="user-profile.php" class="sidebar__link">
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -205,7 +239,7 @@ hide_content();
                     <p class="sidebar__caption">Settings</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="feedback_sidebar">
                 <a href="" class="sidebar__link">
                     <svg alt="Feedback" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

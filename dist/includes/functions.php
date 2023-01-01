@@ -8,22 +8,79 @@
             foreach($query_run as $user){
                 $position = $user['position'];
             }
-        if($position == 'Barangay Health Worker'){
+            if($position == 'Barangay Health Worker'){
+        ?>
+                    <style type="text/css">
+                    .bhw-account{
+                        display:none;}
+                    .user-profile__backup{
+                        display:none;}
+                    .archive-icon{
+                        display:none;}
+                    #masterlist_sidebar{
+                        display:none;}
+                    #backup_sidebar{
+                        display:none;}
+                    </style>
+        <?php
+                }
+            if($position == 'City Health Nurse'){
+                ?>
+                    <style type="text/css">
+                    .archive-icon{
+                        display:none;}
+                    </style>
+                <?php
+            }
+        }
+    }
+    //HIDE CONTENT FOR PATIENT ACCESS
+    function hide_patient(){
+        include 'includes/connection.php';
+        $query = "SELECT * FROM deworming WHERE deworming_id = '".$_SESSION['deworming_id']."'";
+        $query_run = mysqli_query($conn, $query);
+        if(mysqli_num_rows($query_run) > 0){
+            foreach($query_run as $user){
+                $position = $user['label'];
+            }
+        if($position == 'Deworming'){
     ?>
             <style type="text/css">
             .bhw-account{
                 display:none;}
             .user-profile__backup{
                 display:none;}
+            .navigation__search{
+                display:none;}
+            .back__btn{
+                display:none;}
+            .edit-icon{
+                display:none;
+            }
+            #nav-btn{
+                display:none;}
             #masterlist_sidebar{
                 display:none;}
             #backup_sidebar{
+                display:none;}
+            #dashboard_sidebar{
+                display:none;}
+            #patient_sidebar{
+                display:none;}
+            #line_sidebar{
+                display:none;}
+            #services_sidebar{
+                display:none;}
+            #setting_sidebar{
+                display:none;}
+            #feedback_sidebar{
                 display:none;}
             </style>
     <?php
             }
         }
     }
+
     // HIDE CONTENT FOR ADD AND EDIT FORMS
     function hide_content_forms(){
         include '../includes/connection.php';
