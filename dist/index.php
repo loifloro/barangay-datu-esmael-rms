@@ -63,8 +63,8 @@
                         <option value="Patient">Patient</option>
                     </select>
                 <br><br>
-                <label for="contact-num">Contact Number:</label>
-                <input id='contact-num' class="login__contact" type="number" minlength="11" name="username">
+                <label for="contact-num">Email or Contact Number:</label>
+                <input id='contact-num' class="login__contact" type="text" name="username">
                 <label for="password">Password:</label>
                 <div class="password">
                     <input type="password"  class="password__bar__input" id='password' min="8" name="password"/><!--  

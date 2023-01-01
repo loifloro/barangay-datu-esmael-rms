@@ -24,12 +24,13 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
     } 
     else {
         if($roles == 'Health Worker'){
-            $sql= "SELECT * FROM account_information WHERE phone_num='$username' AND password='$password'
+            $sql= "SELECT * FROM account_information WHERE user_email='$username' AND password='$password'
             ";
             $result= mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
-                if ($row['password'] == $password && $row['phone_num'] == $username){
+                if ($row['password'] == $password && $row['user_email'] == $username){
+                    $_SESSION['user_email'] = $row['user_email'];
                     $_SESSION['phone_num'] = $row['phone_num'];
                     $_SESSION['firstname'] = $row['firstname'];
                     $_SESSION['account_id'] = $row['account_id'];
