@@ -20,7 +20,7 @@
         </thead>
         <?php 
             include 'includes/connection.php';
-            $query = "SELECT * FROM deworming ORDER BY deworming_date";
+            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY deworming_date";
             $query_run = mysqli_query($conn, $query);
             if(mysqli_num_rows($query_run) > 0)
             {
