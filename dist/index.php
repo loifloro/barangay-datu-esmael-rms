@@ -59,8 +59,7 @@
                     forgot_password();
                 ?>
                     <select name="roles" required>
-                        <option value="Barangay Health Worker">Barangay Health Worker</option>
-                        <option value="City Health Nurse">City Health Nurse</option>
+                        <option value="Health Worker">Health Worker</option>
                         <option value="Patient">Patient</option>
                     </select>
                 <br><br>
