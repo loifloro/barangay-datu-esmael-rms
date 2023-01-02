@@ -314,7 +314,7 @@ fileInput.addEventListener( "change", function( event ) {
 the_return.innerHTML = this.value;  
 });  
 
-function confirmDeleteUser(position, accoundId) {
+function confirmDeleteUser(position, accountId) {
     Swal.fire({
     icon: 'question',
     title: 'Confirm delete user',
@@ -323,9 +323,9 @@ function confirmDeleteUser(position, accoundId) {
     }).then((result) => {
         if (result.isConfirmed) {
             window.location.href = 
-                '/barangay-datu-esmael-rms/dist/includes/delete_query.php?' + 'delete_bhw&' +
-                service + 
-                '&id=' + id
+                '/barangay-datu-esmael-rms/dist/includes/delete_query.php?' + 'delete_bhw&' + 
+                '&position=' + position +
+                '&id=' + accountId
         } else {
             return Swal.close()
         }
