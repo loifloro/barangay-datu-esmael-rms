@@ -153,11 +153,11 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
                 <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Last Name</label>
+                    <label for="deworming-lname">Last Name *</label>
                     <input type="text" name="deworming-lname" id="deworming-lname" required>
                 </div>
                 <div class="add-deworming__form-item">
-                    <label for="deworming-fname">First Name</label>
+                    <label for="deworming-fname">First Name *</label>
                     <input type="text" name="deworming-fname" id="deworming-fname" required>
                 </div>
                 <div class="add-deworming__form-item">
@@ -165,7 +165,7 @@ hide_content_forms();
                     <input type="text" name="deworming-mname" id="deworming-mname">
                 </div>
                 <div class="add-deworming__form-item">
-                    <label for="deworming-age">Age</label>
+                    <label for="deworming-age">Age *</label>
                     <input type="number" name="deworming-age" id="deworming-age" maxlength="2" min="1" required>
                 </div>
                 <div class="add-deworming__form-item"> <!--added input box-->
@@ -173,7 +173,7 @@ hide_content_forms();
                     <input type="number" name="deworming-phone_num" id="deworming-age" maxlength="11" min="1">
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
-                    <label for="deworming-sex">Gender</label>
+                    <label for="deworming-sex">Gender *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
                             <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
@@ -186,11 +186,11 @@ hide_content_forms();
                     </div>
                 </div>
                 <div class="add-deworming__form-item">
-                    <label for="deworming-birthday">Birthday</label>
+                    <label for="deworming-birthday">Birthday *</label>
                     <input type="date" name="deworming-birthday" id="deworming-birthday" required>
                 </div>
                 <div class="add-deworming__form-item">
-                    <label for="deworming-street">Street Address</label>
+                    <label for="deworming-street">Street Address *</label>
                     <input type="text" name="deworming-street" id="deworming-street" required>
                 </div>
                 <div class="add-deworming__form-item">
