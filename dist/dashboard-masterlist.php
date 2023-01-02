@@ -143,7 +143,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             
             <!-- Cards -->
             <section class="services__card-masterlist">
-                <div class="services__card services__card--childhood-male">
+                <div class="services__card services__card--childhood-male" onclick="window.location.href = './masterlist/maternal-care.php'">
                     <p class="services__card-title">
                         Childhood Care (Male)
                     </p>
@@ -152,7 +152,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                         last week
                     </p>
                 </div>
-                <div class="services__card services__card--childhood-female">
+                <div class="services__card services__card--childhood-female" onclick="window.location.href = './masterlist/childhood-care-female.php'">
                     <p class="services__card-title">
                         Childhood Care (Female)
                     </p>
@@ -161,7 +161,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                         last week
                     </p>
                 </div>
-                <div class="services__card services__card--maternal">
+                <div class="services__card services__card--maternal" onclick="window.location.href = './masterlist/childhood-care-male.php'">
                     <p class="services__card-title">
                         Maternal Care
                     </p>
