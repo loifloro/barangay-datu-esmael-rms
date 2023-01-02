@@ -264,7 +264,7 @@ hide_content_forms();
                     <input type="text" name="prenatal-p" id="prenatal-p" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-lmp">LMP *</label>
+                    <label for="prenatal-lmp">LMP</label>
                     <input type="date" name="prenatal-lmp" id="prenatal-lmp">
                 </div>
                 <div class="add-prenatal__form-item">

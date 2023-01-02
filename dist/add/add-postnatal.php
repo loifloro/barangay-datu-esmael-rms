@@ -264,7 +264,7 @@ hide_content_forms();
                     <input type="text" name="postnatal-p" id="postnatal-p" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-lmp">LMP *</label>
+                    <label for="postnatal-lmp">LMP</label>
                     <input type="date" name="postnatal-lmp" id="postnatal-lmp">
                 </div>
                 <div class="add-postnatal__form-item">
