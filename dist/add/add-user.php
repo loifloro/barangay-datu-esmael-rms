@@ -144,7 +144,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             </p>
 
             <form action="../includes/add_query.php" method="POST"
-                  class="add-user__form">
+                  class="add-user__form" onsubmit="addUser(this)">
 
                 <div class="add-user__form-item">
                     <label for="bhw-contact">Contact Number</label>
@@ -174,7 +174,8 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 <hr>
 
                 <div class="add-user__form-btn">
-                    <button type="submit" class="btn-green btn-save" name="save_bhw" onclick="return  confirm('Do you want to add this account?')">
+                    <!-- <button type="submit" class="btn-green btn-save" name="save_bhw" onclick="return  confirm('Do you want to add this account?')"> -->
+                    <button type="submit" class="btn-green btn-save" name="save_bhw">
                         Save
                     </button>
                     <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
