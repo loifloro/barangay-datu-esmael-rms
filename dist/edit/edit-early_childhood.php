@@ -168,15 +168,15 @@ hide_content_forms();
                     <input type="text" name="early_childhood-clinic" id="early_childhood-clinic" value="<?= $patient['clinic']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-street">Street Address</label>
+                    <label for="early_childhood-street">Street Address *</label>
                     <input type="text" name="early_childhood-streetadd" id="early_childhood-barangay" value="<?= $patient['street_address']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-barangay">Barangay</label>
+                    <label for="early_childhood-barangay">Barangay *</label>
                     <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" value="<?= $patient['barangay']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-city">City Address</label>
+                    <label for="early_childhood-city">City Address *</label>
                     <input type="text" name="early_childhood-city" id="early_childhood-barangay" value="<?= $patient['city']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -184,7 +184,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-purol" id="early_childhood-purol" value="<?= $patient['purok']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-childfname">Child First Name</label>
+                    <label for="early_childhood-childfname">Child First Name *</label>
                     <input type="text" name="early_childhood-childfname" id="early_childhood-childname" value="<?= $patient['child_fname']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -192,7 +192,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-childmname" id="early_childhood-childname" value="<?= $patient['child_mname']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-childlname">Child Last Name</label>
+                    <label for="early_childhood-childlname">Child Last Name *</label>
                     <input type="text" name="early_childhood-childlname" id="early_childhood-childname" value="<?= $patient['child_lname']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -204,7 +204,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-lic" id="early_childhood-lic" value="<?= $patient['lic']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item edit-early_childhood__form-item--radio">
-                    <label for="early_childhood-sex">Sex</label>
+                    <label for="early_childhood-sex">Sex *</label>
                     <div class="edit-early_childhood__form--role-item">
                         <div class="edit-early_childhood__form-item">
                             <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?> required>
@@ -232,7 +232,7 @@ hide_content_forms();
                 </p>
                 
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-mother-name">Name</label>
+                    <label for="early_childhood-mother-name">Name *</label>
                     <input type="text" name="early_childhood-mother-name" id="early_childhood-mother-name" value="<?= $patient['mother_name']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -244,7 +244,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-mother-education" id="early_childhood-mother-education" value="<?= $patient['mother_educ']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-mother-age">Age</label>
+                    <label for="early_childhood-mother-age">Age *</label>
                     <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age" value="<?= $patient['mother_age']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -271,7 +271,7 @@ hide_content_forms();
                 </p>
                 
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-father-name">Name</label>
+                    <label for="early_childhood-father-name">Name *</label>
                     <input type="text" name="early_childhood-father-name" id="early_childhood-father-name" value="<?= $patient['father_name']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -283,7 +283,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-father-education" id="early_childhood-father-education" value="<?= $patient['father_educ']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-father-age">Age</label>
+                    <label for="early_childhood-father-age">Age *</label>
                     <input type="number" name="early_childhood-father-age" id="early_childhood-father-age" value="<?= $patient['father_age']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -307,7 +307,7 @@ hide_content_forms();
                 </p>
 
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-child-birthdate">Birthdate</label>
+                    <label for="early_childhood-child-birthdate">Birthdate *</label>
                     <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" value="<?= $patient['child_birthdate']; ?>" required>
                 </div>
                 <div class="edit-early_childhood__form-item">
@@ -315,7 +315,7 @@ hide_content_forms();
                     <input type="number" name="early_childhood-gestational" id="early_childhood-gestational" value="<?= $patient['gestational_age']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item edit-early_childhood__form-item--radio">
-                    <label for="early_childhood-birth">Type of Birth</label>
+                    <label for="early_childhood-birth">Type of Birth *</label>
                     <div class="edit-early_childhood__form--role-item">
                         <div class="edit-early_childhood__form-item">
                             <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" <?= ($patient['birth_type']=='Normal')? 'checked' : '' ?> required>
@@ -532,7 +532,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-early_childhood__reason-desc">
-                    Fill out  necessary info
+                    Fill out  necessary info *
                 </p>
 
                 <!-- Radio Buttons -->

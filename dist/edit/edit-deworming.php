@@ -164,11 +164,11 @@ hide_content_forms();
                     <input type="date" name="deworming-date" id="deworming-date" value="<?= $patient['deworming_date']; ?>">
                 </div>
                 <div class="edit-deworming__form-item">
-                    <label for="deworming-lname">Last Name</label>
+                    <label for="deworming-lname">Last Name *</label>
                     <input type="text" name="deworming-lname" id="deworming-lname" value="<?= $patient['lastname']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item">
-                    <label for="deworming-fname">First Name</label>
+                    <label for="deworming-fname">First Name *</label>
                     <input type="text" name="deworming-fname" id="deworming-fname" value="<?= $patient['firstname']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item">
@@ -176,7 +176,7 @@ hide_content_forms();
                     <input type="text" name="deworming-mname" id="deworming-mname" value="<?= $patient['middlename']; ?>">
                 </div>
                 <div class="edit-deworming__form-item">
-                    <label for="deworming-age">Age</label>
+                    <label for="deworming-age">Age *</label>
                     <input type="number" name="deworming-age" id="deworming-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item">
@@ -184,7 +184,7 @@ hide_content_forms();
                     <input type="number" name="deworming-phone_num" id="deworming-age" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">
                 </div>
                 <div class="edit-deworming__form-item edit-deworming__form-item--radio">
-                    <label for="deworming-sex">Gender</label>
+                    <label for="deworming-sex">Gender *</label>
                     <div class="edit-deworming__form--role-item">
                         <div class="edit-deworming__form-item">
                             <input type="radio" name="deworming-sex" id="deworming-sex--female" value="Male" <?= ($patient['sex']=='Male')? 'checked' : '' ?> required>
@@ -197,11 +197,11 @@ hide_content_forms();
                     </div>
                 </div>
                 <div class="edit-deworming__form-item">
-                    <label for="deworming-birthday">Birthday</label>
+                    <label for="deworming-birthday">Birthday *</label>
                     <input type="date" name="deworming-birthday" id="deworming-birthday" value="<?= $patient['birthdate']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item">
-                    <label for="deworming-street">Street Address</label>
+                    <label for="deworming-street">Street Address *</label>
                     <input type="text" name="deworming-street" id="deworming-street" value="<?= $patient['street_address']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item">
@@ -220,7 +220,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-deworming__reason-desc">
-                    Fill out  necessary info
+                    Fill out  necessary info *
                 </p>
 
                 <!-- Radio Buttons -->

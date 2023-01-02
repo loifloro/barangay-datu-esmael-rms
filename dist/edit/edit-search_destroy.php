@@ -190,7 +190,7 @@ hide_content_forms();
                     <input type="date" name="search_destroy-date_visit" id="search_destroy-date" value="<?= $patient['date_visit']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-owner_fname">Owner First Name</label>
+                    <label for="search_destroy-owner_fname">Owner First Name *</label>
                     <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner" value="<?= $patient['owner_fname']; ?>" required>
                 </div>
                 <div class="edit-search_destroy__form-item">
@@ -198,11 +198,11 @@ hide_content_forms();
                     <input type="text" name="search_destroy-owner_mname" id="search_destroy-owner" value="<?= $patient['owner_mname']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-owner_lname">Owner Last Name</label>
+                    <label for="search_destroy-owner_lname">Owner Last Name *</label>
                     <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner" value="<?= $patient['owner_lname']; ?>" required>
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-date">Birthdate</label>
+                    <label for="search_destroy-date">Birthdate *</label>
                     <input type="date" name="search_destroy-bdate" id="search_destroy-date" value="<?= $patient['birthdate']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item add-deworming__form-item--radio">
@@ -219,7 +219,7 @@ hide_content_forms();
                     </div>
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-editress">Complete Address</label>
+                    <label for="search_destroy-editress">Complete Address *</label>
                     <textarea name="search_destroy-editress" id="search_destroy-editress" cols="27" rows="10" required><?= $patient['address']; ?></textarea>
                 </div>
                 <div class="edit-search_destroy__form-item">
@@ -227,15 +227,15 @@ hide_content_forms();
                     <input type="number" name="search_destroy-pnumber" id="search_destroy-number-container" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-name-container">Name of Container Positive for Larva</label>
+                    <label for="search_destroy-name-container">Name of Container Positive for Larva *</label>
                     <input type="text" name="search_destroy-name-container" id="search_destroy-name-container" value="<?= $patient['container_name']; ?>" required>
                 </div>
                 <div class="edit-search_destroy__form-item">
-                    <label for="search_destroy-number-container">No. of Container Positive for Larva</label>
+                    <label for="search_destroy-number-container">No. of Container Positive for Larva *</label>
                     <input type="text" name="search_destroy-number-container" id="search_destroy-number-container" value="<?= $patient['container_num']; ?>" required>
                 </div>
                 <div class="edit-deworming__form-item add-deworming__form-item--radio">
-                    <label for="deworming-sex">Remarks</label>
+                    <label for="deworming-sex">Remarks *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
                             <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive" <?= ($patient['remark_status']=='Positive')? 'checked' : '' ?> required> 
@@ -255,7 +255,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-consultation__reason-desc">
-                    Fill out  necessary info
+                    Fill out  necessary info *
                 </p>
 
                 <!-- Radio Buttons -->
