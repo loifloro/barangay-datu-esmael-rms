@@ -163,11 +163,11 @@ hide_content_forms();
                     <input type="date" name="prenatal-date" id="prenatal-date" value="<?= $patient['postnatal_date']; ?>">
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-lname">Last Name</label>
+                    <label for="prenatal-lname">Last Name *</label>
                     <input type="text" name="prenatal-lname" id="prenatal-lname" value="<?= $patient['lastname']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-fname">First Name</label>
+                    <label for="prenatal-fname">First Name *</label>
                     <input type="text" name="prenatal-fname" id="prenatal-fname" value="<?= $patient['firstname']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
@@ -175,7 +175,7 @@ hide_content_forms();
                     <input type="text" name="prenatal-mname" id="prenatal-mname" value="<?= $patient['middlename']; ?>">
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-age">Age</label>
+                    <label for="prenatal-age">Age *</label>
                     <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
                 </div>
                 <!-- <div class="edit-prenatal__form-item edit-prenatal__form-item--radio">
@@ -192,19 +192,19 @@ hide_content_forms();
                     </div>
                 </div> -->
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-birthday">Birthday</label>
+                    <label for="prenatal-birthday">Birthday *</label>
                     <input type="date" name="prenatal-birthday" id="prenatal-birthday" value="<?= $patient['birthdate']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-street">Street editress</label>
+                    <label for="prenatal-street">Street Address *</label>
                     <input type="text" name="prenatal-street" id="prenatal-street" value="<?= $patient['street_address']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-barangay">Barangay</label>
+                    <label for="prenatal-barangay">Barangay *</label>
                     <input type="text" name="prenatal-barangay" id="prenatal-barangay" value="<?= $patient['barangay']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-city">City</label>
+                    <label for="prenatal-city">City *</label>
                     <input type="text" name="prenatal-city" id="prenatal-city" value="<?= $patient['city']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
@@ -266,11 +266,11 @@ hide_content_forms();
                 </p>
 
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-gravida">Gravida</label>
+                    <label for="prenatal-gravida">Gravida *</label>
                     <input type="text" name="prenatal-gravida" id="prenatal-gravida" value="<?= $patient['gravida']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-p">P</label>
+                    <label for="prenatal-p">P *</label>
                     <input type="text" name="prenatal-p" id="prenatal-p" value="<?= $patient['preterm']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
@@ -278,11 +278,11 @@ hide_content_forms();
                     <input type="text" name="prenatal-lmp" id="prenatal-lmp" value="<?= $patient['last_menstrual']; ?>">
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-edc">EDC</label>
+                    <label for="prenatal-edc">EDC *</label>
                     <input type="text" name="prenatal-edc" id="prenatal-edc" value="<?= $patient['edc']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-aog">AOG</label>
+                    <label for="prenatal-aog">AOG *</label>
                     <input type="text" name="prenatal-aog" id="prenatal-aog" value="<?= $patient['aog']; ?>" required>
                 </div>
 
@@ -351,7 +351,7 @@ hide_content_forms();
                     Reason
                 </h2>
                 <p class="edit-prenatal__reason-desc">
-                    Fill out  necessary info
+                    Fill out  necessary info *
                 </p>
 
                 <!-- Radio Buttons -->

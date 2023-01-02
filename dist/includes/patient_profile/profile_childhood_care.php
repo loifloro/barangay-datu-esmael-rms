@@ -23,10 +23,10 @@
                 #<?= $patient['early_childhood_id']; ?>
             </li>
             <li class="patient-profile__name h5">
-                <?= $patient['child_fname'].' '.$patient['child_lname']; ?> <!--Test if displays the fname and lname-->
+                <?= $patient['child_fname']." " . $patient['child_lname']; ?> <!--Test if displays the fname and lname-->
             </li>
             <li class="patient-profile__contact">
-                <?= $patient['phone_num']; ?>
+                <?= $patient['phone_num']; ?> <!--added phone num-->
             </li>
         </ul>
         
@@ -37,11 +37,11 @@
             </li>
             <li class="patient-profile__street">
                 <span class="patient-profile__category">Street Address</span>
-                <?= $patient['purok']; ?>
+                <?= $patient['street_address']; ?>
             </li>
             <li class="patient-profile__last-date-added">
                 <span class="patient-profile__category">Date Added</span>
-                <?= $patient['early_childhood_date']; ?>
+                    <?= $patient['early_childhood_date']; ?> <!--added date-->
             </li>
         </ul>
         <ul class="patient-profile__item" role="list">
@@ -64,14 +64,13 @@
         </ul>
     </ul>
     <?php
-                }
+            }
             }
             else
             {
                 echo "<h5> No Record Found </h5>";
             }
     ?>   
-    <!-- END QUERY FOR MAIN-->     
 </section>
 
 <!-- Medical History -->
@@ -91,13 +90,13 @@
             </ul>
             <!-- Query for Medical History -->
             <?php
-                        // $patient_fname = $patient['child_fname'];
-                        // $patient_lname = $patient['child_lname'];
+                        // $patient_fname = $patient['firstname'];
+                        // $patient_lname = $patient['lastname'];
+                        // $patient_label = $patient['label'];
                         // $query3 = "SELECT * FROM recent_activity WHERE patient_fname ='$patient_fname' AND patient_lname ='$patient_lname' GROUP BY record_name
                         // ORDER BY recent_activity_id";
                         // $query_run3 = mysqli_query($conn, $query3);
                         //     if(mysqli_num_rows($query_run3) > 0){
-                        //         foreach($query_run3 as $recent2){
 
                             $filtervalues = $patient['firstname'&&'lastname'&&'label'];
                             $query3 = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
@@ -127,20 +126,22 @@
                             $query_run3 = mysqli_query($conn, $query3); 
                             if(mysqli_num_rows($query_run) > 0){
                                 foreach($query_run3 as $recent3){
+                                    
                     ?>
             <ul class="medical-history__card__row" role="list">
                 <li class="medical-history__item medical-history__service p-bold">
                     <?= $recent3['label']; ?>
                 </li>
                 <li class="medical-history__item medical-history__service__date-availed">
-                    <?= $patient['child_birthdate']; ?>
+                    <?= $patient['early_childhood_date']; ?>
                 </li>
-                <!-- START QUERY FOR EDIT SERVICES-->
-                <?php
+                <li class="medical-history__item medical-history__btn">
+                    <!-- START QUERY FOR EDIT SERVICES-->
+                    <?php
                         if(isset($_GET['label'])){
                             $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
                             $changes_label=$recent3['label'];
-                            
+
                                 //DEWORMING
                                 if(($changes_label == "Deworming") AND (isset($_GET['id']))){
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -227,12 +228,16 @@
                            
                     ?>
                     <a href="<?= $link; ?>">
-                        <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate"><defs><clipPath id="a"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#a)"><path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z"/></g></svg>
+                        <svg id="edit-profile" class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate"><defs><clipPath id="a"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#a)"><path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z"/></g></svg>
+                    </a>
+                    <a href="#">
+                    <svg id="archive-profile" class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
                     </a>
                     <?php
                          }
                     ?>
                     <!-- END QUERY FOR EDIT SERVICES -->
+                </li>
             </ul>
             <?php
                                 }
@@ -250,7 +255,6 @@
                     </span>
                     <h4 class="edit-history__title">Edit History</h4>
             </div>
-            
             <ul class="edit-history__list" role="list">
                 <li class="edit-history__item">
                     <!-- Start Query For Recent Update -->
@@ -267,7 +271,7 @@
                     <span class="edit-history__editor p-bold">
                         <?= $recent['user_fname'].' '.$recent['user_lname'].' '.$recent['changes_label']; ?>
                     </span>
-                    <span class="edit-history edit-history__action p-bold"><?= $recent['patient_fname']; ?> </span>
+                    <span class="edit-history edit-history__action p-bold"><?= $recent['patient_fname'].' '.$recent['patient_lname']; ?> </span>
                     <span class="edit-history__subject"><?= $recent['record_name']; ?> record</span> on
                     <span class="edit-history__date"><?= $recent['date_edit']; ?></span>
                         <hr>
@@ -279,5 +283,5 @@
                 </li>
             </ul>
         </div>
-    </section>              
+    </section>
 </section>

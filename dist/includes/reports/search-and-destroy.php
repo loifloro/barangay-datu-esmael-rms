@@ -52,7 +52,7 @@
         </li>
         <!-- START QUERY -->
         <?php
-                $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy";
+                $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label=''";
                 $result = mysqli_query($conn, $query);
                 while($row = mysqli_fetch_array($result)) {  
         ?>
@@ -70,7 +70,7 @@
 
                 <?php 
                     include 'includes/connection.php';
-                    $query = "SELECT * FROM search_destroy";
+                    $query = "SELECT * FROM search_destroy WHERE archive_label=''";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {
@@ -115,7 +115,7 @@
         <!-- To be put in the loop -->
         <?php 
                     include 'includes/connection.php';
-                    $query = "SELECT * FROM search_destroy ORDER BY date_visit";
+                    $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY date_visit";
                     $query_run = mysqli_query($conn, $query);
                     if(mysqli_num_rows($query_run) > 0)
                     {

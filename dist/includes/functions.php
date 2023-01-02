@@ -8,16 +8,296 @@
             foreach($query_run as $user){
                 $position = $user['position'];
             }
-        if($position == 'Barangay Health Worker'){
+            if($position == 'Barangay Health Worker'){
+        ?>
+                    <style type="text/css">
+                    .bhw-account{
+                        display:none;}
+                    .user-profile__backup{
+                        display:none;}
+                    #archive-profile{ 
+                        display:none;}
+                    #masterlist_sidebar{
+                        display:none;}
+                    #backup_sidebar{
+                        display:none;}
+                    </style>
+        <?php
+                }
+            if($position == 'City Health Nurse'){
+                ?>
+                    <style type="text/css">
+                    #archive-profile{ 
+                        display:none;}
+                    </style>
+                <?php
+            }
+        }
+    }
+    //HIDE CONTENT FOR DEWORMING PATIENT ACCESS
+    function hide_patient_deworming(){
+        include 'includes/connection.php';
+        $query = "SELECT * FROM deworming WHERE deworming_id = '".$_SESSION['deworming_id']."'";
+        $query_run = mysqli_query($conn, $query);
+        if(mysqli_num_rows($query_run) > 0){
+            foreach($query_run as $user){
+                $position = $user['label'];
+            }
+        if($position == 'Deworming'){
     ?>
             <style type="text/css">
             .bhw-account{
                 display:none;}
             .user-profile__backup{
                 display:none;}
+            .navigation__search{
+                display:none;}
+            .back__btn{
+                display:none;}
+            #edit-profile{ 
+                display:none;}
+            #nav-btn{
+                display:none;}
             #masterlist_sidebar{
                 display:none;}
             #backup_sidebar{
+                display:none;}
+            #dashboard_sidebar{
+                display:none;}
+            #patient_sidebar{
+                display:none;}
+            #line_sidebar{
+                display:none;}
+            #services_sidebar{
+                display:none;}
+            #setting_sidebar{
+                display:none;}
+            #feedback_sidebar{
+                display:none;}
+            </style>
+    <?php
+            }
+        }
+    }
+    //HIDE CONTENT FOR CONSULTATION PATIENT ACCESS
+    function hide_patient_consultation(){
+        include 'includes/connection.php';
+        $query = "SELECT * FROM consultation WHERE consultation_id = '".$_SESSION['deworming_id']."'";
+        $query_run = mysqli_query($conn, $query);
+        if(mysqli_num_rows($query_run) > 0){
+            foreach($query_run as $user){
+                $position = $user['label'];
+            }
+        if($position == 'Consultation'){
+    ?>
+            <style type="text/css">
+            .bhw-account{
+                display:none;}
+            .user-profile__backup{
+                display:none;}
+            .navigation__search{
+                display:none;}
+            .back__btn{
+                display:none;}
+            #edit-profile{ 
+                display:none;}
+            #nav-btn{
+                display:none;}
+            #masterlist_sidebar{
+                display:none;}
+            #backup_sidebar{
+                display:none;}
+            #dashboard_sidebar{
+                display:none;}
+            #patient_sidebar{
+                display:none;}
+            #line_sidebar{
+                display:none;}
+            #services_sidebar{
+                display:none;}
+            #setting_sidebar{
+                display:none;}
+            #feedback_sidebar{
+                display:none;}
+            </style>
+    <?php
+            }
+        }
+    }
+    //HIDE CONTENT FOR PRENATAL PATIENT ACCESS
+    function hide_patient_prenatal(){
+        include 'includes/connection.php';
+        $query = "SELECT * FROM prenatal WHERE prenatal_id = '".$_SESSION['deworming_id']."'";
+        $query_run = mysqli_query($conn, $query);
+        if(mysqli_num_rows($query_run) > 0){
+            foreach($query_run as $user){
+                $position = $user['label'];
+            }
+        if($position == 'Prenatal'){
+    ?>
+            <style type="text/css">
+            .bhw-account{
+                display:none;}
+            .user-profile__backup{
+                display:none;}
+            .navigation__search{
+                display:none;}
+            .back__btn{
+                display:none;}
+            #edit-profile{ 
+                display:none;}
+            #nav-btn{
+                display:none;}
+            #masterlist_sidebar{
+                display:none;}
+            #backup_sidebar{
+                display:none;}
+            #dashboard_sidebar{
+                display:none;}
+            #patient_sidebar{
+                display:none;}
+            #line_sidebar{
+                display:none;}
+            #services_sidebar{
+                display:none;}
+            #setting_sidebar{
+                display:none;}
+            #feedback_sidebar{
+                display:none;}
+            </style>
+    <?php
+            }
+        }
+    }
+    //HIDE CONTENT FOR POSTNATAL PATIENT ACCESS
+    function hide_patient_postnatal(){
+        include 'includes/connection.php';
+        $query = "SELECT * FROM postnatal WHERE postnatal_id = '".$_SESSION['deworming_id']."'";
+        $query_run = mysqli_query($conn, $query);
+        if(mysqli_num_rows($query_run) > 0){
+            foreach($query_run as $user){
+                $position = $user['label'];
+            }
+        if($position == 'Postnatal'){
+    ?>
+            <style type="text/css">
+            .bhw-account{
+                display:none;}
+            .user-profile__backup{
+                display:none;}
+            .navigation__search{
+                display:none;}
+            .back__btn{
+                display:none;}
+            #edit-profile{ 
+                display:none;}
+            #nav-btn{
+                display:none;}
+            #masterlist_sidebar{
+                display:none;}
+            #backup_sidebar{
+                display:none;}
+            #dashboard_sidebar{
+                display:none;}
+            #patient_sidebar{
+                display:none;}
+            #line_sidebar{
+                display:none;}
+            #services_sidebar{
+                display:none;}
+            #setting_sidebar{
+                display:none;}
+            #feedback_sidebar{
+                display:none;}
+            </style>
+    <?php
+            }
+        }
+    }
+    //HIDE CONTENT FOR SEARCH AND DESTROY PATIENT ACCESS
+    function hide_patient_search_destroy(){
+        include 'includes/connection.php';
+        $query = "SELECT * FROM search_destroy WHERE search_destroy_id = '".$_SESSION['deworming_id']."'";
+        $query_run = mysqli_query($conn, $query);
+        if(mysqli_num_rows($query_run) > 0){
+            foreach($query_run as $user){
+                $position = $user['label'];
+            }
+        if($position == 'Search and Destroy'){
+    ?>
+            <style type="text/css">
+            .bhw-account{
+                display:none;}
+            .user-profile__backup{
+                display:none;}
+            .navigation__search{
+                display:none;}
+            .back__btn{
+                display:none;}
+            #edit-profile{ 
+                display:none;}
+            #nav-btn{
+                display:none;}
+            #masterlist_sidebar{
+                display:none;}
+            #backup_sidebar{
+                display:none;}
+            #dashboard_sidebar{
+                display:none;}
+            #patient_sidebar{
+                display:none;}
+            #line_sidebar{
+                display:none;}
+            #services_sidebar{
+                display:none;}
+            #setting_sidebar{
+                display:none;}
+            #feedback_sidebar{
+                display:none;}
+            </style>
+    <?php
+            }
+        }
+    }
+    //HIDE CONTENT FOR CHILDHOOD PATIENT ACCESS
+    function hide_patient_childhood(){
+        include 'includes/connection.php';
+        $query = "SELECT * FROM early_childhood WHERE early_childhood_id = '".$_SESSION['deworming_id']."'";
+        $query_run = mysqli_query($conn, $query);
+        if(mysqli_num_rows($query_run) > 0){
+            foreach($query_run as $user){
+                $position = $user['label'];
+            }
+        if($position == 'Early Childhood'){
+    ?>
+            <style type="text/css">
+            .bhw-account{
+                display:none;}
+            .user-profile__backup{
+                display:none;}
+            .navigation__search{
+                display:none;}
+            .back__btn{
+                display:none;}
+            #edit-profile{ 
+                display:none;}
+            #nav-btn{
+                display:none;}
+            #masterlist_sidebar{
+                display:none;}
+            #backup_sidebar{
+                display:none;}
+            #dashboard_sidebar{
+                display:none;}
+            #patient_sidebar{
+                display:none;}
+            #line_sidebar{
+                display:none;}
+            #services_sidebar{
+                display:none;}
+            #setting_sidebar{
+                display:none;}
+            #feedback_sidebar{
                 display:none;}
             </style>
     <?php

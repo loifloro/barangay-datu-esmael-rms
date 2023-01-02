@@ -149,15 +149,15 @@ hide_content_forms();
             <form action="../includes/add_query.php" method="POST" class="add-search_destroy__form">
 
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-barangay">Name of Barangay</label>
+                    <label for="search_destroy-barangay">Name of Barangay *</label>
                     <input type="text" name="search_destroy-barangay" id="search_destroy-barangay" required>
                 </div>
                 <div class="add-search_destroy__form-item"> <!--added-->
-                    <label for="search_destroy-city">City</label>
+                    <label for="search_destroy-city">City *</label>
                     <input type="text" name="search_destroy-city" id="search_destroy-barangay" required>
                 </div>
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-purok">Purok/Block Coverage</label>
+                    <label for="search_destroy-purok">Purok/Block Coverage *</label>
                     <input type="text" name="search_destroy-purok" id="search_destroy-purok" required>
                 </div>
                 
@@ -173,11 +173,11 @@ hide_content_forms();
                 </p>
                 
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-date">Date Visited</label>
+                    <label for="search_destroy-date">Date Visited *</label>
                     <input type="date" name="search_destroy-date" id="search_destroy-date" required>
                 </div>
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-owner_fname">Owner First Name</label>
+                    <label for="search_destroy-owner_fname">Owner First Name *</label>
                     <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner" required>
                 </div>
                 <div class="add-search_destroy__form-item">
@@ -185,15 +185,15 @@ hide_content_forms();
                     <input type="text" name="search_destroy-owner_mname" id="search_destroy-owner">
                 </div>
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-owner_lname">Owner Last Name</label>
+                    <label for="search_destroy-owner_lname">Owner Last Name *</label>
                     <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner" required>
                 </div>
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-date">Birthdate</label>
+                    <label for="search_destroy-date">Birthdate *</label>
                     <input type="date" name="search_destroy-bdate" id="search_destroy-date" required>
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
-                    <label for="deworming-sex">Gender</label>
+                    <label for="deworming-sex">Gender *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
                             <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
@@ -206,7 +206,7 @@ hide_content_forms();
                     </div>
                 </div>
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-address">Complete Address</label>
+                    <label for="search_destroy-address">Complete Address *</label>
                     <textarea name="search_destroy-address" id="search_destroy-address" cols="27" rows="10" required></textarea>
                 </div>
                 <div class="add-search_destroy__form-item">
@@ -214,15 +214,15 @@ hide_content_forms();
                     <input type="number" name="search_destroy-pnumber" id="search_destroy-number-container" maxlength="11" min="1">
                 </div>
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-name-container">Name of Container Positive for Larva</label>
+                    <label for="search_destroy-name-container">Name of Container Positive for Larva *</label>
                     <input type="text" name="search_destroy-name-container" id="search_destroy-name-container" required>
                 </div>
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-number-container">No. of Container Positive for Larva</label>
+                    <label for="search_destroy-number-container">No. of Container Positive for Larva *</label>
                     <input type="number" name="search_destroy-number-container" id="search_destroy-number-container" required>
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
-                    <label for="deworming-sex">Remarks</label>
+                    <label for="deworming-sex">Remarks *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
                             <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive" required> <!--Nilagyan ko Value para masave sa database-->

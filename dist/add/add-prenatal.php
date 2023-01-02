@@ -153,11 +153,11 @@ hide_content_forms();
                     <input type="date" name="prenatal-date" id="prenatal-date">
                 </div> -->
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-lname">Last Name</label>
+                    <label for="prenatal-lname">Last Name *</label>
                     <input type="text" name="prenatal-lname" id="prenatal-lname" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-fname">First Name</label>
+                    <label for="prenatal-fname">First Name *</label>
                     <input type="text" name="prenatal-fname" id="prenatal-fname" required>
                 </div>
                 <div class="add-prenatal__form-item">
@@ -165,7 +165,7 @@ hide_content_forms();
                     <input type="text" name="prenatal-mname" id="prenatal-mname">
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-age">Age</label>
+                    <label for="prenatal-age">Age *</label>
                     <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" required>
                 </div>
                 <!-- <div class="add-prenatal__form-item add-prenatal__form-item--radio">
@@ -182,19 +182,19 @@ hide_content_forms();
                     </div>
                 </div> -->
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-birthday">Birthday</label>
+                    <label for="prenatal-birthday">Birthday *</label>
                     <input type="date" name="prenatal-birthday" id="prenatal-birthday" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-street">Street Address</label>
+                    <label for="prenatal-street">Street Address *</label>
                     <input type="text" name="prenatal-street" id="prenatal-street" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-barangay">Barangay</label>
+                    <label for="prenatal-barangay">Barangay *</label>
                     <input type="text" name="prenatal-barangay" id="prenatal-barangay" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-city">City</label>
+                    <label for="prenatal-city">City *</label>
                     <input type="text" name="prenatal-city" id="prenatal-city" required>
                 </div>
                 <div class="add-prenatal__form-item">
@@ -256,23 +256,23 @@ hide_content_forms();
                 </p>
 
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-gravida">Gravida</label>
+                    <label for="prenatal-gravida">Gravida *</label>
                     <input type="text" name="prenatal-gravida" id="prenatal-gravida" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-p">P</label>
+                    <label for="prenatal-p">P *</label>
                     <input type="text" name="prenatal-p" id="prenatal-p" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-lmp">LMP</label>
-                    <input type="text" name="prenatal-lmp" id="prenatal-lmp">
+                    <input type="date" name="prenatal-lmp" id="prenatal-lmp">
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-edc">EDC</label>
-                    <input type="text" name="prenatal-edc" id="prenatal-edc" required>
+                    <label for="prenatal-edc">EDC *</label>
+                    <input type="date" name="prenatal-edc" id="prenatal-edc" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-aog">AOG</label>
+                    <label for="prenatal-aog">AOG *</label>
                     <input type="text" name="prenatal-aog" id="prenatal-aog" required>
                 </div>
 

@@ -5,9 +5,78 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
-//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
-include_once "includes/functions.php";
-hide_content();
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL    
+
+    $phone_num = $_SESSION['phone_num'];
+
+    // PATIENT ACCESS
+    $query = "SELECT label, phone_num FROM deworming WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_number FROM consultation WHERE phone_number='$phone_num'
+    UNION
+    SELECT label, phone_num FROM prenatal WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_num FROM postnatal WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_num FROM search_destroy WHERE phone_num='$phone_num'
+    UNION
+    SELECT label, phone_num FROM early_childhood WHERE phone_num='$phone_num'
+    ";
+    $query_run = mysqli_query($conn, $query);
+    if(mysqli_num_rows($query_run) > 0)
+    {
+        foreach($query_run as $patient)
+    {
+        if($patient['label'] == 'Deworming'){
+            include_once "includes/functions.php";
+            hide_patient_deworming();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Consultation'){
+            include_once "includes/functions.php";
+            hide_patient_consultation();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Prenatal'){
+            include_once "includes/functions.php";
+            hide_patient_prenatal();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Postnatal'){
+            include_once "includes/functions.php";
+            hide_patient_postnatal();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Search and Destroy'){
+            include_once "includes/functions.php";
+            hide_patient_search_destroy();
+            $input_search = $patient['phone_num'];
+        }
+        if($patient['label'] == 'Early Childhood'){
+            include_once "includes/functions.php";
+            hide_patient_childhood();
+            $input_search = $patient['phone_num'];
+        }
+    }
+    }
+
+    // STAFF ACCESS
+    $query2 = "SELECT * FROM account_information WHERE phone_num='$phone_num'";
+    $query_run2 = mysqli_query($conn, $query2);
+    if(mysqli_num_rows($query_run2) > 0)
+    {
+        foreach($query_run2 as $patient)
+    {
+        if($patient['position'] == 'Barangay Health Worker'){
+            include_once "includes/functions.php";
+            hide_content();
+            $input_search = $_GET['search_input'];
+        }
+        if($patient['position'] == 'City Health Nurse'){
+            $input_search = $_GET['search_input'];
+        }
+    }
+    }
 //END OF FUNCTION
 ?>
 
@@ -26,7 +95,7 @@ hide_content();
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="dashboard_sidebar">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -36,7 +105,7 @@ hide_content();
                     <p class="sidebar__caption">Dashboard</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--active">
+            <li class="sidebar__item sidebar__item--active" id="patient_sidebar">
                 <a href="patients.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -57,8 +126,8 @@ hide_content();
                     <p class="sidebar__caption">Archive</p>
                 </a>
             </li>
-            <hr class="sidebar__line" />
-            <li class="sidebar__item">
+            <hr class="sidebar__line" id="line_sidebar" />
+            <li class="sidebar__item" id="services_sidebar">
                 <a href="services-consultation.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -78,7 +147,7 @@ hide_content();
                     <p class="sidebar__caption">Masterlist</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--margin-top"> <!--href link added-->
+            <li class="sidebar__item sidebar__item--margin-top" id="setting_sidebar"> <!--href link added-->
                 <a href="user-profile.php" class="sidebar__link">
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -88,7 +157,7 @@ hide_content();
                     <p class="sidebar__caption">Settings</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="feedback_sidebar">
                 <a href="" class="sidebar__link">
                     <svg alt="Feedback" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -121,7 +190,7 @@ hide_content();
             <!-- SEARCH FORM ACTION -->
              <form class="navigation__search" action="search-result.php" method="GET">
 
-                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" value="<?php echo $_GET['search_input']; ?>"/><!--  
+                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" value="<?php echo $input_search; ?>"/><!--  
                 --><button name="search_btn" type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001"><rect width="256" height="256" fill="none"/><circle cx="115.997" cy="116" r="84"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/><line x1="175.391" x2="223.991" y1="175.4" y2="224.001"  stroke-linecap="round" stroke-linejoin="round" stroke-width="24"/></svg>
                   </button>
@@ -164,32 +233,33 @@ hide_content();
 
                 <!-- To be put in the loop -->
                 <?php
-                    if(isset($_GET['search_input'])) //get the search value
+                    if(isset($input_search)) //get the search value
                     {
-                        $filtervalues = $_GET['search_input']; //GET QUERY captures data
+                        $filtervalues = $input_search; //GET QUERY captures data
+                        // $filtervalues = $phone_num;
                         $query = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
                                   FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
                                   LIKE '%$filtervalues%' 
                                   UNION ALL
                                   SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
                                   FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                                  LIKE '%$filtervalues%'
+                                  LIKE '%$filtervalues%' 
                                   UNION ALL
                                   SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
                                   FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                                  LIKE '%$filtervalues%'
+                                  LIKE '%$filtervalues%' 
                                   UNION ALL
                                   SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
                                   FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                                  LIKE '%$filtervalues%'
+                                  LIKE '%$filtervalues%' 
                                   UNION ALL
                                   SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
                                   FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                                  LIKE '%$filtervalues%'
+                                  LIKE '%$filtervalues%' 
                                   UNION ALL
                                   SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
                                   FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                                  LIKE '%$filtervalues%'
+                                  LIKE '%$filtervalues%' 
                                   ";
                         $query_run = mysqli_query($conn, $query); 
                         if(mysqli_num_rows($query_run) > 0)

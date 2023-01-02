@@ -159,11 +159,11 @@ hide_content_forms();
                 <input type="hidden" name="account_id" value="<?= $user['account_id']; ?>"> <!--nakahide sya para access ID sa edit-->
 
                   <div class="edit-bhw__form-item">
-                      <label for="bhw-name">First Name</label>
+                      <label for="bhw-name">First Name *</label>
                       <input type="text" name="bhw-fname" id="bhw-name" value="<?= $user['firstname']; ?>" required>
                   </div>    
                   <div class="edit-bhw__form-item">
-                      <label for="bhw-name">Last Name</label>
+                      <label for="bhw-name">Last Name *</label>
                       <input type="text" name="bhw-lname" id="bhw-name" value="<?= $user['lastname']; ?>" required>
                   </div>    
                   <div class="edit-bhw__form-item">
@@ -184,7 +184,7 @@ hide_content_forms();
                     </div>
                 </div>
                   <div class="edit-bhw__form-item">
-                      <label for="bhw-contact">Contact Number</label>
+                      <label for="bhw-contact">Contact Number *</label>
                       <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>" required>
                   </div>
                   <div class="edit-bhw__form-item">

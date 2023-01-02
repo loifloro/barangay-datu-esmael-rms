@@ -153,11 +153,11 @@ hide_content_forms();
                     <input type="date" name="postnatal-date" id="postnatal-date">
                 </div> -->
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-lname">Last Name</label>
+                    <label for="postnatal-lname">Last Name *</label>
                     <input type="text" name="postnatal-lname" id="postnatal-lname" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-fname">First Name</label>
+                    <label for="postnatal-fname">First Name *</label>
                     <input type="text" name="postnatal-fname" id="postnatal-fname" required>
                 </div>
                 <div class="add-postnatal__form-item">
@@ -165,7 +165,7 @@ hide_content_forms();
                     <input type="text" name="postnatal-mname" id="postnatal-mname">
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-age">Age</label>
+                    <label for="postnatal-age">Age *</label>
                     <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1" required>
                 </div>
                 <!-- <div class="add-postnatal__form-item add-postnatal__form-item--radio">
@@ -182,19 +182,19 @@ hide_content_forms();
                     </div>
                 </div> -->
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-birthday">Birthday</label>
+                    <label for="postnatal-birthday">Birthday *</label>
                     <input type="date" name="postnatal-birthday" id="postnatal-birthday" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-street">Street Address</label>
+                    <label for="postnatal-street">Street Address *</label>
                     <input type="text" name="postnatal-street" id="postnatal-street" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-barangay">Barangay</label>
+                    <label for="postnatal-barangay">Barangay *</label>
                     <input type="text" name="postnatal-barangay" id="postnatal-barangay" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-city">City</label>
+                    <label for="postnatal-city">City *</label>
                     <input type="text" name="postnatal-city" id="postnatal-city" required>
                 </div>
                 <div class="add-postnatal__form-item">
@@ -256,23 +256,23 @@ hide_content_forms();
                 </p>
 
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-gravida">Gravida</label>
+                    <label for="postnatal-gravida">Gravida *</label>
                     <input type="text" name="postnatal-gravida" id="postnatal-gravida" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-p">P</label>
+                    <label for="postnatal-p">P *</label>
                     <input type="text" name="postnatal-p" id="postnatal-p" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lmp">LMP</label>
-                    <input type="text" name="postnatal-lmp" id="postnatal-lmp">
+                    <input type="date" name="postnatal-lmp" id="postnatal-lmp">
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-edc">EDC</label>
-                    <input type="text" name="postnatal-edc" id="postnatal-edc" required>
+                    <label for="postnatal-edc">EDC *</label>
+                    <input type="date" name="postnatal-edc" id="postnatal-edc" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-aog">AOG</label>
+                    <label for="postnatal-aog">AOG *</label>
                     <input type="text" name="postnatal-aog" id="postnatal-aog" required>
                 </div>
 

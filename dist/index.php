@@ -58,9 +58,8 @@
                     include_once "includes/functions.php";
                     forgot_password();
                 ?>
-                
-                <label for="contact-num">Contact Number:</label>
-                <input id='contact-num' class="login__contact" type="number" minlength="11" name="username">
+                <label for="contact-num">Email or Contact Number:</label>
+                <input id='contact-num' class="login__contact" type="text" name="username">
                 <label for="password">Password:</label>
                 <div class="password">
                     <input type="password"  class="password__bar__input" id='password' min="8" name="password"/><!--  
@@ -74,7 +73,7 @@
                         </button>
                 </div>
 
-                <button class="login__btn btn-green" type="submit" id="btn">
+                <button class="login__btn btn-green" type="submit" id="btn" name="sign-in">
                     Sign in
                 </button>
                 <a href="#">

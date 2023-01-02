@@ -153,11 +153,11 @@ hide_content_forms();
                     <input type="date" name="consultation-date" id="consultation-date">
                 </div> -->
                 <div class="add-consultation__form-item">
-                    <label for="consultation-lname">Last Name</label>
+                    <label for="consultation-lname">Last Name *</label>
                     <input type="text" name="consultation-lname" id="consultation-lname" required>
                 </div>
                 <div class="add-consultation__form-item">
-                    <label for="consultation-fname">First Name</label>
+                    <label for="consultation-fname">First Name *</label>
                     <input type="text" name="consultation-fname" id="consultation-fname" required>
                 </div>
                 <div class="add-consultation__form-item">
@@ -165,11 +165,11 @@ hide_content_forms();
                     <input type="text" name="consultation-mname" id="consultation-mname">
                 </div>
                 <div class="add-consultation__form-item">
-                    <label for="consultation-age">Age</label>
+                    <label for="consultation-age">Age *</label>
                     <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1" required>
                 </div>
                 <div class="add-consultation__form-item add-consultation__form-item--radio">
-                    <label for="consultation-sex">Gender</label>
+                    <label for="consultation-sex">Gender *</label>
                     <div class="add-consultation__form--role-item">
                         <div class="add-consultation__form-item">
                             <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Male" required>
@@ -182,19 +182,19 @@ hide_content_forms();
                     </div>
                 </div>
                 <div class="add-consultation__form-item">
-                    <label for="consultation-birthday">Birthday</label>
+                    <label for="consultation-birthday">Birthday *</label>
                     <input type="date" name="consultation-birthday" id="consultation-birthday" required>
                 </div>
                 <div class="add-consultation__form-item">
-                    <label for="consultation-street">Street Address</label>
+                    <label for="consultation-street">Street Address *</label>
                     <input type="text" name="consultation-street" id="consultation-street" required>
                 </div>
                 <div class="add-consultation__form-item">
-                    <label for="consultation-barangay">Barangay</label>
+                    <label for="consultation-barangay">Barangay *</label>
                     <input type="text" name="consultation-barangay" id="consultation-barangay" required>
                 </div>
                 <div class="add-consultation__form-item">
-                    <label for="consultation-city">City</label>
+                    <label for="consultation-city">City *</label>
                     <input type="text" name="consultation-city" id="consultation-city" required>
                 </div>
                 <div class="add-consultation__form-item">
@@ -214,7 +214,7 @@ hide_content_forms();
                 </p>
                 
                 <div class="add-consultation__form-item">
-                    <label for="consultation-symptoms">Symptoms</label>
+                    <label for="consultation-symptoms">Symptoms *</label>
                     <textarea name="consultation-symptoms" id="consultation-symptoms" cols="27" rows="10" required></textarea>
                 </div>
                 <div class="add-consultation__form-item">
@@ -241,7 +241,7 @@ hide_content_forms();
                     <input type="text" name="consultation-a" id="consultation-a">
                 </div>
                 <div class="add-consultation__form-item">
-                    <label for="consultation-prescriptions">Prescriptions</label>
+                    <label for="consultation-prescriptions">Prescriptions *</label>
                     <textarea name="consultation-prescriptions" id="consultation-prescriptions" cols="27" rows="10" required></textarea>
                 </div>
                 

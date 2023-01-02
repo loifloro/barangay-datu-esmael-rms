@@ -153,15 +153,15 @@ hide_content_forms();
                     <input type="text" name="early_childhood-clinic" id="early_childhood-clinic">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-street">Street Address</label>
+                    <label for="early_childhood-street">Street Address *</label>
                     <input type="text" name="early_childhood-street" id="early_childhood-barangay" required>
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-barangay">Barangay</label>
+                    <label for="early_childhood-barangay">Barangay *</label>
                     <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" required>
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-city">City</label>
+                    <label for="early_childhood-city">City *</label>
                     <input type="text" name="early_childhood-city" id="early_childhood-barangay" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -169,7 +169,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-purol" id="early_childhood-purol">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-childfname">Child First Name</label>
+                    <label for="early_childhood-childfname">Child First Name *</label>
                     <input type="text" name="early_childhood-childfname" id="early_childhood-childname" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -177,7 +177,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-childmname" id="early_childhood-childname">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-childlname">Child Last Name</label>
+                    <label for="early_childhood-childlname">Child Last Name *</label>
                     <input type="text" name="early_childhood-childlname" id="early_childhood-childname" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -189,7 +189,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-lic" id="early_childhood-lic">
                 </div>
                 <div class="add-early_childhood__form-item add-early_childhood__form-item--radio">
-                    <label for="early_childhood-sex">Sex</label>
+                    <label for="early_childhood-sex">Sex *</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
                             <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" required>
@@ -217,7 +217,7 @@ hide_content_forms();
                 </p>
                 
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-mother-name">Name</label>
+                    <label for="early_childhood-mother-name">Name *</label>
                     <input type="text" name="early_childhood-mother-name" id="early_childhood-mother-name" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -229,7 +229,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-mother-education" id="early_childhood-mother-education">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-mother-age">Age</label>
+                    <label for="early_childhood-mother-age">Age *</label>
                     <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -256,7 +256,7 @@ hide_content_forms();
                 </p>
                 
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-father-name">Name</label>
+                    <label for="early_childhood-father-name">Name *</label>
                     <input type="text" name="early_childhood-father-name" id="early_childhood-father-name" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -268,7 +268,7 @@ hide_content_forms();
                     <input type="text" name="early_childhood-father-education" id="early_childhood-father-education">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-father-age">Age</label>
+                    <label for="early_childhood-father-age">Age *</label>
                     <input type="number" name="early_childhood-father-age" id="early_childhood-father-age" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -292,7 +292,7 @@ hide_content_forms();
                 </p>
 
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-child-birthdate">Birthdate</label>
+                    <label for="early_childhood-child-birthdate">Birthdate *</label>
                     <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" required>
                 </div>
                 <div class="add-early_childhood__form-item">
@@ -300,7 +300,7 @@ hide_content_forms();
                     <input type="number" name="early_childhood-gestational" id="early_childhood-gestational">
                 </div>
                 <div class="add-early_childhood__form-item add-early_childhood__form-item--radio">
-                    <label for="early_childhood-birth">Type of Birth</label>
+                    <label for="early_childhood-birth">Type of Birth *</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
                             <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" required>
@@ -314,7 +314,7 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-order">Birth Order</label>
-                    <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order">
+                    <input type="text" name="early_childhood-birth-order" id="early_childhood-birth-order">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-weight">Birth Weight</label>
