@@ -1,5 +1,5 @@
 <!-- Daily Reports -->
-<section class="reports">
+<section class="reports" id="reports">
     <form action="" class="reports__form" method="GET">
         <h2 class="reports__title">
                 Reports
@@ -12,10 +12,10 @@
             <div class="reports__form__service">
                 <label for="report__service"> Service </label>
                 
-                <select name="report__service" id="report__service" value>
+                <select name="report__service" id="report__service" required>
                 <?php
                     if (isset($_GET['report__service'])) {  ?>
-                        <option disabled selected> <?=$_GET['report__service']?> </option>
+                        <option selected value="<?=$_GET['report__service']?>"> <?=$_GET['report__service']?> </option>
                     <?php
                     }
                     ?>
