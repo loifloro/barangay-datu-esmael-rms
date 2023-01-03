@@ -54,6 +54,25 @@
                         })
                     </script>
                 <?php } ?>
+
+                <?php
+                if (isset($_GET['changed'])) { ?>
+                    <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'success',
+                            iconColor: 'white',
+                            title: 'Password changed successfully',
+                            customClass: {
+                                popup: 'toast'
+                            },
+                            showConfirmButton: false,
+                            timer: 4000,
+                            timerProgressBar: true,
+                        })
+                    </script>
+                <?php } ?>
                 <!--Display ERROR-->
 
                 <?php
