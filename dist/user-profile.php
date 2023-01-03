@@ -357,7 +357,7 @@ hide_content();
                     ?>
                 <ul class="bhw-account__table__row bhw-account__info" role="list">
                     <li class="bhw-account__name p-bold">
-                        <?= $patient['firstname']; ?>
+                        <?= $patient['firstname'].' '.$patient['lastname']; ?>
                     </li>
                     <li class="bhw-account__num">
                         <?= $patient['phone_num']; ?>
