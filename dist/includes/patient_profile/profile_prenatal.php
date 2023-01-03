@@ -97,34 +97,35 @@
                         // $query_run3 = mysqli_query($conn, $query3);
                         //     if(mysqli_num_rows($query_run3) > 0){
 
-                            $filtervalues = $patient['firstname'&&'lastname'&&'label'];
+                            $filtervalues = $patient['firstname'];
+                            $filtervalues2 = $patient['lastname'];
                             $query3 = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
                                       FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' 
+                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
                                       UNION ALL
                                       SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
                                       FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                                      LIKE '%$filtervalues%'
+                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%' GROUP BY label
                                       UNION ALL
                                       SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
                                       FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%'
+                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
                                       UNION ALL
                                       SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
                                       FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%'
+                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
                                       UNION ALL
                                       SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
                                       FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%'
+                                      LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
                                       UNION ALL
                                       SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
                                       FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%'
+                                      LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%' GROUP BY label
                                       ";
                             $query_run3 = mysqli_query($conn, $query3); 
-                            if(mysqli_num_rows($query_run) > 0){
-                                foreach($query_run3 as $recent3){                                  
+                            if(mysqli_num_rows($query_run3) > 0){
+                                foreach($query_run3 as $recent3){
                     ?>
             <ul class="medical-history__card__row" role="list">
                 <li class="medical-history__item medical-history__service p-bold">
