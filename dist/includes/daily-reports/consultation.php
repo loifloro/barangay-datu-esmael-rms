@@ -41,7 +41,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Male Patients</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max=3> 
         <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
     <?php
         }
@@ -65,7 +65,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Female Patients</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
     <?php
         }
@@ -89,7 +89,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Patients age 1-13</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
     <?php
         }
@@ -113,7 +113,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Patients age 14-22</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
     <?php
         }
@@ -137,7 +137,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Patients age 23-up</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
     <?php
         }

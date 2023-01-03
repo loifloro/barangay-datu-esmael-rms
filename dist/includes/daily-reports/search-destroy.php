@@ -40,7 +40,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Household Visited</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total"> <?php echo $row['total']; ?> </p>
     <?php
         }
@@ -64,7 +64,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Household Positive for Larva</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total">  <?php echo $row['count(*)']; ?> </p>
     <?php
         }
@@ -88,7 +88,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Household Negative for Larva</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total">  <?php echo $row['count(*)']; ?> </p>
     <?php
         }
@@ -112,7 +112,7 @@
         while($row = mysqli_fetch_array($result)) {  
     ?>
         <p class="reports__card__title">Total No. of Container Positive for Larva</p>
-                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
         <p class="reports__card__total"> <?php echo $row['total_p']; ?> </p>
     <?php
         }
