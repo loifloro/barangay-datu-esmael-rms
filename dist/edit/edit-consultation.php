@@ -174,10 +174,10 @@ hide_content_forms();
                     <label for="consultation-mname">Middle Name</label>
                     <input type="text" name="consultation-mname" id="consultation-mname" value="<?= $patient['middlename']; ?>">
                 </div>
-                <div class="edit-consultation__form-item">
+                <!-- <div class="edit-consultation__form-item">
                     <label for="consultation-age">Age *</label>
                     <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
-                </div>
+                </div> -->
                 <div class="edit-consultation__form-item edit-consultation__form-item--radio">
                     <label for="consultation-sex">Gender *</label>
                     <div class="edit-consultation__form--role-item">
