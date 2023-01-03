@@ -91,6 +91,28 @@ if (mysqli_num_rows($query_run2) > 0) {
 
 <body class="grid">
     <!-- Sidebar -->
+    <?php
+    if (isset($_GET['success'])) {
+    ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true, 
+                })
+        </script>
+    <?php    
+    }
+    ?>
+    
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">
             <li class="sidebar__item" id="dashboard_sidebar">
