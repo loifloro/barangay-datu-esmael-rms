@@ -14,7 +14,7 @@ if(isset($_GET['save_bhw'])){
     $query = "INSERT INTO account_information 
               (firstname, phone_num, password, sex, position, date_registered) 
               VALUES 
-              ('', '$phone_num', '$password', 'N/A', '$position', '$date_added')";
+              ('-', '$phone_num', '$password', '-', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
