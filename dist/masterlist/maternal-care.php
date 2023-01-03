@@ -243,9 +243,8 @@ hide_content_forms();
                 <?php
                         }
                     }
-                ?>  
-                <!-- END QUERY -->
-
+                    else{
+                        ?>
                         <script>
                         Swal.fire({
                             toast: true,
@@ -261,6 +260,10 @@ hide_content_forms();
                             timerProgressBar: true, 
                             })
                         </script>
+                        <?php
+                    }
+                ?>  
+                <!-- END QUERY -->
 
             </div>
             <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = '../add/add-maternal_care.php'">
