@@ -731,17 +731,12 @@ if(isset($_POST['add_maternal_list'])){ //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-target_list.php"); //temporary destination
+            header("Location: ../masterlist/maternal-care.php");
             exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else{
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/maternal-care.php"); 
         exit(0);
     }
 }
@@ -756,7 +751,7 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
 
     $child_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-male-middle-inital']);
     $child_lastname = mysqli_real_escape_string($conn, $_POST['child_care-male-last-name']);
-    $sex = mysqli_real_escape_string($conn, $_POST['child_care-male-sex']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['child_care-male-sex']);
 
     $mother_firstname = mysqli_real_escape_string($conn, $_POST['child_care-male-mother-first-name']);
     $mother_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-male-mother-middle-inital']);
@@ -841,7 +836,7 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
               weight_month_12, weight_date_month_12, status_month_12, mmr_month_12, fic_month_12, cic, remarks, label) 
               VALUES 
               ('$date_registered', '$birthday', '$serial', '$status', '$child_firstname', '$child_middle_initial', '$child_lastname',
-              '$sex', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
+              'Male', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
               '$weight_newborn', '$status_newborn', '$breastfeeding_newborn', '$bcg_newborn', '$hepa_newborn', '$age_month_1_3', 
               '$length_month_1_3', '$length_date_month_1_3', '$weight_month_1_3', '$weight_date_month_1_3', '$status_month_1_3', 
               '$iron_1mos_month_1_3', '$iron_2mos_month_1_3', '$iron_3mos_month_1_3', '$dpt_1dos_month_1_3', '$dpt_2dos_month_1_3', 
@@ -877,17 +872,12 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-target_list.php"); //temporary destination
+            header("Location: ../masterlist/childhood-care-male.php"); //temporary destination
             exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else{
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/childhood-care-male.php"); //will change depending on the name of the services page
         exit(0);
     }
 }
@@ -903,7 +893,7 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
     $child_firstname = mysqli_real_escape_string($conn, $_POST['child_care-female-first-name']);
     $child_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-female-middle-inital']);
     $child_lastname = mysqli_real_escape_string($conn, $_POST['child_care-female-last-name']);
-    $sex = mysqli_real_escape_string($conn, $_POST['child_care-female-sex']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['child_care-female-sex']);
 
     $mother_firstname = mysqli_real_escape_string($conn, $_POST['child_care-female-mother-first-name']);
     $mother_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-female-mother-middle-inital']);
@@ -988,7 +978,7 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
               weight_month_12, weight_date_month_12, status_month_12, mmr_month_12, fic_month_12, cic, remarks, label) 
               VALUES 
               ('$date_registered', '$birthday', '$serial', '$status', '$child_firstname', '$child_middle_initial', '$child_lastname',
-              '$sex', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
+              'Female', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
               '$weight_newborn', '$status_newborn', '$breastfeeding_newborn', '$bcg_newborn', '$hepa_newborn', '$age_month_1_3', 
               '$length_month_1_3', '$length_date_month_1_3', '$weight_month_1_3', '$weight_date_month_1_3', '$status_month_1_3', 
               '$iron_1mos_month_1_3', '$iron_2mos_month_1_3', '$iron_3mos_month_1_3', '$dpt_1dos_month_1_3', '$dpt_2dos_month_1_3', 
@@ -1024,17 +1014,12 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-target_list.php"); //temporary destination
+            header("Location: ../masterlist/childhood-care-female.php");
             exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else{
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/childhood-care-female.php");
         exit(0);
     }
 }

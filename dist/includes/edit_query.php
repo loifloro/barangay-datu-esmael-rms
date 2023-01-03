@@ -715,18 +715,13 @@ if(isset($_POST['edit_maternal_list'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-        header("Location: ../services-target_list.php"); //temporary destination
+        header("Location: ../masterlist/maternal-care.php"); //temporary destination
         exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else
     {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services_target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/maternal-care.php"); //will change depending on the name of the services page
         exit(0);
     }
 }
@@ -744,7 +739,7 @@ if(isset($_POST['edit_childcare_male'])) //no page yet for this query
     $child_firstname = mysqli_real_escape_string($conn, $_POST['child_care-male-first-name']);
     $child_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-male-middle-inital']);
     $child_lastname = mysqli_real_escape_string($conn, $_POST['child_care-male-last-name']); //error occur
-    $sex = mysqli_real_escape_string($conn, $_POST['child_care-male-sex']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['child_care-male-sex']);
 
     $mother_firstname = mysqli_real_escape_string($conn, $_POST['child_care-male-mother-first-name']);
     $mother_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-male-mother-middle-inital']);
@@ -817,7 +812,7 @@ if(isset($_POST['edit_childcare_male'])) //no page yet for this query
     $query = "UPDATE target_childcare_male SET
               date_registered='$date_registered', birthday='$birthday', serial='$serial', status='$status', 
               child_firstname='$child_firstname', child_middle_initial='$child_middle_initial', 
-              child_lastname='$child_lastname', sex='$sex', mother_firstname='$mother_firstname', 
+              child_lastname='$child_lastname', mother_firstname='$mother_firstname', 
               mother_middle_initial='$mother_middle_initial', mother_lastname='$mother_lastname', 
               complete_address='$complete_address', cpab='$cpab', length_newborn='$length_newborn',
               weight_newborn='$weight_newborn', status_newborn='$status_newborn', 
@@ -871,18 +866,13 @@ if(isset($_POST['edit_childcare_male'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-        header("Location: ../services-target_list.php"); //temporary destination
+        header("Location: ../masterlist/childhood-care-male.php");
         exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else
     {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/childhood-care-male.php");
         exit(0);
     }
 }
@@ -901,7 +891,7 @@ if(isset($_POST['edit_childcare_female'])) //no page yet for this query
     $child_firstname = mysqli_real_escape_string($conn, $_POST['child_care-female-first-name']);
     $child_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-female-middle-inital']);
     $child_lastname = mysqli_real_escape_string($conn, $_POST['child_care-female-last-name']); //error occur
-    $sex = mysqli_real_escape_string($conn, $_POST['child_care-female-sex']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['child_care-female-sex']);
 
     $mother_firstname = mysqli_real_escape_string($conn, $_POST['child_care-female-mother-first-name']);
     $mother_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-female-mother-middle-inital']);
@@ -974,7 +964,7 @@ if(isset($_POST['edit_childcare_female'])) //no page yet for this query
     $query = "UPDATE target_childcare_female SET
               date_registered='$date_registered', birthday='$birthday', serial='$serial', status='$status', 
               child_firstname='$child_firstname', child_middle_initial='$child_middle_initial', 
-              child_lastname='$child_lastname', sex='$sex', mother_firstname='$mother_firstname', 
+              child_lastname='$child_lastname', mother_firstname='$mother_firstname', 
               mother_middle_initial='$mother_middle_initial', mother_lastname='$mother_lastname', 
               complete_address='$complete_address', cpab='$cpab', length_newborn='$length_newborn',
               weight_newborn='$weight_newborn', status_newborn='$status_newborn', 
@@ -1028,18 +1018,13 @@ if(isset($_POST['edit_childcare_female'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-        header("Location: ../services-target_list.php"); //temporary destination
+        header("Location: ../masterlist/childhood-care-female.php"); 
         exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else
     {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/childhood-care-female.php");
         exit(0);
     }
 }
