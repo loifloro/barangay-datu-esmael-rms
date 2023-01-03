@@ -1,10 +1,10 @@
 <?php
 session_start();
 include 'includes/connection.php';
-if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])) {
-    header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-    exit();
-}
+// if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num']))) {
+//     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
+//     exit();
+// }
 //FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
     $phone_num = $_SESSION['phone_num'];
     
