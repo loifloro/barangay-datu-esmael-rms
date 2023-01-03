@@ -201,7 +201,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <!-- Deworming -->
                     <div class="reports__card__item"> 
                         <p class="reports__card__title">Total No. of Male Patients</p>
-                                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>"> 
+                                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
                         <p class="reports__card__total"> 10 </p>
                     </div>
                 </div>
