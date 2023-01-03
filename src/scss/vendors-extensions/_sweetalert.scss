@@ -13,6 +13,10 @@
     }
 }
 
+.swal2-input {
+    margin-inline: auto !important;
+}
+
 .swal2-html-container {
     margin-top: unset !important;
 }
@@ -23,6 +27,11 @@
 }
 
 .logout.swal2-icon-success {
+    color: $white-1;
+    background-color: $red !important;
+}
+
+.toast.swal2-icon-error {
     color: $white-1;
     background-color: $red !important;
 }

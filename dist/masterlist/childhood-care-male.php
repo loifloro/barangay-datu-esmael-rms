@@ -3,9 +3,12 @@ session_start();
 include '../includes/connection.php';
 if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     header("Location: ../index.php?error=You are not logged in"); /*Redirect to this page if successful*/
-
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "../includes/functions.php";
+hide_content_forms();
+//END OF FUNCTION
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-    <title>Add New User</title>
+    <title>Masterlist Child Care Male</title>
 </head>
 <body class="grid">
     <!-- Sidebar -->
@@ -31,7 +34,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <p class="sidebar__caption">Dashboard</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--active">
+            <li class="sidebar__item">
                 <a href="../patients.php" class="sidebar__link">
                     <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -42,7 +45,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 </a>
             </li>
  
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="backup_sidebar">
                 <a href="../archive.php" class="sidebar__link">
                     <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24">
@@ -54,16 +57,16 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             </li>
             <hr class="sidebar__line" />
             <li class="sidebar__item">
-                <a href="" class="sidebar__link">
+                <a href="../services-consultation.php" class="sidebar__link">
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                             d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM17,9H15V7a1,1,0,0,0-1-1H10A1,1,0,0,0,9,7V9H7a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H9v2a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V15h2a1,1,0,0,0,1-1V10A1,1,0,0,0,17,9Zm-1,4H14a1,1,0,0,0-1,1v2H11V14a1,1,0,0,0-1-1H8V11h2a1,1,0,0,0,1-1V8h2v2a1,1,0,0,0,1,1h2Z" />
                     </svg>
-                    <p class="sidebar__caption sidebar__caption--active">Services</p>
+                    <p class="sidebar__caption">Services</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item  sidebar__item--active" id="masterlist_sidebar">
                 <a href="../dashboard-masterlist.php" class="sidebar__link">
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -111,7 +114,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
         <nav class="navigation">
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
-                Patients
+                Masterlist
             </h1>
              <form class="navigation__search" action="../search-result.php" method="GET">
 
@@ -131,78 +134,82 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
     </header>
 
     <!-- Contents -->
-    <main class="add-user">
-        <section class="form">
-            <p class="back__btn">
-                <a href="#" onclick="backAlert()">Back</a>   
-            </p>
-            <h2 class="add-user__title">
-                Add New User
-            </h2>
-            <p class="add-user__desc">
-                Fill out  necessary information to complete the process
-            </p>
+    <main class="masterlist">
+        <h2 class="masterlist__title">
+            Child Care
+        </h2>
+        <p class="masterlist__desc">
+            Target Client List for Child Care Male
+        </p>
 
-            <form action="../includes/add_query.php" method="POST"
-                  class="add-user__form" onsubmit="addUser(this)">
+        <div class="masterlist__table">
+                <ul class="masterlist__table__row masterlist__attributes" role="list">
+                    <li class="masterlist__attributes__item">
+                        Name
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
 
-                <div class="add-user__form-item">
-                    <label for="bhw-contact">Contact Number</label>
-                    <input type="number" name="bhw-contact" id="bhw-contact" required>
-                </div>
-                
-                <div class="add-user__form-item">
-                    <label for="bhw-contact">Password</label>
-                    <input type="password" name="bhw-pass" id="bhw-contact" maxlength="11" min="1" required>
-                </div>
+                    </li>
+                    <li class="masterlist__attributes__item">
+                        Date Availed
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
 
-                <div class="add-user__form-item add-user__form-item--role">
-                    <label for="bhw-contact">Role</label>
-                    <div class="add-user__form--role-item">
-                        <div class="add-user__form-item">
-                            <input type="radio" name="bhw-role" id="bhw-chn" value="City Health Nurse" required>
-                            <label for="bhw-chn">City Health Nurse</label>
-                        </div>
-                        <div class="add-user__form-item">
-                            <input type="radio" name="bhw-role" id="bhw-bhw" value="Barangay Health Worker" required>
-                            <label for="bhw-bhw">Barangay Health Worker</label>
-                        </div>
-                    </div>
-                </div>
+                    </li>
+                    <li class="masterlist__attributes__item">
+                        Sex
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
 
-                <!-- Divider -->
-                <hr>
+                    </li>
+                    <li class="masterlist__attributes__item">
+                        Birthdate
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z"/></svg>
 
-                <div class="add-user__form-btn">
-                    <!-- <button type="submit" class="btn-green btn-save" name="save_bhw" onclick="return  confirm('Do you want to add this account?')"> -->
-                    <button type="submit" class="btn-green btn-save" name="save_bhw">
-                        Save
-                    </button>
-                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
-                        Clear
-                    </button>
-                </div>
-                <!-- Query to get the user session name -->
-                <?php 
-                    include '../includes/connection.php';
-                    $query = "SELECT * FROM account_information WHERE account_id = '".$_SESSION['account_id']."'";
-                    $query_run = mysqli_query($conn, $query);
+                    </li>
+                </ul>
 
-                    if(mysqli_num_rows($query_run) > 0){
-                        foreach($query_run as $user){
-                ?>
+                <ul class="masterlist__table__row masterlist__info" role="list">
+                    
+                    <li class="masterlist__name p-bold">
+                    <a href="">
+                        Name
+                    </a>
+                    </li>
+                    <li class="masterlist__date">
+                        Date
+                    </li>
+                    <li class="masterlist__sex">
+                        Sex
+                    </li>
+                    <li class="masterlist__bdate">
+                        Birthdate
+                    </li>
+                    <li class="masterlist__option">
+                        <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z"/></svg>
+                        <a href="">
+                            <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate"><defs><clipPath id="a"><rect width="64" height="64"/></clipPath></defs><g clip-path="url(#a)"><path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z"/></g></svg>
+                        </a>    
+                    </li>
+                </ul>
 
-                 <input type="hidden" name="user_fname" value="<?= $user['firstname']; ?>">
-                 <input type="hidden" name="user_lname" value="<?= $user['lastname']; ?>">
-                 <input type="hidden" name="user_role" value="<?= $user['position']; ?>">
+                        <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true, 
+                            })
+                        </script>
 
-                <?php
-                    }
-                    }
-                ?> 
-                 <!-- END OF QUERY -->
-            </form>
-        </section>
+            </div>
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
+                <p>Add</p>  
+            </button>
     </main>
     <script src="../js/app.js"></script>
 </body>

@@ -35,6 +35,10 @@
         select {
             display: block;
         }
+
+        button {
+            width: 8.5rem
+        }
     
         &__card {
             @include card(2rem);

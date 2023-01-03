@@ -3,18 +3,18 @@ session_start();
 include "connection.php";
 
 // ADD BHW
-if(isset($_POST['save_bhw'])){   
+if(isset($_GET['save_bhw'])){   
 
-    $phone_num = mysqli_real_escape_string($conn, $_POST['bhw-contact']);
-    $password = mysqli_real_escape_string($conn, $_POST['bhw-pass']);
-    $position = mysqli_real_escape_string($conn, $_POST['bhw-role']);
+    $phone_num = mysqli_real_escape_string($conn, $_GET['bhw-contact']);
+    $password = mysqli_real_escape_string($conn, $_GET['bhw-pass']);
+    $position = mysqli_real_escape_string($conn, $_GET['bhw-role']);
 
     $date_added = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO account_information 
               (firstname, phone_num, password, sex, position, date_registered) 
               VALUES 
-              ('N/A', '$phone_num', '$password', 'N/A', '$position', '$date_added')";
+              ('', '$phone_num', '$password', 'N/A', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -41,7 +41,7 @@ if(isset($_POST['save_bhw'])){
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../user-profile.php");
+            header("Location: ../user-profile.php?success");
             exit(0);}
         //END OF QUERY
         

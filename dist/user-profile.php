@@ -278,27 +278,37 @@ hide_content();
             </p>
              
             <form action="includes/functions.php" method="POST">
-            <div class="user-profile__backup__form">
-                    <label for="patient-password">
-                        <p class="backup-title">Restore</p>
-                        Upload only sql file that you backup and then click the "Restore" button to restore all the record in the database system.
-                    </label>
-                    <button type="submit" class="btn-green btn-change btn-restore" name="restore_database" onclick="return  confirm('Do you want to restore the backup record?')">
-                        <p>Restore</p>
-                    </button>
-                    <button class="btn-green btn-change"> <!--upload-->
-                    <input type="file" name="filename">
-                    </button>
-            </div>
-            <div class="user-profile__backup__form">
-                    <label for="patient-password">
-                        <p class="backup-title">Backup</p>
-                        Click the button to download in you're local file the backup of the database system.
-                    </label>
-                    <button type="submit" class="btn-green btn-change btn-restore" name="backup_database"  onclick="return  confirm('Do you want to create a backup?')">
-                        <p>Backup</p>
-                    </button>
-            </div>
+                <div class="user-profile__backup__form">
+                        <label for="patient-password">
+                            <p class="backup-title">Upload</p>
+                            Click the button to download in you're local file the backup of the database system.
+                        </label>
+                        <div class="btn-section">
+                            <div class="input-file-container">
+                                <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+                                <input class="input-file" id="my-file" type="file">
+                            </div>
+                            <p class="file-return"></p>
+                        </div>
+                </div>
+                <div class="user-profile__backup__form">
+                        <label for="patient-password">
+                            <p class="backup-title">Restore</p>
+                            Upload only sql file that you backup and then click the "Restore" button to restore all the record in the database system.
+                        </label>
+                        <button type="submit" class="btn-green btn-change btn-restore" name="restore_database" onclick="return  confirm('Do you want to restore the backup record?')">
+                            <p>Restore</p>
+                        </button>
+                </div>
+                <div class="user-profile__backup__form">
+                        <label for="patient-password">
+                            <p class="backup-title">Backup</p>
+                            Click the button to download in you're local file the backup of the database system.
+                        </label>
+                        <button type="submit" class="btn-green btn-change btn-restore" name="backup_database"  onclick="return  confirm('Do you want to create a backup?')">
+                            <p>Backup</p>
+                        </button>
+                </div>
             </form>
         </section>
 
@@ -359,17 +369,13 @@ hide_content();
                         <?= $patient['date_registered']; ?>
                     </li>
                     <li class="bhw-account__option">
-                        <form action="includes/delete_query.php" method="POST">
-                            <input type="hidden" name="position" value="<?= $user['position']; ?>"/> 
-                            <input type="hidden" name="account_id" value="<?= $patient['account_id']; ?>"/>  
                             <!-- Buttons -->
-                                <button type="submit" name="delete_bhw" onclick="return confirm('Are you sure?')">  
-                                <span>
-                                    <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
+                                <button type="submit" name="delete_bhw" onclick="return confirmDeleteUser('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')" >  
+                                    <span>
+                                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z"/></svg>
                                     </span>
                                 </button>
                             <!--End Button-->
-                        </form> <!--end delete query-->
                     </li>                
                 </ul>
                 <?php
@@ -381,12 +387,67 @@ hide_content();
                     }
                 ?>
             </div>
-            <button type="submit" class="btn-green btn-add"  onclick="window.location.href = 'add/add-user.php'">
+            <button type="button" class="btn-green btn-add"  onclick="addUser()">
                 <p>Add</p>
             </button>
         </section>
     </main>
     <script src="./js/app.js"></script>
+    <?php
+    if (isset($_GET['success'])) { ?>
+                <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'success',
+                            iconColor: 'white',
+                            title: 'Added successfully',
+                            customClass: {
+                                popup: 'toast'
+                            },
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true, 
+                            })
+                </script>
+            <?php
+            }
+    if (isset($_GET['deleted'])) { ?>
+                <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'success',
+                            iconColor: 'white',
+                            title: 'Deleted successfully',
+                            customClass: {
+                                popup: 'toast'
+                            },
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true, 
+                            })
+                </script>
+            <?php
+            }
+    if (isset($_GET['error'])) { ?>
+        <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'error',
+                    iconColor: 'white',
+                    title: 'Error deleting account',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true, 
+                    })
+        </script>
+    <?php
+    }?>
 </body>
 
 </html>
