@@ -63,7 +63,15 @@ if(isset($_POST['save_deworming'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['deworming-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['deworming-age']);
+
+    // $age = mysqli_real_escape_string($conn, $_POST['deworming-age']);
+    //convert bdate to age
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+                   
+
     $sex = mysqli_real_escape_string($conn, $_POST['deworming-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['deworming-street']);
@@ -123,7 +131,12 @@ if(isset($_POST['save_consultation'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['consultation-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['consultation-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['consultation-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['consultation-age']);
+    // $age = mysqli_real_escape_string($conn, $_POST['consultation-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+
     $sex = mysqli_real_escape_string($conn, $_POST['consultation-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['consultation-street']);
@@ -191,7 +204,12 @@ if(isset($_POST['save_prenatal'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['prenatal-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['prenatal-age']);
+    // $age = mysqli_real_escape_string($conn, $_POST['prenatal-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+
     // $sex = mysqli_real_escape_string($conn, $_POST['prenatal-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['prenatal-street']);
@@ -315,8 +333,13 @@ if(isset($_POST['save_postnatal'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['postnatal-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['postnatal-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['postnatal-age']);
-    $sex = mysqli_real_escape_string($conn, $_POST['postnatal-sex']);
+    // $age = mysqli_real_escape_string($conn, $_POST['postnatal-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+
+    // $sex = mysqli_real_escape_string($conn, $_POST['postnatal-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['postnatal-street']);
     $barangay = mysqli_real_escape_string($conn, $_POST['postnatal-barangay']);
@@ -329,7 +352,7 @@ if(isset($_POST['save_postnatal'])){
     $height = mysqli_real_escape_string($conn, $_POST['postnatal-height']);
 
     $gravida = mysqli_real_escape_string($conn, $_POST['postnatal-gravida']);
-    $preterm = mysqli_real_escape_string($conn, $_POST['postnatal-p']);
+    $preterm = mysqli_real_escape_string($conn, $_POST['postnatal-preterm']);
     $lmp = mysqli_real_escape_string($conn, $_POST['postnatal-lmp']);
     $edc = mysqli_real_escape_string($conn, $_POST['postnatal-edc']);
     $aog = mysqli_real_escape_string($conn, $_POST['postnatal-aog']);
@@ -489,7 +512,12 @@ if(isset($_POST['save_early_childhood'])){
     $mother_name = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-name']);
     $no_pregnancies = mysqli_real_escape_string($conn, $_POST['early_childhood-pregnancies']);
     $mother_educ = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-education']);
-    $mother_age = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-age']);
+    // $mother_age = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-birthdate']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $mother_age= $diff->format('%y');
+
     $mother_occupation = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-occupation']);
     $mother_birthdate = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-birthdate']);
     $status = mysqli_real_escape_string($conn, $_POST['early_childhood-status']);
@@ -498,7 +526,11 @@ if(isset($_POST['save_early_childhood'])){
     $father_name = mysqli_real_escape_string($conn, $_POST['early_childhood-father-name']);
     $phone_num = mysqli_real_escape_string($conn, $_POST['early_childhood-father-contact']);//*
     $father_educ = mysqli_real_escape_string($conn, $_POST['early_childhood-father-education']);
-    $father_age = mysqli_real_escape_string($conn, $_POST['early_childhood-father-age']);
+    // $father_age = mysqli_real_escape_string($conn, $_POST['early_childhood-father-age']);
+    $dateOfBirth2 = mysqli_real_escape_string($conn, $_POST['early_childhood-father-birthdate']);
+    $diff2 = date_diff(date_create($dateOfBirth2), date_create($today));
+    $father_age= $diff2->format('%y');
+
     $father_occupation = mysqli_real_escape_string($conn, $_POST['early_childhood-father-occupation']);
     $father_birthdate = mysqli_real_escape_string($conn, $_POST['early_childhood-father-birthdate']);
 
