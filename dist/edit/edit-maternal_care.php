@@ -414,7 +414,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     (Write the BMI for 1st Tri)
                 </p>
                 <div class="edit-maternal_care__form-item">
-                    <label for="maternal_care-1st-tri-weight">Weight</label>
+                    <label for="maternal_care-1st-tri-weight">Weight (kg)</label>
                     <input type="text" name="maternal_care-1st-tri-weight" id="maternal_care-1st-tri-weight" value="<?= $patient['weight']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-doses">

@@ -228,11 +228,11 @@ hide_content_forms();
                     <textarea name="consultation-symptoms" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['symptoms']; ?></textarea>
                 </div>
                 <div class="edit-consultation__form-item">
-                    <label for="consultation-bp">Blood pressure</label>
+                    <label for="consultation-bp">Blood pressure (mmhg)</label>
                     <input type="text" name="consultation-bp" id="consultation-bp" value="<?= $patient['blood_pressure']; ?>">
                 </div>
                 <div class="edit-consultation__form-item">
-                    <label for="consultation-weight">Weight</label>
+                    <label for="consultation-weight">Weight (kg)</label>
                     <input type="text" name="consultation-weight" id="consultation-weight" value="<?= $patient['weight']; ?>">
                 </div>
 

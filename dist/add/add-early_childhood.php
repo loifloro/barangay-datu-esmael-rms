@@ -317,11 +317,11 @@ hide_content_forms();
                     <input type="text" name="early_childhood-birth-order" id="early_childhood-birth-order">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-birth-weight">Birth Weight</label>
+                    <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
                     <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-birth-length">Birth Length</label>
+                    <label for="early_childhood-birth-length">Birth Length (cm)</label>
                     <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length">
                 </div>
                 <div class="add-early_childhood__form-item">

@@ -332,11 +332,11 @@ hide_content_forms();
                     <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order" value="<?= $patient['birth_order']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-birth-weight">Birth Weight</label>
+                    <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
                     <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight" value="<?= $patient['birth_weight']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
-                    <label for="early_childhood-birth-length">Birth Length</label>
+                    <label for="early_childhood-birth-length">Birth Length (cm)</label>
                     <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length" value="<?= $patient['birth_length']; ?>">
                 </div>
                 <div class="edit-early_childhood__form-item">
