@@ -143,28 +143,28 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                 Fill out  necessary information to complete the process
             </p>
 
-            <form action="../includes/add_query.php" method="POST" class="add-child_care-female__form"> <!--ACTION AND METHOD ADDED-->
+            <form action="../includes/add_query.php" method="POST" class="add-child_care-female__form">
                 <div class="add-child_care-female__form-item">
-                    <label for="child_care-female-registration">Date of Registration</label>
-                    <input type="date" name="child_care-female-registration" id="child_care-female-registration" >
+                    <label for="child_care-female-registration">Date of Registration *</label>
+                    <input type="date" name="child_care-female-registration" id="child_care-female-registration" required>
                 </div>
                 <div class="add-child_care-female__form-item">
-                    <label for="child_care-female-birthdate">Date of Birthdate</label>
-                    <input type="date" name="child_care-female-birthdate" id="child_care-female-birthdate">
+                    <label for="child_care-female-birthdate">Date of Birthdate *</label>
+                    <input type="date" name="child_care-female-birthdate" id="child_care-female-birthdate" required>
                 </div>
                 <div class="add-child_care-female__form-item">
-                    <label for="child_care-female-family-serial">Family Serial No.</label>
-                    <input type="text" name="child_care-female-family-serial" id="child_care-female-family-serial">
+                    <label for="child_care-female-family-serial">Family Serial No. *</label>
+                    <input type="text" name="child_care-female-family-serial" id="child_care-female-family-serial" required>
                 </div>
                 <div class="add-child_care-female__form-item add-child_care-female__form-item--radio">
-                    <label for="se-status">SE Status</label>
+                    <label for="se-status">SE Status *</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS"> <!--value added-->
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS" required>
                             <label for="bhw-chn">NHTS</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS"> <!--value added-->
+                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS" required>
                             <label for="bhw-bhw">NON NHTS</label>
                         </div>
                     </div>
@@ -177,66 +177,66 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <label for="child_care-female-child-name">Name of Child</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-first-name" id="child_care-female-first-name">
-                            <label for="child_care-female-first-name">First Name</label>
+                            <input type="text" name="child_care-female-first-name" id="child_care-female-first-name" required>
+                            <label for="child_care-female-first-name">First Name *</label>
                         </div>
                         <div class="three-input__item">
                             <input type="text" name="child_care-female-middle-inital" id="child_care-female-middle-inital">
                             <label for="child_care-female-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-last-name" id="child_care-female-last-name">
-                            <label for="child_care-female-last-name">Last Name</label>
+                            <input type="text" name="child_care-female-last-name" id="child_care-female-last-name" required>
+                            <label for="child_care-female-last-name">Last Name *</label>
                         </div>
                     </div>                    
                 </div>
-                <div class="add-child_care-female__form-item add-child_care-female__form-item--radio">
+                <!-- <div class="add-child_care-female__form-item add-child_care-female__form-item--radio">
                     <label for="se-status">Sex</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-m" value="Male"> <!--value added-->
+                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-m" value="Male">
                             <label for="child_care-female-sex-m">Male</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-f" value="Female"> <!--value added-->
-                            <label for="child_care-female-sex-f">Fefemale</label>
+                            <input type="radio" name="child_care-female-sex" id="child_care-female-sex-f" value="Female">
+                            <label for="child_care-female-sex-f">Female</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-mother-name">Complete Name of Mother</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-mother-first-name" id="child_care-female-mother-first-name">
-                            <label for="child_care-female-first-name">First Name</label>
+                            <input type="text" name="child_care-female-mother-first-name" id="child_care-female-mother-first-name" required>
+                            <label for="child_care-female-first-name">First Name *</label>
                         </div>
                         <div class="three-input__item">
                             <input type="text" name="child_care-female-mother-middle-inital" id="child_care-female-mother-middle-inital">
                             <label for="child_care-female-mother-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-mother-last-name" id="child_care-female-last-name"> <!--child_care-female-last-name CHANGE INTO child_care-female-mother-last-name-->
-                            <label for="child_care-female-last-name">Last Name</label>
+                            <input type="text" name="child_care-female-mother-last-name" id="child_care-female-last-name" required>
+                            <label for="child_care-female-last-name">Last Name *</label>
                         </div>
                     </div>                    
                 </div>
                 <div class="add-child_care-female__form-item">
-                    <label for="child_care-female-address">Complete Address</label>
-                    <textarea name="child_care-female-address" id="child_care-female-address" cols="27" rows="5"></textarea>
+                    <label for="child_care-female-address">Complete Address *</label>
+                    <textarea name="child_care-female-address" id="child_care-female-address" cols="27" rows="5" required></textarea>
                 </div>
 
                 <!-- Divider -->
                 <hr>
 
                 <div class="add-child_care-female__form-item add-child_care-female__form-item--radio">
-                    <label for="child_care-female--cpab">Child Protected at Birth (CPAB)</label>
+                    <label for="child_care-female--cpab">Child Protected at Birth (CPAB) *</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt2" value="TT2/Td2 given a month prior to delivery">
+                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt2" value="TT2/Td2 given a month prior to delivery" required>
                             <label for="child_care-female--tt2">TT2/Td2 given a month prior to delivery</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt3" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery">
+                            <input type="radio" name="child_care-female--cpab" id="child_care-female--tt3" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery" required>
                             <label for="child_care-female--tt3">TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery</label>
                         </div>
                     </div>
@@ -257,22 +257,22 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <input type="text" name="child_care-female-newborn-length" id="child_care-female-newborn-length">
                 </div>
                 <div class="add-child_care-female__form-item">
-                    <label for="child_care-female--newbornweight">Status(Birth Weight)     <br>(kg)</label>
-                    <input type="tel" name="child_care-female-newborn-weight" id="child_care-female-newborn-weight">
+                    <label for="child_care-female--newbornweight">Weight at Birth *    <br>(kg)</label>
+                    <input type="tel" name="child_care-female-newborn-weight" id="child_care-female-newborn-weight" required>
                 </div>
                 <div class="add-child_care-female__form-item add-child_care-female__form-item--radio">
-                    <label for="child_care-female-newborn-weight">Weight at Birth <br>(kg)</label>
+                    <label for="child_care-female-newborn-weight">Status(Birth Weight) * <br>(kg)</label>
                         <div class="add-user__form--role-item">
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-low" value="low: < 2500gms"><!--child_care-female-newborn-weight CHANGE INTO child_care-female-newborn-weight-status--> <!--value added-->
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-low" value="low: < 2500gms" required>
                                 <label for="child_care-female-newborn-weight-low">L: low: < 2500gms </label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-normal" value="normal: >= 2500gms"><!--child_care-female-newborn-weight CHANGE INTO child_care-female-newborn-weight-status--> <!--value added-->
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-normal" value="normal: >= 2500gms" required>
                                 <label for="child_care-female-newborn-weight-normal">N:normal: >= 2500gms </label>
                             </div>
                             <div class="add-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-unknown" value="unknown"><!--child_care-female-newborn-weight CHANGE INTO child_care-female-newborn-weight-status--> <!--value added-->
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-unknown" value="unknown" required>
                                 <label for="child_care-female-newborn-weight-unknown">U:unknown </label>
                             </div>
                         </div>
