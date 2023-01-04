@@ -256,7 +256,7 @@ hide_content();
                         </button>
                     </div>
                 </div>
-                <button type="submit" class="btn-red btn-change">
+                <button type="button" class="btn-red btn-change" onclick="forgotPassword()">
                     <p>Change</p>
                 </button>
             </div>
