@@ -37,6 +37,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 $_SESSION['phone_num'] = $row['phone_num'];
                 $_SESSION['firstname'] = $row['firstname'];
                 $_SESSION['account_id'] = $row['account_id'];
+                $_SESSION['position'] = $row['position'];
                 header("Location: dashboard.php?success"); /*Redirect to this page if successful*/
                 exit();
             } 

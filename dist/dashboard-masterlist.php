@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'includes/connection.php';
-if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
@@ -232,6 +232,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
             <!-- MATERNAL CARE -->
                 <div class="reports__card">
                     <div class="reports__card__item"> 
+
                     <!-- Query Start -->
                     <?php
                         //DEFAULT DISPLAY
