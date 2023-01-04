@@ -1,7 +1,7 @@
 <?php
 session_start();
 include 'includes/connection.php';
-if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
+if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
@@ -201,7 +201,7 @@ if (!isset($_SESSION['account_id']) && !isset($_SESSION['phone_num'])) {
                     <!-- Deworming -->
                     <div class="reports__card__item"> 
                         <p class="reports__card__title">Total No. of Male Patients</p>
-                        <input type="range" name="" id=""> 
+                                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
                         <p class="reports__card__total"> 10 </p>
                     </div>
                 </div>

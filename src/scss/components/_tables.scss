@@ -61,7 +61,7 @@
         font-size: .8rem;
         color: $green;
         background: $active-green;
-        padding: .5rem 1rem;
+        padding: .3rem .8rem;
         border-radius: 100vw;
     }
 
@@ -69,7 +69,23 @@
         font-size: .8rem;
         color: $yellow-1;
         background: $yellow-2;
-        padding: .5rem 1rem;
+        padding: .3rem .8rem;
+        border-radius: 100vw;
+    }
+
+    &__availed-service--postnatal{
+        font-size: .8rem;
+        color: $yellow-2;
+        background: $yellow-1;
+        padding: .3rem .8rem;
+        border-radius: 100vw;
+    }
+
+    &__availed-service--consultation {
+        font-size: .8rem;
+        color: $active-green;
+        background: $green;
+        padding: .3rem .8rem;
         border-radius: 100vw;
     }
 

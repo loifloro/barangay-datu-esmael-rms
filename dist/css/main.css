@@ -348,7 +348,7 @@ form {
 
 input[type=range] {
   accent-color: #034A23;
-  width: 60%;
+  width: 100%;
 }
 
 .modal {
@@ -388,6 +388,11 @@ input[type=range] {
 }
 
 .logout.swal2-icon-success {
+  color: #FFFFFF;
+  background-color: #730808 !important;
+}
+
+.toast.swal2-icon-error {
   color: #FFFFFF;
   background-color: #730808 !important;
 }
@@ -1315,7 +1320,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   font-size: 0.8rem;
   color: #034A23;
   background: #ECFCF2;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 100vw;
 }
 .patient__availed-service--prenatal,
@@ -1323,7 +1328,23 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   font-size: 0.8rem;
   color: #C2AB00;
   background: #fff690;
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100vw;
+}
+.patient__availed-service--postnatal,
+.search-results__availed-service--postnatal {
+  font-size: 0.8rem;
+  color: #fff690;
+  background: #C2AB00;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100vw;
+}
+.patient__availed-service--consultation,
+.search-results__availed-service--consultation {
+  font-size: 0.8rem;
+  color: #ECFCF2;
+  background: #034A23;
+  padding: 0.3rem 0.8rem;
   border-radius: 100vw;
 }
 
@@ -3197,7 +3218,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .dashboard .reports select {
   display: block;
 }
-.dashboard .reports buttn {
+.dashboard .reports button {
   width: 8.5rem;
 }
 .dashboard .reports__card {
@@ -3210,19 +3231,26 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-block: 0.8rem;
 }
 .dashboard .reports__card__item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 4rem;
+  column-gap: 1rem;
   align-items: center;
-  justify-content: space-between;
 }
 .dashboard .reports__card__item > * {
   vertical-align: middle;
 }
 .dashboard .reports__card__title {
-  font-weight: 700;
+  font-weight: 300;
+  margin-right: auto;
+}
+.dashboard .reports__card__heading {
+  margin-bottom: 1rem;
+  font-weight: 800;
 }
 .dashboard .reports__card__total {
   font-weight: 700;
   font-size: 1.2rem;
+  margin-left: 2rem;
 }
 .dashboard .reports__card btn {
   width: 9.5rem;
@@ -4997,6 +5025,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   z-index: -1;
   margin: 0;
 }
+.services #services__hr {
+  display: none;
+}
 .services__list {
   padding-inline-start: 0.5rem;
   margin-bottom: 0.2rem;
@@ -5032,6 +5063,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .services .reports {
   margin-block: 5rem;
 }
+.services .reports__title {
+  margin-top: 2rem;
+}
 .services .reports__input {
   display: flex;
   justify-content: end;
@@ -5055,9 +5089,10 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-block: 0.8rem;
 }
 .services .reports__card__item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 2fr 4rem;
+  column-gap: 1rem;
   align-items: center;
-  justify-content: space-between;
 }
 .services .reports__card__item > * {
   vertical-align: middle;
