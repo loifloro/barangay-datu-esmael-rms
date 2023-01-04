@@ -175,10 +175,10 @@ hide_content_forms();
                     <label for="deworming-mname">Middle Name</label>
                     <input type="text" name="deworming-mname" id="deworming-mname" value="<?= $patient['middlename']; ?>">
                 </div>
-                <div class="edit-deworming__form-item">
+                <!-- <div class="edit-deworming__form-item">
                     <label for="deworming-age">Age *</label>
                     <input type="number" name="deworming-age" id="deworming-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
-                </div>
+                </div> -->
                 <div class="edit-deworming__form-item">
                     <label for="deworming-age">Phone Number</label>
                     <input type="number" name="deworming-phone_num" id="deworming-age" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">

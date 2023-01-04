@@ -164,10 +164,10 @@ hide_content_forms();
                     <label for="deworming-mname">Middle Name</label>
                     <input type="text" name="deworming-mname" id="deworming-mname">
                 </div>
-                <div class="add-deworming__form-item">
+                <!-- <div class="add-deworming__form-item">
                     <label for="deworming-age">Age *</label>
                     <input type="number" name="deworming-age" id="deworming-age" maxlength="2" min="1" required>
-                </div>
+                </div> -->
                 <div class="add-deworming__form-item"> <!--added input box-->
                     <label for="deworming-phone_num">Phone Number</label>
                     <input type="number" name="deworming-phone_num" id="deworming-age" maxlength="11" min="1">

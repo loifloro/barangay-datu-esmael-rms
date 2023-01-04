@@ -174,10 +174,10 @@ hide_content_forms();
                     <label for="consultation-mname">Middle Name</label>
                     <input type="text" name="consultation-mname" id="consultation-mname" value="<?= $patient['middlename']; ?>">
                 </div>
-                <div class="edit-consultation__form-item">
+                <!-- <div class="edit-consultation__form-item">
                     <label for="consultation-age">Age *</label>
                     <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
-                </div>
+                </div> -->
                 <div class="edit-consultation__form-item edit-consultation__form-item--radio">
                     <label for="consultation-sex">Gender *</label>
                     <div class="edit-consultation__form--role-item">
@@ -228,11 +228,11 @@ hide_content_forms();
                     <textarea name="consultation-symptoms" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['symptoms']; ?></textarea>
                 </div>
                 <div class="edit-consultation__form-item">
-                    <label for="consultation-bp">Blood pressure</label>
+                    <label for="consultation-bp">Blood pressure (mmhg)</label>
                     <input type="text" name="consultation-bp" id="consultation-bp" value="<?= $patient['blood_pressure']; ?>">
                 </div>
                 <div class="edit-consultation__form-item">
-                    <label for="consultation-weight">Weight</label>
+                    <label for="consultation-weight">Weight (kg)</label>
                     <input type="text" name="consultation-weight" id="consultation-weight" value="<?= $patient['weight']; ?>">
                 </div>
 

@@ -149,8 +149,8 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 ?>
                 <input type="hidden" name="target_maternal_id" value="<?= $patient['target_maternal_id']; ?>"> <!--nakahide sya para access ID sa edit-->
                 <div class="edit-maternal_care__form-item">
-                    <label for="maternal_care-registration">Date of Registration</label>
-                    <input type="date" name="maternal_care-registration" id="maternal_care-registration" value="<?= $patient['date_registered']; ?>">
+                    <label for="maternal_care-registration">Date of Registration *</label>
+                    <input type="date" name="maternal_care-registration" id="maternal_care-registration" value="<?= $patient['date_registered']; ?>" required>
                 </div>
                 <div class="edit-maternal_care__form-item">
                     <label for="maternal_care-family-serial">Family Serial No.</label>
@@ -160,22 +160,22 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-child-name">Name</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="maternal_care-first-name" id="maternal_care-first-name" value="<?= $patient['firstname']; ?>">
-                            <label for="maternal_care-first-name">First Name</label>
+                            <input type="text" name="maternal_care-first-name" id="maternal_care-first-name" value="<?= $patient['firstname']; ?>" required>
+                            <label for="maternal_care-first-name">First Name *</label>
                         </div>
                         <div class="three-input__item">
                             <input type="text" name="maternal_care-middle-inital" id="maternal_care-middle-inital" value="<?= $patient['middle_initial']; ?>">
                             <label for="maternal_care-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="maternal_care-last-name" id="maternal_care-last-name" value="<?= $patient['lastname']; ?>">
-                            <label for="maternal_care-last-name">Last Name</label>
+                            <input type="text" name="maternal_care-last-name" id="maternal_care-last-name" value="<?= $patient['lastname']; ?>" required>
+                            <label for="maternal_care-last-name">Last Name *</label>
                         </div>
                     </div>                    
                 </div>
                 <div class="edit-maternal_care__form-item">
-                    <label for="maternal_care-address">Complete Address</label>
-                    <textarea name="maternal_care-address" id="maternal_care-address" cols="27" rows="5"><?= $patient['complete_address']; ?></textarea>
+                    <label for="maternal_care-address">Complete Address *</label>
+                    <textarea name="maternal_care-address" id="maternal_care-address" cols="27" rows="5" required><?= $patient['complete_address']; ?></textarea>
                 </div>
                 <div class="edit-maternal_care__form-item edit-maternal_care__form-item--radio">
                     <label for="bhw-contact">Socio Economic Status</label>
@@ -194,26 +194,26 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-1mos-legth">Age</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-age" id="maternal_care-age" value="<?= $patient['age']; ?>">                            
-                            <label for="maternal_care-age">Age</label>
+                            <input type="number" name="maternal_care-age" id="maternal_care-age" value="<?= $patient['age']; ?>" required>                            
+                            <label for="maternal_care-age">Age *</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-birthday" id="maternal_care-birthday" value="<?= $patient['birthday']; ?>">
-                            <label for="maternal_care-birthday">Birthday</label>
+                            <input type="date" name="maternal_care-birthday" id="maternal_care-birthday" value="<?= $patient['birthday']; ?>" required>
+                            <label for="maternal_care-birthday">Birthday *</label>
                         </div>
                     </div>
                 </div>
                 <div class="edit-maternal_care__form-item">
-                    <label for="maternal_care-lmp">LMP</label>
-                    <input type="date" name="maternal_care-lmp" id="maternal_care-lmp" value="<?= $patient['lmp']; ?>">
+                    <label for="maternal_care-lmp">LMP *</label>
+                    <input type="date" name="maternal_care-lmp" id="maternal_care-lmp" value="<?= $patient['lmp']; ?>" required>
                 </div>
                 <div class="edit-maternal_care__form-item">
-                    <label for="maternal_care-gp">G-P</label>
-                    <input type="number" name="maternal_care-gp" id="maternal_care-gp" value="<?= $patient['gp']; ?>">
+                    <label for="maternal_care-gp">G-P *</label>
+                    <input type="number" name="maternal_care-gp" id="maternal_care-gp" value="<?= $patient['gp']; ?>" required>
                 </div>
                 <div class="edit-maternal_care__form-item">
-                    <label for="maternal_care-edc">EDC</label>
-                    <input type="date" name="maternal_care-edc" id="maternal_care-edc" value="<?= $patient['edc']; ?>">
+                    <label for="maternal_care-edc">EDC *</label>
+                    <input type="date" name="maternal_care-edc" id="maternal_care-edc" value="<?= $patient['edc']; ?>" required>
                 </div>
                 
                 <!-- Divider -->
@@ -414,7 +414,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     (Write the BMI for 1st Tri)
                 </p>
                 <div class="edit-maternal_care__form-item">
-                    <label for="maternal_care-1st-tri-weight">Weight</label>
+                    <label for="maternal_care-1st-tri-weight">Weight (kg)</label>
                     <input type="text" name="maternal_care-1st-tri-weight" id="maternal_care-1st-tri-weight" value="<?= $patient['weight']; ?>">
                 </div>
                 <div class="edit-maternal_care__form-doses">
@@ -518,19 +518,19 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                 <!-- Radio Buttons -->
                 <div class="edit-maternal_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
                 <div class="edit-maternal_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
                 <div class="edit-maternal_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
                 <div class="edit-maternal_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address"> 
+                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address" required> 
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
                 <div class="edit-maternal_care-female__form-item--reason">

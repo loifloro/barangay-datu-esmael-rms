@@ -164,10 +164,10 @@ hide_content_forms();
                     <label for="postnatal-mname">Middle Name</label>
                     <input type="text" name="postnatal-mname" id="postnatal-mname">
                 </div>
-                <div class="add-postnatal__form-item">
+                <!-- <div class="add-postnatal__form-item">
                     <label for="postnatal-age">Age *</label>
                     <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1" required>
-                </div>
+                </div> -->
                 <!-- <div class="add-postnatal__form-item add-postnatal__form-item--radio">
                     <label for="postnatal-sex">Gender</label>
                     <div class="add-postnatal__form--role-item">
@@ -261,7 +261,7 @@ hide_content_forms();
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-p">P *</label>
-                    <input type="text" name="postnatal-p" id="postnatal-p" required>
+                    <input type="text" name="postnatal-preterm" id="postnatal-p" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lmp">LMP</label>

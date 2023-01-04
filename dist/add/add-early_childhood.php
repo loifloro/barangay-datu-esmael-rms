@@ -228,10 +228,10 @@ hide_content_forms();
                     <label for="early_childhood-mother-education">Educational Attainment</label>
                     <input type="text" name="early_childhood-mother-education" id="early_childhood-mother-education">
                 </div>
-                <div class="add-early_childhood__form-item">
+                <!-- <div class="add-early_childhood__form-item">
                     <label for="early_childhood-mother-age">Age *</label>
                     <input type="number" name="early_childhood-mother-age" id="early_childhood-mother-age" required>
-                </div>
+                </div> -->
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-mother-occupation">Occupation</label>
                     <input type="text" name="early_childhood-mother-occupation" id="early_childhood-mother-occupation">
@@ -267,10 +267,10 @@ hide_content_forms();
                     <label for="early_childhood-father-education">Educational Attainment</label>
                     <input type="text" name="early_childhood-father-education" id="early_childhood-father-education">
                 </div>
-                <div class="add-early_childhood__form-item">
+                <!-- <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-age">Age *</label>
                     <input type="number" name="early_childhood-father-age" id="early_childhood-father-age" required>
-                </div>
+                </div> -->
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-occupation">Occupation</label>
                     <input type="text" name="early_childhood-father-occupation" id="early_childhood-father-occupation">
@@ -317,11 +317,11 @@ hide_content_forms();
                     <input type="text" name="early_childhood-birth-order" id="early_childhood-birth-order">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-birth-weight">Birth Weight</label>
+                    <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
                     <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight">
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-birth-length">Birth Length</label>
+                    <label for="early_childhood-birth-length">Birth Length (cm)</label>
                     <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length">
                 </div>
                 <div class="add-early_childhood__form-item">

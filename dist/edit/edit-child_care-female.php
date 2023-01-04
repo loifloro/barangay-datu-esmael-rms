@@ -155,26 +155,26 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 ?>
                 <input type="hidden" name="target_childcare_female_id" value="<?= $patient['target_childcare_female_id']; ?>"> <!--nakahide sya para access ID sa edit-->
                 <div class="edit-child_care-female__form-item">
-                    <label for="child_care-male-registration">Date of Registration</label>
-                    <input type="date" name="child_care-female-registration" id="child_care-male-registration" value="<?= $patient['date_registered']; ?>">
+                    <label for="child_care-male-registration">Date of Registration *</label>
+                    <input type="date" name="child_care-female-registration" id="child_care-male-registration" value="<?= $patient['date_registered']; ?>" required>
                 </div>
                 <div class="edit-child_care-female__form-item">
-                    <label for="child_care-male-birthdate">Date of Birthdate</label>
-                    <input type="date" name="child_care-female-birthdate" id="child_care-male-birthdate" value="<?= $patient['birthday']; ?>">
+                    <label for="child_care-male-birthdate">Date of Birthdate *</label>
+                    <input type="date" name="child_care-female-birthdate" id="child_care-male-birthdate" value="<?= $patient['birthday']; ?>" required>
                 </div>
                 <div class="edit-child_care-female__form-item">
-                    <label for="child_care-male-family-serial">Family Serial No.</label>
-                    <input type="text" name="child_care-female-family-serial" id="child_care-male-family-serial" value="<?= $patient['serial']; ?>">
+                    <label for="child_care-male-family-serial">Family Serial No. *</label>
+                    <input type="text" name="child_care-female-family-serial" id="child_care-male-family-serial" value="<?= $patient['serial']; ?>" required>
                 </div>
                 <div class="edit-child_care-female__form-item edit-child_care-female__form-item--radio">
-                    <label for="se-status">SE Status</label>
+                    <label for="se-status">SE Status *</label>
                     <div class="edit-user__form--role-item">
                         <div class="edit-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS" <?= ($patient['status']=='NHTS')? 'checked' : '' ?>>
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS" <?= ($patient['status']=='NHTS')? 'checked' : '' ?> required>
                             <label for="bhw-chn">NHTS</label>
                         </div>
                         <div class="edit-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS" <?= ($patient['status']=='NON NHTS')? 'checked' : '' ?>>
+                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS" <?= ($patient['status']=='NON NHTS')? 'checked' : '' ?> required>
                             <label for="bhw-bhw">NON NHTS</label>
                         </div>
                     </div>
@@ -187,20 +187,20 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-male-child-name">Name of Child</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-first-name" id="child_care-male-first-name" value="<?= $patient['child_firstname']; ?>">
-                            <label for="child_care-male-first-name">First Name</label>
+                            <input type="text" name="child_care-female-first-name" id="child_care-male-first-name" value="<?= $patient['child_firstname']; ?>" required>
+                            <label for="child_care-male-first-name">First Name *</label>
                         </div>
                         <div class="three-input__item">
                             <input type="text" name="child_care-female-middle-inital" id="child_care-male-middle-inital" value="<?= $patient['child_middle_initial']; ?>">
                             <label for="child_care-male-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-last-name" id="child_care-male-last-name" value="<?= $patient['child_lastname']; ?>">
-                            <label for="child_care-female-last-name">Last Name</label>
+                            <input type="text" name="child_care-female-last-name" id="child_care-male-last-name" value="<?= $patient['child_lastname']; ?>" required>
+                            <label for="child_care-female-last-name">Last Name *</label>
                         </div>
                     </div>                    
                 </div>
-                <div class="edit-child_care-female__form-item edit-child_care-female__form-item--radio">
+                <!-- <div class="edit-child_care-female__form-item edit-child_care-female__form-item--radio">
                     <label for="se-status">Sex</label>
                     <div class="edit-user__form--role-item">
                         <div class="edit-user__form-item">
@@ -212,41 +212,41 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="child_care-male-sex-f">Female</label>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="edit-child_care-female__form-item">
                     <label for="child_care-male-mother-name">Complete Name of Mother</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-mother-first-name" id="child_care-male-mother-first-name" value="<?= $patient['mother_firstname']; ?>">
-                            <label for="child_care-male-first-name">First Name</label>
+                            <input type="text" name="child_care-female-mother-first-name" id="child_care-male-mother-first-name" value="<?= $patient['mother_firstname']; ?>" required>
+                            <label for="child_care-male-first-name">First Name *</label>
                         </div>
                         <div class="three-input__item">
                             <input type="text" name="child_care-female-mother-middle-inital" id="child_care-male-mother-middle-inital" value="<?= $patient['mother_middle_initial']; ?>">
                             <label for="child_care-male-mother-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="child_care-female-mother-last-name" id="child_care-male-last-name" value="<?= $patient['mother_lastname']; ?>">
-                            <label for="child_care-male-last-name">Last Name</label>
+                            <input type="text" name="child_care-female-mother-last-name" id="child_care-male-last-name" value="<?= $patient['mother_lastname']; ?>" required>
+                            <label for="child_care-male-last-name">Last Name *</label>
                         </div>
                     </div>                    
                 </div>
                 <div class="edit-child_care-female__form-item">
-                    <label for="child_care-male-address">Complete Address</label>
-                    <textarea name="child_care-female-address" id="child_care-male-address" cols="27" rows="5"><?= $patient['complete_address']; ?></textarea>
+                    <label for="child_care-male-address">Complete Address *</label>
+                    <textarea name="child_care-female-address" id="child_care-male-address" cols="27" rows="5" required><?= $patient['complete_address']; ?></textarea>
                 </div>
 
                 <!-- Divider -->
                 <hr>
 
                 <div class="edit-child_care-female__form-item edit-child_care-female__form-item--radio">
-                    <label for="child_care-male--cpab">Child Protected at Birth (CPAB)</label>
+                    <label for="child_care-male--cpab">Child Protected at Birth (CPAB) *</label>
                     <div class="edit-user__form--role-item">
                         <div class="edit-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-male--tt2" value="TT2/Td2 given a month prior to delivery" <?= ($patient['cpab']=='TT2/Td2 given a month prior to delivery')? 'checked' : '' ?>>
+                            <input type="radio" name="child_care-female--cpab" id="child_care-male--tt2" value="TT2/Td2 given a month prior to delivery" <?= ($patient['cpab']=='TT2/Td2 given a month prior to delivery')? 'checked' : '' ?> required>
                             <label for="child_care-male--tt2">TT2/Td2 given a month prior to delivery</label>
                         </div>
                         <div class="edit-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-male--tt3" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery" <?= ($patient['cpab']=='TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery')? 'checked' : '' ?>> <!--not yet resolve-->
+                            <input type="radio" name="child_care-female--cpab" id="child_care-male--tt3" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery" <?= ($patient['cpab']=='TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery')? 'checked' : '' ?> required>
                             <label for="child_care-male--tt3">TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery</label>
                         </div>
                     </div>
@@ -267,22 +267,22 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <input type="text" name="child_care-female-newborn-length" id="child_care-male-newborn-length" value="<?= $patient['length_newborn']; ?>">
                 </div>
                 <div class="edit-child_care-female__form-item">
-                    <label for="child_care-male--newbornweight">Status(Birth Weight)     <br>(kg)</label>
-                    <input type="tel" name="child_care-female-newborn-weight" id="child_care-male-newborn-weight" value="<?= $patient['weight_newborn']; ?>">
+                    <label for="child_care-male--newbornweight">Weight at Birth *    <br>(kg)</label>
+                    <input type="tel" name="child_care-female-newborn-weight" id="child_care-male-newborn-weight" value="<?= $patient['weight_newborn']; ?>" required>
                 </div>
                 <div class="edit-child_care-female__form-item edit-child_care-female__form-item--radio">
-                    <label for="child_care-male-newborn-weight">Weight at Birth <br>(kg)</label>
+                    <label for="child_care-male-newborn-weight">Status(Birth Weight) *<br>(kg)</label>
                         <div class="edit-user__form--role-item">
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-male-newborn-weight-low" value="low: < 2500gms" <?= ($patient['status_newborn']=='low: < 2500gms')? 'checked' : '' ?>>
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-male-newborn-weight-low" value="low: < 2500gms" <?= ($patient['status_newborn']=='low: < 2500gms')? 'checked' : '' ?> required>
                                 <label for="child_care-male-newborn-weight-low">L: low: < 2500gms </label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-male-newborn-weight-normal" value="normal: >= 2500gms" <?= ($patient['status_newborn']=='normal: >= 2500gms')? 'checked' : '' ?>>
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-male-newborn-weight-normal" value="normal: >= 2500gms" <?= ($patient['status_newborn']=='normal: >= 2500gms')? 'checked' : '' ?> required>
                                 <label for="child_care-male-newborn-weight-normal">N:normal: >= 2500gms </label>
                             </div>
                             <div class="edit-user__form-item">
-                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-male-newborn-weight-unknown" value="unknown" <?= ($patient['status_newborn']=='unknown')? 'checked' : '' ?>>
+                                <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-male-newborn-weight-unknown" value="unknown" <?= ($patient['status_newborn']=='unknown')? 'checked' : '' ?> required>
                                 <label for="child_care-male-newborn-weight-unknown">U:unknown </label>
                             </div>
                         </div>
@@ -714,24 +714,24 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     Reason
                 </h2>
                 <p class="edit-child_care-female__reason-desc">
-                    Fill out  necessary info
+                    Fill out  necessary info *
                 </p>
 
                 <!-- Radio Buttons -->
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name">
+                    <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
                     <label for="patient-mispelled">Mispelled Name</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
                     <label for="patient-mispelled">Incorrect Gender</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate">
+                    <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
                     <label for="patient-mispelled">Incorrect Birthdate</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">
-                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address">
+                    <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address" required>
                     <label for="patient-mispelled">Wrong Address</label>
                 </div>
                 <div class="edit-child_care-female__form-item--reason">

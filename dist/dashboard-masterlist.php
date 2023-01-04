@@ -145,29 +145,53 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
             <section class="services__card-masterlist">
                 <div class="services__card services__card--childhood-male" onclick="window.location.href = './masterlist/maternal-care.php'">
                     <p class="services__card-title">
-                        Childhood Care (Male)
+                        Maternal Care
                     </p>
-                    <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                    <!-- Maternal Care -->
+                    <?php
+                                $query = "SELECT count(*) FROM target_maternal"; //WHERE archive_label=''
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                 </div>
                 <div class="services__card services__card--childhood-female" onclick="window.location.href = './masterlist/childhood-care-female.php'">
                     <p class="services__card-title">
                         Childhood Care (Female)
                     </p>
-                    <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                    <!-- Childhood Care (Female) -->
+                    <?php
+                                $query = "SELECT count(*) FROM target_childcare_female"; //WHERE archive_label=''
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                 </div>
                 <div class="services__card services__card--maternal" onclick="window.location.href = './masterlist/childhood-care-male.php'">
                     <p class="services__card-title">
-                        Maternal Care
+                        Childhood Care (Male)
                     </p>
-                    <p class="services-card-visits">
-                        <span class="services__card-visits--number h1">150</span>
-                        last week
+                   <!-- Childhood Care (Female) -->
+                   <?php
+                                $query = "SELECT count(*) FROM target_childcare_male"; //WHERE archive_label=''
+                                $result = mysqli_query($conn, $query);
+                                while($row = mysqli_fetch_array($result)) {  
+                        ?>
+                        <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                                }
+                        ?>
+                        total record
                     </p>
                 </div>
             </section>
@@ -175,37 +199,1276 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
         <!-- Daily Reports -->
         <section class="reports">
-            <form action="" class="reports__form">
+            <form action="" class="reports__form" method="GET">
                 <h2 class="reports__title">
                         Reports
                 </h2>
                 <p class="reports__desc">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                    Overview of the total number of records on masterlist. 
                 </p>
 
                 <div class="reports__input">
                     <div class="reports__form__service">
                         <label for="report__service"> Service </label>
                         <select name="report__service" id="report__service" value>
-                            <option value="Childhood Care Male"> Childhood Care Male </option>
-                            <option value="Childhood Care Female"> Childhood Care Female </option>
                             <option value="Maternal Care"> Maternal Care </option>
+                            <option value="Childhood Care Female"> Childhood Care Female </option>
+                            <option value="Childhood Care Male"> Childhood Care Male </option>
                         </select>
                     </div>
                     <div class="reports__form__date">
                         <label for="report__date"> Date </label>
-                        <input type="date" name="report__date" id="report__date">
+                        <!-- QUERY FOR DEFAULT DISPLAY IN DATE -->
+                        <?php
+                            if(isset($_GET['sort__date'])){
+                                $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            }
+                        ?>
+                        <input type="date" name="report__date" id="report__date" required value="<?= $date; ?>">
                     </div>
                 </div>
+
+
+            <!-- MATERNAL CARE -->
                 <div class="reports__card">
-                    <!-- Deworming -->
                     <div class="reports__card__item"> 
-                        <p class="reports__card__title">Total No. of Male Patients</p>
-                                <input type="range"  name="" id="" value="<?= $row['count(*)']; ?>" max='10'> 
-                        <p class="reports__card__total"> 10 </p>
+
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_maternal";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <h4 class="reports__card__title">Total No. of Patients: <?php echo $row['count(*)']; ?></h4>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date' AND socio_status='NHTS'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. NHTS Patient</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date' AND socio_status='NON NHTS'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. NON-NHTS Patient</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_maternal WHERE age<=17";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date' AND age<=17";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. Age less than or equal 17 y/o</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_maternal WHERE age>=18";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date' AND age>=18";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. Age greater than or equal 18 y/o</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date' AND hepatitis_status='Positive'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. Positive in Syphilis Screening</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date' AND syphilis_status='Positive'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. Positive in Hepatitis B Screening</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
                     </div>
                 </div>
-                <button type="submit" class="btn-green btn-add services__btn">
+
+
+            <!-- CHILD CARE FEMALE-->
+                <div class="reports__card">
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <h4 class="reports__card__title">Total No. of Female Patients: <?php echo $row['count(*)']; ?></h4>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status='NHTS'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status='NHTS'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. NHTS Patient</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status='NON NHTS'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status='NON NHTS'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. NON-NHTS Patient</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='low: < 2500gms'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_newborn='low: < 2500gms'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 0-28 days old patient status (low: < 2500gms)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='normal: >= 2500gms'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_newborn='normal: >= 2500gms'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 0-28 days old patient status (normal: >= 2500gms)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='unknown'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_newborn='unknown'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 0-28 days old patient status (unknown)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>           
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='underweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='underweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (underweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='stunted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='stunted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (stunted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='wasted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='wasted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (wasted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='obese/overweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='obese/overweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (obese/overweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='normal'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='normal'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (normal)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='underweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='underweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (underweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='stunted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='stunted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (stunted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='wasted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='wasted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (wasted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='obese/overweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='obese/overweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (obese/overweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='normal'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='normal'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (normal)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='underweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='underweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (underweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='stunted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='stunted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (stunted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='wasted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='wasted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (wasted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='obese/overweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='obese/overweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (obese/overweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='normal'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='normal'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (normal)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+                </div>
+                
+
+
+        <!-- CHILD CARE MALE-->
+            <div class="reports__card">
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <h4 class="reports__card__title">Total No. of Male Patients: <?php echo $row['count(*)']; ?></h4>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status='NHTS'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status='NHTS'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. NHTS Patient</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status='NON NHTS'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status='NON NHTS'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. NON-NHTS Patient</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_newborn='low: < 2500gms'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_newborn='low: < 2500gms'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 0-28 days old patient status (low: < 2500gms)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_newborn='normal: >= 2500gms'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_newborn='normal: >= 2500gms'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 0-28 days old patient status (normal: >= 2500gms)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_newborn='unknown'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_newborn='unknown'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 0-28 days old patient status (unknown)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>           
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_1_3='underweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_1_3='underweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (underweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_1_3='stunted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_1_3='stunted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (stunted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_1_3='wasted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_1_3='wasted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (wasted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_1_3='obese/overweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_1_3='obese/overweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (obese/overweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_1_3='normal'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_1_3='normal'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 1-3 months old patient status (normal)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_6_11='underweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_6_11='underweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (underweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_6_11='stunted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_6_11='stunted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (stunted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_6_11='wasted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_6_11='wasted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (wasted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_6_11='obese/overweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_6_11='obese/overweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (obese/overweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_6_11='normal'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_6_11='normal'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 6-11 months old patient status (normal)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <hr>
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_12='underweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_12='underweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (underweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_12='stunted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_12='stunted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (stunted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_12='wasted'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_12='wasted'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (wasted)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_12='obese/overweight'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_12='obese/overweight'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (obese/overweight)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+
+                    <div class="reports__card__item"> 
+                    <!-- Query Start -->
+                    <?php
+                        //DEFAULT DISPLAY
+                        $query = "SELECT count(*) FROM target_childcare_male WHERE status_month_12='normal'";// WHERE archive_label=''
+                        $result = mysqli_query($conn, $query);
+                        
+                        //CONDITION IF SORT BUTTON IS CLICKED
+                        if(isset($_GET['sort__date'])){
+                            $date= mysqli_real_escape_string($conn, $_GET['report__date']);
+                            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date' AND status_month_12='normal'";
+                            $result = mysqli_query($conn, $query);
+                        }
+
+                        while($row = mysqli_fetch_array($result)) {  
+                    ?>
+                        <p class="reports__card__title">Total No. 12 months old patient status (normal)</p>
+                        <input type="range" name="" id=""> 
+                        <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
+                    <?php
+                        }
+                    ?>
+                    <!-- END -->
+                    </div>
+                </div>
+
+                <button type="submit" name="sort__date" class="btn-green btn-add services__btn">
                     <p>View Report</p>  
                 </button>
             </form>

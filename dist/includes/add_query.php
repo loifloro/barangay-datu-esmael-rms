@@ -14,7 +14,7 @@ if(isset($_GET['save_bhw'])){
     $query = "INSERT INTO account_information 
               (firstname, phone_num, password, sex, position, date_registered) 
               VALUES 
-              ('', '$phone_num', '$password', 'N/A', '$position', '$date_added')";
+              ('-', '$phone_num', '$password', '-', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
@@ -63,7 +63,15 @@ if(isset($_POST['save_deworming'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['deworming-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['deworming-age']);
+
+    // $age = mysqli_real_escape_string($conn, $_POST['deworming-age']);
+    //convert bdate to age
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+                   
+
     $sex = mysqli_real_escape_string($conn, $_POST['deworming-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['deworming-street']);
@@ -123,7 +131,12 @@ if(isset($_POST['save_consultation'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['consultation-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['consultation-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['consultation-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['consultation-age']);
+    // $age = mysqli_real_escape_string($conn, $_POST['consultation-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+
     $sex = mysqli_real_escape_string($conn, $_POST['consultation-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['consultation-street']);
@@ -191,7 +204,12 @@ if(isset($_POST['save_prenatal'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['prenatal-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['prenatal-age']);
+    // $age = mysqli_real_escape_string($conn, $_POST['prenatal-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+
     // $sex = mysqli_real_escape_string($conn, $_POST['prenatal-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['prenatal-street']);
@@ -315,8 +333,13 @@ if(isset($_POST['save_postnatal'])){
     $lastname = mysqli_real_escape_string($conn, $_POST['postnatal-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['postnatal-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['postnatal-mname']);
-    $age = mysqli_real_escape_string($conn, $_POST['postnatal-age']);
-    $sex = mysqli_real_escape_string($conn, $_POST['postnatal-sex']);
+    // $age = mysqli_real_escape_string($conn, $_POST['postnatal-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age= $diff->format('%y');
+
+    // $sex = mysqli_real_escape_string($conn, $_POST['postnatal-sex']);
     $birthdate = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
     $street_add = mysqli_real_escape_string($conn, $_POST['postnatal-street']);
     $barangay = mysqli_real_escape_string($conn, $_POST['postnatal-barangay']);
@@ -329,7 +352,7 @@ if(isset($_POST['save_postnatal'])){
     $height = mysqli_real_escape_string($conn, $_POST['postnatal-height']);
 
     $gravida = mysqli_real_escape_string($conn, $_POST['postnatal-gravida']);
-    $preterm = mysqli_real_escape_string($conn, $_POST['postnatal-p']);
+    $preterm = mysqli_real_escape_string($conn, $_POST['postnatal-preterm']);
     $lmp = mysqli_real_escape_string($conn, $_POST['postnatal-lmp']);
     $edc = mysqli_real_escape_string($conn, $_POST['postnatal-edc']);
     $aog = mysqli_real_escape_string($conn, $_POST['postnatal-aog']);
@@ -489,7 +512,12 @@ if(isset($_POST['save_early_childhood'])){
     $mother_name = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-name']);
     $no_pregnancies = mysqli_real_escape_string($conn, $_POST['early_childhood-pregnancies']);
     $mother_educ = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-education']);
-    $mother_age = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-age']);
+    // $mother_age = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-age']);
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-birthdate']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $mother_age= $diff->format('%y');
+
     $mother_occupation = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-occupation']);
     $mother_birthdate = mysqli_real_escape_string($conn, $_POST['early_childhood-mother-birthdate']);
     $status = mysqli_real_escape_string($conn, $_POST['early_childhood-status']);
@@ -498,7 +526,11 @@ if(isset($_POST['save_early_childhood'])){
     $father_name = mysqli_real_escape_string($conn, $_POST['early_childhood-father-name']);
     $phone_num = mysqli_real_escape_string($conn, $_POST['early_childhood-father-contact']);//*
     $father_educ = mysqli_real_escape_string($conn, $_POST['early_childhood-father-education']);
-    $father_age = mysqli_real_escape_string($conn, $_POST['early_childhood-father-age']);
+    // $father_age = mysqli_real_escape_string($conn, $_POST['early_childhood-father-age']);
+    $dateOfBirth2 = mysqli_real_escape_string($conn, $_POST['early_childhood-father-birthdate']);
+    $diff2 = date_diff(date_create($dateOfBirth2), date_create($today));
+    $father_age= $diff2->format('%y');
+
     $father_occupation = mysqli_real_escape_string($conn, $_POST['early_childhood-father-occupation']);
     $father_birthdate = mysqli_real_escape_string($conn, $_POST['early_childhood-father-birthdate']);
 
@@ -731,17 +763,12 @@ if(isset($_POST['add_maternal_list'])){ //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-target_list.php"); //temporary destination
+            header("Location: ../masterlist/maternal-care.php");
             exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else{
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/maternal-care.php"); 
         exit(0);
     }
 }
@@ -756,7 +783,7 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
 
     $child_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-male-middle-inital']);
     $child_lastname = mysqli_real_escape_string($conn, $_POST['child_care-male-last-name']);
-    $sex = mysqli_real_escape_string($conn, $_POST['child_care-male-sex']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['child_care-male-sex']);
 
     $mother_firstname = mysqli_real_escape_string($conn, $_POST['child_care-male-mother-first-name']);
     $mother_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-male-mother-middle-inital']);
@@ -841,7 +868,7 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
               weight_month_12, weight_date_month_12, status_month_12, mmr_month_12, fic_month_12, cic, remarks, label) 
               VALUES 
               ('$date_registered', '$birthday', '$serial', '$status', '$child_firstname', '$child_middle_initial', '$child_lastname',
-              '$sex', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
+              'Male', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
               '$weight_newborn', '$status_newborn', '$breastfeeding_newborn', '$bcg_newborn', '$hepa_newborn', '$age_month_1_3', 
               '$length_month_1_3', '$length_date_month_1_3', '$weight_month_1_3', '$weight_date_month_1_3', '$status_month_1_3', 
               '$iron_1mos_month_1_3', '$iron_2mos_month_1_3', '$iron_3mos_month_1_3', '$dpt_1dos_month_1_3', '$dpt_2dos_month_1_3', 
@@ -877,17 +904,12 @@ if(isset($_POST['add_childcare_male'])){ //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-target_list.php"); //temporary destination
+            header("Location: ../masterlist/childhood-care-male.php"); //temporary destination
             exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else{
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/childhood-care-male.php"); //will change depending on the name of the services page
         exit(0);
     }
 }
@@ -903,7 +925,7 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
     $child_firstname = mysqli_real_escape_string($conn, $_POST['child_care-female-first-name']);
     $child_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-female-middle-inital']);
     $child_lastname = mysqli_real_escape_string($conn, $_POST['child_care-female-last-name']);
-    $sex = mysqli_real_escape_string($conn, $_POST['child_care-female-sex']);
+    // $sex = mysqli_real_escape_string($conn, $_POST['child_care-female-sex']);
 
     $mother_firstname = mysqli_real_escape_string($conn, $_POST['child_care-female-mother-first-name']);
     $mother_middle_initial = mysqli_real_escape_string($conn, $_POST['child_care-female-mother-middle-inital']);
@@ -988,7 +1010,7 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
               weight_month_12, weight_date_month_12, status_month_12, mmr_month_12, fic_month_12, cic, remarks, label) 
               VALUES 
               ('$date_registered', '$birthday', '$serial', '$status', '$child_firstname', '$child_middle_initial', '$child_lastname',
-              '$sex', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
+              'Female', '$mother_firstname', '$mother_middle_initial', '$mother_lastname', '$complete_address', '$cpab', '$length_newborn', 
               '$weight_newborn', '$status_newborn', '$breastfeeding_newborn', '$bcg_newborn', '$hepa_newborn', '$age_month_1_3', 
               '$length_month_1_3', '$length_date_month_1_3', '$weight_month_1_3', '$weight_date_month_1_3', '$status_month_1_3', 
               '$iron_1mos_month_1_3', '$iron_2mos_month_1_3', '$iron_3mos_month_1_3', '$dpt_1dos_month_1_3', '$dpt_2dos_month_1_3', 
@@ -1024,17 +1046,12 @@ if(isset($_POST['add_childcare_female'])){ //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if($query_run2){
-            header("Location: ../services-target_list.php"); //temporary destination
+            header("Location: ../masterlist/childhood-care-female.php");
             exit(0);}
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-target_list.php"); //will change depending on the name of the services page
-        // exit(0);
     }
     else{
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-target_list.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/childhood-care-female.php");
         exit(0);
     }
 }

@@ -173,10 +173,10 @@ hide_content_forms();
                     <label for="prenatal-mname">Middle Name</label>
                     <input type="text" name="prenatal-mname" id="prenatal-mname" value="<?= $patient['middlename']; ?>">
                 </div>
-                <div class="edit-prenatal__form-item">
+                <!-- <div class="edit-prenatal__form-item">
                     <label for="prenatal-age">Age *</label>
                     <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
-                </div>
+                </div> -->
                 <!-- <div class="edit-prenatal__form-item edit-prenatal__form-item--radio">
                     <label for="prenatal-sex">Gender</label>
                     <div class="edit-prenatal__form--role-item">
@@ -269,8 +269,8 @@ hide_content_forms();
                     <input type="text" name="prenatal-gravida" id="prenatal-gravida" value="<?= $patient['gravida']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
-                    <label for="prenatal-p">P *</label>
-                    <input type="text" name="prenatal-p" id="prenatal-p" value="<?= $patient['preterm']; ?>" required>
+                    <label for="prenatal-preterm">P *</label>
+                    <input type="text" name="prenatal-preterm" id="prenatal-p" value="<?= $patient['preterm']; ?>" required>
                 </div>
                 <div class="edit-prenatal__form-item">
                     <label for="prenatal-lmp">LMP</label>
@@ -385,7 +385,6 @@ hide_content_forms();
                     </button>
                     <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->
                         Cancel
-                    </button>                        Cancel
                     </button>
                 </div>
                 <?php

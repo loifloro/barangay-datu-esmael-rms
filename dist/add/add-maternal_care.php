@@ -143,11 +143,11 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 Fill out  necessary information to complete the process
             </p>
 
-            <form action="../includes/add_query.php" method='POST' class="add-maternal_care__form"> <!--method and action added-->
+            <form action="../includes/add_query.php" method='POST' class="add-maternal_care__form">
 
                 <div class="add-maternal_care__form-item">
-                    <label for="maternal_care-registration">Date of Registration</label>
-                    <input type="date" name="maternal_care-registration" id="maternal_care-registration">
+                    <label for="maternal_care-registration">Date of Registration *</label>
+                    <input type="date" name="maternal_care-registration" id="maternal_care-registration" required>
                 </div>
                 <div class="add-maternal_care__form-item">
                     <label for="maternal_care-family-serial">Family Serial No.</label>
@@ -157,22 +157,22 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-child-name">Name</label>
                     <div class="three-input">
                         <div class="three-input__item">
-                            <input type="text" name="maternal_care-first-name" id="maternal_care-first-name">
-                            <label for="maternal_care-first-name">First Name</label>
+                            <input type="text" name="maternal_care-first-name" id="maternal_care-first-name" required>
+                            <label for="maternal_care-first-name">First Name *</label>
                         </div>
                         <div class="three-input__item">
                             <input type="text" name="maternal_care-middle-inital" id="maternal_care-middle-inital">
                             <label for="maternal_care-middle-inital">MI</label>
                         </div>
                         <div class="three-input__item">
-                            <input type="text" name="maternal_care-last-name" id="maternal_care-last-name">
-                            <label for="maternal_care-last-name">Last Name</label>
+                            <input type="text" name="maternal_care-last-name" id="maternal_care-last-name" required>
+                            <label for="maternal_care-last-name">Last Name *</label>
                         </div>
                     </div>                    
                 </div>
                 <div class="add-maternal_care__form-item">
-                    <label for="maternal_care-address">Complete Address</label>
-                    <textarea name="maternal_care-address" id="maternal_care-address" cols="27" rows="5"></textarea>
+                    <label for="maternal_care-address">Complete Address *</label>
+                    <textarea name="maternal_care-address" id="maternal_care-address" cols="27" rows="5" required></textarea>
                 </div>
                 <div class="add-maternal_care__form-item add-maternal_care__form-item--radio">
                     <label for="bhw-contact">Socio Economic Status</label>
@@ -191,26 +191,26 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-1mos-legth">Age</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="number" name="maternal_care-age" id="maternal_care-age">                            
-                            <label for="maternal_care-age">Age</label>
+                            <input type="number" name="maternal_care-age" id="maternal_care-age" required>                            
+                            <label for="maternal_care-age">Age *</label>
                         </div>
                         <div class="two-input__item">
-                            <input type="date" name="maternal_care-birthday" id="maternal_care-birthday">
-                            <label for="maternal_care-birthday">Birthday</label>
+                            <input type="date" name="maternal_care-birthday" id="maternal_care-birthday" required>
+                            <label for="maternal_care-birthday">Birthday *</label>
                         </div>
                     </div>
                 </div>
                 <div class="add-maternal_care__form-item">
-                    <label for="maternal_care-lmp">LMP</label>
-                    <input type="date" name="maternal_care-lmp" id="maternal_care-lmp">
+                    <label for="maternal_care-lmp">LMP *</label>
+                    <input type="date" name="maternal_care-lmp" id="maternal_care-lmp" required>
                 </div>
                 <div class="add-maternal_care__form-item">
-                    <label for="maternal_care-gp">G-P</label>
-                    <input type="number" name="maternal_care-gp" id="maternal_care-gp">
+                    <label for="maternal_care-gp">G-P *</label>
+                    <input type="number" name="maternal_care-gp" id="maternal_care-gp" required>
                 </div>
                 <div class="add-maternal_care__form-item">
-                    <label for="maternal_care-edc">EDC</label>
-                    <input type="date" name="maternal_care-edc" id="maternal_care-edc">
+                    <label for="maternal_care-edc">EDC *</label>
+                    <input type="date" name="maternal_care-edc" id="maternal_care-edc" required>
                 </div>
                 
                 <!-- Divider -->
@@ -411,7 +411,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     (Write the BMI for 1st Tri)
                 </p>
                 <div class="add-maternal_care__form-item">
-                    <label for="maternal_care-1st-tri-weight">Weight</label>
+                    <label for="maternal_care-1st-tri-weight">Weight (kg)</label>
                     <input type="text" name="maternal_care-1st-tri-weight" id="maternal_care-1st-tri-weight">
                 </div>
                 <div class="add-maternal_care__form-doses">

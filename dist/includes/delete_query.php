@@ -251,7 +251,7 @@ if (isset($_GET['restore'])) {
                     (reasons, user_fname, user_lname, user_role, changes_label, 
                     date_edit, time_edit, patient_fname, patient_lname, record_name)
                     VALUES 
-                    ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'archived', 
+                    ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                     '$date', '$time', '$patient_fname', '$patient_lname', 'Deworming')";
 
             $query_run2 = mysqli_query($conn, $query2);
@@ -285,7 +285,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'archived', 
+                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Consultation')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -318,7 +318,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'archived', 
+                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -351,7 +351,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'archived', 
+                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Postnatal')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -384,7 +384,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'archived', 
+                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Search/Destroy')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -417,7 +417,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'archived', 
+                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Childhood Care')";
 
         $query_run2 = mysqli_query($conn, $query2);
