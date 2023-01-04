@@ -74,6 +74,7 @@ navBar.addEventListener("click", () => {
       childhood: "Childhood Care",
       prenatal: "Pre-natal",
       postnatal: "Post-natal",
+      searchDestroy: "Search and destroy",
       // 'icecream': 'Ice cream'
     },
     // inputPlaceholder: 'Select a fruit',
@@ -95,6 +96,9 @@ navBar.addEventListener("click", () => {
         } else if (value === "postnatal") {
           window.location.href =
             "/barangay-datu-esmael-rms/dist/add/add-postnatal.php";
+        } else if (value === "searchDestroy") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php";
         }
       });
     },
@@ -103,10 +107,10 @@ navBar.addEventListener("click", () => {
 
 function forgotPassword() {
   const { value: email } = Swal.fire({
-    title: "Input contact number",
+    title: "Input email address",
     input: "text",
-    inputLabel: "Your contact number",
-    inputPlaceholder: "Ex. 09788764512",
+    inputLabel: "Your email address",
+    inputPlaceholder: "Ex. elle@cvsu.com",
     showCancelButton: true,
   }).then(function (email) {
     if (email.isConfirmed) {
