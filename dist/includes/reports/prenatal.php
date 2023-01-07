@@ -202,6 +202,9 @@
             Date: <?php echo $consultation_sort; ?>
         </div>
     </div>
+    <p class="deworming-reports__brgy">
+        Total No. of Patient:
+    </p>
     <!-- Query Start -->
     <?php
     $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male'";
