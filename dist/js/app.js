@@ -334,7 +334,15 @@ function addUser() {
   });
 }
 
-function confirmDelete(service, id) {
+function confirmDelete(
+  service,
+  id,
+  patientFirstName,
+  patientLastName,
+  userFirstName,
+  userLastName,
+  userPosition
+) {
   Swal.fire({
     icon: "question",
     title: "Confirm delete",
@@ -347,7 +355,17 @@ function confirmDelete(service, id) {
         "delete&" +
         service +
         "&id=" +
-        id;
+        id +
+        "&patientFirstName=" +
+        patientFirstName +
+        "&patientLastName=" +
+        patientLastName +
+        "&userFirstName=" +
+        userFirstName +
+        "&userLastName=" +
+        userLastName +
+        "&userRole=" +
+        userPosition;
     } else {
       return Swal.close();
     }
