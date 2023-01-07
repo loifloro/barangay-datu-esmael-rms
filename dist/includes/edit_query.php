@@ -49,7 +49,7 @@ if (isset($_POST['edit_bhw'])) {
             //END OF QUERY
         }
     } else {
-        // $_SESSION['message'] = "Student Not Created";
+
         header("Location: ../user-profile.php");
         exit(0);
     }
@@ -109,7 +109,7 @@ if (isset($_POST['edit_deworming'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?edited=success&service=deworming");
             exit(0);
         }
         //END OF QUERY
@@ -118,8 +118,7 @@ if (isset($_POST['edit_deworming'])) {
         // header("Location: ../services-consultation.php");
         // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error&service=deworming");
         exit(0);
     }
 }
@@ -180,7 +179,7 @@ if (isset($_POST['edit_consultation'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?edited=success&service=consultation");
             exit(0);
         }
         //END OF QUERY
@@ -189,8 +188,7 @@ if (isset($_POST['edit_consultation'])) {
         // header("Location: ../services-consultation.php");
         // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error&service=consultation");
         exit(0);
     }
 }
@@ -269,7 +267,7 @@ if (isset($_POST['edit_prenatal'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?edited=success&service=prenatal");
             exit(0);
         }
         //END OF QUERY
@@ -278,8 +276,7 @@ if (isset($_POST['edit_prenatal'])) {
         // header("Location: ../services-consultation.php");
         // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error&service=prenatal");
         exit(0);
     }
 }
@@ -357,7 +354,7 @@ if (isset($_POST['edit_postnatal'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?edited=success&service=postnatal");
             exit(0);
         }
         //END OF QUERY
@@ -366,8 +363,7 @@ if (isset($_POST['edit_postnatal'])) {
         // header("Location: ../services-consultation.php");
         // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error&service=postnatal");
         exit(0);
     }
 }
@@ -432,7 +428,7 @@ if (isset($_POST['edit_search_destroy'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?edited=success&service=search-destroy");
             exit(0);
         }
         //END OF QUERY
@@ -441,8 +437,7 @@ if (isset($_POST['edit_search_destroy'])) {
         // header("Location: ../services-consultation.php");
         // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error&service=search-destroy");
         exit(0);
     }
 }
@@ -602,7 +597,7 @@ if (isset($_POST['edit_early_childhood'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php");
+            header("Location: ../services-consultation.php?edited=success&service=childhood");
             exit(0);
         }
         //END OF QUERY
@@ -611,8 +606,7 @@ if (isset($_POST['edit_early_childhood'])) {
         // header("Location: ../services-consultation.php");
         // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services-consultation.php");
+        header("Location: ../services-consultation.php?status=error&service=childhood");
         exit(0);
     }
 }
