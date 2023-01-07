@@ -136,7 +136,7 @@ hide_content_forms();
                 Fill out necessary information to complete the process
             </p>
 
-            <form action="../includes/edit_query.php" method='POST' class="edit-deworming__form">
+            <form action="../includes/edit_query.php" method='POST' class="edit-deworming__form" id='edit-deworming-form'>
 
                 <?php
                 if (isset($_GET['id'])) {
@@ -147,7 +147,7 @@ hide_content_forms();
                     if (mysqli_num_rows($query_run) > 0) {
                         $patient = mysqli_fetch_array($query_run);
                 ?>
-                        <input type="hidden" name="deworming_id" value="<?= $patient['deworming_id']; ?>"> <!--nakahide sya para access ID sa edit-->
+                        <input type=" hidden" name="deworming_id" value="<?= $patient['deworming_id']; ?>"> <!--nakahide sya para access ID sa edit-->
 
                         <div class="edit-deworming__form-item">
                             <label for="deworming-date">Registration Date</label>
@@ -242,7 +242,7 @@ hide_content_forms();
                         <hr>
 
                         <div class="edit-deworming__form-btn">
-                            <button type="submit" class="btn-green btn-save" name="edit_deworming" onclick="return  confirm('Do you want to edit this record?')">
+                            <button type="submit" class="btn-green btn-save" name="edit_deworming">
                                 Save
                             </button>
                             <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->

@@ -553,7 +553,7 @@ hide_content_forms();
                         <hr>
 
                         <div class="edit-early_childhood__form-btn">
-                            <button type="submit" class="btn-green btn-add" name="edit_early_childhood" onclick="return  confirm('Do you want to edit this record?')">
+                            <button type="submit" class="btn-green btn-add" name="edit_early_childhood">
                                 Save
                             </button>
                             <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->
