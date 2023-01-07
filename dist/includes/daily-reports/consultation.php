@@ -144,4 +144,14 @@
         ?>
         <!-- Query End -->
     </div>
+    <div class="view-report-item">
+        <!-- test start -->
+        <a href="#consultation-daily-reports" rel="modal:open" class="view-report"> <!--manage to get report date-->
+            View Reports
+        </a>
+    </div>
+
+    <?php
+    include './includes/reports/consultation.php'
+    ?>
 </div>
