@@ -40,7 +40,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. NHTS Patient</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -65,7 +65,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. NON-NHTS Patient</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -91,7 +91,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 0-28 days old patient status (low: < 2500gms)</p>
-                                    <input type="range" name="" id="">
+                                    <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                                     <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                                 <?php
                             }
@@ -116,7 +116,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 0-28 days old patient status (normal: >= 2500gms)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -141,7 +141,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 0-28 days old patient status (unknown)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -167,7 +167,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 1-3 months old patient status (underweight)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -192,7 +192,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 1-3 months old patient status (stunted)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -217,7 +217,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 1-3 months old patient status (wasted)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -242,7 +242,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 1-3 months old patient status (obese/overweight)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -267,7 +267,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 1-3 months old patient status (normal)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -293,7 +293,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 6-11 months old patient status (underweight)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -318,7 +318,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 6-11 months old patient status (stunted)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -343,7 +343,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 6-11 months old patient status (wasted)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -368,7 +368,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 6-11 months old patient status (obese/overweight)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -393,7 +393,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 6-11 months old patient status (normal)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -419,7 +419,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 12 months old patient status (underweight)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -444,7 +444,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 12 months old patient status (stunted)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -469,7 +469,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 12 months old patient status (wasted)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -494,7 +494,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 12 months old patient status (obese/overweight)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
@@ -519,7 +519,7 @@
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
                             <p class="reports__card__title">Total No. 12 months old patient status (normal)</p>
-                            <input type="range" name="" id="">
+                            <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
                             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
                         <?php
                         }
