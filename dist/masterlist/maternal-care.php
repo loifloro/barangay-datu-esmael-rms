@@ -125,6 +125,30 @@ hide_content_forms();
         </nav>
     </header>
 
+    <?php
+    if (isset($_GET['edited'])) {
+        if ($_GET['edited'] == 'success') {
+    ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Edited Succesfully',
+                })
+            </script>
+        <?php
+        } elseif ($_GET['status'] == 'error') {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error when adding',
+                })
+            </script>
+    <?php
+        }
+    }
+    ?>
+
     <!-- Contents -->
     <main class="masterlist">
         <h2 class="masterlist__title">
@@ -283,6 +307,8 @@ hide_content_forms();
         </button>
     </main>
     <script src="../js/app.js"></script>
+
+
 </body>
 
 </html>

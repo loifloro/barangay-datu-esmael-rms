@@ -715,12 +715,12 @@ if (isset($_POST['edit_maternal_list'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/maternal-care.php"); //temporary destination
+            header("Location: ../masterlist/maternal-care.php?edited=success"); //temporary destination
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/maternal-care.php"); //will change depending on the name of the services page
+        header("Location: ../masterlist/maternal-care.php?edited=error"); //will change depending on the name of the services page
         exit(0);
     }
 }
@@ -864,12 +864,12 @@ if (isset($_POST['edit_childcare_male'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/childhood-care-male.php");
+            header("Location: ../masterlist/childhood-care-male.php?edited=success");
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/childhood-care-male.php");
+        header("Location: ../masterlist/childhood-care-male.php?edited=error");
         exit(0);
     }
 }
@@ -1014,12 +1014,12 @@ if (isset($_POST['edit_childcare_female'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/childhood-care-female.php");
+            header("Location: ../masterlist/childhood-care-female.php?edited=success");
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/childhood-care-female.php");
+        header("Location: ../masterlist/childhood-care-female.php?edited=error");
         exit(0);
     }
 }
