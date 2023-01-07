@@ -164,6 +164,28 @@ if (mysqli_num_rows($query_run) > 0) {
         }
     }
 
+    if (isset($_GET['edited'])) {
+        if ($_GET['edited'] == 'success') {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Edited Succesfully',
+                })
+            </script>
+        <?php
+        } elseif ($_GET['status'] == 'error') {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error when adding',
+                })
+            </script>
+        <?php
+        }
+    }
+
     if (isset($_GET['archive'])) {
         ?>
         <script>
@@ -183,11 +205,10 @@ if (mysqli_num_rows($query_run) > 0) {
         </script>
     <?php
     }
-
-
-
     ?>
 
+
+    <!-- End of Scripting -->
     <!-- Contents -->
     <main class="services">
         <!-- TABS event initialization-->
@@ -981,6 +1002,7 @@ if (mysqli_num_rows($query_run) > 0) {
 
     </main>
     <script src="./js/app.js"></script>
+
     <?php
     if (isset($_GET['service'])) {
         if ($_GET['service'] === 'deworming') {
@@ -1076,8 +1098,6 @@ if (mysqli_num_rows($query_run) > 0) {
         }
     }
     ?>
-    <!-- End of Scripting -->
-
 </body>
 
 </html>
