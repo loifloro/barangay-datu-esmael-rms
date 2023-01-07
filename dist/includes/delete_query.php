@@ -437,6 +437,7 @@ if (isset($_GET['delete'])) {
         $query = "DELETE FROM deworming WHERE deworming_id='$deworming_id'";
         $query_run = mysqli_query($conn, $query);
         if($query_run){
+            
             header("Location: ../archive.php?deleted");
             exit(0);
         }
@@ -502,4 +503,3 @@ if (isset($_GET['delete'])) {
         }
     }
 }
-?>

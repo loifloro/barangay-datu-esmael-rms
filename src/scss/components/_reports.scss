@@ -1,446 +1,443 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .deworming-reports {
-    padding-block: 5vw !important;
-    padding-inline: 8vw !important;
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
 
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    margin-block: 3rem;
+  }
 
-    table, td, th {
-        border: 2px solid  $active-green;
+  &__details {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  table,
+  td,
+  th {
+    border: 2px solid $active-green;
+  }
+
+  &__table {
+    width: 100%;
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-block: 2rem;
+
+    &__header {
+      font-size: 0.85rem;
+      color: $black-3;
     }
 
-    &__table {
-        width: 100%;
-        border: 1px solid;
-        border-collapse: collapse;
-
-        &__header {
-            font-size: .85rem;
-            color: $black-3;
-        }
-
-
-        thead > tr > th {
-            font-weight: 300;
-        }
+    thead > tr > th {
+      font-weight: 300;
     }
+  }
 }
 
 .deworming-report {
-        &__table {
-            @include card(none);
-            width: 100vw;
+  &__table {
+    @include card(none);
+    width: 100vw;
 
-            &__row {
-                display: grid;
-                // grid-template-columns: repeat(5, minmax(80px, 1fr));
-                // grid-template-columns: repeat(8, auto);
-                grid-template-columns: 1fr repeat(3, 10%) 1fr 10%;
-                padding-inline-start: unset;
-                padding: 1rem 1.5rem;
-                margin-block: 0;
-            }
-        }
-        
+    &__row {
+      display: grid;
+      // grid-template-columns: repeat(5, minmax(80px, 1fr));
+      // grid-template-columns: repeat(8, auto);
+      grid-template-columns: 1fr repeat(3, 10%) 1fr 10%;
+      padding-inline-start: unset;
+      padding: 1rem 1.5rem;
+      margin-block: 0;
+    }
+  }
 
-        &__header {
-            color: $black-3;
+  &__header {
+    color: $black-3;
+  }
 
-        }
-
-        &__item {
-            background: $white-2;
-            border-radius: 0 0 1vw 1vw;
-        }
+  &__item {
+    background: $white-2;
+    border-radius: 0 0 1vw 1vw;
+  }
 }
 
 .search-and-destroy {
+  &__record {
+    &__table {
+      @include card(none);
+      width: 100vw;
 
-    &__record {
-        &__table {
-            @include card(none);
-            width: 100vw;
-
-            &__row {
-                display: grid;
-                // grid-template-columns: repeat(5, minmax(80px, 1fr));
-                // grid-template-columns: repeat(8, auto);
-                grid-template-columns: 1fr 20% 20% 20% 15%;
-                padding-inline-start: unset;
-                padding: 1rem 1.5rem;
-                margin-block: 0;
-            }
-        }
-        
-
-        &__header {
-            color: $black-3;
-
-        }
-
-        &__item {
-            background: $white-2;
-            border-radius: 0 0 1vw 1vw;
-        }
-    }
-
-    &__report {
-        padding-block: 5vw !important;
-        padding-inline: 8vw !important;
-
-        &__title {
-            text-align: center;
-            color: $black-1;
-            font-weight: 600;
-        }
-
-        &__summary {
-            padding-inline-start: unset;
-            color: $black-2;
-            font-size: .9rem;
-
-            &--value {
-                color: $black-1;
-                font-weight: 700;
-                font-size: initial;
-            }
-        }
-
-        table, td, th {
-            border: 2px solid  $active-green;
-        }
-
-        &__table {
-            width: 100%;
-            border: 1px solid;
-            border-collapse: collapse;
-
-            &__header {
-                font-size: .85rem;
-                color: $black-3;
-            }
-
-
-            thead > tr > th {
-                font-weight: 300;
-            }
-
-            tr,
-            th {
-                width: 20%;
-            }
-            
-            td,
-            th {
-                padding-left: .5rem;
-                line-height: 1.6;
-            }
-
-            td {
-                color: $black-2;
-            }
-
-            &--date {
-                width: 15% !important;
-            }
-        }
-    }
-
-}
-
-.prenatal__report {
-
-    padding-block: 5vw !important;
-    padding-inline: 8vw !important;
-
-    &__title {
-        text-align: center;
-        color: $black-1;
-        font-weight: 600;
-        text-transform: uppercase;
-        line-height: 1.1;
-
-        @media print {
-            font-size: 12pt !important;
-        }
-    }
-
-    &__city {
-        text-align: center;
-        // font-size: 1.2rem;
-        // text-transform: ;
-    }
-
-    &__subtitle {
-        text-align: center;
-    }
-
-    &__patient-record {
-        margin-bottom: unset;
-    }
-
-    &__personal-info {
-        text-transform: uppercase;
-        margin-block: 1.5rem;
-
+      &__row {
         display: grid;
-        grid-template-columns: 1fr 15% 30%;
-        grid-template-rows: 1fr 1fr 1fr;
-
-        grid-template-areas: 
-            "name age bday"
-            "address address phone";
-
-        &__name {
-            grid-area: name;
-        }
-
-        &__age {
-            grid-area: age;
-        }
-
-        &__bday {
-            grid-area: bday;
-        }
-
-        &__address {
-            grid-area: address;
-        }
-
-        &__phone {
-            grid-area: phone;
-        }
-
-    }
-
-    .padding-left {
-        padding-left: 2rem;
-    }
-
-    &__bmi {
-        display: flex;
-
-        
-        & > * {
-            margin-right: auto;
-        }
-    }
-
-    &__ob {
-        margin-top: 1.5rem;
-        display: flex;
-        justify-content: space-evenly;
-        // width: 90%;
-    }
-
-    &__ob-title {
-        display: inline;
-                margin-block: unset;
-    }
-
-    &__ob__gp {
-        display: flex;
-        // justify-content: space-evenly;
-        width: 70%;
-        
-        & > * {
-            margin-right: auto;
-        }   
-    }
-
-    &__signature {
-        text-align: right;
-    }
-    
-    
-}
-
-
-.consultation__report {
-
-    padding-block: 5vw !important;
-    padding-inline: 8vw !important;
-
-    &__title {
-        text-align: center;
-        color: $black-1;
-        font-weight: 600;
-        text-transform: uppercase;
-        line-height: 1.1;
-    }
-
-    &__city {
-        text-align: center;
-        // font-size: 1.2rem;
-        // text-transform: ;
-    }
-
-    &__subtitle {
-        text-align: center;
-    }
-
-    &__patient-record {
-        margin-bottom: unset;
-    }
-
-    &__personal-info {
-        text-transform: uppercase;
-        margin-block: 1.5rem;
-
-        display: grid;
-        grid-template-columns: 1fr 15% 30%;
-        grid-template-rows: 1fr 1fr 1fr;
-
-        grid-template-areas: 
-            "name age bday"
-            "address address phone";
-
-        &__name {
-            grid-area: name;
-        }
-
-        &__age {
-            grid-area: age;
-        }
-
-        &__bday {
-            grid-area: bday;
-        }
-
-        &__address {
-            grid-area: address;
-        }
-
-        &__phone {
-            grid-area: phone;
-        }
-    }
-
-    .padding-left {
-        padding-left: 2rem;
-    }
-
-    &__bmi {
-        margin-bottom: 2rem;
-
-        &__item--weight {
-            margin-left: 2rem;
-        }
-    }
-}
-
-.early__childhood__report {
-    padding-block: 5vw !important;
-    padding-inline: 8vw !important;
-
-    .doh-logo {
-        width: 60%;
-        height: auto;
+        // grid-template-columns: repeat(5, minmax(80px, 1fr));
+        // grid-template-columns: repeat(8, auto);
+        grid-template-columns: 1fr 20% 20% 20% 15%;
+        padding-inline-start: unset;
+        padding: 1rem 1.5rem;
+        margin-block: 0;
+      }
     }
 
     &__header {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-
-        margin-bottom: 4rem;
-
+      color: $black-3;
     }
-    
-    &__title > * {
+
+    &__item {
+      background: $white-2;
+      border-radius: 0 0 1vw 1vw;
+    }
+  }
+
+  &__report {
+    padding-block: 5vw !important;
+    padding-inline: 8vw !important;
+
+    &__title {
+      text-align: center;
+      color: $black-1;
+      font-weight: 600;
+    }
+
+    &__summary {
+      padding-inline-start: unset;
+      color: $black-2;
+      font-size: 0.9rem;
+
+      &--value {
         color: $black-1;
-        font-weight: 600;
-        line-height: 1.1;
+        font-weight: 700;
+        font-size: initial;
+      }
     }
 
-    &__address,
-    &__child-info,
-    &__mother {
-        margin-bottom: 2rem;
-    }
-
-    &__two-column {
-        display: grid;
-        grid-template-columns: repeat(2, 60% 40%);
-    }
-
-    &__three-column {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        margin-bottom: 1rem ;
-    }
-
-    table {
-        width: 100%;
-    }
-
-    table, td, th {
-        border: 2px solid  $active-green;
-        border-collapse: collapse;
+    table,
+    td,
+    th {
+      border: 2px solid $active-green;
     }
 
     &__table {
-        border: 1px solid;
-        border-collapse: collapse;
-        margin-block: 2rem;
+      width: 100%;
+      border: 1px solid;
+      border-collapse: collapse;
 
-        &__header {
-            font-size: .85rem;
-            color: $black-3;
-        }
+      &__header {
+        font-size: 0.85rem;
+        color: $black-3;
+      }
 
+      thead > tr > th {
+        font-weight: 300;
+      }
 
-        thead > tr > th {
-            font-weight: 300;
-        }
+      tr,
+      th {
+        width: 20%;
+      }
 
-        tr,
-        th {
-            width: 20%;
-        }
-        
-        td,
-        th {
-            // padding-left: .5rem;
-            text-align: center;
-            line-height: 1.6;
-        }
+      td,
+      th {
+        padding-left: 0.5rem;
+        line-height: 1.6;
+      }
 
-        td {
-            color: $black-2;
-        }
+      td {
+        color: $black-2;
+      }
 
-        .width-10 {
-            width: 10%;
-            border-bottom: none;
-        }
+      &--date {
+        width: 15% !important;
+      }
     }
+  }
+}
+
+.prenatal__report {
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
+
+  &__title {
+    text-align: center;
+    color: $black-1;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.1;
+
+    @media print {
+      font-size: 12pt !important;
+    }
+  }
+
+  &__city {
+    text-align: center;
+    // font-size: 1.2rem;
+    // text-transform: ;
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__patient-record {
+    margin-bottom: unset;
+  }
+
+  &__personal-info {
+    text-transform: uppercase;
+    margin-block: 1.5rem;
+
+    display: grid;
+    grid-template-columns: 1fr 15% 30%;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    grid-template-areas:
+      "name age bday"
+      "address address phone";
+
+    &__name {
+      grid-area: name;
+    }
+
+    &__age {
+      grid-area: age;
+    }
+
+    &__bday {
+      grid-area: bday;
+    }
+
+    &__address {
+      grid-area: address;
+    }
+
+    &__phone {
+      grid-area: phone;
+    }
+  }
+
+  .padding-left {
+    padding-left: 2rem;
+  }
+
+  &__bmi {
+    display: flex;
+
+    & > * {
+      margin-right: auto;
+    }
+  }
+
+  &__ob {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    // width: 90%;
+  }
+
+  &__ob-title {
+    display: inline;
+    margin-block: unset;
+  }
+
+  &__ob__gp {
+    display: flex;
+    // justify-content: space-evenly;
+    width: 70%;
+
+    & > * {
+      margin-right: auto;
+    }
+  }
+
+  &__signature {
+    text-align: right;
+  }
+}
+
+.consultation__report {
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
+
+  &__title {
+    text-align: center;
+    color: $black-1;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.1;
+  }
+
+  &__city {
+    text-align: center;
+    margin-bottom: 1rem;
+    // font-size: 1.2rem;
+    // text-transform: ;
+  }
+
+  &__subtitle {
+    text-align: center;
+  }
+
+  &__patient-record {
+    margin-bottom: unset;
+  }
+
+  &__personal-info {
+    text-transform: uppercase;
+    margin-block: 1.5rem;
+
+    display: grid;
+    grid-template-columns: 1fr 15% 30%;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    grid-template-areas:
+      "name age bday"
+      "address address phone";
+
+    &__name {
+      grid-area: name;
+    }
+
+    &__age {
+      grid-area: age;
+    }
+
+    &__bday {
+      grid-area: bday;
+    }
+
+    &__address {
+      grid-area: address;
+    }
+
+    &__phone {
+      grid-area: phone;
+    }
+  }
+
+  .padding-left {
+    padding-left: 2rem;
+  }
+
+  &__bmi {
+    margin-bottom: 2rem;
+
+    &__item--weight {
+      margin-left: 2rem;
+    }
+  }
+}
+
+.early__childhood__report {
+  padding-block: 5vw !important;
+  padding-inline: 8vw !important;
+
+  .doh-logo {
+    width: 60%;
+    height: auto;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+
+    margin-bottom: 4rem;
+  }
+
+  &__title > * {
+    color: $black-1;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  &__address,
+  &__child-info,
+  &__mother {
+    margin-bottom: 2rem;
+  }
+
+  &__two-column {
+    display: grid;
+    grid-template-columns: repeat(2, 60% 40%);
+  }
+
+  &__three-column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1rem;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  table,
+  td,
+  th {
+    border: 2px solid $active-green;
+    border-collapse: collapse;
+  }
+
+  &__table {
+    border: 1px solid;
+    border-collapse: collapse;
+    margin-block: 2rem;
+
+    &__header {
+      font-size: 0.85rem;
+      color: $black-3;
+    }
+
+    thead > tr > th {
+      font-weight: 300;
+    }
+
+    tr,
+    th {
+      width: 20%;
+    }
+
+    td {
+      // padding-left: .5rem;
+      // text-align: center;
+      line-height: 1.6;
+    }
+
+    td {
+      color: $black-2;
+    }
+
+    .width-10 {
+      width: 10%;
+      border-bottom: none;
+    }
+  }
 }
 
 .block,
 .center {
-    display: grid;
-    justify-content: center;
-    // text-align: center;
+  display: grid;
+  justify-content: center;
+  // text-align: center;
 }
 
-
 .btn-print {
-    margin-block: 2rem ;
+  margin-block: 2rem;
 }
 
 .value {
-    color: $black-1;
-    font-weight: 600;
-    font-size: 1.2rem;
-    // text-decoration: underline;
-    border-bottom: 1px solid $black-1;
-    padding-bottom: 2px;
+  color: $black-1;
+  font-weight: 600;
+  font-size: 1.2rem;
+  // text-decoration: underline;
+  border-bottom: 1px solid $black-1;
+  padding-bottom: 2px;
 
-    // @media print {
-    //     font-size: 9pt !important;
-    // }
+  // @media print {
+  //     font-size: 9pt !important;
+  // }
 }
-
-

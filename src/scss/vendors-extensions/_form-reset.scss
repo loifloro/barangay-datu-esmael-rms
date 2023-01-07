@@ -1,4 +1,4 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 /* ----------------------------------------------------------------------------------------------------
 Super Form Reset
@@ -16,135 +16,130 @@ A couple of things to watch out for:
 input,
 label,
 select,
-textarea
-{
-	
-	/* Browsers have different default form fonts */
-	font-size: 1rem;
-	font-family: inherit;
+textarea {
+  /* Browsers have different default form fonts */
+  font-size: 1rem;
+  font-family: inherit;
 }
 
 button {
-    margin:0;
-	border:0;
-	padding:0;
-	display:inline-block;
-	vertical-align:middle;
-	white-space:normal;
-	background:none;
-	line-height:1;
-	height: 2.5rem;
-    border-radius: .5vw;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  background: none;
+  line-height: 1;
+  height: 2.5rem;
+  border-radius: 0.5vw;
 
-	/* Browsers have different default form fonts */
-	font-size: 1.12rem;
-	font-family: inherit;
+  /* Browsers have different default form fonts */
+  font-size: 1.12rem;
+  font-family: inherit;
 
-    &:hover {
-        cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
+  }
+
+  & + svg {
+    height: unset;
+  }
 }
 
 label {
-    color: $black-2;
+  color: $black-2;
 }
-
 
 /* Box Sizing Reset
 -----------------------------------------------*/
 
 /* All of our custom controls should be what we expect them to be */
 input,
-textarea
-{
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	box-sizing:border-box;
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 
 /* Text Inputs
 -----------------------------------------------*/
 
-input[type=date],
-input[type=datetime],
-input[type=datetime-local],
-input[type=email],
-input[type=month],
-input[type=number],
-input[type=password],
-input[type=range],
-input[type=search],
-input[type=tel],
-input[type=text],
-input[type=time],
-input[type=url],
-input[type=week],
-select
-{
-    padding-left: .5rem;
-    font-weight: 600;
-    height: 2.5rem;
-    background: $white-3;
-    border-radius: .5vw;
-    letter-spacing: .05rem;
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="range"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+select {
+  padding-left: 0.5rem;
+  font-weight: 600;
+  height: 2.5rem;
+  background: $white-3;
+  border-radius: 0.5vw;
+  letter-spacing: 0.05rem;
 
-	transition: $fade;
+  transition: $fade;
 
-	&:active,
-	&:focus {
-		outline: $green solid 1px;
-		background: $white-1;
-	}
+  &:active,
+  &:focus {
+    outline: $green solid 1px;
+    background: $white-1;
+  }
 }
 
 textarea {
-	background: $white-3;
-    border-radius: .5vw;
-    letter-spacing: .05rem;
-    padding: .5rem;
-    font-weight: 600;
-	resize: vertical;
-	width: 50%;
+  background: $white-3;
+  border-radius: 0.5vw;
+  letter-spacing: 0.05rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  resize: vertical;
+  width: 50%;
 
-	&:active,
-	&:focus {
-		outline: $green solid 1px;
-		background: $white-1;
-	}
+  &:active,
+  &:focus {
+    outline: $green solid 1px;
+    background: $white-1;
+  }
 
-	@media (max-width: 45rem) {
-		width: 100%;
-	}
+  @media (max-width: 45rem) {
+    width: 100%;
+  }
 }
 
 /* Button Controls
 -----------------------------------------------*/
 
-input[type=checkbox],
-input[type=radio]
-{
-	width:.8rem;
-	height:.8rem;
+input[type="checkbox"],
+input[type="radio"] {
+  width: 0.8rem;
+  height: 0.8rem;
 
-	accent-color: $green;
+  accent-color: $green;
 }
-
 
 /* Placeholder
 -----------------------------------------------*/
 input::placeholder {
-	font-weight: 400;
+  font-weight: 400;
 }
-
 
 /* Forms
 -----------------------------------------------*/
 form {
-	margin-bottom: unset;
+  margin-bottom: unset;
 }
 
-input[type=range] {
-	accent-color: $green;
-	width: 100%;
+input[type="range"] {
+  accent-color: $green;
+  width: 100%;
 }

@@ -1,12 +1,13 @@
 <!-- Daily Reports -->
-<section class="reports" id="reports">
+<section class="reports">
     <form action="" class="reports__form" method="GET">
         <h2 class="reports__title">
             Reports
         </h2>
         <p class="reports__desc">
-            Overview of the total number of records on each services.
+            Overview of the total number of records on masterlist.
         </p>
+
 
         <div class="reports__input">
             <div class="reports__form__service">
@@ -19,12 +20,9 @@
                     <?php
                     }
                     ?>
-                    <option value="Deworming"> Deworming </option>
-                    <option value="Consultation"> Consultation </option>
-                    <option value="Pre-natal"> Pre-natal </option>
-                    <option value="Post-natal"> Post-natal </option>
-                    <option value="Search and Destroy"> Search and Destroy </option>
-                    <option value="Childhood Care"> Childhood Care </option>
+                    <option value="Maternal Care"> Maternal Care </option>
+                    <option value="Childhood Care Female"> Childhood Care Female </option>
+                    <option value="Childhood Care Male"> Childhood Care Male </option>
 
                 </select>
             </div>
@@ -41,30 +39,24 @@
             </div>
         </div>
 
+
         <?php
         if (isset($_GET['report__service'])) {
             $report_service = $_GET['report__service'];
-            if ($report_service == "Deworming") {
-                include 'deworming.php';
-            } elseif ($report_service == "Consultation") {
-                include 'consultation.php';
-            } elseif ($report_service == 'Pre-natal') {
-                include 'prenatal.php';
-            } elseif ($report_service == 'Post-natal') {
-                include 'postnatal.php';
-            } elseif ($report_service == 'Search and Destroy') {
-                include 'search-destroy.php';
-            } elseif ($report_service == 'Childhood Care') {
-                include 'early-childhood.php';
+            if ($report_service == "Childhood Care Female") {
+                include 'childcare-female.php';
+            } elseif ($report_service == "Childhood Care Male") {
+                include 'childcare-male.php';
+            } elseif ($report_service == 'Maternal Care') {
+                include 'maternal-care.php';
             }
         } else {
-            include 'deworming.php';
+            include 'childcare-female.php';
         }
-
         ?>
-        <button type="submit" name="sort__date" class="btn-green btn-add services__btn">
-            <p>Sort record</p>
-        </button>
 
+        <button type="submit" name="sort__date" class="btn-green btn-add services__btn">
+            <p>View Report</p>
+        </button>
     </form>
 </section>
