@@ -191,7 +191,7 @@ hide_content_forms();
                             <textarea name="early_childhood-hospital" id="early_childhood-hospital" cols="27" rows="7"><?= $patient['hospital']; ?></textarea>
                         </div>
                         <div class="edit-early_childhood__form-item">
-                            <label for="early_childhood-lic">LIC</label>
+                            <label for="early_childhood-lic">Liver Iron Concentration (mg)</label>
                             <input type="text" name="early_childhood-lic" id="early_childhood-lic" value="<?= $patient['lic']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item edit-early_childhood__form-item--radio">
@@ -302,7 +302,7 @@ hide_content_forms();
                             <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" value="<?= $patient['child_birthdate']; ?>" required>
                         </div>
                         <div class="edit-early_childhood__form-item">
-                            <label for="early_childhood-gestational">Gestational Age of Birth</label>
+                            <label for="early_childhood-gestational">Gestational Age of Birth (weeks)</label>
                             <input type="number" name="early_childhood-gestational" id="early_childhood-gestational" value="<?= $patient['gestational_age']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item edit-early_childhood__form-item--radio">

@@ -185,7 +185,7 @@ hide_content_forms();
                     <textarea name="early_childhood-hospital" id="early_childhood-hospital" cols="27" rows="7"></textarea>
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-lic">LIC</label>
+                    <label for="early_childhood-lic">Liver Iron Concentration (mg)</label>
                     <input type="text" name="early_childhood-lic" id="early_childhood-lic">
                 </div>
                 <div class="add-early_childhood__form-item add-early_childhood__form-item--radio">
@@ -296,7 +296,7 @@ hide_content_forms();
                     <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" required>
                 </div>
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-gestational">Gestational Age of Birth</label>
+                    <label for="early_childhood-gestational">Gestational Age of Birth (weeks)</label>
                     <input type="number" name="early_childhood-gestational" id="early_childhood-gestational">
                 </div>
                 <div class="add-early_childhood__form-item add-early_childhood__form-item--radio">
