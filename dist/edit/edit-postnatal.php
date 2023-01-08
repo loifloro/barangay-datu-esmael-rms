@@ -152,6 +152,10 @@ hide_content_forms();
                             <label for="prenatal-date">Date Registered</label>
                             <input type="date" name="prenatal-date" id="prenatal-date" value="<?= $patient['postnatal_date']; ?>">
                         </div>
+                        <div class="add-postnatal__form-item">
+                            <label for="postnatal-email">Email</label>
+                            <input type="email" name="prenatal-email" id="postnatal-email" value="<?= $patient['postnatal_email']; ?>">
+                        </div>
                         <div class="edit-prenatal__form-item">
                             <label for="prenatal-lname">Last Name *</label>
                             <input type="text" name="prenatal-lname" id="prenatal-lname" value="<?= $patient['lastname']; ?>" required>
@@ -164,23 +168,6 @@ hide_content_forms();
                             <label for="prenatal-mname">Middle Name</label>
                             <input type="text" name="prenatal-mname" id="prenatal-mname" value="<?= $patient['middlename']; ?>">
                         </div>
-                        <!-- <div class="edit-prenatal__form-item">
-                    <label for="prenatal-age">Age *</label>
-                    <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
-                </div> -->
-                        <!-- <div class="edit-prenatal__form-item edit-prenatal__form-item--radio">
-                    <label for="prenatal-sex">Gender</label>
-                    <div class="edit-prenatal__form--role-item">
-                        <div class="edit-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Male">
-                            <label for="prenatal-sex">Male</label>
-                        </div>
-                        <div class="edit-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Female">
-                            <label for="prenatal-sex">Female</label>
-                        </div>
-                    </div>
-                </div> -->
                         <div class="edit-prenatal__form-item">
                             <label for="prenatal-birthday">Birthday *</label>
                             <input type="date" name="prenatal-birthday" id="prenatal-birthday" value="<?= $patient['birthdate']; ?>" required>
@@ -240,7 +227,7 @@ hide_content_forms();
                             </div>
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <label for="prenatal-height">Height</label>
+                            <label for="prenatal-height">Height (cm)</label>
                             <input type="text" name="prenatal-height" id="prenatal-height" value="<?= $patient['height']; ?>">
                         </div>
 
@@ -260,19 +247,19 @@ hide_content_forms();
                             <input type="text" name="prenatal-gravida" id="prenatal-gravida" value="<?= $patient['gravida']; ?>" required>
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <label for="prenatal-p">P *</label>
+                            <label for="prenatal-p">Preterm *</label>
                             <input type="text" name="prenatal-preterm" id="prenatal-p" value="<?= $patient['preterm']; ?>" required>
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <label for="prenatal-lmp">LMP</label>
+                            <label for="prenatal-lmp">Last Menstrual Period</label>
                             <input type="text" name="prenatal-lmp" id="prenatal-lmp" value="<?= $patient['last_menstrual']; ?>">
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <label for="prenatal-edc">EDC *</label>
+                            <label for="prenatal-edc">Expected Date of Confinement *</label>
                             <input type="text" name="prenatal-edc" id="prenatal-edc" value="<?= $patient['edc']; ?>" required>
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <label for="prenatal-aog">AOG *</label>
+                            <label for="prenatal-aog">Assessment of Gestational (weeks) *</label>
                             <input type="text" name="prenatal-aog" id="prenatal-aog" value="<?= $patient['aog']; ?>" required>
                         </div>
 
@@ -326,11 +313,11 @@ hide_content_forms();
                         </p>
 
                         <div class="edit-prenatal__form-item">
-                            <label for="prenatal-a">A</label>
+                            <label for="prenatal-a">Abnormality</label>
                             <textarea name="prenatal-a" id="prenatal-a" cols="27" rows="10"><?= $patient['a']; ?></textarea>
                         </div>
                         <div class="edit-prenatal__form-item">
-                            <label for="prenatal-p">P</label>
+                            <label for="prenatal-p">Prescription</label>
                             <input type="text" name="prenatal-p" id="prenatal-p" value="<?= $patient['p']; ?>">
                         </div>
 

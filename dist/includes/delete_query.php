@@ -429,7 +429,7 @@ if (isset($_GET['restore'])) {
     } 
 }
 
-if (isset($_GET['delete'])) {
+if (isset($_GET['delete'])) { //
     //DELETE DEWORMING RECORD
     if(isset($_GET['deworming'])){   
         $deworming_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -438,8 +438,28 @@ if (isset($_GET['delete'])) {
         $query_run = mysqli_query($conn, $query);
         if($query_run){
             
-            header("Location: ../archive.php?deleted");
-            exit(0);
+            // QUERY TO RECENT UPDATE DEWORMING
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+
+            $query2 = "INSERT INTO recent_activity 
+                    (reasons, user_fname, user_lname, user_role, changes_label, 
+                    date_edit, time_edit, patient_fname, patient_lname, record_name)
+                    VALUES 
+                    ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
+                    '$date', '$time', '$patient_fname', '$patient_lname', 'Deworming')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if($query_run2){
+                header("Location: ../archive.php?deleted");
+                exit(0);
+            }
+            //END OF QUERY
         }
     }
     //DELETE CONSULTATION RECORD
@@ -449,9 +469,29 @@ if (isset($_GET['delete'])) {
         $query = "DELETE FROM consultation WHERE consultation_id='$consultation_id'";
         $query_run = mysqli_query($conn, $query);
         if($query_run){
-            header("Location: ../archive.php?deleted");
 
-            exit(0);
+            // QUERY TO RECENT UPDATE CONSULTATION
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+
+            $query2 = "INSERT INTO recent_activity 
+                    (reasons, user_fname, user_lname, user_role, changes_label, 
+                    date_edit, time_edit, patient_fname, patient_lname, record_name)
+                    VALUES 
+                    ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
+                    '$date', '$time', '$patient_fname', '$patient_lname', 'Consultation')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if($query_run2){
+                header("Location: ../archive.php?deleted");
+                exit(0);
+            }
+            //END OF QUERY
         }
     }
     //DELETE PRENATAL RECORD
@@ -461,9 +501,28 @@ if (isset($_GET['delete'])) {
         $query = "DELETE FROM prenatal WHERE prenatal_id='$prenatal_id'";
         $query_run = mysqli_query($conn, $query);
         if($query_run){
-            header("Location: ../archive.php?deleted");
+            // QUERY TO RECENT UPDATE PRENATAL
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
-            exit(0);
+            $query2 = "INSERT INTO recent_activity 
+                    (reasons, user_fname, user_lname, user_role, changes_label, 
+                    date_edit, time_edit, patient_fname, patient_lname, record_name)
+                    VALUES 
+                    ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
+                    '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if($query_run2){
+                header("Location: ../archive.php?deleted");
+                exit(0);
+            }
+            //END OF QUERY
         }
     }
     //delete-iconDELETE POSTNATAL RECORD
@@ -473,9 +532,28 @@ if (isset($_GET['delete'])) {
         $query = "DELETE FROM postnatal WHERE postnatal_id='$postnatal_id'";
         $query_run = mysqli_query($conn, $query);
         if($query_run){
-            header("Location: ../archive.php?deleted");
-
-            exit(0);
+             // QUERY TO RECENT UPDATE POSTNATAL
+             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+             $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+             $date = date('Y-m-d');
+             $time = date('H:i:s');
+             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+             $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+ 
+             $query2 = "INSERT INTO recent_activity 
+                     (reasons, user_fname, user_lname, user_role, changes_label, 
+                     date_edit, time_edit, patient_fname, patient_lname, record_name)
+                     VALUES 
+                     ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
+                     '$date', '$time', '$patient_fname', '$patient_lname', 'Postnatal')";
+ 
+             $query_run2 = mysqli_query($conn, $query2);
+             if($query_run2){
+                 header("Location: ../archive.php?deleted");
+                 exit(0);
+             }
+             //END OF QUERY
         }
     }
     //DELETE SEARCH AND DESTROY RECORD
@@ -485,9 +563,28 @@ if (isset($_GET['delete'])) {
         $query = "DELETE FROM search_destroy WHERE search_destroy_id='$search_destroy_id'";
         $query_run = mysqli_query($conn, $query);
         if($query_run){
-            header("Location: ../archive.php?deleted");
+            // QUERY TO RECENT UPDATE SEARCH AND DESTROY
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
-            exit(0);
+            $query2 = "INSERT INTO recent_activity 
+                    (reasons, user_fname, user_lname, user_role, changes_label, 
+                    date_edit, time_edit, patient_fname, patient_lname, record_name)
+                    VALUES 
+                    ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
+                    '$date', '$time', '$patient_fname', '$patient_lname', 'Search/Destroy')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if($query_run2){
+                header("Location: ../archive.php?deleted");
+                exit(0);
+            }
+            //END OF QUERY
         }
     }
     //DELETE EARLY_CHILDHOOD RECORD
@@ -497,9 +594,70 @@ if (isset($_GET['delete'])) {
         $query = "DELETE FROM early_childhood WHERE early_childhood_id='$early_childhood_id'";
         $query_run = mysqli_query($conn, $query);
         if($query_run){
-            header("Location: ../archive.php?deleted");
+            // QUERY TO RECENT UPDATE SEARCH AND DESTROY
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
-            exit(0);
+            $query2 = "INSERT INTO recent_activity 
+                    (reasons, user_fname, user_lname, user_role, changes_label, 
+                    date_edit, time_edit, patient_fname, patient_lname, record_name)
+                    VALUES 
+                    ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
+                    '$date', '$time', '$patient_fname', '$patient_lname', 'Childhood Care')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if($query_run2){
+                header("Location: ../archive.php?deleted");
+                exit(0);
+            }
+            //END OF QUERY
         }
+    }
+}
+
+//DELETE MATERNAL CARE RECORD
+if(isset($_GET['delete_maternal'])){   
+    $id = mysqli_real_escape_string($conn, $_GET['delete_maternal']);
+    $query = "DELETE FROM target_maternal WHERE target_maternal_id='$id'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("Location: ../masterlist/maternal-care.php?deleted");
+        exit(0);
+    } else {
+        header("Location: ../masterlist/maternal-care.php?error");
+    }
+}
+
+//DELETE CHILDCARE MALE RECORD
+if(isset($_GET['delete_male'])){   
+    $id = mysqli_real_escape_string($conn, $_GET['delete_male']);
+    $query = "DELETE FROM target_childcare_male WHERE target_childcare_male_id='$id'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("Location: ../masterlist/childhood-care-male.php?deleted");
+        exit(0);
+    } else {
+        header("Location: ../masterlist/childhood-care-male.php?error");
+    }
+}
+
+//DELETE CHILDCARE FEMALE RECORD
+if(isset($_GET['delete_female'])){   
+    $id = mysqli_real_escape_string($conn, $_GET['delete_female']);
+    $query = "DELETE FROM target_childcare_female WHERE target_childcare_female_id='$id'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("Location: ../masterlist/childhood-care-female.php?deleted");
+        exit(0);
+    } else {
+        header("Location: ../masterlist/childhood-care-female.php?error");
     }
 }

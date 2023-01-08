@@ -127,9 +127,29 @@
             Date: <?php echo $consultation_sort; ?>
         </div>
     </div>
+
+    <!-- Query Start -->
+    <?php
+    $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+    $result = mysqli_query($conn, $query);
+
+    if (isset($_GET['report__date'])) {
+        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+        $result = mysqli_query($conn, $query);
+    }
+
+    while ($row = mysqli_fetch_array($result)) {
+    ?>
     <p class="deworming-reports__brgy">
-        Total No. of Patient
+        Total No. of Patient: <?php echo $row['count(*)']; ?>
     </p>
+    <?php
+    }
+    ?>
+    <!-- Query End -->
+
+
     <!-- Query Start -->
     <?php
     $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male'";

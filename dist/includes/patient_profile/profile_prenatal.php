@@ -1,65 +1,73 @@
 <section class="patient-profile__card">
     <!-- START QUERY -->
     <?php
-    include "../dist/includes/connection.php";
-    if (isset($_GET['id'])) {
-        $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-        $query = "SELECT * FROM prenatal WHERE prenatal_id='$patient_id'";
-        $query_run = mysqli_query($conn, $query);
+            include "../dist/includes/connection.php";
+            if(isset($_GET['id'])){
+                $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                $query = "SELECT * FROM prenatal WHERE prenatal_id='$patient_id'";
+                $query_run = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($query_run) > 0) {
-            $patient = mysqli_fetch_array($query_run);
-    ?>
-            <ul class="patient-profile__list" role="list">
-                <!-- photo, name, patient-id, contact number -->
-                <ul class="patient-profile__item patient-profile__list--center" role="list">
-                    <li class="patient-profile__img">
-                        <img class="" src="./assets/img/patient-profile.svg" alt="">
-                    </li>
-                    <li class="patient-profile__id patient-profile__category">
-                        #<?= $patient['prenatal_id']; ?>
-                    </li>
-                    <li class="patient-profile__name h5">
-                        <?= $patient['firstname'] . " " . $patient['lastname']; ?>
-                    </li>
-                    <li class="patient-profile__contact">
-                        <?= $patient['phone_num']; ?>
-                    </li>
-                </ul>
-
-                <ul class="patient-profile__item " role="list">
-                    <li class="patient-profile__sex">
-                        <span class="patient-profile__category">Sex</span>
-                        <?= $patient['sex']; ?>
-                    </li>
-                    <li class="patient-profile__street">
-                        <span class="patient-profile__category">Street Address</span>
-                        <?= $patient['street_address']; ?>
-                    </li>
-                    <li class="patient-profile__last-date-added">
-                        <span class="patient-profile__category">Date Added</span>
-                        <?= $patient['prenatal_date']; ?>
-                    </li>
-                </ul>
-                <ul class="patient-profile__item" role="list">
-                    <li class="patient-profile__last-modified">
-                        <span class="patient-profile__category">Birthday</span>
-                        <?= $patient['birthdate']; ?>
-                    </li>
-                    <li class="patient-profile__last-city">
-                        <span class="patient-profile__category">City</span>
-                        <?= $patient['city']; ?>
-                    </li>
-
-                </ul>
-                <ul class="patient-profile__item" role="list">
-                    <li class="patient-profile__barangay">
-                        <span class="patient-profile__category">Barangay</span>
-                        <?= $patient['barangay']; ?>
-                    </li>
-                    <!-- Edit button removed -->
-                </ul>
-            </ul>
+                if(mysqli_num_rows($query_run) > 0){
+                    $patient = mysqli_fetch_array($query_run);
+        ?>
+    <ul class="patient-profile__list" role="list">
+        <!-- photo, name, patient-id, contact number -->
+        <ul class="patient-profile__item patient-profile__list--center" role="list">
+            <li class="patient-profile__img">
+                <img class=""
+                        src="./assets/img/patient-profile.svg"
+                        alt="">
+            </li>
+            <li class="patient-profile__id patient-profile__category">
+                #<?= $patient['prenatal_id']; ?>
+            </li>
+            <li class="patient-profile__name h5">
+                <?= $patient['firstname']." " . $patient['lastname']; ?>
+            </li>
+            <li class="patient-profile__contact">
+                <?= $patient['phone_num']; ?>
+            </li>
+        </ul>
+        
+        <ul class="patient-profile__item " role="list">
+            <li class="patient-profile__sex">
+                <span class="patient-profile__category">Sex</span>
+                <?= $patient['sex']; ?>
+            </li>
+            <li class="patient-profile__street">
+                <span class="patient-profile__category">Street Address</span>
+                <?= $patient['street_address']; ?>
+            </li>
+            <li class="patient-profile__last-date-added">
+                <span class="patient-profile__category">Date Added</span>
+                    <?= $patient['prenatal_date']; ?>
+            </li>
+        </ul>
+        <ul class="patient-profile__item" role="list">
+            <li class="patient-profile__last-modified">
+                <span class="patient-profile__category">Birthday</span>
+                <?= $patient['birthdate']; ?>
+            </li>
+            <li class="patient-profile__last-city">
+                <span class="patient-profile__category">City</span>
+                <?= $patient['city']; ?>
+            </li>
+            <li class="patient-profile__barangay">
+                <span class="patient-profile__category">Barangay</span>
+                <?= $patient['barangay']; ?>
+            </li>
+        </ul>
+        <ul class="patient-profile__item" role="list">
+            <li class="patient-profile__barangay">
+                <span class="patient-profile__category">Registered Email</span>
+                <?= $patient['prenatal_email']; ?>
+            </li>
+            <li class="patient-profile__barangay">
+                <span class="patient-profile__category">Generated Password</span>
+                <?= $patient['prenatal_password']; ?>
+            </li>
+        </ul>
+    </ul>
     <?php
         }
     } else {

@@ -60,12 +60,11 @@ if (isset($_POST['edit_bhw'])) {
 // EDIT DEWORMING RECORD
 if (isset($_POST['edit_deworming'])) {
     $deworming_id = mysqli_real_escape_string($conn, $_POST['deworming_id']);
-    // $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['deworming-mname']);
 
-    // $age = mysqli_real_escape_string($conn, $_POST['deworming-age']);
+    //convert age based on bday
     $dateOfBirth = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $today = date("Y-m-d");
     $diff = date_diff(date_create($dateOfBirth), date_create($today));
@@ -77,11 +76,17 @@ if (isset($_POST['edit_deworming'])) {
     $street_add = mysqli_real_escape_string($conn, $_POST['deworming-street']);
     $barangay = mysqli_real_escape_string($conn, $_POST['deworming-barangay']);
     $city = mysqli_real_escape_string($conn, $_POST['deworming-city']);
-    $phone_num = mysqli_real_escape_string($conn, $_POST['deworming-phone_num']); //added phone_num
+    $phone_num = mysqli_real_escape_string($conn, $_POST['deworming-phone_num']);
+
+    $email = mysqli_real_escape_string($conn, $_POST['deworming-email']);
+    $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
+    $year_date = date('Y', strtotime($password_date));
+    $password = $lastname.$year_date.'_'.'deworming';
 
     $query = "UPDATE deworming SET lastname = '$lastname', firstname = '$firstname', 
     middlename = '$middlename', age = '$age', sex = '$sex', birthdate = '$birthdate', street_address = '$street_add', 
-    barangay = '$barangay', city = '$city', phone_num='$phone_num' WHERE deworming_id='$deworming_id'";
+    barangay = '$barangay', city = '$city', phone_num='$phone_num', deworming_email='$email',
+    deworming_password='$password' WHERE deworming_id='$deworming_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -151,8 +156,18 @@ if (isset($_POST['edit_consultation'])) {
     $abnormal = mysqli_real_escape_string($conn, $_POST['consultation-a']);
     $prescriptions = mysqli_real_escape_string($conn, $_POST['consultation-prescriptions']);
 
+    $email = mysqli_real_escape_string($conn, $_POST['consultation-email']);
+    $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
+    $year_date = date('Y', strtotime($password_date));
+    $password = $lastname.$year_date.'_'.'consultation';
 
-    $query = "UPDATE consultation SET consultation_date = '$consultation_date', lastname = '$lastname', firstname = '$firstname', middlename = '$middlename', age = '$age', sex = '$sex', birthdate = '$birthdate', street_address = '$street_add', barangay = '$barangay', city = '$city', phone_number = '$phone_num', symptoms = '$symptomps', blood_pressure = '$blood_pressure', weight = '$weight', abnormal = '$abnormal', prescriptions = '$prescriptions' WHERE consultation_id='$consultation_id'";
+    $query = "UPDATE consultation SET consultation_date = '$consultation_date', lastname = '$lastname', 
+    firstname = '$firstname', middlename = '$middlename', age = '$age', sex = '$sex', birthdate = '$birthdate', 
+    street_address = '$street_add', barangay = '$barangay', city = '$city', phone_number = '$phone_num', 
+    symptoms = '$symptomps', blood_pressure = '$blood_pressure', weight = '$weight', abnormal = '$abnormal', 
+    prescriptions = '$prescriptions', consultation_password='$password', consultation_email='$email' 
+    WHERE consultation_id='$consultation_id'";
+
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
         // QUERY TO RECENT UPDATE CONSULTATION
@@ -220,7 +235,7 @@ if (isset($_POST['edit_prenatal'])) {
     $height = mysqli_real_escape_string($conn, $_POST['prenatal-height']);
 
     $gravida = mysqli_real_escape_string($conn, $_POST['prenatal-gravida']);
-    $preterm = mysqli_real_escape_string($conn, $_POST['prenatal-p']);
+    $preterm = mysqli_real_escape_string($conn, $_POST['prenatal-preterm']);
     $lmp = mysqli_real_escape_string($conn, $_POST['prenatal-lmp']);
     $edc = mysqli_real_escape_string($conn, $_POST['prenatal-edc']);
     $aog = mysqli_real_escape_string($conn, $_POST['prenatal-aog']);
@@ -232,13 +247,17 @@ if (isset($_POST['edit_prenatal'])) {
     $abnormal = mysqli_real_escape_string($conn, $_POST['prenatal-a']);
     $prescriptions = mysqli_real_escape_string($conn, $_POST['prenatal-p']);
 
+    $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
+    $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
+    $year_date = date('Y', strtotime($password_date));
+    $password = $lastname.$year_date.'_'.'prenatal';
 
     $query = "UPDATE prenatal SET prenatal_date = '$prenatal_date', lastname = '$lastname', firstname = '$firstname', 
             middlename = '$middlename', age = '$age', birthdate = '$birthdate', street_address = '$street_add', 
             barangay = '$barangay', city = '$city', phone_num = '$phone_num', blood_pressure = '$blood_pressure', 
             weight = '$weight', height = '$height', gravida = '$gravida', preterm = '$preterm', last_menstrual = '$lmp', 
             edc = '$edc', aog = '$aog', fetal_heart = '$fh', fetal_heart_tones = '$fht', presentation = '$presentation', a = '$abnormal', 
-            p = '$prescriptions', symptoms='$symptoms' WHERE prenatal_id='$prenatal_id'";
+            p = '$prescriptions', symptoms='$symptoms', prenatal_email='$email', prenatal_password='$password' WHERE prenatal_id='$prenatal_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -319,13 +338,18 @@ if (isset($_POST['edit_postnatal'])) {
     $abnormal = mysqli_real_escape_string($conn, $_POST['prenatal-a']);
     $prescriptions = mysqli_real_escape_string($conn, $_POST['prenatal-p']);
 
+    $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
+    $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
+    $year_date = date('Y', strtotime($password_date));
+    $password = $lastname.$year_date.'_'.'postnatal';
 
     $query = "UPDATE postnatal SET postnatal_date = '$postnatal_date', lastname = '$lastname', firstname = '$firstname', 
             middlename = '$middlename', age = '$age', birthdate = '$birthdate', street_address = '$street_add', 
             barangay = '$barangay', city = '$city', phone_num = '$phone_num', blood_pressure = '$blood_pressure', 
             weight = '$weight', height = '$height', gravida = '$gravida', preterm = '$preterm', last_menstrual = '$lmp', 
             edc = '$edc', aog = '$aog', fetal_heart = '$fh', fetal_heart_tones = '$fht', presentation = '$presentation', a = '$abnormal', 
-            p = '$prescriptions', symptoms='$symptoms' WHERE postnatal_id='$postnatal_id'";
+            p = '$prescriptions', symptoms='$symptoms', postnatal_password='$password', 
+            postnatal_email='$email' WHERE postnatal_id='$postnatal_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -393,13 +417,18 @@ if (isset($_POST['edit_search_destroy'])) {
 
     $remark_status = mysqli_real_escape_string($conn, $_POST['search_destroy-remarks']); // changed
 
+    $email = mysqli_real_escape_string($conn, $_POST['search_destroy-email']);
+    $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
+    $year_date = date('Y', strtotime($password_date));
+    $password = $owner_lname.$year_date.'_'.'searchdestroy';
 
 
     $query = "UPDATE search_destroy SET search_destroy_date = '$search_destroy_date',
     owner_fname = '$owner_fname', owner_lname = '$owner_lname', owner_mname = '$owner_mname',
     phone_num = '$phone_num', sex = '$sex', birthdate = '$birthdate', city = '$city',
     barangay='$barangay', block='$block', date_visit='$date_visit', address='$address', 
-    container_name='$con_name', container_num='$con_num', remark_status='$remark_status' 
+    container_name='$con_name', container_num='$con_num', remark_status='$remark_status',
+    search_destroy_email='$email', search_destroy_password='$password'
     WHERE search_destroy_id='$search_destroy_id'";
 
     $query_run = mysqli_query($conn, $query);
@@ -548,6 +577,11 @@ if (isset($_POST['edit_early_childhood'])) {
     $vitamin3_date = mysqli_real_escape_string($conn, $_POST['early_childhood-vitA-3']);
     $vitamin_catchup_date = mysqli_real_escape_string($conn, $_POST['early_childhood-vitA-catch-up']);
 
+    $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
+    $year_date = date('Y', strtotime($password_date));
+    $password = $child_lname.$year_date.'_'.'earlychildhood';
+    $email = mysqli_real_escape_string($conn, $_POST['early_childhood-email']);
+
     $query = "UPDATE early_childhood SET early_childhood_date = '$early_childhood_date',
     child_fname='$child_fname', child_lname='$child_lname', child_mname='$child_mname', street_address='$street_add', city='$city',
     clinic='$clinic', barangay='$barangay', purok='$purok', hospital='$hospital', lic='$lic', 
@@ -568,7 +602,8 @@ if (isset($_POST['edit_early_childhood'])) {
     pneumoco1_date='$pneumoco1_date', pneumoco2_date='$pneumoco2_date', pneumoco3_date='$pneumoco3_date', 
     pneumoco_catchup_date='$pneumoco_catchup_date', measle1_date='$measle1_date', measle2_date='$measle2_date', 
     measle3_date='$measle3_date', measle_catchup_date='$measle_catchup_date', vitamin1_date='$vitamin1_date', 
-    vitamin2_date='$vitamin2_date', vitamin3_date='$vitamin3_date', vitamin_catchup_date='$vitamin_catchup_date' 
+    vitamin2_date='$vitamin2_date', vitamin3_date='$vitamin3_date', vitamin_catchup_date='$vitamin_catchup_date',
+    early_childhood_email='$email', early_childhood_password='$password'
     WHERE early_childhood_id='$early_childhood_id'";
 
     $query_run = mysqli_query($conn, $query);

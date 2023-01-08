@@ -153,6 +153,10 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
                 <div class="add-deworming__form-item">
+                    <label for="deworming-lname">Email</label>
+                    <input type="email" name="deworming-email" id="deworming-email">
+                </div>
+                <div class="add-deworming__form-item">
                     <label for="deworming-lname">Last Name *</label>
                     <input type="text" name="deworming-lname" id="deworming-lname" required>
                 </div>

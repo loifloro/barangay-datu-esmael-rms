@@ -147,11 +147,10 @@ hide_content_forms();
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-postnatal__form">
-
-                <!-- <div class="add-postnatal__form-item">
-                    <label for="postnatal-date">Date</label>
-                    <input type="date" name="postnatal-date" id="postnatal-date">
-                </div> -->
+                <div class="add-postnatal__form-item">
+                    <label for="postnatal-email">Email</label>
+                    <input type="email" name="postnatal-email" id="postnatal-email">
+                </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lname">Last Name *</label>
                     <input type="text" name="postnatal-lname" id="postnatal-lname" required>
@@ -164,23 +163,6 @@ hide_content_forms();
                     <label for="postnatal-mname">Middle Name</label>
                     <input type="text" name="postnatal-mname" id="postnatal-mname">
                 </div>
-                <!-- <div class="add-postnatal__form-item">
-                    <label for="postnatal-age">Age *</label>
-                    <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1" required>
-                </div> -->
-                <!-- <div class="add-postnatal__form-item add-postnatal__form-item--radio">
-                    <label for="postnatal-sex">Gender</label>
-                    <div class="add-postnatal__form--role-item">
-                        <div class="add-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female">
-                            <label for="postnatal-sex">Male</label>
-                        </div>
-                        <div class="add-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female">
-                            <label for="postnatal-sex">Female</label>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-birthday">Birthday *</label>
                     <input type="date" name="postnatal-birthday" id="postnatal-birthday" required>
@@ -240,7 +222,7 @@ hide_content_forms();
                     </div>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-height">Height</label>
+                    <label for="postnatal-height">Height (cm)</label>
                     <input type="text" name="postnatal-height" id="postnatal-height">
                 </div>
 
@@ -260,19 +242,19 @@ hide_content_forms();
                     <input type="text" name="postnatal-gravida" id="postnatal-gravida" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-p">P *</label>
+                    <label for="postnatal-p">Preterm *</label>
                     <input type="text" name="postnatal-preterm" id="postnatal-p" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-lmp">LMP</label>
+                    <label for="postnatal-lmp">Last Menstrual Period</label>
                     <input type="date" name="postnatal-lmp" id="postnatal-lmp">
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-edc">EDC *</label>
+                    <label for="postnatal-edc">Expected Date of Confinement *</label>
                     <input type="date" name="postnatal-edc" id="postnatal-edc" required>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-aog">AOG *</label>
+                    <label for="postnatal-aog">Assessment of Gestational (weeks) *</label>
                     <input type="text" name="postnatal-aog" id="postnatal-aog" required>
                 </div>
 
@@ -326,11 +308,11 @@ hide_content_forms();
                 </p>
                 
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-a">A</label>
+                    <label for="postnatal-a">Abnormality</label>
                     <textarea name="postnatal-a" id="postnatal-a" cols="27" rows="10"></textarea>
                 </div>
                 <div class="add-postnatal__form-item">
-                    <label for="postnatal-p">P</label>
+                    <label for="postnatal-p">Prescription</label>
                     <input type="text" name="postnatal-p" id="postnatal-p">
                 </div>
                 
