@@ -240,7 +240,7 @@ hide_content_forms();
                     </div>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-height">Height</label>
+                    <label for="prenatal-height">Height (cm)</label>
                     <input type="text" name="prenatal-height" id="prenatal-height">
                 </div>
 
@@ -260,19 +260,19 @@ hide_content_forms();
                     <input type="text" name="prenatal-gravida" id="prenatal-gravida" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-p">P *</label>
+                    <label for="prenatal-p">Preterm *</label>
                     <input type="text" name="postnatal-preterm" id="prenatal-p" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-lmp">LMP</label>
+                    <label for="prenatal-lmp">Last Menstrual Period</label>
                     <input type="date" name="prenatal-lmp" id="prenatal-lmp">
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-edc">EDC *</label>
+                    <label for="prenatal-edc">Expected Date of Confinement *</label>
                     <input type="date" name="prenatal-edc" id="prenatal-edc" required>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-aog">AOG *</label>
+                    <label for="prenatal-aog">Assessment of Gestational (weeks) *</label>
                     <input type="text" name="prenatal-aog" id="prenatal-aog" required>
                 </div>
 
@@ -326,11 +326,11 @@ hide_content_forms();
                 </p>
                 
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-a">A</label>
+                    <label for="prenatal-a">Abnormality</label>
                     <textarea name="prenatal-a" id="prenatal-a" cols="27" rows="10"></textarea>
                 </div>
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-p">P</label>
+                    <label for="prenatal-p">Prescriptions</label>
                     <input type="text" name="prenatal-p" id="prenatal-p">
                 </div>
                 
