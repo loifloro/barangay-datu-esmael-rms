@@ -378,6 +378,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <li class="services__name p-bold">
                             <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
+                            <?php include('./includes/reports/deworming.php'); ?>
                         </li>
                         <!-- End of Modal Trigger -->
                         <li class="services__num">
@@ -415,7 +416,6 @@ if (mysqli_num_rows($query_run) > 0) {
                         </li>
                     </ul>
             <?php
-                    include('./includes/reports/deworming.php'); //moved here it ruin the display in table
                 }
             }
 
@@ -679,7 +679,6 @@ if (mysqli_num_rows($query_run) > 0) {
                         <li class="services__name p-bold">
                             <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#prenatal__report<?= $patient['prenatal_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
-                            <?php include('./includes/reports/prenatal.php'); ?>
                         </li>
                         <li class="services__num">
                             <?= $patient['phone_num']; ?>
@@ -709,6 +708,7 @@ if (mysqli_num_rows($query_run) > 0) {
                                 </svg>
                             </button>
                         </li>
+                        <?php include('./includes/reports/prenatal.php'); ?>
                     </ul>
             <?php
                 }
@@ -767,7 +767,8 @@ if (mysqli_num_rows($query_run) > 0) {
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
                             <input type="checkbox" name="" id="" class="services__checkbox">
-                            <p><?= $patient['firstname'] . " " . $patient['lastname']; ?></p>
+                            <a href="#postnatal__report<?= $patient['postnatal_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
+                            <?php include('./includes/reports/postnatal.php'); ?>
                         </li>
                         <li class="services__num">
                             <?= $patient['phone_num']; ?>

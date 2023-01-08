@@ -3,7 +3,8 @@ session_start();
 include "includes/connection.php";
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
-    function validate($data){
+    function validate($data)
+    {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
@@ -16,15 +17,12 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     if (empty($username)) { /*if else statement for validation*/
         header("Location: index.php?error=Contact number is required"); /*Error Alert*/
         exit();
-    } 
-
-    else if (empty($password)){
+    } else if (empty($password)) {
         header("Location: index.php?error=Password is required"); /*Error Alert*/
         exit();
-    } 
-    else {
-        $sql= "SELECT * FROM account_information WHERE user_email='$username' AND password='$password'";
-        $result= mysqli_query($conn, $sql);
+    } else {
+        $sql = "SELECT * FROM account_information WHERE user_email='$username' AND password='$password'";
+        $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 0) {
             header("Location: index.php?error=Incorrect username or password!");
@@ -32,7 +30,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
-            if ($row['password'] == $password && $row['user_email'] == $username){
+            if ($row['password'] == $password && $row['user_email'] == $username) {
                 $_SESSION['user_email'] = $row['user_email'];
                 $_SESSION['phone_num'] = $row['phone_num'];
                 $_SESSION['firstname'] = $row['firstname'];
@@ -40,7 +38,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 $_SESSION['position'] = $row['position'];
                 header("Location: dashboard.php?success"); /*Redirect to this page if successful*/
                 exit();
-            } 
+            }
         } else {
             $sql= "SELECT deworming_email, deworming_password, phone_num, deworming_id, label FROM deworming 
             WHERE deworming_email='$username' AND deworming_password='$password'
@@ -61,7 +59,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             WHERE early_childhood_email='$username' AND early_childhood_password='$password'
             ";
 
-            $result= mysqli_query($conn, $sql);
+            $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
 
@@ -80,11 +78,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                     }
             }
         }
-        }
-
-}
-
-else{
+    }
+} else {
     header("Location: index.php");
     exit();
 }
