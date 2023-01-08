@@ -926,6 +926,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 
 .medical-history__card {
+  overflow: hidden;
   background: #FFFFFF;
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
   border: #ECFCF2 1px solid;
@@ -933,15 +934,25 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: none;
   box-sizing: border-box;
 }
+.medical-history__card li {
+  margin-bottom: unset;
+}
 .medical-history__card__row {
   display: grid;
   grid-template-columns: repeat(3, minmax(80px, 1fr));
   padding-inline-start: unset;
   padding: 1rem 1.5rem;
   margin-block: 0;
+  background: #FBFBFB;
+}
+.medical-history__card ul:nth-child(2n+1) {
+  background: #FFFFFF;
 }
 .medical-history__header {
-  color: #909087;
+  color: #414134;
+}
+.medical-history a {
+  font: unset;
 }
 
 .edit-history__card {
