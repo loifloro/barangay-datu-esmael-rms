@@ -1,361 +1,354 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .services {
-    &__card-list {
-        display: grid;
-        // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-template-columns: repeat(4,auto);
-        column-gap: 1rem;
-        grid-template-rows: repeat(2, 1fr);
-        row-gap: 1rem;
-        margin-top: 1.5rem;
+  &__card-list {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(4, auto);
+    column-gap: 1rem;
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  &__card-masterlist {
+    display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, auto);
+    column-gap: 1rem;
+    // grid-template-rows: repeat(2, 1fr);
+    // row-gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  &__card {
+    display: grid;
+    align-content: flex-end;
+    background: $white-1;
+    border-radius: 1vw;
+    border: 1px solid $active-green;
+    padding: 1rem;
+    max-width: 18rem;
+    height: 10rem;
+
+    box-sizing: border-box;
+
+    &--consultation {
+      grid-row: span 2;
+      height: 100%;
+      background: url(../assets/img/consultation.svg);
+      // background-position: bottom 45%;
+      background-repeat: no-repeat;
     }
 
-    &__card-masterlist {
-        display: grid;
-        // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        grid-template-columns: repeat(3,auto);
-        column-gap: 1rem;
-        // grid-template-rows: repeat(2, 1fr);
-        // row-gap: 1rem;
-        margin-top: 1.5rem;
+    &--childhood,
+    &--childhood-female,
+    &--childhood-male {
+      background: url(../assets/img/childhoodcare.svg);
+      background-position: right 10% bottom 45%;
+      background-size: 60%;
+      background-repeat: no-repeat;
     }
 
-    &__card {
-        display: grid;
-        align-content: flex-end;
-        background: $white-1;
-        border-radius: 1vw;
-        border: 1px solid $active-green;
-        padding: 1rem;
-        max-width: 18rem;
-        height: 10rem;
-
-        box-sizing: border-box;
-
-
-        &--consultation {
-            grid-row: span 2;
-            height: 100%;
-            background: url(../assets/img/consultation.svg);
-            // background-position: bottom 45%;
-            background-repeat: no-repeat;
-        }
-
-        &--childhood,
-        &--childhood-female,
-        &--childhood-male {
-            background: url(../assets/img/childhoodcare.svg);
-            background-position: right 10% bottom 45%;
-            background-size: 60%;
-            background-repeat: no-repeat;
-        }
-
-        &--prenatal,
-        &--maternal {
-            background: url(../assets/img/pre-natal.svg);
-            background-position: right 10% bottom 45%;
-            background-size: 60%;
-            background-repeat: no-repeat;
-        }
-
-        &--deworming {
-            background: url(../assets/img/deworming.svg);
-            background-position: right 10% bottom 45%;
-            background-size: 60%;
-            background-repeat: no-repeat;
-        }
-
-        &--searchdestroy {
-            background: url(../assets/img/search-and-destroy.svg);
-            background-position: right 10% bottom 45%;
-            background-size: 60%;
-            background-repeat: no-repeat;
-        }
-
-        &-visits {
-            &--number {
-                font-weight: 900;
-                font-family: Poppins;
-            }
-        }
-
-        &:hover,
-        &:focus {   
-            cursor: pointer;
-            transition: $ease-in-out;
-            box-shadow: $drop-shadow;
-        }
+    &--prenatal,
+    &--maternal {
+      background: url(../assets/img/pre-natal.svg);
+      background-position: right 10% bottom 45%;
+      background-size: 60%;
+      background-repeat: no-repeat;
     }
+
+    &--deworming {
+      background: url(../assets/img/deworming.svg);
+      background-position: right 10% bottom 45%;
+      background-size: 60%;
+      background-repeat: no-repeat;
+    }
+
+    &--searchdestroy {
+      background: url(../assets/img/search-and-destroy.svg);
+      background-position: right 10% bottom 45%;
+      background-size: 60%;
+      background-repeat: no-repeat;
+    }
+
+    &-visits {
+      &--number {
+        font-weight: 900;
+        font-family: Poppins;
+      }
+    }
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      transition: $ease-in-out;
+      box-shadow: $drop-shadow;
+    }
+  }
 }
 
 .recent-updates {
+  &__card {
+    // See mixins.scss for referrence
+    @include card(1.75rem);
 
-    &__card {
-        // See mixins.scss for referrence
-        @include card(1.75rem);
+    .editor {
+      &__details {
+        color: $black-1;
+        line-height: 1.2;
+        text-align: justify;
+        margin-bottom: 1rem;
+      }
 
-        .editor {
-
-            &__details {
-                color: $black-1;
-                line-height: 1.2;
-                text-align: justify;
-                margin-bottom: 1rem;
-            }
-
-            &__action {
-                
-                &--edited {
-                    color: $hover-green;
-                }
-
-                &--red {
-                    color: $red;
-                }
-            }
-            
-            &__name {
-                font-weight: 500;
-                
-            }
+      &__action {
+        &--edited {
+          color: $hover-green;
         }
-    }
 
-    &__btn {
-        text-align: end;
-    }
+        &--red {
+          color: $red;
+        }
+      }
 
+      &__name {
+        font-weight: 500;
+      }
+    }
+  }
+
+  &__btn {
+    text-align: end;
+  }
 }
-
-
-
 
 .patient-profile {
-    &__card {
-        @include card(1.5rem 2rem);
-        color: $black-1;
-        width: 100%;
-        margin-bottom: 2rem;
-    }
+  &__card {
+    @include card(1.5rem 2rem);
+    color: $black-1;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 
-    &__item,
-    &__list {
-        padding-inline-start: unset;
-        margin-block: auto;
-    }
-    
-    li {
-        margin-bottom: 1rem;
-    }
+  &__item,
+  &__list {
+    padding-inline-start: unset;
+    margin-block: auto;
+  }
 
-    &__list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        justify-items: center;
-        align-content: center;
+  li {
+    margin-bottom: 1rem;
+  }
 
-        &--center {
-            display: grid;
-            place-items: center;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-content: center;
 
-            li {
-                margin-bottom: 0;
-            }
-            
-        }
+    &--center {
+      display: grid;
+      place-items: center;
 
-    }
-
-    &__item:last-child {
-        display: grid;
-        align-content: space-between;
-        margin-block: unset;
-    }
-
-    
-    &__category {
-        display: block;
-        font-size: .8rem;
-        color: $black-3;
-    }
-
-    &__name {
+      li {
         margin-bottom: 0;
+      }
     }
+  }
 
-    &__contact {
-        color: $black-3;
-    }
+  &__item:last-child {
+    display: grid;
+    align-content: space-between;
+    margin-block: unset;
+  }
 
+  &__category {
+    display: block;
+    font-size: 0.8rem;
+    color: $black-3;
+  }
 
+  &__name {
+    margin-bottom: 0;
+  }
+
+  &__contact {
+    color: $black-3;
+  }
 }
 
-
 .medical-history {
-    &__card {
-        @include card(none);
+  &__card {
+    overflow: hidden;
+    @include card(none);
 
-        &__row {
-            display: grid;
-            grid-template-columns: repeat(3, minmax(80px, 1fr));
-            padding-inline-start: unset;
-            padding: 1rem 1.5rem;
-            margin-block: 0;
-        }
+    li {
+      margin-bottom: unset;
     }
 
-    &__header    {
-        color: $black-3;
+    &__row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(80px, 1fr));
+      padding-inline-start: unset;
+      padding: 1rem 1.5rem;
+      margin-block: 0;
+      background: $white-2;
     }
+
+    ul:nth-child(2n + 1) {
+      background: $white-1;
+    }
+  }
+
+  &__header {
+    color: $black-2;
+  }
+
+  a {
+    font: unset;
+  }
 }
 
 .edit-history {
-    &__card {
-        @include card(none);
-        overflow: hidden;
+  &__card {
+    @include card(none);
+    overflow: hidden;
+  }
 
-    }
+  &__header {
+    background: $hover-green;
+    padding: 1rem 1.5rem;
+    color: $white-1;
+    vertical-align: middle;
 
-    &__header {
-        background: $hover-green;
-        padding: 1rem 1.5rem;
-        color: $white-1;
-        vertical-align: middle;
+    svg {
+      height: 1.1rem;
+      width: 1.1rem;
 
-        svg {
-            height: 1.1rem;
-            width: 1.1rem;
-      
-            path {
-              fill: currentColor;
-            }
-        }
+      path {
+        fill: currentColor;
+      }
     }
+  }
 
-    &__title {
-        display: inline;
-        margin-left: .3rem;
-    }
-    
-    &__item,
-    &__list {
-        padding-inline-start: unset;
-        margin-block: auto;
-        padding: .5rem;
-        color: $black-2;
-    }
+  &__title {
+    display: inline;
+    margin-left: 0.3rem;
+  }
 
-    hr {
-        @include hr;
-    }
+  &__item,
+  &__list {
+    padding-inline-start: unset;
+    margin-block: auto;
+    padding: 0.5rem;
+    color: $black-2;
+  }
 
-    &__editor {
-        color: $green;
-    }
+  hr {
+    @include hr;
+  }
+
+  &__editor {
+    color: $green;
+  }
 }
 
 .backup {
-    &__card {
-        @include card(none);
+  &__card {
+    @include card(none);
 
-        &__row {
-            display: grid;
-            // grid-template-columns: repeat(5, minmax(80px, 1fr));
-            grid-template-columns: auto 15% 10% 15% 15% 10%;
-            column-gap: 1rem;
-            padding-inline-start: unset;
-            padding: 1rem 1.5rem;
-            margin-block: 0;
-        }
+    &__row {
+      display: grid;
+      // grid-template-columns: repeat(5, minmax(80px, 1fr));
+      grid-template-columns: auto 15% 10% 15% 15% 10%;
+      column-gap: 1rem;
+      padding-inline-start: unset;
+      padding: 1rem 1.5rem;
+      margin-block: 0;
     }
+  }
 
-    &__attributes {
-        color: $black-3;
-    }
+  &__attributes {
+    color: $black-3;
+  }
 
-    &__info {
-        background: $white-2;
-        color: $black-2;
-    }
+  &__info {
+    background: $white-2;
+    color: $black-2;
+  }
 
-    &__name {
-        color: $black-1;
-    }
+  &__name {
+    color: $black-1;
+  }
 
-    &__status--available {
-        font-size: .8rem;
-        color: $green;
-        background: $active-green;
-        padding: .3rem 1rem;
-        border-radius: 100vw;
-    }
+  &__status--available {
+    font-size: 0.8rem;
+    color: $green;
+    background: $active-green;
+    padding: 0.3rem 1rem;
+    border-radius: 100vw;
+  }
 
-    &__status--deleted {
-        font-size: .8rem;
-        color: $white-1;
-        background: $red;
-        padding: .3rem 1rem;
-        border-radius: 100vw;
-    }
-
+  &__status--deleted {
+    font-size: 0.8rem;
+    color: $white-1;
+    background: $red;
+    padding: 0.3rem 1rem;
+    border-radius: 100vw;
+  }
 }
 
 .user-profile {
-    &__card {
-        @include card(1.5rem 2rem);
-        color: $black-1;
-        width: 100%;
-        margin-bottom: 2rem;
-    }
+  &__card {
+    @include card(1.5rem 2rem);
+    color: $black-1;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
 
-    &__item,
-    &__list {
-        padding-inline-start: unset;
-        margin-block: auto;
-    }
-    
-    &__item li {
-        margin-bottom: 1rem;
-    }
+  &__item,
+  &__list {
+    padding-inline-start: unset;
+    margin-block: auto;
+  }
 
-    &__list {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        justify-items: center;
-        align-content: center;
+  &__item li {
+    margin-bottom: 1rem;
+  }
 
-        &--center {
-            display: grid;
-            place-items: center;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-content: center;
 
-            li {
-                margin-bottom: 0;
-            }
-            
-        }
+    &--center {
+      display: grid;
+      place-items: center;
 
-    }
-
-    &__item:last-child {
-        display: grid;
-        align-content: space-between;
-        margin-block: unset;
-    }
-
-    
-    &__category {
-        display: block;
-        font-size: .8rem;
-        color: $black-3;
-    }
-
-    &__name {
+      li {
         margin-bottom: 0;
+      }
     }
+  }
 
-    &__contact {
-        color: $black-3;
-    }
+  &__item:last-child {
+    display: grid;
+    align-content: space-between;
+    margin-block: unset;
+  }
+
+  &__category {
+    display: block;
+    font-size: 0.8rem;
+    color: $black-3;
+  }
+
+  &__name {
+    margin-bottom: 0;
+  }
+
+  &__contact {
+    color: $black-3;
+  }
 }
-
