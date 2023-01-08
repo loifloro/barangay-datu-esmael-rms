@@ -147,11 +147,15 @@ hide_content_forms();
                     if (mysqli_num_rows($query_run) > 0) {
                         $patient = mysqli_fetch_array($query_run);
                 ?>
-                        <input type=" hidden" name="deworming_id" value="<?= $patient['deworming_id']; ?>"> <!--nakahide sya para access ID sa edit-->
+                        <input type="hidden" name="deworming_id" value="<?= $patient['deworming_id']; ?>"> <!--nakahide sya para access ID sa edit-->
 
                         <div class="edit-deworming__form-item">
                             <label for="deworming-date">Registration Date</label>
                             <input type="date" name="deworming-date" id="deworming-date" value="<?= $patient['deworming_date']; ?>">
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-lname">Email</label>
+                            <input type="email" name="deworming-email" id="deworming-email" value="<?= $patient['deworming_email']; ?>">
                         </div>
                         <div class="edit-deworming__form-item">
                             <label for="deworming-lname">Last Name *</label>
