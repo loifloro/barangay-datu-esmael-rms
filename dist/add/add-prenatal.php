@@ -147,11 +147,10 @@ hide_content_forms();
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-prenatal__form">
-
-                <!-- <div class="add-prenatal__form-item">
-                    <label for="prenatal-date">Date</label>
-                    <input type="date" name="prenatal-date" id="prenatal-date">
-                </div> -->
+                <div class="add-prenatal__form-item">
+                    <label for="prenatal-email">Email</label>
+                    <input type="email" name="prenatal-email" id="prenatal-email">
+                </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-lname">Last Name *</label>
                     <input type="text" name="prenatal-lname" id="prenatal-lname" required>
@@ -164,23 +163,6 @@ hide_content_forms();
                     <label for="prenatal-mname">Middle Name</label>
                     <input type="text" name="prenatal-mname" id="prenatal-mname">
                 </div>
-                <!-- <div class="add-prenatal__form-item">
-                    <label for="prenatal-age">Age *</label>
-                    <input type="number" name="prenatal-age" id="prenatal-age" maxlength="2" min="1" required>
-                </div> -->
-                <!-- <div class="add-prenatal__form-item add-prenatal__form-item--radio">
-                    <label for="prenatal-sex">Gender</label>
-                    <div class="add-prenatal__form--role-item">
-                        <div class="add-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Male">
-                            <label for="prenatal-sex">Male</label> Dapat automatic na Female mga to since sila lang naman may kakayahan makapag prenatal
-                        </div>
-                        <div class="add-prenatal__form-item">
-                            <input type="radio" name="prenatal-sex" id="prenatal-sex--female" value="Female">
-                            <label for="prenatal-sex">Female</label>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-birthday">Birthday *</label>
                     <input type="date" name="prenatal-birthday" id="prenatal-birthday" required>
@@ -341,7 +323,7 @@ hide_content_forms();
                     <button type="submit" class="btn-green btn-add" name="save_prenatal" ">
                         Add
                     </button>
-                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
+                    <button type="button" class="btn-red btn-cancel" onclick="confirmReset(form)">
                         Clear
                     </button>
                 </div>
