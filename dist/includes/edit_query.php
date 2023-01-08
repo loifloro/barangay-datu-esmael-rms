@@ -60,12 +60,11 @@ if (isset($_POST['edit_bhw'])) {
 // EDIT DEWORMING RECORD
 if (isset($_POST['edit_deworming'])) {
     $deworming_id = mysqli_real_escape_string($conn, $_POST['deworming_id']);
-    // $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['deworming-mname']);
 
-    // $age = mysqli_real_escape_string($conn, $_POST['deworming-age']);
+    //convert age based on bday
     $dateOfBirth = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $today = date("Y-m-d");
     $diff = date_diff(date_create($dateOfBirth), date_create($today));
@@ -77,11 +76,17 @@ if (isset($_POST['edit_deworming'])) {
     $street_add = mysqli_real_escape_string($conn, $_POST['deworming-street']);
     $barangay = mysqli_real_escape_string($conn, $_POST['deworming-barangay']);
     $city = mysqli_real_escape_string($conn, $_POST['deworming-city']);
-    $phone_num = mysqli_real_escape_string($conn, $_POST['deworming-phone_num']); //added phone_num
+    $phone_num = mysqli_real_escape_string($conn, $_POST['deworming-phone_num']);
+
+    $email = mysqli_real_escape_string($conn, $_POST['deworming-email']);
+    $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
+    $year_date = date('Y', strtotime($password_date));
+    $password = $lastname.$year_date.'_'.'deworming';
 
     $query = "UPDATE deworming SET lastname = '$lastname', firstname = '$firstname', 
     middlename = '$middlename', age = '$age', sex = '$sex', birthdate = '$birthdate', street_address = '$street_add', 
-    barangay = '$barangay', city = '$city', phone_num='$phone_num' WHERE deworming_id='$deworming_id'";
+    barangay = '$barangay', city = '$city', phone_num='$phone_num', deworming_email='$email',
+    deworming_password='$password' WHERE deworming_id='$deworming_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
