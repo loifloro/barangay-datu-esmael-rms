@@ -237,7 +237,7 @@ hide_content_forms();
                 </p>
                 
                 <div class="add-consultation__form-item">
-                    <label for="consultation-a">A</label>
+                    <label for="consultation-a">Abnormality</label>
                     <input type="text" name="consultation-a" id="consultation-a">
                 </div>
                 <div class="add-consultation__form-item">

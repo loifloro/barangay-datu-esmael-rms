@@ -238,7 +238,7 @@ hide_content_forms();
                         </p>
 
                         <div class="edit-consultation__form-item">
-                            <label for="consultation-a">A</label>
+                            <label for="consultation-a">Abnormality</label>
                             <input type="text" name="consultation-a" id="consultation-a" value="<?= $patient['abnormal']; ?>">
                         </div>
                         <div class="edit-consultation__form-item">
