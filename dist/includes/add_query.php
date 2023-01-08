@@ -58,13 +58,12 @@ if(isset($_GET['save_bhw'])){
 
 // ADD DEWORMING RECORD
 if(isset($_POST['save_deworming'])){
-    // $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
     $deworming_date = date('Y-m-d'); //new date initialization
+    $email = mysqli_real_escape_string($conn, $_POST['deworming-email']);
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
     $middlename = mysqli_real_escape_string($conn, $_POST['deworming-mname']);
 
-    // $age = mysqli_real_escape_string($conn, $_POST['deworming-age']);
     //convert bdate to age
     $dateOfBirth = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $today = date("Y-m-d");
@@ -84,9 +83,11 @@ if(isset($_POST['save_deworming'])){
     $password = $lastname.$year_date.'_'.'deworming';
 
     $query = "INSERT INTO deworming 
-              (deworming_date, lastname, firstname, middlename, age, sex, birthdate, street_address, barangay, city, phone_num, label, deworming_password) 
+              (deworming_date, lastname, firstname, middlename, age, sex, birthdate, street_address, 
+              barangay, city, phone_num, label, deworming_password, deworming_email) 
               VALUES 
-              ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', '$street_add', '$barangay', '$city', '$phone_num', 'Deworming', '$password')";
+              ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', 
+              '$street_add', '$barangay', '$city', '$phone_num', 'Deworming', '$password', '$email')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
