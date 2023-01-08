@@ -374,7 +374,7 @@ if(isset($_POST['save_postnatal'])){
               ('$postnatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', 
               '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', 
               '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', 
-              '$presentation', '$abnormal', '$prescriptions', 'Post-natal', '$symptoms')";
+              '$presentation', '$abnormal', '$prescriptions', 'Postnatal', '$symptoms')";
 
     $query_run = mysqli_query($conn, $query);
     if($query_run){
