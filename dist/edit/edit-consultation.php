@@ -147,11 +147,15 @@ hide_content_forms();
                     if (mysqli_num_rows($query_run) > 0) {
                         $patient = mysqli_fetch_array($query_run);
                 ?>
-                        <input type="hidden" name="consultation_id" value="<?= $patient['consultation_id']; ?>"> <!--nakahide sya para access ID sa edit-->
+                        <input type="hidden" name="consultation_id" value="<?= $patient['consultation_id']; ?>">
 
                         <div class="edit-consultation__form-item">
                             <label for="consultation-date">Registration Date</label>
                             <input type="date" name="consultation-date" id="consultation-date" value="<?= $patient['consultation_date']; ?>">
+                        </div>
+                        <div class="add-consultation__form-item">
+                            <label for="consultation-email">Email</label>
+                            <input type="email" name="consultation-email" id="consultation-email" value="<?= $patient['consultation_email']; ?>">
                         </div>
                         <div class="edit-consultation__form-item">
                             <label for="consultation-lname">Last Name *</label>
@@ -165,10 +169,6 @@ hide_content_forms();
                             <label for="consultation-mname">Middle Name</label>
                             <input type="text" name="consultation-mname" id="consultation-mname" value="<?= $patient['middlename']; ?>">
                         </div>
-                        <!-- <div class="edit-consultation__form-item">
-                    <label for="consultation-age">Age *</label>
-                    <input type="number" name="consultation-age" id="consultation-age" maxlength="2" min="1" value="<?= $patient['age']; ?>" required>
-                </div> -->
                         <div class="edit-consultation__form-item edit-consultation__form-item--radio">
                             <label for="consultation-sex">Gender *</label>
                             <div class="edit-consultation__form--role-item">
