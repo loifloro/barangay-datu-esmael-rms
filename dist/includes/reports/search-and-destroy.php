@@ -150,7 +150,19 @@
     <h4 class="search-and-destroy__report__title">
         Daily Consolidation for Search and Destroy
     </h4>
-
+    
+    <!-- Query Start -->
+    <?php
+    if (isset($_GET['report__date'])) {
+        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+        $search_sort = $date;
+    } else {
+        $search_sort = "N/A";
+    }
+    ?>
+    <div class="deworming-reports__date">
+        Date: <?php echo $search_sort; ?>
+    </div>
 
     <ul class="search-and-destroy__report__summary" role="list">
         <li class="search-and-destroy__report__summary__item">Name of Barangay Visited:
@@ -162,15 +174,61 @@
         <?php
         $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label=''";
         $result = mysqli_query($conn, $query);
+
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
+            $result = mysqli_query($conn, $query);
+        }
+
         while ($row = mysqli_fetch_array($result)) {
         ?>
             <li class="search-and-destroy__report__summary__item">Total No. of Household Visited: <span class="search-and-destroy__report__summary--value"><?php echo $row['total'] ?></span></li>
-            <li class="search-and-destroy__report__summary__item">Total No. of Household Positive for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['total_p']; ?></span></li>
+            <li class="search-and-destroy__report__summary__item">Total No. of Container Positive for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['total_p']; ?></span></li>
 
         <?php
         }
         ?>
         <!-- END QUERY -->
+
+        <!-- START QUERY -->
+        <?php
+        $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Positive'";
+        $result = mysqli_query($conn, $query);
+
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Positive' AND search_destroy_date='$date'";
+            $result = mysqli_query($conn, $query);
+        }
+
+        while ($row = mysqli_fetch_array($result)) {
+        ?>
+        <li class="search-and-destroy__report__summary__item">Total No. of Household Positive for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['count(*)']; ?></span></li>
+        <?php
+        }
+        ?>
+        <!-- END QUERY -->
+
+        <!-- START QUERY -->
+        <?php
+        $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Negative'";
+        $result = mysqli_query($conn, $query);
+
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Negative' AND search_destroy_date='$date'";
+            $result = mysqli_query($conn, $query);
+        }
+
+        while ($row = mysqli_fetch_array($result)) {
+        ?>
+        <li class="search-and-destroy__report__summary__item">Total No. of Household Negative for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['count(*)']; ?></span></li>
+        <?php
+        }
+        ?>
+        <!-- END QUERY -->
+
         <li class="search-and-destroy__report__summary__item">
             Purok/Block Coverage:
 
@@ -180,6 +238,13 @@
                 include 'includes/connection.php';
                 $query = "SELECT * FROM search_destroy WHERE archive_label=''";
                 $query_run = mysqli_query($conn, $query);
+
+                if (isset($_GET['report__date'])) {
+                    $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                    $query = "SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+
                 if (mysqli_num_rows($query_run) > 0) {
                     foreach ($query_run as $patient) // PROBLEM
                     {
@@ -218,6 +283,9 @@
                 <th>
                     No. of Container Positive for Larva
                 </th>
+                <th>
+                    Remarks
+                </th>
             </tr>
         </thead>
         <!-- To be put in the loop -->
@@ -225,6 +293,13 @@
         include 'includes/connection.php';
         $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY date_visit";
         $query_run = mysqli_query($conn, $query);
+
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date' ORDER BY date_visit";
+            $query_run = mysqli_query($conn, $query);
+        }
+
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
         ?>
@@ -235,6 +310,7 @@
                         <td><?= $patient['address'] . ' ' . $patient['block']; ?></td>
                         <td><?= $patient['container_name']; ?></td>
                         <td><?= $patient['container_num']; ?></td>
+                        <td><?= $patient['remark_status']; ?></td>
                     </tr>
                 </tbody>
         <?php

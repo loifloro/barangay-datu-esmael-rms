@@ -76,19 +76,19 @@
         <!-- Query Start -->
         <?php
         //DEFAULT DISPLAY
-        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=17 AND mother_age<=22";
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17";
         $result = mysqli_query($conn, $query);
 
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=17 AND mother_age<=22 AND early_childhood_date='$date'";
+            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date='$date'";
             $result = mysqli_query($conn, $query);
         }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
-            <p class="reports__card__title">Total No. of Mother age 17-22</p>
+            <p class="reports__card__title">Total No. of Mother age less/equal 17</p>
             <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
         <?php
@@ -100,19 +100,19 @@
         <!-- Query Start -->
         <?php
         //DEFAULT DISPLAY
-        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=23 AND mother_age<=29";
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29";
         $result = mysqli_query($conn, $query);
 
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=23 AND mother_age<=29 AND early_childhood_date='$date'";
+            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date='$date'";
             $result = mysqli_query($conn, $query);
         }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
-            <p class="reports__card__title">Total No. of Mother age 23-29</p>
+            <p class="reports__card__title">Total No. of Mother age 18-29</p>
             <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
             <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
         <?php

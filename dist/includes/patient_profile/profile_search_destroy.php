@@ -54,13 +54,20 @@
                 <span class="patient-profile__category">City</span>
                 <?= $patient['city']; ?>
             </li>
-        </ul>
-        <ul class="patient-profile__item" role="list">
             <li class="patient-profile__barangay">
                 <span class="patient-profile__category">Barangay</span>
                 <?= $patient['barangay']; ?>
             </li>
-            <!-- Edit button removed -->
+        </ul>
+        <ul class="patient-profile__item" role="list">
+            <li class="patient-profile__barangay">
+                <span class="patient-profile__category">Registered Email</span>
+                <?= $patient['search_destroy_email']; ?>
+            </li>
+            <li class="patient-profile__barangay">
+                <span class="patient-profile__category">Generated Password</span>
+                <?= $patient['search_destroy_password']; ?>
+            </li>
         </ul>
     </ul>
     <?php
