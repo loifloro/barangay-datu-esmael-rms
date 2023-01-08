@@ -147,11 +147,10 @@ hide_content_forms();
             </p>
 
             <form action="../includes/add_query.php" method="POST" class="add-postnatal__form">
-
-                <!-- <div class="add-postnatal__form-item">
-                    <label for="postnatal-date">Date</label>
-                    <input type="date" name="postnatal-date" id="postnatal-date">
-                </div> -->
+                <div class="add-postnatal__form-item">
+                    <label for="postnatal-email">Email</label>
+                    <input type="email" name="postnatal-email" id="postnatal-email">
+                </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lname">Last Name *</label>
                     <input type="text" name="postnatal-lname" id="postnatal-lname" required>
@@ -164,23 +163,6 @@ hide_content_forms();
                     <label for="postnatal-mname">Middle Name</label>
                     <input type="text" name="postnatal-mname" id="postnatal-mname">
                 </div>
-                <!-- <div class="add-postnatal__form-item">
-                    <label for="postnatal-age">Age *</label>
-                    <input type="number" name="postnatal-age" id="postnatal-age" maxlength="2" min="1" required>
-                </div> -->
-                <!-- <div class="add-postnatal__form-item add-postnatal__form-item--radio">
-                    <label for="postnatal-sex">Gender</label>
-                    <div class="add-postnatal__form--role-item">
-                        <div class="add-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female">
-                            <label for="postnatal-sex">Male</label>
-                        </div>
-                        <div class="add-postnatal__form-item">
-                            <input type="radio" name="postnatal-sex" id="postnatal-sex--female">
-                            <label for="postnatal-sex">Female</label>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-birthday">Birthday *</label>
                     <input type="date" name="postnatal-birthday" id="postnatal-birthday" required>
