@@ -619,3 +619,45 @@ if (isset($_GET['delete'])) { //
         }
     }
 }
+
+//DELETE MATERNAL CARE RECORD
+if(isset($_GET['delete_maternal'])){   
+    $id = mysqli_real_escape_string($conn, $_GET['delete_maternal']);
+    $query = "DELETE FROM target_maternal WHERE target_maternal_id='$id'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("Location: ../masterlist/maternal-care.php?deleted");
+        exit(0);
+    } else {
+        header("Location: ../masterlist/maternal-care.php?error");
+    }
+}
+
+//DELETE CHILDCARE MALE RECORD
+if(isset($_GET['delete_male'])){   
+    $id = mysqli_real_escape_string($conn, $_GET['delete_male']);
+    $query = "DELETE FROM target_childcare_male WHERE target_childcare_male_id='$id'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("Location: ../masterlist/childhood-care-male.php?deleted");
+        exit(0);
+    } else {
+        header("Location: ../masterlist/childhood-care-male.php?error");
+    }
+}
+
+//DELETE CHILDCARE FEMALE RECORD
+if(isset($_GET['delete_female'])){   
+    $id = mysqli_real_escape_string($conn, $_GET['delete_female']);
+    $query = "DELETE FROM target_childcare_female WHERE target_childcare_female_id='$id'";
+    $query_run = mysqli_query($conn, $query);
+
+    if($query_run){
+        header("Location: ../masterlist/childhood-care-female.php?deleted");
+        exit(0);
+    } else {
+        header("Location: ../masterlist/childhood-care-female.php?error");
+    }
+}
