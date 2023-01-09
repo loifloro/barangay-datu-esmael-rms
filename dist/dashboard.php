@@ -46,7 +46,7 @@ hide_content();
                     popup: 'toast'
                 },
                 showConfirmButton: false,
-                timer: 4000,
+                timer: 2000,
                 timerProgressBar: true,
             })
         </script>
