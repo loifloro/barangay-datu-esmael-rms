@@ -2263,6 +2263,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .grid main {
   grid-area: main;
   margin-block: 1rem;
+  overflow: hidden;
 }
 .grid .navbar,
 .grid main {
