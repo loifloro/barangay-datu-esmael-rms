@@ -3390,7 +3390,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 @media (max-width: 30rem) {
   .login__card {
-    max-width: 16rem;
+    max-width: 19rem;
   }
 }
 .login__title, .login__desc {
