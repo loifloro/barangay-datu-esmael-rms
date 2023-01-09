@@ -1362,7 +1362,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 @media (max-width: 30rem) {
   .sidebar {
-    width: 100%;
+    width: 100vw;
     top: -100%;
     transition: 700ms linear;
   }

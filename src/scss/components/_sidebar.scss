@@ -36,7 +36,7 @@
   @media (max-width: map-get($breakpoints, "small")) {
     // Small smartphone
     // display: none;
-    width: 100%;
+    width: 100vw;
     top: -100%;
     transition: 700ms linear;
   }
