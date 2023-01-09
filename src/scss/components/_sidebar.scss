@@ -82,6 +82,8 @@
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
       width: unset;
+      height: 2.7rem;
+      margin-bottom: 0.4rem;
     }
 
     &--active {
