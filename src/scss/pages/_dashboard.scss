@@ -5,9 +5,34 @@
   grid-template-columns: 50vw auto;
   row-gap: 3rem;
   column-gap: 2rem;
+  overflow: hidden;
+  @media (max-width: map-get($breakpoints, "large")) {
+    // Large screensizes: monitors, laptops
+  }
+
+  @media (max-width: map-get($breakpoints, "medium")) {
+    // Medium smartphone
+    grid-template-columns: none;
+  }
+
+  @media (max-width: map-get($breakpoints, "small")) {
+    // Small smartphone
+    grid-template-columns: none;
+  }
 
   .services {
     grid-column: span 2;
+    padding-right: 1rem;
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      grid-column: unset;
+    }
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      grid-column: unset;
+    }
 
     &__desc {
       @include title-above;
@@ -16,6 +41,20 @@
 
   .reports {
     // margin-block: 5rem;
+    @media (max-width: map-get($breakpoints, "large")) {
+      // Large screensizes: monitors, laptops
+    }
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      width: 100%;
+    }
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      width: calc(100% - 3rem);
+    }
+
     .view-report-item {
       display: flex;
       justify-content: end;
@@ -24,6 +63,26 @@
       display: flex;
       justify-content: space-between;
       margin-top: 0.5rem;
+      row-gap: 1rem;
+
+      @media (max-width: map-get($breakpoints, "large")) {
+        // Large screensizes: monitors, laptops
+      }
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        flex-direction: column;
+
+        select,
+        input {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        flex-direction: column;
+      }
 
       label {
         font-size: 0.85rem;
@@ -81,6 +140,18 @@
       .view-report {
         margin-block: 1rem;
       }
+    }
+  }
+
+  .recent-updates {
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      width: 100%;
+    }
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      width: calc(100% - 3rem);
     }
   }
 }

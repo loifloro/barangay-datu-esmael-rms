@@ -2,125 +2,273 @@
 // This file contains all styles related to the navigation component.
 // -----------------------------------------------------------------------------
 
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .navbar {
-    
-    height: 5rem;
-    position: sticky;
-    top: 0;
-    z-index: 1;
-    
-    background: $white-1;
+  height: 5rem;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  background: $white-1;
 }
 
 .navigation {
-    display: flex;
-    align-items: center;
-    padding-block: 2rem;
-    box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding-block: 2rem;
+  box-sizing: border-box;
 
-    &__title {
-        margin-right: auto;
+  &__title {
+    margin-right: auto;
+  }
+
+  &__search {
+    margin-right: 1.25rem;
+    background: $white-2;
+    border-radius: 0.5vw;
+    border: 1px solid $white-3;
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      display: none;
     }
 
-    &__search {
-        margin-right: 1.25rem;
-        background: $white-2;
-        border-radius: .5vw;
-        border: 1px solid $white-3;
-        
-        &:hover, 
-        &:focus, 
+    &--mobile {
+      display: unset;
+      width: 100%;
+      margin-right: unset;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: $green solid 1px;
+      background: $white-1;
+    }
+
+    &__bar {
+      background: none !important;
+      display: inline;
+      width: 18ch;
+      // transition: all ease-linear 600ms !important;
+      transition: $fade;
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        width: 10ch;
+      }
+
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        display: none;
+      }
+
+      &::placeholder {
+        font-size: 0.8rem;
+        // width: 16ch;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        cursor: pointer;
+        outline: none !important;
+        width: 30ch;
+
+        @media (max-width: 62rem) {
+          width: 20ch;
+        }
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          width: 10ch;
+        }
+      }
+
+      &--mobile {
+        display: inline;
+        width: 85%;
+
+        &:hover,
+        &:focus,
         &:active {
-            outline: $green solid 1px;
-            background: $white-1
-        }
+          // width: 70%;
 
-        &__bar {
-            background: none !important;
+          @media (max-width: 62rem) {
+            width: unset;
+          }
+
+          @media (max-width: map-get($breakpoints, "medium")) {
+            // Medium smartphone
+            width: unset;
+          }
+
+          @media (max-width: map-get($breakpoints, "small")) {
+            // Medium smartphone
             display: inline;
-            width: 18ch;
-            // transition: all ease-linear 600ms !important;
-            transition: $fade;
-
-            @media (max-width: 62rem) {
-                width: 15ch;
-            }
-            
-            &::placeholder{
-                font-size: .8rem;
-                // width: 16ch;
-            }
-
-            &:hover, 
-            &:focus, 
-            &:active {
-                cursor: pointer;
-                outline: none !important;
-                width: 30ch;
-
-                @media (max-width: 62rem) {
-                    width: 20ch;
-                }
-                
-            }
+            width: 85%;
+          }
         }
-
-        &__btn {
-            display: inline;
-            margin-right: .5rem;
-
-        }
-       
-        &__icon {
-            border-radius: 100vw;
-            // background-color: $green;
-            padding: .3rem;
-            width: 1.8rem;
-            height: 1.8rem;
-            stroke: $black-3;
-            fill: none;
-            transition: $fade;
-        
-            &:hover, 
-            &:focus, 
-            &:active {
-                cursor: pointer;
-                background-color: $green;
-                stroke: $white-1;
-                fill: transparent;
-                width: 2rem;
-                height: 2rem;
-
-                // width: ;
-                
-            }
-        }
+      }
     }
 
-    // Add New
     &__btn {
-        width: 9.5rem;
-        vertical-align: middle;
-
-        &__icon {
-            display: none;
-        }
-    
-        @media (max-width: 61rem) {
-            width: 2.5rem;
-            border-radius: 100vw;
-            
-            &__icon {
-                display: inline;
-            }
-
-            p {
-                display: none !important;
-            }
-        }
-
-
+      display: inline;
+      margin-right: 0.5rem;
     }
+
+    &__icon {
+      border-radius: 100vw;
+      // background-color: $green;
+      padding: 0.3rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      stroke: $black-3;
+      fill: none;
+      transition: $fade;
+
+      &:hover,
+      &:focus,
+      &:active {
+        cursor: pointer;
+        background-color: $green;
+        stroke: $white-1;
+        fill: transparent;
+        width: 2rem;
+        height: 2rem;
+
+        // width: ;
+      }
+    }
+  }
+
+  // Add New
+  &__btn {
+    width: 9.5rem;
+    vertical-align: middle;
+
+    &__icon {
+      display: none;
+    }
+
+    @media (max-width: map-get($breakpoints, "large")) {
+      // Large screensizes: monitors, laptops
+    }
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      width: 2.5rem;
+      border-radius: 100vw;
+
+      &__icon {
+        display: inline;
+      }
+
+      p {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+    }
+  }
+}
+
+#hamburger-menu {
+  width: 1.8rem;
+  height: 1.4rem;
+  // width: 60px;
+  // height: 45px;
+  position: relative;
+  // margin: 50px auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+
+  display: none;
+  margin-right: 1rem;
+
+  @media (max-width: map-get($breakpoints, "medium")) {
+    // Medium smartphone
+  }
+
+  @media (max-width: map-get($breakpoints, "small")) {
+    // Small smartphone
+    display: block;
+  }
+}
+
+#hamburger-menu span {
+  display: block;
+  position: absolute;
+  // height: 9px;
+  height: 0.3rem;
+  width: 100%;
+  background: $green;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: 0.25s ease-in-out;
+  -moz-transition: 0.25s ease-in-out;
+  -o-transition: 0.25s ease-in-out;
+  transition: 0.25s ease-in-out;
+}
+
+#hamburger-menu span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#hamburger-menu span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#hamburger-menu span:nth-child(3) {
+  top: 20px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+#hamburger-menu.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -2.5px;
+  left: 8px;
+}
+
+#hamburger-menu.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+#hamburger-menu.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 17.5px;
+  left: 8px;
 }
