@@ -65,6 +65,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
                     if ($row['deworming_password'] == $password && $row['deworming_email'] == $username){
                         $_SESSION['phone_num'] = $row['phone_num'];
+                        $_SESSION['user_email'] = $row['deworming_email'];
                         $_SESSION['firstname'] = $row['firstname'];
                         $_SESSION['deworming_id'] = $row['deworming_id'];
                         $_SESSION['label'] = $row['label'];
