@@ -26,6 +26,18 @@ hide_content_forms();
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">
+            <li class="sidebar__item sidebar__item--search">
+                <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
+                    <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
+                --><button type="submit" name="search_btn" class="navigation__search__btn">
+                        <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
+                            <rect width="256" height="256" fill="none" />
+                            <circle cx="115.997" cy="116" r="84" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
+                            <line x1="175.391" x2="223.991" y1="175.4" y2="224.001" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
+                        </svg>
+                    </button>
+                </form>
+            </li>
             <li class="sidebar__item">
                 <a href="../dashboard.php" class="sidebar__link">
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -98,6 +110,11 @@ hide_content_forms();
     <!-- Nav Bar -->
     <header class="navbar">
         <nav class="navigation">
+            <div id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
                 Masterlist
@@ -253,13 +270,13 @@ hide_content_forms();
                             <?= $patient['birthday']; ?>
                         </li>
                         <li class="masterlist__option">
-                        <form action="../includes/delete_query.php" method="GET">
-                            <button type="submit" name="delete_female" value="<?= $patient['target_childcare_female_id'];?>">
-                                <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z" />
-                                </svg>
-                            </button>
-                        </form>
+                            <form action="../includes/delete_query.php" method="GET">
+                                <button type="submit" name="delete_female" value="<?= $patient['target_childcare_female_id']; ?>">
+                                    <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z" />
+                                    </svg>
+                                </button>
+                            </form>
                             <button type="button" onclick="window.location.href = `../edit/edit-child_care-female.php?id=<?= $patient['target_childcare_female_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>

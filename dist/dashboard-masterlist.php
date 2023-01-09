@@ -24,6 +24,18 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar">
         <ul role="list" class="sidebar__list">
+            <li class="sidebar__item sidebar__item--search">
+                <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
+                    <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
+                --><button type="submit" name="search_btn" class="navigation__search__btn">
+                        <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
+                            <rect width="256" height="256" fill="none" />
+                            <circle cx="115.997" cy="116" r="84" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
+                            <line x1="175.391" x2="223.991" y1="175.4" y2="224.001" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
+                        </svg>
+                    </button>
+                </form>
+            </li>
             <li class="sidebar__item">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -96,6 +108,11 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
     <!-- Nav Bar -->
     <header class="navbar">
         <nav class="navigation">
+            <div id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
                 Services
