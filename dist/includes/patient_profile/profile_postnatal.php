@@ -93,40 +93,33 @@
             </ul>
             <!-- Query for Medical History -->
             <?php
-            // $patient_fname = $patient['firstname'];
-            // $patient_lname = $patient['lastname'];
-            // $patient_label = $patient['label'];
-            // $query3 = "SELECT * FROM recent_activity WHERE patient_fname ='$patient_fname' AND patient_lname ='$patient_lname' GROUP BY record_name
-            // ORDER BY recent_activity_id";
-            // $query_run3 = mysqli_query($conn, $query3);
-            //     if(mysqli_num_rows($query_run3) > 0){
-
             $filtervalues = $patient['firstname'];
             $filtervalues2 = $patient['lastname'];
             $query3 = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
-                                      FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
-                                      UNION ALL
-                                      SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
-                                      FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%' GROUP BY label
-                                      UNION ALL
-                                      SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
-                                      FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
-                                      UNION ALL
-                                      SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
-                                      FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
-                                      UNION ALL
-                                      SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
-                                      FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
-                                      UNION ALL
-                                      SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
-                                      FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%' GROUP BY label
-                                      ";
+                    FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    UNION ALL
+                    SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
+                    FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%' GROUP BY label
+                    UNION ALL
+                    SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
+                    FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    UNION ALL
+                    SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
+                    FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    UNION ALL
+                    SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
+                    FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
+                    LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    UNION ALL
+                    SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
+                    FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
+                    LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%' GROUP BY label
+                    ";
+
             $query_run3 = mysqli_query($conn, $query3);
             if (mysqli_num_rows($query_run3) > 0) {
                 foreach ($query_run3 as $recent3) {
@@ -146,12 +139,12 @@
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $deworm) {
-                                            $patient_id = $deworm['deworming_id'];
+                                        foreach ($query_run as $patient) {
+                                            $patient_id = $patient['deworming_id'];
                                             $modalLink = "#deworming-modal" . $patient_id;
                                         }
                                     }
-                                    include '../reports/deworming.php';
+                                    include 'includes/reports/deworming.php';
                                 }
 
                                 //C0NSULTATION
@@ -161,8 +154,8 @@
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $consul) {
-                                            $patient_id = $consul['consultation_id'];
+                                        foreach ($query_run as $patient) {
+                                            $patient_id = $patient['consultation_id'];
                                             $modalLink = "#consultation__report" . $patient_id;
                                         }
                                     }
@@ -176,8 +169,8 @@
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $pre) {
-                                            $patient_link = $pre['prenatal_id'];
+                                        foreach ($query_run as $patient) {
+                                            $patient_link = $patient['prenatal_id'];
                                             $modalLink = "#prenatal__report" . $patient_link;
                                         }
                                     }
@@ -191,8 +184,8 @@
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $post) {
-                                            $patient_link = $post['postnatal_id'];
+                                        foreach ($query_run as $patient) {
+                                            $patient_link = $patient['postnatal_id'];
                                             $modalLink = "#postnatal__report" . $patient_link;
                                         }
                                     }
@@ -206,8 +199,8 @@
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $search_des) {
-                                            $patient_link = $search_des['search_destroy_id'];
+                                        foreach ($query_run as $patient) {
+                                            $patient_link = $patient['search_destroy_id'];
                                             $modalLink = "#search-and-destroy-modal" . $patient_link;
                                         }
                                     }
@@ -221,8 +214,8 @@
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
-                                        foreach ($query_run as $early) {
-                                            $patient_link = $early['early_childhood_id'];
+                                        foreach ($query_run as $patient) {
+                                            $patient_link = $patient['early_childhood_id'];
                                             $modalLink = "#early__childhood__report" . $patient_link;
                                         }
                                     }
@@ -237,7 +230,7 @@
                             <!-- End for Modal Link -->
                         </li>
                         <li class="medical-history__item medical-history__service__date-availed">
-                            <?php echo $patient['postnatal_date']; ?>
+                            <?= $recent3['deworming_date']; ?>
                         </li>
                         <li class="medical-history__item medical-history__btn">
                             <!-- START QUERY FOR EDIT SERVICES-->
@@ -343,11 +336,6 @@
                                         </g>
                                     </svg>
                                 </a>
-                                <a href="#">
-                                    <svg id="archive-profile" class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
-                                    </svg>
-                                </a>
                             <?php
                             }
                             ?>
@@ -377,23 +365,29 @@
                 <li class="edit-history__item">
                     <!-- Start Query For Recent Update -->
                     <?php
-                    $patient_fname = $patient['firstname'];
-                    $patient_lname = $patient['lastname'];
-                    $query2 = "SELECT * FROM recent_activity WHERE patient_fname='$patient_fname' AND patient_lname='$patient_lname'
-                        ORDER BY recent_activity_id DESC LIMIT 3";
-                    $query_run2 = mysqli_query($conn, $query2);
-                    if (mysqli_num_rows($query_run2) > 0) {
-                        //  $recent = mysqli_fetch_array($query_run2);
-                        foreach ($query_run2 as $recent) {
-                    ?>
-                            <span class="edit-history__editor p-bold">
-                                <?= $recent['user_fname'] . ' ' . $recent['user_lname'] . ' ' . $recent['changes_label']; ?>
-                            </span>
-                            <span class="edit-history edit-history__action p-bold"><?= $recent['patient_fname'] . ' ' . $patient['lastname']; ?> </span>
-                            <span class="edit-history__subject"><?= $recent['record_name']; ?> record</span> on
-                            <span class="edit-history__date"><?= $recent['date_edit']; ?></span>
-                            <hr>
-                    <?php
+                    if(isset($_GET['fname']) && isset($_GET['lname'])){
+                        $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                        $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                    
+                        $query2 = "SELECT * FROM recent_activity 
+                        WHERE patient_fname='$patient_fname' 
+                        AND patient_lname='$patient_lname'
+                        ORDER BY recent_activity_id 
+                        DESC LIMIT 3";
+
+                        $query_run2 = mysqli_query($conn, $query2);
+                        if (mysqli_num_rows($query_run2) > 0) {
+                            foreach ($query_run2 as $recent) {
+                        ?>
+                                <span class="edit-history__editor p-bold">
+                                    <?= $recent['user_fname'] . ' ' . $recent['user_lname'] . ' ' . $recent['changes_label']; ?>
+                                </span>
+                                <span class="edit-history edit-history__action p-bold"><?= $recent['patient_fname'] . ' ' . $recent['patient_lname']; ?> </span>
+                                <span class="edit-history__subject"><?= $recent['record_name']; ?> record</span> on
+                                <span class="edit-history__date"><?= $recent['date_edit']; ?></span>
+                                <hr>
+                        <?php
+                            }
                         }
                     }
                     ?>
