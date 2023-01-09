@@ -16,6 +16,7 @@
 
   background: $white-2;
   width: 13rem;
+
   // min-width: 10rem;
   // max-width: 17rem;
 
@@ -34,7 +35,10 @@
 
   @media (max-width: map-get($breakpoints, "small")) {
     // Small smartphone
-    display: none;
+    // display: none;
+    width: 100%;
+    top: -100%;
+    transition: 700ms linear;
   }
 
   &__list {
@@ -169,14 +173,16 @@
   }
 
   &--mobile {
-    display: block;
-    width: 100%;
+    // display: block;
+    // position: relative;
+    // top: 0;
     margin: unset;
     padding-inline: 2rem;
-    height: 100vh;
+    height: calc(100vh - 2rem);
 
     margin-top: 2.5rem;
     z-index: 1;
+    top: 0;
 
     @media (min-width: map-get($breakpoints, "large")) {
       // Large screensizes: monitors, laptops

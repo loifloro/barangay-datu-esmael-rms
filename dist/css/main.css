@@ -1124,6 +1124,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-block: 2rem;
   box-sizing: border-box;
 }
+@media (max-width: 30rem) {
+  .navigation {
+    padding-block: 1rem;
+  }
+}
 .navigation__title {
   margin-right: auto;
 }
@@ -1136,6 +1141,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 @media (max-width: 30rem) {
   .navigation__search {
     display: none;
+    border-radius: 0.6rem;
   }
 }
 .navigation__search--mobile {
@@ -1356,7 +1362,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 @media (max-width: 30rem) {
   .sidebar {
-    display: none;
+    width: 100%;
+    top: -100%;
+    transition: 700ms linear;
   }
 }
 .sidebar__list {
@@ -1461,13 +1469,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .sidebar--mobile {
-  display: block;
-  width: 100%;
   margin: unset;
   padding-inline: 2rem;
-  height: 100vh;
+  height: calc(100vh - 2rem);
   margin-top: 2.5rem;
   z-index: 1;
+  top: 0;
 }
 @media (min-width: 80rem) {
   .sidebar--mobile {

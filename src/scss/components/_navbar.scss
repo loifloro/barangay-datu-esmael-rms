@@ -19,6 +19,11 @@
   padding-block: 2rem;
   box-sizing: border-box;
 
+  @media (max-width: map-get($breakpoints, "small")) {
+    // Small smartphone
+    padding-block: 1rem;
+  }
+
   &__title {
     margin-right: auto;
   }
@@ -32,6 +37,7 @@
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
       display: none;
+      border-radius: 0.6rem;
     }
 
     &--mobile {
