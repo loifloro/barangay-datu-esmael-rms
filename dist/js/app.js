@@ -1,3 +1,11 @@
+const navMenu = document.getElementById("hamburger-menu");
+const sideBar = document.getElementById("sidebar");
+navMenu.addEventListener("click", () => {
+  navMenu.classList.toggle("open");
+
+  sideBar.classList.toggle("sidebar--mobile");
+});
+
 // Confirm alert when 'Back' button is clicked
 function backAlert() {
   Swal.fire({
