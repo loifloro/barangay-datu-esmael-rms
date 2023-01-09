@@ -33,7 +33,7 @@ if (mysqli_num_rows($query_run) > 0) {
 
 <body class="grid">
     <!-- Sidebar -->
-    <aside role="navigation" class="sidebar">
+    <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
             <li class="sidebar__item sidebar__item--search">
                 <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
