@@ -204,23 +204,43 @@ if (mysqli_num_rows($query_run) > 0) {
     }
 
     if (isset($_GET['archive'])) {
+        if ($_GET['archive'] == 'error') {
         ?>
-        <script>
-            Swal.fire({
-                toast: true,
-                position: 'top-right',
-                icon: 'success',
-                iconColor: 'white',
-                title: 'Archived successfully!',
-                customClass: {
-                    popup: 'toast'
-                },
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-            })
-        </script>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'error',
+                    iconColor: 'white',
+                    title: 'Error archiving!',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                })
+            </script>
+        <?php
+        } else {
+        ?>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'success',
+                    iconColor: 'white',
+                    title: 'Archived succesfully!',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                })
+            </script>
     <?php
+        }
     }
     ?>
 
