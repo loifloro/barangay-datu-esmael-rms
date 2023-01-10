@@ -25,13 +25,13 @@
                     <li class="patient-profile__contact">
                         <?= $patient['phone_num']; ?> <!--added phone num-->
                     </li>
+                </ul>
+
+                <ul class="patient-profile__item " role="list">
                     <li class="patient-profile__last-modified">
                         <span class="patient-profile__category">Birthday</span>
                         <?= $patient['birthdate']; ?>
                     </li>
-                </ul>
-
-                <ul class="patient-profile__item " role="list">
                     <li class="patient-profile__sex">
                         <span class="patient-profile__category">Sex</span>
                         <?= $patient['sex']; ?>
@@ -83,10 +83,10 @@
         <div class="medical-history__card">
             <ul class="medical-history__header medical-history__card__row" role="list">
                 <li class="medical-history__item">
-                    Services Availed
+                    Service
                 </li>
                 <li class="medical-history__item">
-                    Service Date
+                    Date
                 </li>
             </ul>
             <!-- Query for Medical History -->

@@ -84,10 +84,10 @@
         <div class="medical-history__card">
             <ul class="medical-history__header medical-history__card__row" role="list">
                 <li class="medical-history__item">
-                    Services Availed
+                    Service
                 </li>
                 <li class="medical-history__item">
-                    Service Date
+                    Date
                 </li>
             </ul>
             <!-- Query for Medical History -->
