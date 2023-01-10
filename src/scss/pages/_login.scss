@@ -2,94 +2,106 @@
 // This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
 
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .login {
-    background: $active-green;
+  background: $active-green;
 
-    display: grid;
-    place-content: center;
-    
-    &__card {
-        width: 26rem;
-        max-width: 30vw;
+  display: grid;
+  place-content: center;
 
-        // See mixins.scss for referrence
-        @include card(3rem);
+  &__card {
+    max-width: 60rem;
+    width: 26rem;
 
+    // See mixins.scss for referrence
+    @include card(3rem);
+
+    @media (max-width: map-get($breakpoints, "large")) {
+      // Large screensizes: monitors, laptops
     }
 
-    &__title,
-    &__desc {
-        text-align: center;
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      max-width: 43rem;
+      width: 18rem;
     }
 
-    &__desc {
-        margin-bottom: 1.5rem;
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      max-width: 19rem;
+    }
+  }
+
+  &__title,
+  &__desc {
+    text-align: center;
+  }
+
+  &__desc {
+    margin-bottom: 1.5rem;
+  }
+
+  label,
+  &__desc,
+  &__forgot {
+    font-size: 0.8rem;
+  }
+
+  &__contact,
+  &__password,
+  &__btn {
+    margin-bottom: 1.5rem;
+  }
+
+  &__btn,
+  &__contact,
+  &__password {
+    width: 100%;
+  }
+
+  &__forgot {
+    text-align: end;
+  }
+
+  &__btn {
+    margin-top: 2rem;
+  }
+
+  // Password Bar
+  .password {
+    display: flex;
+    width: 100%;
+    background: $white-3;
+    border-radius: 0.5vw;
+
+    &:hover,
+    &:focus,
+    &:active {
+      outline: $green solid 1px;
+      background: $white-1;
     }
 
-    label,
-    &__desc,
-    &__forgot {
-        font-size: .8rem;
-    }
-
-    &__contact,
-    &__password,
-    &__btn {
-        margin-bottom: 1.5rem;
-    }
-
-    &__btn,
-    &__contact,
-    &__password {
+    &__bar {
+      &__input {
+        display: inline;
+        background: none !important;
         width: 100%;
-    }
 
-    &__forgot {
-        text-align: end;
-    }
-
-    &__btn {
-        margin-top: 2rem;
-    }
-
-    // Password Bar
-    .password {
-        display: flex;
-        width: 100%;
-        background: $white-3;
-        border-radius: .5vw;
-
-        &:hover, 
-        &:focus, 
+        &:hover,
+        &:focus,
         &:active {
-            outline: $green solid 1px;
-            background: $white-1
+          cursor: pointer;
+          outline: none !important;
+          // background: none;
         }
+      }
 
-        &__bar {
-            &__input {
-                display: inline;    
-                background: none !important;
-                width: 100%;
-               
-                &:hover, 
-                &:focus, 
-                &:active {
-                    cursor: pointer;
-                    outline: none !important;
-                    // background: none;
-                }
-            }
-            
-            &__btn {
-                display: inline;  
-                margin-left: auto !important;
-                margin-right: .5rem;  
-            }
-        }
-
+      &__btn {
+        display: inline;
+        margin-left: auto !important;
+        margin-right: 0.5rem;
+      }
     }
+  }
 }
-

@@ -1,36 +1,58 @@
+@use "../abstracts" as *;
+
 .grid {
-    display: grid;
-    // grid-template-columns: calc(15vw + 2.5rem) auto;
-    grid-template-columns: 15rem auto;
-    grid-template-rows: calc(5vh + 2.5rem) auto;
-    grid-template-areas: 
-            "sidebar navbar"
-            "sidebar main";
+  display: grid;
+  // grid-template-columns: calc(15vw + 2.5rem) auto;
+  grid-template-columns: 15rem auto;
+  grid-template-rows: calc(5vh + 2.5rem) auto;
+  grid-template-areas:
+    "sidebar navbar"
+    "sidebar main";
 
-    @media (max-width: 51rem) {
-        grid-template-columns: 8rem 1fr;
-    }
+  @media (max-width: map-get($breakpoints, "large")) {
+    // Large screensizes: monitors, laptops
+    grid-template-columns: 8rem 1fr;
+  }
 
-    .sidebar {
-        grid-area: sidebar;
-    }
+  @media (max-width: map-get($breakpoints, "medium")) {
+    // Medium smartphone
+  }
 
-    .navbar {
-        grid-area: navbar;
-    }
-    
-    main {
-        grid-area: main;
-        margin-block: 1rem;
-    }
+  @media (max-width: map-get($breakpoints, "small")) {
+    // Small smartphone
+    grid-template-columns: 100vw;
+    grid-template-areas:
+      "navbar"
+      "main";
+  }
 
-    .navbar,
-    main {
-        // margin-right: 5vw;
-        // margin-left: 1rem;
+  .sidebar {
+    grid-area: sidebar;
+    // Test
+    // display: none;
 
-        padding-right: 5vw;
-        padding-left: 1rem;
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      grid-area: unset;
     }
+  }
+
+  .navbar {
+    grid-area: navbar;
+  }
+
+  main {
+    grid-area: main;
+    margin-block: 1rem;
+    overflow: hidden;
+  }
+
+  .navbar,
+  main {
+    // margin-right: 5vw;
+    // margin-left: 1rem;
+
+    padding-right: 5vw;
+    padding-left: 1rem;
+  }
 }
-

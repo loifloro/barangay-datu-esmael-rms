@@ -2,10 +2,24 @@
 // This file contains all application-wide Sass breakpoints.
 // -----------------------------------------------------------------------------
 
-
 // Breakpoints map
 $breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
+  // 'small': 480px,
+  "small": 30rem,
+  // "medium": 770px,
+  "medium": 48rem,
+  // "large": 1280px,
+  "large": 80rem
 ) !default;
+
+@media (max-width: map-get($breakpoints, "large")) {
+  // Large screensizes: monitors, laptops
+}
+
+@media (max-width: map-get($breakpoints, "medium")) {
+  // Medium smartphone
+}
+
+@media (max-width: map-get($breakpoints, "small")) {
+  // Small smartphone
+}

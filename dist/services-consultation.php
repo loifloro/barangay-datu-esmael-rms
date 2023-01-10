@@ -43,8 +43,20 @@ if (mysqli_num_rows($query_run) > 0) {
 
 <body class="grid">
     <!-- Sidebar -->
-    <aside role="navigation" class="sidebar">
+    <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
+            <li class="sidebar__item sidebar__item--search">
+                <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
+                    <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
+                --><button type="submit" name="search_btn" class="navigation__search__btn">
+                        <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
+                            <rect width="256" height="256" fill="none" />
+                            <circle cx="115.997" cy="116" r="84" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
+                            <line x1="175.391" x2="223.991" y1="175.4" y2="224.001" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
+                        </svg>
+                    </button>
+                </form>
+            </li>
             <li class="sidebar__item">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -117,6 +129,11 @@ if (mysqli_num_rows($query_run) > 0) {
     <!-- Nav Bar -->
     <header class="navbar">
         <nav class="navigation">
+            <div id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
                 Services
@@ -187,23 +204,43 @@ if (mysqli_num_rows($query_run) > 0) {
     }
 
     if (isset($_GET['archive'])) {
+        if ($_GET['archive'] == 'error') {
         ?>
-        <script>
-            Swal.fire({
-                toast: true,
-                position: 'top-right',
-                icon: 'success',
-                iconColor: 'white',
-                title: 'Archived successfully!',
-                customClass: {
-                    popup: 'toast'
-                },
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-            })
-        </script>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'error',
+                    iconColor: 'white',
+                    title: 'Error archiving!',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                })
+            </script>
+        <?php
+        } else {
+        ?>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'success',
+                    iconColor: 'white',
+                    title: 'Archived succesfully!',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                })
+            </script>
     <?php
+        }
     }
     ?>
 
