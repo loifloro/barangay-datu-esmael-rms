@@ -1,28 +1,26 @@
 <!-- DEWORMING SECTION -->
 <div class="reports__card">
     <!-- Deworming -->
-    <div class="reports__card__item">
-        <!-- Query Start -->
-        <?php
-        //DEFAULT DISPLAY
-        $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
+    <!-- Query Start -->
+    <?php
+    //DEFAULT DISPLAY
+    $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
+    $result = mysqli_query($conn, $query);
+
+    //CONDITION IF SORT BUTTON IS CLICKED
+    if (isset($_GET['sort__date'])) {
+        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date='$date'";
         $result = mysqli_query($conn, $query);
+    }
 
-        //CONDITION IF SORT BUTTON IS CLICKED
-        if (isset($_GET['sort__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date='$date'";
-            $result = mysqli_query($conn, $query);
-        }
-
-        while ($row = mysqli_fetch_array($result)) {
-        ?>
-            <h4 class="reports__card__heading">Total No. of Patients: <?php echo $row['count(*)']; ?></h4>
-        <?php
-        }
-        ?>
-        <!-- Query End -->
-    </div>
+    while ($row = mysqli_fetch_array($result)) {
+    ?>
+        <h4 class="reports__card__heading">Total No. of Patients: <?php echo $row['count(*)']; ?></h4>
+    <?php
+    }
+    ?>
+    <!-- Query End -->
     <div class="reports__card__item">
         <!-- Query Start -->
         <?php
