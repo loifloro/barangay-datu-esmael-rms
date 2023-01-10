@@ -1,73 +1,71 @@
 <section class="patient-profile__card">
     <!-- START QUERY -->
     <?php
-            include "../dist/includes/connection.php";
-            if(isset($_GET['id'])){
-                $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                $query = "SELECT * FROM consultation WHERE consultation_id='$patient_id'";
-                $query_run = mysqli_query($conn, $query);
+    include "../dist/includes/connection.php";
+    if (isset($_GET['id'])) {
+        $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $query = "SELECT * FROM consultation WHERE consultation_id='$patient_id'";
+        $query_run = mysqli_query($conn, $query);
 
-                if(mysqli_num_rows($query_run) > 0){
-                    $patient = mysqli_fetch_array($query_run);
-        ?>
-    <ul class="patient-profile__list" role="list">
-        <!-- photo, name, patient-id, contact number -->
-        <ul class="patient-profile__item patient-profile__list--center" role="list">
-            <li class="patient-profile__img">
-                <img class=""
-                        src="./assets/img/patient-profile.svg"
-                        alt="">
-            </li>
-            <li class="patient-profile__id patient-profile__category">
-                #<?= $patient['consultation_id']?>
-            </li>
-            <li class="patient-profile__name h5">
-                <?= $patient['firstname']." " . $patient['lastname']; ?> <!--Test if displays the fname and lname-->
-            </li>
-            <li class="patient-profile__contact">
-                <?= $patient['phone_number']?>
-            </li>
-        </ul>
-        
-        <ul class="patient-profile__item " role="list">
-            <li class="patient-profile__sex">
-                <span class="patient-profile__category">Sex</span>
-                <?= $patient['sex']?>
-            </li>
-            <li class="patient-profile__street">
-                <span class="patient-profile__category">Street Address</span>
-                <?= $patient['street_address']?>
-            </li>
-            <li class="patient-profile__last-date-added">
-                <span class="patient-profile__category">Date Added</span>
-                <?= $patient['consultation_date']?>
-            </li>
-        </ul>
-        <ul class="patient-profile__item" role="list">
-            <li class="patient-profile__last-modified">
-                <span class="patient-profile__category">Birthday</span>
-                <?= $patient['birthdate']?>
-            </li>
-            <li class="patient-profile__last-city">
-                <span class="patient-profile__category">City</span>
-                <?= $patient['city']?>
-            </li>
-            <li class="patient-profile__barangay">
-                <span class="patient-profile__category">Barangay</span>
-                <?= $patient['barangay']?>
-            </li>
-        </ul>
-        <ul class="patient-profile__item" role="list">
-            <li class="patient-profile__barangay">
-                <span class="patient-profile__category">Registered Email</span>
-                <?= $patient['consultation_email']; ?>
-            </li>
-            <li class="patient-profile__barangay">
-                <span class="patient-profile__category">Generated Password</span>
-                <?= $patient['consultation_password']; ?>
-            </li>
-        </ul>
-    </ul>
+        if (mysqli_num_rows($query_run) > 0) {
+            $patient = mysqli_fetch_array($query_run);
+    ?>
+            <ul class="patient-profile__list" role="list">
+                <!-- photo, name, patient-id, contact number -->
+                <ul class="patient-profile__item patient-profile__list--center" role="list">
+                    <li class="patient-profile__img">
+                        <img class="" src="./assets/img/patient-profile.svg" alt="">
+                    </li>
+                    <li class="patient-profile__id patient-profile__category">
+                        #<?= $patient['consultation_id'] ?>
+                    </li>
+                    <li class="patient-profile__name h5">
+                        <?= $patient['firstname'] . " " . $patient['lastname']; ?> <!--Test if displays the fname and lname-->
+                    </li>
+                    <li class="patient-profile__contact">
+                        <?= $patient['phone_number'] ?>
+                    </li>
+                </ul>
+
+                <ul class="patient-profile__item " role="list">
+                    <li class="patient-profile__sex">
+                        <span class="patient-profile__category">Sex</span>
+                        <?= $patient['sex'] ?>
+                    </li>
+                    <li class="patient-profile__last-date-added">
+                        <span class="patient-profile__category">Date Added</span>
+                        <?= $patient['consultation_date'] ?>
+                    </li>
+                    <li class="patient-profile__last-modified">
+                        <span class="patient-profile__category">Birthday</span>
+                        <?= $patient['birthdate'] ?>
+                    </li>
+                </ul>
+                <ul class="patient-profile__item" role="list">
+                    <li class="patient-profile__street">
+                        <span class="patient-profile__category">Street Address</span>
+                        <?= $patient['street_address'] ?>
+                    </li>
+                    <li class="patient-profile__last-city">
+                        <span class="patient-profile__category">City</span>
+                        <?= $patient['city'] ?>
+                    </li>
+                    <li class="patient-profile__barangay">
+                        <span class="patient-profile__category">Barangay</span>
+                        <?= $patient['barangay'] ?>
+                    </li>
+                </ul>
+                <ul class="patient-profile__item" role="list">
+                    <li class="patient-profile__barangay">
+                        <span class="patient-profile__category">Registered Email</span>
+                        <?= $patient['consultation_email']; ?>
+                    </li>
+                    <li class="patient-profile__barangay">
+                        <span class="patient-profile__category">Generated Password</span>
+                        <?= $patient['consultation_password']; ?>
+                    </li>
+                </ul>
+            </ul>
     <?php
         }
     } else {
@@ -366,10 +364,10 @@
                 <li class="edit-history__item">
                     <!-- Start Query For Recent Update -->
                     <?php
-                    if(isset($_GET['fname']) && isset($_GET['lname'])){
+                    if (isset($_GET['fname']) && isset($_GET['lname'])) {
                         $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
                         $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
-                    
+
                         $query2 = "SELECT * FROM recent_activity 
                         WHERE patient_fname='$patient_fname' 
                         AND patient_lname='$patient_lname'
@@ -379,7 +377,7 @@
                         $query_run2 = mysqli_query($conn, $query2);
                         if (mysqli_num_rows($query_run2) > 0) {
                             foreach ($query_run2 as $recent) {
-                        ?>
+                    ?>
                                 <span class="edit-history__editor p-bold">
                                     <?= $recent['user_fname'] . ' ' . $recent['user_lname'] . ' ' . $recent['changes_label']; ?>
                                 </span>
@@ -387,7 +385,7 @@
                                 <span class="edit-history__subject"><?= $recent['record_name']; ?> record</span> on
                                 <span class="edit-history__date"><?= $recent['date_edit']; ?></span>
                                 <hr>
-                        <?php
+                    <?php
                             }
                         }
                     }
