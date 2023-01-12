@@ -198,6 +198,7 @@ function noRecord() {
 }
 
 // Patients table
+// document.getElementsByClassName("services__list__item")[0].click();
 function patient(evt, servicesName) {
   var i, patient__table, services__list__item;
   patient__table = document.getElementsByClassName("patient__table");
