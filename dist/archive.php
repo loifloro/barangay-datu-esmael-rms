@@ -227,8 +227,18 @@ if (mysqli_num_rows($query_run) > 0) {
                 </li>
             </ul>
 
-            <hr>
+            <hr class="services__list--hr">
         </div>
+
+        <select name="" id="" class="services__list--mobile" onchange="servicesClick(value);">
+            <option selected>Select a service</option>
+            <option value="services__list__item--deworming">Deworming</option>
+            <option value="services__list__item--consultation">Consultation</option>
+            <option value="services__list__item--prenatal">Prenatal</option>
+            <option value="services__list__item--postnatal">Postnatal</option>
+            <option value="services__list__item--childhood">Early childhood Care</option>
+            <option value="services__list__item--search">Search and destroy</option>
+        </select>
 
         <!-- end of TABS event initialization -->
 
@@ -265,6 +275,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                     </svg>
                 </li>
+                <li class="backup__attributes__item"></li>
             </ul>
 
             <!-- To be put in the loop -->
@@ -346,6 +357,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                     </svg>
                 </li>
+                <li class="backup__attributes__item"></li>
             </ul>
 
             <!-- To be put in the loop -->
@@ -428,6 +440,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                     </svg>
                 </li>
+                <li class="backup__attributes__item"></li>
             </ul>
 
             <!-- To be put in the loop -->
@@ -508,6 +521,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                     </svg>
                 </li>
+                <li class="backup__attributes__item"></li>
             </ul>
 
             <!-- To be put in the loop -->
@@ -589,6 +603,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                     </svg>
                 </li>
+                <li class="backup__attributes__item"></li>
             </ul>
 
             <!-- To be put in the loop -->
@@ -670,6 +685,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                     </svg>
                 </li>
+                <li class="backup__attributes__item"></li>
             </ul>
 
             <!-- To be put in the loop -->

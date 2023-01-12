@@ -324,7 +324,17 @@ if (mysqli_num_rows($query_run) > 0) {
             </li>
         </ul>
         <!-- end of TABS event initialization -->
-        <hr>
+        <hr class="services__list--hr">
+
+        <select name="" id="" class="services__list--mobile" onchange="servicesClick(value);">
+            <option selected>Select a service</option>
+            <option value="services__list__item--deworming">Deworming</option>
+            <option value="services__list__item--consultation">Consultation</option>
+            <option value="services__list__item--prenatal">Prenatal</option>
+            <option value="services__list__item--postnatal">Postnatal</option>
+            <option value="services__list__item--childhood">Early childhood Care</option>
+            <option value="services__list__item--search">Search and destroy</option>
+        </select>
 
         <!-- Start Tab for Deworming -->
         <div class="services__table" id="Deworming">
@@ -415,7 +425,6 @@ if (mysqli_num_rows($query_run) > 0) {
                         <li class="services__name p-bold">
                             <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
-                            <?php include('./includes/reports/deworming.php'); ?>
                         </li>
                         <!-- End of Modal Trigger -->
                         <li class="services__num">
@@ -427,6 +436,8 @@ if (mysqli_num_rows($query_run) > 0) {
                         <li class="services__date--availed">
                             <?= $patient['deworming_date']; ?>
                         </li>
+
+
 
                         <!-- ARCHIVING -->
                         <li class="services__option">
@@ -451,6 +462,7 @@ if (mysqli_num_rows($query_run) > 0) {
                                 </svg>
                             </button type="button">
                         </li>
+                        <?php include('./includes/reports/deworming.php'); ?>
                     </ul>
             <?php
                 }
@@ -598,53 +610,53 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- Start Tab for Pre-Natal -->
         <div class="services__table" id="Pre-Natal">
-        <!-- START OF FORM ACTION -->
-        <form action="" method="POST">
-            <ul class="services__table__row services__header" role="list">
-                <li class="services__attributes__item">
-                    <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p>Name</p>
-                    <!-- BUTTON FOR NAME -->
-                    <button type="submit" name="sort_name" value="1">
+            <!-- START OF FORM ACTION -->
+            <form action="" method="POST">
+                <ul class="services__table__row services__header" role="list">
+                    <li class="services__attributes__item">
+                        <input type="checkbox" name="" id="" class="services__checkbox">
+                        <p>Name</p>
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
                             <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                             </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Age
-                    <!-- BUTTON FOR AGE -->
-                    <button type="submit" name="sort_age" value="2">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Sex
-                    <!-- BUTTON FOR SEX -->
-                    <button type="submit" name="sort_sex" value="3">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Date Availed
-                    <!-- BUTTON FOR DATE AVAILED -->
-                    <button type="submit" name="sort_date_availed" value="4">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Age
+                        <!-- BUTTON FOR AGE -->
+                        <button type="submit" name="sort_age" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Sex
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Date Availed
+                        <!-- BUTTON FOR DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
             </form>
             <!-- END OF FORM -->
-            
+
             <!-- To be put in the loop -->
             <?php
             $query = "SELECT * FROM prenatal WHERE archive_label=''";
@@ -730,50 +742,50 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- Start Tab for Post-Natal -->
         <div class="services__table" id="Post-Natal">
-        <!-- START OF FORM ACTION -->
-        <form action="" method="POST">
-            <ul class="services__table__row services__header" role="list">
-                <li class="services__attributes__item">
-                    <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p>Name</p>
-                    <!-- BUTTON FOR NAME -->
-                    <button type="submit" name="sort_name" value="1">
+            <!-- START OF FORM ACTION -->
+            <form action="" method="POST">
+                <ul class="services__table__row services__header" role="list">
+                    <li class="services__attributes__item">
+                        <input type="checkbox" name="" id="" class="services__checkbox">
+                        <p>Name</p>
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
                             <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                             </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Age
-                    <!-- BUTTON FOR AGE -->
-                    <button type="submit" name="sort_age" value="2">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Sex
-                    <!-- BUTTON FOR SEX -->
-                    <button type="submit" name="sort_sex" value="3">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Date Availed
-                    <!-- BUTTON FOR DATE AVAILED -->
-                    <button type="submit" name="sort_date_availed" value="4">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Age
+                        <!-- BUTTON FOR AGE -->
+                        <button type="submit" name="sort_age" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Sex
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Date Availed
+                        <!-- BUTTON FOR DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
             </form>
             <!-- END OF FORM -->
 
@@ -863,50 +875,50 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- Start Tab for Search and Destroy -->
         <div class="services__table" id="Search-and-Destroy">
-        <!-- START OF FORM ACTION -->
-        <form action="" method="POST">
-            <ul class="services__table__row services__header" role="list">
-                <li class="services__attributes__item">
-                    <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p>Name of Owner</p>
-                    <!-- BUTTON FOR NAME -->
-                    <button type="submit" name="sort_name" value="1">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Status
-                    <!-- BUTTON FOR AGE -->
-                    <button type="submit" name="sort_status" value="2">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Positive Container
-                    <!-- BUTTON FOR SEX -->
-                    <button type="submit" name="sort_con" value="3">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Date Visit
-                    <!-- BUTTON FOR DATE AVAILED -->
-                    <button type="submit" name="sort_date_availed" value="4">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li>
+            <!-- START OF FORM ACTION -->
+            <form action="" method="POST">
+                <ul class="services__table__row services__header" role="list">
+                    <li class="services__attributes__item">
+                        <input type="checkbox" name="" id="" class="services__checkbox">
+                        <p>Name of Owner</p>
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Status
+                        <!-- BUTTON FOR AGE -->
+                        <button type="submit" name="sort_status" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Positive Container
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_con" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Date Visit
+                        <!-- BUTTON FOR DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
             </form>
             <!-- END OF FORM -->
 
@@ -998,50 +1010,50 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- Start Tab for Early Childhood -->
         <div class="services__table" id="Childhood-Care">
-         <!-- START OF FORM ACTION -->
-         <form action="" method="POST">
-            <ul class="services__table__row services__header" role="list">
-                <li class="services__attributes__item">
-                    <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p>Child Name</p>
-                    <!-- BUTTON FOR NAME -->
-                    <button type="submit" name="sort_cname" value="1">
+            <!-- START OF FORM ACTION -->
+            <form action="" method="POST">
+                <ul class="services__table__row services__header" role="list">
+                    <li class="services__attributes__item">
+                        <input type="checkbox" name="" id="" class="services__checkbox">
+                        <p>Child Name</p>
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_cname" value="1">
                             <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                             </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Mother Name
-                    <!-- BUTTON FOR MOTHER NAME -->
-                    <button type="submit" name="sort_mname" value="2">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Age
-                    <!-- BUTTON FOR Age -->
-                    <button type="submit" name="sort_age" value="3">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li class="services__attributes__item">
-                    Date Availed
-                    <!-- BUTTON FOR DATE AVAILED -->
-                    <button type="submit" name="sort_date_availed" value="4">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
-                </li>
-                <li>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Mother Name
+                        <!-- BUTTON FOR MOTHER NAME -->
+                        <button type="submit" name="sort_mname" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Age
+                        <!-- BUTTON FOR Age -->
+                        <button type="submit" name="sort_age" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Date Availed
+                        <!-- BUTTON FOR DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
             </form>
             <!-- END OF FORM -->
 
