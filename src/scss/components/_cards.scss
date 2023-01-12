@@ -5,7 +5,8 @@
     display: grid;
     // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-columns: repeat(4, auto);
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
     grid-template-rows: repeat(2, 1fr);
     row-gap: 1rem;
     margin-top: 1.5rem;
@@ -31,7 +32,8 @@
   &__card-masterlist {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
     margin-top: 1.5rem;
     row-gap: 1rem;
 
@@ -189,7 +191,8 @@
 
   &__item,
   &__list {
-    padding-inline-start: unset;
+    -webkit-padding-start: unset;
+            padding-inline-start: unset;
     margin-block: auto;
   }
 
@@ -264,7 +267,8 @@
     &__row {
       display: grid;
       grid-template-columns: repeat(2, 1fr) 5rem;
-      padding-inline-start: unset;
+      -webkit-padding-start: unset;
+              padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
       background: $white-2;
@@ -319,7 +323,8 @@
 
   &__item,
   &__list {
-    padding-inline-start: unset;
+    -webkit-padding-start: unset;
+            padding-inline-start: unset;
     margin-block: auto;
     padding: 0.5rem;
     color: $black-2;
@@ -342,8 +347,10 @@
       display: grid;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
       grid-template-columns: auto 15% 10% 15% 15% 10%;
-      column-gap: 1rem;
-      padding-inline-start: unset;
+      -moz-column-gap: 1rem;
+           column-gap: 1rem;
+      -webkit-padding-start: unset;
+              padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
     }
@@ -394,7 +401,8 @@
 
   &__item,
   &__list {
-    padding-inline-start: unset;
+    -webkit-padding-start: unset;
+            padding-inline-start: unset;
     margin-block: auto;
 
     @media (max-width: map-get($breakpoints, "medium")) {

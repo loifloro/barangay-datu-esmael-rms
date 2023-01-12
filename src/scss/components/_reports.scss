@@ -48,7 +48,8 @@
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
       // grid-template-columns: repeat(8, auto);
       grid-template-columns: 1fr repeat(3, 10%) 1fr 10%;
-      padding-inline-start: unset;
+      -webkit-padding-start: unset;
+              padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
     }
@@ -75,7 +76,8 @@
         // grid-template-columns: repeat(5, minmax(80px, 1fr));
         // grid-template-columns: repeat(8, auto);
         grid-template-columns: 1fr 20% 20% 20% 15%;
-        padding-inline-start: unset;
+        -webkit-padding-start: unset;
+                padding-inline-start: unset;
         padding: 1rem 1.5rem;
         margin-block: 0;
       }
@@ -102,7 +104,8 @@
     }
 
     &__summary {
-      padding-inline-start: unset;
+      -webkit-padding-start: unset;
+              padding-inline-start: unset;
       color: $black-2;
       font-size: 0.9rem;
 

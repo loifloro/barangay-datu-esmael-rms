@@ -1,12 +1,12 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .modal {
-    max-width: 100vw !important;
-    box-shadow: $drop-shadow !important;
-    padding: unset !important;
-    border-radius: 1vw !important;
+  max-width: 100vw !important;
+  box-shadow: $drop-shadow !important;
+  padding: unset !important;
+  border-radius: 1vw !important;
 }
 
 .blocker {
-    background: rgb(236, 252, 242, .75) !important;
+  background: rgb(236, 252, 242, 0.75) !important;
 }

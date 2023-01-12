@@ -48,7 +48,8 @@
     // width: 15vw - 2vw;
     width: calc(100% - 2rem);
     // max-width: 20vw - 2vw;
-    padding-inline-start: unset;
+    -webkit-padding-start: unset;
+            padding-inline-start: unset;
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone

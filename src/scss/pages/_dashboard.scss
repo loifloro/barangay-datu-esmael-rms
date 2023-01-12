@@ -4,8 +4,10 @@
   display: grid;
   grid-template-columns: 50vw auto;
   row-gap: 3rem;
+  -moz-column-gap: 2rem;
   column-gap: 2rem;
-  overflow: hidden;
+  // overflow: hidden;
+
   @media (max-width: map-get($breakpoints, "large")) {
     // Large screensizes: monitors, laptops
   }
@@ -22,7 +24,7 @@
 
   .services {
     grid-column: span 2;
-    padding-right: 1rem;
+    // padding-right: 1rem;
 
     @media (max-width: map-get($breakpoints, "medium")) {
       // Medium smartphone
@@ -53,12 +55,12 @@
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
-      width: calc(100% - 3rem);
+      max-width: 90%;
     }
 
     .view-report-item {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
       margin-top: 2rem;
     }
 
@@ -112,6 +114,7 @@
       &__item {
         display: grid;
         grid-template-columns: 1fr 2fr 4rem;
+        -moz-column-gap: 1rem;
         column-gap: 1rem;
         align-items: center;
 
@@ -169,7 +172,7 @@
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
-      width: calc(100% - 3rem);
+      max-width: 90%;
     }
   }
 }
