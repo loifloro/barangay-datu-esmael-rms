@@ -327,7 +327,26 @@ hide_content_forms();
         </button>
     </main>
     <script src="../js/app.js"></script>
-
+    <?php
+    if (isset($_GET['deleted'])) { ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Deleted successfully',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
+    }
+    ?>
 
 </body>
 
