@@ -41,7 +41,6 @@
             <?= $patient['deworming_date']; ?>
         </li>
     </ul>
-    <a target="_blank" href="./includes/print_pdf.php?id=<?=$patient['deworming_id']?>&&label=<?=$patient['label']?>" class="btn btn-sm btn-primary"> Print  Details</a>
 </div>
 
 <div id='deworming-reports' class="modal deworming-reports">
@@ -86,8 +85,8 @@
         }
         ?>
     </table>
-    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.print();">
-        Print
+    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?=$patient['deworming_id']?>&&label=<?=$patient['label']?>')">
+        PDF
     </button>
 </div>
 

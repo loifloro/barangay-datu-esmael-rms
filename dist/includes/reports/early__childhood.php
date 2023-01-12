@@ -298,16 +298,9 @@
             <td> </td>
         </tr>
     </table>
-
-    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.print();">
-        Print
-    </button>
-   
-    <!-- <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.location.href = `print_pdf.php?id=<?= $patient['early_childhood_id']; ?>`">
+    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>')">
         PDF
-    </button> -->
-
-    <a target="_blank" href="./includes/print_pdf.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>" class="btn btn-sm btn-primary"> Print  Details</a>
+    </button>
 </div>
 
 <!-- Consultation daily reports -->

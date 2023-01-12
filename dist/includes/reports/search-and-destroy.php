@@ -34,7 +34,6 @@
             <?= $patient['date_visit']; ?>
         </li>
     </ul>
-    <a target="_blank" href="./includes/print_pdf.php?id=<?=$patient['search_destroy_id']?>&&label=<?=$patient['label']?>" class="btn btn-sm btn-primary"> Print  Details</a>
 </div>
 
 <div id="search-and-destroy__report" class="modal search-and-destroy__report">
@@ -133,8 +132,8 @@
         }
         ?>
     </table>
-    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.print();">
-        Print
+    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?=$patient['search_destroy_id']?>&&label=<?=$patient['label']?>')">
+        PDF
     </button>
 </div>
 
