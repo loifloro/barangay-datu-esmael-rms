@@ -6,14 +6,14 @@ use Dompdf\Dompdf;
 $label = $_GET['label'];
 $id = $_GET['id'];
 
-if ($label == 'Early Childhood'){
-    $sql = mysqli_query($conn,"SELECT * FROM early_childhood WHERE early_childhood_id='$id'");
+if ($label == 'Deworming'){
+    $sql = mysqli_query($conn,"SELECT * FROM deworming WHERE deworming_id='$id'");
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
     $dompdf = new Dompdf();
     ob_start();
-    require('./pdf-reports/early_childhood-pdf.php');
+    require('./pdf-reports/deworming-pdf.php');
     $html =ob_get_contents();
     ob_get_clean();
 
@@ -52,5 +52,95 @@ if ($label == 'Consultation'){
     $dompdf->stream('print-details.pdf',['Attachment'=>false]);
 }
 
+if ($label == 'Prenatal'){
+    $sql = mysqli_query($conn,"SELECT * FROM prenatal WHERE prenatal_id='$id'");
+    $patient = mysqli_fetch_assoc($sql);
 
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-reports/prenatal-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream('print-details.pdf',['Attachment'=>false]);
+}
+
+if ($label == 'Postnatal'){
+    $sql = mysqli_query($conn,"SELECT * FROM postnatal WHERE postnatal_id='$id'");
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-reports/postnatal-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream('print-details.pdf',['Attachment'=>false]);
+}
+
+if ($label == 'Search and Destroy'){
+    $sql = mysqli_query($conn,"SELECT * FROM search_destroy WHERE search_destroy_id='$id'");
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-reports/search_destroy-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream('print-details.pdf',['Attachment'=>false]);
+}
+
+if ($label == 'Early Childhood'){
+    $sql = mysqli_query($conn,"SELECT * FROM early_childhood WHERE early_childhood_id='$id'");
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-reports/early_childhood-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream('print-details.pdf',['Attachment'=>false]);
+}
 
