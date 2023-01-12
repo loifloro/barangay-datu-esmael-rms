@@ -142,4 +142,9 @@ form {
 input[type="range"] {
   accent-color: $green;
   width: 100%;
+
+  @media (max-width: map-get($breakpoints, "medium")) {
+    // Medium smartphone
+    display: none;
+  }
 }
