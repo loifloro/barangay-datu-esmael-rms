@@ -1,10 +1,16 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .patient-profile {
-    .history {
-        display: grid;
-        grid-template-columns: auto 30%;
-        column-gap: 3%;
-    }
+  .history {
+    display: grid;
+    grid-template-columns: auto 30%;
+    column-gap: 3%;
+    row-gap: 3%;
+    margin-bottom: 3rem;
 
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      grid-template-columns: unset;
+    }
+  }
 }
