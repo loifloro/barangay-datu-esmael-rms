@@ -415,7 +415,6 @@ if (mysqli_num_rows($query_run) > 0) {
                         <li class="services__name p-bold">
                             <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
-                            <?php include('./includes/reports/deworming.php'); ?>
                         </li>
                         <!-- End of Modal Trigger -->
                         <li class="services__num">
@@ -453,6 +452,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         </li>
                     </ul>
             <?php
+            include('./includes/reports/deworming.php');
                 }
             }
 
