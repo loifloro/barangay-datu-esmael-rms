@@ -1,3 +1,7 @@
+<head>
+  <title><?= $patient['child_fname'] . ' ' . $patient['child_lname']; ?> Early Childhood Record</title>
+</head>
+
 <div id="early__childhood__report<?= $patient['early_childhood_id']; ?>" class="modal early__childhood__report">
     <div class="early__childhood__report__header">
         <img src="../assets/img/doh.png" alt="DOH Logo" class="doh-image">

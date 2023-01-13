@@ -1,3 +1,7 @@
+<head>
+  <title><?= $patient['firstname'].' '.$patient['lastname']; ?> Consultation Record</title>
+</head>
+
 <!-- INTERNAL CSS -->
 <style>
 

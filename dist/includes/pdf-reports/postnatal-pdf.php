@@ -1,3 +1,7 @@
+<head>
+  <title><?= $patient['firstname'].' '.$patient['lastname']; ?> Postnatal Record</title>
+</head>
+
 <div id="postnatal__report<?= $patient['postnatal_id'] ?>" class="modal prenatal__report">
     <h4 class="prenatal__report__title">
         City Government of Dasmariñas <br> City Health Office II
