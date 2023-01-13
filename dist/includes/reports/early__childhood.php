@@ -298,9 +298,8 @@
             <td> </td>
         </tr>
     </table>
-
-    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.print();">
-        Print
+    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>')">
+    Save as PDF
     </button>
 </div>
 
@@ -507,7 +506,8 @@
     ?>
     <!-- Query End -->
 
-    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.print();">
-        Print
+    <button type="submit" class="btn-green btn-add services__btn btn-print" 
+        onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+        Save as PDF
     </button>
 </div>

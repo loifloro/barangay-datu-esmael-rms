@@ -59,6 +59,8 @@ if (isset($_POST['edit_bhw'])) {
 
 // EDIT DEWORMING RECORD
 if (isset($_POST['edit_deworming'])) {
+    
+    $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
     $deworming_id = mysqli_real_escape_string($conn, $_POST['deworming_id']);
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
     $firstname = mysqli_real_escape_string($conn, $_POST['deworming-fname']);
@@ -83,7 +85,7 @@ if (isset($_POST['edit_deworming'])) {
     $year_date = date('Y', strtotime($password_date));
     $password = $lastname.$year_date.'_'.'deworming';
 
-    $query = "UPDATE deworming SET lastname = '$lastname', firstname = '$firstname', 
+    $query = "UPDATE deworming SET deworming_date='$deworming_date', lastname = '$lastname', firstname = '$firstname', 
     middlename = '$middlename', age = '$age', sex = '$sex', birthdate = '$birthdate', street_address = '$street_add', 
     barangay = '$barangay', city = '$city', phone_num='$phone_num', deworming_email='$email',
     deworming_password='$password' WHERE deworming_id='$deworming_id'";

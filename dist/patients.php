@@ -313,36 +313,48 @@ hide_content();
 
             <!-- Start Tab for Deworming -->
             <div class="patient__table" id="Deworming">
+            <!-- SORT QUERY -->
+            <form action="" method="POST">
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT FOR SERVICES AVAILED -->
+                        <button type="submit" name="sort_service_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                 </ul>
+            </form>
+            <!-- END OF SORT -->
 
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
@@ -350,6 +362,34 @@ hide_content();
                 $query = "SELECT * FROM deworming WHERE archive_label=''";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['sort_name'])) {
+                        $sort_id = $_POST['sort_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM deworming ORDER BY firstname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_date_availed'])) {
+                        $sort_id = $_POST['sort_date_availed'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM deworming ORDER BY deworming_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_sex'])) {
+                        $sort_id = $_POST['sort_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM deworming ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_service_availed'])) {
+                        $sort_id = $_POST['sort_service_availed'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM deworming ORDER BY label";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
                     foreach ($query_run as $patient) {
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
@@ -404,36 +444,48 @@ hide_content();
 
             <!-- Start Tab for Consultation -->
             <div class="patient__table" id="Consultation">
+             <!-- START OF FORM ACTION -->
+             <form action="" method="POST">
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT FOR SERVICES AVAILED -->
+                        <button type="submit" name="sort_service_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                 </ul>
+            </form>
+            <!-- END OF FORM -->
 
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
@@ -441,6 +493,34 @@ hide_content();
                 $query = "SELECT * FROM consultation WHERE archive_label=''";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['sort_name'])) {
+                        $sort_id = $_POST['sort_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM consultation ORDER BY firstname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_date_availed'])) {
+                        $sort_id = $_POST['sort_date_availed'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM consultation ORDER BY consultation_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_sex'])) {
+                        $sort_id = $_POST['sort_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM consultation ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_service_availed'])) {
+                        $sort_id = $_POST['sort_service_availed'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM consultation ORDER BY label";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
                     foreach ($query_run as $patient) {
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
@@ -496,36 +576,48 @@ hide_content();
 
             <!-- Start Tab for Prenatal -->
             <div class="patient__table" id="Pre-Natal">
+            <!-- SORT QUERY -->
+            <form action="" method="POST">
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                       <!-- BUTTON FOR NAME -->
+                       <button type="submit" name="sort_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT FOR SERVICES AVAILED -->
+                        <button type="submit" name="sort_service_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                 </ul>
+            </form>
+            <!-- END OF SORT -->
 
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
@@ -533,6 +625,34 @@ hide_content();
                 $query = "SELECT * FROM prenatal WHERE archive_label=''";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['sort_name'])) {
+                        $sort_id = $_POST['sort_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM prenatal ORDER BY firstname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_date_availed'])) {
+                        $sort_id = $_POST['sort_date_availed'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM prenatal ORDER BY prenatal_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_sex'])) {
+                        $sort_id = $_POST['sort_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM prenatal ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_service_availed'])) {
+                        $sort_id = $_POST['sort_service_availed'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM prenatal ORDER BY label";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
                     foreach ($query_run as $patient) {
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
@@ -588,37 +708,48 @@ hide_content();
 
             <!-- Start Tab for Post-Natal -->
             <div class="patient__table" id="Post-Natal">
-
+            <!-- SORT QUERY -->
+            <form action="" method="POST">
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT FOR SERVICES AVAILED -->
+                        <button type="submit" name="sort_service_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                 </ul>
+            </form>
+            <!-- END OF SORT -->
 
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
@@ -626,6 +757,34 @@ hide_content();
                 $query = "SELECT * FROM postnatal WHERE archive_label=''";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['sort_name'])) {
+                        $sort_id = $_POST['sort_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM postnatal ORDER BY firstname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_date_availed'])) {
+                        $sort_id = $_POST['sort_date_availed'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM postnatal ORDER BY postnatal_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_sex'])) {
+                        $sort_id = $_POST['sort_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM postnatal ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_service_availed'])) {
+                        $sort_id = $_POST['sort_service_availed'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM postnatal ORDER BY label";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
                     foreach ($query_run as $patient) {
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
@@ -681,36 +840,48 @@ hide_content();
 
             <!-- Start Tab for Search and Destroy -->
             <div class="patient__table" id="Search and Destroy">
+            <!-- SORT QUERY -->
+            <form action="" method="POST">
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT FOR SERVICES AVAILED -->
+                        <button type="submit" name="sort_service_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                 </ul>
+            </form>
+            <!-- END OF SORT -->
 
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
@@ -718,6 +889,34 @@ hide_content();
                 $query = "SELECT * FROM search_destroy WHERE archive_label=''";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['sort_name'])) {
+                        $sort_id = $_POST['sort_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM search_destroy ORDER BY owner_fname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_date_availed'])) {
+                        $sort_id = $_POST['sort_date_availed'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM search_destroy ORDER BY search_destroy_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_sex'])) {
+                        $sort_id = $_POST['sort_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM search_destroy ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_service_availed'])) {
+                        $sort_id = $_POST['sort_service_availed'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM search_destroy ORDER BY label";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
                     foreach ($query_run as $patient) {
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
@@ -731,7 +930,7 @@ hide_content();
                                 <?= $patient['date_visit']; ?>
                             </li>
                             <li class="patient__sex">
-                                <?= $patient['block']; ?>
+                                <?= $patient['sex']; ?>
                             </li>
                             <li class="patient__availed-service">
                                 <span class="patient__availed-service--consultation"><?= $patient['label']; ?></span>
@@ -773,36 +972,48 @@ hide_content();
 
             <!-- Start Tab for Early Childhood -->
             <div class="patient__table" id="Childhood Care">
+            <!-- SORT QUERY -->
+            <form action="" method="POST">
                 <ul class="patient__table__row patient__attributes" role="list">
                     <li class="patient__attributes__item">
                         Name
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Date Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT DATE AVAILED -->
+                        <button type="submit" name="sort_date_availed" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Sex
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="sort_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-
+                        <!-- SORT FOR SERVICES AVAILED -->
+                        <button type="submit" name="sort_service_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                 </ul>
+            </form>
+            <!-- END OF SORT -->
 
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
@@ -810,6 +1021,34 @@ hide_content();
                 $query = "SELECT * FROM early_childhood WHERE archive_label=''";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['sort_name'])) {
+                        $sort_id = $_POST['sort_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM early_childhood ORDER BY child_fname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_date_availed'])) {
+                        $sort_id = $_POST['sort_date_availed'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM early_childhood ORDER BY early_childhood_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_sex'])) {
+                        $sort_id = $_POST['sort_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM early_childhood ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['sort_service_availed'])) {
+                        $sort_id = $_POST['sort_service_availed'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM early_childhood ORDER BY label";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
                     foreach ($query_run as $patient) {
                 ?>
                         <ul class="patient__table__row patient__info" role="list">

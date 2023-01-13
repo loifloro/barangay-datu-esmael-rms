@@ -393,7 +393,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 if (isset($_POST['sort_name'])) {
                     $sort_id = $_POST['sort_name'];
                     if ($sort_id == 1) {
-                        $query = "SELECT * FROM deworming ORDER BY lastname";
+                        $query = "SELECT * FROM deworming ORDER BY firstname";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -466,6 +466,7 @@ if (mysqli_num_rows($query_run) > 0) {
                         <?php include('./includes/reports/deworming.php'); ?>
                     </ul>
             <?php
+            include('./includes/reports/deworming.php');
                 }
             }
 
@@ -534,7 +535,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 if (isset($_POST['sort_name'])) {
                     $sort_id = $_POST['sort_name'];
                     if ($sort_id == 1) {
-                        $query = "SELECT * FROM consultation ORDER BY lastname";
+                        $query = "SELECT * FROM consultation ORDER BY firstname";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -666,7 +667,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 if (isset($_POST['sort_name'])) {
                     $sort_id = $_POST['sort_name'];
                     if ($sort_id == 1) {
-                        $query = "SELECT * FROM prenatal ORDER BY lastname";
+                        $query = "SELECT * FROM prenatal ORDER BY firstname";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -798,7 +799,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 if (isset($_POST['sort_name'])) {
                     $sort_id = $_POST['sort_name'];
                     if ($sort_id == 1) {
-                        $query = "SELECT * FROM postnatal ORDER BY lastname";
+                        $query = "SELECT * FROM postnatal ORDER BY firstname";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
