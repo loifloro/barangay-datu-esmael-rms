@@ -1,4 +1,8 @@
 <!-- Consultation daily reports -->
+<head>
+  <title>Early Childhood Reports <?= $date; ?></title>
+</head>
+
 <div class="modal deworming-reports" id="childhood-daily-reports">
     <h4 class="consultation__report__title">
         City Government of Dasmariñas <br> City Health Office II

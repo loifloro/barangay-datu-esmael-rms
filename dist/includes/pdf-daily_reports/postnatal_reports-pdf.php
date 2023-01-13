@@ -1,4 +1,8 @@
 <!-- Postnatal daily reports -->
+<head>
+  <title>Postnatal Reports <?= $date; ?></title>
+</head>
+
 <div class="modal deworming-reports" id="postnatal-daily-reports">
         <h4 class="consultation__report__title">
             City Government of Dasmariñas <br> City Health Office II
