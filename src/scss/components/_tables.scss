@@ -6,6 +6,28 @@
 
 .patient,
 .search-results {
+  &__header {
+    display: flex;
+    align-content: center;
+    margin-top: 2rem;
+
+    .patient__total {
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        display: none;
+      }
+    }
+
+    .services__list--mobile {
+      margin-top: unset;
+    }
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      flex-direction: row;
+    }
+  }
+
   hr {
     width: 100%;
     height: 0.2rem;
@@ -19,13 +41,56 @@
     @include card(none);
     margin-top: 2rem;
 
+    @media (max-width: map-get($breakpoints, "large")) {
+      // Large screensizes: monitors, laptops
+      margin-top: 1rem;
+    }
+
     &__row {
       display: grid;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
-      grid-template-columns: auto 20% 10% 25% 15%;
+      // grid-template-columns: auto 20% 10% 25% 15%;
+      grid-template-columns: auto repeat(4, 15%);
+      -webkit-padding-start: unset;
       padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
+      align-items: center;
+
+      @media (max-width: map-get($breakpoints, "large")) {
+        // Large screensizes: monitors, laptops
+        grid-template-columns: 1fr repeat(3, 20%);
+
+        li:nth-child(2) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        grid-template-columns: 1fr auto;
+        padding: 0.5rem 1.5rem;
+
+        li:nth-child(2),
+        li:nth-child(3),
+        li:nth-child(4) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        -moz-column-gap: 0.5rem;
+        column-gap: 0.5rem;
+      }
+
+      li:last-child {
+        justify-self: center;
+
+        @media (max-width: map-get($breakpoints, "large")) {
+          // Large screensizes: monitors, laptops
+          justify-self: end;
+        }
+      }
     }
 
     ul:nth-child(2n + 1) {
@@ -94,17 +159,56 @@
     display: none;
     margin-top: 2rem;
 
+    @media (max-width: map-get($breakpoints, "large")) {
+      // Medium smartphone
+      margin-top: 1rem;
+    }
+
     @include card(none);
     overflow: hidden;
 
     &__row {
       display: grid;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
-      grid-template-columns: auto 15% 10% 15% 10% 15%;
+      grid-template-columns: auto repeat(5, 15%);
+      -moz-column-gap: 1rem;
       column-gap: 1rem;
+      -webkit-padding-start: unset;
       padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
+      align-items: center;
+
+      @media (max-width: map-get($breakpoints, "large")) {
+        // Large screensizes: monitors, laptops
+        grid-template-columns: 1fr repeat(3, 20%);
+
+        li:nth-child(2),
+        li:nth-child(3) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        grid-template-columns: 1fr auto;
+        padding: 0.5rem 1.5rem;
+
+        li:nth-child(2),
+        li:nth-child(3),
+        li:nth-child(4),
+        li:nth-child(5) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        li:nth-child(5) {
+          display: none;
+        }
+        -moz-column-gap: 0.5rem;
+        column-gap: 0.5rem;
+      }
     }
 
     ul:nth-child(2n + 1) {
@@ -114,6 +218,7 @@
 
   &__attributes {
     color: $black-3;
+    font-size: 0.85rem;
   }
 
   &__info {
@@ -159,10 +264,38 @@
       align-items: center;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
       grid-template-columns: auto 20% 10% 15% 15%;
+      -moz-column-gap: 1rem;
       column-gap: 1rem;
+      -webkit-padding-start: unset;
       padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
+
+      @media (max-width: map-get($breakpoints, "large")) {
+        // Large screensizes: monitors, laptops
+        grid-template-columns: 1fr repeat(3, 20%);
+
+        li:nth-child(2) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        grid-template-columns: 1fr auto;
+        padding: 0.5rem 1.5rem;
+
+        li:nth-child(2),
+        li:nth-child(3),
+        li:nth-child(4) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        -moz-column-gap: 0.5rem;
+        column-gap: 0.5rem;
+      }
 
       li:last-child {
         justify-self: center;
@@ -193,6 +326,11 @@
     display: none;
     margin-block: 2rem;
 
+    @media (max-width: map-get($breakpoints, "large")) {
+      // Large screensizes: monitors, laptops
+      margin-top: 0.5rem;
+    }
+
     @include card(none);
 
     &__row {
@@ -200,13 +338,46 @@
       align-items: center;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
       grid-template-columns: auto repeat(4, 15%);
+      -moz-column-gap: 1rem;
       column-gap: 1rem;
+      -webkit-padding-start: unset;
       padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
 
+      @media (max-width: map-get($breakpoints, "large")) {
+        // Large screensizes: monitors, laptops
+        grid-template-columns: 1fr repeat(3, 20%);
+
+        li:nth-child(2) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        grid-template-columns: 1fr auto;
+        padding: 0.5rem 1.5rem;
+
+        li:nth-child(2),
+        li:nth-child(3),
+        li:nth-child(4) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        -moz-column-gap: 0.5rem;
+        column-gap: 0.5rem;
+      }
+
       li:last-child {
         justify-self: center;
+
+        @media (max-width: map-get($breakpoints, "large")) {
+          // Large screensizes: monitors, laptops
+          justify-self: end;
+        }
       }
     }
 
@@ -249,6 +420,11 @@
 
   &__option > * {
     margin-right: 2rem;
+
+    @media (max-width: map-get($breakpoints, "large")) {
+      margin-right: unset;
+      margin-left: 1rem;
+    }
   }
 
   &__checkbox {
@@ -273,13 +449,39 @@
       align-items: center;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
       grid-template-columns: 1fr 20% 10%;
+      -moz-column-gap: 1rem;
       column-gap: 1rem;
+      -webkit-padding-start: unset;
       padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
 
+      @media (max-width: map-get($breakpoints, "large")) {
+        // Large screensizes: monitors, laptops
+        grid-template-columns: 1fr auto;
+
+        li:nth-child(2) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        grid-template-columns: 1fr;
+        padding: 0.5rem 1.5rem;
+
+        li:nth-child(2),
+        li:nth-child(3) {
+          display: none;
+        }
+      }
+
       li:last-child {
         justify-self: center;
+
+        @media (max-width: map-get($breakpoints, "large")) {
+          // Large screensizes: monitors, laptops
+          justify-self: end;
+        }
       }
     }
 
@@ -330,6 +532,11 @@
       padding: 0.2rem 0.8rem;
       margin-inline: 0.5rem;
 
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        padding: unset;
+      }
+
       &--delete {
         color: $white-1;
         background: $red;
@@ -338,11 +545,45 @@
       &--edited {
         color: $white-1;
         background: $yellow-3;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: $yellow-3;
+          background: none;
+        }
+      }
+
+      &--added {
+        color: $white-1;
+        background: $green;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: $green;
+          background: none;
+        }
+      }
+
+      &--restore {
+        color: $white-1;
+        background: $hover-green;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: $hover-green;
+          background: none;
+        }
       }
 
       &--archived {
         color: $white-1;
         background: #007f5f;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: #007f5f;
+          background: none;
+        }
       }
     }
 
@@ -357,29 +598,65 @@
       padding: 0.2rem 0.8rem;
       margin-inline: 1rem;
 
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        padding: unset;
+        margin-inline: unset;
+      }
+
       &--deworming {
         color: $white-1;
         background: $red;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: $red;
+          background: none;
+        }
       }
 
       &--childhood {
         color: $white-1;
         background: $yellow-3;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: $yellow-3;
+          background: none;
+        }
       }
 
       &--prenatal {
         color: $white-1;
         background: #104911;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: #104911;
+          background: none;
+        }
       }
 
       &--postnatal {
         color: $white-1;
         background: #e71d36;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: #e71d36;
+          background: none;
+        }
       }
 
       &--search {
         color: $white-1;
         background: #28947f;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: #28947f;
+          background: none;
+        }
       }
     }
 
@@ -395,14 +672,32 @@
       padding: 0.2rem 0.8rem;
       margin-inline: 0.2rem;
 
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        padding: unset;
+        margin-inline: unset;
+      }
+
       &--bhw {
         color: $white-1;
         background: #e71d36;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: #e71d36;
+          background: none;
+        }
       }
 
       &--chn {
         color: $white-1;
         background: #893302;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: #893302;
+          background: none;
+        }
       }
     }
   }
@@ -417,11 +712,39 @@
     &__row {
       display: grid;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
-      grid-template-columns: auto 20% 10% 25% 15%;
+      grid-template-columns: auto 20% 30% 10% 15%;
+      -webkit-padding-start: unset;
       padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
       align-items: center;
+
+      @media (max-width: map-get($breakpoints, "large")) {
+        // Large screensizes: monitors, laptops
+        grid-template-columns: 1fr repeat(3, 20%);
+
+        li:nth-child(2) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        grid-template-columns: 1fr 20%;
+        padding: 0.5rem 1.5rem;
+
+        li:nth-child(2),
+        li:nth-child(3),
+        li:nth-child(4) {
+          display: none;
+        }
+      }
+
+      @media (max-width: map-get($breakpoints, "small")) {
+        // Small smartphone
+        grid-template-columns: 1fr 5rem;
+        -moz-column-gap: 0.5rem;
+        column-gap: 0.5rem;
+      }
     }
 
     ul:nth-child(2n + 1) {

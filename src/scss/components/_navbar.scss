@@ -6,6 +6,7 @@
 
 .navbar {
   height: 5rem;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -68,6 +69,26 @@
       @media (max-width: map-get($breakpoints, "small")) {
         // Small smartphone
         display: none;
+      }
+
+      &::-webkit-input-placeholder {
+        font-size: 0.8rem;
+        // width: 16ch;
+      }
+
+      &::-moz-placeholder {
+        font-size: 0.8rem;
+        // width: 16ch;
+      }
+
+      &:-ms-input-placeholder {
+        font-size: 0.8rem;
+        // width: 16ch;
+      }
+
+      &::-ms-input-placeholder {
+        font-size: 0.8rem;
+        // width: 16ch;
       }
 
       &::placeholder {
@@ -201,13 +222,7 @@
   // height: 45px;
   position: relative;
   // margin: 50px auto;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.5s ease-in-out;
-  -moz-transition: 0.5s ease-in-out;
-  -o-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
   cursor: pointer;
 
@@ -234,44 +249,26 @@
   border-radius: 9px;
   opacity: 1;
   left: 0;
-  -webkit-transform: rotate(0deg);
-  -moz-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  -webkit-transition: 0.25s ease-in-out;
-  -moz-transition: 0.25s ease-in-out;
-  -o-transition: 0.25s ease-in-out;
   transition: 0.25s ease-in-out;
 }
 
 #hamburger-menu span:nth-child(1) {
   top: 0px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 #hamburger-menu span:nth-child(2) {
   top: 10px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 #hamburger-menu span:nth-child(3) {
   top: 20px;
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -o-transform-origin: left center;
   transform-origin: left center;
 }
 
 #hamburger-menu.open span:nth-child(1) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
   transform: rotate(45deg);
   top: -2.5px;
   left: 8px;
@@ -283,9 +280,6 @@
 }
 
 #hamburger-menu.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
   top: 17.5px;
   left: 8px;

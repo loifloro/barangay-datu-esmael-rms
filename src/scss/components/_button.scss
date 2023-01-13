@@ -4,7 +4,6 @@
 
 @use "../abstracts" as *;
 
-
 /*!
  * Hover.css (http://ianlunn.github.io/Hover/)
  * Version: 2.3.2
@@ -17,34 +16,29 @@
 /* Shutter Out Horizontal */
 
 button {
-    
-    &.btn-save {
-        width: 6rem;
+  &.btn-save {
+    width: 6rem;
+  }
 
-    }
+  &.btn-cancel,
+  &.btn-delete,
+  &.btn-change,
+  &.btn-add,
+  &.btn-print {
+    width: 8rem;
+  }
 
-    &.btn-cancel,
-    &.btn-delete,
-    &.btn-change,
-    &.btn-add,
-    &.btn-print {
-        width: 8rem;
-    }
+  /* Styles for every green button */
+  &.btn-green {
+    /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
+    @include button-animation($green, $white-1, $green, $active-green);
+  }
 
-    /* Styles for every green button */
-    &.btn-green {
-        /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
-        @include button-animation ($green, $white-1, $green, $active-green);
-
-    }
-    
-
-    /* Styles for every red button */
-    &.btn-red {
-        /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
-        @include button-animation ($active-green, $green, $white-1, $red);
-
-    }
+  /* Styles for every red button */
+  &.btn-red {
+    /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
+    @include button-animation($active-green, $green, $white-1, $red);
+  }
 }
 
 .delete-icon,
@@ -53,154 +47,157 @@ button {
 .search-icon,
 .password-icon,
 .add-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    // margin-right: 1.5rem;
-    
-    }
+  width: 1.5rem;
+  height: 1.5rem;
+  // margin-right: 1.5rem;
+
+  @media (max-width: map-get($breakpoints, "small")) {
+    // Small smartphone
+    width: 1.3rem;
+    height: 1.3rem;
+  }
+}
 
 .sort-icon {
-    width: 1rem;
-    height: auto;
+  width: 1rem;
+  height: auto;
 
-    display: inline;
+  display: inline;
+
+  path {
+    fill: $black-3;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
 
     path {
-        fill: $black-3;
+      fill: $black-2;
     }
-
-    &:hover, 
-    &:focus, 
-    &:active {
-        cursor: pointer;
-        
-        path {
-            fill: $black-2;
-        }
-    }
+  }
 }
 
 .delete-icon,
 .archive-icon {
-    path {
-        fill: $black-3;
-    }
+  path {
+    fill: $black-3;
+  }
 
-    &:hover, 
-    &:focus, 
-    &:active {
-        cursor: pointer;
-        
-        path {
-            fill: $red;
-        }
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+
+    path {
+      fill: $red;
     }
+  }
 }
 
 .edit-icon {
+  path {
+    fill: $black-3;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
 
     path {
-        fill: $black-3;
+      fill: $green;
     }
-
-    &:hover, 
-    &:focus, 
-    &:active {
-        cursor: pointer;
-        
-        path {
-            fill: $green;
-        }
-    }
+  }
 }
 
 .password-show {
+  path {
+    fill: $black-1;
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
 
     path {
-        fill: $black-1;
+      fill: $green;
     }
-
-    &:hover, 
-    &:focus, 
-    &:active {
-        cursor: pointer;
-        
-        path {
-            fill: $green;
-        }
-    }
+  }
 }
 
 .password-hide {
-    width: 1.2rem !important;
-    height: 1.2rem !important;
+  width: 1.2rem !important;
+  height: 1.2rem !important;
 
-    &:hover, 
-    &:focus, 
-    &:active {
-        cursor: pointer;
-        
-        path {
-            stroke: $green;
-        }
+  &:hover,
+  &:focus,
+  &:active {
+    cursor: pointer;
+
+    path {
+      stroke: $green;
     }
+  }
 }
 
 .password-icon--hide {
-    display: none;
+  display: none;
 }
 
 .input-file-container {
-    // position: relative;
-    width: 8rem;
-    margin-left: auto;
-    margin-bottom: auto;
-} 
+  // position: relative;
+  width: 8rem;
+  margin-left: auto;
+  margin-bottom: auto;
+}
 .js .input-file-trigger {
-    overflow: hidden;
-    border-radius: .5vw;
-    height: 2.5rem;
-    display: block;
-    // padding: auto;
-    background: $green;
-    color: $white-1;
-    font-size: 1em;
-    transition: all .4s;
-    cursor: pointer;
-    text-align: center;
-    padding-block: .7rem;
-    font-weight: 700;
+  overflow: hidden;
+  border-radius: 0.5vw;
+  height: 2.5rem;
+  display: block;
+  // padding: auto;
+  background: $green;
+  color: $white-1;
+  font-size: 1em;
+  transition: all 0.4s;
+  cursor: pointer;
+  text-align: center;
+  padding-block: 0.7rem;
+  font-weight: 700;
 }
 
 .js .input-file {
-    // position: absolute;
-    // top: 0; left: 0;
-    // width: 225px;
-    opacity: 0;
-    // padding: 14px 0;
-    cursor: pointer;
+  // position: absolute;
+  // top: 0; left: 0;
+  // width: 225px;
+  opacity: 0;
+  // padding: 14px 0;
+  cursor: pointer;
 }
 .js .input-file:hover + .input-file-trigger,
 .js .input-file:focus + .input-file-trigger,
 .js .input-file-trigger:hover,
 .js .input-file-trigger:focus {
-    background: $active-green;
-    color: $green;
+  background: $active-green;
+  color: $green;
 }
 
 .file-return {
-    margin: 0;
+  margin: 0;
 }
 .file-return:not(:empty) {
-    margin: 1em 0;
+  margin: 1em 0;
 }
 .js .file-return {
-    font-style: italic;
-    font-size: .9em;
-    font-weight: bold;
+  font-style: italic;
+  font-size: 0.9em;
+  font-weight: bold;
 }
 .js .file-return:not(:empty):before {
-    content: "Selected file: ";
-    font-style: normal;
-    font-weight: normal;
+  content: "Selected file: ";
+  font-style: normal;
+  font-weight: normal;
 }

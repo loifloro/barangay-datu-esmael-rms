@@ -2,8 +2,9 @@
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
 
-@use './colors' as *;
-@use './variables' as *;
+@use "./colors" as *;
+@use "./variables" as *;
+@use "./breakpoints" as *;
 
 // Normal card style
 @mixin card($padding) {
@@ -15,22 +16,17 @@
   box-sizing: border-box;
 }
 
-
-@mixin button-animation ($bg, $color, $hover-text, $hover-background) {
-
+@mixin button-animation($bg, $color, $hover-text, $hover-background) {
   /* Button Animations */
   background-color: $bg;
   color: $color;
 
   display: inline-block;
   vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
-  -webkit-transition-property: color;
   transition-property: color;
-  -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
 
   span {
@@ -39,12 +35,12 @@
   }
 
   svg {
-      height: 1.1rem;
-      width: 1.1rem;
+    height: 1.1rem;
+    width: 1.1rem;
 
-      path {
-        fill: $color;
-      }
+    path {
+      fill: $color;
+    }
   }
 
   p {
@@ -54,10 +50,10 @@
   }
 
   &:focus,
-  &:hover, 
+  &:hover,
   &:active {
     color: $hover-text;
-    
+
     p {
       color: $hover-text;
     }
@@ -66,40 +62,33 @@
       path {
         fill: $hover-text;
       }
-  }
+    }
   }
 
-
-  // Need to put on a mixin   
+  // Need to put on a mixin
   &:before {
-      background: $hover-background;
-      border-radius: 0.5vw;
+    background: $hover-background;
+    border-radius: 0.5vw;
 
-      content: "";
-      position: absolute;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      -webkit-transform: scaleX(0);
-      transform: scaleX(0);
-      -webkit-transform-origin: 50%;
-      transform-origin: 50%;
-      -webkit-transition-property: transform;
-      transition-property: transform;
-      -webkit-transition-duration: 0.5s;
-      transition-duration: 0.5s;
-      -webkit-transition-timing-function: ease-out;
-      transition-timing-function: ease-out;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transform: scaleX(0);
+    transform-origin: 50%;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out;
   }
-  
-  &:hover:before, 
-  &:focus:before, 
+
+  &:hover:before,
+  &:focus:before,
   &:active:before {
-      -webkit-transform: scaleX(1);
-      transform: scaleX(1);
-      color: $green;
+    transform: scaleX(1);
+    color: $green;
   }
 }
 
@@ -113,70 +102,70 @@
 
 // For p tags with title above
 @mixin title-above {
-  margin-top: -.3rem;
+  margin-top: -0.3rem;
 }
 
 // Form format
 @mixin form {
   margin-top: calc(2vh + 1rem);
-  
+
   label {
     display: inline;
     margin-right: auto;
     // line-height: 1.2;
-    
   }
-  
+
   hr {
     @include hr;
   }
-  
+
   // h2 {
   //   @include description-below;
   // }
-  
+
   p {
     margin-bottom: 2rem;
   }
 
-  input[type=date],
-  input[type=datetime],
-  input[type=datetime-local],
-  input[type=email],
-  input[type=month],
-  input[type=number],
-  input[type=password],
-  input[type=range],
-  input[type=search],
-  input[type=tel],
-  input[type=text],
-  input[type=time],
-  input[type=url],
-  input[type=week],
+  input[type="date"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="email"],
+  input[type="month"],
+  input[type="number"],
+  input[type="password"],
+  input[type="range"],
+  input[type="search"],
+  input[type="tel"],
+  input[type="text"],
+  input[type="time"],
+  input[type="url"],
+  input[type="week"],
   select {
     display: inline;
     width: 50%;
 
-
     @media (max-width: 45rem) {
       display: block;
       width: 100%;
-      margin-top: .3rem;
+      margin-top: 0.3rem;
     }
   }
-  
-  
-  input[type=checkbox],
-  input[type=radio] {
+
+  input[type="checkbox"],
+  input[type="radio"] {
     display: inline;
     margin-right: 1rem;
-
   }
-  
-  
+
   &-item {
     margin-bottom: 1.5rem;
     padding-left: 1rem;
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      padding-left: unset;
+    }
 
     display: flex;
     align-items: center;
@@ -194,7 +183,6 @@
           margin-left: 1rem;
         }
       }
-
     }
 
     .three-input,
@@ -209,9 +197,9 @@
 
       input {
         width: 100%;
-        margin-bottom: .3rem;
+        margin-bottom: 0.3rem;
       }
-      
+
       & > * {
         margin-right: 1rem;
       }
@@ -229,16 +217,14 @@
 
       @media (max-width: 45rem) {
         width: 100%;
-  
       }
     }
-    
+
     .two-input {
       grid-template-columns: repeat(2, 1fr);
 
       @media (max-width: 45rem) {
         width: 100%;
-  
       }
     }
 
@@ -250,21 +236,27 @@
         width: 40%;
 
         @media (max-width: 45rem) {
-          margin-bottom: .4rem;
+          margin-bottom: 0.4rem;
           width: auto;
-
-    
-        }        
+        }
       }
-      
+
       div {
         margin-right: auto;
         // margin-left: 3rem;
         margin-left: auto;
         width: 60%;
-        
+
         @media (max-width: 45rem) {
           width: auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: baseline;
+
+          & > label {
+            margin-right: 1rem;
+          }
         }
 
         label {
@@ -285,12 +277,12 @@
         margin-right: auto;
         width: 50%;
       }
-      
+
       div {
         margin-right: auto;
         // margin-left: 3rem;
         width: 60%;
-        
+
         @media (max-width: 62rem) {
           width: auto;
         }
@@ -305,14 +297,13 @@
     &--textarea {
       label {
         width: 40%;
-        
+
         @media (max-width: 45rem) {
           width: auto;
-          margin-bottom: .2rem;
+          margin-bottom: 0.2rem;
         }
       }
-
-    } 
+    }
   }
 
   &-doses {
@@ -320,19 +311,19 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     margin-bottom: 1rem;
-    
+
     @media (max-width: 45rem) {
       display: block;
     }
 
-    input[type=date],
-    input[type=text] {
+    input[type="date"],
+    input[type="text"] {
       width: 100%;
       margin-bottom: 1rem;
     }
 
     label {
-      font-size: .75rem;
+      font-size: 0.75rem;
       color: $black-3;
     }
 
@@ -340,7 +331,7 @@
       font-size: unset;
       color: $black-2;
     }
-     
+
     .dose-title {
       margin-bottom: unset;
       max-width: 70%;
@@ -349,9 +340,9 @@
         margin-top: 2rem;
       }
     }
-    
+
     .dose-indication {
-      font-size: .85rem;
+      font-size: 0.85rem;
       color: $black-3;
       max-width: 70%;
     }
@@ -363,12 +354,12 @@
         margin-right: auto;
         width: 50%;
       }
-      
+
       div {
         margin-right: auto;
         // margin-left: 3rem;
         width: 60%;
-        
+
         @media (max-width: 62rem) {
           width: auto;
           flex-direction: row;
@@ -380,7 +371,6 @@
         }
       }
     }
-
   }
 
   &-btn {
@@ -392,23 +382,22 @@
       margin-right: 1rem;
     }
   }
-  
 }
 
 @mixin page-with-form-layout {
   display: inline-grid;
   grid-template-columns: auto 20%;
+  -moz-column-gap: 5%;
   column-gap: 5%;
-  grid-template-areas: 
-        "form section-link";
+  grid-template-areas: "form section-link";
 
   @media (max-width: 62rem) {
     display: block;
   }
-  
+
   &__title {
     // line-height: 1.2;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 
   &__desc {
@@ -421,9 +410,8 @@
   }
 
   &__form {
-      @include form;
+    @include form;
   }
-
 
   // .form {
   //   grid-area: form;
@@ -437,15 +425,15 @@
     top: 15%;
     // right: 5%;
     left: 80%;
-    
+
     &__list {
+      -webkit-padding-start: unset;
       padding-inline-start: unset;
     }
 
     @media (max-width: 62rem) {
       display: none;
     }
-
   }
 }
 
@@ -456,23 +444,21 @@
     margin-inline: auto;
     margin-block: 1.5rem;
 
-    
     &-item {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-block: .5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-block: 0.5rem;
 
-        &--role {
+      &--role {
+        & div {
+          justify-content: unset;
 
-                & div {
-                    justify-content: unset;
-
-                    & > * {
-                        margin-right: 1rem;
-                    }
-                }
+          & > * {
+            margin-right: 1rem;
+          }
         }
+      }
     }
   }
 }

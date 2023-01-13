@@ -1,50 +1,46 @@
 @use "../abstracts" as *;
 
 .add-user {
+  &__desc {
+    @include title-above;
+  }
 
-    &__desc {
-        @include title-above;
+  &__form {
+    display: grid;
+    width: 50%;
+    margin-inline: auto;
+    margin-block: 1.5rem;
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-block: 0.5rem;
+
+      &--role {
+        & div {
+          justify-content: unset;
+
+          & > * {
+            margin-right: 1rem;
+          }
+        }
+      }
     }
 
-    &__form {
-        display: grid;
-        width: 50%;
-        margin-inline: auto;
-        margin-block: 1.5rem;
-
-        
-        &-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-block: .5rem;
-
-            &--role {
-
-                    & div {
-                        justify-content: unset;
-
-                        & > * {
-                            margin-right: 1rem;
-                        }
-                    }
-            }
-        }
-
-        hr {
-            @include hr;
-            margin-inline: unset;
-        }
-
-        &-btn {
-            margin-block: 3rem;
-            display: flex;
-            justify-content: flex-end;
-
-            & > * {
-                margin-right: 1rem;
-            }
-        }
+    hr {
+      @include hr;
+      margin-inline: unset;
     }
+
+    &-btn {
+      margin-block: 3rem;
+      display: flex;
+      justify-content: flex-end;
+
+      & > * {
+        margin-right: 1rem;
+      }
+    }
+  }
 }
-

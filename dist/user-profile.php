@@ -18,6 +18,7 @@ hide_content();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
     <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
     <!-- Title Tab Query -->
@@ -62,7 +63,7 @@ hide_content();
                     <p class="sidebar__caption">Dashboard</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--active">
+            <li class="sidebar__item ">
                 <a href="patients.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12.3,12.22A4.92,4.92,0,0,0,14,8.5a5,5,0,0,0-10,0,4.92,4.92,0,0,0,1.7,3.72A8,8,0,0,0,1,19.5a1,1,0,0,0,2,0,6,6,0,0,1,12,0,1,1,0,0,0,2,0A8,8,0,0,0,12.3,12.22ZM9,11.5a3,3,0,1,1,3-3A3,3,0,0,1,9,11.5Zm9.74.32A5,5,0,0,0,15,3.5a1,1,0,0,0,0,2,3,3,0,0,1,3,3,3,3,0,0,1-1.5,2.59,1,1,0,0,0-.5.84,1,1,0,0,0,.45.86l.39.26.13.07a7,7,0,0,1,4,6.38,1,1,0,0,0,2,0A9,9,0,0,0,18.74,11.82Z" />
@@ -96,7 +97,7 @@ hide_content();
                     <p class="sidebar__caption">Masterlist</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--margin-top">
+            <li class="sidebar__item sidebar__item--margin-top sidebar__item--active">
                 <a href="user-profile.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M21.32,9.55l-1.89-.63.89-1.78A1,1,0,0,0,20.13,6L18,3.87a1,1,0,0,0-1.15-.19l-1.78.89-.63-1.89A1,1,0,0,0,13.5,2h-3a1,1,0,0,0-.95.68L8.92,4.57,7.14,3.68A1,1,0,0,0,6,3.87L3.87,6a1,1,0,0,0-.19,1.15l.89,1.78-1.89.63A1,1,0,0,0,2,10.5v3a1,1,0,0,0,.68.95l1.89.63-.89,1.78A1,1,0,0,0,3.87,18L6,20.13a1,1,0,0,0,1.15.19l1.78-.89.63,1.89a1,1,0,0,0,.95.68h3a1,1,0,0,0,.95-.68l.63-1.89,1.78.89A1,1,0,0,0,18,20.13L20.13,18a1,1,0,0,0,.19-1.15l-.89-1.78,1.89-.63A1,1,0,0,0,22,13.5v-3A1,1,0,0,0,21.32,9.55ZM20,12.78l-1.2.4A2,2,0,0,0,17.64,16l.57,1.14-1.1,1.1L16,17.64a2,2,0,0,0-2.79,1.16l-.4,1.2H11.22l-.4-1.2A2,2,0,0,0,8,17.64l-1.14.57-1.1-1.1L6.36,16A2,2,0,0,0,5.2,13.18L4,12.78V11.22l1.2-.4A2,2,0,0,0,6.36,8L5.79,6.89l1.1-1.1L8,6.36A2,2,0,0,0,10.82,5.2l.4-1.2h1.56l.4,1.2A2,2,0,0,0,16,6.36l1.14-.57,1.1,1.1L17.64,8a2,2,0,0,0,1.16,2.79l1.2.4ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
@@ -194,19 +195,19 @@ hide_content();
                                 <span class="user-profile__category">Sex</span>
                                 <?= $user['sex']; ?>
                             </li>
-                            <li class="user-profile__street">
-                                <span class="user-profile__category">Street Address</span>
-                                <?= $user['street_add']; ?>
-                            </li>
                             <li class="user-profile__last-date-added">
                                 <span class="user-profile__category">Date Added</span>
                                 <?= $user['date_registered']; ?>
                             </li>
-                        </ul>
-                        <ul class="user-profile__item" role="list">
                             <li class="user-profile__last-modified">
                                 <span class="user-profile__category">Birthday</span>
                                 <?= $user['birthday']; ?>
+                            </li>
+                        </ul>
+                        <ul class="user-profile__item" role="list">
+                            <li class="user-profile__street">
+                                <span class="user-profile__category">Street Address</span>
+                                <?= $user['street_add']; ?>
                             </li>
                             <li class="user-profile__last-city">
                                 <span class="user-profile__category">City</span>
@@ -217,7 +218,7 @@ hide_content();
                                 <?= $user['barangay']; ?>
                             </li>
                         </ul>
-                        <ul class="user-profile__item" role="list">
+                        <ul class="user-profile__item__btn" role="list">
                             <!-- Buttons -->
                             <li class="user-profile__btn">
                                 <button type="submit" class="btn-green btn-save" onclick="window.location.href = 'edit/edit-bhw.php?id=<?= $user['account_id']; ?>'">

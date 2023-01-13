@@ -174,7 +174,7 @@
 <?php
 if (isset($_GET['report__date'])) {
 ?>
-    <!-- Prenatal daily reports -->
+    <!-- Postnatal daily reports -->
     <div class="modal deworming-reports" id="prenatal-daily-reports">
         <h4 class="consultation__report__title">
             City Government of Dasmariñas <br> City Health Office II
@@ -184,7 +184,7 @@ if (isset($_GET['report__date'])) {
         </p>
 
         <h4 class="deworming-reports__title">
-            Prenatal reports
+            Postnatal reports
         </h4>
         <div class="deworming-reports__details">
             <p class="deworming-reports__brgy">
@@ -219,86 +219,26 @@ if (isset($_GET['report__date'])) {
             $result = mysqli_query($conn, $query);
         }
 
+        while ($row = mysqli_fetch_array($result)) {
         ?>
-        <div class="deworming-reports__date">
-            Date: <?php echo $consultation_sort; ?>
-        </div>
-    </div>
+            <p class="deworming-reports__male">
+                Total No. of Patient Age 17-21 y/o: <?php echo $row['count(*)']; ?>
+            </p>
+        <?php
+        }
+        ?>
+        <!-- Query End -->
 
-     <!-- Query Start -->
-     <?php
-    $query = "SELECT count(*) FROM prenatal WHERE archive_label=''";
-    $result = mysqli_query($conn, $query);
-
-    if (isset($_GET['report__date'])) {
-        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND prenatal_date='$date'";
+        <!-- Query Start -->
+        <?php
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female'";
         $result = mysqli_query($conn, $query);
-    }
 
-    while ($row = mysqli_fetch_array($result)) {
-    ?>
-    <p class="deworming-reports__brgy">
-        Total No. of Patient: <?php echo $row['count(*)']; ?>
-    </p>
-    <?php
-    }
-    ?>
-    <!-- Query End -->
-
-
-    <!-- Query Start -->
-    <?php
-    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age<=17";
-    $result = mysqli_query($conn, $query);
-
-    if (isset($_GET['report__date'])) {
-        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age<=17 AND prenatal_date='$date'";
-        $result = mysqli_query($conn, $query);
-    }
-
-    while ($row = mysqli_fetch_array($result)) {
-    ?>
-        <p class="deworming-reports__male">
-            Total No. of Patient Age less/equal 17 y/o: <?php echo $row['count(*)']; ?>
-        </p>
-    <?php
-    }
-    ?>
-    <!-- Query End -->
-
-    <!-- Query Start -->
-    <?php
-    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=18 AND age<=29";
-    $result = mysqli_query($conn, $query);
-
-    if (isset($_GET['report__date'])) {
-        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=18 AND age<=29 AND prenatal_date='$date'";
-        $result = mysqli_query($conn, $query);
-    }
-
-    while ($row = mysqli_fetch_array($result)) {
-    ?>
-        <p class="deworming-reports__male">
-            Total No. of Patient Age 18-29 y/o: <?php echo $row['count(*)']; ?>
-        </p>
-    <?php
-    }
-    ?>
-    <!-- Query End -->
-
-    <!-- Query Start -->
-    <?php
-    $query = "SELECT count(*) FROM prenatal WHERE archive_label=''  AND age>=30";
-    $result = mysqli_query($conn, $query);
-
-    if (isset($_GET['report__date'])) {
-        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=30 AND prenatal_date='$date'";
-        $result = mysqli_query($conn, $query);
-    }
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female' AND consultation_date='$date'";
+            $result = mysqli_query($conn, $query);
+        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>

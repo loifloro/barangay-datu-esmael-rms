@@ -4,8 +4,10 @@
   display: grid;
   grid-template-columns: 50vw auto;
   row-gap: 3rem;
+  -moz-column-gap: 2rem;
   column-gap: 2rem;
-  overflow: hidden;
+  // overflow: hidden;
+
   @media (max-width: map-get($breakpoints, "large")) {
     // Large screensizes: monitors, laptops
   }
@@ -22,7 +24,7 @@
 
   .services {
     grid-column: span 2;
-    padding-right: 1rem;
+    // padding-right: 1rem;
 
     @media (max-width: map-get($breakpoints, "medium")) {
       // Medium smartphone
@@ -32,6 +34,7 @@
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
       grid-column: unset;
+      max-width: 90%;
     }
 
     &__desc {
@@ -52,13 +55,15 @@
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
-      width: calc(100% - 3rem);
+      max-width: 90%;
     }
 
     .view-report-item {
       display: flex;
-      justify-content: end;
+      justify-content: flex-end;
+      margin-top: 2rem;
     }
+
     &__input {
       display: flex;
       justify-content: space-between;
@@ -109,8 +114,14 @@
       &__item {
         display: grid;
         grid-template-columns: 1fr 2fr 4rem;
+        -moz-column-gap: 1rem;
         column-gap: 1rem;
         align-items: center;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          grid-template-columns: 1fr 2rem;
+        }
 
         & > * {
           vertical-align: middle;
@@ -120,6 +131,11 @@
       &__title {
         font-weight: 300;
         margin-right: auto;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          font-size: 0.85rem;
+        }
       }
 
       &__heading {
@@ -131,6 +147,11 @@
         font-weight: 700;
         font-size: 1.2rem;
         margin-left: 2rem;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          margin-left: unset;
+        }
       }
 
       btn {
@@ -151,7 +172,7 @@
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
-      width: calc(100% - 3rem);
+      max-width: 90%;
     }
   }
 }

@@ -1,27 +1,25 @@
                 <!-- CHILD CARE FEMALE-->
                 <div class="reports__card">
-                    <div class="reports__card__item">
-                        <!-- Query Start -->
-                        <?php
-                        //DEFAULT DISPLAY
-                        $query = "SELECT count(*) FROM target_childcare_female"; // WHERE archive_label=''
+                    <!-- Query Start -->
+                    <?php
+                    //DEFAULT DISPLAY
+                    $query = "SELECT count(*) FROM target_childcare_female"; // WHERE archive_label=''
+                    $result = mysqli_query($conn, $query);
+
+                    //CONDITION IF SORT BUTTON IS CLICKED
+                    if (isset($_GET['sort__date'])) {
+                        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                        $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date'";
                         $result = mysqli_query($conn, $query);
+                    }
 
-                        //CONDITION IF SORT BUTTON IS CLICKED
-                        if (isset($_GET['sort__date'])) {
-                            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date'";
-                            $result = mysqli_query($conn, $query);
-                        }
-
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <h4 class="reports__card__title">Total No. of Female Patients: <?php echo $row['count(*)']; ?></h4>
-                        <?php
-                        }
-                        ?>
-                        <!-- END -->
-                    </div>
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <h4 class="reports__card__title">Total No. of Female Patients: <?php echo $row['count(*)']; ?></h4>
+                    <?php
+                    }
+                    ?>
+                    <!-- END -->
 
                     <div class="reports__card__item">
                         <!-- Query Start -->

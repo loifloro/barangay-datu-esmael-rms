@@ -1,108 +1,133 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
 .user-profile {
-    hr {
-        @include hr;
-    }
+  hr {
+    @include hr;
+  }
 
-    &__desc {
-        @include title-above;
-    }
+  &__desc {
+    @include title-above;
+  }
 
-    &__password {
+  &__password {
+    &__form {
+      width: 80%;
+      margin-bottom: 3rem;
 
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        width: 100%;
+      }
 
-        &__form {
-            width: 80%;
-            margin-bottom: 3rem;
+      margin-top: calc(2vh + 1rem);
+      // @include form;
 
-            margin-top: calc(2vh + 1rem);
-            // @include form;
-            
-            label {
-                display: inline;
-                margin-right: auto;
-                // line-height: 1.2;
-            }
+      label {
+        display: inline;
+        margin-right: auto;
+        // line-height: 1.2;
+      }
 
-            button {
-                // display: block;
-                margin-left: auto;
-            }
+      button {
+        // display: block;
+        margin-left: auto;
+      }
 
-            // Password Bar
-            .password {
-                display: flex;
-                width: 50%;
-                background: $white-3;
-                border-radius: .5vw;
+      // Password Bar
+      .password {
+        display: flex;
+        width: 50%;
+        background: $white-3;
+        border-radius: 0.5vw;
 
-                &:hover, 
-                &:focus, 
-                &:active {
-                    outline: $green solid 1px;
-                    background: $white-1
-                }
-
-                &__bar {
-                    &__input {
-                        display: inline;    
-                        background: none !important;
-                        width: 100%;
-                       
-                        &:hover, 
-                        &:focus, 
-                        &:active {
-                            cursor: pointer;
-                            outline: none !important;
-                            // background: none;
-                        }
-                    }
-                    
-                    &__btn {
-                        display: inline;  
-                        margin-left: auto !important;
-                        margin-right: .5rem;  
-                    }
-                }
-
-            }
-
-            .btn-change {
-                display: block !important;
-                margin-left: auto;
-            }
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          width: 100%;
         }
-    }
 
-    .bhw-account {
-
-        button {
-            float: right;
+        &:hover,
+        &:focus,
+        &:active {
+          outline: $green solid 1px;
+          background: $white-1;
         }
-    }
 
-    &__backup {
-        
-        &__form {
-            display: flex;
-            justify-content: space-between;
-            width: 80%;
-            margin-block: 2rem;
+        &__bar {
+          &__input {
+            display: inline;
+            background: none !important;
+            width: 100%;
 
-            & > * {
-                width: 50%;
+            &:hover,
+            &:focus,
+            &:active {
+              cursor: pointer;
+              outline: none !important;
+              // background: none;
             }
+          }
 
-            .backup-title {
-                color: $black-1;
-                font-size: 1.2rem;
-                font-weight: 700;
-            }
-
-            label {
-                color: $black-3;
-            }
+          &__btn {
+            display: inline;
+            margin-left: auto !important;
+            margin-right: 0.5rem;
+          }
         }
+      }
+
+      .btn-change {
+        display: block !important;
+        margin-left: auto;
+      }
     }
+  }
+
+  .bhw-account {
+    button {
+      float: right;
+    }
+  }
+
+  &__backup {
+    &__form {
+      display: flex;
+      justify-content: space-between;
+      width: 80%;
+      margin-block: 2rem;
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        flex-direction: column;
+        width: 100%;
+      }
+
+      & > * {
+        width: 50%;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          width: unset;
+        }
+      }
+
+      & button,
+      & .btn-section {
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          margin-top: 1rem;
+          margin-left: auto;
+        }
+      }
+
+      .backup-title {
+        color: $black-1;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      label {
+        color: $black-3;
+      }
+    }
+  }
 }

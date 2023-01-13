@@ -29,6 +29,7 @@ hide_content();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
     <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
@@ -156,11 +157,77 @@ hide_content();
     <main class="patient">
         <section class="patient">
             <!-- COUNT PATIENT QUERY -->
-            <?php
-            include_once "includes/functions.php";
-            total_patient();
-            ?>
-            <!-- END COUNT PATIENT QUERY -->
+            <div class="patient__header">
+                <?php
+                include_once "includes/functions.php";
+                total_patient();
+                ?>
+                <!-- END COUNT PATIENT QUERY -->
+                <select name="" id="" class="services__list--mobile" onchange="patient(event, value);">
+                    <option selected>Select a service</option>
+                    <!-- COUNT DEWORMING -->
+                    <?php
+                    $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="Deworming">Deworming (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
+                    <!-- COUNT CONSULTATION -->
+                    <?php
+                    $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <!-- END COUNT CONSULTATION -->
+                        <option value="Consultation">Consultation (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
+                    <!-- PRENATAL COUNT -->
+                    <?php
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="Pre-Natal">Prenatal (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
+                    <!-- COUNT POSTNATAL -->
+                    <?php
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="Post-Natal">Postnatal (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
+                    <!--  COUNT S/D -->
+                    <?php
+                    $query = "SELECT count(*) FROM search_destroy WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="Childhood Care">Early childhood Care (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
+                    <!-- COUNT EC -->
+                    <?php
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="Search and Destroy">Search and destroy (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
+                </select>
+            </div>
 
 
             <!-- TABS event initialization-->
@@ -241,7 +308,8 @@ hide_content();
                 </li>
             </ul>
             <!-- end of TABS event initialization -->
-            <hr>
+            <hr class="services__list--hr">
+
 
             <!-- Start Tab for Deworming -->
             <div class="patient__table" id="Deworming">

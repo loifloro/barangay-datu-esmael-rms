@@ -5,7 +5,8 @@
     display: grid;
     // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-template-columns: repeat(4, auto);
-    column-gap: 1rem;
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
     grid-template-rows: repeat(2, 1fr);
     row-gap: 1rem;
     margin-top: 1.5rem;
@@ -30,9 +31,28 @@
 
   &__card-masterlist {
     display: grid;
-    grid-template-columns: repeat(3, auto);
-    column-gap: 1rem;
+    grid-template-columns: repeat(3, 1fr);
+    -moz-column-gap: 1rem;
+         column-gap: 1rem;
     margin-top: 1.5rem;
+    row-gap: 1rem;
+
+    @media (max-width: map-get($breakpoints, "large")) {
+      // Large screensizes: monitors, laptops
+      justify-content: center;
+      grid-template-columns: repeat(2, 40%);
+    }
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+    }
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      // Small smartphone
+      grid-template-columns: unset;
+      justify-content: unset;
+      width: 100vw;
+    }
   }
 
   &__card {
@@ -40,7 +60,7 @@
     align-content: flex-end;
     background: $white-1;
     border-radius: 1vw;
-    border: 1px solid $active-green;
+    border: 3px solid $active-green;
     padding: 1rem;
     max-width: 18rem;
     height: 10rem;
@@ -162,11 +182,17 @@
     color: $black-1;
     width: 100%;
     margin-bottom: 2rem;
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      @include card(1.5rem 1rem);
+    }
   }
 
   &__item,
   &__list {
-    padding-inline-start: unset;
+    -webkit-padding-start: unset;
+            padding-inline-start: unset;
     margin-block: auto;
   }
 
@@ -179,10 +205,20 @@
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     align-content: center;
+    row-gap: 1.5rem;
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      grid-template-columns: unset;
+
+      margin-left: 1rem;
+      justify-items: left;
+    }
 
     &--center {
       display: grid;
       place-items: center;
+      margin-inline: auto;
 
       li {
         margin-bottom: 0;
@@ -212,6 +248,10 @@
 }
 
 .medical-history {
+  &__service__date-availed {
+    font-size: 0.85rem;
+  }
+
   &__card {
     overflow: hidden;
     @include card(none);
@@ -220,13 +260,24 @@
       margin-bottom: unset;
     }
 
+    &__header {
+      font-size: 0.5rem;
+    }
+
     &__row {
       display: grid;
-      grid-template-columns: repeat(3, minmax(80px, 1fr));
-      padding-inline-start: unset;
+      grid-template-columns: repeat(2, 1fr) 5rem;
+      -webkit-padding-start: unset;
+              padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
       background: $white-2;
+      align-items: center;
+
+      @media (max-width: map-get($breakpoints, "medium")) {
+        // Medium smartphone
+        grid-template-columns: repeat(2, 1fr) 1rem;
+      }
     }
 
     ul:nth-child(2n + 1) {
@@ -272,7 +323,8 @@
 
   &__item,
   &__list {
-    padding-inline-start: unset;
+    -webkit-padding-start: unset;
+            padding-inline-start: unset;
     margin-block: auto;
     padding: 0.5rem;
     color: $black-2;
@@ -295,8 +347,10 @@
       display: grid;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
       grid-template-columns: auto 15% 10% 15% 15% 10%;
-      column-gap: 1rem;
-      padding-inline-start: unset;
+      -moz-column-gap: 1rem;
+           column-gap: 1rem;
+      -webkit-padding-start: unset;
+              padding-inline-start: unset;
       padding: 1rem 1.5rem;
       margin-block: 0;
     }
@@ -338,15 +392,28 @@
     color: $black-1;
     width: 100%;
     margin-bottom: 2rem;
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      @include card(1.5rem 1rem);
+    }
   }
 
   &__item,
   &__list {
-    padding-inline-start: unset;
+    -webkit-padding-start: unset;
+            padding-inline-start: unset;
     margin-block: auto;
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      &__btn {
+        margin-left: auto;
+      }
+    }
   }
 
-  &__item li {
+  li {
     margin-bottom: 1rem;
   }
 
@@ -355,10 +422,20 @@
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
     align-content: center;
+    row-gap: 1.5rem;
+
+    @media (max-width: map-get($breakpoints, "medium")) {
+      // Medium smartphone
+      grid-template-columns: unset;
+
+      margin-left: 1rem;
+      justify-items: left;
+    }
 
     &--center {
       display: grid;
       place-items: center;
+      margin-inline: auto;
 
       li {
         margin-bottom: 0;

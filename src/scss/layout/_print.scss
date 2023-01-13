@@ -1,59 +1,59 @@
-@use '../abstracts' as *;
+@use "../abstracts" as *;
 
-@page { 
-    size: auto;  
-    margin: 0mm; 
-    // font-size: .5rem;
+@page {
+  size: auto;
+  margin: 0mm;
+  // font-size: .5rem;
 }
 
 @media print {
-    body {
-        margin: unset;
-    }
-    
-    .modal {
-        font-size: 12pt !important;
-        box-shadow: none !important;
-        width: 100vw !important;
-        height: 100vh;
+  body {
+    margin: unset;
+  }
 
-    }
-    .blocker {
-        background: #fff !important;
-    }
-    
-    .close-modal {
-        display: none !important;
-    }
-    
-    .services__btn  {
-        display: none !important;
-    }
-    
-    thead {
-        color: #000 !important;
-    }
+  .modal {
+    font-size: 12pt !important;
+    box-shadow: none !important;
+    width: 100vw !important;
+    height: 100vh;
+  }
+  .blocker {
+    background: #fff !important;
+  }
 
-    table, td, th {
-        border: 2px solid rgba(0, 0, 0, 0.719) !important;
-    }
+  .close-modal {
+    display: none !important;
+  }
 
-    abbr {
-        text-decoration: none;
-    }
+  .services__btn {
+    display: none !important;
+  }
 
-    p,
-    span {
-        font-size: 10pt !important;
-    }
+  thead {
+    color: #000 !important;
+  }
 
-    .value {
-        border-bottom: 1pt solid $black-1;
+  table,
+  td,
+  th {
+    border: 2px solid rgba(0, 0, 0, 0.719) !important;
+  }
 
-    }
+  abbr {
+    text-decoration: none;
+  }
 
-    .doh-image {
-        width: 1in !important;
-        height: auto !important;
-    }
+  p,
+  span {
+    font-size: 10pt !important;
+  }
+
+  .value {
+    border-bottom: 1pt solid $black-1;
+  }
+
+  .doh-image {
+    width: 1in !important;
+    height: auto !important;
+  }
 }
