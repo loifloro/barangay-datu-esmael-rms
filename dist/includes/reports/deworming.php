@@ -86,7 +86,7 @@
         ?>
     </table>
     <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?=$patient['deworming_id']?>&&label=<?=$patient['label']?>')">
-        PDF
+    Save as PDF
     </button>
 </div>
 
@@ -298,6 +298,6 @@
 
     <button type="submit" class="btn-green btn-add services__btn btn-print" 
     onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['deworming_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
-        PDF
+    Save as PDF
     </button>
 </div>
