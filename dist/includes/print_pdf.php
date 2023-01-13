@@ -20,7 +20,7 @@ if ($label == 'Deworming'){
     $dompdf->loadHtml($html);
 
     // (Optional) Setup the paper size and orientation
-    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->setPaper('A4', 'landscape');
 
     // Render the HTML as PDF
     $dompdf->render();
@@ -112,7 +112,7 @@ if ($label == 'Search and Destroy'){
     $dompdf->loadHtml($html);
 
     // (Optional) Setup the paper size and orientation
-    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->setPaper('A4', 'landscape');
 
     // Render the HTML as PDF
     $dompdf->render();
@@ -143,4 +143,3 @@ if ($label == 'Early Childhood'){
     // Output the generated PDF to Browser
     $dompdf->stream('print-details.pdf',['Attachment'=>false]);
 }
-
