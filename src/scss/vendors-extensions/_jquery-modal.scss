@@ -5,6 +5,13 @@
   box-shadow: $drop-shadow !important;
   padding: unset !important;
   border-radius: 1vw !important;
+
+  @media (max-width: map-get($breakpoints, "medium")) {
+    // Medium smartphone
+    min-width: -webkit-max-content;
+    min-width: -moz-max-content;
+    min-width: max-content;
+  }
 }
 
 .blocker {
