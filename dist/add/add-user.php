@@ -166,15 +166,15 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </div>
 
                 <div class="add-user__form-item add-user__form-item--role">
-                    <label for="bhw-contact">Role</label>
+                    <label for="bhw-role">Role</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="bhw-role" id="bhw-chn" value="City Health Nurse" required>
-                            <label for="bhw-chn">City Health Nurse</label>
+                            <input type="radio" name="bhw-role" id="bhw-role" value="City Health Nurse" required>
+                            <label for="bhw-role">City Health Nurse</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="bhw-role" id="bhw-bhw" value="Barangay Health Worker" required>
-                            <label for="bhw-bhw">Barangay Health Worker</label>
+                            <input type="radio" name="bhw-role" id="bhw-role" value="Barangay Health Worker" required>
+                            <label for="bhw-role">Barangay Health Worker</label>
                         </div>
                     </div>
                 </div>

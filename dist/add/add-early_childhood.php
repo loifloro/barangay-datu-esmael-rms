@@ -205,11 +205,11 @@ hide_content_forms();
                     <label for="early_childhood-sex">Sex *</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" required>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex" value="Male" required>
                             <label for="early_childhood-sex">Male</label>
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female" required>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex" value="Female" required>
                             <label for="early_childhood-sex">Female</label>
                         </div>
                     </div>
@@ -308,11 +308,11 @@ hide_content_forms();
                     <label for="early_childhood-birth">Type of Birth *</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" required>
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth" value="Normal" required>
                             <label for="early_childhood-birth">Normal</label>
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS" required>
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth" value="CS" required>
                             <label for="early_childhood-birth">CS</label>
                         </div>
                     </div>
