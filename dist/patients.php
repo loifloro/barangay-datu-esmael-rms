@@ -385,7 +385,7 @@ hide_content();
                     }
                     if (isset($_POST['sort_service_availed'])) {
                         $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 3) {
+                        if ($sort_id == 4) {
                             $query = "SELECT * FROM deworming ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
@@ -516,7 +516,7 @@ hide_content();
                     }
                     if (isset($_POST['sort_service_availed'])) {
                         $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 3) {
+                        if ($sort_id == 4) {
                             $query = "SELECT * FROM consultation ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
@@ -648,7 +648,7 @@ hide_content();
                     }
                     if (isset($_POST['sort_service_availed'])) {
                         $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 3) {
+                        if ($sort_id == 4) {
                             $query = "SELECT * FROM prenatal ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
@@ -780,7 +780,7 @@ hide_content();
                     }
                     if (isset($_POST['sort_service_availed'])) {
                         $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 3) {
+                        if ($sort_id == 4) {
                             $query = "SELECT * FROM postnatal ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
@@ -912,7 +912,7 @@ hide_content();
                     }
                     if (isset($_POST['sort_service_availed'])) {
                         $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 3) {
+                        if ($sort_id == 4) {
                             $query = "SELECT * FROM search_destroy ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
@@ -1044,7 +1044,7 @@ hide_content();
                     }
                     if (isset($_POST['sort_service_availed'])) {
                         $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 3) {
+                        if ($sort_id == 4) {
                             $query = "SELECT * FROM early_childhood ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }

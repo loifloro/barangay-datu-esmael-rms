@@ -413,7 +413,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['sort_date_availed'])) {
                     $sort_id = $_POST['sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM deworming ORDER BY deworming_date";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -555,7 +555,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['sort_date_availed'])) {
                     $sort_id = $_POST['sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM consultation ORDER BY consultation_date";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -687,7 +687,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['sort_date_availed'])) {
                     $sort_id = $_POST['sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM prenatal ORDER BY prenatal_date";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -819,7 +819,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['sort_date_availed'])) {
                     $sort_id = $_POST['sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM postnatal ORDER BY postnatal_date";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -952,7 +952,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['sort_date_availed'])) {
                     $sort_id = $_POST['sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM search_destroy ORDER BY date_visit";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -1088,7 +1088,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['sort_date_availed'])) {
                     $sort_id = $_POST['sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM early_childhood ORDER BY early_childhood_date";
                         $query_run = mysqli_query($conn, $query);
                     }
