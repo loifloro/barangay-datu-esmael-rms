@@ -1,80 +1,94 @@
 <!-- INTERNAL CSS -->
 <style>
+    .value {
+        font-weight: bolder;
+        font-size: 12pt;
+        border-bottom: 1pt solid black;
+        padding-bottom: 3pt;
+    }
 
-h4{
-    font-weight:bold;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.consultation__report__city{
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
-.consultation__report__title{
-    text-align: center;
-}
-.value{
-    font-weight: normal;
-}
-.consultation__report__personal-info__item{
-    font-weight: bold;
-}
-.consultation__report__personal-info__age{
-    position: absolute;
-    top: 118px;
-    left: 320px;
-}
-.consultation__report__personal-info__bday{
-    position: absolute;
-    top: 118px;
-    left: 440px;
-}
-.consultation__report__personal-info__address{
-    position: absolute;
-    top: 140px;
-}
-.consultation__report__personal-info__phone{
-    position: absolute;
-    top: 140px;
-    left: 440px;
-}
-.consultation__report__personal-info__date{
-    position: absolute;
-    top: 160px;
-}
-.consultation__report__symptom{
-    position: absolute;
-    top: 200px;
-    font-weight: bold;
-}
-.consultation__report__bmi{
-    font-weight: bold;
-}
-.prenatal__report__a{
-    font-weight: bold;
-}
-.prenatal__report__p{
-    font-weight: bold;
-}
+
+    .consultation__report {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+    }
+
+    .consultation__report__title {
+        text-align: center;
+        color: #212529;
+        text-transform: uppercase;
+        line-height: 1.1;
+        margin-top: 10pt;
+    }
+
+    .consultation__report__city {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+
+    .consultation__report__subtitle {
+        text-align: center;
+    }
+
+    .consultation__report__patient-record {
+        margin-bottom: unset;
+    }
+
+    .consultation__report__personal-info {
+        text-transform: uppercase;
+        margin-top: 20pt;
+    }
+
+    .consultation__report__personal-info__name,
+    .consultation__report__personal-info__age,
+    .consultation__report__personal-info__bday,
+    .consultation__report__personal-info__address,
+    .consultation__report__personal-info__phone {
+        display: inline;
+    }
+
+    .consultation__report__personal-info__age {
+        padding-left: 50pt;
+
+    }
+
+    .consultation__report__personal-info__bday {
+        padding-left: 100pt;
+    }
+
+    .consultation__report__personal-info__phone {
+        padding-left: 50pt;
+    }
+
+
+    .consultation__report .padding-left {
+        padding-left: 2rem;
+    }
+
+    .consultation__report__bmi {
+        margin-bottom: 2rem;
+    }
+
+    .consultation__report__bmi__item--weight {
+        margin-left: 2rem;
+    }
 </style>
 <!-- END -->
 
 <div id="consultation__report<?= $patient['consultation_id']; ?>" class="modal consultation__report">
-            <h4 class="consultation__report__title">
-                City Government of Dasmariñas <br> City Health Office II
-            </h4>
-            <p class="consultation__report__city">
-                City of Dasmariñas, Cavite
-            </p>
+    <h4 class="consultation__report__title">
+        City Government of Dasmariñas <br> City Health Office II
+    </h4>
+    <p class="consultation__report__city">
+        City of Dasmariñas, Cavite
+    </p>
 
-            <h5 class="consultation__report__title consultation__report__patient-record">
-                PATIENT RECORD
-            </h5>
-    
-    <div class="consultation__report__personal-info">
-        <p class="consultation__report__personal-info__item consultation__report__personal-info__name">
+    <h5 class="consultation__report__title consultation__report__patient-record">
+        PATIENT RECORD
+    </h5>
+
+    <div class="consultation__report__personal-info" style="width: 100%">
+        <p class="consultation__report__personal-info__item consultation__report__personal-info__name" style="margin-right: auto;">
             Name:
             <span class="value">
                 <?= $patient['firstname'] . " " . $patient['middlename'] . " " . $patient['lastname']; ?>
@@ -131,7 +145,7 @@ h4{
                     <?= $patient['blood_pressure']; ?>
                     mmHg
                 </span>
-                
+
             </p>
             <p class="consultation__report__bmi__item--weight">
                 <abbr title="Weight">WT:</abbr>
