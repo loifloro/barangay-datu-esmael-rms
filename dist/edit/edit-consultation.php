@@ -191,11 +191,11 @@ hide_content_forms();
                             <label for="consultation-sex">Gender *</label>
                             <div class="edit-consultation__form--role-item">
                                 <div class="edit-consultation__form-item">
-                                    <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required>
+                                    <input type="radio" name="consultation-sex" id="consultation-sex" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required>
                                     <label for="consultation-sex">Male</label>
                                 </div>
                                 <div class="edit-consultation__form-item">
-                                    <input type="radio" name="consultation-sex" id="consultation-sex--female" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?> required>
+                                    <input type="radio" name="consultation-sex" id="consultation-sex" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?> required>
                                     <label for="consultation-sex">Female</label>
                                 </div>
                             </div>
@@ -276,20 +276,20 @@ hide_content_forms();
 
                         <!-- Radio Buttons -->
                         <div class="edit-consultation__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
-                            <label for="patient-mispelled">Mispelled Name</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Mispelled Name" required>
+                            <label for="edit-reason">Mispelled Name</label>
                         </div>
                         <div class="edit-consultation__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
-                            <label for="patient-mispelled">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Gender" required>
+                            <label for="edit-reason">Incorrect Gender</label>
                         </div>
                         <div class="edit-consultation__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
-                            <label for="patient-mispelled">Incorrect Birthdate</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Birthdate" required>
+                            <label for="edit-reason">Incorrect Birthdate</label>
                         </div>
                         <div class="edit-consultation__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address" required>
-                            <label for="patient-mispelled">Wrong Address</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Wrong Address" required>
+                            <label for="edit-reason">Wrong Address</label>
                         </div>
                         <div class="edit-consultation__form-item--reason">
                             <!-- <input type="radio" name="edit-reason" id="patient-others"> -->

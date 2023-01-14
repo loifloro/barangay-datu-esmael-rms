@@ -182,11 +182,11 @@
                                 <label for="bhw-sex">Sex</label>
                                 <div class="edit-bhw__form--role-item">
                                     <div class="edit-bhw__form-item">
-                                        <input type="radio" name="bhw-sex" id="bhw-sex--female" value="Male" <?= ($user['sex'] == 'Male') ? 'checked' : '' ?>>
+                                        <input type="radio" name="bhw-sex" id="bhw-sex" value="Male" <?= ($user['sex'] == 'Male') ? 'checked' : '' ?>>
                                         <label for="bhw-sex">Male</label>
                                     </div>
                                     <div class="edit-bhw__form-item">
-                                        <input type="radio" name="bhw-sex" id="bhw-sex--female" value="Female" <?= ($user['sex'] == 'Female') ? 'checked' : '' ?>>
+                                        <input type="radio" name="bhw-sex" id="bhw-sex" value="Female" <?= ($user['sex'] == 'Female') ? 'checked' : '' ?>>
                                         <label for="bhw-sex">Female</label>
                                     </div>
                                 </div>

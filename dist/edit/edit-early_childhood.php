@@ -220,11 +220,11 @@ hide_content_forms();
                             <label for="early_childhood-sex">Sex *</label>
                             <div class="edit-early_childhood__form--role-item">
                                 <div class="edit-early_childhood__form-item">
-                                    <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required>
+                                    <input type="radio" name="early_childhood-sex" id="early_childhood-sex" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required>
                                     <label for="early_childhood-sex">Male</label>
                                 </div>
                                 <div class="edit-early_childhood__form-item">
-                                    <input type="radio" name="early_childhood-sex" id="early_childhood-sex--female" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?> required>
+                                    <input type="radio" name="early_childhood-sex" id="early_childhood-sex" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?> required>
                                     <label for="early_childhood-sex">Female</label>
                                 </div>
                             </div>
@@ -327,11 +327,11 @@ hide_content_forms();
                             <label for="early_childhood-birth">Type of Birth *</label>
                             <div class="edit-early_childhood__form--role-item">
                                 <div class="edit-early_childhood__form-item">
-                                    <input type="radio" name="early_childhood-birth" id="early_childhood-birth--normal" value="Normal" <?= ($patient['birth_type'] == 'Normal') ? 'checked' : '' ?> required>
+                                    <input type="radio" name="early_childhood-birth" id="early_childhood-birth" value="Normal" <?= ($patient['birth_type'] == 'Normal') ? 'checked' : '' ?> required>
                                     <label for="early_childhood-birth">Normal</label>
                                 </div>
                                 <div class="edit-early_childhood__form-item">
-                                    <input type="radio" name="early_childhood-birth" id="early_childhood-birth--cs" value="CS" <?= ($patient['birth_type'] == 'CS') ? 'checked' : '' ?> required>
+                                    <input type="radio" name="early_childhood-birth" id="early_childhood-birth" value="CS" <?= ($patient['birth_type'] == 'CS') ? 'checked' : '' ?> required>
                                     <label for="early_childhood-birth">CS</label>
                                 </div>
                             </div>
@@ -546,20 +546,20 @@ hide_content_forms();
 
                         <!-- Radio Buttons -->
                         <div class="edit-early_childhood__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
-                            <label for="patient-mispelled">Mispelled Name</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Mispelled Name" required>
+                            <label for="edit-reason">Mispelled Name</label>
                         </div>
                         <div class="edit-early_childhood__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
-                            <label for="patient-mispelled">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Gender" required>
+                            <label for="edit-reason">Incorrect Gender</label>
                         </div>
                         <div class="edit-early_childhood__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
-                            <label for="patient-mispelled">Incorrect Birthdate</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Birthdate" required>
+                            <label for="edit-reason">Incorrect Birthdate</label>
                         </div>
                         <div class="edit-early_childhood__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-wrong-address" value="Wrong Address" required>
-                            <label for="patient-mispelled">Wrong Address</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Wrong Address" required>
+                            <label for="edit-reason">Wrong Address</label>
                         </div>
                         <div class="edit-early_childhood__form-item--reason">
                             <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
