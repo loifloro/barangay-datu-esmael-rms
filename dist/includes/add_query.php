@@ -5,16 +5,16 @@ include "connection.php";
 // ADD BHW
 if (isset($_GET['save_bhw'])) {
 
-    $phone_num = mysqli_real_escape_string($conn, $_GET['bhw-contact']);
+    $user_email = mysqli_real_escape_string($conn, $_GET['bhw-contact']);
     $password = mysqli_real_escape_string($conn, $_GET['bhw-pass']);
     $position = mysqli_real_escape_string($conn, $_GET['bhw-role']);
 
     $date_added = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO account_information 
-              (firstname, phone_num, password, sex, position, date_registered) 
+              (firstname, user_email, password, sex, position, date_registered) 
               VALUES 
-              ('-', '$phone_num', '$password', '-', '$position', '$date_added')";
+              ('-', '$user_email', '$password', '-', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
