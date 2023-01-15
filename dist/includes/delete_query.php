@@ -38,7 +38,7 @@ if (isset($_GET['archive'])) {
             // QUERY TO RECENT UPDATE DEWORMING
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -54,7 +54,6 @@ if (isset($_GET['archive'])) {
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
                 header("Location: ../services-consultation.php?archive&service=deworming");
-                // header("Location: ../services-consultation.php");
                 exit(0);
             }
             //END OF QUERY
@@ -73,7 +72,7 @@ if (isset($_GET['archive'])) {
             // QUERY TO RECENT UPDATE CONSULTATION
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -100,8 +99,8 @@ if (isset($_GET['archive'])) {
     // PRENATAL ARCHIVING
     if (isset($_GET['prenatal'])) {
         $prenatal_id = mysqli_real_escape_string($conn, $_GET['id']);
-        $prenatal_fname = mysqli_real_escape_string($conn, $_POST['patientFirstName']);
-        $prenatal_lname = mysqli_real_escape_string($conn, $_POST['patientLastName']);
+        $prenatal_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $prenatal_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE prenatal SET archive_label = 'archived' WHERE prenatal_id='$prenatal_id'";
         $query_run = mysqli_query($conn, $query);
@@ -109,11 +108,11 @@ if (isset($_GET['archive'])) {
             // QUERY TO RECENT UPDATE PRENATAL
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -136,8 +135,8 @@ if (isset($_GET['archive'])) {
     // POSTNATAL ARCHIVING
     if (isset($_GET['postnatal'])) {
         $postnatal_id = mysqli_real_escape_string($conn, $_GET['id']);
-        $postnatal_fname = mysqli_real_escape_string($conn, $_POST['patientFirstName']);
-        $postnatal_lname = mysqli_real_escape_string($conn, $_POST['patientLastName']);
+        $postnatal_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $postnatal_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE postnatal SET archive_label = 'archived' WHERE postnatal_id='$postnatal_id'";
         $query_run = mysqli_query($conn, $query);
@@ -145,11 +144,11 @@ if (isset($_GET['archive'])) {
             // QUERY TO RECENT UPDATE POSTNATAL
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['postnatal_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -172,8 +171,8 @@ if (isset($_GET['archive'])) {
     // SEARCH DESTROY ARCHIVING
     if (isset($_GET['search-destroy'])) {
         $search_destroy_id = mysqli_real_escape_string($conn, $_GET['id']);
-        $search_destroy_fname = mysqli_real_escape_string($conn, $_POST['patientFirstName']);
-        $search_destroy_lname = mysqli_real_escape_string($conn, $_POST['patientLastName']);
+        $search_destroy_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $search_destroy_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE search_destroy SET archive_label = 'archived' WHERE search_destroy_id='$search_destroy_id'";
         $query_run = mysqli_query($conn, $query);
@@ -181,11 +180,11 @@ if (isset($_GET['archive'])) {
             // QUERY TO RECENT UPDATE SEARCH DESTROY
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['search_destroy_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['search_destroy_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -208,8 +207,8 @@ if (isset($_GET['archive'])) {
     // EARLY CHILDHOOD ARCHIVING
     if (isset($_GET['early-childhood'])) {
         $early_childhood_id = mysqli_real_escape_string($conn, $_GET['id']);
-        $early_childhood_fname = mysqli_real_escape_string($conn, $_POST['patientFirstName']);
-        $early_childhood_lname = mysqli_real_escape_string($conn, $_POST['patientLastName']);
+        $early_childhood_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $early_childhood_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE early_childhood SET archive_label = 'archived' WHERE early_childhood_id='$early_childhood_id'";
         $query_run = mysqli_query($conn, $query);
@@ -217,11 +216,11 @@ if (isset($_GET['archive'])) {
             // QUERY TO RECENT UPDATE EARLY CHILDHOOD 
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['early_childhood_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['early_childhood_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -256,7 +255,7 @@ if (isset($_GET['restore'])) {
             // QUERY TO RECENT UPDATE DEWORMING
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -272,7 +271,6 @@ if (isset($_GET['restore'])) {
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
                 header("Location: ../services-consultation.php?restore&service=deworming");
-                // header("Location: ../services-consultation.php");
                 exit(0);
             }
             //END OF QUERY
@@ -291,7 +289,7 @@ if (isset($_GET['restore'])) {
             // QUERY TO RECENT UPDATE CONSULTATION
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -315,9 +313,9 @@ if (isset($_GET['restore'])) {
 
     // PRENATAL RESTORE
     if (isset($_GET['prenatal'])) {
-        $prenatal_id = mysqli_real_escape_string($conn, $_POST['prenatal_id']);
-        $prenatal_fname = mysqli_real_escape_string($conn, $_POST['prenatal_fname']);
-        $prenatal_lname = mysqli_real_escape_string($conn, $_POST['prenatal_lname']);
+        $prenatal_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $prenatal_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $prenatal_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE prenatal SET archive_label = ' ' WHERE prenatal_id='$prenatal_id'";
         $query_run = mysqli_query($conn, $query);
@@ -325,11 +323,11 @@ if (isset($_GET['restore'])) {
             // QUERY TO RECENT UPDATE PRENATAL
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -349,9 +347,9 @@ if (isset($_GET['restore'])) {
 
     // POSTNATAL RESTORE
     if (isset($_GET['postnatal'])) {
-        $postnatal_id = mysqli_real_escape_string($conn, $_POST['postnatal_id']);
-        $postnatal_fname = mysqli_real_escape_string($conn, $_POST['postnatal_fname']);
-        $postnatal_lname = mysqli_real_escape_string($conn, $_POST['postnatal_lname']);
+        $postnatal_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $postnatal_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $postnatal_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE postnatal SET archive_label = ' ' WHERE postnatal_id='$postnatal_id'";
         $query_run = mysqli_query($conn, $query);
@@ -359,11 +357,11 @@ if (isset($_GET['restore'])) {
             // QUERY TO RECENT UPDATE POSTNATAL
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['postnatal_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['postnatal_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -383,9 +381,9 @@ if (isset($_GET['restore'])) {
 
     // SEARCH DESTROY RESTORE
     if (isset($_GET['search-destroy'])) {
-        $search_destroy_id = mysqli_real_escape_string($conn, $_POST['search_destroy_id']);
-        $search_destroy_fname = mysqli_real_escape_string($conn, $_POST['search_destroy_fname']);
-        $search_destroy_lname = mysqli_real_escape_string($conn, $_POST['search_destroy_lname']);
+        $search_destroy_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $search_destroy_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $search_destroy_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE search_destroy SET archive_label = ' ' WHERE search_destroy_id='$search_destroy_id'";
         $query_run = mysqli_query($conn, $query);
@@ -393,11 +391,11 @@ if (isset($_GET['restore'])) {
             // QUERY TO RECENT UPDATE SEARCH DESTROY
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['search_destroy_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['search_destroy_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -417,9 +415,9 @@ if (isset($_GET['restore'])) {
 
     // EARLY CHILDHOOD RESTORE
     if (isset($_GET['early-childhood'])) {
-        $early_childhood_id = mysqli_real_escape_string($conn, $_POST['early_childhood_id']);
-        $early_childhood_fname = mysqli_real_escape_string($conn, $_POST['early_childhood_fname']);
-        $early_childhood_lname = mysqli_real_escape_string($conn, $_POST['early_childhood_lname']);
+        $early_childhood_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $early_childhood_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $early_childhood_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
         $query = "UPDATE early_childhood SET archive_label = ' ' WHERE early_childhood_id='$early_childhood_id'";
         $query_run = mysqli_query($conn, $query);
@@ -427,11 +425,11 @@ if (isset($_GET['restore'])) {
             // QUERY TO RECENT UPDATE EARLY CHILDHOOD 
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['early_childhood_fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['early_childhood_lname']);
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
 
             $query2 = "INSERT INTO recent_activity 
                 (reasons, user_fname, user_lname, user_role, changes_label, 
@@ -462,7 +460,7 @@ if (isset($_GET['delete'])) { //
             // QUERY TO RECENT UPDATE DEWORMING
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -494,7 +492,7 @@ if (isset($_GET['delete'])) { //
             // QUERY TO RECENT UPDATE CONSULTATION
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -525,7 +523,7 @@ if (isset($_GET['delete'])) { //
             // QUERY TO RECENT UPDATE PRENATAL
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -556,7 +554,7 @@ if (isset($_GET['delete'])) { //
             // QUERY TO RECENT UPDATE POSTNATAL
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -587,7 +585,7 @@ if (isset($_GET['delete'])) { //
             // QUERY TO RECENT UPDATE SEARCH AND DESTROY
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
@@ -618,7 +616,7 @@ if (isset($_GET['delete'])) { //
             // QUERY TO RECENT UPDATE SEARCH AND DESTROY
             $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
             $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
-            $user_role = mysqli_real_escape_string($conn, $_GET['userPosition']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
             $date = date('Y-m-d');
             $time = date('H:i:s');
             $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);

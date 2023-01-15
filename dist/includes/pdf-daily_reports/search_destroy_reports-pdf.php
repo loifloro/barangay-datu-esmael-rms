@@ -1,4 +1,8 @@
 <!-- Search and Destroy Daily report -->
+<head>
+  <title>Search and Destroy Reports <?= $date; ?></title>
+</head>
+
 <div id="search-and-destroy__daily-report" class="modal search-and-destroy__report">
     <h4 class="consultation__report__title">
         City Government of Dasmariñas <br> City Health Office II

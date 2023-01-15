@@ -1,3 +1,7 @@
+<head>
+  <title>Deworming Record</title>
+</head>
+
 <div id='deworming-modal<?= $patient['deworming_id']; ?>' class="modal deworming-report__table">
 </div>
 

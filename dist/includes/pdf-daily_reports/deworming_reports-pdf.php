@@ -1,3 +1,7 @@
+<head>
+  <title>Deworming Reports <?= $date; ?></title>
+</head>
+
 <div class="modal deworming-reports" id="deworming-daily-reports">
     <h4 class="consultation__report__title">
         City Government of Dasmariñas <br> City Health Office II

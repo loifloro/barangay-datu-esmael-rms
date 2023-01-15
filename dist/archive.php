@@ -98,14 +98,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     <p class="sidebar__caption">Settings</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="" class="sidebar__link">
-                    <svg alt="Feedback" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z" />
-                    </svg>
-                    <p class="sidebar__caption">Feedback</p>
-                </a>
-            </li>
             <li class="sidebar__item" onclick="logoutAlert()">
                 <a href="#" class="sidebar__link"> <!--href link added-->
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -245,50 +237,91 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- DEWORMING SECTION -->
         <div class="backup__table" id="Deworming">
+        <!-- SORT QUERY -->
+        <form action="" method="POST">
             <ul class="backup__table__row backup__attributes" role="list">
                 <li class="backup__attributes__item">
                     Name
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR NAME -->
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Contact No.
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR CONTACT -->
+                    <button type="submit" name="sort_contact" value="2">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Sex
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR SEX -->
+                    <button type="submit" name="sort_sex" value="3">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Date Availed
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR DATE -->
+                    <button type="submit" name="sort_date" value="4">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
+        </form>
+        <!-- END OF SORT -->
 
             <!-- To be put in the loop -->
             <?php
             $query = "SELECT * FROM deworming WHERE archive_label = 'archived'";
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['sort_name'])) {
+                    $sort_id = $_POST['sort_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM deworming WHERE archive_label = 'archived' ORDER BY firstname";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_contact'])) {
+                    $sort_id = $_POST['sort_contact'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM deworming WHERE archive_label = 'archived' ORDER BY phone_num";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_sex'])) {
+                    $sort_id = $_POST['sort_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM deworming WHERE archive_label = 'archived' ORDER BY sex";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_date'])) {
+                    $sort_id = $_POST['sort_date'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM deworming  WHERE archive_label = 'archived' ORDER BY deworming_date";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
                 foreach ($query_run as $archive) {
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
-                            <?= $archive['firstname']; ?>
+                            <?= $archive['firstname'].' '.$archive['lastname']; ?>
                         </li>
                         <li class="backup__num">
                             <?= $archive['phone_num']; ?>
@@ -327,50 +360,91 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- CONSULTATION SECTION -->
         <div class="backup__table" id="Consultation">
+        <!-- SORT QUERY -->
+        <form action="" method="POST">
             <ul class="backup__table__row backup__attributes" role="list">
                 <li class="backup__attributes__item">
                     Name
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR NAME -->
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Contact No.
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR CONTACT -->
+                    <button type="submit" name="sort_contact" value="2">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Sex
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR SEX -->
+                    <button type="submit" name="sort_sex" value="3">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Date Availed
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR DATE -->
+                    <button type="submit" name="sort_date" value="4">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
+            </form>
+            <!-- END OF SORT -->
 
             <!-- To be put in the loop -->
             <?php
             $query = "SELECT * FROM consultation WHERE archive_label = 'archived'";
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['sort_name'])) {
+                    $sort_id = $_POST['sort_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM consultation WHERE archive_label = 'archived' ORDER BY firstname";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_contact'])) {
+                    $sort_id = $_POST['sort_contact'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM consultation WHERE archive_label = 'archived' ORDER BY phone_number";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_sex'])) {
+                    $sort_id = $_POST['sort_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM consultation WHERE archive_label = 'archived' ORDER BY sex";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_date'])) {
+                    $sort_id = $_POST['sort_date'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM consultation  WHERE archive_label = 'archived' ORDER BY consultation_date";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
                 foreach ($query_run as $archive) {
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
-                            <?= $archive['firstname']; ?>
+                            <?= $archive['firstname'].' '.$archive['lastname']; ?>
                         </li>
                         <li class="backup__num">
                             <?= $archive['phone_number']; ?>
@@ -410,50 +484,91 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- PRENATAL SECTION -->
         <div class="backup__table" id="Pre-Natal">
+        <!-- SORT QUERY -->
+        <form action="" method="POST">
             <ul class="backup__table__row backup__attributes" role="list">
                 <li class="backup__attributes__item">
                     Name
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                   <!-- BUTTON FOR NAME -->
+                   <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Contact No.
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR CONTACT -->
+                    <button type="submit" name="sort_contact" value="2">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Sex
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR SEX -->
+                    <button type="submit" name="sort_sex" value="3">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Date Availed
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR DATE -->
+                    <button type="submit" name="sort_date" value="4">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
+        </form>
+        <!-- END OF SORT -->
 
             <!-- To be put in the loop -->
             <?php
             $query = "SELECT * FROM prenatal WHERE archive_label = 'archived'";
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['sort_name'])) {
+                    $sort_id = $_POST['sort_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM prenatal WHERE archive_label = 'archived' ORDER BY firstname";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_contact'])) {
+                    $sort_id = $_POST['sort_contact'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM prenatal WHERE archive_label = 'archived' ORDER BY phone_num";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_sex'])) {
+                    $sort_id = $_POST['sort_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM prenatal WHERE archive_label = 'archived' ORDER BY sex";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_date'])) {
+                    $sort_id = $_POST['sort_date'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM prenatal  WHERE archive_label = 'archived' ORDER BY prenatal_date";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
                 foreach ($query_run as $archive) {
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
-                            <?= $archive['firstname']; ?>
+                            <?= $archive['firstname'].' '.$archive['lastname']; ?>
                         </li>
                         <li class="backup__num">
                             <?= $archive['phone_num']; ?>
@@ -470,10 +585,11 @@ if (mysqli_num_rows($query_run) > 0) {
                             <!-- <span class="backup__status--available">Available</span> -->
                         </li>
                         <li class="backup__option">
-                            <button type="button" onclick="confirmRestore('prenatal' ,'<?= $archive['prenatal_id']; ?>' , '<?= $archive['firstname']; ?>' , '<?= $archive['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
-                                <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
-                                </svg>
+                             <!-- RESTORE BUTTON -->
+                            <button type="button" name="restore_consultation" onclick="confirmRestore('prenatal' ,'<?= $archive['prenatal_id']; ?>' , '<?= $archive['firstname']; ?>' , '<?= $archive['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
+                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                    </svg>
                             </button>
                             <!-- DELETE BUTTON -->
                             <button type="button" name="delete_prenatal" onclick="confirmDelete('prenatal' , '<?= $archive['prenatal_id']; ?>', '<?= $archive['firstname']; ?>' , '<?= $archive['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
@@ -491,36 +607,47 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- POSTNATAL SECTION -->
         <div class="backup__table" id="Post-Natal">
+         <!-- SORT QUERY -->
+         <form action="" method="POST">
             <ul class="backup__table__row backup__attributes" role="list">
                 <li class="backup__attributes__item">
                     Name
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR NAME -->
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Contact No.
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                   <!-- BUTTON FOR CONTACT -->
+                   <button type="submit" name="sort_contact" value="2">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Sex
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR SEX -->
+                    <button type="submit" name="sort_sex" value="3">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Date Availed
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR DATE -->
+                    <button type="submit" name="sort_date" value="4">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
@@ -530,11 +657,39 @@ if (mysqli_num_rows($query_run) > 0) {
             $query = "SELECT * FROM postnatal WHERE archive_label = 'archived'";
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['sort_name'])) {
+                    $sort_id = $_POST['sort_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM postnatal WHERE archive_label = 'archived' ORDER BY firstname";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_contact'])) {
+                    $sort_id = $_POST['sort_contact'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM postnatal WHERE archive_label = 'archived' ORDER BY phone_num";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_sex'])) {
+                    $sort_id = $_POST['sort_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM postnatal WHERE archive_label = 'archived' ORDER BY sex";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_date'])) {
+                    $sort_id = $_POST['sort_date'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM postnatal  WHERE archive_label = 'archived' ORDER BY postnatal_date";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
                 foreach ($query_run as $archive) {
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
-                            <?= $archive['firstname']; ?>
+                            <?= $archive['firstname'].' '.$archive['lastname']; ?>
                         </li>
                         <li class="backup__num">
                             <?= $archive['phone_num']; ?>
@@ -553,9 +708,9 @@ if (mysqli_num_rows($query_run) > 0) {
                         <li class="backup__option">
                             <!-- RESTORE BUTTON -->
                             <button type="button" onclick="confirmRestore('postnatal' ,'<?= $archive['postnatal_id']; ?>' , '<?= $archive['firstname']; ?>' , '<?= $archive['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
-                                <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
-                                </svg>
+                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                    </svg>
                             </button>
                             <!-- DELETE BUTTON -->
                             <button type="button" name="delete_postnatal" onclick="confirmDelete('postnatal' , '<?= $archive['postnatal_id']; ?>', '<?= $archive['firstname']; ?>' , '<?= $archive['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
@@ -573,50 +728,91 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- SEARCH AND DESTROY SECTION -->
         <div class="backup__table" id="Search-and-Destroy">
+        <!-- SORT QUERY -->
+        <form action="" method="POST">
             <ul class="backup__table__row backup__attributes" role="list">
                 <li class="backup__attributes__item">
                     Name
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR NAME -->
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Contact No.
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR CONTACT -->
+                    <button type="submit" name="sort_contact" value="2">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Sex
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR SEX -->
+                    <button type="submit" name="sort_sex" value="3">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Date Availed
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR DATE -->
+                    <button type="submit" name="sort_date" value="4">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
+        </form>
+        <!-- END OF SORT -->
 
             <!-- To be put in the loop -->
             <?php
             $query = "SELECT * FROM search_destroy WHERE archive_label = 'archived'";
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['sort_name'])) {
+                    $sort_id = $_POST['sort_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM search_destroy WHERE archive_label = 'archived' ORDER BY owner_fname";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_contact'])) {
+                    $sort_id = $_POST['sort_contact'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM search_destroy WHERE archive_label = 'archived' ORDER BY phone_num";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_sex'])) {
+                    $sort_id = $_POST['sort_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM search_destroy WHERE archive_label = 'archived' ORDER BY sex";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_date'])) {
+                    $sort_id = $_POST['sort_date'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM search_destroy  WHERE archive_label = 'archived' ORDER BY search_destroy_date";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
                 foreach ($query_run as $archive) {
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
-                            <?= $archive['owner_fname']; ?>
+                            <?= $archive['owner_fname'].' '.$archive['owner_lname']; ?>
                         </li>
                         <li class="backup__num">
                             <?= $archive['phone_num']; ?>
@@ -635,9 +831,9 @@ if (mysqli_num_rows($query_run) > 0) {
                         <li class="backup__option">
                             <!-- RESTORE BUTTON -->
                             <button type="button" onclick="confirmRestore('search-destroy' ,'<?= $archive['search_destroy_id']; ?>' , '<?= $archive['owner_fname']; ?>' , '<?= $archive['owner_fname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
-                                <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
-                                </svg>
+                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                    </svg>
                             </button>
                             <!-- DELETE BUTTON -->
                             <button type="button" name="delete_search-destroy" onclick="confirmDelete('search_destroy' , '<?= $archive['search_destroy_id']; ?>', '<?= $archive['owner_fname']; ?>' , '<?= $archive['owner_lname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
@@ -655,50 +851,91 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <!-- EARLY CHILDHOOD SECTION -->
         <div class="backup__table" id="Childhood-Care">
+        <!-- SORT QUERY -->
+        <form action="" method="POST">
             <ul class="backup__table__row backup__attributes" role="list">
                 <li class="backup__attributes__item">
                     Name
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR NAME -->
+                    <button type="submit" name="sort_name" value="1">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Contact No.
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR CONTACT -->
+                    <button type="submit" name="sort_contact" value="2">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Sex
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR SEX -->
+                    <button type="submit" name="sort_sex" value="3">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Date Availed
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
+                    <!-- BUTTON FOR DATE -->
+                    <button type="submit" name="sort_date" value="4">
+                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                        </svg>
+                    </button>
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                    </svg>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
+        </form>
+        <!-- END OF SORT -->
 
             <!-- To be put in the loop -->
             <?php
             $query = "SELECT * FROM early_childhood WHERE archive_label = 'archived'";
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['sort_name'])) {
+                    $sort_id = $_POST['sort_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM early_childhood WHERE archive_label = 'archived' ORDER BY child_fname";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_contact'])) {
+                    $sort_id = $_POST['sort_contact'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM early_childhood WHERE archive_label = 'archived' ORDER BY phone_num";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_sex'])) {
+                    $sort_id = $_POST['sort_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM early_childhood WHERE archive_label = 'archived' ORDER BY sex";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['sort_date'])) {
+                    $sort_id = $_POST['sort_date'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM early_childhood  WHERE archive_label = 'archived' ORDER BY early_childhood_date";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
                 foreach ($query_run as $archive) {
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
-                            <?= $archive['child_fname']; ?>
+                            <?= $archive['child_fname'].' '. $archive['child_lname']; ?>
                         </li>
                         <li class="backup__num">
                             <?= $archive['phone_num']; ?>
@@ -716,10 +953,10 @@ if (mysqli_num_rows($query_run) > 0) {
                         </li>
                         <li class="backup__option">
                             <!-- RESTORE BUTTON -->
-                            <button type="button" onclick="confirmRestore('early-childhood' ,'<?= $patient['early_childhood_id']; ?>' , '<?= $patient['child_fname']; ?>' , '<?= $patient['child_lname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
-                                <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
-                                </svg>
+                            <button type="button" onclick="confirmRestore('early-childhood' ,'<?= $archive['early_childhood_id']; ?>' , '<?= $archive['child_fname']; ?>' , '<?= $archive['child_lname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
+                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                    </svg>
                             </button>
                             <!-- DELETE BUTTON -->
                             <button type="button" name="delete_early-childhood" onclick="confirmDelete('early_childhood' , '<?= $archive['early_childhood_id']; ?>', '<?= $archive['child_fname']; ?>' , '<?= $archive['child_lname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">

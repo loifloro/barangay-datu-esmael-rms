@@ -109,10 +109,6 @@ function hide_patient_deworming()
                 #setting_sidebar {
                     display: none;
                 }
-
-                #feedback_sidebar {
-                    display: none;
-                }
             </style>
         <?php
         }
@@ -180,10 +176,6 @@ function hide_patient_consultation()
                 }
 
                 #setting_sidebar {
-                    display: none;
-                }
-
-                #feedback_sidebar {
                     display: none;
                 }
             </style>
@@ -255,10 +247,6 @@ function hide_patient_prenatal()
                 #setting_sidebar {
                     display: none;
                 }
-
-                #feedback_sidebar {
-                    display: none;
-                }
             </style>
         <?php
         }
@@ -326,10 +314,6 @@ function hide_patient_postnatal()
                 }
 
                 #setting_sidebar {
-                    display: none;
-                }
-
-                #feedback_sidebar {
                     display: none;
                 }
             </style>
@@ -401,10 +385,6 @@ function hide_patient_search_destroy()
                 #setting_sidebar {
                     display: none;
                 }
-
-                #feedback_sidebar {
-                    display: none;
-                }
             </style>
         <?php
         }
@@ -472,10 +452,6 @@ function hide_patient_childhood()
                 }
 
                 #setting_sidebar {
-                    display: none;
-                }
-
-                #feedback_sidebar {
                     display: none;
                 }
             </style>

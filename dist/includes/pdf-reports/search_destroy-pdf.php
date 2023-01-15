@@ -1,3 +1,7 @@
+<head>
+  <title>Search and Destroy Record</title>
+</head>
+
 <div id="search-and-destroy__report" class="modal search-and-destroy__report">
     <h4 class="search-and-destroy__report__title">
         Daily Consolidation for Search and Destroy
