@@ -16,7 +16,13 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
+
     <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+
+    <!-- jQuery-Modal -->
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/jquery-modal/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/jquery-modal/jquery.modal.min.css">
 
     <title>Masterlist</title>
 </head>

@@ -107,6 +107,7 @@
         //DEFAULT DISPLAY
         $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='normal: >= 2500gms'"; // WHERE archive_label=''
         $result = mysqli_query($conn, $query);
+
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);

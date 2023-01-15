@@ -9,7 +9,7 @@
   &__header {
     display: flex;
     align-content: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
 
     .patient__total {
       @media (max-width: map-get($breakpoints, "small")) {

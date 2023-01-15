@@ -1,10 +1,106 @@
+
+<style>
+    .value {
+        font-weight: bolder;
+        font-size: 11pt;
+        border-bottom: 1pt solid black;
+        padding-bottom: 3pt;
+
+    }
+
+    .early__childhood__report__address__item {
+        margin-bottom: -10pt;
+    }
+
+    .early__childhood__report {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+    }
+
+    .early__childhood__report__header {
+        text-align: center;
+        color: #212529;
+        margin-bottom: 10pt;
+    }
+
+    .early__childhood__report__title>* {
+        color: #212529;
+        font-weight: bold;
+        line-height: 1.1;
+    }
+
+    .early__childhood__report__address,
+    .early__childhood__report__child-info,
+    .early__childhood__report__mother {
+        margin-bottom: 5pt;
+    }
+
+    .early__childhood__report__two-column>* {
+        display: inline;
+        margin-right: 50%;
+        margin-bottom: 10pt;
+
+    }
+
+    .early__childhood__report__three-column {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 1rem;
+    }
+
+    .early__childhood__report table {
+        width: 100%;
+    }
+
+    .early__childhood__report table,
+    .early__childhood__report td,
+    .early__childhood__report th {
+        border: 1px solid gainsboro;
+        border-collapse: collapse;
+    }
+
+    .early__childhood__report__table {
+        border: 1px solid;
+        border-collapse: collapse;
+        margin-block: 2rem;
+    }
+
+    .early__childhood__report__table__header {
+        font-size: 0.85rem;
+        color: #909087;
+    }
+
+    .early__childhood__report__table thead>tr>th {
+        font-weight: bold;
+    }
+
+    .early__childhood__report__table tr,
+    .early__childhood__report__table th {
+        width: 20%;
+    }
+
+    .early__childhood__report__table td {
+        line-height: 1.6;
+    }
+
+    .early__childhood__report__table td {
+        color: #414134;
+    }
+
+    .early__childhood__report__table .width-10 {
+        /* width: 10%; */
+        border-bottom: none;
+    }
+</style>
+
 <head>
   <title><?= $patient['child_fname'] . ' ' . $patient['child_lname']; ?> Early Childhood Record</title>
 </head>
 
+
 <div id="early__childhood__report<?= $patient['early_childhood_id']; ?>" class="modal early__childhood__report">
     <div class="early__childhood__report__header">
-        <img src="../assets/img/doh.png" alt="DOH Logo" class="doh-image">
+        <!-- <img src="/barangay-datu-esmael-rms/dist/assets/img/doh.png" alt="DOH Logo" class="doh-image"> -->
         <div class="early__childhood__report__title">
             <p>
                 The Early Childhood Care
@@ -211,18 +307,17 @@
 
     <table class="early__childhood__report__table">
         <thead class="early__childhood_report__table__header">
-            <th class="width-10" rowspan="2">
-                BAKUNA
-            </th>
-            <th colspan="4" rowspan="1">
-                PETSA NANG BIGAY
-                <table>
-                </table>
-            </th>
-            <th class="width-10">REMARKS</th>
+            <tr>
+                <th class="width-10" rowspan="2">
+                    BAKUNA
+                </th>
+                <th colspan="4" rowspan="1">
+                    PETSA NANG BIGAY
+                </th>
+                <th class="width-10">REMARKS</th>
+            </tr>
         </thead>
         <tr>
-            <td></td>
             <td>1st Dose</td>
             <td>2nd Dose</td>
             <td>3rd Dose</td>

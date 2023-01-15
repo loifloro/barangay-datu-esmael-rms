@@ -28,6 +28,10 @@ button {
     width: 8rem;
   }
 
+  &.btn-print {
+    width: 9rem;
+  }
+
   /* Styles for every green button */
   &.btn-green {
     /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */

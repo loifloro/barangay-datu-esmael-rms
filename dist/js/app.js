@@ -199,7 +199,11 @@ function noRecord() {
 
 // Patients table
 // document.getElementsByClassName("services__list__item")[0].click();
-function patient(evt, servicesName) {
+function patient(evt, servicesName, total) {
+  if (total == 0) {
+    noRecord();
+  }
+
   var i, patient__table, services__list__item;
   patient__table = document.getElementsByClassName("patient__table");
 
@@ -304,7 +308,7 @@ function addUser() {
   Swal.fire({
     title: "Add new user",
     text: "Please fill out all input input fields",
-    html: ` <input type="number" name="bhw-contact" id="bhw-contact" class="swal2-input" required placeholder='Default username'>
+    html: ` <input type="email" name="bhw-contact" id="bhw-contact" class="swal2-input" required placeholder='Default email'>
                         <input type="password" name="bhw-pass" id="bhw-password" maxlength="11" min="1" class="swal2-input" required placeholder='Default password'>
                         <select class="swal2-input" name="report__service" id="role" required>
                             <option selected disabled> Choose a role </option>
@@ -378,6 +382,18 @@ function confirmDelete(
     } else {
       return Swal.close();
     }
+  });
+}
+
+// For accordion
+let accordion = document.getElementsByClassName("reports__card__accordion");
+
+for (i = 0; i < accordion.length; i++) {
+  let count = accordion[i];
+
+  accordion[i].addEventListener("click", () => {
+    count.classList.toggle("reports__card__accordion--expand");
+    console.log("hello");
   });
 }
 

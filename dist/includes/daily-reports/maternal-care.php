@@ -170,4 +170,13 @@
         ?>
         <!-- END -->
     </div>
+    <div class="view-report-item">
+        <!-- test start -->
+        <a href="#maternal-daily-reports" rel="modal:open" class="view-report"> <!--manage to get report date-->
+            View Reports
+        </a>
+    </div>
+    <?php
+    include './includes/reports/maternal-care.php'
+    ?>
 </div>

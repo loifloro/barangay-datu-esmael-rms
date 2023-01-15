@@ -144,9 +144,30 @@ hide_content_forms();
     </header>
 
     <?php
+    if (isset($_GET['status'])) {
+        if ($_GET['status'] == 'success') {
+    ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added Succesfully',
+                })
+            </script>
+        <?php
+        } elseif ($_GET['status'] == 'error') {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error when adding',
+                })
+            </script>
+        <?php
+        }
+    }
     if (isset($_GET['edited'])) {
         if ($_GET['edited'] == 'success') {
-    ?>
+        ?>
             <script>
                 Swal.fire({
                     icon: 'success',

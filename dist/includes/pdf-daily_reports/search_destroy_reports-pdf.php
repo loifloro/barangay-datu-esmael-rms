@@ -1,3 +1,66 @@
+<style>
+    ul[role=list],
+    ol[role=list] {
+        list-style: none;
+    }
+
+    .search-and-destroy__report {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+    }
+
+    .consultation__report__title {
+        text-align: center;
+        color: #212529;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.1;
+    }
+
+    .consultation__report__city,
+    .search-and-destroy__report__title {
+        text-align: center;
+
+    }
+
+    .deworming-reports__title {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .deworming-reports__details {
+        width: 100vw;
+    }
+
+    .deworming-reports__details>* {
+        display: inline;
+    }
+
+    .deworming-reports__date {
+        float: right;
+    }
+
+    .deworming-reports__total {
+        margin-top: -10pt;
+    }
+
+    .search-and-destroy__report__table {
+        width: 100%;
+        border: 1px solid;
+        border-collapse: collapse;
+        margin-block: 2rem;
+    }
+
+    .search-and-destroy__report__table__header {
+        font-size: 9pt;
+        color: #909087;
+    }
+
+    .search-and-destroy__report__table thead>tr>th {
+        font-weight: bold;
+    }
+</style>
+
 <!-- Search and Destroy Daily report -->
 <head>
   <title>Search and Destroy Reports <?= $date; ?></title>
@@ -27,8 +90,8 @@
         </li>
         <!-- START QUERY -->
         <?php
-            $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
-            $result = mysqli_query($conn, $query);
+        $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
+        $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -42,12 +105,12 @@
 
         <!-- START QUERY -->
         <?php
-            $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Positive' AND search_destroy_date='$date'";
-            $result = mysqli_query($conn, $query);
+        $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Positive' AND search_destroy_date='$date'";
+        $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
-        <li class="search-and-destroy__report__summary__item">Total No. of Household Positive for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['count(*)']; ?></span></li>
+            <li class="search-and-destroy__report__summary__item">Total No. of Household Positive for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['count(*)']; ?></span></li>
         <?php
         }
         ?>
@@ -55,12 +118,12 @@
 
         <!-- START QUERY -->
         <?php
-            $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Negative' AND search_destroy_date='$date'";
-            $result = mysqli_query($conn, $query);
+        $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Negative' AND search_destroy_date='$date'";
+        $result = mysqli_query($conn, $query);
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
-        <li class="search-and-destroy__report__summary__item">Total No. of Household Negative for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['count(*)']; ?></span></li>
+            <li class="search-and-destroy__report__summary__item">Total No. of Household Negative for Larva: <span class="search-and-destroy__report__summary--value"><?php echo $row['count(*)']; ?></span></li>
         <?php
         }
         ?>
@@ -72,8 +135,8 @@
             <span class="search-and-destroy__report__summary--value">
 
                 <?php
-                    $query = "SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
-                    $query_run = mysqli_query($conn, $query);
+                $query = "SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
+                $query_run = mysqli_query($conn, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
                     foreach ($query_run as $patient) // PROBLEM
@@ -120,8 +183,8 @@
         </thead>
         <!-- To be put in the loop -->
         <?php
-            $query = "SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date' ORDER BY date_visit";
-            $query_run = mysqli_query($conn, $query);
+        $query = "SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date' ORDER BY date_visit";
+        $query_run = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {

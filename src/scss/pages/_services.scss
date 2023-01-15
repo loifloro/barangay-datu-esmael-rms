@@ -70,13 +70,13 @@
     }
 
     &--mobile {
-      display: block;
+      display: none;
       margin-left: auto;
       margin-top: 2rem;
 
-      @media (min-width: map-get($breakpoints, "large")) {
+      @media (max-width: map-get($breakpoints, "large")) {
         // Medium smartphone
-        display: none;
+        display: block;
       }
     }
   }

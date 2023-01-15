@@ -1,6 +1,106 @@
+
+<style>
+    .value {
+        font-weight: bolder;
+        font-size: 12pt;
+        border-bottom: 1pt solid black;
+        padding-bottom: 3pt;
+
+    }
+
+    .prenatal__report {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+    }
+
+    .prenatal__report__title {
+        text-align: center;
+        color: #212529;
+        text-transform: uppercase;
+        line-height: 1.1;
+    }
+
+    .prenatal__report__city {
+        text-align: center;
+    }
+
+    .prenatal__report__subtitle {
+        text-align: center;
+    }
+
+    .prenatal__report__patient-record {
+        margin-bottom: unset;
+    }
+
+    .prenatal__report__personal-info {
+        text-transform: uppercase;
+        margin-top: 20pt;
+    }
+
+    .prenatal__report__personal-info__name,
+    .prenatal__report__personal-info__age,
+    .prenatal__report__personal-info__bday,
+    .prenatal__report__personal-info__address,
+    .prenatal__report__personal-info__phone {
+        display: inline;
+    }
+
+    .prenatal__report__personal-info__age {
+        padding-left: 50pt;
+
+    }
+
+    .prenatal__report__personal-info__bday {
+        padding-left: 100pt;
+    }
+
+    .prenatal__report__personal-info__phone {
+        padding-left: 50pt;
+    }
+
+    .prenatal__report .padding-left {
+        padding-left: 2rem;
+    }
+
+
+    .prenatal__report__bmi>* {
+        margin-right: 100pt;
+        display: inline;
+    }
+
+    .prenatal__report__ob>* {
+        margin-top: 1.5rem;
+        display: inline;
+
+    }
+
+    .prenatal__report__ob-title {
+        display: inline;
+        margin-block: unset;
+    }
+
+    .prenatal__report__ob {
+        margin-top: 10pt;
+    }
+
+    .prenatal__report__ob__gp>* {
+        margin-right: 100pt;
+        display: inline;
+    }
+
+    .center {
+        text-align: center;
+    }
+
+    .prenatal__report__signature {
+        text-align: right;
+    }
+</style>
+
 <head>
   <title><?= $patient['firstname'].' '.$patient['lastname']; ?> Postnatal Record</title>
 </head>
+
 
 <div id="postnatal__report<?= $patient['postnatal_id'] ?>" class="modal prenatal__report">
     <h4 class="prenatal__report__title">
