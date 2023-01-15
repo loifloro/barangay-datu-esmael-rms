@@ -1,4 +1,7 @@
 <!-- Maternal-care daily reports -->
+<head>
+  <title>Target Childcare Female <?= $date; ?></title>
+</head>
     <div class="modal deworming-reports" id="childcare-male-daily-reports">
         <h4 class="consultation__report__title">
             City Government of Dasmariñas <br> City Health Office II
@@ -8,7 +11,7 @@
         </p>
 
         <h4 class="deworming-reports__title">
-            Target Client List for Childcare Male Reports
+            Target Client List for Childcare Female Reports
         </h4>
         <div class="deworming-reports__details">
             <p class="deworming-reports__brgy">

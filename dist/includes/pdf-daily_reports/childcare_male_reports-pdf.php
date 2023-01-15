@@ -1,4 +1,7 @@
 <!-- Maternal-care daily reports -->
+<head>
+  <title>Target Childcare Male <?= $date; ?></title>
+</head>
     <div class="modal deworming-reports" id="childcare-male-daily-reports">
         <h4 class="consultation__report__title">
             City Government of Dasmariñas <br> City Health Office II
