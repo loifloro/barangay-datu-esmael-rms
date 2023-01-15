@@ -148,3 +148,77 @@ if ($label == 'Early Childhood'){
     // Output the generated PDF to Browser
     $dompdf->stream($date_show.'-early_childhood.pdf',['Attachment'=>false]);
 }
+
+//MASTERLIST SERVICES
+
+
+if ($label == 'Target Maternal Care'){
+    $sql = mysqli_query($conn,"SELECT * FROM target_maternal WHERE date_registered='$date'");
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-daily_reports/maternal_reports-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'landscape');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream($date_show.'-target_maternal.pdf',['Attachment'=>false]);
+}
+
+
+if ($label == 'Target Childcare Male'){
+    $sql = mysqli_query($conn,"SELECT * FROM target_childcare_male WHERE date_registered='$date'");
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-daily_reports/childcare_male_reports-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'landscape');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream($date_show.'-target_childcare_male.pdf',['Attachment'=>false]);
+}
+
+
+if ($label == 'Target Childcare Female'){
+    $sql = mysqli_query($conn,"SELECT * FROM target_childcare_female WHERE date_registered='$date'");
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-daily_reports/childcare_female_reports-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'landscape');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream($date_show.'-target_childcare_female.pdf',['Attachment'=>false]);
+}
