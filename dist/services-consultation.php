@@ -1133,13 +1133,6 @@ if (mysqli_num_rows($query_run) > 0) {
 
         <hr id="services__hr">
 
-        <?php
-        include './includes/daily-reports/reports.php'
-        ?>
-
-
-
-
     </main>
     <script src="./js/app.js"></script>
 
