@@ -343,7 +343,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="sort_name" value="1">
@@ -424,7 +423,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     <ul class="services__table__row services__info" role="list" id='services__deworming'>
                         <!-- Modal Trigger -->
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                         </li>
                         <!-- End of Modal Trigger -->
@@ -484,7 +482,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="sort_name" value="1">
@@ -564,7 +561,6 @@ if (mysqli_num_rows($query_run) > 0) {
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#consultation__report<?= $patient['consultation_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                             <?php include('./includes/reports/consultation.php'); ?>
                         </li>
@@ -616,7 +612,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="sort_name" value="1">
@@ -696,7 +691,6 @@ if (mysqli_num_rows($query_run) > 0) {
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#prenatal__report<?= $patient['prenatal_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                         </li>
                         <li class="services__num">
@@ -748,7 +742,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="sort_name" value="1">
@@ -829,7 +822,6 @@ if (mysqli_num_rows($query_run) > 0) {
 
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#postnatal__report<?= $patient['postnatal_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                             <?php include('./includes/reports/postnatal.php'); ?>
                         </li>
@@ -881,7 +873,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name of Owner</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="sort_name" value="1">
@@ -962,7 +953,6 @@ if (mysqli_num_rows($query_run) > 0) {
 
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#search-and-destroy-modal<?= $patient['search_destroy_id']; ?>" rel="modal:open"><?= $patient['owner_fname'] . ' ' . $patient['owner_lname']; ?></a>
                         </li>
                         <li class="services__num">
@@ -1016,7 +1006,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Child Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="sort_cname" value="1">
@@ -1097,7 +1086,6 @@ if (mysqli_num_rows($query_run) > 0) {
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#early__childhood__report<?= $patient['early_childhood_id']; ?>" rel="modal:open"><?= $patient['child_fname'] . ' ' . $patient['child_lname']; ?></a>
                             <?php include('./includes/reports/early__childhood.php'); ?>
                         </li>
