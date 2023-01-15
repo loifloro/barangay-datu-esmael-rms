@@ -286,12 +286,6 @@ if (mysqli_num_rows($query_run) > 0) {
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                     <!-- BUTTON FOR STATUS -->
-                     <button type="submit" name="sort_status" value="5">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
@@ -328,13 +322,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     $sort_id = $_POST['sort_date'];
                     if ($sort_id == 4) {
                         $query = "SELECT * FROM deworming  WHERE archive_label = 'archived' ORDER BY deworming_date";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['sort_status'])) {
-                    $sort_id = $_POST['sort_status'];
-                    if ($sort_id == 5) {
-                        $query = "SELECT * FROM deworming WHERE archive_label = 'archived' ORDER BY archive_label";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -422,12 +409,6 @@ if (mysqli_num_rows($query_run) > 0) {
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <!-- BUTTON FOR STATUS -->
-                    <button type="submit" name="sort_status" value="5">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
@@ -464,13 +445,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     $sort_id = $_POST['sort_date'];
                     if ($sort_id == 4) {
                         $query = "SELECT * FROM consultation  WHERE archive_label = 'archived' ORDER BY consultation_date";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['sort_status'])) {
-                    $sort_id = $_POST['sort_status'];
-                    if ($sort_id == 5) {
-                        $query = "SELECT * FROM consultation WHERE archive_label = 'archived' ORDER BY archive_label";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -559,12 +533,6 @@ if (mysqli_num_rows($query_run) > 0) {
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <!-- BUTTON FOR STATUS -->
-                    <button type="submit" name="sort_status" value="5">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
@@ -601,13 +569,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     $sort_id = $_POST['sort_date'];
                     if ($sort_id == 4) {
                         $query = "SELECT * FROM prenatal  WHERE archive_label = 'archived' ORDER BY prenatal_date";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['sort_status'])) {
-                    $sort_id = $_POST['sort_status'];
-                    if ($sort_id == 5) {
-                        $query = "SELECT * FROM prenatal WHERE archive_label = 'archived' ORDER BY archive_label";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -695,12 +656,6 @@ if (mysqli_num_rows($query_run) > 0) {
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <!-- BUTTON FOR STATUS -->
-                    <button type="submit" name="sort_status" value="5">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
@@ -735,13 +690,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     $sort_id = $_POST['sort_date'];
                     if ($sort_id == 4) {
                         $query = "SELECT * FROM postnatal  WHERE archive_label = 'archived' ORDER BY postnatal_date";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['sort_status'])) {
-                    $sort_id = $_POST['sort_status'];
-                    if ($sort_id == 5) {
-                        $query = "SELECT * FROM postnatal WHERE archive_label = 'archived' ORDER BY archive_label";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -829,12 +777,6 @@ if (mysqli_num_rows($query_run) > 0) {
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <!-- BUTTON FOR STATUS -->
-                    <button type="submit" name="sort_status" value="5">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
@@ -871,13 +813,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     $sort_id = $_POST['sort_date'];
                     if ($sort_id == 4) {
                         $query = "SELECT * FROM search_destroy  WHERE archive_label = 'archived' ORDER BY search_destroy_date";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['sort_status'])) {
-                    $sort_id = $_POST['sort_status'];
-                    if ($sort_id == 5) {
-                        $query = "SELECT * FROM search_destroy WHERE archive_label = 'archived' ORDER BY archive_label";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -965,12 +900,6 @@ if (mysqli_num_rows($query_run) > 0) {
                 </li>
                 <li class="backup__attributes__item">
                     Status
-                    <!-- BUTTON FOR STATUS -->
-                    <button type="submit" name="sort_status" value="5">
-                        <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                        </svg>
-                    </button>
                 </li>
                 <li class="backup__attributes__item"></li>
             </ul>
@@ -1007,13 +936,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     $sort_id = $_POST['sort_date'];
                     if ($sort_id == 4) {
                         $query = "SELECT * FROM early_childhood  WHERE archive_label = 'archived' ORDER BY early_childhood_date";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['sort_status'])) {
-                    $sort_id = $_POST['sort_status'];
-                    if ($sort_id == 5) {
-                        $query = "SELECT * FROM early_childhood WHERE archive_label = 'archived' ORDER BY archive_label";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
