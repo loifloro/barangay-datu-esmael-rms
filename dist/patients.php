@@ -345,12 +345,6 @@ hide_content();
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- SORT FOR SERVICES AVAILED -->
-                        <button type="submit" name="sort_service_availed" value="4">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
                     </li>
                 </ul>
             </form>
@@ -380,13 +374,6 @@ hide_content();
                         $sort_id = $_POST['sort_sex'];
                         if ($sort_id == 3) {
                             $query = "SELECT * FROM deworming ORDER BY sex";
-                            $query_run = mysqli_query($conn, $query);
-                        }
-                    }
-                    if (isset($_POST['sort_service_availed'])) {
-                        $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 4) {
-                            $query = "SELECT * FROM deworming ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -476,12 +463,6 @@ hide_content();
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- SORT FOR SERVICES AVAILED -->
-                        <button type="submit" name="sort_service_availed" value="4">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
                     </li>
                 </ul>
             </form>
@@ -511,13 +492,6 @@ hide_content();
                         $sort_id = $_POST['sort_sex'];
                         if ($sort_id == 3) {
                             $query = "SELECT * FROM consultation ORDER BY sex";
-                            $query_run = mysqli_query($conn, $query);
-                        }
-                    }
-                    if (isset($_POST['sort_service_availed'])) {
-                        $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 4) {
-                            $query = "SELECT * FROM consultation ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -608,12 +582,6 @@ hide_content();
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- SORT FOR SERVICES AVAILED -->
-                        <button type="submit" name="sort_service_availed" value="4">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
                     </li>
                 </ul>
             </form>
@@ -643,13 +611,6 @@ hide_content();
                         $sort_id = $_POST['sort_sex'];
                         if ($sort_id == 3) {
                             $query = "SELECT * FROM prenatal ORDER BY sex";
-                            $query_run = mysqli_query($conn, $query);
-                        }
-                    }
-                    if (isset($_POST['sort_service_availed'])) {
-                        $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 4) {
-                            $query = "SELECT * FROM prenatal ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -740,12 +701,6 @@ hide_content();
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- SORT FOR SERVICES AVAILED -->
-                        <button type="submit" name="sort_service_availed" value="4">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
                     </li>
                 </ul>
             </form>
@@ -775,13 +730,6 @@ hide_content();
                         $sort_id = $_POST['sort_sex'];
                         if ($sort_id == 3) {
                             $query = "SELECT * FROM postnatal ORDER BY sex";
-                            $query_run = mysqli_query($conn, $query);
-                        }
-                    }
-                    if (isset($_POST['sort_service_availed'])) {
-                        $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 4) {
-                            $query = "SELECT * FROM postnatal ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -872,12 +820,6 @@ hide_content();
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- SORT FOR SERVICES AVAILED -->
-                        <button type="submit" name="sort_service_availed" value="4">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
                     </li>
                 </ul>
             </form>
@@ -907,13 +849,6 @@ hide_content();
                         $sort_id = $_POST['sort_sex'];
                         if ($sort_id == 3) {
                             $query = "SELECT * FROM search_destroy ORDER BY sex";
-                            $query_run = mysqli_query($conn, $query);
-                        }
-                    }
-                    if (isset($_POST['sort_service_availed'])) {
-                        $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 4) {
-                            $query = "SELECT * FROM search_destroy ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -1004,12 +939,6 @@ hide_content();
                     </li>
                     <li class="patient__attributes__item">
                         Services Availed
-                        <!-- SORT FOR SERVICES AVAILED -->
-                        <button type="submit" name="sort_service_availed" value="4">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
                     </li>
                 </ul>
             </form>
@@ -1039,13 +968,6 @@ hide_content();
                         $sort_id = $_POST['sort_sex'];
                         if ($sort_id == 3) {
                             $query = "SELECT * FROM early_childhood ORDER BY sex";
-                            $query_run = mysqli_query($conn, $query);
-                        }
-                    }
-                    if (isset($_POST['sort_service_availed'])) {
-                        $sort_id = $_POST['sort_service_availed'];
-                        if ($sort_id == 4) {
-                            $query = "SELECT * FROM early_childhood ORDER BY label";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
