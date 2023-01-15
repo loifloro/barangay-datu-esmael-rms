@@ -214,31 +214,20 @@
                                 The answer on the security would be needed when resetting a password
                             </p>
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-security-question">Security Question</label>
+                                <label for="bhw-security-question">Security Question *</label>
                                 <!-- If it already has a value, it should be disabled -->
                                 <select name="bhw-security-question" id="">
-                                    <option value="In what city were you born?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'In what city were you born?') ? 'selected' : '' ?>>In what city were you born?</option>
-                                    <option value="What is the name of your favorite pet?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What is the name of your favorite pet?') ? 'selected' : '' ?>>What is the name of your favorite pet?</option>
-                                    <option value="What high school did you attend?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What high school did you attend?') ? 'selected' : '' ?>>What high school did you attend?</option>
-                                    <option value="What was the name of your elementary school?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What was the name of your elementary school?') ? 'selected' : '' ?>>What was the name of your elementary school?</option>
-                                    <option value="What was the make of your first car?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What was the make of your first car?') ? 'selected' : '' ?>>What was the make of your first car?</option>
+                                    <option value="In what city were you born?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'In what city were you born?') ? 'selected' : '' ?> required>In what city were you born?</option>
+                                    <option value="What is the name of your favorite pet?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What is the name of your favorite pet?') ? 'selected' : '' ?> required>What is the name of your favorite pet?</option>
+                                    <option value="What high school did you attend?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What high school did you attend?') ? 'selected' : '' ?> required>What high school did you attend?</option>
+                                    <option value="What was the name of your elementary school?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What was the name of your elementary school?') ? 'selected' : '' ?> required>What was the name of your elementary school?</option>
+                                    <option value="What was the make of your first car?" value="<?= $user['security_question']; ?>" <?= ($user['security_question'] == 'What was the make of your first car?') ? 'selected' : '' ?> required>What was the make of your first car?</option>
                                 </select>
                             </div>
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-security-question-answer">Security Answer</label>
-                                <input type="text" name="bhw-security-question-answer" id="bhw-security-question-answer" value="<?= $user['security_answer']; ?>">
+                                <label for="bhw-security-question-answer">Security Answer *</label>
+                                <input type="text" name="bhw-security-question-answer" id="bhw-security-question-answer" value="<?= $user['security_answer']; ?>" required>
                             </div>
-
-                            <!-- Divider
-                <hr id='password'>
-                <div class="edit-bhw__form-item">
-                    <label for="bhw-new-password">New Password</label>
-                    <input type="text" name="bhw-new-password" id="bhw-new-password" value="<?= $user['password']; ?>">
-                </div>
-                <div class="edit-bhw__form-item">
-                    <label for="bhw-confirm-new-password">Confirm New Password</label>
-                    <input type="text" name="bhw-confirm-new-password" id="bhw-confirm-new-password">
-                </div> -->
 
                             <h2 class="edit-bhw__title">
                                 Password
@@ -247,9 +236,9 @@
                                 Enter your account password to proceed
                             </p>
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-new-password">New Password</label>
+                                <label for="bhw-new-password">New Password *</label>
                                 <div class="password">
-                                    <input type="password" class="password__bar__input" id="bhw-new-password" min="8" name="bhw-new-password" value="<?= $user['password']; ?>" /><!--  
+                                    <input type="password" class="password__bar__input" id="bhw-new-password" min="8" name="bhw-new-password" value="<?= $user['password']; ?>" required /><!--  
                         --><button type="button" class="password__bar__btn" onclick="passwordToggle('bhw-new-password' , 'password-show-p' , 'password-hide-p')">
                                         <svg id='password-show-p' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                             <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
@@ -262,9 +251,9 @@
                             </div>
 
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-confirm-new-password">Confirm New Password</label>
+                                <label for="bhw-confirm-new-password">Confirm New Password *</label>
                                 <div class="password">
-                                    <input type="password" class="password__bar__input" id="bhw-confirm-new-password" min="8" name="bhw-confirm-new-password" value="<?= $user['password']; ?>" /><!--  
+                                    <input type="password" class="password__bar__input" id="bhw-confirm-new-password" min="8" name="bhw-confirm-new-password" value="<?= $user['password']; ?>" required /><!--  
                         --><button type="button" class="password__bar__btn" onclick="passwordToggle('bhw-confirm-new-password', 'password-show-np' , 'password-hide-np')">
                                         <svg id='password-show-np' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                             <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
