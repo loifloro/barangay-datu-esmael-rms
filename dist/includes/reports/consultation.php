@@ -327,3 +327,6 @@ if (isset($_GET['report__date'])) {
     ?>
     <!-- Query End -->
 </div>
+<?php
+}
+?>
