@@ -1,8 +1,7 @@
 <!-- Maternal-care daily reports -->
-<?php
-if (isset($_GET['report__date'])) {
-
-?>
+<head>
+  <title>Target Childcare Female <?= $date; ?></title>
+</head>
     <div class="modal deworming-reports" id="childcare-male-daily-reports">
         <h4 class="consultation__report__title">
             City Government of Dasmariñas <br> City Health Office II
@@ -12,36 +11,21 @@ if (isset($_GET['report__date'])) {
         </p>
 
         <h4 class="deworming-reports__title">
-            Target Client List for Childcare Male Reports
+            Target Client List for Childcare Female Reports
         </h4>
         <div class="deworming-reports__details">
             <p class="deworming-reports__brgy">
                 Name of Barangay: Datu Esmael
             </p>
-            <!-- Query Start -->
-            <?php
-            if (isset($_GET['report__date'])) {
-                $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $target_childcare_male_sort = $date;
-            } else {
-                $target_childcare_male_sort = "N/A";
-            }
-            ?>
             <div class="deworming-reports__date">
-                Date: <?php echo $target_childcare_male_sort; ?>
+                Date: <?php echo $date; ?>
             </div>
         </div>
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM target_childcare_male WHERE status='NHTS'";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_male WHERE status='NHTS' AND date_registered='$date'";
+            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NHTS' AND date_registered='$date'";
             $result = mysqli_query($conn, $query);
-        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -55,14 +39,8 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM target_childcare_male WHERE status='NON NHTS'";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_male WHERE status='NON NHTS' AND date_registered='$date'";
+            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NON NHTS' AND date_registered='$date'";
             $result = mysqli_query($conn, $query);
-        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -77,14 +55,8 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM target_childcare_male";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date'";
+            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date'";
             $result = mysqli_query($conn, $query);
-        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -108,7 +80,7 @@ if (isset($_GET['report__date'])) {
             </thead>
 
             <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_newborn='low: < 2500gms' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -133,7 +105,7 @@ if (isset($_GET['report__date'])) {
             <!-- End Query for Low -->
 
             <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_newborn='normal: >= 2500gms' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -158,7 +130,7 @@ if (isset($_GET['report__date'])) {
             <!-- End Query for normal -->
 
             <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_newborn='unknown' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -187,7 +159,7 @@ if (isset($_GET['report__date'])) {
                 <td> </td>
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_1_3='underweight' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -206,7 +178,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_1_3-underweight -->
                 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_6_11='underweight' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -225,7 +197,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_6_11-underweight -->
                 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_12='underweight' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -249,7 +221,7 @@ if (isset($_GET['report__date'])) {
                 <td> </td>
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_1_3='stunted' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -268,7 +240,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_1_3-stunted -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_6_11='stunted' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -287,7 +259,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_6_11-stunted -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_12='stunted' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -310,7 +282,7 @@ if (isset($_GET['report__date'])) {
                 <td> </td>
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_1_3='wasted' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -329,7 +301,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_1_3-wasted -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_6_11='wasted' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -348,7 +320,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_6_11-wasted -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_12='wasted' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -372,7 +344,7 @@ if (isset($_GET['report__date'])) {
 
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_1_3='obese/overweight' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -391,7 +363,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_1_3-obese/overweight -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_6_11='obese/overweight' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -410,7 +382,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_6_11-obese/overweight -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_12='obese/overweight' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -434,7 +406,7 @@ if (isset($_GET['report__date'])) {
 
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_1_3='normal' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -453,7 +425,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_1_3-normal -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_6_11='normal' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -472,7 +444,7 @@ if (isset($_GET['report__date'])) {
                 <!-- End Query for status_month_6_11-normal -->
 
                 <?php
-                $query = "SELECT count(*) FROM target_childcare_male 
+                $query = "SELECT count(*) FROM target_childcare_female 
                 WHERE status_month_12='normal' AND date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             
@@ -504,7 +476,7 @@ if (isset($_GET['report__date'])) {
                 </tr>
             </thead>
             <?php
-                $query = "SELECT * FROM target_childcare_male WHERE date_registered='$date'";
+                $query = "SELECT * FROM target_childcare_female WHERE date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
 
             if (mysqli_num_rows($query_run) > 0) {
@@ -523,38 +495,4 @@ if (isset($_GET['report__date'])) {
             }
             ?>
         </table>
-
-        <!-- Query To Disabled Save as PDF -->
-        <?php
-        $query = "SELECT count(*) FROM target_childcare_male";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date'";
-            $result = mysqli_query($conn, $query);
-        }
-
-        while ($row = mysqli_fetch_array($result)) {
-            if($row['count(*)']==0){
-        ?>
-                <button type="submit" class="btn-add services__btn btn-print" disabled>
-                    Save as PDF
-                </button>
-        <?php
-            }
-            else{
-            ?>
-                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['target_childcare_male_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
-                    Save as PDF
-                </button>
-            <?php
-            }
-        }
-        ?>
-        <!-- Query End -->
-
     </div>
-<?php
-}
-?>

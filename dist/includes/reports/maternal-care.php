@@ -24,24 +24,24 @@ if (isset($_GET['report__date'])) {
 
             if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $consultation_sort = $date;
+                $maternalcare_sort = $date;
             } else {
-                $consultation_sort = "N/A";
+                $maternalcare_sort = "N/A";
             }
             ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $consultation_sort; ?>
+            Date: <?php echo $maternalcare_sort; ?>
         </div>
     </div>
 
     <!-- Query Start -->
     <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS'";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+            $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS' AND date_registered='$date'";
             $result = mysqli_query($conn, $query);
         }
 
@@ -57,12 +57,12 @@ if (isset($_GET['report__date'])) {
 
     <!-- Query Start -->
     <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS'";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+            $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS' AND date_registered='$date'";
             $result = mysqli_query($conn, $query);
         }
 
@@ -79,19 +79,19 @@ if (isset($_GET['report__date'])) {
 
     <!-- Query Start -->
     <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female'";
+        $query = "SELECT count(*) FROM target_maternal";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female' AND consultation_date='$date'";
+            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date'";
             $result = mysqli_query($conn, $query);
         }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
     <p class="deworming-reports__male">
-        Total No. of Female: <?php echo $row['count(*)']; ?>
+        Total No. of Patients: <?php echo $row['count(*)']; ?>
     </p>
     <?php
         }
@@ -115,13 +115,9 @@ if (isset($_GET['report__date'])) {
         </thead>
         <?php
             include 'includes/connection.php';
-            // $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY deworming_date";
-            // $query_run = mysqli_query($conn, $query);
-
-            if (isset($_GET['report__date'])) { //test
+            if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $query = "SELECT * FROM consultation WHERE archive_label='' AND consultation_date='$date'";
-                // $result = mysqli_query($conn, $query);
+                $query = "SELECT * FROM target_maternal WHERE date_registered='$date'";
                 $query_run = mysqli_query($conn, $query);
             }
 
@@ -129,30 +125,16 @@ if (isset($_GET['report__date'])) {
                 foreach ($query_run as $patient) {
             ?>
         <tr>
-            <td> <?= $patient['consultation_date']; ?> </td>
-            <td>
-                <?= $patient['firstname']; ?> <?= $patient['middlename']; ?>
-                <?= $patient['lastname']; ?>
-            </td>
-            <td>
-                <?= $patient['street_address'] . ' ' . $patient['barangay']; ?>
-            </td>
+            <td> <?= $patient['date_registered']; ?> </td>
+            <td> <?= $patient['firstname'].' '.$patient['middle_initial'].' '.$patient['lastname']; ?> </td>
+            <td> <?= $patient['complete_address']; ?> </td>
             <td> <?= $patient['age']; ?> </td>
-            <td>
-                <?= $patient['sex']; ?>
-            </td>
-            <td> <?= $patient['consultation_date']; ?> </td>
-            <td>
-                <?= $patient['firstname']; ?> <?= $patient['middlename']; ?>
-                <?= $patient['lastname']; ?>
-            </td>
-            <td>
-                <?= $patient['street_address'] . ' ' . $patient['barangay']; ?>
-            </td>
-            <td> <?= $patient['age']; ?> </td>
-            <td>
-                <?= $patient['sex']; ?>
-            </td>
+            <td> <?= $patient['socio_status']; ?> </td>
+            <td> <?= $patient['lmp']; ?> </td>
+            <td> <?= $patient['gp']; ?> </td>
+            <td> <?= $patient['edc']; ?> </td>
+            <td> <?= $patient['syphilis_status']; ?> </td>
+            <td> <?= $patient['hepatitis_status']; ?> </td>
         </tr>
         <?php
                 }
@@ -163,91 +145,119 @@ if (isset($_GET['report__date'])) {
 
     <!-- Query Start -->
     <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13";
+        $query = "SELECT count(*) FROM target_maternal WHERE age<=17";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13 AND consultation_date='$date'";
+            $query = "SELECT count(*) FROM target_maternal WHERE age<=17 AND date_registered='$date'";
             $result = mysqli_query($conn, $query);
         }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
     <p class="dewroming-reports__total">
-        Total No. of Patient Age <= 17 y/o </p>
+        Total No. of Patient Age <= 17 y/o : <?php echo $row['count(*)']; ?> 
+    </p>
+    <?php
+        }
+    ?>
+    <!-- Query End -->
+
+    <!-- Query Start -->
+    <?php
+        $query = "SELECT count(*) FROM target_maternal WHERE age>=18";
+        $result = mysqli_query($conn, $query);
+
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) FROM target_maternal WHERE age>=18 AND date_registered='$date'";
+            $result = mysqli_query($conn, $query);
+        }
+
+        while ($row = mysqli_fetch_array($result)) {
+        ?>
+    <p class="dewroming-reports__total">
+        Total No. of Patient Age >= 18 y/o : <?php echo $row['count(*)']; ?> 
+    </p>
+
+    <?php
+        }
+        ?>
+    <!-- Query End -->
+
+    <!-- Query Start -->
+    <?php
+        $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive'";
+        $result = mysqli_query($conn, $query);
+
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive' AND date_registered='$date'";
+            $result = mysqli_query($conn, $query);
+        }
+
+        while ($row = mysqli_fetch_array($result)) {
+        ?>
+    <p class="dewroming-reports__total">
+        Total No. of Patient Positive in Syphilis Screening : <?php echo $row['count(*)']; ?>
+    </p>
+    <?php
+        }
+        ?>
+    <!-- Query End -->
+
+            <!-- Query Start -->
+            <?php
+                 $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive'";
+                $result = mysqli_query($conn, $query);
+
+                if (isset($_GET['report__date'])) {
+                    $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                    $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive' AND date_registered='$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+            <p class="dewroming-reports__total">
+                Total No. of Patient Positive in Hepatitis Screening : <?php echo $row['count(*)']; ?>
+            </p>
+            <?php
+                }
+                ?>
+            <!-- Query End -->
+
+
+        <!-- Query To Disabled Save as PDF -->
+        <?php
+        $query = "SELECT count(*) FROM target_maternal";
+        $result = mysqli_query($conn, $query);
+
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date'";
+            $result = mysqli_query($conn, $query);
+        }
+
+        while ($row = mysqli_fetch_array($result)) {
+            if($row['count(*)']==0){
+        ?>
+                <button type="submit" class="btn-add services__btn btn-print" disabled>
+                    Save as PDF
+                </button>
+        <?php
+            }
+            else{
+            ?>
+                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['target_maternal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+                    Save as PDF
+                </button>
             <?php
             }
-                ?>
-            <!-- Query End -->
-
-            <!-- Query Start -->
-            <?php
-                $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22";
-                $result = mysqli_query($conn, $query);
-
-                if (isset($_GET['report__date'])) {
-                    $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22 AND consultation_date='$date'";
-                    $result = mysqli_query($conn, $query);
-                }
-
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
-            <p class="dewroming-reports__total">
-                Total No. of Patient Age >= 18 y/o
-            </p>
-            <?php
-                }
-                ?>
-            <!-- Query End -->
-
-            <!-- Query Start -->
-            <?php
-                $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13";
-                $result = mysqli_query($conn, $query);
-
-                if (isset($_GET['report__date'])) {
-                    $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13 AND consultation_date='$date'";
-                    $result = mysqli_query($conn, $query);
-                }
-
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
-            <p class="dewroming-reports__total">
-                Total No. of Patient Positive in Syphilis Screening </p>
-            <?php
-                }
-                ?>
-            <!-- Query End -->
-
-            <!-- Query Start -->
-            <?php
-                $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22";
-                $result = mysqli_query($conn, $query);
-
-                if (isset($_GET['report__date'])) {
-                    $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22 AND consultation_date='$date'";
-                    $result = mysqli_query($conn, $query);
-                }
-
-                while ($row = mysqli_fetch_array($result)) {
-                ?>
-            <p class="dewroming-reports__total">
-                Total No. of Patient Positive in Hepatitis Screening
-            </p>
-            <?php
-                }
-                ?>
-            <!-- Query End -->
-
-
-            <button type="submit" class="btn-green btn-add services__btn btn-print"
-                onclick="window.open('./includes/print_pdf-daily_report.php?id=<?= $patient['consultation_id'] ?>&&label=<?= $patient['label'] ?>&&date=<?= $date; ?>')">
-                Save as PDF
-            </button>
+        }
+        ?>
+        <!-- Query End -->
 
 </div>
 <?php

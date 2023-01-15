@@ -1,8 +1,7 @@
 <!-- Maternal-care daily reports -->
-<?php
-if (isset($_GET['report__date'])) {
-
-?>
+<head>
+  <title>Target Childcare Male <?= $date; ?></title>
+</head>
     <div class="modal deworming-reports" id="childcare-male-daily-reports">
         <h4 class="consultation__report__title">
             City Government of Dasmariñas <br> City Health Office II
@@ -18,30 +17,15 @@ if (isset($_GET['report__date'])) {
             <p class="deworming-reports__brgy">
                 Name of Barangay: Datu Esmael
             </p>
-            <!-- Query Start -->
-            <?php
-            if (isset($_GET['report__date'])) {
-                $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $target_childcare_male_sort = $date;
-            } else {
-                $target_childcare_male_sort = "N/A";
-            }
-            ?>
             <div class="deworming-reports__date">
-                Date: <?php echo $target_childcare_male_sort; ?>
+                Date: <?php echo $date; ?>
             </div>
         </div>
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM target_childcare_male WHERE status='NHTS'";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $query = "SELECT count(*) FROM target_childcare_male WHERE status='NHTS' AND date_registered='$date'";
             $result = mysqli_query($conn, $query);
-        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -55,14 +39,8 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM target_childcare_male WHERE status='NON NHTS'";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $query = "SELECT count(*) FROM target_childcare_male WHERE status='NON NHTS' AND date_registered='$date'";
             $result = mysqli_query($conn, $query);
-        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -77,14 +55,8 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM target_childcare_male";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date'";
             $result = mysqli_query($conn, $query);
-        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -523,38 +495,4 @@ if (isset($_GET['report__date'])) {
             }
             ?>
         </table>
-
-        <!-- Query To Disabled Save as PDF -->
-        <?php
-        $query = "SELECT count(*) FROM target_childcare_male";
-        $result = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered='$date'";
-            $result = mysqli_query($conn, $query);
-        }
-
-        while ($row = mysqli_fetch_array($result)) {
-            if($row['count(*)']==0){
-        ?>
-                <button type="submit" class="btn-add services__btn btn-print" disabled>
-                    Save as PDF
-                </button>
-        <?php
-            }
-            else{
-            ?>
-                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['target_childcare_male_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
-                    Save as PDF
-                </button>
-            <?php
-            }
-        }
-        ?>
-        <!-- Query End -->
-
     </div>
-<?php
-}
-?>

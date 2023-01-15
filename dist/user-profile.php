@@ -336,7 +336,7 @@ hide_content();
                         <!-- Put SVG here -->
                     </li>
                     <li class="bhw-account__attributes__item">
-                        Contact Number
+                        Email
                     </li>
                     <li class="bhw-account__attributes__item">
                         Sex
@@ -365,7 +365,7 @@ hide_content();
                                 <?= $patient['firstname']; ?>
                             </li>
                             <li class="bhw-account__num">
-                                <?= $patient['phone_num']; ?>
+                                <?= $patient['user_email']; ?>
                             </li>
                             <li class="bhw-account__sex">
                                 <?= $patient['sex']; ?>

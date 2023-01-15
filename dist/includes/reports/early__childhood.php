@@ -787,9 +787,17 @@ if (isset($_GET['report__date'])) {
             $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date='$date'";
             $result = mysqli_query($conn, $query);
         }
+        while ($row = mysqli_fetch_array($result)) {
+            ?>
+                <p class="dewroming-reports__total">
+                    Age 30-up y/o - <?php echo $row['count(*)']; ?>
+                </p>
+        <?php
+        }
+        ?>
+        <!-- Query End -->
 
-    <!-- Query To Disabled Save as PDF -->
-    <?php
+       <?php
         $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
         $result = mysqli_query($conn, $query);
 
@@ -798,7 +806,7 @@ if (isset($_GET['report__date'])) {
             $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
             $result = mysqli_query($conn, $query);
         }
-
+        
         while ($row = mysqli_fetch_array($result)) {
             if($row['count(*)']==0){
         ?>
@@ -818,3 +826,6 @@ if (isset($_GET['report__date'])) {
         ?>
         <!-- Query End -->
 </div>
+<?php
+}
+?>

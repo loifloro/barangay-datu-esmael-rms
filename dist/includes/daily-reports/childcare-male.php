@@ -23,7 +23,7 @@
 
     <div class="reports__card__accordion">
         <p class="reports__card__accordion__title">
-            Inset title here
+            Socio Economic Status
         </p>
         <div class="reports__card__accordion__content">
             <div class="reports__card__item">
@@ -76,7 +76,7 @@
     <hr>
     <div class="reports__card__accordion">
         <p class="reports__card__accordion__title">
-            Inset title here
+            0-28 days old
         </p>
         <div class="reports__card__accordion__content">
             <div class="reports__card__item">
@@ -151,7 +151,7 @@
     <hr>
     <div class="reports__card__accordion">
         <p class="reports__card__accordion__title">
-            Inset title here
+            1-3 months old
         </p>
         <div class="reports__card__accordion__content">
             <div class="reports__card__item">
@@ -270,7 +270,7 @@
     <hr>
     <div class="reports__card__accordion">
         <p class="reports__card__accordion__title">
-            Inset title here
+            6-11 months old
         </p>
         <div class="reports__card__accordion__content">
             <div class="reports__card__item">
@@ -389,7 +389,7 @@
     <hr>
     <div class="reports__card__accordion">
         <p class="reports__card__accordion__title">
-            Inset title here
+            12 months old
         </p>
         <div class="reports__card__accordion__content">
             <div class="reports__card__item">

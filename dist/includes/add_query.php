@@ -5,52 +5,22 @@ include "connection.php";
 // ADD BHW
 if (isset($_GET['save_bhw'])) {
 
-    $phone_num = mysqli_real_escape_string($conn, $_GET['bhw-contact']);
+    $user_email = mysqli_real_escape_string($conn, $_GET['bhw-contact']);
     $password = mysqli_real_escape_string($conn, $_GET['bhw-pass']);
     $position = mysqli_real_escape_string($conn, $_GET['bhw-role']);
 
     $date_added = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO account_information 
-              (firstname, phone_num, password, sex, position, date_registered) 
+              (firstname, user_email, password, sex, position, date_registered) 
               VALUES 
-              ('-', '$phone_num', '$password', '-', '$position', '$date_added')";
+              ('-', '$user_email', '$password', '-', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
-
-        // QUERY TO RECENT UPDATE BHW
-        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
-        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
-        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
-
-        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $date = date('Y-m-d');
-        $time = date('H:i:s');
-
-        $patient_fname = mysqli_real_escape_string($conn, $_POST['bhw-contact']);
-        // $patient_lname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
-
-
-        $query2 = "INSERT INTO recent_activity 
-                (reasons, user_fname, user_lname, user_role, changes_label, 
-                date_edit, time_edit, patient_fname, record_name)
-                VALUES 
-                ('New BHW', '$user_fname', '$user_lname', '$user_role', 'added', 
-                '$date', '$time', '$patient_fname', 'BHW')";
-
-        $query_run2 = mysqli_query($conn, $query2);
-        if ($query_run2) {
-            header("Location: ../user-profile.php?success");
-            exit(0);
-        }
-        //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../user-profile.php");
-        // exit(0);
+        header("Location: ../user-profile.php?success");
+        exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
         header("Location: ../user-profile.php");
         exit(0);
     }
