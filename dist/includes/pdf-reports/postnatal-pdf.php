@@ -1,3 +1,4 @@
+
 <style>
     .value {
         font-weight: bolder;
@@ -96,7 +97,9 @@
     }
 </style>
 
-
+<head>
+  <title><?= $patient['firstname'].' '.$patient['lastname']; ?> Postnatal Record</title>
+</head>
 
 
 <div id="postnatal__report<?= $patient['postnatal_id'] ?>" class="modal prenatal__report">

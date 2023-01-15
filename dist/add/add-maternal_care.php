@@ -86,14 +86,6 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <p class="sidebar__caption">Settings</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="" class="sidebar__link">
-                    <svg alt="Feedback" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z" />
-                    </svg>
-                    <p class="sidebar__caption">Feedback</p>
-                </a>
-            </li>
             <li class="sidebar__item" onclick="logoutAlert()">
                 <a href="#" class="sidebar__link">
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -185,15 +177,15 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <textarea name="maternal_care-address" id="maternal_care-address" cols="27" rows="5" required></textarea>
                 </div>
                 <div class="add-maternal_care__form-item add-maternal_care__form-item--radio">
-                    <label for="bhw-contact">Socio Economic Status</label>
+                    <label for="se-status">Socio Economic Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS"> <!--Added value-->
+                            <input type="radio" name="se-status" id="se-status" value="NHTS"> <!--Added value-->
                             <label for="bhw-chn">NHTS</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status-non-nhts" value="NON NHTS"> <!--Added value-->
-                            <label for="bhw-bhw">NON NHTS</label>
+                            <input type="radio" name="se-status" id="se-status" value="NON NHTS"> <!--Added value-->
+                            <label for="se-status">NON NHTS</label>
                         </div>
                     </div>
                 </div>
@@ -462,12 +454,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-syphilis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-positive" value="Positive"> <!--Value added-->
-                            <label for="maternal_care-syphilis-screening-status-positive">Positive</label>
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status" value="Positive"> <!--Value added-->
+                            <label for="maternal_care-syphilis-screening-status">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-negative" value="Negative"> <!--Value added-->
-                            <label for="maternal_care-syphilis-screening-status-negative">Negative</label>
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status" value="Negative"> <!--Value added-->
+                            <label for="maternal_care-syphilis-screening-status">Negative</label>
                         </div>
                     </div>
                 </div>
@@ -489,12 +481,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-hepatitis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-positive" value="Positive"> <!--Value added-->
-                            <label for="maternal_care-hepatitis-screening-status-positive">Positive</label>
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status" value="Positive"> <!--Value added-->
+                            <label for="maternal_care-hepatitis-screening-status">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-negative" value="Negative"> <!--Value added-->
-                            <label for="maternal_care-hepatitis-screening-status-negative">Negative</label>
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status" value="Negative"> <!--Value added-->
+                            <label for="maternal_care-hepatitis-screening-status">Negative</label>
                         </div>
                     </div>
                 </div>

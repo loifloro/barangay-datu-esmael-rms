@@ -89,14 +89,6 @@ hide_content_forms();
                     <p class="sidebar__caption">Settings</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="" class="sidebar__link">
-                    <svg alt="Feedback" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z" />
-                    </svg>
-                    <p class="sidebar__caption">Feedback</p>
-                </a>
-            </li>
             <li class="sidebar__item" onclick="logoutAlert()">
                 <a href="#" class="sidebar__link">
                     <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -222,12 +214,12 @@ hide_content_forms();
                             <label for="deworming-sex">Gender</label>
                             <div class="add-deworming__form--role-item">
                                 <div class="add-deworming__form-item">
-                                    <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?>>
-                                    <label for="deworming-sex">Male</label>
+                                    <input type="radio" name="search_destroy-sex" id="search_destroy-sex" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?>>
+                                    <label for="search_destroy-sex">Male</label>
                                 </div>
                                 <div class="add-deworming__form-item">
-                                    <input type="radio" name="search_destroy-sex" id="deworming-sex--female" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?>>
-                                    <label for="deworming-sex">Female</label>
+                                    <input type="radio" name="search_destroy-sex" id="search_destroy-sex" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?>>
+                                    <label for="search_destroy-sex">Female</label>
                                 </div>
                             </div>
                         </div>
@@ -251,12 +243,12 @@ hide_content_forms();
                             <label for="deworming-sex">Remarks *</label>
                             <div class="add-deworming__form--role-item">
                                 <div class="add-deworming__form-item">
-                                    <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Positive" <?= ($patient['remark_status'] == 'Positive') ? 'checked' : '' ?> required>
-                                    <label for="deworming-sex">Positive</label>
+                                    <input type="radio" name="search_destroy-remarks" id="search_destroy-remarks" value="Positive" <?= ($patient['remark_status'] == 'Positive') ? 'checked' : '' ?> required>
+                                    <label for="search_destroy-remarks">Positive</label>
                                 </div>
                                 <div class="add-deworming__form-item">
-                                    <input type="radio" name="search_destroy-remarks" id="deworming-sex--female" value="Negative" <?= ($patient['remark_status'] == 'Negative') ? 'checked' : '' ?> required>
-                                    <label for="deworming-sex">Negative</label>
+                                    <input type="radio" name="search_destroy-remarks" id="search_destroy-remarks" value="Negative" <?= ($patient['remark_status'] == 'Negative') ? 'checked' : '' ?> required>
+                                    <label for="search_destroy-remarks">Negative</label>
                                 </div>
                             </div>
                         </div>
@@ -273,20 +265,20 @@ hide_content_forms();
 
                         <!-- Radio Buttons -->
                         <div class="edit-search_destroy__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-mispelled-name" value="Mispelled Name" required>
-                            <label for="patient-mispelled">Mispelled Name</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Mispelled Name" required>
+                            <label for="edit-reason">Mispelled Name</label>
                         </div>
                         <div class="edit-search_destroy__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-incorrect-gender" value="Incorrect Gender" required>
-                            <label for="patient-mispelled">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Gender" required>
+                            <label for="edit-reason">Incorrect Gender</label>
                         </div>
                         <div class="edit-search_destroy__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-incorrect-birthdate" value="Incorrect Birthdate" required>
-                            <label for="patient-mispelled">Incorrect Birthdate</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Birthdate" required>
+                            <label for="edit-reason">Incorrect Birthdate</label>
                         </div>
                         <div class="edit-search_destroy__form-item--reason">
-                            <input type="radio" name="edit-reason" id="patient-wrong-editress" value="Wrong address" required>
-                            <label for="patient-mispelled">Wrong address</label>
+                            <input type="radio" name="edit-reason" id="edit-reason" value="Wrong address" required>
+                            <label for="edit-reason">Wrong address</label>
                         </div>
                         <div class="edit-search_destroy__form-item--reason">
                             <!-- <input type="radio" name="edit-reason" id="patient-others"> -->

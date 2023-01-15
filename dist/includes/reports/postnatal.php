@@ -324,11 +324,36 @@
             ?>
         </table>
 
+        <!-- Query To Disabled Save as PDF -->
+        <?php
+        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+        $result = mysqli_query($conn, $query);
 
-        <button type="submit" class="btn-green btn-add services__btn btn-print" 
-        onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['postnatal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
-        Save as PDF
-        </button>
+        if (isset($_GET['report__date'])) {
+            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+            $result = mysqli_query($conn, $query);
+        }
+
+        while ($row = mysqli_fetch_array($result)) {
+            if($row['count(*)']==0){
+        ?>
+                <button type="submit" class="btn-add services__btn btn-print" disabled>
+                    Save as PDF
+                </button>
+        <?php
+            }
+            else{
+            ?>
+                 <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['postnatal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+                    Save as PDF
+                </button>
+            <?php
+            }
+        }
+        ?>
+        <!-- Query End -->
+
         <?php
         }
         ?>

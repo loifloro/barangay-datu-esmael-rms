@@ -1,3 +1,4 @@
+
 <style>
     span {
         font-weight: bolder;
@@ -65,6 +66,11 @@
         width: 15% !important;
     }
 </style>
+
+<head>
+  <title>Search and Destroy Record</title>
+</head>
+
 
 <div id="search-and-destroy__report" class="modal search-and-destroy__report">
     <h4 class="search-and-destroy__report__title">

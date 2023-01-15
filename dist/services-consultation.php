@@ -117,14 +117,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     <p class="sidebar__caption">Settings</p>
                 </a>
             </li>
-            <li class="sidebar__item">
-                <a href="" class="sidebar__link">
-                    <svg alt="Feedback" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z" />
-                    </svg>
-                    <p class="sidebar__caption">Feedback</p>
-                </a>
-            </li>
             <li class="sidebar__item" onclick="logoutAlert()">
                 <a href="#" class="sidebar__link">
                     <!--href link added-->
@@ -354,7 +346,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="deworming_sort_name" value="1">
@@ -435,7 +426,6 @@ if (mysqli_num_rows($query_run) > 0) {
                     <ul class="services__table__row services__info" role="list" id='services__deworming'>
                         <!-- Modal Trigger -->
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                         </li>
                         <!-- End of Modal Trigger -->
@@ -492,13 +482,12 @@ if (mysqli_num_rows($query_run) > 0) {
         <!-- Start Tab for Consultation -->
         <div class="services__table" id="Consultation">
             <!-- START OF FORM ACTION -->
-            <ul class="services__table__row services__header" role="list">
-                <li class="services__attributes__item">
-                    <input type="checkbox" name="" id="" class="services__checkbox">
-                    <p>Name</p>
-                    <!-- BUTTON FOR NAME -->
-                    <form action="" method="POST">
-                        <button type="submit" name="consultation_sort_name" value="1">
+            <form action="" method="POST">
+                <ul class="services__table__row services__header" role="list">
+                    <li class="services__attributes__item">
+                        <p>Name</p>
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="sort_name" value="1">
                             <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                             </svg>
@@ -582,7 +571,6 @@ if (mysqli_num_rows($query_run) > 0) {
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#consultation__report<?= $patient['consultation_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                         </li>
                         <li class="services__num">
@@ -634,7 +622,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="prenatal_sort_name" value="1">
@@ -705,7 +692,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['prenatal_sort_date_availed'])) {
                     $sort_id = $_POST['prenatal_sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM prenatal ORDER BY prenatal_date";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -714,7 +701,6 @@ if (mysqli_num_rows($query_run) > 0) {
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#prenatal__report<?= $patient['prenatal_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                         </li>
                         <li class="services__num">
@@ -766,7 +752,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="postnatal_sort_name" value="1">
@@ -837,7 +822,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['postnatal_sort_date_availed'])) {
                     $sort_id = $_POST['postnatal_sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM postnatal ORDER BY postnatal_date";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -847,7 +832,6 @@ if (mysqli_num_rows($query_run) > 0) {
 
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#postnatal__report<?= $patient['postnatal_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
                             <?php include('./includes/reports/postnatal.php'); ?>
                         </li>
@@ -899,7 +883,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Name of Owner</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="search_sort_name" value="1">
@@ -970,7 +953,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['search_sort_date_availed'])) {
                     $sort_id = $_POST['search_sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM search_destroy ORDER BY date_visit";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -980,7 +963,6 @@ if (mysqli_num_rows($query_run) > 0) {
 
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#search-and-destroy-modal<?= $patient['search_destroy_id']; ?>" rel="modal:open"><?= $patient['owner_fname'] . ' ' . $patient['owner_lname']; ?></a>
                         </li>
                         <li class="services__num">
@@ -1034,7 +1016,6 @@ if (mysqli_num_rows($query_run) > 0) {
             <form action="" method="POST">
                 <ul class="services__table__row services__header" role="list">
                     <li class="services__attributes__item">
-                        <input type="checkbox" name="" id="" class="services__checkbox">
                         <p>Child Name</p>
                         <!-- BUTTON FOR NAME -->
                         <button type="submit" name="early_sort_cname" value="1">
@@ -1106,7 +1087,7 @@ if (mysqli_num_rows($query_run) > 0) {
                 }
                 if (isset($_POST['early_sort_date_availed'])) {
                     $sort_id = $_POST['early_sort_date_availed'];
-                    if ($sort_id == 3) {
+                    if ($sort_id == 4) {
                         $query = "SELECT * FROM early_childhood ORDER BY early_childhood_date";
                         $query_run = mysqli_query($conn, $query);
                     }
@@ -1115,7 +1096,6 @@ if (mysqli_num_rows($query_run) > 0) {
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                            <input type="checkbox" name="" id="" class="services__checkbox">
                             <a href="#early__childhood__report<?= $patient['early_childhood_id']; ?>" rel="modal:open"><?= $patient['child_fname'] . ' ' . $patient['child_lname']; ?></a>
                             <?php include('./includes/reports/early__childhood.php'); ?>
                         </li>
@@ -1162,13 +1142,6 @@ if (mysqli_num_rows($query_run) > 0) {
         <!-- End Tab for Search and Destroy -->
 
         <hr id="services__hr">
-
-        <?php
-        include './includes/daily-reports/reports.php'
-        ?>
-
-
-
 
     </main>
     <script src="./js/app.js"></script>

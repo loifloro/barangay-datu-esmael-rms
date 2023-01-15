@@ -287,20 +287,43 @@ if (isset($_GET['report__date'])) {
             $result = mysqli_query($conn, $query);
         }
 
-        while ($row = mysqli_fetch_array($result)) {
+    while ($row = mysqli_fetch_array($result)) {
+    ?>
+        <p class="dewroming-reports__total">
+            Age 23-up y/o: <?php echo $row['count(*)']; ?>
+        </p>
+    <?php
+    }
+    ?>
+    <!-- Query End -->
+    
+    <!-- Query To Disabled Save as PDF -->
+    <?php
+    $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+    $result = mysqli_query($conn, $query);
+
+    if (isset($_GET['report__date'])) {
+        $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+        $result = mysqli_query($conn, $query);
+    }
+
+    while ($row = mysqli_fetch_array($result)) {
+        if($row['count(*)']==0){
+    ?>
+            <button type="submit" class="btn-add services__btn btn-print" disabled>
+                Save as PDF
+            </button>
+    <?php
+        }
+        else{
         ?>
-            <p class="dewroming-reports__total">
-                Age 23-up y/o: <?php echo $row['count(*)']; ?>
-            </p>
+            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['consultation_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+                Save as PDF
+            </button>
         <?php
         }
-        ?>
-        <!-- Query End -->
-
-        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?= $patient['consultation_id'] ?>&&label=<?= $patient['label'] ?>&&date=<?= $date; ?>')">
-            Save as PDF
-        </button>
-    </div>
-<?php
-}
-?>
+    }
+    ?>
+    <!-- Query End -->
+</div>

@@ -6,6 +6,7 @@ use Dompdf\Dompdf;
 
 $label = $_GET['label'];
 $id = $_GET['id'];
+$date = date('m-d-Y');
 
 if ($label == 'Deworming') {
     $sql = mysqli_query($conn, "SELECT * FROM deworming WHERE deworming_id='$id'");
@@ -27,7 +28,7 @@ if ($label == 'Deworming') {
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream('print-details.pdf', ['Attachment' => false]);
+    $dompdf->stream($date.'-deworming.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Consultation') {
@@ -50,7 +51,7 @@ if ($label == 'Consultation') {
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream('print-details.pdf', ['Attachment' => false]);
+    $dompdf->stream($date.'-consultation.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Prenatal') {
@@ -73,7 +74,7 @@ if ($label == 'Prenatal') {
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream('print-details.pdf', ['Attachment' => false]);
+    $dompdf->stream($date.'-prenatal.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Postnatal') {
@@ -96,7 +97,7 @@ if ($label == 'Postnatal') {
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream('print-details.pdf', ['Attachment' => false]);
+    $dompdf->stream($date.'-postnatal.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Search and Destroy') {
@@ -119,7 +120,7 @@ if ($label == 'Search and Destroy') {
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream('print-details.pdf', ['Attachment' => false]);
+    $dompdf->stream($date.'-search_destroy.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Early Childhood') {
@@ -142,5 +143,5 @@ if ($label == 'Early Childhood') {
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream('print-details.pdf', ['Attachment' => false]);
+    $dompdf->stream($date.'-early_childhood.pdf',['Attachment'=>false]);
 }
