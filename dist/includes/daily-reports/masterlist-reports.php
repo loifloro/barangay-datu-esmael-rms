@@ -55,7 +55,7 @@
         }
         ?>
 
-        <button type="submit" name="sort__date" class="btn-green btn-add services__btn">
+        <button type="submit" name="sort__date" class="btn-green btn-add services__btn" required>
             <p>Sort Record</p>
         </button>
     </form>
