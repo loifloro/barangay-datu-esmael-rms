@@ -95,27 +95,27 @@
             $filtervalues2 = $patient['lastname'];
             $query3 = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
                     FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%'
                     UNION ALL
                     SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
                     FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%' GROUP BY label
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%'
                     UNION ALL
                     SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
                     FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
                     UNION ALL
                     SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
                     FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
                     UNION ALL
                     SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
                     FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%' GROUP BY label
+                    LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%'
                     UNION ALL
                     SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
                     FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%' GROUP BY label
+                    LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%'
                     ";
 
             $query_run3 = mysqli_query($conn, $query3);
@@ -129,11 +129,13 @@
                             if (isset($_GET['label'])) {
                                 $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
                                 $changes_label = $recent3['label'];
+                                $date=$recent3['deworming_date'];
 
                                 //DEWORMING
                                 if (($changes_label == "Deworming") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM deworming WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM deworming WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND deworming_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -148,7 +150,8 @@
                                 //C0NSULTATION
                                 if (($changes_label == "Consultation") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM consultation WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM consultation WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND consultation_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -163,7 +166,8 @@
                                 //PRENATAL
                                 if (($changes_label == "Prenatal") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM prenatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM prenatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND prenatal_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -178,7 +182,8 @@
                                 //POSTNATAL
                                 if (($changes_label == "Postnatal") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM postnatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM postnatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND postnatal_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -193,7 +198,8 @@
                                 //SEARCH AND DESTROY
                                 if (($changes_label == "Search and Destroy") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM search_destroy WHERE owner_fname='$patient_fname' AND owner_lname='$patient_lname'";
+                                    $query = "SELECT * FROM search_destroy WHERE owner_fname='$patient_fname' AND owner_lname='$patient_lname'
+                                    AND search_destroy_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -208,7 +214,8 @@
                                 //EARLY CHILDHOOD
                                 if (($changes_label == "Early Childhood") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM early_childhood WHERE child_fname='$patient_fname' AND child_lname='$patient_lname'";
+                                    $query = "SELECT * FROM early_childhood WHERE child_fname='$patient_fname' AND child_lname='$patient_lname'
+                                    AND early_childhood_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -236,11 +243,13 @@
                             if (isset($_GET['label'])) {
                                 $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
                                 $changes_label = $recent3['label'];
+                                $date=$recent3['deworming_date'];
 
                                 //DEWORMING
                                 if (($changes_label == "Deworming") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM deworming WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM deworming WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND deworming_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -254,7 +263,8 @@
                                 //C0NSULTATION
                                 if (($changes_label == "Consultation") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM consultation WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM consultation WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND consultation_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -268,7 +278,8 @@
                                 //PRENATAL
                                 if (($changes_label == "Prenatal") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM prenatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM prenatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND prenatal_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -282,7 +293,8 @@
                                 //POSTNATAL
                                 if (($changes_label == "Postnatal") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM postnatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'";
+                                    $query = "SELECT * FROM postnatal WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND postnatal_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -296,7 +308,8 @@
                                 //SEARCH AND DESTROY
                                 if (($changes_label == "Search and Destroy") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM search_destroy WHERE owner_fname='$patient_fname' AND owner_lname='$patient_lname'";
+                                    $query = "SELECT * FROM search_destroy WHERE owner_fname='$patient_fname' AND owner_lname='$patient_lname'
+                                    AND search_destroy_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -310,7 +323,8 @@
                                 //EARLY CHILDHOOD
                                 if (($changes_label == "Early Childhood") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-                                    $query = "SELECT * FROM early_childhood WHERE child_fname='$patient_fname' AND child_lname='$patient_lname'";
+                                    $query = "SELECT * FROM early_childhood WHERE child_fname='$patient_fname' AND child_lname='$patient_lname'
+                                    AND early_childhood_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
 
                                     if (mysqli_num_rows($query_run) > 0) {
