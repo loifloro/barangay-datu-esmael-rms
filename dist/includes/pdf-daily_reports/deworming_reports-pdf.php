@@ -1,4 +1,11 @@
 <style>
+    span {
+        font-weight: bolder;
+        font-size: 12pt;
+        border-bottom: 1pt solid black;
+        padding-bottom: 3pt;
+    }
+
     .deworming-reports {
         font-family: Arial, Helvetica, sans-serif;
         font-size: 10pt;
@@ -54,10 +61,16 @@
     .deworming-reports__table thead>tr>th {
         font-weight: bold;
     }
+
+    .deworming-reports__table table,
+    .deworming-reports__table td,
+    .deworming-reports__table th {
+        border: 1px solid gainsboro;
+    }
 </style>
 
 <head>
-  <title>Deworming Reports <?= $date; ?></title>
+    <title>Deworming Reports <?= $date; ?></title>
 </head>
 
 
@@ -91,7 +104,7 @@
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="deworming-reports__totals">
-            Total No. of Patient: <?php echo $row['count(*)']; ?>
+            Total No. of Patient: <span> <?php echo $row['count(*)']; ?> </span>
         </p>
     <?php
     }
@@ -106,7 +119,7 @@
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="deworming-reports__total">
-            Total No. of Male: <?php echo $row['count(*)']; ?>
+            Total No. of Male: <span> <?php echo $row['count(*)']; ?> </span>
         </p>
     <?php
     }
@@ -121,7 +134,7 @@
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="deworming-reports__total">
-            Total No. of Female: <?php echo $row['count(*)']; ?>
+            Total No. of Female: <span> <?php echo $row['count(*)']; ?> </span>
         </p>
     <?php
     }
@@ -175,7 +188,7 @@
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="deworming-reports__total">
-            Age 1-3 y/o: <?php echo $row['count(*)']; ?>
+            Age 1-3 y/o: <span> <?php echo $row['count(*)']; ?> </span>
         </p>
     <?php
     }
@@ -190,7 +203,7 @@
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="deworming-reports__total">
-            Age 4-7 y/o: <?php echo $row['count(*)']; ?>
+            Age 4-7 y/o: <span> <?php echo $row['count(*)']; ?> </span>
         </p>
     <?php
     }
@@ -205,7 +218,7 @@
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="deworming-reports__total">
-            Age 8-up y/o: <?php echo $row['count(*)']; ?>
+            Age 8-up y/o: <span> <?php echo $row['count(*)']; ?> </span>
         </p>
     <?php
     }

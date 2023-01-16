@@ -1,4 +1,11 @@
 <style>
+    span {
+        font-weight: bolder;
+        font-size: 12pt;
+        border-bottom: 1pt solid black;
+        padding-bottom: 3pt;
+    }
+
     ul[role=list],
     ol[role=list] {
         list-style: none;
@@ -59,11 +66,18 @@
     .search-and-destroy__report__table thead>tr>th {
         font-weight: bold;
     }
+
+    .search-and-destroy__report__table table,
+    .search-and-destroy__report__table td,
+    .search-and-destroy__report__table th {
+        border: 1px solid gainsboro;
+    }
 </style>
 
 <!-- Search and Destroy Daily report -->
+
 <head>
-  <title>Search and Destroy Reports <?= $date; ?></title>
+    <title>Search and Destroy Reports <?= $date; ?></title>
 </head>
 
 <div id="search-and-destroy__daily-report" class="modal search-and-destroy__report">
