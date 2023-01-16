@@ -2725,7 +2725,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     transform: rotateZ(45deg) scale(0.61);
   }
   100% {
-    display: none;
     opacity: 0;
     transform: rotateZ(45deg) scale(0.61);
   }
@@ -2757,7 +2756,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     transform: rotateZ(45deg) scale(0.61);
   }
   100% {
-    display: none;
     opacity: 0;
     transform: rotateZ(45deg) scale(0.61);
   }
