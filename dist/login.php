@@ -81,6 +81,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                         $_SESSION['user_email'] = $row['deworming_email'];
                         $_SESSION['firstname'] = $row['firstname'];
                         $_SESSION['deworming_id'] = $row['deworming_id'];
+                        $_SESSION['account_id'] = $row['deworming_id'];
                         $_SESSION['label'] = $row['label'];
                         
                         header("Location: search-result.php?success"); /*Redirect to this page if successful*/
