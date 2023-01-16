@@ -20,12 +20,13 @@ if (isset($_POST['edit_bhw'])) {
     $cpassword = mysqli_real_escape_string($conn, $_POST['bhw-confirm-new-password']);
 
     $date_modified = date('Y-m-d H:i:s');
-
+    $email = mysqli_real_escape_string($conn, $_POST['bhw-email']);
 
     $query = "UPDATE account_information SET 
               firstname='$fname', lastname='$lname', middlename='$mname', sex='$sex', phone_num='$phone_num', 
               birthday='$birthday', street_add='$street_add', barangay='$barangay', city='$city', 
-              password='$password', date_modified='$date_modified' WHERE account_id='$account_id'";
+              password='$password', date_modified='$date_modified', user_email='$email', 
+              default_email='' WHERE account_id='$account_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
