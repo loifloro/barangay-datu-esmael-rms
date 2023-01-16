@@ -237,7 +237,7 @@ if (isset($_GET['report__date'])) {
                         $status_month_12_underweight= $row['count(*)'];
                     }
                 ?>
-                <td> <?php echo $status_month_6_11_underweight; ?></td>
+                <td> <?php echo $status_month_12_underweight; ?></td>
                 <?php
                     }
                 ?>
