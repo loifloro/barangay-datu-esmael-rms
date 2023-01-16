@@ -13,7 +13,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
-    // $roles = validate($_POST['roles']);
+    
     if (empty($username)) { /*if else statement for validation*/
         header("Location: index.php?error=Contact number is required"); /*Error Alert*/
         exit();
@@ -21,7 +21,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required"); /*Error Alert*/
         exit();
     } else {
-        $sql = "SELECT * FROM account_information WHERE user_email='$username' AND password='$password'";
+        $sql = "SELECT * FROM account_information WHERE user_email='$username' AND password='$password' OR default_email='$username'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 0) {
@@ -30,6 +30,19 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
+            
+            if ($row['password'] == $password && $row['default_email'] == $username) {
+                $_SESSION['user_email'] = $row['user_email'];
+                $_SESSION['phone_num'] = $row['phone_num'];
+                $_SESSION['firstname'] = $row['firstname'];
+                $_SESSION['account_id'] = $row['account_id'];
+                $_SESSION['position'] = $row['position'];
+
+                $id=$row['account_id'];
+                header("Location: edit/edit-bhw.php?id=".$id); /*Redirect to this page if successful*/
+                exit();
+            }
+
             if ($row['password'] == $password && $row['user_email'] == $username) {
                 $_SESSION['user_email'] = $row['user_email'];
                 $_SESSION['phone_num'] = $row['phone_num'];

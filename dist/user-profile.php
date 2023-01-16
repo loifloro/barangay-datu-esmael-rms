@@ -372,8 +372,16 @@ hide_content();
                             <li class="bhw-account__name p-bold">
                                 <?= $patient['firstname']; ?>
                             </li>
+                            <?php
+                            if($patient['user_email']==''){
+                                $email=$patient['default_email'];
+                            }
+                            if($patient['default_email']==''){
+                                $email=$patient['user_email'];
+                            }
+                            ?>
                             <li class="bhw-account__num">
-                                <?= $patient['user_email']; ?>
+                                <?= $email; ?>
                             </li>
                             <li class="bhw-account__sex">
                                 <?= $patient['sex']; ?>
