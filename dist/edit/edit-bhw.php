@@ -209,7 +209,7 @@
                                 $email= $user['user_email'];
                                 ?>
                                     <div class="edit-bhw__form-item">
-                                        <label for="bhw-contact">New Email *</label>
+                                        <label for="bhw-contact">Email *</label>
                                         <input type="email" name="bhw-email" id="bhw-contact" value="<?= $user['user_email']; ?>" required>
                                     </div>
                                 <?php
