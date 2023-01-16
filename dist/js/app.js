@@ -18,7 +18,7 @@ function backAlert() {
   }).then(function (result) {
     if (result.isConfirmed) {
       return (window.location.href =
-        "/barangay-datu-esmael-rms/dist/services-consultation.php");
+        "/barangay-datu-esmael-rms/dist/services.php");
     }
   });
 }

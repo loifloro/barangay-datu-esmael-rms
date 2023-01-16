@@ -53,7 +53,7 @@ if (isset($_GET['archive'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?archive&service=deworming");
+                header("Location: ../services.php?archive&service=deworming");
                 exit(0);
             }
             //END OF QUERY
@@ -87,12 +87,12 @@ if (isset($_GET['archive'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?archive&service=consultation");
+                header("Location: ../services.php?archive&service=consultation");
                 exit(0);
                 //END OF QUERY
             }
         } else {
-            header("Location: ../services-consultation.php?archive=error&service=consultation");
+            header("Location: ../services.php?archive=error&service=consultation");
         }
     }
 
@@ -123,12 +123,12 @@ if (isset($_GET['archive'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?archive&service=prenatal");
+                header("Location: ../services.php?archive&service=prenatal");
                 exit(0);
             }
             //END OF QUERY
         } else {
-            header("Location: ../services-consultation.php?archive=error&service=prenatal");
+            header("Location: ../services.php?archive=error&service=prenatal");
         }
     }
 
@@ -159,12 +159,12 @@ if (isset($_GET['archive'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?archive&service=postnatal");
+                header("Location: ../services.php?archive&service=postnatal");
                 exit(0);
             }
             //END OF QUERY
         } else {
-            header("Location: ../services-consultation.php?archive=error&service=postnatal");
+            header("Location: ../services.php?archive=error&service=postnatal");
         }
     }
 
@@ -195,12 +195,12 @@ if (isset($_GET['archive'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?archive&service=search-destroy");
+                header("Location: ../services.php?archive&service=search-destroy");
                 exit(0);
             }
             //END OF QUERY
         } else {
-            header("Location: ../services-consultation.php?archive=error&service=search-destroy");
+            header("Location: ../services.php?archive=error&service=search-destroy");
         }
     }
 
@@ -231,12 +231,12 @@ if (isset($_GET['archive'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?archive&service=childhood");
+                header("Location: ../services.php?archive&service=childhood");
                 exit(0);
             }
             //END OF QUERY
         } else {
-            header("Location: ../services-consultation.php?archive=error&service=childhood");
+            header("Location: ../services.php?archive=error&service=childhood");
         }
     }
 }
@@ -270,7 +270,7 @@ if (isset($_GET['restore'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?restore&service=deworming");
+                header("Location: ../services.php?restore&service=deworming");
                 exit(0);
             }
             //END OF QUERY
@@ -304,7 +304,7 @@ if (isset($_GET['restore'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?restore&service=consultation");
+                header("Location: ../services.php?restore&service=consultation");
                 exit(0);
             }
             //END OF QUERY
@@ -338,7 +338,7 @@ if (isset($_GET['restore'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?restore&service=prenatal");
+                header("Location: ../services.php?restore&service=prenatal");
                 exit(0);
             }
             //END OF QUERY
@@ -372,7 +372,7 @@ if (isset($_GET['restore'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?restore&service=postnatal");
+                header("Location: ../services.php?restore&service=postnatal");
                 exit(0);
             }
             //END OF QUERY
@@ -406,7 +406,7 @@ if (isset($_GET['restore'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?restore&service=search-destroy");
+                header("Location: ../services.php?restore&service=search-destroy");
                 exit(0);
             }
             //END OF QUERY
@@ -440,7 +440,7 @@ if (isset($_GET['restore'])) {
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                header("Location: ../services-consultation.php?restore&service=childhood");
+                header("Location: ../services.php?restore&service=childhood");
                 exit(0);
             }
             //END OF QUERY

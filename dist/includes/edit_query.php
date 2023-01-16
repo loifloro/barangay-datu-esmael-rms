@@ -117,16 +117,16 @@ if (isset($_POST['edit_deworming'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php?edited=success&service=deworming");
+            header("Location: ../services.php?edited=success&service=deworming");
             exit(0);
         }
         //END OF QUERY
 
         // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-consultation.php");
+        // header("Location: ../services.php");
         // exit(0);
     } else {
-        header("Location: ../services-consultation.php?status=error&service=deworming");
+        header("Location: ../services.php?status=error&service=deworming");
         exit(0);
     }
 }
@@ -197,16 +197,16 @@ if (isset($_POST['edit_consultation'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php?edited=success&service=consultation");
+            header("Location: ../services.php?edited=success&service=consultation");
             exit(0);
         }
         //END OF QUERY
 
         // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-consultation.php");
+        // header("Location: ../services.php");
         // exit(0);
     } else {
-        header("Location: ../services-consultation.php?status=error&service=consultation");
+        header("Location: ../services.php?status=error&service=consultation");
         exit(0);
     }
 }
@@ -289,16 +289,16 @@ if (isset($_POST['edit_prenatal'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php?edited=success&service=prenatal");
+            header("Location: ../services.php?edited=success&service=prenatal");
             exit(0);
         }
         //END OF QUERY
 
         // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-consultation.php");
+        // header("Location: ../services.php");
         // exit(0);
     } else {
-        header("Location: ../services-consultation.php?status=error&service=prenatal");
+        header("Location: ../services.php?status=error&service=prenatal");
         exit(0);
     }
 }
@@ -381,16 +381,16 @@ if (isset($_POST['edit_postnatal'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php?edited=success&service=postnatal");
+            header("Location: ../services.php?edited=success&service=postnatal");
             exit(0);
         }
         //END OF QUERY
 
         // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-consultation.php");
+        // header("Location: ../services.php");
         // exit(0);
     } else {
-        header("Location: ../services-consultation.php?status=error&service=postnatal");
+        header("Location: ../services.php?status=error&service=postnatal");
         exit(0);
     }
 }
@@ -460,16 +460,16 @@ if (isset($_POST['edit_search_destroy'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php?edited=success&service=search-destroy");
+            header("Location: ../services.php?edited=success&service=search-destroy");
             exit(0);
         }
         //END OF QUERY
 
         // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-consultation.php");
+        // header("Location: ../services.php");
         // exit(0);
     } else {
-        header("Location: ../services-consultation.php?status=error&service=search-destroy");
+        header("Location: ../services.php?status=error&service=search-destroy");
         exit(0);
     }
 }
@@ -635,16 +635,16 @@ if (isset($_POST['edit_early_childhood'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services-consultation.php?edited=success&service=childhood");
+            header("Location: ../services.php?edited=success&service=childhood");
             exit(0);
         }
         //END OF QUERY
 
         // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services-consultation.php");
+        // header("Location: ../services.php");
         // exit(0);
     } else {
-        header("Location: ../services-consultation.php?status=error&service=childhood");
+        header("Location: ../services.php?status=error&service=childhood");
         exit(0);
     }
 }
