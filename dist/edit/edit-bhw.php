@@ -184,8 +184,20 @@
                                 </div>
                             </div>
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-contact">Contact Number *</label>
-                                <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>" required>
+                                <label for="bhw-contact">Contact Number</label>
+                                <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>">
+                            </div>
+                            <?php
+                            if($user['user_email']==''){
+                                $email= $user['default_email'];
+                            }
+                            if($user['default_email']==''){
+                                $email= $user['user_email'];
+                            }
+                            ?>
+                            <div class="edit-bhw__form-item">
+                                <label for="bhw-contact">New Email *</label>
+                                <input type="email" name="bhw-email" id="bhw-contact" value="" required>
                             </div>
                             <div class="edit-bhw__form-item">
                                 <label for="bhw-birthday">Birthday</label>
