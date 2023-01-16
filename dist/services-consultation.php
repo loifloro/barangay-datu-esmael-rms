@@ -16,6 +16,10 @@ if (mysqli_num_rows($query_run) > 0) {
     }
 }
 
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "includes/functions.php";
+hide_content();
+//END OF FUNCTION
 ?>
 
 
