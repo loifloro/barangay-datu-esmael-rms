@@ -12,7 +12,7 @@ if (isset($_GET['save_bhw'])) {
     $date_added = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO account_information 
-              (firstname, user_email, password, sex, position, date_registered) 
+              (firstname, default_email, password, sex, position, date_registered) 
               VALUES 
               ('-', '$user_email', '$password', '-', '$position', '$date_added')";
 
