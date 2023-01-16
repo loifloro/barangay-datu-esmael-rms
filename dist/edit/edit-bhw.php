@@ -190,15 +190,24 @@
                             <?php
                             if($user['user_email']==''){
                                 $email= $user['default_email'];
+                                ?>
+                                    <div class="edit-bhw__form-item">
+                                        <label for="bhw-contact">New Email *</label>
+                                        <input type="email" name="bhw-email" id="bhw-contact" value="" required>
+                                    </div>
+                                <?php
                             }
                             if($user['default_email']==''){
                                 $email= $user['user_email'];
+                                ?>
+                                    <div class="edit-bhw__form-item">
+                                        <label for="bhw-contact">New Email *</label>
+                                        <input type="email" name="bhw-email" id="bhw-contact" value="<?= $user['user_email']; ?>" required>
+                                    </div>
+                                <?php
                             }
                             ?>
-                            <div class="edit-bhw__form-item">
-                                <label for="bhw-contact">New Email *</label>
-                                <input type="email" name="bhw-email" id="bhw-contact" value="" required>
-                            </div>
+                            
                             <div class="edit-bhw__form-item">
                                 <label for="bhw-birthday">Birthday</label>
                                 <input type="date" name="bhw-birthday" id="bhw-birthday" value="<?= $user['birthday']; ?>">
