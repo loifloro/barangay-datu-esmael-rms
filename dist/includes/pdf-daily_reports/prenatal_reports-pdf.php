@@ -1,115 +1,185 @@
+<style>
+    span {
+        font-weight: bolder;
+        font-size: 12pt;
+        border-bottom: 1pt solid black;
+        padding-bottom: 3pt;
+    }
+
+    .deworming-reports {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10pt;
+    }
+
+    .consultation__report__title {
+        text-align: center;
+        color: #212529;
+        font-weight: bold;
+        text-transform: uppercase;
+        line-height: 1.1;
+    }
+
+    .consultation__report__city,
+    .deworming-reports__title {
+        text-align: center;
+
+    }
+
+    .deworming-reports__title {
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .deworming-reports__details {
+        width: 100vw;
+    }
+
+    .deworming-reports__details>* {
+        display: inline;
+    }
+
+    .deworming-reports__date {
+        float: right;
+    }
+
+    .deworming-reports__total {
+        margin-top: -10pt;
+    }
+
+    .deworming-reports__table {
+        width: 100%;
+        border: 1px solid;
+        border-collapse: collapse;
+        margin-block: 2rem;
+    }
+
+    .deworming-reports__table__header {
+        font-size: 9pt;
+        color: #909087;
+    }
+
+    .deworming-reports__table thead>tr>th {
+        font-weight: bold;
+    }
+
+    .deworming-reports__table table,
+    .deworming-reports__table td,
+    .deworming-reports__table th {
+        border: 1px solid gainsboro;
+    }
+</style>
 <!-- Postnatal daily reports -->
+
 <head>
-  <title>Prenatal Reports <?= $date; ?></title>
+    <title>Prenatal Reports <?= $date; ?></title>
 </head>
 
 <div class="modal deworming-reports" id="prenatal-daily-reports">
-        <h4 class="consultation__report__title">
-            City Government of Dasmariñas <br> City Health Office II
-        </h4>
-        <p class="consultation__report__city">
-            City of Dasmariñas, Cavite
-        </p>
+    <h4 class="consultation__report__title">
+        City Government of Dasmariñas <br> City Health Office II
+    </h4>
+    <p class="consultation__report__city">
+        City of Dasmariñas, Cavite
+    </p>
 
-        <h4 class="deworming-reports__title">
-            Prenatal reports
-        </h4>
-        <div class="deworming-reports__details">
-            <p class="deworming-reports__brgy">
-                Name of Barangay: Datu Esmael
-            </p>
-            <div class="deworming-reports__date">
-                Date: <?php echo $date; ?>
-            </div>
-        </div>
-        <!-- Query Start -->
-        <?php
-            $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND prenatal_date='$date'";
-            $result = mysqli_query($conn, $query);
-
-        while ($row = mysqli_fetch_array($result)) {
-        ?>
+    <h4 class="deworming-reports__title">
+        Prenatal reports
+    </h4>
+    <div class="deworming-reports__details">
         <p class="deworming-reports__brgy">
-            Total No. of Patient: <?php echo $row['count(*)']; ?>
+            Name of Barangay: Datu Esmael
         </p>
-        <?php
-        }
-        ?>
-        <!-- Query End -->
+        <div class="deworming-reports__date">
+            Date: <?php echo $date; ?>
+        </div>
+    </div>
+    <!-- Query Start -->
+    <?php
+    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND prenatal_date='$date'";
+    $result = mysqli_query($conn, $query);
 
-        <!-- Query Start -->
-        <?php
-            $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age<=17 AND prenatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_array($result)) {
+    ?>
+        <p class="deworming-reports__brgy">
+            Total No. of Patient:<span> <?php echo $row['count(*)']; ?> </span>
+        </p>
+    <?php
+    }
+    ?>
+    <!-- Query End -->
 
-        while ($row = mysqli_fetch_array($result)) {
-        ?>
-            <p class="deworming-reports__male">
-                Total No. of Patient Age less/equal 17 y/o: <?php echo $row['count(*)']; ?>
-            </p>
-        <?php
-        }
-        ?>
-        <!-- Query End -->
+    <!-- Query Start -->
+    <?php
+    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age<=17 AND prenatal_date='$date'";
+    $result = mysqli_query($conn, $query);
 
-        <!-- Query Start -->
-        <?php
-            $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=18 AND age<=29 AND prenatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_array($result)) {
+    ?>
+        <p class="deworming-reports__total">
+            Total No. of Patient Age less/equal 17 y/o:<span> <?php echo $row['count(*)']; ?> </span>
+        </p>
+    <?php
+    }
+    ?>
+    <!-- Query End -->
 
-        while ($row = mysqli_fetch_array($result)) {
-        ?>
-            <p class="deworming-reports__male">
-                Total No. of Patient Age 18-29 y/o: <?php echo $row['count(*)']; ?>
-            </p>
-        <?php
-        }
-        ?>
-        <!-- Query End -->
+    <!-- Query Start -->
+    <?php
+    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=18 AND age<=29 AND prenatal_date='$date'";
+    $result = mysqli_query($conn, $query);
 
-        <!-- Query Start -->
-        <?php
-            $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=30 AND prenatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+    while ($row = mysqli_fetch_array($result)) {
+    ?>
+        <p class="deworming-reports__total">
+            Total No. of Patient Age 18-29 y/o:<span> <?php echo $row['count(*)']; ?> </span>
+        </p>
+    <?php
+    }
+    ?>
+    <!-- Query End -->
 
-        while ($row = mysqli_fetch_array($result)) {
-        ?>
-            <p class="deworming-reports__male">
-                Total No. of Patient Age 30-up y/o: <?php echo $row['count(*)']; ?>
-            </p>
-        <?php
-        }
-        ?>
-        <!-- Query End -->
+    <!-- Query Start -->
+    <?php
+    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=30 AND prenatal_date='$date'";
+    $result = mysqli_query($conn, $query);
 
-        <table class="deworming-reports__table">
-            <thead>
+    while ($row = mysqli_fetch_array($result)) {
+    ?>
+        <p class="deworming-reports__total">
+            Total No. of Patient Age 30-up y/o:<span> <?php echo $row['count(*)']; ?> </span>
+        </p>
+    <?php
+    }
+    ?>
+    <!-- Query End -->
+
+    <table class="deworming-reports__table">
+        <thead>
+            <tr>
+                <th>DATE REGISTERED</th>
+                <th>NAME</th>
+                <th>ADDRESS</th>
+                <th>AGE</th>
+                <th>BIRTHDAY</th>
+            </tr>
+        </thead>
+        <?php
+        $query = "SELECT * FROM prenatal WHERE archive_label='' AND prenatal_date='$date'";
+        $query_run = mysqli_query($conn, $query);
+
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $patient) {
+        ?>
                 <tr>
-                    <th>DATE REGISTERED</th>
-                    <th>NAME</th>
-                    <th>ADDRESS</th>
-                    <th>AGE</th>
-                    <th>BIRTHDAY</th>
+                    <td> <?= $patient['prenatal_date']; ?> </td>
+                    <td> <?= $patient['firstname']; ?> <?= $patient['middlename']; ?> <?= $patient['lastname']; ?> </td>
+                    <td> <?= $patient['street_address'] . ' ' . $patient['barangay']; ?> </td>
+                    <td> <?= $patient['age']; ?> </td>
+                    <td> <?= $patient['sex']; ?> </td>
                 </tr>
-            </thead>
-            <?php
-                $query = "SELECT * FROM prenatal WHERE archive_label='' AND prenatal_date='$date'";
-                $query_run = mysqli_query($conn, $query);
-
-            if (mysqli_num_rows($query_run) > 0) {
-                foreach ($query_run as $patient) {
-            ?>
-                    <tr>
-                        <td> <?= $patient['prenatal_date']; ?> </td>
-                        <td> <?= $patient['firstname']; ?> <?= $patient['middlename']; ?> <?= $patient['lastname']; ?> </td>
-                        <td> <?= $patient['street_address'] . ' ' . $patient['barangay']; ?> </td>
-                        <td> <?= $patient['age']; ?> </td>
-                        <td> <?= $patient['sex']; ?> </td>
-                    </tr>
-            <?php
-                }
+        <?php
             }
-            ?>
-        </table>
+        }
+        ?>
+    </table>
 </div>
-

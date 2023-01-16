@@ -43,6 +43,14 @@ if (mysqli_num_rows($query_run) > 0) {
 
 
 <body class="grid">
+    <div class="loader" id="loader">
+        <svg width='150px' height='179px' version='1.1' xmlns='http://www.w3.org/2000/svg'>
+            <path class='d-spinner d-spinner__four' d='M144.421372,121.923755 C143.963266,123.384111 143.471366,124.821563 142.945674,126.236112 C138.856723,137.238783 133.098899,146.60351 125.672029,154.330576 C118.245158,162.057643 109.358082,167.978838 99.0105324,172.094341 C89.2149248,175.990321 78.4098994,178.04219 66.5951642,178.25 L0,178.25 L144.421372,121.923755 L144.421372,121.923755 Z' />
+            <path class='d-spinner d-spinner__three' d='M149.033408,92.6053108 C148.756405,103.232477 147.219069,113.005232 144.421372,121.923755 L0,178.25 L139.531816,44.0158418 C140.776016,46.5834381 141.913968,49.2553065 142.945674,52.0314515 C146.681818,62.0847774 148.711047,73.2598899 149.033408,85.5570717 L149.033408,92.6053108 L149.033408,92.6053108 Z' />
+            <path class='d-spinner d-spinner__two' d='M80.3248924,1.15770478 C86.9155266,2.16812827 93.1440524,3.83996395 99.0105324,6.17322306 C109.358082,10.2887257 118.245158,16.2099212 125.672029,23.9369874 C131.224984,29.7143944 135.844889,36.4073068 139.531816,44.0158418 L0,178.25 L80.3248924,1.15770478 L80.3248924,1.15770478 Z' />
+            <path class='d-spinner d-spinner__one' d='M32.2942065,0 L64.5884131,0 C70.0451992,0 75.290683,0.385899921 80.3248924,1.15770478 L0,178.25 L0,0 L32.2942065,0 L32.2942065,0 Z' />
+        </svg>
+    </div>
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
@@ -243,8 +251,28 @@ if (mysqli_num_rows($query_run) > 0) {
                     timerProgressBar: true,
                 })
             </script>
-    <?php
+        <?php
         }
+    }
+
+    if (isset($_GET['restore'])) {
+        ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Restored succesfully!',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
     }
     ?>
 
@@ -492,127 +520,126 @@ if (mysqli_num_rows($query_run) > 0) {
                                 <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                             </svg>
                         </button>
-                    </form>
+                    </li>
 
-                </li>
-                <li class="services__attributes__item">
-                    Age
-                    <form action="" method="POST">
-                        <!-- BUTTON FOR AGE -->
-                        <button type="submit" name="consultation_sort_age" value="2">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
-                    </form>
-                </li>
-                <li class="services__attributes__item">
-                    Sex
-                    <form action="" method="POST">
-                        <!-- BUTTON FOR SEX -->
-                        <button type="submit" name="consultation_sort_sex" value="3">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
-                    </form>
-                </li>
-                <li class="services__attributes__item">
-                    Date Availed
-                    <form action="" method="POST">
-                        <!-- BUTTON FOR DATE AVAILED -->
-                        <button type="submit" name="consultation_sort_date_availed" value="4">
-                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                            </svg>
-                        </button>
-                    </form>
-                </li>
-                <li>
-
-                </li>
-            </ul>
-            <!-- END OF FORM -->
-
-            <!-- To be put in the loop -->
-            <?php
-            $query = "SELECT * FROM consultation WHERE archive_label=''";
-            $query_run = mysqli_query($conn, $query);
-            if (mysqli_num_rows($query_run) > 0) {
-                if (isset($_POST['consultation_sort_name'])) {
-                    $sort_id = $_POST['consultation_sort_name'];
-                    if ($sort_id == 1) {
-                        $query = "SELECT * FROM consultation ORDER BY firstname";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['consultation_sort_age'])) {
-                    $sort_id = $_POST['consultation_sort_age'];
-                    if ($sort_id == 2) {
-                        $query = "SELECT * FROM consultation ORDER BY age";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['consultation_sort_sex'])) {
-                    $sort_id = $_POST['consultation_sort_sex'];
-                    if ($sort_id == 3) {
-                        $query = "SELECT * FROM consultation ORDER BY sex";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                if (isset($_POST['consultation_sort_date_availed'])) {
-                    $sort_id = $_POST['consultation_sort_date_availed'];
-                    if ($sort_id == 4) {
-                        $query = "SELECT * FROM consultation ORDER BY consultation_date";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                }
-                foreach ($query_run as $patient) {
-            ?>
-                    <ul class="services__table__row services__info" role="list">
-                        <li class="services__name p-bold">
-                            <a href="#consultation__report<?= $patient['consultation_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
-                        </li>
-                        <li class="services__num">
-                            <?= $patient['age']; ?>
-                        </li>
-                        <li class="services__sex">
-                            <?= $patient['sex']; ?>
-                        </li>
-                        <li class="services__date--availed">
-                            <?= $patient['consultation_date']; ?>
-                        </li>
-                        <!-- ARCHIVING -->
-                        <li class="services__option">
-                            <button type="button" onclick="confirmArchive('consultation' ,'<?= $patient['consultation_id']; ?>' , '<?= $patient['firstname']; ?>' , '<?= $patient['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
-                                <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
+                    <li class="services__attributes__item">
+                        Age
+                        <form action="" method="POST">
+                            <!-- BUTTON FOR AGE -->
+                            <button type="submit" name="consultation_sort_age" value="2">
+                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-consultation.php?id=<?= $patient['consultation_id']; ?>`">
-                                <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
-                                    <defs>
-                                        <clipPath id="a">
-                                            <rect width="64" height="64" />
-                                        </clipPath>
-                                    </defs>
-                                    <g clip-path="url(#a)">
-                                        <path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z" />
-                                    </g>
+                        </form>
+                    </li>
+                    <li class="services__attributes__item">
+                        Sex
+                        <form action="" method="POST">
+                            <!-- BUTTON FOR SEX -->
+                            <button type="submit" name="consultation_sort_sex" value="3">
+                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                                 </svg>
                             </button>
-                        </li>
-                        <?php include('./includes/reports/consultation.php'); ?>
-                    </ul>
-            <?php
-                }
-            }
+                        </form>
+                    </li>
+                    <li class="services__attributes__item">
+                        Date Availed
+                        <form action="" method="POST">
+                            <!-- BUTTON FOR DATE AVAILED -->
+                            <button type="submit" name="consultation_sort_date_availed" value="4">
+                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </li>
+                    <li>
 
-            ?>
-            <!-- End of Query -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-consultation.php'">
-                <p>Add</p>
-            </button>
+                    </li>
+                </ul>
+                <!-- END OF FORM -->
+
+                <!-- To be put in the loop -->
+                <?php
+                $query = "SELECT * FROM consultation WHERE archive_label=''";
+                $query_run = mysqli_query($conn, $query);
+                if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['consultation_sort_name'])) {
+                        $sort_id = $_POST['consultation_sort_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM consultation ORDER BY firstname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['consultation_sort_age'])) {
+                        $sort_id = $_POST['consultation_sort_age'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM consultation ORDER BY age";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['consultation_sort_sex'])) {
+                        $sort_id = $_POST['consultation_sort_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM consultation ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['consultation_sort_date_availed'])) {
+                        $sort_id = $_POST['consultation_sort_date_availed'];
+                        if ($sort_id == 4) {
+                            $query = "SELECT * FROM consultation ORDER BY consultation_date";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    foreach ($query_run as $patient) {
+                ?>
+                        <ul class="services__table__row services__info" role="list">
+                            <li class="services__name p-bold">
+                                <a href="#consultation__report<?= $patient['consultation_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a>
+                            </li>
+                            <li class="services__num">
+                                <?= $patient['age']; ?>
+                            </li>
+                            <li class="services__sex">
+                                <?= $patient['sex']; ?>
+                            </li>
+                            <li class="services__date--availed">
+                                <?= $patient['consultation_date']; ?>
+                            </li>
+                            <!-- ARCHIVING -->
+                            <li class="services__option">
+                                <button type="button" onclick="confirmArchive('consultation' ,'<?= $patient['consultation_id']; ?>' , '<?= $patient['firstname']; ?>' , '<?= $patient['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
+                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
+                                    </svg>
+                                </button>
+                                <button type="button" onclick="window.location.href = `./edit/edit-consultation.php?id=<?= $patient['consultation_id']; ?>`">
+                                    <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
+                                        <defs>
+                                            <clipPath id="a">
+                                                <rect width="64" height="64" />
+                                            </clipPath>
+                                        </defs>
+                                        <g clip-path="url(#a)">
+                                            <path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z" />
+                                        </g>
+                                    </svg>
+                                </button>
+                            </li>
+                            <?php include('./includes/reports/consultation.php'); ?>
+                        </ul>
+                <?php
+                    }
+                }
+
+                ?>
+                <!-- End of Query -->
+                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-consultation.php'">
+                    <p>Add</p>
+                </button>
         </div>
         <!-- End Tab for Consultation -->
 
@@ -1291,6 +1318,13 @@ if (mysqli_num_rows($query_run) > 0) {
     <?php
     }
     ?>
+    <script>
+        var loader = document.getElementById("loader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none";
+        });
+    </script>
 </body>
 
 </html>

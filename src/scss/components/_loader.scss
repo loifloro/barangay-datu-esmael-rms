@@ -1,0 +1,344 @@
+.loader {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  svg {
+    overflow: visible;
+  }
+
+  background-color: #2f6334;
+  background-image: radial-gradient(
+      at 0% bottom,
+      rgba(72, 160, 103, 0.7) 0%,
+      rgba(72, 160, 103, 0) 60%
+    ),
+    radial-gradient(at 90% bottom, #207647 0%, rgba(32, 118, 71, 0) 40%),
+    radial-gradient(
+      at 50% top,
+      rgba(19, 179, 80, 0.6) 0%,
+      rgba(19, 179, 80, 0) 75%
+    ),
+    radial-gradient(at right top, #4aa256 0%, hwb(150 93% 1%) 57%);
+  background-size: auto, auto, 100% 1000px, 100% 1000px;
+  background-repeat: no-repeat;
+}
+
+.d-spinner {
+  $color-one: #1f9454b9;
+  $color-two: #207647;
+  $color-three: #ecfcf2;
+  $color-four: #fefefe;
+  -webkit-animation-duration: 2.4s;
+  animation-duration: 2.4s;
+  -webkit-animation-timing-function: cubic-bezier(0, 1, 0.3, 1);
+  animation-timing-function: cubic-bezier(0, 1, 0.3, 1);
+  -webkit-animation-direction: normal;
+  animation-direction: normal;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  transform-origin: left bottom;
+  &.d-spinner__one {
+    -webkit-animation-name: dSpinnerOne;
+    animation-name: dSpinnerOne;
+    fill: $color-one;
+  }
+  &.d-spinner__two {
+    -webkit-animation-name: dSpinnerTwo;
+    animation-name: dSpinnerTwo;
+    fill: $color-two;
+  }
+  &.d-spinner__three {
+    -webkit-animation-name: dSpinnerThree;
+    animation-name: dSpinnerThree;
+    fill: $color-three;
+  }
+  &.d-spinner__four {
+    -webkit-animation-name: dSpinnerFour;
+    animation-name: dSpinnerFour;
+    fill: $color-four;
+  }
+
+  @-webkit-keyframes dSpinnerOne {
+    0% {
+      opacity: 0;
+      fill: lighten($color-one, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    7% {
+      opacity: 1;
+      fill: lighten($color-one, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    57% {
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      fill: $color-one;
+    }
+    74% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    83% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+
+  @keyframes dSpinnerOne {
+    0% {
+      opacity: 0;
+      fill: lighten($color-one, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    7% {
+      opacity: 1;
+      fill: lighten($color-one, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    57% {
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      fill: $color-one;
+    }
+    74% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    83% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+
+  @-webkit-keyframes dSpinnerTwo {
+    0% {
+      opacity: 0;
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    3% {
+      opacity: 0;
+      fill: lighten($color-two, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    10% {
+      opacity: 1;
+      fill: lighten($color-two, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    60% {
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      fill: $color-two;
+    }
+    71% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    79% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+
+  @keyframes dSpinnerTwo {
+    0% {
+      opacity: 0;
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    3% {
+      opacity: 0;
+      fill: lighten($color-two, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    10% {
+      opacity: 1;
+      fill: lighten($color-two, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    60% {
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      fill: $color-two;
+    }
+    71% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    79% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+
+  @-webkit-keyframes dSpinnerThree {
+    0% {
+      opacity: 0;
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    6% {
+      opacity: 0;
+      fill: lighten($color-three, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    13% {
+      opacity: 1;
+      fill: lighten($color-three, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    63% {
+      fill: $color-three;
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+    68% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    76% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+
+  @keyframes dSpinnerThree {
+    0% {
+      opacity: 0;
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    6% {
+      opacity: 0;
+      fill: lighten($color-three, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    13% {
+      opacity: 1;
+      fill: lighten($color-three, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    63% {
+      fill: $color-three;
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+    68% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    76% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+
+  @-webkit-keyframes dSpinnerFour {
+    0% {
+      opacity: 0;
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    9% {
+      opacity: 0;
+      fill: lighten($color-four, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    16% {
+      opacity: 1;
+      fill: lighten($color-four, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    64% {
+      fill: $color-four;
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+    65% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    73% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+
+  @keyframes dSpinnerFour {
+    0% {
+      opacity: 0;
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    9% {
+      opacity: 0;
+      fill: lighten($color-four, 20%);
+      transform: rotateZ(-65deg) scale(0.6);
+    }
+    16% {
+      opacity: 1;
+      fill: lighten($color-four, 20%);
+      transform: rotateZ(0) scale(1);
+    }
+    64% {
+      fill: $color-four;
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 0, 1);
+      animation-timing-function: cubic-bezier(0, 0, 0, 1);
+    }
+    65% {
+      opacity: 1;
+      transform: rotateZ(0) scale(1);
+      -webkit-animation-timing-function: cubic-bezier(0, 0, 1, 0);
+      animation-timing-function: cubic-bezier(0, 0, 1, 0);
+    }
+    73% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateZ(45deg) scale(0.61);
+    }
+  }
+}
