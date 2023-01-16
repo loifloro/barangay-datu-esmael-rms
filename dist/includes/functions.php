@@ -118,7 +118,7 @@ function hide_patient_deworming()
 function hide_patient_consultation()
 {
     include 'includes/connection.php';
-    $query = "SELECT * FROM consultation WHERE consultation_id = '" . $_SESSION['deworming_id'] . "'";
+    $query = "SELECT * FROM consultation WHERE consultation_id = '" . $_SESSION['account_id'] . "'";
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
@@ -187,7 +187,7 @@ function hide_patient_consultation()
 function hide_patient_prenatal()
 {
     include 'includes/connection.php';
-    $query = "SELECT * FROM prenatal WHERE prenatal_id = '" . $_SESSION['deworming_id'] . "'";
+    $query = "SELECT * FROM prenatal WHERE prenatal_id = '" . $_SESSION['account_id'] . "'";
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
@@ -256,7 +256,7 @@ function hide_patient_prenatal()
 function hide_patient_postnatal()
 {
     include 'includes/connection.php';
-    $query = "SELECT * FROM postnatal WHERE postnatal_id = '" . $_SESSION['deworming_id'] . "'";
+    $query = "SELECT * FROM postnatal WHERE postnatal_id = '" . $_SESSION['account_id'] . "'";
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
@@ -325,7 +325,7 @@ function hide_patient_postnatal()
 function hide_patient_search_destroy()
 {
     include 'includes/connection.php';
-    $query = "SELECT * FROM search_destroy WHERE search_destroy_id = '" . $_SESSION['deworming_id'] . "'";
+    $query = "SELECT * FROM search_destroy WHERE search_destroy_id = '" . $_SESSION['account_id'] . "'";
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
@@ -394,7 +394,7 @@ function hide_patient_search_destroy()
 function hide_patient_childhood()
 {
     include 'includes/connection.php';
-    $query = "SELECT * FROM early_childhood WHERE early_childhood_id = '" . $_SESSION['deworming_id'] . "'";
+    $query = "SELECT * FROM early_childhood WHERE early_childhood_id = '" . $_SESSION['account_id'] . "'";
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
