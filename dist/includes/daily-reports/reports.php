@@ -28,16 +28,21 @@
 
                 </select>
             </div>
-
-            <div class="reports__form__date">
-                <label for="report__date"> Date </label>
-                <!-- QUERY FOR DEFAULT DISPLAY IN DATE -->
-                <?php
+            
+            <!-- QUERY FOR DEFAULT DISPLAY IN DATE -->
+            <?php
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 }
-                ?>
+            ?>
+            <div class="reports__form__date">
+                <label for="report__date">Date From </label>
                 <input type="date" name="report__date" id="report__date" required value="<?= $date; ?>">
+            </div>
+            <div class="reports__form__date">
+                <label for="report__date">Date To </label>
+                <input type="date" name="report__date2" id="report__date" value="<?= $date2; ?>">
             </div>
         </div>
 
