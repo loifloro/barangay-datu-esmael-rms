@@ -6,18 +6,25 @@
     //DEFAULT DISPLAY
     $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
     $result = mysqli_query($conn, $query);
-
+    
     //CONDITION IF SORT BUTTON IS CLICKED
     if (isset($_GET['sort__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
-    ?>
-        <h4 class="reports__card__heading">Total No. of Patients: <?php echo $row['count(*)']; ?></h4>
-    <?php
+        ?>
+            <h4 class="reports__card__heading">Total No. of Patients: <?php echo $row['count(*)']; ?></h4>
+        <?php
     }
     ?>
     <!-- Query End -->
@@ -30,8 +37,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -54,8 +68,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -77,8 +98,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>= 1 AND age<=3 AND deworming_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -100,8 +128,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>= 4 AND age<=7 AND deworming_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -123,8 +158,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>= 8 AND deworming_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {

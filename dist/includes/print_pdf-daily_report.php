@@ -6,13 +6,21 @@ use Dompdf\Dompdf;
 $label = $_GET['label'];
 $id = $_GET['id'];
 $date = $_GET['date'];
+$date2 = $_GET['date2'];
 $date_show = date("m-d-Y", strtotime($date));
 
 // DAILY REPORTS
 
 
 if ($label == 'Deworming'){
-    $sql = mysqli_query($conn,"SELECT * FROM deworming WHERE archive_label='' AND deworming_date='$date'");
+
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM deworming WHERE archive_label='' AND deworming_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM deworming WHERE archive_label='' AND deworming_date >= '$date' AND deworming_date <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class

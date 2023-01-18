@@ -109,17 +109,19 @@
 
         <!-- Query Start -->
         <?php
-
-
-        if (isset($_GET['report__date'])) {
+        if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
             $deworming_sort = $date;
+            $deworming_sort2 = $date2;
         } else {
             $deworming_sort = "N/A";
+            $deworming_sort2 = "N/A";
         }
         ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $deworming_sort; ?>
+            Date From: <?php echo $deworming_sort; ?>
+            <br>Date To: <?php echo $deworming_sort2; ?>
         </div>
     </div>
 
@@ -130,8 +132,15 @@
 
     if (isset($_GET['report__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -151,8 +160,15 @@
 
     if (isset($_GET['report__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -172,8 +188,15 @@
 
     if (isset($_GET['report__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -201,14 +224,17 @@
         </thead>
         <?php
         include 'includes/connection.php';
-        // $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY deworming_date";
-        // $query_run = mysqli_query($conn, $query);
-
-        if (isset($_GET['report__date'])) { //test
+        if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT * FROM deworming WHERE archive_label='' AND deworming_date='$date'";
-            // $result = mysqli_query($conn, $query);
-            $query_run = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT * FROM deworming WHERE archive_label='' AND deworming_date = '$date'";
+                $query_run = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT * FROM deworming WHERE archive_label='' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $query_run = mysqli_query($conn, $query);
+            }
         }
 
         if (mysqli_num_rows($query_run) > 0) {
@@ -240,8 +266,15 @@
 
     if (isset($_GET['report__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -261,8 +294,15 @@
 
     if (isset($_GET['report__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -282,8 +322,15 @@
 
     if (isset($_GET['report__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -317,7 +364,7 @@
         }
         else{
         ?>
-            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['deworming_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['deworming_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
                 Save as PDF
             </button>
         <?php

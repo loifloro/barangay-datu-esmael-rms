@@ -91,15 +91,37 @@
         </p>
 
         <!-- Query Start -->
+        <?php
+        if ($date=='') {
+            $deworming_sort = "N/A";
+        }
+        else{
+            $deworming_sort = $date;
+        }
+        
+        if ($date2=='') {
+            $deworming_sort2 = "N/A";
+        }
+        else{
+            $deworming_sort2 = $date2;
+        }
+        ?>
         <p class="deworming-reports__date">
-            Date: <?php echo $date; ?>
+            Date From: <?php echo $deworming_sort; ?>
+            <br>Date To: <?php echo $deworming_sort2; ?>
         </p>
     </div>
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM deworming WHERE deworming_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -113,8 +135,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Male' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -128,8 +156,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND sex='Female' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -156,8 +190,15 @@
         </thead>
         <?php
 
-        $query = "SELECT * FROM deworming WHERE archive_label='' AND deworming_date='$date' ORDER BY deworming_date";
-        $query_run = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT * FROM deworming WHERE archive_label='' AND deworming_date = '$date'";
+            $query_run = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT * FROM deworming WHERE archive_label='' AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+            $query_run = mysqli_query($conn, $query);
+        }
+
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
         ?>
@@ -182,8 +223,14 @@
     </p>
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=1 AND age<=3 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -197,8 +244,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date = '$date'";
+                $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=4 AND age<=7 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -212,8 +265,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND age>=8 AND deworming_date >= '$date' AND deworming_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
