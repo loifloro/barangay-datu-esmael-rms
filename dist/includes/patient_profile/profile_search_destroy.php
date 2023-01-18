@@ -61,7 +61,7 @@
                         <span class="patient-profile__category">Registered Email</span>
                         <?= $patient['search_destroy_email']; ?>
                     </li>
-                    <li class="patient-profile__barangay">
+                    <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
                         <?= $patient['search_destroy_password']; ?>
                     </li>

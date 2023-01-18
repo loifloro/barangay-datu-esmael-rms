@@ -60,7 +60,7 @@
                         <span class="patient-profile__category">Registered Email</span>
                         <?= $patient['prenatal_email']; ?>
                     </li>
-                    <li class="patient-profile__barangay">
+                    <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
                         <?= $patient['prenatal_password']; ?>
                     </li>
