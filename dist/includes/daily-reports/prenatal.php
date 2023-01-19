@@ -10,8 +10,15 @@
     //CONDITION IF SORT BUTTON IS CLICKED
     if (isset($_GET['sort__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND prenatal_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND prenatal_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND prenatal_date >= '$date' AND prenatal_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -32,8 +39,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age<=17 AND prenatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age<=17 AND prenatal_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age<=17 AND prenatal_date >= '$date' AND prenatal_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -56,8 +70,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=18 AND age<=29 AND prenatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=18 AND age<=29 AND prenatal_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=18 AND age<=29 AND prenatal_date >= '$date' AND prenatal_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -80,8 +101,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=30 AND prenatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=30 AND prenatal_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM prenatal WHERE archive_label='' AND age>=30 AND prenatal_date >= '$date' AND prenatal_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {

@@ -90,14 +90,36 @@
         <p class="deworming-reports__brgy">
             Name of Barangay: Datu Esmael
         </p>
+        <?php
+        if ($date=='') {
+            $postnatal_sort = "N/A";
+        }
+        else{
+            $postnatal_sort = $date;
+        }
+        
+        if ($date2=='') {
+            $postnatal_sort2 = "N/A";
+        }
+        else{
+            $postnatal_sort2 = $date2;
+        }
+        ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $date; ?>
+            Date From: <?php echo $postnatal_sort; ?>
+            <br>Date To: <?php echo $postnatal_sort2; ?>
         </div>
     </div>
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND postnatal_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM postnatal WHERE postnatal_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -111,8 +133,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -126,8 +154,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -141,8 +175,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -165,8 +205,14 @@
             </tr>
         </thead>
         <?php
-        $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date='$date'";
-        $query_run = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date = '$date'";
+            $query_run = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+            $query_run = mysqli_query($conn, $query);
+        }
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {

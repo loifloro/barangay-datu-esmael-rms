@@ -9,8 +9,15 @@
     //CONDITION IF SORT BUTTON IS CLICKED
     if (isset($_GET['sort__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered >= '$date' AND date_registered <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -35,8 +42,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status='NHTS'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NHTS' AND date_registered = '$date'";
+                            $result = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $result = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -57,8 +71,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status='NON NHTS'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NON NHTS' AND date_registered = '$date'";
+                            $result = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NON NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $result = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -88,8 +109,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_newborn='low: < 2500gms'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='low: < 2500gms' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='low: < 2500gms' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
         }
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -111,39 +139,21 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_newborn='normal: >= 2500gms'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='normal: >= 2500gms' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='normal: >= 2500gms' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
         }
         while ($row = mysqli_fetch_array($result)) {
         ?>
         <p class="reports__card__title">Total No. 0-28 days old patient status (normal: >= 2500gms)</p>
         <input type="range" name="" id="" max="20" value='<?php echo $row['count(*)']; ?>'>
         <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
-        <?php
-        }
-        ?>
-        <!-- END -->
-    </div>
-
-    <div class="reports__card__item">
-        <!-- Query Start -->
-        <?php
-        //DEFAULT DISPLAY
-        $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='normal: >= 2500gms'"; // WHERE archive_label=''
-        $result = mysqli_query($conn, $query);
-
-        //CONDITION IF SORT BUTTON IS CLICKED
-        if (isset($_GET['sort__date'])) {
-            $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_newborn='normal: >= 2500gms'";
-            $result = mysqli_query($conn, $query);
-        }
-
-        while ($row = mysqli_fetch_array($result)) {
-        ?>
-            <p class="reports__card__title">Total No. 0-28 days old patient status (normal: >= 2500gms)</p>
-            <input type="range" name="" id="" max="20" value>
-            <p class="reports__card__total"> <?php echo $row['count(*)']; ?> </p>
         <?php
         }
         ?>
@@ -159,8 +169,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_newborn='unknown'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='unknown' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='unknown' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -190,8 +207,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='underweight'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='underweight' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='underweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -212,8 +236,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='stunted'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='stunted' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='stunted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -234,8 +265,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='wasted'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='wasted' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='wasted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -256,8 +294,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='obese/overweight'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='obese/overweight' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='obese/overweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -278,8 +323,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_1_3='normal'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='normal' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='normal' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -309,8 +361,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='underweight'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='underweight' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='underweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -331,8 +390,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='stunted'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='stunted' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='stunted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -353,8 +419,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='wasted'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='wasted' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='wasted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -375,8 +448,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='obese/overweight'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='obese/overweight' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='obese/overweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -397,8 +477,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_6_11='normal'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='normal' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='normal' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -428,8 +515,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='underweight'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='underweight' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='underweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -450,8 +544,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='stunted'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='stunted' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='stunted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -472,8 +573,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='wasted'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='wasted' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='wasted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -494,8 +602,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='obese/overweight'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='obese/overweight' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='obese/overweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
@@ -516,8 +631,15 @@
                 //CONDITION IF SORT BUTTON IS CLICKED
                 if (isset($_GET['sort__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date' AND status_month_12='normal'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='normal' AND date_registered = '$date'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='normal' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $query_run = mysqli_query($conn, $query);
+                        }
                 }
                 while ($row = mysqli_fetch_array($result)) {
                 ?>

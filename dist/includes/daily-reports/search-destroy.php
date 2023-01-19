@@ -10,8 +10,15 @@
     //CONDITION IF SORT BUTTON IS CLICKED
     if (isset($_GET['sort__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND search_destroy_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND search_destroy_date >= '$date' AND search_destroy_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -31,8 +38,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date >= '$date' AND search_destroy_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -55,8 +69,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Positive' AND search_destroy_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Positive' AND search_destroy_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Positive' AND search_destroy_date >= '$date' AND search_destroy_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -79,8 +100,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Negative' AND search_destroy_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Negative' AND search_destroy_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM search_destroy WHERE archive_label='' AND remark_status='Negative' AND search_destroy_date >= '$date' AND search_destroy_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -103,8 +131,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) AS total, sum(container_num) AS total_p FROM search_destroy WHERE archive_label='' AND search_destroy_date >= '$date' AND search_destroy_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {

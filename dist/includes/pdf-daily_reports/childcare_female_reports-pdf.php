@@ -90,15 +90,37 @@
         <p class="deworming-reports__brgy">
             Name of Barangay: Datu Esmael
         </p>
+        <?php
+        if ($date=='') {
+            $childcare_female_sort = "N/A";
+        }
+        else{
+            $childcare_female_sort = $date;
+        }
+        
+        if ($date2=='') {
+            $childcare_female_sort2 = "N/A";
+        }
+        else{
+            $childcare_female_sort2 = $date2;
+        }
+        ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $date; ?>
+            Date From: <?php echo $childcare_female_sort; ?>
+            <br>Date To: <?php echo $childcare_female_sort2; ?>
         </div>
     </div>
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_childcare_female WHERE status='NHTS' AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NHTS' AND date_registered = '$date'";
+            $result = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+            $result = mysqli_query($conn, $query);
+        }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -112,8 +134,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_childcare_female WHERE status='NON NHTS' AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NON NHTS' AND date_registered = '$date'";
+            $result = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT count(*) FROM target_childcare_female WHERE status='NON NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+            $result = mysqli_query($conn, $query);
+        }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -128,8 +156,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_childcare_female WHERE date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -153,9 +187,14 @@
         </thead>
 
         <?php
-        $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_newborn='low: < 2500gms' AND date_registered='$date'";
-        $query_run = mysqli_query($conn, $query);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='low: < 2500gms' AND date_registered = '$date'";
+                $query_run = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='low: < 2500gms' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                $query_run = mysqli_query($conn, $query);
+            }
 
         while ($row = mysqli_fetch_array($query_run)) {
             if ($row['count(*)'] == 0) {
@@ -177,9 +216,14 @@
         <!-- End Query for Low -->
 
         <?php
-        $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_newborn='normal: >= 2500gms' AND date_registered='$date'";
-        $query_run = mysqli_query($conn, $query);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='normal: >= 2500gms' AND date_registered = '$date'";
+                $query_run = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='normal: >= 2500gms' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                $query_run = mysqli_query($conn, $query);
+            }
 
         while ($row = mysqli_fetch_array($query_run)) {
             if ($row['count(*)'] == 0) {
@@ -201,9 +245,14 @@
         <!-- End Query for normal -->
 
         <?php
-        $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_newborn='unknown' AND date_registered='$date'";
-        $query_run = mysqli_query($conn, $query);
+             if($date == $date && $date2 == ''){
+                 $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='unknown' AND date_registered = '$date'";
+                 $query_run = mysqli_query($conn, $query);
+             }
+             else{
+                 $query = "SELECT count(*) FROM target_childcare_female WHERE status_newborn='unknown' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                 $query_run = mysqli_query($conn, $query);
+             }
 
         while ($row = mysqli_fetch_array($query_run)) {
             if ($row['count(*)'] == 0) {
@@ -229,9 +278,14 @@
             <td> </td>
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_1_3='underweight' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='underweight' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='underweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -247,9 +301,14 @@
             <!-- End Query for status_month_1_3-underweight -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_6_11='underweight' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='underweight' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='underweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -265,9 +324,14 @@
             <!-- End Query for status_month_6_11-underweight -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_12='underweight' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+               if($date == $date && $date2 == ''){
+                   $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='underweight' AND date_registered = '$date'";
+                   $query_run = mysqli_query($conn, $query);
+               }
+               else{
+                   $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='underweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                   $query_run = mysqli_query($conn, $query);
+               }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -288,9 +352,14 @@
             <td> </td>
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_1_3='stunted' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='stunted' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='stunted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -306,9 +375,14 @@
             <!-- End Query for status_month_1_3-stunted -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_6_11='stunted' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='stunted' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='stunted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -324,9 +398,14 @@
             <!-- End Query for status_month_6_11-stunted -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_12='stunted' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='stunted' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='stunted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -346,9 +425,14 @@
             <td> </td>
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_1_3='wasted' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='wasted' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='wasted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -364,9 +448,14 @@
             <!-- End Query for status_month_1_3-wasted -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_6_11='wasted' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='wasted' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='wasted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -382,9 +471,14 @@
             <!-- End Query for status_month_6_11-wasted -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_12='wasted' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='wasted' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='wasted' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -405,9 +499,14 @@
 
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_1_3='obese/overweight' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='obese/overweight' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='obese/overweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -423,9 +522,14 @@
             <!-- End Query for status_month_1_3-obese/overweight -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_6_11='obese/overweight' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='obese/overweight' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='obese/overweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -441,9 +545,14 @@
             <!-- End Query for status_month_6_11-obese/overweight -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_12='obese/overweight' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='obese/overweight' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='obese/overweight' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -464,9 +573,14 @@
 
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_1_3='normal' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='normal' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_1_3='normal' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -482,9 +596,14 @@
             <!-- End Query for status_month_1_3-normal -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_6_11='normal' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='normal' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_6_11='normal' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -500,9 +619,14 @@
             <!-- End Query for status_month_6_11-normal -->
 
             <?php
-            $query = "SELECT count(*) FROM target_childcare_female 
-                WHERE status_month_12='normal' AND date_registered='$date'";
-            $query_run = mysqli_query($conn, $query);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='normal' AND date_registered = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_childcare_female WHERE status_month_12='normal' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
 
             while ($row = mysqli_fetch_array($query_run)) {
                 if ($row['count(*)'] == 0) {
@@ -531,8 +655,14 @@
             </tr>
         </thead>
         <?php
-        $query = "SELECT * FROM target_childcare_female WHERE date_registered='$date'";
-        $query_run = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT * FROM target_childcare_female WHERE date_registered = '$date'";
+            $query_run = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT * FROM target_childcare_female WHERE date_registered >= '$date' AND date_registered <= '$date2'";
+            $query_run = mysqli_query($conn, $query);
+        }
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {

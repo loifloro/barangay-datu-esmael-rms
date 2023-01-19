@@ -193,17 +193,19 @@
             </p>
             <!-- Query Start -->
             <?php
-
-
-            if (isset($_GET['report__date'])) {
+            if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 $postnatal_sort = $date;
+                $postnatal_sort2 = $date2;
             } else {
                 $postnatal_sort = "N/A";
+                $postnatal_sort2 = "N/A";
             }
             ?>
             <div class="deworming-reports__date">
-                Date: <?php echo $postnatal_sort; ?>
+                Date From: <?php echo $postnatal_sort; ?>
+                <br>Date To: <?php echo $postnatal_sort2; ?>
             </div>
         </div>
         <!-- Query Start -->
@@ -213,8 +215,15 @@
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND postnatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM postnatal WHERE postnatal_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -234,8 +243,15 @@
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -255,8 +271,15 @@
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -276,8 +299,15 @@
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -304,8 +334,15 @@
             include 'includes/connection.php';
             if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date='$date'";
-                $query_run = mysqli_query($conn, $query);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                    if($date == $date && $date2 == ''){
+                        $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date = '$date'";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                    else{
+                        $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                        $query_run = mysqli_query($conn, $query);
+                    }
             }
 
             if (mysqli_num_rows($query_run) > 0) {
@@ -326,12 +363,12 @@
 
         <!-- Query To Disabled Save as PDF -->
         <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+        $query = "SELECT count(*) FROM postnatal WHERE archive_label=''";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+            $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND postnatal_date='$date'";
             $result = mysqli_query($conn, $query);
         }
 
@@ -345,7 +382,7 @@
             }
             else{
             ?>
-                 <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['postnatal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['postnatal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
                     Save as PDF
                 </button>
             <?php

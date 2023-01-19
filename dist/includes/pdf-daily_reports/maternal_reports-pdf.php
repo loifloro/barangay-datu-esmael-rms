@@ -89,15 +89,37 @@
         <p class="deworming-reports__brgy">
             Name of Barangay: Datu Esmael
         </p>
+        <?php
+        if ($date=='') {
+            $maternalcare_sort = "N/A";
+        }
+        else{
+            $maternalcare_sort = $date;
+        }
+        
+        if ($date2=='') {
+            $maternalcare_sort2 = "N/A";
+        }
+        else{
+            $maternalcare_sort2 = $date2;
+        }
+        ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $date; ?>
+            Date From: <?php echo $maternalcare_sort; ?>
+            <br>Date To: <?php echo $maternalcare_sort2; ?>
         </div>
     </div>
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS' AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS' AND date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -111,8 +133,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS' AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS' AND date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -127,8 +155,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_maternal WHERE date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_maternal WHERE date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -156,8 +190,14 @@
             </tr>
         </thead>
         <?php
-        $query = "SELECT * FROM target_maternal WHERE date_registered='$date'";
-        $query_run = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT * FROM target_maternal WHERE date_registered = '$date'";
+            $query_run = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT * FROM target_maternal WHERE date_registered >= '$date' AND date_registered <= '$date2'";
+            $query_run = mysqli_query($conn, $query);
+        }
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
@@ -183,8 +223,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_maternal WHERE age<=17 AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_maternal WHERE age<=17 AND date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_maternal WHERE age<=17 AND date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -199,8 +245,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_maternal WHERE age>=18 AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_maternal WHERE age>=18 AND date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_maternal WHERE age>=18 AND date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -215,8 +267,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive' AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive' AND date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive' AND date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -230,8 +288,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive' AND date_registered='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive' AND date_registered = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive' AND date_registered >= '$date' AND date_registered <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>

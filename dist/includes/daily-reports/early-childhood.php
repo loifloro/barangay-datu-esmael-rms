@@ -10,8 +10,15 @@
     //CONDITION IF SORT BUTTON IS CLICKED
     if (isset($_GET['sort__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
-        $result = mysqli_query($conn, $query);
+        $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            if($date == $date && $date2 == ''){
+                $query = "SELECT count(*) FROM early_childhood WHERE early_childhood_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
     }
 
     while ($row = mysqli_fetch_array($result)) {
@@ -32,8 +39,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -56,8 +70,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -80,8 +101,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -104,8 +132,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -128,8 +163,15 @@
         //CONDITION IF SORT BUTTON IS CLICKED
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {

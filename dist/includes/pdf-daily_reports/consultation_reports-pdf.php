@@ -90,15 +90,38 @@
         <p class="deworming-reports__brgy">
             Name of Barangay: Datu Esmael
         </p>
+
+        <?php
+        if ($date=='') {
+            $consultation_sort = "N/A";
+        }
+        else{
+            $consultation_sort = $date;
+        }
+        
+        if ($date2=='') {
+            $consultation_sort2 = "N/A";
+        }
+        else{
+            $consultation_sort2 = $date2;
+        }
+        ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $date; ?>
+            Date From: <?php echo $consultation_sort; ?>
+            <br>Date To: <?php echo $consultation_sort2; ?>
         </div>
     </div>
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM consultation WHERE consultation_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -113,8 +136,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male' AND consultation_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male' AND consultation_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -128,8 +157,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female' AND consultation_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female' AND consultation_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -152,8 +187,14 @@
             </tr>
         </thead>
         <?php
-        $query = "SELECT * FROM consultation WHERE archive_label='' AND consultation_date='$date'";
-        $query_run = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT * FROM consultation WHERE archive_label='' AND consultation_date = '$date'";
+            $query_run = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT * FROM consultation WHERE archive_label='' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+            $query_run = mysqli_query($conn, $query);
+        }
 
 
         if (mysqli_num_rows($query_run) > 0) {
@@ -177,8 +218,14 @@
     </p>
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13 AND consultation_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13 AND consultation_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13 AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -192,8 +239,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22 AND consultation_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22 AND consultation_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22 AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
 
     while ($row = mysqli_fetch_array($result)) {
@@ -208,8 +261,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=23 AND consultation_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=23 AND consultation_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=23 AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
 
     while ($row = mysqli_fetch_array($result)) {
