@@ -41,7 +41,7 @@
             </div>
             <div class="reports__form__date">
                 <label for="report__date"> Date </label>
-                <input type="date" name="report__date2" id="report__date" required value="<?= $date2; ?>">
+                <input type="date" name="report__date2" id="report__date" value="<?= $date2; ?>">
             </div>
         </div>
 
