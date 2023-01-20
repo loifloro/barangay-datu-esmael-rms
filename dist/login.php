@@ -128,7 +128,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                         }
                     }
 
-                        header("Location: patient-profile.php?id=$id&label=$label&fname=$fname&lname=$lname"); /*Redirect to this page if successful*/
+                        header("Location: patient-profile.php?id=$id&label=$label&fname=$fname&lname=$lname&success"); /*Redirect to this page if successful*/
                         exit();
                     } 
                     else {
