@@ -218,7 +218,7 @@ hide_content_forms();
                         </div>
                         <div class="edit-consultation__form-item">
                             <label for="consultation-contact">Phone Number</label>
-                            <input type="number" name="consultation-contact" id="consultation-contact" value="<?= $patient['phone_number']; ?>">
+                            <input type="number" name="consultation-contact" id="consultation-contact" maxlength="11"  min="0" value="<?= $patient['phone_number']; ?>">
                         </div>
 
 

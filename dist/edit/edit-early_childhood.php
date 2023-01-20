@@ -250,7 +250,7 @@ hide_content_forms();
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-pregnancies">No. of Pregnancies</label>
-                            <input type="number" name="early_childhood-pregnancies" id="early_childhood-pregnancies" value="<?= $patient['no_pregnancies']; ?>">
+                            <input type="number" name="early_childhood-pregnancies" id="early_childhood-pregnancies"  min="0" value="<?= $patient['no_pregnancies']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-mother-education">Educational Attainment</label>
@@ -338,15 +338,15 @@ hide_content_forms();
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-order">Birth Order</label>
-                            <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order" value="<?= $patient['birth_order']; ?>">
+                            <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order"  min="0" value="<?= $patient['birth_order']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
-                            <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight" value="<?= $patient['birth_weight']; ?>">
+                            <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0" value="<?= $patient['birth_weight']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-length">Birth Length (cm)</label>
-                            <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length" value="<?= $patient['birth_length']; ?>">
+                            <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0" value="<?= $patient['birth_length']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-place">Place of Delivery</label>

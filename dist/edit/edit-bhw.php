@@ -193,7 +193,7 @@
                             </div>
                             <div class="edit-bhw__form-item">
                                 <label for="bhw-contact">Contact Number</label>
-                                <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>">
+                                <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>" maxlength="11"  min="0">
                             </div>
                             <?php
                             if($user['user_email']==''){

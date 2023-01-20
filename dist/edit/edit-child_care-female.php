@@ -323,7 +323,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                         <div class="edit-child_care-female__form-item">
                             <label for="child_care-male-age">Age in months</label>
-                            <input type="number" name="child_care-female-1mos-age" id="child_care-male-1mos-age" value="<?= $patient['age_month_1_3']; ?>">
+                            <input type="number" name="child_care-female-1mos-age" id="child_care-male-1mos-age"  min="0" value="<?= $patient['age_month_1_3']; ?>">
                         </div>
                         <div class="edit-child_care-female__form-item">
                             <label for="child_care-male-1mos-legth">Length</label>
@@ -489,7 +489,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                         </p>
                         <div class="edit-child_care-female__form-item">
                             <label for="child_care-male-age">Age in months</label>
-                            <input type="number" name="child_care-female-6mos-age" id="child_care-male-6mos-age" value="<?= $patient['age_month_6_11']; ?>">
+                            <input type="number" name="child_care-female-6mos-age" id="child_care-male-6mos-age"  min="0" value="<?= $patient['age_month_6_11']; ?>">
                         </div>
                         <div class="edit-child_care-female__form-item">
                             <label for="child_care-male-6mos-legth">Length</label>
@@ -614,7 +614,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                         </p>
                         <div class="edit-child_care-female__form-item">
                             <label for="child_care-male-age">Age in months</label>
-                            <input type="number" name="child_care-female-12mos-age" id="child_care-male-12mos-age" value="<?= $patient['age_month_12']; ?>">
+                            <input type="number" name="child_care-female-12mos-age" id="child_care-male-12mos-age"  min="0" value="<?= $patient['age_month_12']; ?>">
                         </div>
                         <div class="edit-child_care-female__form-item">
                             <label for="child_care-male-12mos-legth">Length</label>
