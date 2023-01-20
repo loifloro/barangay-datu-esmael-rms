@@ -157,7 +157,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                 <div class="add-user__form-item">
                     <label for="bhw-contact">Contact Number</label>
-                    <input type="number" name="bhw-contact" id="bhw-contact" required>
+                    <input type="number" name="bhw-contact" id="bhw-contact" maxlength="11"  min="0" required>
                 </div>
 
                 <div class="add-user__form-item">

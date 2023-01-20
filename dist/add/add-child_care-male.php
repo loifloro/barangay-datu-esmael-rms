@@ -153,12 +153,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 Fill out necessary information to complete the process
             </p>
 
-            <form action="../includes/add_query.php" method="POST" class="add-child_care-male__form"> <!--ACTION AND METHOD ADDED-->
-
-                <!-- <div class="add-child_care-male__form-item">
-                    <label for="child_care-male-number">No.</label>
-                    <input type="text" name="child_care-male-number" id="child_care-male-number">
-                </div> -->
+            <form action="../includes/add_query.php" method="POST" class="add-child_care-male__form">
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-registration">Date of Registration *</label>
                     <input type="date" name="child_care-male-registration" id="child_care-male-registration" required>
@@ -314,7 +309,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-age">Age in months</label>
-                    <input type="number" name="child_care-male-1mos-age" id="child_care-male-1mos-age">
+                    <input type="number" name="child_care-male-1mos-age" id="child_care-male-1mos-age"  min="0">
                 </div>
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-1mos-legth">Length</label>
@@ -480,7 +475,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </p>
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-age">Age in months</label>
-                    <input type="number" name="child_care-male-6mos-age" id="child_care-male-6mos-age">
+                    <input type="number" name="child_care-male-6mos-age" id="child_care-male-6mos-age"  min="0">
                 </div>
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-6mos-legth">Length</label>
@@ -605,7 +600,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </p>
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-age">Age in months</label>
-                    <input type="number" name="child_care-male-12mos-age" id="child_care-male-12mos-age">
+                    <input type="number" name="child_care-male-12mos-age" id="child_care-male-12mos-age"  min="0">
                 </div>
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-12mos-legth">Length</label>

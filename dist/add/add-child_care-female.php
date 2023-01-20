@@ -308,7 +308,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-age">Age in months</label>
-                    <input type="number" name="child_care-female-1mos-age" id="child_care-female-1mos-age">
+                    <input type="number" name="child_care-female-1mos-age" id="child_care-female-1mos-age" min="0">
                 </div>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-1mos-legth">Length</label>
@@ -474,7 +474,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </p>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-age">Age in months</label>
-                    <input type="number" name="child_care-female-6mos-age" id="child_care-female-6mos-age">
+                    <input type="number" name="child_care-female-6mos-age" id="child_care-female-6mos-age"  min="0">
                 </div>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-6mos-legth">Length</label>
@@ -599,7 +599,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </p>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-age">Age in months</label>
-                    <input type="number" name="child_care-female-12mos-age" id="child_care-female-12mos-age">
+                    <input type="number" name="child_care-female-12mos-age" id="child_care-female-12mos-age"  min="0">
                 </div>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-12mos-legth">Length</label>

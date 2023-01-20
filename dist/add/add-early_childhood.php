@@ -235,7 +235,7 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-pregnancies">No. of Pregnancies</label>
-                    <input type="number" name="early_childhood-pregnancies" id="early_childhood-pregnancies">
+                    <input type="number" name="early_childhood-pregnancies" id="early_childhood-pregnancies"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-mother-education">Educational Attainment</label>
@@ -302,7 +302,7 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-gestational">Gestational Age of Birth (weeks)</label>
-                    <input type="number" name="early_childhood-gestational" id="early_childhood-gestational">
+                    <input type="number" name="early_childhood-gestational" id="early_childhood-gestational"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item add-early_childhood__form-item--radio">
                     <label for="early_childhood-birth">Type of Birth *</label>
@@ -323,15 +323,14 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
-                    <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight">
+                    <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-length">Birth Length (cm)</label>
-                    <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length">
+                    <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-place">Place of Delivery</label>
-                    <!-- <input type="number" name="early_childhood-birth-lenght" id="early_childhood-birth-lenght"> -->
                     <select name="early_childhood-birth-place" id="">
                         <option value="Home">Home</option>
                         <option value="Lying In">Lying In</option>
@@ -345,7 +344,6 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-attendant">Birth Attendant</label>
-                    <!-- <input type="number" name="early_childhood-birth-lenght" id="early_childhood-birth-lenght"> -->
                     <select name="early_childhood-birth-attendant" id="">
                         <option value="Doctor">Doctor</option>
                         <option value="Midwife">Midwife</option>
