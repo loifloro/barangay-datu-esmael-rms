@@ -667,7 +667,13 @@ if (isset($_POST['add_maternal_list'])) { //no page yet for this query
 
     $complete_address = mysqli_real_escape_string($conn, $_POST['maternal_care-address']);
     $socio_status = mysqli_real_escape_string($conn, $_POST['se-status']);
-    $age = mysqli_real_escape_string($conn, $_POST['maternal_care-age']);
+    // $age = mysqli_real_escape_string($conn, $_POST['maternal_care-age']);
+    //convert bdate to age
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['maternal_care-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age = $diff->format('%y');
+
     $birthday = mysqli_real_escape_string($conn, $_POST['maternal_care-birthday']);
     $lmp = mysqli_real_escape_string($conn, $_POST['maternal_care-lmp']);
 
