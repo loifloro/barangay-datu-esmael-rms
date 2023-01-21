@@ -170,12 +170,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="se-status">SE Status *</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status" value="NHTS" required>
-                            <label for="se-status">NHTS</label>
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS" required>
+                            <label for="se-status-nhts">NHTS</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status" value="NON NHTS" required>
-                            <label for="se-status">NON NHTS</label>
+                            <input type="radio" name="se-status" id="se-status-non_nhts" value="NON NHTS" required>
+                            <label for="se-status-non_nhts">NON NHTS</label>
                         </div>
                     </div>
                 </div>
@@ -229,12 +229,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-female--cpab">Child Protected at Birth (CPAB) *</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-female--cpab" value="TT2/Td2 given a month prior to delivery" required>
-                            <label for="child_care-female--cpab">TT2/Td2 given a month prior to delivery</label>
+                            <input type="radio" name="child_care-female--cpab" id="child_care-female--cpab-tt2" value="TT2/Td2 given a month prior to delivery" required>
+                            <label for="child_care-female--cpab-tt2">TT2/Td2 given a month prior to delivery</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female--cpab" id="child_care-female--cpab" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery" required>
-                            <label for="child_care-female--cpab">TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery</label>
+                            <input type="radio" name="child_care-female--cpab" id="child_care-female--cpab-tt3" value="TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery" required>
+                            <label for="child_care-female--cpab-tt3">TT3/Td3 to TT5/Td5 (TT1/Td1 TT5/Td5) given any time prior to delivery</label>
                         </div>
                     </div>
                 </div>
@@ -261,16 +261,16 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-female-newborn-weight">Status(Birth Weight) * <br>(kg)</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-status" value="low: < 2500gms" required>
-                            <label for="child_care-female-newborn-weight-status">L: low: < 2500gms </label>
+                            <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-status-low" value="low: < 2500gms" required>
+                            <label for="child_care-female-newborn-weight-status-low">L: low: < 2500gms </label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-status" value="normal: >= 2500gms" required>
-                            <label for="child_care-female-newborn-weight-status">N:normal: >= 2500gms </label>
+                            <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-status-normal" value="normal: >= 2500gms" required>
+                            <label for="child_care-female-newborn-weight-status-normal">N:normal: >= 2500gms </label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-status" value="unknown" required>
-                            <label for="child_care-female-newborn-weight-status">U:unknown </label>
+                            <input type="radio" name="child_care-female-newborn-weight-status" id="child_care-female-newborn-weight-status-unknown" value="unknown" required>
+                            <label for="child_care-female-newborn-weight-status-unknown">U:unknown </label>
                         </div>
                     </div>
                 </div>
@@ -340,24 +340,24 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-female-1mos-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status" value="underweight"><!--value added-->
-                            <label for="child_care-female-1mos-status">UW = underweight</label>
+                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-underweight" value="underweight"><!--value added-->
+                            <label for="child_care-female-1mos-status-underweight">UW = underweight</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status" value="stunted"><!--value added-->
-                            <label for="child_care-female-1mos-status">S = stunted</label>
+                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-stunted" value="stunted"><!--value added-->
+                            <label for="child_care-female-1mos-status-stunted">S = stunted</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status" value="wasted"><!--value added-->
-                            <label for="child_care-female-1mos-status">W = wasted</label>
+                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-wasted" value="wasted"><!--value added-->
+                            <label for="child_care-female-1mos-status-wasted">W = wasted</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status" value="obese/overweight"><!--value added-->
-                            <label for="child_care-female-1mos-status">O = obese/overweight</label>
+                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-obese" value="obese/overweight"><!--value added-->
+                            <label for="child_care-female-1mos-status-obese">O = obese/overweight</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status" value="normal"><!--value added-->
-                            <label for="child_care-female-1mos-status">N = normal</label>
+                            <input type="radio" name="child_care-female-1mos-status" id="child_care-female-1mos-status-normal" value="normal"><!--value added-->
+                            <label for="child_care-female-1mos-status-normal">N = normal</label>
                         </div>
                     </div>
                 </div>
@@ -506,24 +506,24 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-female-6mos-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status" value="underweight"><!--value added-->
-                            <label for="child_care-female-6mos-status">UW = underweight</label>
+                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-underweight" value="underweight"><!--value added-->
+                            <label for="child_care-female-6mos-status-underweight">UW = underweight</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status" value="stunted"><!--value added-->
-                            <label for="child_care-female-6mos-status">S = stunted</label>
+                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-stunted" value="stunted"><!--value added-->
+                            <label for="child_care-female-6mos-status-stunted">S = stunted</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status" value="wasted"><!--value added-->
-                            <label for="child_care-female-6mos-status">W = wasted</label>
+                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-wasted" value="wasted"><!--value added-->
+                            <label for="child_care-female-6mos-status-wasted">W = wasted</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status" value="obese/overweight"><!--value added-->
-                            <label for="child_care-female-6mos-status">O = obese/overweight</label>
+                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-obese" value="obese/overweight"><!--value added-->
+                            <label for="child_care-female-6mos-status-obese">O = obese/overweight</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status" value="normal"><!--value added-->
-                            <label for="child_care-female-6mos-status">N = normal</label>
+                            <input type="radio" name="child_care-female-6mos-status" id="child_care-female-6mos-status-normal" value="normal"><!--value added-->
+                            <label for="child_care-female-6mos-status-normal">N = normal</label>
                         </div>
                     </div>
                 </div>
@@ -532,12 +532,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-female-6mos-breastfed">Exclusively* Breastfed up to 6 months</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-6mos-status-exclusive" id="child_care-female-6mos-status-exclusive" value="Yes"><!--child_care-female-6mos-status CHANGE INTO child_care-female-6mos-status-exclusive--><!--value added-->
-                            <label for="child_care-female-6mos-status-exclusive">Yes</label>
+                            <input type="radio" name="child_care-female-6mos-status-exclusive" id="child_care-female-6mos-status-exclusive-yes" value="Yes"><!--child_care-female-6mos-status CHANGE INTO child_care-female-6mos-status-exclusive--><!--value added-->
+                            <label for="child_care-female-6mos-status-exclusive-yes">Yes</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-6mos-status-exclusive" id="child_care-female-6mos-status-exclusive" value="No"><!--child_care-female-6mos-status CHANGE INTO child_care-female-6mos-status-exclusive--><!--value added-->
-                            <label for="child_care-female-6mos-status-exclusive">No</label>
+                            <input type="radio" name="child_care-female-6mos-status-exclusive" id="child_care-female-6mos-status-exclusive-no" value="No"><!--child_care-female-6mos-status CHANGE INTO child_care-female-6mos-status-exclusive--><!--value added-->
+                            <label for="child_care-female-6mos-status-exclusive-no">No</label>
                         </div>
                     </div>
                 </div>
@@ -545,12 +545,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-female-complementary-feeding">Introduction of Complementary Feeding** at 6 months old</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-complementary-feeding" id="child_care-female-complementary-feeding">
-                            <label for="child_care-female-complementary-feeding">1 - with continued breastfeeding</label>
+                            <input type="radio" name="child_care-female-complementary-feeding" id="child_care-female-complementary-feeding-1">
+                            <label for="child_care-female-complementary-feeding-1">1 - with continued breastfeeding</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-complementary-feeding" id="child_care-female-complementary-feeding">
-                            <label for="child_care-female-complementary-feeding">2 - no longer breastfeeding or never breastfed</label>
+                            <input type="radio" name="child_care-female-complementary-feeding" id="child_care-female-complementary-feeding-2">
+                            <label for="child_care-female-complementary-feeding-2">2 - no longer breastfeeding or never breastfed</label>
                         </div>
                     </div>
                 </div>
@@ -631,24 +631,24 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-female-12mos-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status" value="underweight"><!--value added-->
-                            <label for="child_care-female-12mos-status">UW = underweight</label>
+                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-underweight" value="underweight"><!--value added-->
+                            <label for="child_care-female-12mos-status-underweight">UW = underweight</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status" value="stunted"><!--value added-->
-                            <label for="child_care-female-12mos-status">S = stunted</label>
+                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-stunted" value="stunted"><!--value added-->
+                            <label for="child_care-female-12mos-status-stunted">S = stunted</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status" value="wasted"><!--value added-->
-                            <label for="child_care-female-12mos-status">W = wasted</label>
+                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-wasted" value="wasted"><!--value added-->
+                            <label for="child_care-female-12mos-status-wasted">W = wasted</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status" value="obese/overweight"><!--value added-->
-                            <label for="child_care-female-12mos-status">O = obese/overweight</label>
+                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-obese" value="obese/overweight"><!--value added-->
+                            <label for="child_care-female-12mos-status-obese">O = obese/overweight</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status" value="normal"><!--value added-->
-                            <label for="child_care-female-12mos-status">N = normal</label>
+                            <input type="radio" name="child_care-female-12mos-status" id="child_care-female-12mos-status-normal" value="normal"><!--value added-->
+                            <label for="child_care-female-12mos-status-normal">N = normal</label>
                         </div>
                     </div>
                 </div>

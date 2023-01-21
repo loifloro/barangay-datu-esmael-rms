@@ -190,12 +190,12 @@ hide_content_forms();
                     <label for="deworming-sex">Gender *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="deworming-sex" id="deworming-sex" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
-                            <label for="deworming-sex">Male</label>
+                            <input type="radio" name="deworming-sex" id="deworming-sex-male" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
+                            <label for="deworming-sex-male">Male</label>
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="deworming-sex" id="deworming-sex" value="Female" required>
-                            <label for="deworming-sex">Female</label>
+                            <input type="radio" name="deworming-sex" id="deworming-sex-female" value="Female" required>
+                            <label for="deworming-sex-female">Female</label>
                         </div>
                     </div>
                 </div>

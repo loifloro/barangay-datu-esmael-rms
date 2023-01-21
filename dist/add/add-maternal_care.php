@@ -188,12 +188,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="se-status">Socio Economic Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status" value="NHTS"> <!--Added value-->
-                            <label for="bhw-chn">NHTS</label>
+                            <input type="radio" name="se-status" id="se-status-nhts" value="NHTS"> <!--Added value-->
+                            <label for="se-status-nhts">NHTS</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="se-status" id="se-status" value="NON NHTS"> <!--Added value-->
-                            <label for="se-status">NON NHTS</label>
+                            <input type="radio" name="se-status" id="se-status-non_nhts" value="NON NHTS"> <!--Added value-->
+                            <label for="se-status-non_nhts">NON NHTS</label>
                         </div>
                     </div>
                 </div>
@@ -462,12 +462,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-syphilis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status" value="Positive"> <!--Value added-->
-                            <label for="maternal_care-syphilis-screening-status">Positive</label>
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-positive" value="Positive"> <!--Value added-->
+                            <label for="maternal_care-syphilis-screening-status-positive">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status" value="Negative"> <!--Value added-->
-                            <label for="maternal_care-syphilis-screening-status">Negative</label>
+                            <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-negative" value="Negative"> <!--Value added-->
+                            <label for="maternal_care-syphilis-screening-status-negative">Negative</label>
                         </div>
                     </div>
                 </div>
@@ -489,12 +489,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="maternal_care-hepatitis-screening-status">Status</label>
                     <div class="add-user__form--role-item">
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status" value="Positive"> <!--Value added-->
-                            <label for="maternal_care-hepatitis-screening-status">Positive</label>
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-positive" value="Positive"> <!--Value added-->
+                            <label for="maternal_care-hepatitis-screening-status-positive">Positive</label>
                         </div>
                         <div class="add-user__form-item">
-                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status" value="Negative"> <!--Value added-->
-                            <label for="maternal_care-hepatitis-screening-status">Negative</label>
+                            <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-negative" value="Negative"> <!--Value added-->
+                            <label for="maternal_care-hepatitis-screening-status-negative">Negative</label>
                         </div>
                     </div>
                 </div>

@@ -178,12 +178,12 @@ hide_content_forms();
                     <label for="consultation-sex">Gender *</label>
                     <div class="add-consultation__form--role-item">
                         <div class="add-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex" value="Male" required>
-                            <label for="consultation-sex">Male</label>
+                            <input type="radio" name="consultation-sex" id="consultation-sex-male" value="Male" required>
+                            <label for="consultation-sex-male">Male</label>
                         </div>
                         <div class="add-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex" value="Female" required>
-                            <label for="consultation-sex">Female</label>
+                            <input type="radio" name="consultation-sex" id="consultation-sex-female" value="Female" required>
+                            <label for="consultation-sex-female">Female</label>
                         </div>
                     </div>
                 </div>
