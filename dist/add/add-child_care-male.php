@@ -252,11 +252,11 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male-newborn-length">Length at Birth <br>(cm)</label>
-                    <input type="text" name="child_care-male-newborn-length" id="child_care-male-newborn-length">
+                    <input type="number" name="child_care-male-newborn-length" id="child_care-male-newborn-length">
                 </div>
                 <div class="add-child_care-male__form-item">
                     <label for="child_care-male--newbornweight">Weight at Birth * <br>(kg)</label>
-                    <input type="tel" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight" required>
+                    <input type="number" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight" required>
                 </div>
                 <div class="add-child_care-male__form-item add-child_care-male__form-item--radio">
                     <label for="child_care-male-newborn-weight">Status(Birth Weight) *<br>(kg)</label>
@@ -315,7 +315,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-male-1mos-legth">Length</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-1mos-length-cm" id="child_care-male-1mos-length-cm">
+                            <input type="number" name="child_care-male-1mos-length-cm" id="child_care-male-1mos-length-cm">
                             <label for="child_care-male-length-cm">cm</label>
                         </div>
                         <div class="two-input__item">
@@ -328,7 +328,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-male-1mos-weight">Weight</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-1mos-weight-kg" id="child_care-male-1mos-weight-kg">
+                            <input type="number" name="child_care-male-1mos-weight-kg" id="child_care-male-1mos-weight-kg">
                             <label for="child_care-male-weight-kg">kg</label>
                         </div>
                         <div class="two-input__item">
@@ -481,7 +481,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-male-6mos-legth">Length</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-6mos-length-cm" id="child_care-male-6mos-length-cm">
+                            <input type="number" name="child_care-male-6mos-length-cm" id="child_care-male-6mos-length-cm">
                             <label for="child_care-male-length-cm">cm</label>
                         </div>
                         <div class="two-input__item">
@@ -494,7 +494,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-male-6mos-weight">Weight</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-6mos-weight-kg" id="child_care-male-6mos-weight-kg">
+                            <input type="number" name="child_care-male-6mos-weight-kg" id="child_care-male-6mos-weight-kg">
                             <label for="child_care-male-weight-kg">kg</label>
                         </div>
                         <div class="two-input__item">
@@ -606,7 +606,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-male-12mos-legth">Length</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-12mos-length-cm" id="child_care-male-12mos-length-cm">
+                            <input type="number" name="child_care-male-12mos-length-cm" id="child_care-male-12mos-length-cm">
                             <label for="child_care-male-length-cm">cm</label>
                         </div>
                         <div class="two-input__item">
@@ -619,7 +619,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     <label for="child_care-male-12mos-weight">Weight</label>
                     <div class="two-input">
                         <div class="two-input__item">
-                            <input type="text" name="child_care-male-12mos-weight-kg" id="child_care-male-12mos-weight-kg">
+                            <input type="number" name="child_care-male-12mos-weight-kg" id="child_care-male-12mos-weight-kg">
                             <label for="child_care-male-weight-kg">kg</label>
                         </div>
                         <div class="two-input__item">
