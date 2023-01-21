@@ -198,15 +198,15 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                     </div>
                 </div>
                 <div class="add-maternal_care__form-item">
-                    <label for="maternal_care-1mos-legth">Age</label>
+                    <label for="maternal_care-1mos-legth">Birthday *</label>
                     <div class="two-input">
-                        <div class="two-input__item">
+                        <!-- <div class="two-input__item">
                             <input type="number" name="maternal_care-age" id="maternal_care-age" required>
                             <label for="maternal_care-age">Age *</label>
-                        </div> <!--to be fix-->
+                        </div> to be fix -->
                         <div class="two-input__item">
                             <input type="date" name="maternal_care-birthday" id="maternal_care-birthday" required>
-                            <label for="maternal_care-birthday">Birthday *</label>
+                            <label for="maternal_care-birthday">Birthday</label>
                         </div>
                     </div>
                 </div>
