@@ -179,14 +179,14 @@
                                 <input type="text" name="bhw-mname" id="bhw-name" value="<?= $user['middlename']; ?>">
                             </div>
                             <div class="edit-bhw__form-item edit-bhw__form-item--radio">
-                                <label for="bhw-sex">Sex</label>
+                                <label for="bhw-sex">Sex *</label>
                                 <div class="edit-bhw__form--role-item">
                                     <div class="edit-bhw__form-item">
-                                        <input type="radio" name="bhw-sex" id="bhw-sex" value="Male" <?= ($user['sex'] == 'Male') ? 'checked' : '' ?>>
+                                        <input type="radio" name="bhw-sex" id="bhw-sex" value="Male" <?= ($user['sex'] == 'Male') ? 'checked' : '' ?> required>
                                         <label for="bhw-sex">Male</label>
                                     </div>
                                     <div class="edit-bhw__form-item">
-                                        <input type="radio" name="bhw-sex" id="bhw-sex" value="Female" <?= ($user['sex'] == 'Female') ? 'checked' : '' ?>>
+                                        <input type="radio" name="bhw-sex" id="bhw-sex" value="Female" <?= ($user['sex'] == 'Female') ? 'checked' : '' ?> required>
                                         <label for="bhw-sex">Female</label>
                                     </div>
                                 </div>
@@ -217,20 +217,20 @@
                             ?>
                             
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-birthday">Birthday</label>
-                                <input type="date" name="bhw-birthday" id="bhw-birthday" value="<?= $user['birthday']; ?>">
+                                <label for="bhw-birthday">Birthday *</label>
+                                <input type="date" name="bhw-birthday" id="bhw-birthday" value="<?= $user['birthday']; ?>" required>
                             </div>
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-street-address">Street Address</label>
-                                <input type="text" name="bhw-street-address" id="bhw-street-address" value="<?= $user['street_add']; ?>">
+                                <label for="bhw-street-address">Street Address *</label>
+                                <input type="text" name="bhw-street-address" id="bhw-street-address" value="<?= $user['street_add']; ?>" required>
                             </div>
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-barangay">Barangay</label>
-                                <input type="text" name="bhw-barangay" id="bhw-barangay" value="<?= $user['barangay']; ?>">
+                                <label for="bhw-barangay">Barangay *</label>
+                                <input type="text" name="bhw-barangay" id="bhw-barangay" value="<?= $user['barangay']; ?>" required>
                             </div>
                             <div class="edit-bhw__form-item">
-                                <label for="bhw-city">City</label>
-                                <input type="text" name="bhw-city" id="bhw-city" value="<?= $user['city']; ?>">
+                                <label for="bhw-city">City *</label>
+                                <input type="text" name="bhw-city" id="bhw-city" value="<?= $user['city']; ?>" required>
                             </div>
 
                             <!-- Divider -->
