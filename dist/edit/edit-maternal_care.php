@@ -196,12 +196,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="bhw-contact">Socio Economic Status</label>
                             <div class="add-user__form--role-item">
                                 <div class="add-user__form-item">
-                                    <input type="radio" name="se-status" id="se-status" value="NHTS" <?= ($patient['socio_status'] == 'NHTS') ? 'checked' : '' ?>>
-                                    <label for="se-status">NHTS</label>
+                                    <input type="radio" name="se-status" id="se-status-nhts" value="NHTS" <?= ($patient['socio_status'] == 'NHTS') ? 'checked' : '' ?>>
+                                    <label for="se-status-nhts">NHTS</label>
                                 </div>
                                 <div class="add-user__form-item">
-                                    <input type="radio" name="se-status" id="se-status" value="NON NHTS" <?= ($patient['socio_status'] == 'NON NHTS') ? 'checked' : '' ?>>
-                                    <label for="se-status">NON NHTS</label>
+                                    <input type="radio" name="se-status" id="se-status-non_nhts" value="NON NHTS" <?= ($patient['socio_status'] == 'NON NHTS') ? 'checked' : '' ?>>
+                                    <label for="se-status-non_nhts">NON NHTS</label>
                                 </div>
                             </div>
                         </div>
@@ -470,12 +470,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-syphilis-screening-status">Status</label>
                             <div class="add-user__form--role-item">
                                 <div class="add-user__form-item">
-                                    <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status" value="Positive" <?= ($patient['syphilis_status'] == 'Positive') ? 'checked' : '' ?>>
-                                    <label for="maternal_care-syphilis-screening-status">Positive</label>
+                                    <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-positive" value="Positive" <?= ($patient['syphilis_status'] == 'Positive') ? 'checked' : '' ?>>
+                                    <label for="maternal_care-syphilis-screening-status-positive">Positive</label>
                                 </div>
                                 <div class="add-user__form-item">
-                                    <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status" value="Negative" <?= ($patient['syphilis_status'] == 'Negative') ? 'checked' : '' ?>>
-                                    <label for="maternal_care-syphilis-screening-status">Negative</label>
+                                    <input type="radio" name="maternal_care-syphilis-screening-status" id="maternal_care-syphilis-screening-status-negative" value="Negative" <?= ($patient['syphilis_status'] == 'Negative') ? 'checked' : '' ?>>
+                                    <label for="maternal_care-syphilis-screening-status-negative">Negative</label>
                                 </div>
                             </div>
                         </div>
@@ -497,12 +497,12 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-hepatitis-screening-status">Status</label>
                             <div class="add-user__form--role-item">
                                 <div class="add-user__form-item">
-                                    <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status" value="Positive" <?= ($patient['hepatitis_status'] == 'Positive') ? 'checked' : '' ?>>
-                                    <label for="maternal_care-hepatitis-screening-status">Positive</label>
+                                    <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-positive" value="Positive" <?= ($patient['hepatitis_status'] == 'Positive') ? 'checked' : '' ?>>
+                                    <label for="maternal_care-hepatitis-screening-status-positive">Positive</label>
                                 </div>
                                 <div class="add-user__form-item">
-                                    <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status" value="Negative" <?= ($patient['hepatitis_status'] == 'Negative') ? 'checked' : '' ?>>
-                                    <label for="maternal_care-hepatitis-screening-status">Negative</label>
+                                    <input type="radio" name="maternal_care-hepatitis-screening-status" id="maternal_care-hepatitis-screening-status-negative" value="Negative" <?= ($patient['hepatitis_status'] == 'Negative') ? 'checked' : '' ?>>
+                                    <label for="maternal_care-hepatitis-screening-status-negative">Negative</label>
                                 </div>
                             </div>
                         </div>
@@ -533,20 +533,20 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                         <!-- Radio Buttons -->
                         <div class="edit-maternal_care-female__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Mispelled Name" required>
-                            <label for="edit-reason">Mispelled Name</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-mispelled" value="Mispelled Name" required>
+                            <label for="edit-reason-mispelled">Mispelled Name</label>
                         </div>
                         <div class="edit-maternal_care-female__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Gender" required>
-                            <label for="edit-reason">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Gender" required>
+                            <label for="edit-reason-gender">Incorrect Gender</label>
                         </div>
                         <div class="edit-maternal_care-female__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Birthdate" required>
-                            <label for="edit-reason">Incorrect Birthdate</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>
+                            <label for="edit-reason-bdate">Incorrect Birthdate</label>
                         </div>
                         <div class="edit-maternal_care-female__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Wrong Address" required>
-                            <label for="edit-reason">Wrong Address</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-address" value="Wrong Address" required>
+                            <label for="edit-reason-address">Wrong Address</label>
                         </div>
                         <div class="edit-maternal_care-female__form-item--reason">
                             <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
