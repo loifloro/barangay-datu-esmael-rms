@@ -359,21 +359,21 @@ hide_content();
                     if (isset($_POST['deworming_sort_name'])) {
                         $sort_id = $_POST['deworming_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM deworming ORDER BY firstname";
+                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY firstname";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['deworming_sort_date_availed'])) {
                         $sort_id = $_POST['deworming_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM deworming ORDER BY deworming_date";
+                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY deworming_date";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['deworming_sort_sex'])) {
                         $sort_id = $_POST['deworming_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM deworming ORDER BY sex";
+                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY sex";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -459,21 +459,21 @@ hide_content();
                     if (isset($_POST['consultation_sort_name'])) {
                         $sort_id = $_POST['consultation_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM consultation ORDER BY firstname";
+                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY firstname";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['consultation_sort_date_availed'])) {
                         $sort_id = $_POST['consultation_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM consultation ORDER BY consultation_date";
+                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY consultation_date";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['consultation_sort_sex'])) {
                         $sort_id = $_POST['consultation_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM consultation ORDER BY sex";
+                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY sex";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -560,21 +560,21 @@ hide_content();
                     if (isset($_POST['prenatal_sort_name'])) {
                         $sort_id = $_POST['prenatal_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM prenatal ORDER BY firstname";
+                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY firstname";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['prenatal_sort_date_availed'])) {
                         $sort_id = $_POST['prenatal_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM prenatal ORDER BY prenatal_date";
+                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY prenatal_date";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['prenatal_sort_sex'])) {
                         $sort_id = $_POST['prenatal_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM prenatal ORDER BY sex";
+                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY sex";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -661,21 +661,21 @@ hide_content();
                     if (isset($_POST['postnatal_early_sort_name'])) {
                         $sort_id = $_POST['postnatal_early_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM postnatal ORDER BY firstname";
+                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY firstname";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['postnatal_early_sort_date_availed'])) {
                         $sort_id = $_POST['postnatal_early_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM postnatal ORDER BY postnatal_date";
+                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY postnatal_date";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['postnatal_early_sort_sex'])) {
                         $sort_id = $_POST['postnatal_early_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM postnatal ORDER BY sex";
+                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY sex";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -762,21 +762,21 @@ hide_content();
                     if (isset($_POST['search_sort_name'])) {
                         $sort_id = $_POST['search_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM search_destroy ORDER BY owner_fname";
+                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY owner_fname";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['search_sort_date_availed'])) {
                         $sort_id = $_POST['search_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM search_destroy ORDER BY search_destroy_date";
+                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY search_destroy_date";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['search_sort_sex'])) {
                         $sort_id = $_POST['search_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM search_destroy ORDER BY sex";
+                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY sex";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -863,21 +863,21 @@ hide_content();
                     if (isset($_POST['early_sort_name'])) {
                         $sort_id = $_POST['early_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM early_childhood ORDER BY child_fname";
+                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY child_fname";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['early_sort_date_availed'])) {
                         $sort_id = $_POST['early_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM early_childhood ORDER BY early_childhood_date";
+                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY early_childhood_date";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['early_sort_sex'])) {
                         $sort_id = $_POST['early_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM early_childhood ORDER BY sex";
+                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY sex";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
