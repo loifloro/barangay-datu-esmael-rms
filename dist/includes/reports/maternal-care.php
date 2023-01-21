@@ -20,17 +20,19 @@ if (isset($_GET['report__date'])) {
         </p>
         <!-- Query Start -->
         <?php
-
-
-            if (isset($_GET['report__date'])) {
+            if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 $maternalcare_sort = $date;
+                $maternalcare_sort2 = $date2;
             } else {
                 $maternalcare_sort = "N/A";
+                $maternalcare_sort2 = "N/A";
             }
             ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $maternalcare_sort; ?>
+            Date From: <?php echo $maternalcare_sort; ?>
+            <br>Date To: <?php echo $maternalcare_sort2; ?>
         </div>
     </div>
 
@@ -41,8 +43,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS' AND date_registered='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS' AND date_registered = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -62,8 +71,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS' AND date_registered='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS' AND date_registered = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_maternal WHERE socio_status='NON NHTS' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -84,8 +100,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_maternal WHERE date_registered='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_maternal WHERE date_registered = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_maternal WHERE date_registered >= '$date' AND date_registered <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -117,8 +140,15 @@ if (isset($_GET['report__date'])) {
             include 'includes/connection.php';
             if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $query = "SELECT * FROM target_maternal WHERE date_registered='$date'";
-                $query_run = mysqli_query($conn, $query);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                    if($date == $date && $date2 == ''){
+                        $query = "SELECT * FROM target_maternal WHERE date_registered = '$date'";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                    else{
+                        $query = "SELECT * FROM target_maternal WHERE date_registered >= '$date' AND date_registered <= '$date2'";
+                        $query_run = mysqli_query($conn, $query);
+                    }
             }
 
             if (mysqli_num_rows($query_run) > 0) {
@@ -150,8 +180,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_maternal WHERE age<=17 AND date_registered='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_maternal WHERE age<=17 AND date_registered = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_maternal WHERE age<=17 AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -171,8 +208,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_maternal WHERE age>=18 AND date_registered='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_maternal WHERE age>=18 AND date_registered = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_maternal WHERE age>=18 AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -193,8 +237,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive' AND date_registered='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive' AND date_registered = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM target_maternal WHERE syphilis_status='Positive' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -209,13 +260,20 @@ if (isset($_GET['report__date'])) {
 
             <!-- Query Start -->
             <?php
-                 $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive'";
+                $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive'";
                 $result = mysqli_query($conn, $query);
 
                 if (isset($_GET['report__date'])) {
                     $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive' AND date_registered='$date'";
-                    $result = mysqli_query($conn, $query);
+                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                        if($date == $date && $date2 == ''){
+                            $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive' AND date_registered = '$date'";
+                            $result = mysqli_query($conn, $query);
+                        }
+                        else{
+                            $query = "SELECT count(*) FROM target_maternal WHERE hepatitis_status='Positive' AND date_registered >= '$date' AND date_registered <= '$date2'";
+                            $result = mysqli_query($conn, $query);
+                        }
                 }
 
                 while ($row = mysqli_fetch_array($result)) {
@@ -250,7 +308,7 @@ if (isset($_GET['report__date'])) {
             }
             else{
             ?>
-                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['target_maternal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['target_maternal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
                     Save as PDF
                 </button>
             <?php

@@ -345,12 +345,12 @@
 
     <!-- Query To Disabled Save as PDF -->
     <?php
-    $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+    $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
     $result = mysqli_query($conn, $query);
 
     if (isset($_GET['report__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+        $query = "SELECT count(*) FROM deworming WHERE archive_label='' AND deworming_date='$date'";
         $result = mysqli_query($conn, $query);
     }
 

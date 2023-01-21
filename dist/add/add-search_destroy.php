@@ -233,7 +233,7 @@ hide_content_forms();
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-number-container">No. of Container Positive for Larva *</label>
-                    <input type="number" name="search_destroy-number-container" id="search_destroy-number-container" required>
+                    <input type="number" name="search_destroy-number-container" id="search_destroy-number-container"  min="0" required>
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
                     <label for="search_destroy-remarks">Remarks *</label>

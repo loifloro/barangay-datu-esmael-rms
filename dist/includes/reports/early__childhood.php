@@ -613,17 +613,19 @@ if (isset($_GET['report__date'])) {
             </p>
             <!-- Query Start -->
             <?php
-
-
-            if (isset($_GET['report__date'])) {
+            if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $childhood_sort = $date;
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                $earlychildhood_sort = $date;
+                $earlychildhood_sort2 = $date2;
             } else {
-                $childhood_sort = "N/A";
+                $earlychildhood_sort = "N/A";
+                $earlychildhood_sort2 = "N/A";
             }
             ?>
             <div class="deworming-reports__date">
-                Date: <?php echo $childhood_sort; ?>
+                Date From: <?php echo $searchdestroy_sort; ?>
+                <br>Date To: <?php echo $searchdestroy_sort2; ?>
             </div>
         </div>
 
@@ -636,8 +638,15 @@ if (isset($_GET['report__date'])) {
 
             if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
-                $result = mysqli_query($conn, $query);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                    if($date == $date && $date2 == ''){
+                        $query = "SELECT count(*) FROM early_childhood WHERE early_childhood_date = '$date'";
+                        $result = mysqli_query($conn, $query);
+                    }
+                    else{
+                        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                        $result = mysqli_query($conn, $query);
+                    }
             }
 
             while ($row = mysqli_fetch_array($result)) {
@@ -657,8 +666,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -678,8 +694,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -705,14 +728,17 @@ if (isset($_GET['report__date'])) {
             </thead>
             <?php
             include 'includes/connection.php';
-            // $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY deworming_date";
-            // $query_run = mysqli_query($conn, $query);
-
-            if (isset($_GET['report__date'])) { //test
+            if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                $query = "SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
-                // $result = mysqli_query($conn, $query);
-                $query_run = mysqli_query($conn, $query);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                    if($date == $date && $date2 == ''){
+                        $query = "SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date = '$date'";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                    else{
+                        $query = "SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                        $query_run = mysqli_query($conn, $query);
+                    }
             }
 
             if (mysqli_num_rows($query_run) > 0) {
@@ -742,8 +768,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -763,8 +796,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -784,8 +824,15 @@ if (isset($_GET['report__date'])) {
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                if($date == $date && $date2 == ''){
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date = '$date'";
+                    $result = mysqli_query($conn, $query);
+                }
+                else{
+                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+                    $result = mysqli_query($conn, $query);
+                }
         }
         while ($row = mysqli_fetch_array($result)) {
             ?>
@@ -798,12 +845,12 @@ if (isset($_GET['report__date'])) {
         <!-- Query End -->
 
        <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date='$date'";
+            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
             $result = mysqli_query($conn, $query);
         }
         
@@ -817,7 +864,7 @@ if (isset($_GET['report__date'])) {
             }
             else{
             ?>
-                 <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>')">
+                 <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
                     Save as PDF
                 </button>
             <?php

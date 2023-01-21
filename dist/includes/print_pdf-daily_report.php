@@ -43,7 +43,14 @@ if ($label == 'Deworming'){
 }
 
 if ($label == 'Consultation'){
-    $sql = mysqli_query($conn,"SELECT * FROM consultation WHERE archive_label='' AND consultation_date='$date'");
+
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM consultation WHERE archive_label='' AND consultation_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM consultation WHERE archive_label='' AND consultation_date >= '$date' AND consultation_date <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
@@ -66,7 +73,14 @@ if ($label == 'Consultation'){
 }
 
 if ($label == 'Postnatal'){
-    $sql = mysqli_query($conn,"SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date='$date'");
+    
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
@@ -89,7 +103,14 @@ if ($label == 'Postnatal'){
 }
 
 if ($label == 'Prenatal'){
-    $sql = mysqli_query($conn,"SELECT * FROM prenatal WHERE archive_label='' AND prenatal_date='$date'");
+    
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM prenatal WHERE archive_label='' AND prenatal_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM prenatal WHERE archive_label='' AND prenatal_date >= '$date' AND prenatal_date <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
@@ -112,7 +133,14 @@ if ($label == 'Prenatal'){
 }
 
 if ($label == 'Search and Destroy'){
-    $sql = mysqli_query($conn,"SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'");
+    
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM search_destroy WHERE archive_label='' AND search_destroy_date >= '$date' AND search_destroy_date <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
@@ -135,7 +163,14 @@ if ($label == 'Search and Destroy'){
 }
 
 if ($label == 'Early Childhood'){
-    $sql = mysqli_query($conn,"SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'");
+    
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
@@ -161,7 +196,14 @@ if ($label == 'Early Childhood'){
 
 
 if ($label == 'Target Maternal Care'){
-    $sql = mysqli_query($conn,"SELECT * FROM target_maternal WHERE date_registered='$date'");
+
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM target_maternal WHERE date_registered='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM target_maternal WHERE date_registered >= '$date' AND date_registered <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
@@ -185,7 +227,14 @@ if ($label == 'Target Maternal Care'){
 
 
 if ($label == 'Target Childcare Male'){
-    $sql = mysqli_query($conn,"SELECT * FROM target_childcare_male WHERE date_registered='$date'");
+    
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM target_childcare_male WHERE date_registered='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM target_childcare_male WHERE date_registered >= '$date' AND date_registered <= '$date2'");
+    }
+
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class
@@ -209,7 +258,13 @@ if ($label == 'Target Childcare Male'){
 
 
 if ($label == 'Target Childcare Female'){
-    $sql = mysqli_query($conn,"SELECT * FROM target_childcare_female WHERE date_registered='$date'");
+    
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM target_childcare_female WHERE date_registered='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM target_childcare_female WHERE date_registered >= '$date' AND date_registered <= '$date2'");
+    }
     $patient = mysqli_fetch_assoc($sql);
 
     // instantiate and use the dompdf class

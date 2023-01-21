@@ -245,7 +245,7 @@ hide_content_forms();
                         </div>
                         <div class="edit-search_destroy__form-item">
                             <label for="search_destroy-number-container">No. of Container Positive for Larva *</label>
-                            <input type="text" name="search_destroy-number-container" id="search_destroy-number-container" value="<?= $patient['container_num']; ?>" required>
+                            <input type="text" name="search_destroy-number-container" id="search_destroy-number-container"  min="0" value="<?= $patient['container_num']; ?>" required>
                         </div>
                         <div class="edit-deworming__form-item add-deworming__form-item--radio">
                             <label for="deworming-sex">Remarks *</label>

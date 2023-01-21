@@ -30,7 +30,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
-            
+            $label=$row['sex']=='Deworming';//test
+            $label=$row['sex']=='Consultation';//test
+
+            //QUERY FOR DEFAULT EMAIL
             if ($row['password'] == $password && $row['default_email'] == $username) {
                 $_SESSION['user_email'] = $row['user_email'];
                 $_SESSION['phone_num'] = $row['phone_num'];
@@ -43,6 +46,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 exit();
             }
 
+            //QUERY FOR ADMIN AND BHW
             if ($row['password'] == $password && $row['user_email'] == $username) {
                 $_SESSION['user_email'] = $row['user_email'];
                 $_SESSION['phone_num'] = $row['phone_num'];
@@ -52,7 +56,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 header("Location: dashboard.php?success"); /*Redirect to this page if successful*/
                 exit();
             }
-        } else {
+        } 
+        
+        else {
+            //QUERY FOR PATIENTS
             $sql= "SELECT deworming_email, deworming_password, phone_num, deworming_id, label FROM deworming 
             WHERE deworming_email='$username' AND deworming_password='$password'
             UNION ALL
@@ -84,7 +91,44 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                         $_SESSION['account_id'] = $row['deworming_id'];
                         $_SESSION['label'] = $row['label'];
                         
-                        header("Location: search-result.php?success"); /*Redirect to this page if successful*/
+                        $filtervalues = $row['deworming_email'];
+                        $filtervalues2 = $row['password'];
+                        $query = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label, deworming_email, deworming_password 
+                        FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num,label, deworming_email, deworming_password) 
+                        LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label, deworming_email, deworming_password) LIKE '%$filtervalues2%'
+                        UNION ALL
+                        SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label, consultation_email, consultation_password  
+                        FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label, consultation_email, consultation_password) 
+                        LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label, consultation_email, consultation_password) LIKE '%$filtervalues2%'
+                        UNION ALL
+                        SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label, prenatal_email, prenatal_password  
+                        FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label, prenatal_email, prenatal_password) 
+                        LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label, prenatal_email, prenatal_password) LIKE '%$filtervalues2%'
+                        UNION ALL
+                        SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label, postnatal_email, postnatal_password  
+                        FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label, postnatal_email, postnatal_password) 
+                        LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label, postnatal_email, postnatal_password) LIKE '%$filtervalues2%'
+                        UNION ALL
+                        SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label, search_destroy_email, search_destroy_password  
+                        FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label, search_destroy_email, search_destroy_password) 
+                        LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label, search_destroy_email, search_destroy_password) LIKE '%$filtervalues2%'
+                        UNION ALL
+                        SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label, early_childhood_email, early_childhood_password 
+                        FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label, early_childhood_email, early_childhood_password) 
+                        LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label, early_childhood_email, early_childhood_password) LIKE '%$filtervalues2%'
+                        ";
+
+                    $query_run = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $search) {
+                            $id=$search['deworming_id'];
+                            $label=$search['label'];
+                            $fname=$search['firstname'];
+                            $lname=$search['lastname'];
+                        }
+                    }
+
+                        header("Location: patient-profile.php?id=$id&label=$label&fname=$fname&lname=$lname&success"); /*Redirect to this page if successful*/
                         exit();
                     } 
                     else {

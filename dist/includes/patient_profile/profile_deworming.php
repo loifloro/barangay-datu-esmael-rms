@@ -1,6 +1,28 @@
 <section class="patient-profile__card">
     <!-- START QUERY -->
     <?php
+    if (isset($_GET['success'])) {
+    ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Welcome, <?php echo $_GET['fname']; ?>!',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
+    }
+    ?>
+
+    <?php
     include "../dist/includes/connection.php";
     if (isset($_GET['id'])) {
         $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -60,7 +82,7 @@
                         <span class="patient-profile__category">Registered Email</span>
                         <?= $patient['deworming_email']; ?>
                     </li>
-                    <li class="patient-profile__barangay">
+                    <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
                         <?= $patient['deworming_password']; ?>
                     </li>

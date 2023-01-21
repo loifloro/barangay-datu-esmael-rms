@@ -192,7 +192,7 @@ hide_content_forms();
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-contact">Phone Number</label>
-                    <input type="number" name="postnatal-contact" id="postnatal-contact">
+                    <input type="number" name="postnatal-contact" id="postnatal-contact" maxlength="11"  min="0">
                 </div>
 
 

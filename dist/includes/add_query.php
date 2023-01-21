@@ -50,7 +50,7 @@ if (isset($_POST['save_deworming'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname . $year_date . '_' . 'deworming';
+    $password =  strtolower($firstname. $lastname . $year_date .'_deworming');
 
     $query = "INSERT INTO deworming 
               (deworming_date, lastname, firstname, middlename, age, sex, birthdate, street_address, 
@@ -67,7 +67,6 @@ if (isset($_POST['save_deworming'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
         $date = date('Y-m-d');
         $time = date('H:i:s');
 
@@ -88,12 +87,7 @@ if (isset($_POST['save_deworming'])) {
             exit(0);
         }
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services.php?status=error");
         exit(0);
     }
@@ -127,7 +121,7 @@ if (isset($_POST['save_consultation'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname . $year_date . '_' . 'consultation';
+    $password =  strtolower($firstname. $lastname . $year_date .'_consultation');
 
     $email = mysqli_real_escape_string($conn, $_POST['consultation-email']);
 
@@ -168,13 +162,7 @@ if (isset($_POST['save_consultation'])) {
             header("Location: ../services.php?status=success");
             exit(0);
         }
-        //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services.php?status=error");
         exit(0);
     }
@@ -220,8 +208,8 @@ if (isset($_POST['save_prenatal'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname . $year_date . '_' . 'prenatal';
-    $password2 = $lastname . $year_date . '_' . 'postnatal';
+    $password =  strtolower($firstname. $lastname . $year_date .'_prenatal');
+    $password2 = strtolower($firstname. $lastname . $year_date .'_postnatal');
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
 
     $query = "INSERT INTO prenatal 
@@ -356,7 +344,7 @@ if (isset($_POST['save_postnatal'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname . $year_date . '_' . 'postnatal';
+    $password =  strtolower($firstname. $lastname . $year_date .'_postnatal');
     $email = mysqli_real_escape_string($conn, $_POST['postnatal-email']);
 
     $query = "INSERT INTO postnatal 
@@ -436,7 +424,7 @@ if (isset($_POST['save_search_destroy'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $owner_lname . $year_date . '_' . 'searchdestroy';
+    $password =  strtolower($owner_fname. $owner_lname . $year_date .'_searchdestroy');
     $email = mysqli_real_escape_string($conn, $_POST['search_destroy-email']);
 
     $query = "INSERT INTO search_destroy 
@@ -478,11 +466,7 @@ if (isset($_POST['save_search_destroy'])) {
         }
         //END OF QUERY
 
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services.php?status=error");
         exit(0);
     }
@@ -596,7 +580,7 @@ if (isset($_POST['save_early_childhood'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $child_lname . $year_date . '_' . 'earlychildhood';
+    $password =  strtolower($child_fname. $child_lname . $year_date .'_earlychildhood');
     $email = mysqli_real_escape_string($conn, $_POST['early_childhood-email']);
 
     $query = "INSERT INTO early_childhood 
@@ -683,7 +667,13 @@ if (isset($_POST['add_maternal_list'])) { //no page yet for this query
 
     $complete_address = mysqli_real_escape_string($conn, $_POST['maternal_care-address']);
     $socio_status = mysqli_real_escape_string($conn, $_POST['se-status']);
-    $age = mysqli_real_escape_string($conn, $_POST['maternal_care-age']);
+    // $age = mysqli_real_escape_string($conn, $_POST['maternal_care-age']);
+    //convert bdate to age
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['maternal_care-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age = $diff->format('%y');
+
     $birthday = mysqli_real_escape_string($conn, $_POST['maternal_care-birthday']);
     $lmp = mysqli_real_escape_string($conn, $_POST['maternal_care-lmp']);
 

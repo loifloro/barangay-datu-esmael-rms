@@ -84,7 +84,7 @@ if (isset($_POST['edit_deworming'])) {
     $email = mysqli_real_escape_string($conn, $_POST['deworming-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname.$year_date.'_'.'deworming';
+    $password =  strtolower($firstname. $lastname . $year_date .'_deworming');
 
     $query = "UPDATE deworming SET deworming_date='$deworming_date', lastname = '$lastname', firstname = '$firstname', 
     middlename = '$middlename', age = '$age', sex = '$sex', birthdate = '$birthdate', street_address = '$street_add', 
@@ -162,7 +162,7 @@ if (isset($_POST['edit_consultation'])) {
     $email = mysqli_real_escape_string($conn, $_POST['consultation-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname.$year_date.'_'.'consultation';
+    $password =  strtolower($firstname. $lastname . $year_date .'_consultation');
 
     $query = "UPDATE consultation SET consultation_date = '$consultation_date', lastname = '$lastname', 
     firstname = '$firstname', middlename = '$middlename', age = '$age', sex = '$sex', birthdate = '$birthdate', 
@@ -253,7 +253,7 @@ if (isset($_POST['edit_prenatal'])) {
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname.$year_date.'_'.'prenatal';
+    $password =  strtolower($firstname. $lastname . $year_date .'_prenatal');
 
     $query = "UPDATE prenatal SET prenatal_date = '$prenatal_date', lastname = '$lastname', firstname = '$firstname', 
             middlename = '$middlename', age = '$age', birthdate = '$birthdate', street_address = '$street_add', 
@@ -344,7 +344,7 @@ if (isset($_POST['edit_postnatal'])) {
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $lastname.$year_date.'_'.'postnatal';
+    $password =  strtolower($firstname. $lastname . $year_date .'_postnatal');
 
     $query = "UPDATE postnatal SET postnatal_date = '$postnatal_date', lastname = '$lastname', firstname = '$firstname', 
             middlename = '$middlename', age = '$age', birthdate = '$birthdate', street_address = '$street_add', 
@@ -423,7 +423,7 @@ if (isset($_POST['edit_search_destroy'])) {
     $email = mysqli_real_escape_string($conn, $_POST['search_destroy-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $owner_lname.$year_date.'_'.'searchdestroy';
+    $password =  strtolower($owner_fname. $owner_lname . $year_date .'_searchdestroy');
 
 
     $query = "UPDATE search_destroy SET search_destroy_date = '$search_destroy_date',
@@ -582,7 +582,7 @@ if (isset($_POST['edit_early_childhood'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password = $child_lname.$year_date.'_'.'earlychildhood';
+    $password =  strtolower($child_fname. $child_lname . $year_date .'_earlychildhood');
     $email = mysqli_real_escape_string($conn, $_POST['early_childhood-email']);
 
     $query = "UPDATE early_childhood SET early_childhood_date = '$early_childhood_date',
@@ -661,7 +661,13 @@ if (isset($_POST['edit_maternal_list'])) //no page yet for this query
 
     $complete_address = mysqli_real_escape_string($conn, $_POST['maternal_care-address']);
     $socio_status = mysqli_real_escape_string($conn, $_POST['se-status']);
-    $age = mysqli_real_escape_string($conn, $_POST['maternal_care-age']);
+    // $age = mysqli_real_escape_string($conn, $_POST['maternal_care-age']);
+    //convert bdate to age
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['maternal_care-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age = $diff->format('%y');
+    
     $birthday = mysqli_real_escape_string($conn, $_POST['maternal_care-birthday']);
     $lmp = mysqli_real_escape_string($conn, $_POST['maternal_care-lmp']);
 

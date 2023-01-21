@@ -89,8 +89,24 @@
         <p class="deworming-reports__brgy">
             Name of Barangay: Datu Esmael
         </p>
+        <?php
+        if ($date=='') {
+            $earlychildhood_sort = "N/A";
+        }
+        else{
+            $earlychildhood_sort = $date;
+        }
+        
+        if ($date2=='') {
+            $earlychildhood_sort2 = "N/A";
+        }
+        else{
+            $earlychildhood_sort2 = $date2;
+        }
+        ?>
         <div class="deworming-reports__date">
-            Date: <?php echo $date; ?>
+            Date From: <?php echo $earlychildhood_sort; ?>
+            <br>Date To: <?php echo $earlychildhood_sort2; ?>
         </div>
     </div>
 
@@ -98,8 +114,14 @@
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
-        $result = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT count(*) FROM early_childhood WHERE early_childhood_date = '$date'";
+            $result = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+            $result = mysqli_query($conn, $query);
+        }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
@@ -113,8 +135,14 @@
     </div>
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Male' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -128,8 +156,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND sex='Female' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -153,8 +187,14 @@
             </tr>
         </thead>
         <?php
-        $query = "SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
-        $query_run = mysqli_query($conn, $query);
+        if($date == $date && $date2 == ''){
+            $query = "SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date = '$date'";
+            $query_run = mysqli_query($conn, $query);
+        }
+        else{
+            $query = "SELECT * FROM early_childhood WHERE archive_label='' AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+            $query_run = mysqli_query($conn, $query);
+        }
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
@@ -178,8 +218,14 @@
     </p>
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age<=17 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -193,8 +239,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=18 AND mother_age<=29 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
@@ -208,8 +260,14 @@
 
     <!-- Query Start -->
     <?php
-    $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date='$date'";
-    $result = mysqli_query($conn, $query);
+    if($date == $date && $date2 == ''){
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date = '$date'";
+        $result = mysqli_query($conn, $query);
+    }
+    else{
+        $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND mother_age>=30 AND early_childhood_date >= '$date' AND early_childhood_date <= '$date2'";
+        $result = mysqli_query($conn, $query);
+    }
 
     while ($row = mysqli_fetch_array($result)) {
     ?>
