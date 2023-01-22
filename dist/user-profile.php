@@ -299,7 +299,7 @@ hide_content();
                     <div class="btn-section">
                         <div class="input-file-container">
                             <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
-                            <input class="input-file" id="my-file" type="file" accept=".sql">
+                            <input class="input-file" id="my-file" type="file" accept=".sql" name='filename'>
                         </div>
                         <p class="file-return"></p>
                     </div>
