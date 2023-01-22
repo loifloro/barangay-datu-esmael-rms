@@ -319,15 +319,15 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-order">Birth Order</label>
-                    <input type="text" name="early_childhood-birth-order" id="early_childhood-birth-order">
+                    <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
-                    <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0">
+                    <input type="text" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-length">Birth Length (cm)</label>
-                    <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0">
+                    <input type="text" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-place">Place of Delivery</label>
