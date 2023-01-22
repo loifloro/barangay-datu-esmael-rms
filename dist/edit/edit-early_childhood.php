@@ -342,11 +342,11 @@ hide_content_forms();
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
-                            <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0" value="<?= $patient['birth_weight']; ?>">
+                            <input type="text" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0" value="<?= $patient['birth_weight']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-length">Birth Length (cm)</label>
-                            <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0" value="<?= $patient['birth_length']; ?>">
+                            <input type="text" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0" value="<?= $patient['birth_length']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-place">Place of Delivery</label>

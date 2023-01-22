@@ -266,11 +266,11 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
 
                         <div class="edit-child_care-male__form-item">
                             <label for="child_care-male-newborn-length">Length at Birth <br>(cm)</label>
-                            <input type="number" name="child_care-male-newborn-length" id="child_care-male-newborn-length" value="<?= $patient['length_newborn']; ?>">
+                            <input type="text" name="child_care-male-newborn-length" id="child_care-male-newborn-length" value="<?= $patient['length_newborn']; ?>">
                         </div>
                         <div class="edit-child_care-male__form-item">
                             <label for="child_care-male--newbornweight">Weight at Birth * <br>(kg)</label>
-                            <input type="number" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight" value="<?= $patient['weight_newborn']; ?>" required>
+                            <input type="text" name="child_care-male-newborn-weight" id="child_care-male-newborn-weight" value="<?= $patient['weight_newborn']; ?>" required>
                         </div>
                         <div class="edit-child_care-male__form-item edit-child_care-male__form-item--radio">
                             <label for="child_care-male-newborn-weight">Status(Birth Weight) *<br>(kg)</label>
@@ -329,7 +329,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="child_care-male-1mos-legth">Length</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="child_care-male-1mos-length-cm" id="child_care-male-1mos-length-cm" value="<?= $patient['length_month_1_3']; ?>">
+                                    <input type="text" name="child_care-male-1mos-length-cm" id="child_care-male-1mos-length-cm" value="<?= $patient['length_month_1_3']; ?>">
                                     <label for="child_care-male-length-cm">cm</label>
                                 </div>
                                 <div class="two-input__item">
@@ -342,7 +342,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="child_care-male-1mos-weight">Weight</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="child_care-male-1mos-weight-kg" id="child_care-male-1mos-weight-kg" value="<?= $patient['weight_month_1_3']; ?>">
+                                    <input type="text" name="child_care-male-1mos-weight-kg" id="child_care-male-1mos-weight-kg" value="<?= $patient['weight_month_1_3']; ?>">
                                     <label for="child_care-male-weight-kg">kg</label>
                                 </div>
                                 <div class="two-input__item">
@@ -495,7 +495,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="child_care-male-6mos-legth">Length</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="child_care-male-6mos-length-cm" id="child_care-male-6mos-length-cm" value="<?= $patient['length_month_6_11']; ?>">
+                                    <input type="text" name="child_care-male-6mos-length-cm" id="child_care-male-6mos-length-cm" value="<?= $patient['length_month_6_11']; ?>">
                                     <label for="child_care-male-length-cm">cm</label>
                                 </div>
                                 <div class="two-input__item">
@@ -508,7 +508,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="child_care-male-6mos-weight">Weight</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="child_care-male-6mos-weight-kg" id="child_care-male-6mos-weight-kg" value="<?= $patient['weight_month_6_11']; ?>">
+                                    <input type="text" name="child_care-male-6mos-weight-kg" id="child_care-male-6mos-weight-kg" value="<?= $patient['weight_month_6_11']; ?>">
                                     <label for="child_care-male-weight-kg">kg</label>
                                 </div>
                                 <div class="two-input__item">
@@ -620,7 +620,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="child_care-male-12mos-legth">Length</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="child_care-male-12mos-length-cm" id="child_care-male-12mos-length-cm" value="<?= $patient['length_month_12']; ?>">
+                                    <input type="text" name="child_care-male-12mos-length-cm" id="child_care-male-12mos-length-cm" value="<?= $patient['length_month_12']; ?>">
                                     <label for="child_care-male-length-cm">cm</label>
                                 </div>
                                 <div class="two-input__item">
@@ -633,7 +633,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="child_care-male-12mos-weight">Weight</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="child_care-male-12mos-weight-kg" id="child_care-male-12mos-weight-kg" value="<?= $patient['weight_month_12']; ?>">
+                                    <input type="text" name="child_care-male-12mos-weight-kg" id="child_care-male-12mos-weight-kg" value="<?= $patient['weight_month_12']; ?>">
                                     <label for="child_care-male-weight-kg">kg</label>
                                 </div>
                                 <div class="two-input__item">
