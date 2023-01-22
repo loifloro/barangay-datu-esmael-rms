@@ -621,7 +621,7 @@ hide_content();
                         <li class="patient__attributes__item">
                             Name
                             <!-- BUTTON FOR NAME -->
-                            <button type="submit" name="postnatal_early_sort_name" value="1">
+                            <button type="submit" name="postnatal_sort_name" value="1">
                                 <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                                 </svg>
@@ -630,7 +630,7 @@ hide_content();
                         <li class="patient__attributes__item">
                             Date Availed
                             <!-- SORT DATE AVAILED -->
-                            <button type="submit" name="postnatal_early_sort_date_availed" value="2">
+                            <button type="submit" name="postnatal_sort_date_availed" value="2">
                                 <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                                 </svg>
@@ -639,7 +639,7 @@ hide_content();
                         <li class="patient__attributes__item">
                             Sex
                             <!-- BUTTON FOR SEX -->
-                            <button type="submit" name="postnatal_early_sort_sex" value="3">
+                            <button type="submit" name="postnatal_sort_sex" value="3">
                                 <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
                                 </svg>
@@ -659,21 +659,21 @@ hide_content();
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     if (isset($_POST['postnatal_early_sort_name'])) {
-                        $sort_id = $_POST['postnatal_early_sort_name'];
+                        $sort_id = $_POST['postnatal_sort_name'];
                         if ($sort_id == 1) {
                             $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY firstname";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
-                    if (isset($_POST['postnatal_early_sort_date_availed'])) {
-                        $sort_id = $_POST['postnatal_early_sort_date_availed'];
+                    if (isset($_POST['postnatal_sort_date_availed'])) {
+                        $sort_id = $_POST['postnatal_sort_date_availed'];
                         if ($sort_id == 2) {
                             $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY postnatal_date";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
-                    if (isset($_POST['postnatal_early_sort_sex'])) {
-                        $sort_id = $_POST['postnatal_early_sort_sex'];
+                    if (isset($_POST['postnatal_sort_sex'])) {
+                        $sort_id = $_POST['postnatal_sort_sex'];
                         if ($sort_id == 3) {
                             $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY sex";
                             $query_run = mysqli_query($conn, $query);
@@ -920,10 +920,10 @@ hide_content();
     </main>
     <script src="./js/app.js"></script>
     <?php
-    if (isset($_POST['deworming_sort_name']) || isset($_POST['deworming_sort_age']) || isset($_POST['deworming_sort_sex']) || isset($_POST['deworming_sort_date_availed'])) {
+    if (isset($_POST['deworming_sort_name']) ||  isset($_POST['deworming_sort_sex']) || isset($_POST['deworming_sort_date_availed'])) {
     ?>
         <script>
-            patient(onclick, 'Deworming');
+            patient(event, 'Deworming');
         </script>
     <?php
     }
@@ -937,7 +937,7 @@ hide_content();
     if (isset($_POST['prenatal_sort_name']) || isset($_POST['prenatal_sort_age']) || isset($_POST['prenatal_sort_sex']) || isset($_POST['prenatal_sort_date_availed'])) {
     ?>
         <script>
-            patient(event, 'Pre-natal');
+            patient(onclick, 'Pre-Natal');
         </script>
     <?php
     }
@@ -948,14 +948,14 @@ hide_content();
         </script>
     <?php
     }
-    if (isset($_POST['search_sort_name']) || isset($_POST['search_sort_status']) || isset($_POST['search_sort_con']) || isset($_POST['search_sort_date_availed'])) {
+    if (isset($_POST['search_sort_name']) || isset($_POST['search_sort_status']) || isset($_POST['search_sort_sex']) || isset($_POST['search_sort_date_availed'])) {
     ?>
         <script>
             patient(event, 'Search and Destroy');
         </script>
     <?php
     }
-    if (isset($_POST['early_sort_cname']) || isset($_POST['early_sort_mname']) || isset($_POST['early_sort_age']) || isset($_POST['early_sort_date_availed'])) {
+    if (isset($_POST['early_sort_name']) || isset($_POST['early_sort_date_availed']) || isset($_POST['early_sort_sex']) || isset($_POST['early_sort_date_availed'])) {
     ?>
         <script>
             patient(event, 'Childhood Care');
