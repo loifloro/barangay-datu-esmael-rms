@@ -85,7 +85,12 @@
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
-                        <?= $patient['search_destroy_password']; ?>
+                        <?php 
+                            $password_date = $patient['birthdate'];
+                            $year_date = date('Y', strtotime($password_date));
+                            $password =  strtolower($patient['owner_fname']. $patient['owner_lname'] . $year_date .'_searchdestroy');
+                        ?>
+                        <?= $password; ?>
                     </li>
                 </ul>
             </ul>

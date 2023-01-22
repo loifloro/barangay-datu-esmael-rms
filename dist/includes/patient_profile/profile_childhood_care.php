@@ -86,7 +86,12 @@
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
-                        <?= $patient['early_childhood_password']; ?>
+                        <?php 
+                            $password_date = $patient['child_birthdate'];
+                            $year_date = date('Y', strtotime($password_date));
+                            $password =  strtolower($patient['child_fname']. $patient['child_lname'] . $year_date .'_earlychildhood');
+                        ?>
+                        <?= $password; ?>
                     </li>
                 </ul>
             </ul>

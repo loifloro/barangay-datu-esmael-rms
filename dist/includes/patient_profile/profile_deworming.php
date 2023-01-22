@@ -84,7 +84,12 @@
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
-                        <?= $patient['deworming_password']; ?>
+                        <?php 
+                            $password_date = $patient['birthdate'];
+                            $year_date = date('Y', strtotime($password_date));
+                            $password =  strtolower($patient['firstname']. $patient['lastname'] . $year_date .'_deworming');
+                        ?>
+                        <?= $password; ?>
                     </li>
                 </ul>
             </ul>
