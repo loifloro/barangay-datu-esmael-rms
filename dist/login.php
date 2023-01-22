@@ -16,7 +16,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $encrypted_pwd = md5($password);
     
     if (empty($username)) { /*if else statement for validation*/
-        header("Location: index.php?error=Contact number is required"); /*Error Alert*/
+        header("Location: index.php?error=User email is required"); /*Error Alert*/
         exit();
     } else if (empty($password)) {
         header("Location: index.php?error=Password is required"); /*Error Alert*/
@@ -31,8 +31,6 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
-            $label=$row['sex']=='Deworming';//test
-            $label=$row['sex']=='Consultation';//test
 
             //QUERY FOR DEFAULT EMAIL
             if ($row['password'] == $encrypted_pwd && $row['default_email'] == $username) {
