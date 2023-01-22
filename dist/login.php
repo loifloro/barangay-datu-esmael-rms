@@ -13,15 +13,16 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
+    $encrypted_pwd = md5($password);
     
     if (empty($username)) { /*if else statement for validation*/
-        header("Location: index.php?error=Contact number is required"); /*Error Alert*/
+        header("Location: index.php?error=User email is required"); /*Error Alert*/
         exit();
     } else if (empty($password)) {
         header("Location: index.php?error=Password is required"); /*Error Alert*/
         exit();
     } else {
-        $sql = "SELECT * FROM account_information WHERE user_email='$username' AND password='$password' OR default_email='$username'";
+        $sql = "SELECT * FROM account_information WHERE user_email='$username' AND password='$encrypted_pwd' OR default_email='$username'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 0) {
@@ -30,11 +31,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
-            $label=$row['sex']=='Deworming';//test
-            $label=$row['sex']=='Consultation';//test
 
             //QUERY FOR DEFAULT EMAIL
-            if ($row['password'] == $password && $row['default_email'] == $username) {
+            if ($row['password'] == $encrypted_pwd && $row['default_email'] == $username) {
                 $_SESSION['user_email'] = $row['user_email'];
                 $_SESSION['phone_num'] = $row['phone_num'];
                 $_SESSION['firstname'] = $row['firstname'];
@@ -47,7 +46,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             }
 
             //QUERY FOR ADMIN AND BHW
-            if ($row['password'] == $password && $row['user_email'] == $username) {
+            if ($row['password'] == $encrypted_pwd && $row['user_email'] == $username) {
                 $_SESSION['user_email'] = $row['user_email'];
                 $_SESSION['phone_num'] = $row['phone_num'];
                 $_SESSION['firstname'] = $row['firstname'];
@@ -61,29 +60,29 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         else {
             //QUERY FOR PATIENTS
             $sql= "SELECT deworming_email, deworming_password, phone_num, deworming_id, label FROM deworming 
-            WHERE deworming_email='$username' AND deworming_password='$password'
+            WHERE deworming_email='$username' AND deworming_password='$encrypted_pwd'
             UNION ALL
             SELECT consultation_email, consultation_password, phone_number, consultation_id, label FROM consultation 
-            WHERE consultation_email='$username' AND consultation_password='$password'
+            WHERE consultation_email='$username' AND consultation_password='$encrypted_pwd'
             UNION ALL
             SELECT prenatal_email, prenatal_password, phone_num, prenatal_id, label FROM prenatal 
-            WHERE prenatal_email='$username' AND prenatal_password='$password'
+            WHERE prenatal_email='$username' AND prenatal_password='$encrypted_pwd'
             UNION ALL
             SELECT postnatal_email, postnatal_password, phone_num, postnatal_id, label FROM postnatal 
-            WHERE postnatal_email='$username' AND postnatal_password='$password'
+            WHERE postnatal_email='$username' AND postnatal_password='$encrypted_pwd'
             UNION ALL
             SELECT search_destroy_email, search_destroy_password, phone_num, search_destroy_id, label FROM search_destroy 
-            WHERE search_destroy_email='$username' AND search_destroy_password='$password'
+            WHERE search_destroy_email='$username' AND search_destroy_password='$encrypted_pwd'
             UNION ALL
             SELECT early_childhood_email, early_childhood_password, phone_num, early_childhood_id, label FROM early_childhood 
-            WHERE early_childhood_email='$username' AND early_childhood_password='$password'
+            WHERE early_childhood_email='$username' AND early_childhood_password='$encrypted_pwd'
             ";
 
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
 
-                    if ($row['deworming_password'] == $password && $row['deworming_email'] == $username){
+                    if ($row['deworming_password'] == $encrypted_pwd && $row['deworming_email'] == $username){
                         $_SESSION['phone_num'] = $row['phone_num'];
                         $_SESSION['user_email'] = $row['deworming_email'];
                         $_SESSION['firstname'] = $row['firstname'];

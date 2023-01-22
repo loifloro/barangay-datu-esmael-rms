@@ -205,12 +205,12 @@ hide_content_forms();
                     <label for="early_childhood-sex">Sex *</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex" value="Male" required>
-                            <label for="early_childhood-sex">Male</label>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex-male" value="Male" required>
+                            <label for="early_childhood-sex-male">Male</label>
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex" value="Female" required>
-                            <label for="early_childhood-sex">Female</label>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex-female" value="Female" required>
+                            <label for="early_childhood-sex-female">Female</label>
                         </div>
                     </div>
                 </div>
@@ -308,26 +308,26 @@ hide_content_forms();
                     <label for="early_childhood-birth">Type of Birth *</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth" value="Normal" required>
-                            <label for="early_childhood-birth">Normal</label>
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth-normal" value="Normal" required>
+                            <label for="early_childhood-birth-normal">Normal</label>
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth" value="CS" required>
-                            <label for="early_childhood-birth">CS</label>
+                            <input type="radio" name="early_childhood-birth" id="early_childhood-birth-cs" value="CS" required>
+                            <label for="early_childhood-birth-cs">CS</label>
                         </div>
                     </div>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-order">Birth Order</label>
-                    <input type="text" name="early_childhood-birth-order" id="early_childhood-birth-order">
+                    <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
-                    <input type="number" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0">
+                    <input type="text" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-length">Birth Length (cm)</label>
-                    <input type="number" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0">
+                    <input type="text" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-birth-place">Place of Delivery</label>

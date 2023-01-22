@@ -6,20 +6,20 @@ include 'includes/connection.php';
 //     exit();
 // }
 //FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
-$phone_num = $_SESSION['phone_num'];
+$email = $_SESSION['user_email'];
 
 // PATIENT ACCESS
-$query = "SELECT label, phone_num FROM deworming WHERE phone_num='$phone_num'
+$query = "SELECT label, deworming_email FROM deworming WHERE deworming_email='$email'
     UNION
-    SELECT label, phone_number FROM consultation WHERE phone_number='$phone_num'
+    SELECT label, consultation_email FROM consultation WHERE consultation_email='$email'
     UNION
-    SELECT label, phone_num FROM prenatal WHERE phone_num='$phone_num'
+    SELECT label, prenatal_email FROM prenatal WHERE prenatal_email='$email'
     UNION
-    SELECT label, phone_num FROM postnatal WHERE phone_num='$phone_num'
+    SELECT label, postnatal_email FROM postnatal WHERE postnatal_email='$email'
     UNION
-    SELECT label, phone_num FROM search_destroy WHERE phone_num='$phone_num'
+    SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$email'
     UNION
-    SELECT label, phone_num FROM early_childhood WHERE phone_num='$phone_num'
+    SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$email'
     ";
 $query_run = mysqli_query($conn, $query);
 if (mysqli_num_rows($query_run) > 0) {
@@ -27,37 +27,37 @@ if (mysqli_num_rows($query_run) > 0) {
         if ($patient['label'] == 'Deworming') {
             include_once "includes/functions.php";
             hide_patient_deworming();
-            $input_search = $patient['phone_num'];
+            $input_search = $patient['deworming_email'];
         }
         if ($patient['label'] == 'Consultation') {
             include_once "includes/functions.php";
             hide_patient_consultation();
-            $input_search = $patient['phone_num'];
+            $input_search = $patient['deworming_email'];
         }
         if ($patient['label'] == 'Prenatal') {
             include_once "includes/functions.php";
             hide_patient_prenatal();
-            $input_search = $patient['phone_num'];
+            $input_search = $patient['deworming_email'];
         }
         if ($patient['label'] == 'Postnatal') {
             include_once "includes/functions.php";
             hide_patient_postnatal();
-            $input_search = $patient['phone_num'];
+            $input_search = $patient['deworming_email'];
         }
         if ($patient['label'] == 'Search and Destroy') {
             include_once "includes/functions.php";
             hide_patient_search_destroy();
-            $input_search = $patient['phone_num'];
+            $input_search = $patient['deworming_email'];
         }
         if ($patient['label'] == 'Early Childhood') {
             include_once "includes/functions.php";
             hide_patient_childhood();
-            $input_search = $patient['phone_num'];
+            $input_search = $patient['deworming_email'];
         }
     }
 }
 
-$query2 = "SELECT * FROM account_information WHERE phone_num='$phone_num'";
+$query2 = "SELECT * FROM account_information WHERE user_email='$email'";
 $query_run2 = mysqli_query($conn, $query2);
 if (mysqli_num_rows($query_run2) > 0) {
     foreach ($query_run2 as $patient) {

@@ -263,7 +263,7 @@ hide_content();
                 <div class="edit-profile__form-item">
                     <label for="patient-password">Password</label>
                     <div class="password">
-                        <input type="password" class="password__bar__input" id='password' min="8" name="password" /><!--  
+                        <input type="password" class="password__bar__input" id='password' min="8" name="password" placeholder="Enter your password" /><!--  
                         --><button type="button" class="password__bar__btn" onclick="passwordToggle('password' , 'password-show' , 'password-hide')">
                             <svg id='password-show' class="password-icon password__bar__icon password-show" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                 <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
@@ -299,7 +299,7 @@ hide_content();
                     <div class="btn-section">
                         <div class="input-file-container">
                             <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
-                            <input class="input-file" id="my-file" type="file">
+                            <input class="input-file" id="my-file" type="file" accept=".sql" name='filename'>
                         </div>
                         <p class="file-return"></p>
                     </div>
@@ -338,26 +338,51 @@ hide_content();
             </button> -->
 
             <div class="bhw-account__table">
+            <!-- SORT QUERY -->
+            <form action="" method="POST">
                 <ul class="bhw-account__table__row bhw-account__header" role="list">
                     <li class="bhw-account__attributes__item">
                         Name
-                        <!-- Put SVG here -->
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="bhw_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="bhw-account__attributes__item">
                         Email
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="bhw_email" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="bhw-account__attributes__item">
                         Sex
-                        <!-- Put SVG here -->
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="bhw_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="bhw-account__attributes__item">
                         Date Availed
-                        <!-- Put SVG here -->
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="bhw_date" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li>
 
                     </li>
                 </ul>
+            </form>
+            <!-- END OF SORT -->
 
                 <!-- To be put in the loop -->
                 <?php
@@ -366,11 +391,39 @@ hide_content();
                 $query_run = mysqli_query($conn, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['bhw_name'])) {
+                        $sort_id = $_POST['bhw_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM account_information WHERE position = 'Barangay Health Worker' ORDER BY firstname";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['bhw_email'])) {
+                        $sort_id = $_POST['bhw_email'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM account_information WHERE position = 'Barangay Health Worker' ORDER BY user_email OR default_email";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['bhw_sex'])) {
+                        $sort_id = $_POST['bhw_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM account_information WHERE position = 'Barangay Health Worker' ORDER BY sex";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['bhw_date'])) {
+                        $sort_id = $_POST['bhw_date'];
+                        if ($sort_id == 4) {
+                            $query = "SELECT * FROM account_information WHERE position = 'Barangay Health Worker' ORDER BY date_registered";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
                     foreach ($query_run as $patient) {
                 ?>
                         <ul class="bhw-account__table__row bhw-account__info" role="list">
                             <li class="bhw-account__name p-bold">
-                                <?= $patient['firstname']; ?>
+                                <?= $patient['firstname'].' '.$patient['lastname']; ?>
                             </li>
                             <?php
                             if($patient['user_email']==''){

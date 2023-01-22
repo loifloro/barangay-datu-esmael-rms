@@ -210,12 +210,12 @@ hide_content_forms();
                     <label for="search_destroy-sex">Gender *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-sex" id="search_destroy-sex" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
-                            <label for="search_destroy-sex">Male</label>
+                            <input type="radio" name="search_destroy-sex" id="search_destroy-sex-male" value="Male" required> <!--Nilagyan ko Value para masave sa database-->
+                            <label for="search_destroy-sex-male">Male</label>
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-sex" id="search_destroy-sex" value="Female" required>
-                            <label for="search_destroy-sex">Female</label>
+                            <input type="radio" name="search_destroy-sex" id="search_destroy-sex-female" value="Female" required>
+                            <label for="search_destroy-sex-female">Female</label>
                         </div>
                     </div>
                 </div>
@@ -239,12 +239,12 @@ hide_content_forms();
                     <label for="search_destroy-remarks">Remarks *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-remarks" id="search_destroy-remarks" value="Positive" required> <!--Nilagyan ko Value para masave sa database-->
-                            <label for="search_destroy-remarks">Positive</label>
+                            <input type="radio" name="search_destroy-remarks" id="search_destroy-remarks-positive" value="Positive" required> <!--Nilagyan ko Value para masave sa database-->
+                            <label for="search_destroy-remarks-positive">Positive</label>
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="search_destroy-remarks" id="search_destroy-remarks" value="Negative" required>
-                            <label for="search_destroy-remarks">Negative</label>
+                            <input type="radio" name="search_destroy-remarks" id="search_destroy-remarks-negative" value="Negative" required>
+                            <label for="search_destroy-remarks-negative">Negative</label>
                         </div>
                     </div>
                 </div>

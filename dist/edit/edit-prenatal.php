@@ -351,20 +351,20 @@ hide_content_forms();
 
                         <!-- Radio Buttons -->
                         <div class="edit-prenatal__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Mispelled Name" required>
-                            <label for="edit-reason">Mispelled Name</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-mispelled" value="Mispelled Name" required>
+                            <label for="edit-reason-mispelled">Mispelled Name</label>
                         </div>
                         <div class="edit-prenatal__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Gender" required>
-                            <label for="edit-reason">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Gender" required>
+                            <label for="edit-reason-gender">Incorrect Gender</label>
                         </div>
                         <div class="edit-prenatal__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Incorrect Birthdate" required>
-                            <label for="edit-reason">Incorrect Birthdate</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>
+                            <label for="edit-reason-bdate">Incorrect Birthdate</label>
                         </div>
                         <div class="edit-prenatal__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason" value="Wrong Address" required>
-                            <label for="edit-reason">Wrong Address</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-address" value="Wrong Address" required>
+                            <label for="edit-reason-address">Wrong Address</label>
                         </div>
                         <div class="edit-prenatal__form-item--reason">
                             <!-- <input type="radio" name="edit-reason" id="patient-others"> -->

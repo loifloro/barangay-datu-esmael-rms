@@ -49,7 +49,7 @@ function hide_content()
 function hide_patient_deworming()
 {
     include 'includes/connection.php';
-    $query = "SELECT * FROM deworming WHERE deworming_id = '" . $_SESSION['deworming_id'] . "'";
+    $query = "SELECT * FROM deworming WHERE deworming_id = '" . $_SESSION['account_id'] . "'";
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
@@ -770,11 +770,13 @@ if (isset($_GET['changepassword']) && isset($_GET['newpass']) && isset($_GET['em
     include 'connection.php';
 
     $newpass = mysqli_real_escape_string($conn, $_GET['newpass']);
+    $encrypted_pwd = md5($newpass);
+
     $email = mysqli_real_escape_string($conn, $_GET['email']);
     $id = mysqli_real_escape_string($conn, $_GET['id']);
 
 
-    $query = "UPDATE account_information SET password='$newpass' WHERE account_id='$id'";
+    $query = "UPDATE account_information SET password='$encrypted_pwd' WHERE account_id='$id'";
     $query_run = mysqli_query($conn, $query);
 
     if ($query_run) {
