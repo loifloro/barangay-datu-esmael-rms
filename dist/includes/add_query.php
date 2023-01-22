@@ -7,6 +7,7 @@ if (isset($_GET['save_bhw'])) {
 
     $user_email = mysqli_real_escape_string($conn, $_GET['bhw-contact']);
     $password = mysqli_real_escape_string($conn, $_GET['bhw-pass']);
+    $encrypted_pwd = md5($password);
     $position = mysqli_real_escape_string($conn, $_GET['bhw-role']);
 
     $date_added = date('Y-m-d H:i:s');
@@ -14,7 +15,7 @@ if (isset($_GET['save_bhw'])) {
     $query = "INSERT INTO account_information 
               (firstname, default_email, password, sex, position, date_registered) 
               VALUES 
-              ('-', '$user_email', '$password', '-', '$position', '$date_added')";
+              ('-', '$user_email', '$encrypted_pwd', '-', '$position', '$date_added')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -51,13 +52,14 @@ if (isset($_POST['save_deworming'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $password =  strtolower($firstname. $lastname . $year_date .'_deworming');
+    $encrypted_pwd = md5($password);
 
     $query = "INSERT INTO deworming 
               (deworming_date, lastname, firstname, middlename, age, sex, birthdate, street_address, 
               barangay, city, phone_num, label, deworming_password, deworming_email) 
               VALUES 
               ('$deworming_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', 
-              '$street_add', '$barangay', '$city', '$phone_num', 'Deworming', '$password', '$email')";
+              '$street_add', '$barangay', '$city', '$phone_num', 'Deworming', '$encrypted_pwd', '$email')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -122,6 +124,7 @@ if (isset($_POST['save_consultation'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $password =  strtolower($firstname. $lastname . $year_date .'_consultation');
+    $encrypted_pwd = md5($password);
 
     $email = mysqli_real_escape_string($conn, $_POST['consultation-email']);
 
@@ -132,7 +135,7 @@ if (isset($_POST['save_consultation'])) {
               VALUES 
               ('$consultation_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', 
               '$street_add', '$barangay', '$city', '$phone_num', '$symptomps', '$blood_pressure', '$weight', 
-              '$abnormal', '$prescriptions', 'Consultation', '$password', '$email')";
+              '$abnormal', '$prescriptions', 'Consultation', '$encrypted_pwd', '$email')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -209,7 +212,11 @@ if (isset($_POST['save_prenatal'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $password =  strtolower($firstname. $lastname . $year_date .'_prenatal');
+    $encrypted_pwd = md5($password);
+
     $password2 = strtolower($firstname. $lastname . $year_date .'_postnatal');
+    $encrypted_pwd2 = md5($password2);
+
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
 
     $query = "INSERT INTO prenatal 
@@ -221,7 +228,7 @@ if (isset($_POST['save_prenatal'])) {
               ('$prenatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', 
               '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', 
               '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', 
-              '$presentation', '$abnormal', '$prescriptions', 'Prenatal', '$symptomps', '$password', '$email')";
+              '$presentation', '$abnormal', '$prescriptions', 'Prenatal', '$symptomps', '$encrypted_pwd', '$email')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -236,7 +243,7 @@ if (isset($_POST['save_prenatal'])) {
                         ('$prenatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', '$street_add', 
                         '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', '$preterm', '$lmp', 
                         '$edc', '$aog', '$fh', '$fht', '$presentation', '$abnormal', '$prescriptions', 'Postnatal', '$symptoms', 
-                        '$password2', '$email')";
+                        '$encrypted_pwd2', '$email')";
 
         $post_query_run = mysqli_query($conn, $post_query);
 
@@ -345,6 +352,8 @@ if (isset($_POST['save_postnatal'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $password =  strtolower($firstname. $lastname . $year_date .'_postnatal');
+    $encrypted_pwd = md5($password);
+
     $email = mysqli_real_escape_string($conn, $_POST['postnatal-email']);
 
     $query = "INSERT INTO postnatal 
@@ -356,7 +365,7 @@ if (isset($_POST['save_postnatal'])) {
               ('$postnatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', 
               '$street_add', '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', 
               '$preterm', '$lmp', '$edc', '$aog', '$fh', '$fht', 
-              '$presentation', '$abnormal', '$prescriptions', 'Postnatal', '$symptoms', '$password', '$email')";
+              '$presentation', '$abnormal', '$prescriptions', 'Postnatal', '$symptoms', '$encrypted_pwd', '$email')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -425,6 +434,8 @@ if (isset($_POST['save_search_destroy'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
     $year_date = date('Y', strtotime($password_date));
     $password =  strtolower($owner_fname. $owner_lname . $year_date .'_searchdestroy');
+    $encrypted_pwd = md5($password);
+
     $email = mysqli_real_escape_string($conn, $_POST['search_destroy-email']);
 
     $query = "INSERT INTO search_destroy 
@@ -434,7 +445,7 @@ if (isset($_POST['save_search_destroy'])) {
               VALUES 
               ('$search_destroy_date', '$owner_fname', '$owner_lname', '$owner_mname', '$phone_num', '$sex', '$birthdate', '$city',
                 '$barangay', '$block', '$date_visit', '$address', '$con_name', '$con_num', '$remark_status', 
-                'Search and Destroy', '$password', '$email')";
+                'Search and Destroy', '$encrypted_pwd', '$email')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -581,6 +592,8 @@ if (isset($_POST['save_early_childhood'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
     $year_date = date('Y', strtotime($password_date));
     $password =  strtolower($child_fname. $child_lname . $year_date .'_earlychildhood');
+    $encrypted_pwd = md5($password);
+
     $email = mysqli_real_escape_string($conn, $_POST['early_childhood-email']);
 
     $query = "INSERT INTO early_childhood 
@@ -614,7 +627,7 @@ if (isset($_POST['save_early_childhood'])) {
               '$inactive_polio_catchup_date', '$pneumoco1_date', '$pneumoco2_date', '$pneumoco3_date', 
               '$pneumoco_catchup_date', '$measle1_date', '$measle2_date', '$measle3_date', '$measle_catchup_date', 
               '$vitamin1_date', '$vitamin2_date', '$vitamin3_date', '$vitamin_catchup_date', 'Early Childhood', 
-              '$password', '$email')";
+              '$encrypted_pwd', '$email')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
