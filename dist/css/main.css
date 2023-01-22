@@ -306,6 +306,10 @@ select:focus {
   background: #ffffff;
 }
 
+input[type=text]:not(#password) {
+  text-transform: capitalize;
+}
+
 textarea {
   background: #f0f0f0;
   border-radius: 0.5vw;
@@ -2298,6 +2302,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   justify-content: space-around;
 }
 
+.pagination {
+  float: left;
+  margin-top: 1.5rem;
+  margin-left: 0.5rem;
+}
+
 .deworming-reports {
   padding-block: 5vw !important;
   padding-inline: 8vw !important;
@@ -3930,22 +3940,31 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .add-deworming__form-doses input[type=date],
 .add-deworming__form-doses input[type=text],
+.add-deworming__form-doses input[type=number],
 .add-consultation__form-doses input[type=date],
 .add-consultation__form-doses input[type=text],
+.add-consultation__form-doses input[type=number],
 .add-prenatal__form-doses input[type=date],
 .add-prenatal__form-doses input[type=text],
+.add-prenatal__form-doses input[type=number],
 .add-postnatal__form-doses input[type=date],
 .add-postnatal__form-doses input[type=text],
+.add-postnatal__form-doses input[type=number],
 .add-search_destroy__form-doses input[type=date],
 .add-search_destroy__form-doses input[type=text],
+.add-search_destroy__form-doses input[type=number],
 .add-early_childhood__form-doses input[type=date],
 .add-early_childhood__form-doses input[type=text],
+.add-early_childhood__form-doses input[type=number],
 .add-child_care-male__form-doses input[type=date],
 .add-child_care-male__form-doses input[type=text],
+.add-child_care-male__form-doses input[type=number],
 .add-child_care-female__form-doses input[type=date],
 .add-child_care-female__form-doses input[type=text],
+.add-child_care-female__form-doses input[type=number],
 .add-maternal_care__form-doses input[type=date],
-.add-maternal_care__form-doses input[type=text] {
+.add-maternal_care__form-doses input[type=text],
+.add-maternal_care__form-doses input[type=number] {
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -4669,7 +4688,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .edit-profile__form-doses input[type=date],
-.edit-profile__form-doses input[type=text] {
+.edit-profile__form-doses input[type=text],
+.edit-profile__form-doses input[type=number] {
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -4969,7 +4989,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .edit-bhw__form-doses input[type=date],
-.edit-bhw__form-doses input[type=text] {
+.edit-bhw__form-doses input[type=text],
+.edit-bhw__form-doses input[type=number] {
   width: 100%;
   margin-bottom: 1rem;
 }
@@ -5958,22 +5979,31 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-deworming__form-doses input[type=date],
 .edit-deworming__form-doses input[type=text],
+.edit-deworming__form-doses input[type=number],
 .edit-consultation__form-doses input[type=date],
 .edit-consultation__form-doses input[type=text],
+.edit-consultation__form-doses input[type=number],
 .edit-prenatal__form-doses input[type=date],
 .edit-prenatal__form-doses input[type=text],
+.edit-prenatal__form-doses input[type=number],
 .edit-postnatal__form-doses input[type=date],
 .edit-postnatal__form-doses input[type=text],
+.edit-postnatal__form-doses input[type=number],
 .edit-search_destroy__form-doses input[type=date],
 .edit-search_destroy__form-doses input[type=text],
+.edit-search_destroy__form-doses input[type=number],
 .edit-early_childhood__form-doses input[type=date],
 .edit-early_childhood__form-doses input[type=text],
+.edit-early_childhood__form-doses input[type=number],
 .edit-child_care-male__form-doses input[type=date],
 .edit-child_care-male__form-doses input[type=text],
+.edit-child_care-male__form-doses input[type=number],
 .edit-child_care-female__form-doses input[type=date],
 .edit-child_care-female__form-doses input[type=text],
+.edit-child_care-female__form-doses input[type=number],
 .edit-maternal_care__form-doses input[type=date],
-.edit-maternal_care__form-doses input[type=text] {
+.edit-maternal_care__form-doses input[type=text],
+.edit-maternal_care__form-doses input[type=number] {
   width: 100%;
   margin-bottom: 1rem;
 }

@@ -422,16 +422,13 @@ hide_content();
 
             <?php
             //PAGINATION COUNTER
-            if(isset($_GET['page']))
-            {
+            if (isset($_GET['page'])) {
                 $page = $_GET['page'];
-            }
-            else
-            {
+            } else {
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page-1)*02;
+            $start_from = ($page - 1) * 02;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM deworming WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -511,50 +508,47 @@ hide_content();
                         </li>
                         <?php include('./includes/reports/deworming.php'); ?>
                     </ul>
-            <?php
+                <?php
                     include('./includes/reports/deworming.php');
                 }
                 //PAGINATION
                 $pr_query = "SELECT * FROM deworming";
-                $pr_result = mysqli_query($conn,$pr_query);
-                $total_record = mysqli_num_rows($pr_result );
-                
-                $total_page = ceil($total_record/$num_per_page);
+                $pr_result = mysqli_query($conn, $pr_query);
+                $total_record = mysqli_num_rows($pr_result);
 
-                if($page>1)
-                {
-                    ?>
-                    <style>
-                        .pagination_previous{
-                            margin-left: 350px;
-                        }
-                    </style>
-                    <a href='services.php?page=<?php echo ($page-1) ?>' class="pagination_previous">Previous</a>
+                $total_page = ceil($total_record / $num_per_page);
+                ?>
+                <div class="pagination">
                     <?php
-                }
-
-                
-                for($i=1;$i<=$total_page;$i++)
-                {
+                    if ($page > 1) {
+                    ?>
+                        <style>
+                            .pagination_previous {
+                                margin-left: 350px;
+                            }
+                        </style>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
                     ?>
                         <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
                     <?php
-                }
-
-                if($page<$total_page)
-                {
+                    }
+                    if ($page < $total_page) {
                     ?>
-                    <a href='services.php?page=<?php echo ($page+1) ?>' class="pagination_next">Next</a>
-                    <?php
+                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
-                //END OF PAGINATION
-            }
 
-            ?>
-            <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a>
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
-                <p>Add</p>
-            </button>
+                ?>
+                </div>
+                <!-- <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a> -->
+                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
+                    <p>Add</p>
+                </button>
         </div>
 
 
@@ -615,16 +609,13 @@ hide_content();
                 <!-- To be put in the loop -->
                 <?php
                 //PAGINATION COUNTER
-                if(isset($_GET['page']))
-                {
+                if (isset($_GET['page'])) {
                     $page = $_GET['page'];
-                }
-                else
-                {
+                } else {
                     $page = 1;
                 }
                 $num_per_page = 9;
-                $start_from = ($page-1)*02;
+                $start_from = ($page - 1) * 02;
                 // END OF PAGINATION COUNTER
 
                 $query = "SELECT * FROM consultation WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -695,51 +686,48 @@ hide_content();
                             </li>
                             <?php include('./includes/reports/consultation.php'); ?>
                         </ul>
-                <?php
+                    <?php
                     }
 
                     //PAGINATION
                     $pr_query = "SELECT * FROM consultation";
-                    $pr_result = mysqli_query($conn,$pr_query);
-                    $total_record = mysqli_num_rows($pr_result );
-                    
-                    $total_page = ceil($total_record/$num_per_page);
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
 
-                    if($page>1)
-                    {
-                        ?>
-                        <style>
-                            .pagination_previous{
-                                margin-left: 350px;
-                            }
-                        </style>
-                        <a href='services.php?page=<?php echo ($page-1) ?>' class="pagination_previous">Previous</a>
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <div class="pagination">
                         <?php
-                    }
-
-                    
-                    for($i=1;$i<=$total_page;$i++)
-                    {
+                        if ($page > 1) {
+                        ?>
+                            <style>
+                                .pagination_previous {
+                                    margin-left: 350px;
+                                }
+                            </style>
+                            <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                        <?php
+                        }
+                        for ($i = 1; $i <= $total_page; $i++) {
                         ?>
                             <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
                         <?php
-                    }
-
-                    if($page<$total_page)
-                    {
+                        }
+                        if ($page < $total_page) {
                         ?>
-                        <a href='services.php?page=<?php echo ($page+1) ?>' class="pagination_next">Next</a>
-                        <?php
+                            <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                    <?php
+                        }
+                        //END OF PAGINATION
+
                     }
-                    //END OF PAGINATION
 
-                }
-
-                ?>
-                <!-- End of Query -->
-                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-consultation.php'">
-                    <p>Add</p>
-                </button>
+                    ?>
+                    </div>
+                    <!-- End of Query -->
+                    <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-consultation.php'">
+                        <p>Add</p>
+                    </button>
         </div>
         <!-- End Tab for Consultation -->
 
@@ -794,16 +782,13 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if(isset($_GET['page']))
-            {
+            if (isset($_GET['page'])) {
                 $page = $_GET['page'];
-            }
-            else
-            {
+            } else {
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page-1)*02;
+            $start_from = ($page - 1) * 02;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM prenatal WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -873,50 +858,47 @@ hide_content();
                         </li>
                         <?php include('./includes/reports/prenatal.php'); ?>
                     </ul>
-            <?php
+                <?php
                 }
                 //PAGINATION
                 $pr_query = "SELECT * FROM prenatal";
-                $pr_result = mysqli_query($conn,$pr_query);
-                $total_record = mysqli_num_rows($pr_result );
-                
-                $total_page = ceil($total_record/$num_per_page);
+                $pr_result = mysqli_query($conn, $pr_query);
+                $total_record = mysqli_num_rows($pr_result);
 
-                if($page>1)
-                {
-                    ?>
-                    <style>
-                        .pagination_previous{
-                            margin-left: 350px;
-                        }
-                    </style>
-                    <a href='services.php?page=<?php echo ($page-1) ?>' class="pagination_previous">Previous</a>
+                $total_page = ceil($total_record / $num_per_page);
+                ?>
+                <div class="pagination">
                     <?php
-                }
-
-                
-                for($i=1;$i<=$total_page;$i++)
-                {
+                    if ($page > 1) {
+                    ?>
+                        <style>
+                            .pagination_previous {
+                                margin-left: 350px;
+                            }
+                        </style>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
                     ?>
                         <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
                     <?php
-                }
-
-                if($page<$total_page)
-                {
+                    }
+                    if ($page < $total_page) {
                     ?>
-                    <a href='services.php?page=<?php echo ($page+1) ?>' class="pagination_next">Next</a>
-                    <?php
+                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
-                //END OF PAGINATION
-            }
 
-            ?>
-            <!-- End of Query -->
+                ?>
+                </div>
+                <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
-                <p>Add</p>
-            </button>
+                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
+                    <p>Add</p>
+                </button>
         </div>
         <!-- End Tab for Pre-Natal -->
 
@@ -971,16 +953,13 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if(isset($_GET['page']))
-            {
+            if (isset($_GET['page'])) {
                 $page = $_GET['page'];
-            }
-            else
-            {
+            } else {
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page-1)*02;
+            $start_from = ($page - 1) * 02;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM postnatal WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -1052,49 +1031,47 @@ hide_content();
                         </li>
                     </ul>
 
-            <?php
+                <?php
                 }
                 //PAGINATION
                 $pr_query = "SELECT * FROM postnatal";
-                $pr_result = mysqli_query($conn,$pr_query);
-                $total_record = mysqli_num_rows($pr_result );
-                
-                $total_page = ceil($total_record/$num_per_page);
+                $pr_result = mysqli_query($conn, $pr_query);
+                $total_record = mysqli_num_rows($pr_result);
 
-                if($page>1)
-                {
-                    ?>
-                    <style>
-                        .pagination_previous{
-                            margin-left: 350px;
-                        }
-                    </style>
-                    <a href='services.php?page=<?php echo ($page-1) ?>' class="pagination_previous">Previous</a>
+                $total_page = ceil($total_record / $num_per_page);
+
+                ?>
+                <div class="pagination">
                     <?php
-                }
-
-                
-                for($i=1;$i<=$total_page;$i++)
-                {
+                    if ($page > 1) {
+                    ?>
+                        <style>
+                            .pagination_previous {
+                                margin-left: 350px;
+                            }
+                        </style>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
                     ?>
                         <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
                     <?php
-                }
-
-                if($page<$total_page)
-                {
+                    }
+                    if ($page < $total_page) {
                     ?>
-                    <a href='services.php?page=<?php echo ($page+1) ?>' class="pagination_next">Next</a>
-                    <?php
+                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
-                //END OF PAGINATION
-            }
 
-            ?>
-            <!-- End of Query -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
-                <p>Add</p>
-            </button>
+                ?>
+                </div>
+                <!-- End of Query -->
+                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
+                    <p>Add</p>
+                </button>
         </div>
         <!-- End Tab for Post-Natal -->
 
@@ -1149,16 +1126,13 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if(isset($_GET['page']))
-            {
+            if (isset($_GET['page'])) {
                 $page = $_GET['page'];
-            }
-            else
-            {
+            } else {
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page-1)*02;
+            $start_from = ($page - 1) * 02;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM search_destroy WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -1228,52 +1202,50 @@ hide_content();
                             </button>
                         </li>
                     </ul>
-            <?php
+                <?php
                     include('./includes/reports/search-and-destroy.php'); //moved caused of error when in top
                 }
                 //PAGINATION
                 $pr_query = "SELECT * FROM search_destroy";
-                $pr_result = mysqli_query($conn,$pr_query);
-                $total_record = mysqli_num_rows($pr_result );
-                
-                $total_page = ceil($total_record/$num_per_page);
+                $pr_result = mysqli_query($conn, $pr_query);
+                $total_record = mysqli_num_rows($pr_result);
 
-                if($page>1)
-                {
-                    ?>
-                    <style>
-                        .pagination_previous{
-                            margin-left: 350px;
-                        }
-                    </style>
-                    <a href='services.php?page=<?php echo ($page-1) ?>' class="pagination_previous">Previous</a>
+                $total_page = ceil($total_record / $num_per_page);
+
+                ?>
+                <div class="pagination">
                     <?php
-                }
-
-                
-                for($i=1;$i<=$total_page;$i++)
-                {
+                    if ($page > 1) {
+                    ?>
+                        <style>
+                            .pagination_previous {
+                                margin-left: 350px;
+                            }
+                        </style>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
                     ?>
                         <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
                     <?php
-                }
-
-                if($page<$total_page)
-                {
+                    }
+                    if ($page < $total_page) {
                     ?>
-                    <a href='services.php?page=<?php echo ($page+1) ?>' class="pagination_next">Next</a>
-                    <?php
+                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
-                //END OF PAGINATION
-            }
 
-            ?>
+                ?>
+                </div>
 
-            <!-- End of Query -->
-            <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a>
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-search_destroy.php'">
-                <p>Add</p>
-            </button>
+                <!-- End of Query -->
+                <!-- <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a> -->
+                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-search_destroy.php'">
+                    <p>Add</p>
+                </button>
 
         </div>
         <!-- End Tab for Search and Destroy -->
@@ -1329,16 +1301,13 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if(isset($_GET['page']))
-            {
+            if (isset($_GET['page'])) {
                 $page = $_GET['page'];
-            }
-            else
-            {
+            } else {
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page-1)*02;
+            $start_from = ($page - 1) * 02;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM early_childhood WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -1409,50 +1378,48 @@ hide_content();
                             </button>
                         </li>
                     </ul>
-            <?php
+                <?php
                 }
                 //PAGINATION
                 $pr_query = "SELECT * FROM early_childhood";
-                $pr_result = mysqli_query($conn,$pr_query);
-                $total_record = mysqli_num_rows($pr_result );
-                
-                $total_page = ceil($total_record/$num_per_page);
+                $pr_result = mysqli_query($conn, $pr_query);
+                $total_record = mysqli_num_rows($pr_result);
 
-                if($page>1)
-                {
-                    ?>
-                    <style>
-                        .pagination_previous{
-                            margin-left: 350px;
-                        }
-                    </style>
-                    <a href='services.php?page=<?php echo ($page-1) ?>' class="pagination_previous">Previous</a>
+                $total_page = ceil($total_record / $num_per_page);
+
+                ?>
+                <div class="pagination">
                     <?php
-                }
-
-                
-                for($i=1;$i<=$total_page;$i++)
-                {
+                    if ($page > 1) {
+                    ?>
+                        <style>
+                            .pagination_previous {
+                                margin-left: 350px;
+                            }
+                        </style>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
                     ?>
                         <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
                     <?php
-                }
-
-                if($page<$total_page)
-                {
+                    }
+                    if ($page < $total_page) {
                     ?>
-                    <a href='services.php?page=<?php echo ($page+1) ?>' class="pagination_next">Next</a>
-                    <?php
+                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
-                //END OF PAGINATION
-            }
 
-            ?>
-            <!-- End of Query -->
+                ?>
+                </div>
+                <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">
-                <p>Add</p>
-            </button>
+                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">
+                    <p>Add</p>
+                </button>
         </div>
         <!-- End Tab for Search and Destroy -->
 

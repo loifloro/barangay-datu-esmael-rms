@@ -219,15 +219,15 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             </div>
                         </div>
                         <div class="edit-maternal_care__form-item">
-                            <label for="maternal_care-lmp">LMP *</label>
+                            <label for="maternal_care-lmp">Last Menstrual Period *</label>
                             <input type="date" name="maternal_care-lmp" id="maternal_care-lmp" value="<?= $patient['lmp']; ?>" required>
                         </div>
                         <div class="edit-maternal_care__form-item">
                             <label for="maternal_care-gp">G-P *</label>
-                            <input type="number" name="maternal_care-gp" id="maternal_care-gp"  min="0" value="<?= $patient['gp']; ?>" required>
+                            <input type="number" name="maternal_care-gp" id="maternal_care-gp" min="0" value="<?= $patient['gp']; ?>" required>
                         </div>
                         <div class="edit-maternal_care__form-item">
-                            <label for="maternal_care-edc">EDC *</label>
+                            <label for="maternal_care-edc">Expected Date of Confinement *</label>
                             <input type="date" name="maternal_care-edc" id="maternal_care-edc" value="<?= $patient['edc']; ?>" required>
                         </div>
 
@@ -310,7 +310,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-iron-1">1st visit (1st tri) </label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-iron-1-tablet" id="maternal_care-iron-1-tablet"  min="0" value="<?= $patient['tri1_tablet_iron']; ?>">
+                                    <input type="number" name="maternal_care-iron-1-tablet" id="maternal_care-iron-1-tablet" min="0" value="<?= $patient['tri1_tablet_iron']; ?>">
                                     <label for="maternal_care-iron-1-tablet">Number of Tablets Given</label>
                                 </div>
                                 <div class="two-input__item">
@@ -323,7 +323,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-iron-2">2nd visit (2nd tri)</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-iron-2-tablet" id="maternal_care-iron-2-tablet"  min="0" value="<?= $patient['tri2_tablet_iron']; ?>">
+                                    <input type="number" name="maternal_care-iron-2-tablet" id="maternal_care-iron-2-tablet" min="0" value="<?= $patient['tri2_tablet_iron']; ?>">
                                     <label for="maternal_care-iron-2-tablet">Number of Tablets Given</label>
                                 </div>
                                 <div class="two-input__item">
@@ -336,7 +336,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-iron-3">3rd visit (3rd tri)</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-iron-3-tablet" id="maternal_care-iron-3-tablet"  min="0" value="<?= $patient['tri3_tablet_iron']; ?>">
+                                    <input type="number" name="maternal_care-iron-3-tablet" id="maternal_care-iron-3-tablet" min="0" value="<?= $patient['tri3_tablet_iron']; ?>">
                                     <label for="maternal_care-iron-3-tablet">Number of Tablets Given</label>
                                 </div>
                                 <div class="two-input__item">
@@ -349,7 +349,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-iron-4">4rd visit (4rd tri)</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-iron-4-tablet" id="maternal_care-iron-4-tablet"  min="0" value="<?= $patient['tri4_tablet_iron']; ?>">
+                                    <input type="number" name="maternal_care-iron-4-tablet" id="maternal_care-iron-4-tablet" min="0" value="<?= $patient['tri4_tablet_iron']; ?>">
                                     <label for="maternal_care-iron-4-tablet">Number of Tablets Given</label>
                                 </div>
                                 <div class="two-input__item">
@@ -367,7 +367,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-calcium-2">2nd visit (2nd tri) </label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-calcium-2-capsule" id="maternal_care-calcium-2-capsule"  min="0" value="<?= $patient['tri2_tablet_calcium']; ?>">
+                                    <input type="number" name="maternal_care-calcium-2-capsule" id="maternal_care-calcium-2-capsule" min="0" value="<?= $patient['tri2_tablet_calcium']; ?>">
                                     <label for="maternal_care-calcium-2-capsule">Number of Capsules Given</label>
                                 </div>
                                 <div class="two-input__item">
@@ -380,7 +380,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-calcium-3">3rd visit (3rd tri)</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-calcium-3-capsule" id="maternal_care-calcium-3-capsule"  min="0" value="<?= $patient['tri3_tablet_calcium']; ?>">
+                                    <input type="number" name="maternal_care-calcium-3-capsule" id="maternal_care-calcium-3-capsule" min="0" value="<?= $patient['tri3_tablet_calcium']; ?>">
                                     <label for="maternal_care-calcium-3-capsule">Number of Capsule Given</label>
                                 </div>
                                 <div class="two-input__item">
@@ -393,7 +393,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-calcium-4">4rd visit (4rd tri)</label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-calcium-4-capsule" id="maternal_care-calcium-4-capsule"  min="0" value="<?= $patient['tri4_tablet_calcium']; ?>">
+                                    <input type="number" name="maternal_care-calcium-4-capsule" id="maternal_care-calcium-4-capsule" min="0" value="<?= $patient['tri4_tablet_calcium']; ?>">
                                     <label for="maternal_care-calcium-4-capsule">Number of Capsule Given</label>
                                 </div>
                                 <div class="two-input__item">
@@ -411,7 +411,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                             <label for="maternal_care-iodine-1">1st visit (1st tri) </label>
                             <div class="two-input">
                                 <div class="two-input__item">
-                                    <input type="number" name="maternal_care-iodine-1-capsule" id="maternal_care-iodine-1-capsule"  min="0" value="<?= $patient['tri1_tablet_iodine']; ?>">
+                                    <input type="number" name="maternal_care-iodine-1-capsule" id="maternal_care-iodine-1-capsule" min="0" value="<?= $patient['tri1_tablet_iodine']; ?>">
                                     <label for="maternal_care-iodine-1-capsule">Number of Capsules Given</label>
                                 </div>
                                 <div class="two-input__item">

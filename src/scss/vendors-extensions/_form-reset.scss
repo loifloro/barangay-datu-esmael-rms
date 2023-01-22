@@ -94,6 +94,10 @@ select {
   }
 }
 
+input[type="text"]:not(#password) {
+  text-transform: capitalize;
+}
+
 textarea {
   background: $white-3;
   border-radius: 0.5vw;
