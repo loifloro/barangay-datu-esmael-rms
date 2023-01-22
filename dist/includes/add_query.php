@@ -51,6 +51,7 @@ if (isset($_POST['save_deworming'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
+
     $password =  strtolower($firstname. $lastname . $year_date .'_deworming');
     $encrypted_pwd = md5($password);
 
@@ -85,7 +86,7 @@ if (isset($_POST['save_deworming'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services.php?status=success");
+            header("Location: ../services.php?service=deworming&status=success");
             exit(0);
         }
         //END OF QUERY
@@ -126,6 +127,7 @@ if (isset($_POST['save_consultation'])) {
     $password =  strtolower($firstname. $lastname . $year_date .'_consultation');
     $encrypted_pwd = md5($password);
 
+
     $email = mysqli_real_escape_string($conn, $_POST['consultation-email']);
 
     $query = "INSERT INTO consultation 
@@ -162,7 +164,7 @@ if (isset($_POST['save_consultation'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services.php?status=success");
+            header("Location: ../services.php?service=consultation&status=success");
             exit(0);
         }
     } else {
@@ -292,7 +294,7 @@ if (isset($_POST['save_prenatal'])) {
 
                 $query_run3 = mysqli_query($conn, $query3);
                 if ($query_run3) {
-                    header("Location: ../services.php");
+                    header("Location: ../services.php?service=prenatal&status=success");
                     exit(0);
                 }
                 //END OF QUERY 
@@ -392,7 +394,7 @@ if (isset($_POST['save_postnatal'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services.php?status=success");
+            header("Location: ../services.php?service=postnatal&status=success");
             exit(0);
         }
         //END OF QUERY
@@ -436,6 +438,7 @@ if (isset($_POST['save_search_destroy'])) {
     $password =  strtolower($owner_fname. $owner_lname . $year_date .'_searchdestroy');
     $encrypted_pwd = md5($password);
 
+
     $email = mysqli_real_escape_string($conn, $_POST['search_destroy-email']);
 
     $query = "INSERT INTO search_destroy 
@@ -472,7 +475,7 @@ if (isset($_POST['save_search_destroy'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services.php?status=success");
+            header("Location: ../services.php?service=search-destroy&status=success");
             exit(0);
         }
         //END OF QUERY
@@ -594,6 +597,7 @@ if (isset($_POST['save_early_childhood'])) {
     $password =  strtolower($child_fname. $child_lname . $year_date .'_earlychildhood');
     $encrypted_pwd = md5($password);
 
+
     $email = mysqli_real_escape_string($conn, $_POST['early_childhood-email']);
 
     $query = "INSERT INTO early_childhood 
@@ -654,7 +658,7 @@ if (isset($_POST['save_early_childhood'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services.php?status=success");
+            header("Location: ../services.php?service=childhood&status=success");
             exit(0);
         }
         //END OF QUERY
