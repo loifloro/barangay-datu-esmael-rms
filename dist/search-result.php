@@ -266,10 +266,14 @@ if (mysqli_num_rows($query_run2) > 0) {
                                     </p>
                                 </li>
                             </ul>
-                <?php
+                        <?php
                         }
-                    } else {
-                        echo "No record found";
+                    } else { ?>
+
+                        <script>
+                            noRecord();
+                        </script>
+                <?php
                     }
                 }
                 ?>
