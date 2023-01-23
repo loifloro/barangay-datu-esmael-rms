@@ -522,11 +522,7 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
+
                         <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
                     <?php
                     }
@@ -871,11 +867,7 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
+
                         <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
                     <?php
                     }
@@ -1045,11 +1037,7 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
+
                         <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
                     <?php
                     }
@@ -1217,11 +1205,7 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
+
                         <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
                     <?php
                     }
@@ -1392,11 +1376,7 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
+
                         <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
                     <?php
                     }
