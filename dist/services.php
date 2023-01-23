@@ -522,29 +522,28 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>&deworming' class="pagination_previous">Previous</a>
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page=<?php echo $i; ?>&deworming' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                        <a href='services.php?page=<?php echo ($page + 1) ?>&deworming' class="pagination_next">Next</a>
+                
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+                
                 <!-- <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a> -->
                 <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
                     <p>Add</p>
@@ -700,23 +699,19 @@ hide_content();
                         <?php
                         if ($page > 1) {
                         ?>
-                            <style>
-                                .pagination_previous {
-                                    margin-left: 350px;
-                                }
                             </style>
-                            <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                            <a href='services.php?page=<?php echo ($page - 1) ?>&consultation' class="pagination_previous">Previous</a>
                         <?php
                         }
                         for ($i = 1; $i <= $total_page; $i++) {
                         ?>
-                            <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
+                            <a href='services.php?page=<?php echo $i; ?>&consultation' class="pagination_number"><?php echo $i; ?></a>
                         <?php
                         }
                         if ($page < $total_page) {
                         ?>
-                            <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
-                    <?php
+                            <a href='services.php?page=<?php echo ($page + 1) ?>&consultation' class="pagination_next">Next</a>
+                        <?php
                         }
                         //END OF PAGINATION
 
@@ -871,22 +866,17 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>&prenatal' class="pagination_previous">Previous</a>
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page=<?php echo $i; ?>&prenatal' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                        <a href='services.php?page=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
                 <?php
                     }
                     //END OF PAGINATION
@@ -1045,22 +1035,17 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>&postnatal' class="pagination_previous">Previous</a>
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page=<?php echo $i; ?>&postnatal' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                        <a href='services.php?page=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
                 <?php
                     }
                     //END OF PAGINATION
@@ -1217,22 +1202,17 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>&searchdestroy' class="pagination_previous">Previous</a>
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page=<?php echo $i; ?>&searchdestroy' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                        <a href='services.php?page=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
                 <?php
                     }
                     //END OF PAGINATION
@@ -1392,22 +1372,17 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <style>
-                            .pagination_previous {
-                                margin-left: 350px;
-                            }
-                        </style>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                        <a href='services.php?page=<?php echo ($page - 1) ?>&earlychildhood' class="pagination_previous">Previous</a>
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page=<?php echo $i; ?>&earlychildhood' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                        <a href='services.php?page=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
                 <?php
                     }
                     //END OF PAGINATION
@@ -1530,42 +1505,42 @@ hide_content();
     }
 
 
-    if (isset($_POST['deworming_sort_name']) || isset($_POST['deworming_sort_age']) || isset($_POST['deworming_sort_sex']) || isset($_POST['deworming_sort_date_availed'])) {
+    if (isset($_POST['deworming_sort_name']) || isset($_POST['deworming_sort_age']) || isset($_POST['deworming_sort_sex']) || isset($_POST['deworming_sort_date_availed']) || isset($_GET['deworming'])) {
     ?>
         <script>
             servicesClick('services__list__item--deworming');
         </script>
     <?php
     }
-    if (isset($_POST['consultation_sort_name']) || isset($_POST['consultation_sort_age']) || isset($_POST['consultation_sort_sex']) || isset($_POST['consultation_sort_date_availed'])) {
+    if (isset($_POST['consultation_sort_name']) || isset($_POST['consultation_sort_age']) || isset($_POST['consultation_sort_sex']) || isset($_POST['consultation_sort_date_availed']) || isset($_GET['consultation'])) {
     ?>
         <script>
             servicesClick('services__list__item--consultation');
         </script>
     <?php
     }
-    if (isset($_POST['prenatal_sort_name']) || isset($_POST['prenatal_sort_age']) || isset($_POST['prenatal_sort_sex']) || isset($_POST['prenatal_sort_date_availed'])) {
+    if (isset($_POST['prenatal_sort_name']) || isset($_POST['prenatal_sort_age']) || isset($_POST['prenatal_sort_sex']) || isset($_POST['prenatal_sort_date_availed']) || isset($_GET['prenatal'])) {
     ?>
         <script>
             servicesClick('services__list__item--prenatal');
         </script>
     <?php
     }
-    if (isset($_POST['postnatal_sort_name']) || isset($_POST['postnatal_sort_age']) || isset($_POST['postnatal_sort_sex']) || isset($_POST['postnatal_sort_date_availed'])) {
+    if (isset($_POST['postnatal_sort_name']) || isset($_POST['postnatal_sort_age']) || isset($_POST['postnatal_sort_sex']) || isset($_POST['postnatal_sort_date_availed']) || isset($_GET['postnatal'])) {
     ?>
         <script>
             servicesClick('services__list__item--postnatal');
         </script>
     <?php
     }
-    if (isset($_POST['search_sort_name']) || isset($_POST['search_sort_status']) || isset($_POST['search_sort_con']) || isset($_POST['search_sort_date_availed'])) {
+    if (isset($_POST['search_sort_name']) || isset($_POST['search_sort_status']) || isset($_POST['search_sort_con']) || isset($_POST['search_sort_date_availed']) || isset($_GET['searchdestroy'])) {
     ?>
         <script>
             servicesClick('services__list__item--search');
         </script>
     <?php
     }
-    if (isset($_POST['early_sort_cname']) || isset($_POST['early_sort_mname']) || isset($_POST['early_sort_age']) || isset($_POST['early_sort_date_availed'])) {
+    if (isset($_POST['early_sort_cname']) || isset($_POST['early_sort_mname']) || isset($_POST['early_sort_age']) || isset($_POST['early_sort_date_availed']) || isset($_GET['earlychildhood'])) {
     ?>
         <script>
             servicesClick('services__list__item--childhood');

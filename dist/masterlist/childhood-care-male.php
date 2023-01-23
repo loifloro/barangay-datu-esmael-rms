@@ -221,34 +221,44 @@ hide_content_forms();
 
             <!-- START QUERY -->
             <?php
-            $query = "SELECT * FROM target_childcare_male"; // WHERE archive_label=''
+            //PAGINATION COUNTER
+            if (isset($_GET['page'])) {
+                $page = $_GET['page'];
+            } else {
+                $page = 1;
+            }
+            $num_per_page = 9;
+            $start_from = ($page - 1) * 02;
+            // END OF PAGINATION COUNTER
+
+            $query = "SELECT * FROM target_childcare_male LIMIT $start_from, $num_per_page"; // WHERE archive_label=''
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
                 if (isset($_POST['sort_name'])) {
                     $sort_id = $_POST['sort_name'];
                     if ($sort_id == 1) {
-                        $query = "SELECT * FROM target_childcare_male ORDER BY child_firstname";
+                        $query = "SELECT * FROM target_childcare_male ORDER BY child_firstname LIMIT $start_from, $num_per_page";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
                 if (isset($_POST['sort_date'])) {
                     $sort_id = $_POST['sort_date'];
                     if ($sort_id == 2) {
-                        $query = "SELECT * FROM target_childcare_male ORDER BY date_registered";
+                        $query = "SELECT * FROM target_childcare_male ORDER BY date_registered LIMIT $start_from, $num_per_page";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
                 if (isset($_POST['sort_address'])) {
                     $sort_id = $_POST['sort_address'];
                     if ($sort_id == 3) {
-                        $query = "SELECT * FROM target_childcare_male ORDER BY complete_address";
+                        $query = "SELECT * FROM target_childcare_male ORDER BY complete_address LIMIT $start_from, $num_per_page";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
                 if (isset($_POST['sort_bdate'])) {
                     $sort_id = $_POST['sort_bdate'];
                     if ($sort_id == 3) {
-                        $query = "SELECT * FROM target_childcare_male ORDER BY birthday";
+                        $query = "SELECT * FROM target_childcare_male ORDER BY birthday LIMIT $start_from, $num_per_page";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
@@ -292,6 +302,31 @@ hide_content_forms();
                     </ul>
                 <?php
                 }
+                //PAGINATION
+                $pr_query = "SELECT * FROM target_childcare_male";
+                $pr_result = mysqli_query($conn, $pr_query);
+                $total_record = mysqli_num_rows($pr_result);
+
+                $total_page = ceil($total_record / $num_per_page);
+                ?>
+                <div class="pagination">
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='childhood-care-male.php?page=<?php echo ($page - 1) ?>' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='childhood-care-male.php?page=<?php echo $i; ?>' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='childhood-care-male.php.php?page=<?php echo ($page + 1) ?>' class="pagination_next">Next</a>
+                    <?php
+                    }
+                    //END OF PAGINATION
             } else {
                 ?>
                 <script>

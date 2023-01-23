@@ -353,27 +353,37 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php
-                $query = "SELECT * FROM deworming WHERE archive_label=''";
+                //PAGINATION COUNTER
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                $num_per_page = 9;
+                $start_from = ($page - 1) * 02;
+                // END OF PAGINATION COUNTER
+
+                $query = "SELECT * FROM deworming WHERE archive_label='' LIMIT $start_from, $num_per_page";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     if (isset($_POST['deworming_sort_name'])) {
                         $sort_id = $_POST['deworming_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY firstname";
+                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY firstname LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['deworming_sort_date_availed'])) {
                         $sort_id = $_POST['deworming_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY deworming_date";
+                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY deworming_date LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['deworming_sort_sex'])) {
                         $sort_id = $_POST['deworming_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY sex";
+                            $query = "SELECT * FROM deworming WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -405,6 +415,31 @@ hide_content();
                         </ul>
                 <?php
                     }
+                    //PAGINATION
+                    $pr_query = "SELECT * FROM deworming";
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
+
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <!-- <div class="pagination"> -->
+                        <?php
+                        if ($page > 1) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page - 1) ?>&deworming' class="pagination_previous">Previous</a>
+                        <?php
+                        }
+                        for ($i = 1; $i <= $total_page; $i++) {
+                        ?>
+                            <a href='patients.php?page=<?php echo $i; ?>&deworming' class="pagination_number"><?php echo $i; ?></a>
+                        <?php
+                        }
+                        if ($page < $total_page) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page + 1) ?>&deworming' class="pagination_next">Next</a>
+                        <?php
+                        }
+                        //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -453,27 +488,37 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php
-                $query = "SELECT * FROM consultation WHERE archive_label=''";
+                //PAGINATION COUNTER
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                $num_per_page = 9;
+                $start_from = ($page - 1) * 02;
+                // END OF PAGINATION COUNTER
+
+                $query = "SELECT * FROM consultation WHERE archive_label='' LIMIT $start_from, $num_per_page";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     if (isset($_POST['consultation_sort_name'])) {
                         $sort_id = $_POST['consultation_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY firstname";
+                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY firstname LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['consultation_sort_date_availed'])) {
                         $sort_id = $_POST['consultation_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY consultation_date";
+                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY consultation_date LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['consultation_sort_sex'])) {
                         $sort_id = $_POST['consultation_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY sex";
+                            $query = "SELECT * FROM consultation WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -506,6 +551,31 @@ hide_content();
                         </ul>
                 <?php
                     }
+                    //PAGINATION
+                    $pr_query = "SELECT * FROM consultation";
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
+
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <!-- <div class="pagination"> -->
+                        <?php
+                        if ($page > 1) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page - 1) ?>&consultation' class="pagination_previous">Previous</a>
+                        <?php
+                        }
+                        for ($i = 1; $i <= $total_page; $i++) {
+                        ?>
+                            <a href='patients.php?page=<?php echo $i; ?>&consultation' class="pagination_number"><?php echo $i; ?></a>
+                        <?php
+                        }
+                        if ($page < $total_page) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page + 1) ?>&consultation' class="pagination_next">Next</a>
+                        <?php
+                        }
+                        //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -554,27 +624,37 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php
-                $query = "SELECT * FROM prenatal WHERE archive_label=''";
+                //PAGINATION COUNTER
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                $num_per_page = 9;
+                $start_from = ($page - 1) * 02;
+                // END OF PAGINATION COUNTER
+
+                $query = "SELECT * FROM prenatal WHERE archive_label='' LIMIT $start_from, $num_per_page";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     if (isset($_POST['prenatal_sort_name'])) {
                         $sort_id = $_POST['prenatal_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY firstname";
+                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY firstname LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['prenatal_sort_date_availed'])) {
                         $sort_id = $_POST['prenatal_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY prenatal_date";
+                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY prenatal_date LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['prenatal_sort_sex'])) {
                         $sort_id = $_POST['prenatal_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY sex";
+                            $query = "SELECT * FROM prenatal WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -607,6 +687,31 @@ hide_content();
                         </ul>
                 <?php
                     }
+                    //PAGINATION
+                    $pr_query = "SELECT * FROM prenatal";
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
+
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <!-- <div class="pagination"> -->
+                        <?php
+                        if ($page > 1) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page - 1) ?>&prenatal' class="pagination_previous">Previous</a>
+                        <?php
+                        }
+                        for ($i = 1; $i <= $total_page; $i++) {
+                        ?>
+                            <a href='patients.php?page=<?php echo $i; ?>&prenatal' class="pagination_number"><?php echo $i; ?></a>
+                        <?php
+                        }
+                        if ($page < $total_page) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
+                        <?php
+                        }
+                        //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -655,27 +760,37 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php
-                $query = "SELECT * FROM postnatal WHERE archive_label=''";
+                //PAGINATION COUNTER
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                $num_per_page = 9;
+                $start_from = ($page - 1) * 02;
+                // END OF PAGINATION COUNTER
+
+                $query = "SELECT * FROM postnatal WHERE archive_label='' LIMIT $start_from, $num_per_page";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     if (isset($_POST['postnatal_early_sort_name'])) {
                         $sort_id = $_POST['postnatal_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY firstname";
+                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY firstname LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['postnatal_sort_date_availed'])) {
                         $sort_id = $_POST['postnatal_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY postnatal_date";
+                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY postnatal_date LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['postnatal_sort_sex'])) {
                         $sort_id = $_POST['postnatal_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY sex";
+                            $query = "SELECT * FROM postnatal WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -708,6 +823,31 @@ hide_content();
                         </ul>
                 <?php
                     }
+                    //PAGINATION
+                    $pr_query = "SELECT * FROM postnatal";
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
+
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <!-- <div class="pagination"> -->
+                        <?php
+                        if ($page > 1) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page - 1) ?>&postnatal' class="pagination_previous">Previous</a>
+                        <?php
+                        }
+                        for ($i = 1; $i <= $total_page; $i++) {
+                        ?>
+                            <a href='patients.php?page=<?php echo $i; ?>&postnatal' class="pagination_number"><?php echo $i; ?></a>
+                        <?php
+                        }
+                        if ($page < $total_page) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
+                        <?php
+                        }
+                        //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -756,27 +896,37 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php
-                $query = "SELECT * FROM search_destroy WHERE archive_label=''";
+                //PAGINATION COUNTER
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                $num_per_page = 9;
+                $start_from = ($page - 1) * 02;
+                // END OF PAGINATION COUNTER
+
+                $query = "SELECT * FROM search_destroy WHERE archive_label='' LIMIT $start_from, $num_per_page";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     if (isset($_POST['search_sort_name'])) {
                         $sort_id = $_POST['search_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY owner_fname";
+                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY owner_fname LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['search_sort_date_availed'])) {
                         $sort_id = $_POST['search_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY search_destroy_date";
+                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY search_destroy_date LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['search_sort_sex'])) {
                         $sort_id = $_POST['search_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY sex";
+                            $query = "SELECT * FROM search_destroy WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -809,6 +959,31 @@ hide_content();
                         </ul>
                 <?php
                     }
+                    //PAGINATION
+                    $pr_query = "SELECT * FROM search_destroy";
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
+
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <!-- <div class="pagination"> -->
+                        <?php
+                        if ($page > 1) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page - 1) ?>&searchdestroy' class="pagination_previous">Previous</a>
+                        <?php
+                        }
+                        for ($i = 1; $i <= $total_page; $i++) {
+                        ?>
+                            <a href='patients.php?page=<?php echo $i; ?>&searchdestroy' class="pagination_number"><?php echo $i; ?></a>
+                        <?php
+                        }
+                        if ($page < $total_page) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
+                        <?php
+                        }
+                        //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -857,27 +1032,37 @@ hide_content();
                 <!-- To be put in the loop -->
                 <!-- Start Query -->
                 <?php
-                $query = "SELECT * FROM early_childhood WHERE archive_label=''";
+                //PAGINATION COUNTER
+                if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+                } else {
+                    $page = 1;
+                }
+                $num_per_page = 9;
+                $start_from = ($page - 1) * 02;
+                // END OF PAGINATION COUNTER
+
+                $query = "SELECT * FROM early_childhood WHERE archive_label='' LIMIT $start_from, $num_per_page";
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) > 0) {
                     if (isset($_POST['early_sort_name'])) {
                         $sort_id = $_POST['early_sort_name'];
                         if ($sort_id == 1) {
-                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY child_fname";
+                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY child_fname LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['early_sort_date_availed'])) {
                         $sort_id = $_POST['early_sort_date_availed'];
                         if ($sort_id == 2) {
-                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY early_childhood_date";
+                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY early_childhood_date LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
                     if (isset($_POST['early_sort_sex'])) {
                         $sort_id = $_POST['early_sort_sex'];
                         if ($sort_id == 3) {
-                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY sex";
+                            $query = "SELECT * FROM early_childhood WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
                             $query_run = mysqli_query($conn, $query);
                         }
                     }
@@ -910,6 +1095,31 @@ hide_content();
                         </ul>
                 <?php
                     }
+                    //PAGINATION
+                    $pr_query = "SELECT * FROM early_childhood";
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
+
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <!-- <div class="pagination"> -->
+                        <?php
+                        if ($page > 1) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page - 1) ?>&earlychildhood' class="pagination_previous">Previous</a>
+                        <?php
+                        }
+                        for ($i = 1; $i <= $total_page; $i++) {
+                        ?>
+                            <a href='patients.php?page=<?php echo $i; ?>&earlychildhood' class="pagination_number"><?php echo $i; ?></a>
+                        <?php
+                        }
+                        if ($page < $total_page) {
+                        ?>
+                            <a href='patients.php?page=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
+                        <?php
+                        }
+                        //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -920,42 +1130,42 @@ hide_content();
     </main>
     <script src="./js/app.js"></script>
     <?php
-    if (isset($_POST['deworming_sort_name']) ||  isset($_POST['deworming_sort_sex']) || isset($_POST['deworming_sort_date_availed'])) {
+    if (isset($_POST['deworming_sort_name']) ||  isset($_POST['deworming_sort_sex']) || isset($_POST['deworming_sort_date_availed']) || isset($_GET['deworming'])) {
     ?>
         <script>
             patient(event, 'Deworming');
         </script>
     <?php
     }
-    if (isset($_POST['consultation_sort_name']) || isset($_POST['consultation_sort_age']) || isset($_POST['consultation_sort_sex']) || isset($_POST['consultation_sort_date_availed'])) {
+    if (isset($_POST['consultation_sort_name']) || isset($_POST['consultation_sort_sex']) || isset($_POST['consultation_sort_date_availed']) || isset($_GET['consultation'])) {
     ?>
         <script>
             patient(event, 'Consultation');
         </script>
     <?php
     }
-    if (isset($_POST['prenatal_sort_name']) || isset($_POST['prenatal_sort_age']) || isset($_POST['prenatal_sort_sex']) || isset($_POST['prenatal_sort_date_availed'])) {
+    if (isset($_POST['prenatal_sort_name']) || isset($_POST['prenatal_sort_sex']) || isset($_POST['prenatal_sort_date_availed']) || isset($_GET['prenatal'])) {
     ?>
         <script>
             patient(onclick, 'Pre-Natal');
         </script>
     <?php
     }
-    if (isset($_POST['postnatal_sort_name']) || isset($_POST['postnatal_sort_age']) || isset($_POST['postnatal_sort_sex']) || isset($_POST['postnatal_sort_date_availed'])) {
+    if (isset($_POST['postnatal_sort_name']) || isset($_POST['postnatal_sort_sex']) || isset($_POST['postnatal_sort_date_availed']) || isset($_GET['postnatal'])) {
     ?>
         <script>
             patient(event, 'Post-Natal');
         </script>
     <?php
     }
-    if (isset($_POST['search_sort_name']) || isset($_POST['search_sort_status']) || isset($_POST['search_sort_sex']) || isset($_POST['search_sort_date_availed'])) {
+    if (isset($_POST['search_sort_name']) || isset($_POST['search_sort_status']) || isset($_POST['search_sort_sex']) || isset($_POST['search_sort_date_availed']) || isset($_GET['searchdestroy'])) {
     ?>
         <script>
             patient(event, 'Search and Destroy');
         </script>
     <?php
     }
-    if (isset($_POST['early_sort_name']) || isset($_POST['early_sort_date_availed']) || isset($_POST['early_sort_sex']) || isset($_POST['early_sort_date_availed'])) {
+    if (isset($_POST['early_sort_name']) || isset($_POST['early_sort_date_availed']) || isset($_POST['early_sort_sex']) || isset($_POST['early_sort_date_availed']) || isset($_GET['earlychildhood'])) {
     ?>
         <script>
             patient(event, 'Childhood Care');
