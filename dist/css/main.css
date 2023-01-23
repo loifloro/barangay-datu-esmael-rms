@@ -1893,6 +1893,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .bhw-account__name {
   color: #212529;
 }
+.bhw-account__attributes__item {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 0.5rem;
+  column-gap: 0.5rem;
+}
 
 .services__table {
   display: none;
