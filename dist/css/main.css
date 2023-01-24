@@ -306,10 +306,6 @@ select:focus {
   background: #ffffff;
 }
 
-input[type=text]:not(#password) {
-  text-transform: capitalize;
-}
-
 textarea {
   background: #f0f0f0;
   border-radius: 0.5vw;
