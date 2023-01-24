@@ -271,7 +271,19 @@ if (mysqli_num_rows($query_run2) > 0) {
                     } else { ?>
 
                         <script>
-                            noRecord();
+                            Swal.fire({
+                                toast: true,
+                                position: "top-right",
+                                icon: "info",
+                                iconColor: "white",
+                                title: "No record found",
+                                customClass: {
+                                    popup: "no-record",
+                                },
+                                showConfirmButton: false,
+                                timer: 2000,
+                                timerProgressBar: true,
+                            });
                         </script>
                 <?php
                     }

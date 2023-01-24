@@ -94,9 +94,11 @@ select {
   }
 }
 
-input[type="text"]:not(#password) {
-  text-transform: capitalize;
-}
+// input[type="text"]:not(#password),
+// input[type="text"]:not(#bhw-new-password),
+// input[type="text"]:not(#bhw-confirm-new-password) {
+//   text-transform: capitalize;
+// }
 
 textarea {
   background: $white-3;

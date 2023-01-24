@@ -523,6 +523,7 @@ hide_content();
                     if ($page > 1) {
                     ?>
                         <a href='services.php?page=<?php echo ($page - 1) ?>&deworming' class="pagination_previous">Previous</a>
+
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
@@ -1203,6 +1204,7 @@ hide_content();
                     if ($page > 1) {
                     ?>
                         <a href='services.php?page=<?php echo ($page - 1) ?>&searchdestroy' class="pagination_previous">Previous</a>
+
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
@@ -1373,6 +1375,7 @@ hide_content();
                     if ($page > 1) {
                     ?>
                         <a href='services.php?page=<?php echo ($page - 1) ?>&earlychildhood' class="pagination_previous">Previous</a>
+
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {

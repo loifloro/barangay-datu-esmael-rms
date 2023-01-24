@@ -35,7 +35,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
     <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
             <li class="sidebar__item sidebar__item--search">
-                <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
+                <form class="navigation__search navigation__search--mobile" action="../search-result.php" method="GET">
                     <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
                 --><button type="submit" name="search_btn" class="navigation__search__btn">
                         <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
@@ -119,7 +119,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 <!-- This would change depending on the URL or the current page  -->
                 Services
             </h1>
-            <form class="navigation__search" action="../search-result.php" method="GET">
+            <form class="navigation__search" action="../../search-result.php" method="GET">
 
                 <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
                 --><button type="submit" class="navigation__search__btn">
@@ -474,7 +474,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </p>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-age">Age in months</label>
-                    <input type="number" name="child_care-female-6mos-age" id="child_care-female-6mos-age"  min="0">
+                    <input type="number" name="child_care-female-6mos-age" id="child_care-female-6mos-age" min="0">
                 </div>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-6mos-legth">Length</label>
@@ -599,7 +599,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </p>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-age">Age in months</label>
-                    <input type="number" name="child_care-female-12mos-age" id="child_care-female-12mos-age"  min="0">
+                    <input type="number" name="child_care-female-12mos-age" id="child_care-female-12mos-age" min="0">
                 </div>
                 <div class="add-child_care-female__form-item">
                     <label for="child_care-female-12mos-legth">Length</label>

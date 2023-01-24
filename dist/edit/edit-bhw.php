@@ -36,7 +36,7 @@
         <aside role="navigation" class="sidebar" id="sidebar">
             <ul role="list" class="sidebar__list">
                 <li class="sidebar__item sidebar__item--search">
-                    <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
+                    <form class="navigation__search navigation__search--mobile" action="../search-result.php" method="GET">
                         <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
                 --><button type="submit" name="search_btn" class="navigation__search__btn">
                             <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
@@ -120,7 +120,7 @@
                     <!-- This would change depending on the URL or the current page  -->
                     Patients
                 </h1>
-                <form class="navigation__search" action="../search-result.php" method="GET">
+                <form class="navigation__search" action="../../search-result.php" method="GET">
                     <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
                 --><button type="submit" class="navigation__search__btn">
                         <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
@@ -193,29 +193,29 @@
                             </div>
                             <div class="edit-bhw__form-item">
                                 <label for="bhw-contact">Contact Number</label>
-                                <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>" maxlength="11"  min="0">
+                                <input type="number" name="bhw-contact" id="bhw-contact" value="<?= $user['phone_num']; ?>" maxlength="11" min="0">
                             </div>
                             <?php
-                            if($user['user_email']==''){
-                                $email= $user['default_email'];
-                                ?>
-                                    <div class="edit-bhw__form-item">
-                                        <label for="bhw-contact">New Email *</label>
-                                        <input type="email" name="bhw-email" id="bhw-contact" value="" required>
-                                    </div>
-                                <?php
+                            if ($user['user_email'] == '') {
+                                $email = $user['default_email'];
+                            ?>
+                                <div class="edit-bhw__form-item">
+                                    <label for="bhw-contact">New Email *</label>
+                                    <input type="email" name="bhw-email" id="bhw-contact" value="" required>
+                                </div>
+                            <?php
                             }
-                            if($user['default_email']==''){
-                                $email= $user['user_email'];
-                                ?>
-                                    <div class="edit-bhw__form-item">
-                                        <label for="bhw-contact">Email *</label>
-                                        <input type="email" name="bhw-email" id="bhw-contact" value="<?= $user['user_email']; ?>" required>
-                                    </div>
-                                <?php
+                            if ($user['default_email'] == '') {
+                                $email = $user['user_email'];
+                            ?>
+                                <div class="edit-bhw__form-item">
+                                    <label for="bhw-contact">Email *</label>
+                                    <input type="email" name="bhw-email" id="bhw-contact" value="<?= $user['user_email']; ?>" required>
+                                </div>
+                            <?php
                             }
                             ?>
-                            
+
                             <div class="edit-bhw__form-item">
                                 <label for="bhw-birthday">Birthday *</label>
                                 <input type="date" name="bhw-birthday" id="bhw-birthday" value="<?= $user['birthday']; ?>" required>
