@@ -156,17 +156,25 @@
     if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
         $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-        $searchdestroy_sort = $date;
-        $searchdestroy_sort2 = $date2;
-    } else {
-        $searchdestroy_sort = "N/A";
-        $searchdestroy_sort2 = "N/A";
-    }
+        
+        if($date2 == ""){
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                </div>
+            <?php
+        }
+        else{
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                    <br>Date To: <?php echo $date2; ?>
+                </div>
+            <?php
+        }
+    } 
     ?>
-    <div class="deworming-reports__date">
-            Date From: <?php echo $searchdestroy_sort; ?>
-            <br>Date To: <?php echo $searchdestroy_sort2; ?>
-    </div>
+    <!-- End Date Query -->
 
     <ul class="search-and-destroy__report__summary" role="list">
         <li class="search-and-destroy__report__summary__item">Name of Barangay Visited:

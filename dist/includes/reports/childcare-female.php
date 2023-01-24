@@ -18,22 +18,30 @@ if (isset($_GET['report__date'])) {
             <p class="deworming-reports__brgy">
                 Name of Barangay: Datu Esmael
             </p>
-            <!-- Query Start -->
-            <?php
+        <!-- Query Start -->
+        <?php
             if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
                 $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                $childcare_female_sort = $date;
-                $childcare_female_sort2 = $date2;
-            } else {
-                $childcare_female_sort = "N/A";
-                $childcare_female_sort2 = "N/A";
-            }
-            ?>
-            <div class="deworming-reports__date">
-                Date From: <?php echo $childcare_female_sort; ?>
-                <br>Date To: <?php echo $childcare_female_sort2; ?>
-            </div>
+                
+                if($date2 == ""){
+                    ?>
+                        <div class="deworming-reports__date">
+                            Date From: <?php echo $date; ?>
+                        </div>
+                    <?php
+                }
+                else{
+                    ?>
+                        <div class="deworming-reports__date">
+                            Date From: <?php echo $date; ?>
+                            <br>Date To: <?php echo $date2; ?>
+                        </div>
+                    <?php
+                }
+            } 
+        ?>
+        <!-- End Date Query -->
         </div>
 
         <!-- Query Start -->
