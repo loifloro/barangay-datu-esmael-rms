@@ -1217,11 +1217,14 @@ hide_content();
                         <a href='services.php?page=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+                
 
                 <!-- End of Query -->
                 <!-- <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a> -->
