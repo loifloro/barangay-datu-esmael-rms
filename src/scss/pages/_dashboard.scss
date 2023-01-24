@@ -74,17 +74,30 @@
     &__input {
       display: flex;
       justify-content: space-between;
+      align-items: flex-end;
       margin-top: 0.5rem;
       row-gap: 1rem;
+      -moz-column-gap: 0.5rem;
+      column-gap: 0.5rem;
+
+      button {
+        margin-block: unset;
+      }
 
       @media (max-width: map-get($breakpoints, "large")) {
         // Large screensizes: monitors, laptops
+        flex-direction: column;
+        & > *,
+        select,
+        input {
+          width: 100%;
+        }
       }
 
       @media (max-width: map-get($breakpoints, "medium")) {
-        // Medium smartphone
         flex-direction: column;
-
+        align-items: unset;
+        & > *,
         select,
         input {
           width: 100%;
@@ -94,6 +107,12 @@
       @media (max-width: map-get($breakpoints, "small")) {
         // Small smartphone
         flex-direction: column;
+
+        & > *,
+        select,
+        input {
+          width: 100%;
+        }
       }
 
       label {
@@ -102,7 +121,24 @@
       }
 
       & > * {
-        margin-right: 1rem;
+        // margin-right: 1rem;
+      }
+    }
+
+    &__date {
+      display: flex;
+      -moz-column-gap: 0.5rem;
+      column-gap: 0.5rem;
+      margin-right: auto;
+
+      label {
+        font-size: 0.7rem;
+      }
+
+      input[type="date"] {
+        // width: 2.5rem;
+        font-size: 0.85rem;
+        padding-inline: 0.5rem;
       }
     }
 

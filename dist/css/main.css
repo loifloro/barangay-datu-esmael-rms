@@ -4326,13 +4326,31 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .dashboard .reports__input {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   margin-top: 0.5rem;
   row-gap: 1rem;
+  -moz-column-gap: 0.5rem;
+  column-gap: 0.5rem;
+}
+.dashboard .reports__input button {
+  margin-block: unset;
+}
+@media (max-width: 80rem) {
+  .dashboard .reports__input {
+    flex-direction: column;
+  }
+  .dashboard .reports__input > *,
+  .dashboard .reports__input select,
+  .dashboard .reports__input input {
+    width: 100%;
+  }
 }
 @media (max-width: 48rem) {
   .dashboard .reports__input {
     flex-direction: column;
+    align-items: unset;
   }
+  .dashboard .reports__input > *,
   .dashboard .reports__input select,
   .dashboard .reports__input input {
     width: 100%;
@@ -4342,13 +4360,28 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .dashboard .reports__input {
     flex-direction: column;
   }
+  .dashboard .reports__input > *,
+  .dashboard .reports__input select,
+  .dashboard .reports__input input {
+    width: 100%;
+  }
 }
 .dashboard .reports__input label {
   font-size: 0.85rem;
   color: #909087;
 }
-.dashboard .reports__input > * {
-  margin-right: 1rem;
+.dashboard .reports__date {
+  display: flex;
+  -moz-column-gap: 0.5rem;
+  column-gap: 0.5rem;
+  margin-right: auto;
+}
+.dashboard .reports__date label {
+  font-size: 0.7rem;
+}
+.dashboard .reports__date input[type=date] {
+  font-size: 0.85rem;
+  padding-inline: 0.5rem;
 }
 .dashboard .reports select {
   display: block;
