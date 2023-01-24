@@ -1,6 +1,6 @@
 <!-- Daily Reports -->
 <section class="reports" id="reports">
-    <form action="" class="reports__form" method="GET">
+    <form action="#reports" class="reports__form" method="GET">
         <h2 class="reports__title">
             Reports
         </h2>
@@ -28,22 +28,28 @@
 
                 </select>
             </div>
-            
+
             <!-- QUERY FOR DEFAULT DISPLAY IN DATE -->
             <?php
-                if (isset($_GET['sort__date'])) {
-                    $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-                    $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                }
+            if (isset($_GET['sort__date'])) {
+                $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            }
             ?>
-            <div class="reports__form__date">
-                <label for="report__date">Date From </label>
-                <input type="date" name="report__date" id="report__date" required value="<?= $date; ?>">
+            <div class="reports__date">
+                <div class="reports__form__date">
+                    <label for="report__date">Date From </label>
+                    <input type="date" name="report__date" id="report__date" required value="<?= $date; ?>">
+                </div>
+                <div class="reports__form__date">
+                    <label for="report__date">Date To </label>
+                    <input type="date" name="report__date2" id="report__date" value="<?= $date2; ?>">
+                </div>
             </div>
-            <div class="reports__form__date">
-                <label for="report__date">Date To </label>
-                <input type="date" name="report__date2" id="report__date" value="<?= $date2; ?>">
-            </div>
+
+            <button type="submit" name="sort__date" class="btn-green btn-add services__btn">
+                <p>Sort record</p>
+            </button>
         </div>
 
         <?php
@@ -67,9 +73,7 @@
         }
 
         ?>
-        <button type="submit" name="sort__date" class="btn-green btn-add services__btn">
-            <p>Sort record</p>
-        </button>
+
 
     </form>
 </section>

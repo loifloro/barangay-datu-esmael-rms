@@ -36,7 +36,7 @@ hide_content_forms();
     <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
             <li class="sidebar__item sidebar__item--search">
-                <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
+                <form class="navigation__search navigation__search--mobile" action="../search-result.php" method="GET">
                     <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
                 --><button type="submit" name="search_btn" class="navigation__search__btn">
                         <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
@@ -120,7 +120,7 @@ hide_content_forms();
                 <!-- This would change depending on the URL or the current page  -->
                 Edit Search and Destroy
             </h1>
-            <form class="navigation__search" action="../search-result.php" method="GET">
+            <form class="navigation__search" action="../../search-result.php" method="GET">
                 <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
                 --><button type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
@@ -245,7 +245,7 @@ hide_content_forms();
                         </div>
                         <div class="edit-search_destroy__form-item">
                             <label for="search_destroy-number-container">No. of Container Positive for Larva *</label>
-                            <input type="text" name="search_destroy-number-container" id="search_destroy-number-container"  min="0" value="<?= $patient['container_num']; ?>" required>
+                            <input type="text" name="search_destroy-number-container" id="search_destroy-number-container" min="0" value="<?= $patient['container_num']; ?>" required>
                         </div>
                         <div class="edit-deworming__form-item add-deworming__form-item--radio">
                             <label for="deworming-sex">Remarks *</label>

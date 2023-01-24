@@ -36,7 +36,7 @@ hide_content_forms();
     <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
             <li class="sidebar__item sidebar__item--search">
-                <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
+                <form class="navigation__search navigation__search--mobile" action="../search-result.php" method="GET">
                     <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
                 --><button type="submit" name="search_btn" class="navigation__search__btn">
                         <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
@@ -120,7 +120,7 @@ hide_content_forms();
                 <!-- This would change depending on the URL or the current page  -->
                 Edit Early-childhood Record
             </h1>
-            <form class="navigation__search" action="../search-result.php" method="GET">
+            <form class="navigation__search" action="../../search-result.php" method="GET">
                 <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
                 --><button type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
@@ -250,7 +250,7 @@ hide_content_forms();
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-pregnancies">No. of Pregnancies</label>
-                            <input type="number" name="early_childhood-pregnancies" id="early_childhood-pregnancies"  min="0" value="<?= $patient['no_pregnancies']; ?>">
+                            <input type="number" name="early_childhood-pregnancies" id="early_childhood-pregnancies" min="0" value="<?= $patient['no_pregnancies']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-mother-education">Educational Attainment</label>
@@ -338,15 +338,15 @@ hide_content_forms();
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-order">Birth Order</label>
-                            <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order"  min="0" value="<?= $patient['birth_order']; ?>">
+                            <input type="number" name="early_childhood-birth-order" id="early_childhood-birth-order" min="0" value="<?= $patient['birth_order']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-weight">Birth Weight (kg)</label>
-                            <input type="text" name="early_childhood-birth-weight" id="early_childhood-birth-weight"  min="0" value="<?= $patient['birth_weight']; ?>">
+                            <input type="text" name="early_childhood-birth-weight" id="early_childhood-birth-weight" min="0" value="<?= $patient['birth_weight']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-length">Birth Length (cm)</label>
-                            <input type="text" name="early_childhood-birth-length" id="early_childhood-birth-length"  min="0" value="<?= $patient['birth_length']; ?>">
+                            <input type="text" name="early_childhood-birth-length" id="early_childhood-birth-length" min="0" value="<?= $patient['birth_length']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-birth-place">Place of Delivery</label>

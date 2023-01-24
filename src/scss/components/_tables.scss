@@ -319,6 +319,13 @@
   &__name {
     color: $black-1;
   }
+
+  &__attributes__item {
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 0.5rem;
+    column-gap: 0.5rem;
+  }
 }
 
 .services {
