@@ -308,9 +308,9 @@ hide_content();
                 <p>Add New</p>
             </button> -->
 
-            <div class="bhw-account__table">
+            <div class="bhw-account__table" id="bhw-account__table">
                 <!-- SORT QUERY -->
-                <form action="" method="POST">
+                <form action="#bhw-account__table" method="POST">
                     <ul class="bhw-account__table__row bhw-account__header" role="list">
                         <li class="bhw-account__attributes__item">
                             Name
