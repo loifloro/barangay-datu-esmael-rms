@@ -88,9 +88,41 @@
                 <?= $patient['prescriptions']; ?>
             </span>
         </p>
-        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['consultation_id'] ?>&&label=<?= $patient['label'] ?>')">
-            Save as PDF
-        </button>
+        <?php
+            $mail = $_SESSION['user_email'];
+            $query = "SELECT position, user_email FROM account_information WHERE user_email='$mail'
+                      UNION ALL
+                      SELECT label, deworming_email FROM deworming WHERE deworming_email='$mail'
+                      UNION ALL
+                      SELECT label, consultation_email FROM consultation WHERE consultation_email='$mail'
+                      UNION ALL
+                      SELECT label, prenatal_email FROM prenatal WHERE prenatal_email='$mail'
+                      UNION ALL
+                      SELECT label, postnatal_email FROM postnatal WHERE postnatal_email='$mail'
+                      UNION ALL
+                      SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$mail'
+                      UNION ALL
+                      SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$mail'";
+             $query_run = mysqli_query($conn, $query);
+             if (mysqli_num_rows($query_run) == 1) {
+                $row = mysqli_fetch_assoc($query_run);
+                if($row['position'] == 'Barangay Health Worker'){
+                    ?>
+                        <button type="submit" class="btn-add services__btn btn-print" disabled>
+                            Save as PDF
+                        </button>
+                    <?php
+                }
+                else{
+                    ?>
+                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['consultation_id'] ?>&&label=<?= $patient['label'] ?>')">
+                            Save as PDF
+                        </button>
+                    <?php
+                }
+            }   
+        ?>
+        
     </div>
 </div>
 
