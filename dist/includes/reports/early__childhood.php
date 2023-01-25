@@ -853,13 +853,19 @@ if (isset($_GET['report__date'])) {
         <!-- Query End -->
 
        <?php
-        $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
-        $result = mysqli_query($conn, $query);
-
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+    
+            if($date2 == ''){
+                $query = "SELECT count(*) FROM early_childhood WHERE early_childhood_date ='$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM early_childhood WHERE early_childhood_date >='$date' AND early_childhood_date <='$date2'";
+                $result = mysqli_query($conn, $query);
+            }
+            
         }
         
         while ($row = mysqli_fetch_array($result)) {

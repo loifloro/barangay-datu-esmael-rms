@@ -696,14 +696,19 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query To Disabled Save as PDF -->
         <?php
-        $query = "SELECT count(*) FROM target_childcare_male";
-        $result = mysqli_query($conn, $query);
-
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-            $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered >= '$date' AND date_registered <= '$date2'";
-            $result = mysqli_query($conn, $query);
+
+            if($date2 == ''){
+                $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered ='$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM target_childcare_male WHERE date_registered >='$date' AND date_registered <='$date2'";
+                $result = mysqli_query($conn, $query);
+            }
+            
         }
 
         while ($row = mysqli_fetch_array($result)) {
