@@ -267,9 +267,7 @@ hide_content_forms();
                     <ul class="masterlist__table__row masterlist__info" role="list">
 
                         <li class="masterlist__name p-bold">
-                            <a href="">
                                 <?= $patient['child_firstname'] . ' ' . $patient['child_lastname']; ?>
-                            </a>
                         </li>
                         <li class="masterlist__date">
                             <?= $patient['date_registered']; ?>
