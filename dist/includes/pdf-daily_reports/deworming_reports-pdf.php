@@ -70,7 +70,18 @@
 </style>
 
 <head>
-    <title>Deworming Reports <?= $date; ?></title>
+    <?php
+        if($date2 == ""){
+            ?>
+                <title>Deworming Reports <?= $date; ?></title>
+            <?php
+        }
+        else{
+            ?>
+                <title>Deworming Reports <?= $date; ?> - <?= $date2; ?></title>
+            <?php
+        }
+    ?>
 </head>
 
 
@@ -92,24 +103,22 @@
 
         <!-- Query Start -->
         <?php
-        if ($date=='') {
-            $deworming_sort = "N/A";
+        if($date2 == ""){
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                </div>
+            <?php
         }
         else{
-            $deworming_sort = $date;
-        }
-        
-        if ($date2=='') {
-            $deworming_sort2 = "N/A";
-        }
-        else{
-            $deworming_sort2 = $date2;
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                    <br>Date To: <?php echo $date2; ?>
+                </div>
+            <?php
         }
         ?>
-        <p class="deworming-reports__date">
-            Date From: <?php echo $deworming_sort; ?>
-            <br>Date To: <?php echo $deworming_sort2; ?>
-        </p>
     </div>
 
     <!-- Query Start -->

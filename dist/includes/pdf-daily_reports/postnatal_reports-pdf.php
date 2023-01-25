@@ -72,7 +72,18 @@
 <!-- Postnatal daily reports -->
 
 <head>
-    <title>Postnatal Reports <?= $date; ?></title>
+    <?php
+        if($date2 == ""){
+            ?>
+                <title>Postnatal Reports <?= $date; ?></title>
+            <?php
+        }
+        else{
+            ?>
+                <title>Postnatal Reports <?= $date; ?> - <?= $date2; ?></title>
+            <?php
+        }
+    ?>
 </head>
 
 <div class="modal deworming-reports" id="postnatal-daily-reports">
@@ -91,24 +102,22 @@
             Name of Barangay: Datu Esmael
         </p>
         <?php
-        if ($date=='') {
-            $postnatal_sort = "N/A";
+        if($date2 == ""){
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                </div>
+            <?php
         }
         else{
-            $postnatal_sort = $date;
-        }
-        
-        if ($date2=='') {
-            $postnatal_sort2 = "N/A";
-        }
-        else{
-            $postnatal_sort2 = $date2;
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                    <br>Date To: <?php echo $date2; ?>
+                </div>
+            <?php
         }
         ?>
-        <div class="deworming-reports__date">
-            Date From: <?php echo $postnatal_sort; ?>
-            <br>Date To: <?php echo $postnatal_sort2; ?>
-        </div>
     </div>
     <!-- Query Start -->
     <?php
