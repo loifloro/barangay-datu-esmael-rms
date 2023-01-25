@@ -7,7 +7,15 @@ $label = $_GET['label'];
 $id = $_GET['id'];
 $date = $_GET['date'];
 $date2 = $_GET['date2'];
+
+if($date2 == ''){
+    $date_show2 = '-';
+}else{
+    $date_show2 = date('-'. "m-d-Y", strtotime($date2)).'-';
+}
+
 $date_show = date("m-d-Y", strtotime($date));
+
 
 // DAILY REPORTS
 
@@ -39,7 +47,9 @@ if ($label == 'Deworming'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-deworming.pdf',['Attachment'=>false]);
+    
+    $dompdf->stream($date_show.$date_show2.'deworming.pdf',['Attachment'=>false]);
+   
 }
 
 if ($label == 'Consultation'){
@@ -69,7 +79,7 @@ if ($label == 'Consultation'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-consultation.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'consultation.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Postnatal'){
@@ -99,7 +109,7 @@ if ($label == 'Postnatal'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-postnatal.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'postnatal.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Prenatal'){
@@ -129,7 +139,7 @@ if ($label == 'Prenatal'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-prenatal.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'prenatal.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Search and Destroy'){
@@ -159,7 +169,7 @@ if ($label == 'Search and Destroy'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-search_destroy.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'search_destroy.pdf',['Attachment'=>false]);
 }
 
 if ($label == 'Early Childhood'){
@@ -189,7 +199,7 @@ if ($label == 'Early Childhood'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-early_childhood.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'early_childhood.pdf',['Attachment'=>false]);
 }
 
 //MASTERLIST SERVICES
@@ -222,7 +232,7 @@ if ($label == 'Target Maternal Care'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-target_maternal.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'target_maternal.pdf',['Attachment'=>false]);
 }
 
 
@@ -253,7 +263,7 @@ if ($label == 'Target Childcare Male'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-target_childcare_male.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'target_childcare_male.pdf',['Attachment'=>false]);
 }
 
 
@@ -283,5 +293,5 @@ if ($label == 'Target Childcare Female'){
     $dompdf->render();
 
     // Output the generated PDF to Browser
-    $dompdf->stream($date_show.'-target_childcare_female.pdf',['Attachment'=>false]);
+    $dompdf->stream($date_show.$date_show2.'target_childcare_female.pdf',['Attachment'=>false]);
 }
