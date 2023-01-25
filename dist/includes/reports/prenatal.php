@@ -193,7 +193,7 @@
                 }
                 else{
                     ?>
-                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['consultation_id'] ?>&&label=<?= $patient['label'] ?>')">
+                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['prenatal_id'] ?>&&label=<?= $patient['label'] ?>')">
                             Save as PDF
                         </button>
                     <?php
