@@ -422,8 +422,8 @@ hide_content();
 
             <?php
             //PAGINATION COUNTER
-            if (isset($_GET['page'])) {
-                $page = $_GET['page'];
+            if (isset($_GET['page_deworming'])) {
+                $page = $_GET['page_deworming'];
             } else {
                 $page = 1;
             }
@@ -522,18 +522,18 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>&deworming' class="pagination_previous">Previous</a>
+                        <a href='services.php?page_deworming=<?php echo ($page - 1) ?>&deworming' class="pagination_previous">Previous</a>
 
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>&deworming' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page_deworming=<?php echo $i; ?>&deworming' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>&deworming' class="pagination_next">Next</a>
+                        <a href='services.php?page_deworming=<?php echo ($page + 1) ?>&deworming' class="pagination_next">Next</a>
                 
                 <?php
                     }
@@ -609,8 +609,8 @@ hide_content();
                 <!-- To be put in the loop -->
                 <?php
                 //PAGINATION COUNTER
-                if (isset($_GET['page'])) {
-                    $page = $_GET['page'];
+                if (isset($_GET['page_consultation'])) {
+                    $page = $_GET['page_consultation'];
                 } else {
                     $page = 1;
                 }
@@ -701,17 +701,17 @@ hide_content();
                         if ($page > 1) {
                         ?>
                             </style>
-                            <a href='services.php?page=<?php echo ($page - 1) ?>&consultation' class="pagination_previous">Previous</a>
+                            <a href='services.php?page_consultation=<?php echo ($page - 1) ?>&consultation' class="pagination_previous">Previous</a>
                         <?php
                         }
                         for ($i = 1; $i <= $total_page; $i++) {
                         ?>
-                            <a href='services.php?page=<?php echo $i; ?>&consultation' class="pagination_number"><?php echo $i; ?></a>
+                            <a href='services.php?page_consultation=<?php echo $i; ?>&consultation' class="pagination_number"><?php echo $i; ?></a>
                         <?php
                         }
                         if ($page < $total_page) {
                         ?>
-                            <a href='services.php?page=<?php echo ($page + 1) ?>&consultation' class="pagination_next">Next</a>
+                            <a href='services.php?page_consultation=<?php echo ($page + 1) ?>&consultation' class="pagination_next">Next</a>
                         <?php
                         }
                         //END OF PAGINATION
@@ -778,8 +778,8 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if (isset($_GET['page'])) {
-                $page = $_GET['page'];
+            if (isset($_GET['page_prenatal'])) {
+                $page = $_GET['page_prenatal'];
             } else {
                 $page = 1;
             }
@@ -867,17 +867,17 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>&prenatal' class="pagination_previous">Previous</a>
+                        <a href='services.php?page_prenatal=<?php echo ($page - 1) ?>&prenatal' class="pagination_previous">Previous</a>
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>&prenatal' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page_prenatal=<?php echo $i; ?>&prenatal' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
+                        <a href='services.php?page_prenatal=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
                 <?php
                     }
                     //END OF PAGINATION
@@ -944,8 +944,8 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if (isset($_GET['page'])) {
-                $page = $_GET['page'];
+            if (isset($_GET['page_postnatal'])) {
+                $page = $_GET['page_postnatal'];
             } else {
                 $page = 1;
             }
@@ -1036,17 +1036,17 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>&postnatal' class="pagination_previous">Previous</a>
+                        <a href='services.php?page_postnatal=<?php echo ($page - 1) ?>&postnatal' class="pagination_previous">Previous</a>
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>&postnatal' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page_postnatal=<?php echo $i; ?>&postnatal' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
+                        <a href='services.php?page_postnatal=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
                 <?php
                     }
                     //END OF PAGINATION
@@ -1112,8 +1112,8 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if (isset($_GET['page'])) {
-                $page = $_GET['page'];
+            if (isset($_GET['page_searchdestroy'])) {
+                $page = $_GET['page_searchdestroy'];
             } else {
                 $page = 1;
             }
@@ -1203,18 +1203,18 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>&searchdestroy' class="pagination_previous">Previous</a>
+                        <a href='services.php?page_searchdestroy=<?php echo ($page - 1) ?>&searchdestroy' class="pagination_previous">Previous</a>
 
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>&searchdestroy' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page_searchdestroy=<?php echo $i; ?>&searchdestroy' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
+                        <a href='services.php?page_searchdestroy=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
                 <?php
                     }
                     ?>
@@ -1286,8 +1286,8 @@ hide_content();
             <!-- To be put in the loop -->
             <?php
             //PAGINATION COUNTER
-            if (isset($_GET['page'])) {
-                $page = $_GET['page'];
+            if (isset($_GET['page_earlychildhood'])) {
+                $page = $_GET['page_earlychildhood'];
             } else {
                 $page = 1;
             }
@@ -1377,18 +1377,18 @@ hide_content();
                     <?php
                     if ($page > 1) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page - 1) ?>&earlychildhood' class="pagination_previous">Previous</a>
+                        <a href='services.php?page_earlychildhood=<?php echo ($page - 1) ?>&earlychildhood' class="pagination_previous">Previous</a>
 
                     <?php
                     }
                     for ($i = 1; $i <= $total_page; $i++) {
                     ?>
-                        <a href='services.php?page=<?php echo $i; ?>&earlychildhood' class="pagination_number"><?php echo $i; ?></a>
+                        <a href='services.php?page_earlychildhood=<?php echo $i; ?>&earlychildhood' class="pagination_number"><?php echo $i; ?></a>
                     <?php
                     }
                     if ($page < $total_page) {
                     ?>
-                        <a href='services.php?page=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
+                        <a href='services.php?page_earlychildhood=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
                 <?php
                     }
                     //END OF PAGINATION
