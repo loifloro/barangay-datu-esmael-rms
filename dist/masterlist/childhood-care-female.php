@@ -170,12 +170,11 @@ hide_content_forms();
     <!-- Contents -->
     <main class="masterlist">
         <h2 class="masterlist__title">
-            Child Care
+            Child Care Female
         </h2>
         <p class="masterlist__desc">
             Target Client List for Child Care Female
         </p>
-
         <div class="masterlist__table">
             <!-- SORT QUERY -->
             <form action="" method="POST">
