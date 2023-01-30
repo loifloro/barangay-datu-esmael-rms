@@ -77,7 +77,18 @@
 <!-- Search and Destroy Daily report -->
 
 <head>
-    <title>Search and Destroy Reports <?= $date; ?></title>
+    <?php
+        if($date2 == ""){
+            ?>
+                <title>Search and Destroy Reports <?= $date; ?></title>
+            <?php
+        }
+        else{
+            ?>
+                <title>Search and Destroy Reports <?= $date; ?> - <?= $date2; ?></title>
+            <?php
+        }
+    ?>
 </head>
 
 <div id="search-and-destroy__daily-report" class="modal search-and-destroy__report">
@@ -93,24 +104,22 @@
     </h4>
 
     <?php
-        if ($date=='') {
-            $searchdestroy_sort = "N/A";
+        if($date2 == ""){
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                </div>
+            <?php
         }
         else{
-            $searchdestroy_sort = $date;
-        }
-        
-        if ($date2=='') {
-            $searchdestroy_sort2 = "N/A";
-        }
-        else{
-            $searchdestroy_sort2 = $date2;
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                    <br>Date To: <?php echo $date2; ?>
+                </div>
+            <?php
         }
         ?>
-    <div class="deworming-reports__date">
-            Date From: <?php echo $searchdestroy_sort; ?>
-            <br>Date To: <?php echo $searchdestroy_sort2; ?>
-    </div>
 
     <ul class="search-and-destroy__report__summary" role="list">
         <li class="search-and-destroy__report__summary__item">Name of Barangay Visited:

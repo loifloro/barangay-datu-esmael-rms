@@ -5,6 +5,10 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
+//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+include_once "includes/functions.php";
+hide_content();
+//END OF FUNCTION
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +66,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </a>
             </li>
 
-            <li class="sidebar__item ">
+            <li class="sidebar__item " id="backup_sidebar">
                 <a href="archive.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="recent-update" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z" />
@@ -80,7 +84,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                 </a>
             </li>
             <li class="sidebar__item">
-                <a href="dashboard-masterlist.php" class="sidebar__link"> <!--href link added-->
+                <a href="dashboard-masterlist.php" class="sidebar__link" id="masterlist_sidebar"> <!--href link added-->
                     <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M13,14H9a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2ZM17,4H15.82A3,3,0,0,0,13,2H11A3,3,0,0,0,8.18,4H7A3,3,0,0,0,4,7V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V7A3,3,0,0,0,17,4ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm8,14a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V7A1,1,0,0,1,7,6H8V7A1,1,0,0,0,9,8h6a1,1,0,0,0,1-1V6h1a1,1,0,0,1,1,1Zm-3-9H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z" />
                     </svg>

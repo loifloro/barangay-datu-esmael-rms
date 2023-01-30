@@ -71,7 +71,18 @@
 <!-- Consultation daily reports -->
 
 <head>
-    <title>Early Childhood Reports <?= $date; ?></title>
+    <?php
+        if($date2 == ""){
+            ?>
+                <title>Early Childhood Reports <?= $date; ?></title>
+            <?php
+        }
+        else{
+            ?>
+                <title>Early Childhood Reports <?= $date; ?> - <?= $date2; ?></title>
+            <?php
+        }
+    ?>
 </head>
 
 <div class="modal deworming-reports" id="childhood-daily-reports">
@@ -90,24 +101,22 @@
             Name of Barangay: Datu Esmael
         </p>
         <?php
-        if ($date=='') {
-            $earlychildhood_sort = "N/A";
+        if($date2 == ""){
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                </div>
+            <?php
         }
         else{
-            $earlychildhood_sort = $date;
-        }
-        
-        if ($date2=='') {
-            $earlychildhood_sort2 = "N/A";
-        }
-        else{
-            $earlychildhood_sort2 = $date2;
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                    <br>Date To: <?php echo $date2; ?>
+                </div>
+            <?php
         }
         ?>
-        <div class="deworming-reports__date">
-            Date From: <?php echo $earlychildhood_sort; ?>
-            <br>Date To: <?php echo $earlychildhood_sort2; ?>
-        </div>
     </div>
 
     <div class="deworming-reports__details">

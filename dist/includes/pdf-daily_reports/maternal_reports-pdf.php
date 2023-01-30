@@ -72,7 +72,18 @@
 <!-- Maternal-care daily reports -->
 
 <head>
-    <title>Target Maternal Care <?= $date; ?></title>
+    <?php
+        if($date2 == ""){
+            ?>
+                <title>Target Maternal Care Reports <?= $date; ?></title>
+            <?php
+        }
+        else{
+            ?>
+                <title>Target Maternal Care Reports <?= $date; ?> - <?= $date2; ?></title>
+            <?php
+        }
+    ?>
 </head>
 <div class="modal deworming-reports" id="maternal-daily-reports">
     <h4 class="consultation__report__title">
@@ -90,24 +101,22 @@
             Name of Barangay: Datu Esmael
         </p>
         <?php
-        if ($date=='') {
-            $maternalcare_sort = "N/A";
+        if($date2 == ""){
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                </div>
+            <?php
         }
         else{
-            $maternalcare_sort = $date;
-        }
-        
-        if ($date2=='') {
-            $maternalcare_sort2 = "N/A";
-        }
-        else{
-            $maternalcare_sort2 = $date2;
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                    <br>Date To: <?php echo $date2; ?>
+                </div>
+            <?php
         }
         ?>
-        <div class="deworming-reports__date">
-            Date From: <?php echo $maternalcare_sort; ?>
-            <br>Date To: <?php echo $maternalcare_sort2; ?>
-        </div>
     </div>
 
     <!-- Query Start -->

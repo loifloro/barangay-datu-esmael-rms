@@ -170,7 +170,7 @@ hide_content_forms();
     <!-- Contents -->
     <main class="masterlist">
         <h2 class="masterlist__title">
-            Child Care
+            Child Care Male
         </h2>
         <p class="masterlist__desc">
             Target Client List for Child Care Male
@@ -267,9 +267,7 @@ hide_content_forms();
                     <ul class="masterlist__table__row masterlist__info" role="list">
 
                         <li class="masterlist__name p-bold">
-                            <a href="">
                                 <?= $patient['child_firstname'] . ' ' . $patient['child_lastname']; ?>
-                            </a>
                         </li>
                         <li class="masterlist__date">
                             <?= $patient['date_registered']; ?>

@@ -72,7 +72,18 @@
 <!-- Consultation daily reports -->
 
 <head>
-    <title>Consultation Reports <?= $date; ?></title>
+    <?php
+        if($date2 == ""){
+            ?>
+                <title>Consultation Reports <?= $date; ?></title>
+            <?php
+        }
+        else{
+            ?>
+                <title>Consultation Reports <?= $date; ?> - <?= $date2; ?></title>
+            <?php
+        }
+    ?>
 </head>
 
 <div class="modal deworming-reports" id="consultation-daily-reports">
@@ -92,24 +103,22 @@
         </p>
 
         <?php
-        if ($date=='') {
-            $consultation_sort = "N/A";
+        if($date2 == ""){
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                </div>
+            <?php
         }
         else{
-            $consultation_sort = $date;
-        }
-        
-        if ($date2=='') {
-            $consultation_sort2 = "N/A";
-        }
-        else{
-            $consultation_sort2 = $date2;
+            ?>
+                <div class="deworming-reports__date">
+                    Date From: <?php echo $date; ?>
+                    <br>Date To: <?php echo $date2; ?>
+                </div>
+            <?php
         }
         ?>
-        <div class="deworming-reports__date">
-            Date From: <?php echo $consultation_sort; ?>
-            <br>Date To: <?php echo $consultation_sort2; ?>
-        </div>
     </div>
 
     <!-- Query Start -->

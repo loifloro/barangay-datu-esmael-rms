@@ -586,9 +586,40 @@
             <td> </td>
         </tr>
     </table>
-    <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['early_childhood_id'] ?>&&label=<?= $patient['label'] ?>')">
-        Save as PDF
-    </button>
+    <?php
+            $mail = $_SESSION['user_email'];
+            $query = "SELECT position, user_email FROM account_information WHERE user_email='$mail'
+                      UNION ALL
+                      SELECT label, deworming_email FROM deworming WHERE deworming_email='$mail'
+                      UNION ALL
+                      SELECT label, consultation_email FROM consultation WHERE consultation_email='$mail'
+                      UNION ALL
+                      SELECT label, prenatal_email FROM prenatal WHERE prenatal_email='$mail'
+                      UNION ALL
+                      SELECT label, postnatal_email FROM postnatal WHERE postnatal_email='$mail'
+                      UNION ALL
+                      SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$mail'
+                      UNION ALL
+                      SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$mail'";
+             $query_run = mysqli_query($conn, $query);
+             if (mysqli_num_rows($query_run) == 1) {
+                $row = mysqli_fetch_assoc($query_run);
+                if($row['position'] == 'Barangay Health Worker'){
+                    ?>
+                        <button type="submit" class="btn-add services__btn btn-print" disabled>
+                            Save as PDF
+                        </button>
+                    <?php
+                }
+                else{
+                    ?>
+                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['early_childhood_id'] ?>&&label=<?= $patient['label'] ?>')">
+                            Save as PDF
+                        </button>
+                    <?php
+                }
+            }   
+        ?>
 </div>
 
 <?php
@@ -616,17 +647,25 @@ if (isset($_GET['report__date'])) {
             if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
                 $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                $earlychildhood_sort = $date;
-                $earlychildhood_sort2 = $date2;
-            } else {
-                $earlychildhood_sort = "N/A";
-                $earlychildhood_sort2 = "N/A";
-            }
+                
+                if($date2 == ""){
+                    ?>
+                        <div class="deworming-reports__date">
+                            Date From: <?php echo $date; ?>
+                        </div>
+                    <?php
+                }
+                else{
+                    ?>
+                        <div class="deworming-reports__date">
+                            Date From: <?php echo $date; ?>
+                            <br>Date To: <?php echo $date2; ?>
+                        </div>
+                    <?php
+                }
+            } 
             ?>
-            <div class="deworming-reports__date">
-                Date From: <?php echo $searchdestroy_sort; ?>
-                <br>Date To: <?php echo $searchdestroy_sort2; ?>
-            </div>
+            <!-- End Date Query -->
         </div>
 
         <div class="deworming-reports__details">
@@ -845,13 +884,19 @@ if (isset($_GET['report__date'])) {
         <!-- Query End -->
 
        <?php
-        $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
-        $result = mysqli_query($conn, $query);
-
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
-            $query = "SELECT count(*) FROM early_childhood WHERE archive_label='' AND early_childhood_date='$date'";
-            $result = mysqli_query($conn, $query);
+            $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+    
+            if($date2 == ''){
+                $query = "SELECT count(*) FROM early_childhood WHERE early_childhood_date ='$date'";
+                $result = mysqli_query($conn, $query);
+            }
+            else{
+                $query = "SELECT count(*) FROM early_childhood WHERE early_childhood_date >='$date' AND early_childhood_date <='$date2'";
+                $result = mysqli_query($conn, $query);
+            }
+            
         }
         
         while ($row = mysqli_fetch_array($result)) {
@@ -863,11 +908,38 @@ if (isset($_GET['report__date'])) {
         <?php
             }
             else{
-            ?>
-                 <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
-                    Save as PDF
-                </button>
-            <?php
+                $mail = $_SESSION['user_email'];
+                $query = "SELECT position, user_email FROM account_information WHERE user_email='$mail'
+                        UNION ALL
+                        SELECT label, deworming_email FROM deworming WHERE deworming_email='$mail'
+                        UNION ALL
+                        SELECT label, consultation_email FROM consultation WHERE consultation_email='$mail'
+                        UNION ALL
+                        SELECT label, prenatal_email FROM prenatal WHERE prenatal_email='$mail'
+                        UNION ALL
+                        SELECT label, postnatal_email FROM postnatal WHERE postnatal_email='$mail'
+                        UNION ALL
+                        SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$mail'
+                        UNION ALL
+                        SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$mail'";
+                $query_run = mysqli_query($conn, $query);
+                if (mysqli_num_rows($query_run) == 1) {
+                    $row = mysqli_fetch_assoc($query_run);
+                    if($row['position'] == 'Barangay Health Worker'){
+                        ?>
+                            <button type="submit" class="btn-add services__btn btn-print" disabled>
+                                Save as PDF
+                            </button>
+                        <?php
+                    }
+                    else{
+                        ?>
+                            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['early_childhood_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
+                                Save as PDF
+                            </button>
+                        <?php
+                    }
+                }
             }
         }
         ?>
