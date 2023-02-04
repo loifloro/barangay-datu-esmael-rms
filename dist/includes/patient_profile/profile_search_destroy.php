@@ -55,13 +55,23 @@
                         <span class="patient-profile__category">Sex</span>
                         <?= $patient['sex']; ?>
                     </li>
+                    <?php
+                        // CONVERT DATE TO MM-DD-YY
+                        $sd_date = new DateTime($patient['search_destroy_date']);
+                        $new_sd_date = $sd_date->format("m-d-Y");
+                    ?>
                     <li class="patient-profile__last-date-added">
                         <span class="patient-profile__category">Date Added</span>
-                        <?= $patient['search_destroy_date']; ?>
+                        <?= $new_sd_date; ?>
                     </li>
+                    <?php
+                        // CONVERT DATE TO MM-DD-YY
+                        $sd_bdate = new DateTime($patient['birthdate']);
+                        $new_sd_bdate = $sd_bdate->format("m-d-Y");
+                    ?>
                     <li class="patient-profile__last-modified">
                         <span class="patient-profile__category">Birthday</span>
-                        <?= $patient['birthdate']; ?>
+                        <?= $new_sd_bdate; ?>
                     </li>
                 </ul>
                 <ul class="patient-profile__item" role="list">
@@ -262,8 +272,13 @@
                             ?>
                             <!-- End for Modal Link -->
                         </li>
+                        <?php
+                            // CONVERT DATE TO MM-DD-YY
+                            $sd_ldate = new DateTime($recent3['deworming_date']);
+                            $new_sd_ldate = $sd_ldate->format("m-d-Y");
+                        ?>
                         <li class="medical-history__item medical-history__service__date-availed">
-                            <?= $recent3['deworming_date']; ?>
+                            <?= $new_sd_ldate; ?>
                         </li>
                         <li class="medical-history__item medical-history__btn">
                             <!-- START QUERY FOR EDIT SERVICES-->
@@ -418,13 +433,16 @@
                         $query_run2 = mysqli_query($conn, $query2);
                         if (mysqli_num_rows($query_run2) > 0) {
                             foreach ($query_run2 as $recent) {
+                                // CONVERT DATE TO MM-DD-YY
+                                $sd_rdate = new DateTime($recent['date_edit']);
+                                $new_sd_rdate = $sd_rdate->format("m-d-Y");
                     ?>
                                 <span class="edit-history__editor p-bold">
                                     <?= $recent['user_fname'] . ' ' . $recent['user_lname'] . ' ' . $recent['changes_label']; ?>
                                 </span>
                                 <span class="edit-history edit-history__action p-bold"><?= $recent['patient_fname'] . ' ' . $recent['patient_lname']; ?> </span>
                                 <span class="edit-history__subject"><?= $recent['record_name']; ?> record</span> on
-                                <span class="edit-history__date"><?= $recent['date_edit']; ?></span>
+                                <span class="edit-history__date"><?= $new_sd_rdate; ?></span>
                                 <hr>
                     <?php
                             }

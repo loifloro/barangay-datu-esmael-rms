@@ -80,12 +80,12 @@
     <?php
         if($date2 == ""){
             ?>
-                <title>Search and Destroy Reports <?= $date; ?></title>
+                <title>Search and Destroy Reports <?= $new_date_pdf; ?></title>
             <?php
         }
         else{
             ?>
-                <title>Search and Destroy Reports <?= $date; ?> - <?= $date2; ?></title>
+                <title>Search and Destroy Reports <?= $new_date_pdf; ?> - <?= $new_date2_pdf; ?></title>
             <?php
         }
     ?>
@@ -107,15 +107,15 @@
         if($date2 == ""){
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
                 </div>
             <?php
         }
         else{
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
-                    <br>Date To: <?php echo $date2; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
+                    <br>Date To: <?php echo $new_date2_pdf; ?>
                 </div>
             <?php
         }
@@ -257,10 +257,13 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $sd_date = new DateTime($patient['date_visit']);
+                $new_sd_date = $sd_date->format("m-d-Y");
         ?>
                 <tbody class="search-and-destroy__report__table__item">
                     <tr>
-                        <td class="search-and-destroy__report__table--date"><?= $patient['date_visit']; ?></td>
+                        <td class="search-and-destroy__report__table--date"><?= $new_sd_date; ?></td>
                         <th><?= $patient['owner_fname'] . ' ' . $patient['owner_lname']; ?></th>
                         <td><?= $patient['address'] . ' ' . $patient['block']; ?></td>
                         <td><?= $patient['container_name']; ?></td>

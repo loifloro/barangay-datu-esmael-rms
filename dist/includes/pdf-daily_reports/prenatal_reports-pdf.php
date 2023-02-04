@@ -74,12 +74,12 @@
     <?php
         if($date2 == ""){
             ?>
-                <title>Prenatal Reports <?= $date; ?></title>
+                <title>Prenatal Reports <?= $new_date_pdf; ?></title>
             <?php
         }
         else{
             ?>
-                <title>Prenatal Reports <?= $date; ?> - <?= $date2; ?></title>
+                <title>Prenatal Reports <?= $new_date_pdf; ?> - <?= $new_date2_pdf; ?></title>
             <?php
         }
     ?>
@@ -104,15 +104,15 @@
         if($date2 == ""){
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
                 </div>
             <?php
         }
         else{
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
-                    <br>Date To: <?php echo $date2; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
+                    <br>Date To: <?php echo $new_date2_pdf; ?>
                 </div>
             <?php
         }
@@ -224,9 +224,12 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $prenatal_date = new DateTime($patient['prenatal_date']);
+                $new_prenatal_date = $prenatal_date->format("m-d-Y");
         ?>
                 <tr>
-                    <td> <?= $patient['prenatal_date']; ?> </td>
+                    <td> <?= $new_prenatal_date; ?> </td>
                     <td> <?= $patient['firstname']; ?> <?= $patient['middlename']; ?> <?= $patient['lastname']; ?> </td>
                     <td> <?= $patient['street_address'] . ' ' . $patient['barangay']; ?> </td>
                     <td> <?= $patient['age']; ?> </td>

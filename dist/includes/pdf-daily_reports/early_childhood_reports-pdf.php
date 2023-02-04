@@ -74,12 +74,12 @@
     <?php
         if($date2 == ""){
             ?>
-                <title>Early Childhood Reports <?= $date; ?></title>
+                <title>Early Childhood Reports <?= $new_date_pdf; ?></title>
             <?php
         }
         else{
             ?>
-                <title>Early Childhood Reports <?= $date; ?> - <?= $date2; ?></title>
+                <title>Early Childhood Reports <?= $new_date_pdf; ?> - <?= $new_date2_pdf; ?></title>
             <?php
         }
     ?>
@@ -104,15 +104,15 @@
         if($date2 == ""){
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
                 </div>
             <?php
         }
         else{
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
-                    <br>Date To: <?php echo $date2; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
+                    <br>Date To: <?php echo $new_date2_pdf; ?>
                 </div>
             <?php
         }
@@ -207,9 +207,12 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $ec_date = new DateTime($patient['early_childhood_date']);
+                $new_ec_date = $ec_date->format("m-d-Y");
         ?>
                 <tr>
-                    <td> <?= $patient['early_childhood_date']; ?> </td>
+                    <td> <?= $new_ec_date; ?> </td>
                     <td> <?= $patient['child_fname']; ?> <?= $patient['child_mname']; ?> <?= $patient['child_lname']; ?> </td>
                     <td> <?= $patient['sex']; ?> </td>
                     <td> <?= $patient['mother_name']; ?> </td>

@@ -75,12 +75,12 @@
     <?php
         if($date2 == ""){
             ?>
-                <title>Target Maternal Care Reports <?= $date; ?></title>
+                <title>Target Maternal Care Reports <?= $new_date_pdf; ?></title>
             <?php
         }
         else{
             ?>
-                <title>Target Maternal Care Reports <?= $date; ?> - <?= $date2; ?></title>
+                <title>Target Maternal Care Reports <?= $new_date_pdf; ?> - <?= $new_date2_pdf; ?></title>
             <?php
         }
     ?>
@@ -104,15 +104,15 @@
         if($date2 == ""){
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
                 </div>
             <?php
         }
         else{
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
-                    <br>Date To: <?php echo $date2; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
+                    <br>Date To: <?php echo $new_date2_pdf; ?>
                 </div>
             <?php
         }
@@ -210,16 +210,25 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $maternal_date = new DateTime($patient['date_registered']);
+                $new_maternal_date = $maternal_date->format("m-d-Y");
+
+                $lmp_date = new DateTime($patient['lmp']);
+                $new_lmp_date = $lmp_date->format("m-d-Y");
+
+                $edc_date = new DateTime($patient['edc']);
+                $new_edc_date = $edc_date->format("m-d-Y");
         ?>
                 <tr>
-                    <td> <?= $patient['date_registered']; ?> </td>
+                    <td> <?= $new_maternal_date; ?> </td>
                     <td> <?= $patient['firstname'] . ' ' . $patient['middle_initial'] . ' ' . $patient['lastname']; ?> </td>
                     <td> <?= $patient['complete_address']; ?> </td>
                     <td> <?= $patient['age']; ?> </td>
                     <td> <?= $patient['socio_status']; ?> </td>
-                    <td> <?= $patient['lmp']; ?> </td>
+                    <td> <?= $new_lmp_date; ?> </td>
                     <td> <?= $patient['gp']; ?> </td>
-                    <td> <?= $patient['edc']; ?> </td>
+                    <td> <?= $new_edc_date; ?> </td>
                     <td> <?= $patient['syphilis_status']; ?> </td>
                     <td> <?= $patient['hepatitis_status']; ?> </td>
                 </tr>

@@ -523,6 +523,12 @@ hide_content();
                     }
                 }
                 foreach ($query_run as $patient) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $deworm_date = new DateTime($patient['deworming_date']);
+                    $new_deworm_date = $deworm_date->format("m-d-Y");
+
+                    $deworm_bdate = new DateTime($patient['birthdate']);
+                    $new_deworm_bdate = $deworm_bdate->format("m-d-Y");
             ?>
                     <!-- To be put in the loop -->
                     <ul class="services__table__row services__info" role="list" id='services__deworming'>
@@ -538,7 +544,7 @@ hide_content();
                             <?= $patient['sex']; ?>
                         </li>
                         <li class="services__date--availed">
-                            <?= $patient['deworming_date']; ?>
+                            <?= $new_deworm_date; ?>
                         </li>
 
 
@@ -710,6 +716,12 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $consul_date = new DateTime($patient['consultation_date']);
+                        $new_consul_date = $consul_date->format("m-d-Y");
+
+                        $consul_bdate = new DateTime($patient['birthdate']);
+                        $new_consul_bdate = $consul_bdate->format("m-d-Y");
                 ?>
                         <ul class="services__table__row services__info" role="list">
                             <li class="services__name p-bold">
@@ -722,7 +734,7 @@ hide_content();
                                 <?= $patient['sex']; ?>
                             </li>
                             <li class="services__date--availed">
-                                <?= $patient['consultation_date']; ?>
+                                <?= $new_consul_date; ?>
                             </li>
                             <!-- ARCHIVING -->
                             <li class="services__option">
@@ -879,6 +891,12 @@ hide_content();
                     }
                 }
                 foreach ($query_run as $patient) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $prenatal_date = new DateTime($patient['prenatal_date']);
+                    $new_prenatal_date = $prenatal_date->format("m-d-Y");
+
+                    $prenatal_bdate = new DateTime($patient['birthdate']);
+                    $new_prenatal_bdate = $prenatal_bdate->format("m-d-Y");
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
@@ -891,7 +909,7 @@ hide_content();
                             <?= $patient['sex']; ?>
                         </li>
                         <li class="services__date--availed">
-                            <?= $patient['prenatal_date']; ?>
+                            <?= $new_prenatal_date; ?>
                         </li>
                         <li class="services__option">
                             <button type="button" onclick="confirmArchive('prenatal' ,'<?= $patient['prenatal_id']; ?>' , '<?= $patient['firstname']; ?>' , '<?= $patient['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
@@ -1045,6 +1063,12 @@ hide_content();
                     }
                 }
                 foreach ($query_run as $patient) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $postnatal_date = new DateTime($patient['postnatal_date']);
+                    $new_postnatal_date = $postnatal_date->format("m-d-Y");
+
+                    $postnatal_bdate = new DateTime($patient['birthdate']);
+                    $new_postnatal_bdate = $postnatal_bdate->format("m-d-Y");
             ?>
 
                     <ul class="services__table__row services__info" role="list">
@@ -1059,7 +1083,7 @@ hide_content();
                             <?= $patient['sex']; ?>
                         </li>
                         <li class="services__date--availed">
-                            <?= $patient['postnatal_date']; ?>
+                            <?= $new_postnatal_date; ?>
                         </li>
                         <li class="services__option">
                             <button type="button" onclick="confirmArchive('postnatal' ,'<?= $patient['postnatal_id']; ?>' , '<?= $patient['firstname']; ?>' , '<?= $patient['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
@@ -1213,6 +1237,9 @@ hide_content();
                     }
                 }
                 foreach ($query_run as $patient) {
+                     // CONVERT DATE TO MM-DD-YY
+                     $sd_date = new DateTime($patient['date_visit']);
+                     $new_sd_date = $sd_date->format("m-d-Y");
             ?>
 
                     <ul class="services__table__row services__info" role="list">
@@ -1226,7 +1253,7 @@ hide_content();
                             <?= $patient['container_num']; ?>
                         </li>
                         <li class="services__date--availed">
-                            <?= $patient['date_visit']; ?>
+                            <?= $new_sd_date; ?>
                         </li>
                         <li class="services__option">
                             <button type="button" onclick="confirmArchive('search-destroy' ,'<?= $patient['search_destroy_id']; ?>' , '<?= $patient['owner_fname']; ?>' , '<?= $patient['owner_fname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
@@ -1388,6 +1415,9 @@ hide_content();
                     }
                 }
                 foreach ($query_run as $patient) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $ec_date = new DateTime($patient['early_childhood_date']);
+                    $new_ec_date = $ec_date->format("m-d-Y");
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
@@ -1401,7 +1431,7 @@ hide_content();
                             <?= $patient['mother_age']; ?>
                         </li>
                         <li class="services__date--availed">
-                            <?= $patient['early_childhood_date']; ?>
+                            <?= $new_ec_date; ?>
                         </li>
                         <li class="services__option">
                             <button type="button" onclick="confirmArchive('early-childhood' ,'<?= $patient['early_childhood_id']; ?>' , '<?= $patient['child_fname']; ?>' , '<?= $patient['child_lname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">

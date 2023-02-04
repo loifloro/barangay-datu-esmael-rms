@@ -131,10 +131,15 @@
                 <?= $patient['age']; ?>
             </span>
         </p>
+        <?php
+        // CONVERT DATE TO MM-DD-YY
+        $postnatal_bdate = new DateTime($patient['birthdate']);
+        $new_postnatal_bdate = $postnatal_bdate->format("m-d-Y");
+        ?>
         <p class="prenatal__report__personal-info__item prenatal__report__personal-info__bday">
             Birthday:
             <span class="value">
-                <?= $patient['birthdate']; ?>
+                <?= $new_postnatal_bdate; ?>
             </span>
         </p>
         <p class="prenatal__report__personal-info__item prenatal__report__personal-info__address">
@@ -149,10 +154,15 @@
                 <?= $patient['phone_num']; ?>
             </span>
         </p>
+        <?php
+        // CONVERT DATE TO MM-DD-YY
+        $postnatal_date = new DateTime($patient['postnatal_date']);
+        $new_postnatal_date = $postnatal_date->format("m-d-Y");
+        ?>
         <p class="prenatal__report__personal-info__item prenatal__report__personal-info__date">
             Date:
             <span class="value">
-                <?= $patient['postnatal_date']; ?>
+                <?= $new_postnatal_date; ?>
             </span>
         </p>
     </div>

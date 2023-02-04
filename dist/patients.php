@@ -388,6 +388,9 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $deworm_date = new DateTime($patient['deworming_date']);
+                        $new_deworm_date = $deworm_date->format("m-d-Y");
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
 
@@ -397,7 +400,7 @@ hide_content();
                                 </a>
                             </li>
                             <li class="patient__num">
-                                <?= $patient['deworming_date']; ?>
+                                <?= $new_deworm_date; ?>
                             </li>
                             <li class="patient__sex">
                                 <?= $patient['sex']; ?>
@@ -523,6 +526,9 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $consul_date = new DateTime($patient['consultation_date']);
+                        $new_consul_date = $consul_date->format("m-d-Y");
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
 
@@ -532,7 +538,7 @@ hide_content();
                                 </a>
                             </li>
                             <li class="patient__num">
-                                <?= $patient['consultation_date']; ?>
+                                <?= $new_consul_date; ?>
                             </li>
                             <li class="patient__sex">
                                 <?= $patient['sex']; ?>
@@ -659,6 +665,9 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $prenatal_date = new DateTime($patient['prenatal_date']);
+                        $new_prenatal_date = $prenatal_date->format("m-d-Y");
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
 
@@ -668,7 +677,7 @@ hide_content();
                                 </a>
                             </li>
                             <li class="patient__num">
-                                <?= $patient['prenatal_date']; ?> <!--Date Registered-->
+                                <?= $new_prenatal_date; ?> <!--Date Registered-->
                             </li>
                             <li class="patient__sex">
                                 <?= $patient['sex']; ?> <!--Patient Sex-->
@@ -795,6 +804,9 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $postnatal_date = new DateTime($patient['postnatal_date']);
+                        $new_postnatal_date = $postnatal_date->format("m-d-Y");
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
 
@@ -804,7 +816,7 @@ hide_content();
                                 </a>
                             </li>
                             <li class="patient__num">
-                                <?= $patient['postnatal_date']; ?>
+                                <?= $new_postnatal_date; ?>
                             </li>
                             <li class="patient__sex">
                                 <?= $patient['sex']; ?>
@@ -931,6 +943,9 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $sd_date = new DateTime($patient['date_visit']);
+                        $new_sd_date = $sd_date->format("m-d-Y");
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
 
@@ -940,7 +955,7 @@ hide_content();
                                 </a>
                             </li>
                             <li class="patient__num">
-                                <?= $patient['date_visit']; ?>
+                                <?= $new_sd_date; ?>
                             </li>
                             <li class="patient__sex">
                                 <?= $patient['sex']; ?>
@@ -1067,6 +1082,9 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $ec_date = new DateTime($patient['early_childhood_date']);
+                        $new_ec_date = $ec_date->format("m-d-Y");
                 ?>
                         <ul class="patient__table__row patient__info" role="list">
 
@@ -1076,7 +1094,7 @@ hide_content();
                                 </a>
                             </li>
                             <li class="patient__num">
-                                <?= $patient['child_birthdate']; ?> <!--Date Registered-->
+                                <?= $new_ec_date; ?> <!--Date Registered-->
                             </li>
                             <li class="patient__sex">
                                 <?= $patient['sex']; ?> <!--Patient Sex-->
