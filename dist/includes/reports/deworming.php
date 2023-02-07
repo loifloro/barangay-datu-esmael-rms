@@ -31,14 +31,24 @@
         <li class="deworming-report__table__item">
             <?= $patient['age']; ?>
         </li>
+        <?php
+            // CONVERT DATE TO MM-DD-YY
+            $deworm_bdate = new DateTime($patient['birthdate']);
+            $new_deworm_bdate = $deworm_bdate->format("m-d-Y");
+        ?>
         <li class="deworming-report__table__item">
-            <?= $patient['birthdate']; ?>
+            <?= $new_deworm_bdate; ?>
         </li>
         <li class="deworming-report__table__item">
             <?= $patient['street_address'] . " " . $patient['barangay'] . " " . $patient['city']; ?>
         </li>
+        <?php
+            // CONVERT DATE TO MM-DD-YY
+            $deworm_date = new DateTime($patient['deworming_date']);
+            $new_deworm_date = $deworm_date->format("m-d-Y");
+        ?>
         <li class="deworming-report__table__item">
-            <?= $patient['deworming_date']; ?>
+            <?= $new_deworm_date; ?>
         </li>
     </ul>
 </div>
@@ -113,18 +123,29 @@
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
             
+            
+
             if($date2 == ""){
+                // CONVERT DATE TO MM-DD-YY
+                $date = new DateTime($date);
+                $new_date = $date->format("m-d-Y");
                 ?>
                     <div class="deworming-reports__date">
-                        Date From: <?php echo $date; ?>
+                        Date From: <?php echo $new_date; ?>
                     </div>
                 <?php
             }
             else{
+                // CONVERT DATE TO MM-DD-YY
+                $date = new DateTime($date);
+                $new_date = $date->format("m-d-Y");
+
+                $date2 = new DateTime($date2);
+                $new_date2 = $date2->format("m-d-Y");
                 ?>
                     <div class="deworming-reports__date">
-                        Date From: <?php echo $date; ?>
-                        <br>Date To: <?php echo $date2; ?>
+                        Date From: <?php echo $new_date; ?>
+                        <br>Date To: <?php echo $new_date2; ?>
                     </div>
                 <?php
             }
@@ -247,15 +268,21 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $d_date = new DateTime($patient['deworming_date']);
+                $new_deworm_date = $d_date->format("m-d-Y");
+
+                $b_date = new DateTime($patient['birthdate']);
+                $new_bdate = $b_date->format("m-d-Y");
         ?>
                 <tr>
-                    <td> <?= $patient['deworming_date']; ?> </td>
+                    <td> <?= $new_deworm_date; ?> </td>
                     <td> <?= $patient['lastname']; ?> </td>
                     <td> <?= $patient['firstname']; ?> </td>
                     <td> <?= $patient['middlename']; ?> </td>
                     <td> <?= $patient['age']; ?> </td>
                     <td> <?= $patient['sex']; ?> </td>
-                    <td> <?= $patient['birthdate']; ?> </td>
+                    <td> <?= $new_bdate; ?> </td>
                     <td> <?= $patient['street_address'] . ' ' . $patient['barangay'] . ' ' . $patient['city'] ?> </td>
                 </tr>
         <?php

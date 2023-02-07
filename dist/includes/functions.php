@@ -573,6 +573,9 @@ function recent_update()
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
+            // CONVERT DATE TO MM-DD-YY
+            $date = new DateTime($user['date_edit']);
+            $new_date = $date->format("m-d-Y");
         ?>
             <p class="editor__details">
                 <span class="editor__name">
@@ -580,7 +583,7 @@ function recent_update()
                 </span>
                 <span class="editor__action editor__action--edited"><?= $user['changes_label']; ?> </span>
                 <span class="editor__subject"><?= $user['patient_fname'] . " " . $user['patient_lname'] . " " . $user['record_name']; ?> record</span> on
-                <span class="editor__date"><?= $user['date_edit']; ?></span>
+                <span class="editor__date"><?= $new_date; ?></span>
             </p>
         <?php
         }

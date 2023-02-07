@@ -250,9 +250,20 @@ hide_content();
                             $display_role = 'CHN';
                         }
                         // END OF QUERY
+
+                        // CONVERT DATE TO MM-DD-YY
+                        $date = new DateTime($update['date_edit']);
+                        $new_date = $date->format("m-d-Y");
+
+                        // CONVERT SERVER TIME ZONE TO PHILIPPINE TIMEZONE 12H FORMAT
+                        $time = new DateTime($update['time_edit']);
+                        $time->setTimezone(new DateTimeZone("Asia/Manila"));
+                        $philippine_time = $time->format("g:i A");
+
+
                         ?>
                         <li class="recent-update__details">
-                            <span class="name"> <?= $update['user_fname'] . ' ' . $update['user_lname']; ?> </span> <span class="<?= $class_name; ?>"> <?= $update['changes_label']; ?> </span> <span class="edit-patient"> <?= $update['patient_fname'] . ' ' . $update['patient_lname']; ?> </span> <span class="<?= $class_record_name; ?>"> <?= $update['record_name']; ?> </span> record in <span class="edit-time"> <?= $update['date_edit'] . ' ' . $update['time_edit']; ?> </span>
+                            <span class="name"> <?= $update['user_fname'] . ' ' . $update['user_lname']; ?> </span> <span class="<?= $class_name; ?>"> <?= $update['changes_label']; ?> </span> <span class="edit-patient"> <?= $update['patient_fname'] . ' ' . $update['patient_lname']; ?> </span> <span class="<?= $class_record_name; ?>"> <?= $update['record_name']; ?> </span> record in <span class="edit-time"> <?= $new_date . ' ' . $philippine_time; ?> </span>
                         </li>
                         <li class="recent-update__attributes__item">
                             <?= $update['reasons']; ?>

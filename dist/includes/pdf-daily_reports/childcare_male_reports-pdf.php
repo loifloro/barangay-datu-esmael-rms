@@ -75,12 +75,12 @@
         <?php
             if($date2 == ""){
                 ?>
-                    <title>Target Childcare Male Reports <?= $date; ?></title>
+                    <title>Target Childcare Male Reports <?= $new_date_pdf; ?></title>
                 <?php
             }
             else{
                 ?>
-                    <title>Target Childcare Male Reports <?= $date; ?> - <?= $date2; ?></title>
+                    <title>Target Childcare Male Reports <?= $new_date_pdf; ?> - <?= $new_date2_pdf; ?></title>
                 <?php
             }
         ?>
@@ -104,15 +104,15 @@
         if($date2 == ""){
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
                 </div>
             <?php
         }
         else{
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
-                    <br>Date To: <?php echo $date2; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
+                    <br>Date To: <?php echo $new_date2_pdf; ?>
                 </div>
             <?php
         }
@@ -674,9 +674,12 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $male_date = new DateTime($patient['date_registered']);
+                $new_male_date = $male_date->format("m-d-Y");
         ?>
                 <tr>
-                    <td><?= $patient['date_registered']; ?></td>
+                    <td><?= $new_male_date; ?></td>
                     <td><?= $patient['child_firstname'] . ' ' . $patient['child_middle_initial'] . ' ' . $patient['child_lastname']; ?></td>
                     <td><?= $patient['mother_firstname'] . ' ' . $patient['mother_middle_initial'] . ' ' . $patient['mother_lastname']; ?></td>
                     <td><?= $patient['status']; ?></td>

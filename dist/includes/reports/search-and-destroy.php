@@ -30,8 +30,13 @@
         <li class="search-and-destroy__record__table__item">
             <?= $patient['address']; ?>
         </li>
+        <?php
+        // CONVERT DATE TO MM-DD-YY
+        $sd_date = new DateTime($patient['date_visit']);
+        $new_sd_date = $sd_date->format("m-d-Y");
+        ?>
         <li class="search-and-destroy__record__table__item">
-            <?= $patient['date_visit']; ?>
+            <?= $new_sd_date; ?>
         </li>
     </ul>
 </div>
@@ -158,17 +163,26 @@
         $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
         
         if($date2 == ""){
+            // CONVERT DATE TO MM-DD-YY
+            $date = new DateTime($date);
+            $new_date = $date->format("m-d-Y");
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
+                    Date From: <?php echo $new_date; ?>
                 </div>
             <?php
         }
         else{
+            // CONVERT DATE TO MM-DD-YY
+            $date = new DateTime($date);
+            $new_date = $date->format("m-d-Y");
+
+            $date2 = new DateTime($date2);
+            $new_date2 = $date2->format("m-d-Y");
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
-                    <br>Date To: <?php echo $date2; ?>
+                    Date From: <?php echo $new_date; ?>
+                    <br>Date To: <?php echo $new_date2; ?>
                 </div>
             <?php
         }
@@ -349,10 +363,13 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $sd_date = new DateTime($patient['date_visit']);
+                $new_sd_date = $sd_date->format("m-d-Y");
         ?>
                 <tbody class="search-and-destroy__report__table__item">
                     <tr>
-                        <td class="search-and-destroy__report__table--date"><?= $patient['date_visit']; ?></td>
+                        <td class="search-and-destroy__report__table--date"><?= $new_sd_date; ?></td>
                         <th><?= $patient['owner_fname'] . ' ' . $patient['owner_lname']; ?></th>
                         <td><?= $patient['address'] . ' ' . $patient['block']; ?></td>
                         <td><?= $patient['container_name']; ?></td>

@@ -73,12 +73,12 @@
     <?php
         if($date2 == ""){
             ?>
-                <title>Deworming Reports <?= $date; ?></title>
+                <title>Deworming Reports <?= $new_date_pdf; ?></title>
             <?php
         }
         else{
             ?>
-                <title>Deworming Reports <?= $date; ?> - <?= $date2; ?></title>
+                <title>Deworming Reports <?= $new_date_pdf; ?> - <?= $new_date2_pdf; ?></title>
             <?php
         }
     ?>
@@ -106,15 +106,15 @@
         if($date2 == ""){
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
                 </div>
             <?php
         }
         else{
             ?>
                 <div class="deworming-reports__date">
-                    Date From: <?php echo $date; ?>
-                    <br>Date To: <?php echo $date2; ?>
+                    Date From: <?php echo $new_date_pdf; ?>
+                    <br>Date To: <?php echo $new_date2_pdf; ?>
                 </div>
             <?php
         }
@@ -210,15 +210,21 @@
 
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $patient) {
+                // CONVERT DATE TO MM-DD-YY
+                $d_date = new DateTime($patient['deworming_date']);
+                $new_deworm_date = $d_date->format("m-d-Y");
+
+                $b_date = new DateTime($patient['birthdate']);
+                $new_bdate = $b_date->format("m-d-Y");
         ?>
                 <tr>
-                    <td> <?= $patient['deworming_date']; ?> </td>
+                    <td> <?= $new_deworm_date; ?> </td>
                     <td> <?= $patient['lastname']; ?> </td>
                     <td> <?= $patient['firstname']; ?> </td>
                     <td> <?= $patient['middlename']; ?> </td>
                     <td> <?= $patient['age']; ?> </td>
                     <td> <?= $patient['sex']; ?> </td>
-                    <td> <?= $patient['birthdate']; ?> </td>
+                    <td> <?= $new_bdate; ?> </td>
                     <td> <?= $patient['street_address'] . ' ' . $patient['barangay'] . ' ' . $patient['city'] ?> </td>
                 </tr>
         <?php

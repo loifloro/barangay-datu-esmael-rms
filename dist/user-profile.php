@@ -172,6 +172,12 @@ hide_content();
 
             if (mysqli_num_rows($query_run) > 0) {
                 foreach ($query_run as $user) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $added_date = new DateTime($user['date_registered']);
+                    $new_added_date = $added_date->format("m-d-Y");
+
+                    $user_bdate = new DateTime($user['birthday']);
+                    $new_user_bdate = $user_bdate->format("m-d-Y");
             ?>
                     <ul class="user-profile__list" role="list">
                         <!-- photo, name, user-id, contact number -->
@@ -197,11 +203,11 @@ hide_content();
                             </li>
                             <li class="user-profile__last-date-added">
                                 <span class="user-profile__category">Date Added</span>
-                                <?= $user['date_registered']; ?>
+                                <?= $new_added_date; ?>
                             </li>
                             <li class="user-profile__last-modified">
                                 <span class="user-profile__category">Birthday</span>
-                                <?= $user['birthday']; ?>
+                                <?= $new_user_bdate; ?>
                             </li>
                         </ul>
                         <ul class="user-profile__item" role="list">
@@ -391,6 +397,9 @@ hide_content();
                         }
                     }
                     foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $bhw_added_date = new DateTime($patient['date_registered']);
+                        $new_bhw_added_date = $bhw_added_date->format("m-d-Y");
                 ?>
                         <ul class="bhw-account__table__row bhw-account__info" role="list">
                             <li class="bhw-account__name p-bold">
@@ -411,7 +420,7 @@ hide_content();
                                 <?= $patient['sex']; ?>
                             </li>
                             <li class="bhw-account__date--availed">
-                                <?= $patient['date_registered']; ?>
+                                <?= $new_bhw_added_date; ?>
                             </li>
                             <li class="bhw-account__option">
                                 <!-- Buttons -->

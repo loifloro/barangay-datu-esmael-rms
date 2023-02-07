@@ -110,7 +110,7 @@
             </p>
         </div>
     </div>
-
+    
     <div class="early__childhood__report__address">
         <p class="early__childhood__report__address__item">
             Clinic/Health Center:
@@ -205,10 +205,15 @@
                     <?= $patient['mother_occupation']; ?>
                 </span>
             </p>
+            <?php 
+                // CONVERT DATE TO MM-DD-YY
+                $ec_mdate = new DateTime($patient['mother_birthdate']);
+                $new_ec_mdate = $ec_mdate->format("m-d-Y");
+            ?>
             <p class="early__childhood__report__hospital-name">
                 Birthdate:
                 <span class="value">
-                    <?= $patient['mother_birthdate']; ?>
+                    <?= $new_ec_mdate; ?>
                 </span>
 
                 Status:
@@ -255,20 +260,30 @@
                     <?= $patient['father_occupation']; ?>
                 </span>
             </p>
+            <?php 
+                // CONVERT DATE TO MM-DD-YY
+                $ec_fdate = new DateTime($patient['father_birthdate']);
+                $new_ec_fdate = $ec_fdate->format("m-d-Y");
+            ?>
             <p class="early__childhood__report__hospital-name">
                 Birthdate:
                 <span class="value">
-                    <?= $patient['father_birthdate']; ?>
+                    <?= $new_ec_fdate; ?>
                 </span>
             </p>
         </div>
     </div>
 
     <div class="early__childhood__report__three-column">
+            <?php 
+                // CONVERT DATE TO MM-DD-YY
+                $ec_cdate = new DateTime($patient['child_birthdate']);
+                $new_ec_cdate = $ec_cdate->format("m-d-Y");
+            ?>
         <p class="early__childhood__report__birthdate">
             Birthdate:
             <span class="value">
-                <?= $patient['child_birthdate']; ?>
+                <?= $new_ec_cdate; ?>
             </span>
         </p>
         <p class="early__childhood__report__gestational">
@@ -291,10 +306,15 @@
             <?= $patient['place_delivery']; ?>
         </span>
     </p>
+    <?php 
+        // CONVERT DATE TO MM-DD-YY
+        $ec_adate = new DateTime($patient['birth_accomodate']);
+        $new_ec_adate = $ec_adate->format("m-d-Y");
+    ?>
     <p class="early__childhood__report__accomodate">
         Date of Birth Accomodation:
         <span class="value">
-            <?= $patient['birth_accomodate']; ?>
+            <?= $new_ec_adate; ?>
         </span>
     </p>
     <p class="early__childhood__report__accomodate">

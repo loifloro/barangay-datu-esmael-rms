@@ -388,6 +388,9 @@ if (mysqli_num_rows($query_run) > 0) {
                     }
                 }
                 foreach ($query_run as $archive) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $deworm_date = new DateTime($archive['deworming_date']);
+                    $new_deworm_date = $deworm_date->format("m-d-Y");
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
@@ -400,7 +403,7 @@ if (mysqli_num_rows($query_run) > 0) {
                             <?= $archive['sex']; ?>
                         </li>
                         <li class="backup__date--availed">
-                            <?= $archive['deworming_date']; ?>
+                            <?= $new_deworm_date; ?>
                         </li>
                         <li class="backup__status">
                             <span class="backup__status--deleted">Archived</span>
@@ -511,6 +514,9 @@ if (mysqli_num_rows($query_run) > 0) {
                     }
                 }
                 foreach ($query_run as $archive) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $consul_date = new DateTime($archive['consultation_date']);
+                    $new_consul_date = $consul_date->format("m-d-Y");
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
@@ -523,7 +529,7 @@ if (mysqli_num_rows($query_run) > 0) {
                             <?= $archive['sex']; ?>
                         </li>
                         <li class="backup__date--availed">
-                            <?= $archive['consultation_date']; ?>
+                            <?= $new_consul_date; ?>
                         </li>
 
                         <li class="backup__status">
@@ -635,6 +641,9 @@ if (mysqli_num_rows($query_run) > 0) {
                     }
                 }
                 foreach ($query_run as $archive) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $prenatal_date = new DateTime($archive['prenatal_date']);
+                    $new_prenatal_date = $prenatal_date->format("m-d-Y");
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
@@ -647,7 +656,7 @@ if (mysqli_num_rows($query_run) > 0) {
                             <?= $archive['sex']; ?>
                         </li>
                         <li class="backup__date--availed">
-                            <?= $archive['prenatal_date']; ?>
+                            <?= $new_prenatal_date; ?>
                         </li>
 
                         <li class="backup__status">
@@ -756,6 +765,9 @@ if (mysqli_num_rows($query_run) > 0) {
                         }
                     }
                     foreach ($query_run as $archive) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $postnatal_date = new DateTime($archive['postnatal_date']);
+                        $new_postnatal_date = $postnatal_date->format("m-d-Y");
                 ?>
                         <ul class="backup__table__row backup__info" role="list">
                             <li class="backup__name p-bold">
@@ -768,7 +780,7 @@ if (mysqli_num_rows($query_run) > 0) {
                                 <?= $archive['sex']; ?>
                             </li>
                             <li class="backup__date--availed">
-                                <?= $archive['postnatal_date']; ?>
+                                <?= $new_postnatal_date; ?>
                             </li>
 
                             <li class="backup__status">
@@ -879,6 +891,9 @@ if (mysqli_num_rows($query_run) > 0) {
                     }
                 }
                 foreach ($query_run as $archive) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $sd_date = new DateTime($archive['date_visit']);
+                    $new_sd_date = $sd_date->format("m-d-Y");
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
@@ -891,7 +906,7 @@ if (mysqli_num_rows($query_run) > 0) {
                             <?= $archive['sex']; ?>
                         </li>
                         <li class="backup__date--availed">
-                            <?= $archive['search_destroy_date']; ?>
+                            <?= $new_sd_date; ?>
                         </li>
 
                         <li class="backup__status">
@@ -1002,6 +1017,9 @@ if (mysqli_num_rows($query_run) > 0) {
                     }
                 }
                 foreach ($query_run as $archive) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $ec_date = new DateTime($archive['early_childhood_date']);
+                    $new_ec_date = $ec_date->format("m-d-Y");
             ?>
                     <ul class="backup__table__row backup__info" role="list">
                         <li class="backup__name p-bold">
@@ -1014,7 +1032,7 @@ if (mysqli_num_rows($query_run) > 0) {
                             <?= $archive['sex']; ?>
                         </li>
                         <li class="backup__date--availed">
-                            <?= $archive['early_childhood_date']; ?>
+                            <?= $new_ec_date; ?>
                         </li>
 
                         <li class="backup__status">

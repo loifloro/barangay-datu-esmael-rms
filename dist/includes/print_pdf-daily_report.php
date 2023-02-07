@@ -8,6 +8,13 @@ $id = $_GET['id'];
 $date = $_GET['date'];
 $date2 = $_GET['date2'];
 
+// CONVERT DATE TO MM-DD-YY
+$date_pdf = new DateTime($date);
+$new_date_pdf = $date_pdf->format("m-d-Y");
+
+$date2_pdf = new DateTime($date2);
+$new_date2_pdf = $date2_pdf->format("m-d-Y");
+
 if($date2 == ''){
     $date_show2 = '-';
 }else{
