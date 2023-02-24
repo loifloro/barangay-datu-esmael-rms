@@ -159,8 +159,8 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-search_destroy__form">
                 <div class="add-search_destroy__form-item">
-                    <label for="search_destroy-email">Email</label>
-                    <input type="email" name="search_destroy-email" id="search_destroy-email">
+                    <label for="search_destroy-email">Username (optional)</label>
+                    <input type="text" name="search_destroy-email" id="search_destroy-email">
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-barangay">Name of Barangay *</label>

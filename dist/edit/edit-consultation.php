@@ -172,8 +172,8 @@ hide_content_forms();
                             <input type="date" name="consultation-date" id="consultation-date" value="<?= $patient['consultation_date']; ?>">
                         </div>
                         <div class="add-consultation__form-item">
-                            <label for="consultation-email">Email</label>
-                            <input type="email" name="consultation-email" id="consultation-email" value="<?= $patient['consultation_email']; ?>">
+                            <label for="consultation-email">Username (optional)</label>
+                            <input type="text" name="consultation-email" id="consultation-email" value="<?= $patient['consultation_email']; ?>">
                         </div>
                         <div class="edit-consultation__form-item">
                             <label for="consultation-lname">Last Name *</label>

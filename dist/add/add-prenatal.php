@@ -159,8 +159,8 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-prenatal__form">
                 <div class="add-prenatal__form-item">
-                    <label for="prenatal-email">Email</label>
-                    <input type="email" name="prenatal-email" id="prenatal-email">
+                    <label for="prenatal-email">Username (optional)</label>
+                    <input type="text" name="prenatal-email" id="prenatal-email">
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-lname">Last Name *</label>

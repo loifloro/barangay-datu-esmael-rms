@@ -171,8 +171,8 @@ hide_content_forms();
                             <input type="date" name="prenatal-date" id="prenatal-date" value="<?= $patient['postnatal_date']; ?>">
                         </div>
                         <div class="add-postnatal__form-item">
-                            <label for="postnatal-email">Email</label>
-                            <input type="email" name="prenatal-email" id="postnatal-email" value="<?= $patient['postnatal_email']; ?>">
+                            <label for="postnatal-email">Username (optional)</label>
+                            <input type="text" name="prenatal-email" id="postnatal-email" value="<?= $patient['postnatal_email']; ?>">
                         </div>
                         <div class="edit-prenatal__form-item">
                             <label for="prenatal-lname">Last Name *</label>

@@ -159,8 +159,8 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-consultation__form">
                 <div class="add-consultation__form-item">
-                    <label for="consultation-email">Email</label>
-                    <input type="email" name="consultation-email" id="consultation-email">
+                    <label for="consultation-email">Username (optional)</label>
+                    <input type="text" name="consultation-email" id="consultation-email">
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-lname">Last Name *</label>

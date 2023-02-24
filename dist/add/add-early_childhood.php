@@ -158,8 +158,8 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-early_childhood__form">
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-email">Email</label>
-                    <input type="email" name="early_childhood-email" id="early_childhood-email">
+                    <label for="early_childhood-email">Username (optional)</label>
+                    <input type="text" name="early_childhood-email" id="early_childhood-email">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-clinic">Clinic/Health Center</label>
