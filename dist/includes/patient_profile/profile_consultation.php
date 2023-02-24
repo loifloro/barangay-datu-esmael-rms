@@ -116,6 +116,11 @@
 <h2 class="medical-history__title">
     Medical History
 </h2>
+
+<button type="submit" class="btn-green btn-change btn-restore" onclick="window.location.href = 'add/add-consultation.php?fname=<?=$patient['firstname'];?>&lname=<?=$patient['lastname'];?>&phone=<?=$patient['phone_number'];?>&bday=<?=$patient['birthdate'];?>&sex=<?=$patient['sex'];?>&date_added=<?=$patient['consultation_date'];?>&address=<?=$patient['street_address'];?>&city=<?=$patient['city'];?>&barangay=<?=$patient['barangay'];?>&username=<?=$patient['consultation_email'];?>'">
+    <p>Add Service</p>
+</button>
+
 <section class="history">
     <section class="medical-history">
         <div class="medical-history__card">

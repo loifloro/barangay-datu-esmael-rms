@@ -117,6 +117,11 @@
 <h2 class="medical-history__title">
     Medical History
 </h2>
+
+<button type="submit" class="btn-green btn-change btn-restore" onclick="window.location.href = 'add/add-early_childhood.php?fname=<?=$patient['child_fname'];?>&lname=<?=$patient['child_lname'];?>&phone=<?=$patient['phone_num'];?>&bday=<?=$patient['child_birthdate'];?>&sex=<?=$patient['sex'];?>&date_added=<?=$patient['early_childhood_date'];?>&address=<?=$patient['street_address'];?>&city=<?=$patient['city'];?>&barangay=<?=$patient['barangay'];?>&username=<?=$patient['early_childhood_email'];?>'">
+    <p>Add Service</p>
+</button>
+
 <section class="history">
     <section class="medical-history">
         <div class="medical-history__card">
