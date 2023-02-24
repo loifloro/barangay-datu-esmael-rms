@@ -160,15 +160,15 @@ hide_content_forms();
             <form action="../includes/add_query.php" method="POST" class="add-consultation__form">
                 <div class="add-consultation__form-item">
                     <label for="consultation-email">Username (optional)</label>
-                    <input type="text" name="consultation-email" id="consultation-email">
+                    <input type="text" name="consultation-email" id="consultation-email" value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-lname">Last Name *</label>
-                    <input type="text" name="consultation-lname" id="consultation-lname" required>
+                    <input type="text" name="consultation-lname" id="consultation-lname" value="<?php echo isset($_GET['lname']) ? $_GET['lname'] : ''; ?>" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-fname">First Name *</label>
-                    <input type="text" name="consultation-fname" id="consultation-fname" required>
+                    <input type="text" name="consultation-fname" id="consultation-fname" value="<?php echo isset($_GET['fname']) ? $_GET['fname'] : ''; ?>" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-mname">Middle Name</label>
@@ -178,34 +178,34 @@ hide_content_forms();
                     <label for="consultation-sex">Gender *</label>
                     <div class="add-consultation__form--role-item">
                         <div class="add-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex-male" value="Male" required>
+                            <input type="radio" name="consultation-sex" id="consultation-sex-male" value="Male" <?php if (isset($_GET['sex']) && $_GET['sex'] == 'Male') echo 'checked'; ?> required>
                             <label for="consultation-sex-male">Male</label>
                         </div>
                         <div class="add-consultation__form-item">
-                            <input type="radio" name="consultation-sex" id="consultation-sex-female" value="Female" required>
+                            <input type="radio" name="consultation-sex" id="consultation-sex-female" value="Female" <?php if (isset($_GET['sex']) && $_GET['sex'] == 'Female') echo 'checked'; ?> required>
                             <label for="consultation-sex-female">Female</label>
                         </div>
                     </div>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-birthday">Birthday *</label>
-                    <input type="date" name="consultation-birthday" id="consultation-birthday" required>
+                    <input type="date" name="consultation-birthday" id="consultation-birthday" value="<?php echo isset($_GET['bday']) ? $_GET['bday'] : ''; ?>" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-street">Street Address *</label>
-                    <input type="text" name="consultation-street" id="consultation-street" required>
+                    <input type="text" name="consultation-street" id="consultation-street" value="<?php echo isset($_GET['address']) ? $_GET['address'] : ''; ?>" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-barangay">Barangay *</label>
-                    <input type="text" name="consultation-barangay" id="consultation-barangay" required>
+                    <input type="text" name="consultation-barangay" id="consultation-barangay" value="<?php echo isset($_GET['barangay']) ? $_GET['barangay'] : ''; ?>" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-city">City *</label>
-                    <input type="text" name="consultation-city" id="consultation-city" required>
+                    <input type="text" name="consultation-city" id="consultation-city" value="<?php echo isset($_GET['city']) ? $_GET['city'] : ''; ?>" required>
                 </div>
                 <div class="add-consultation__form-item">
                     <label for="consultation-contact">Phone Number</label>
-                    <input type="number" name="consultation-contact" id="consultation-contact" maxlength="11" min="1">
+                    <input type="number" name="consultation-contact" id="consultation-contact" maxlength="11" min="1" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : ''; ?>">
                 </div>
 
 

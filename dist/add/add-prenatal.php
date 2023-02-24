@@ -160,15 +160,15 @@ hide_content_forms();
             <form action="../includes/add_query.php" method="POST" class="add-prenatal__form">
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-email">Username (optional)</label>
-                    <input type="text" name="prenatal-email" id="prenatal-email">
+                    <input type="text" name="prenatal-email" id="prenatal-email" value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-lname">Last Name *</label>
-                    <input type="text" name="prenatal-lname" id="prenatal-lname" required>
+                    <input type="text" name="prenatal-lname" id="prenatal-lname" value="<?php echo isset($_GET['lname']) ? $_GET['lname'] : ''; ?>" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-fname">First Name *</label>
-                    <input type="text" name="prenatal-fname" id="prenatal-fname" required>
+                    <input type="text" name="prenatal-fname" id="prenatal-fname" value="<?php echo isset($_GET['fname']) ? $_GET['fname'] : ''; ?>" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-mname">Middle Name</label>
@@ -176,23 +176,23 @@ hide_content_forms();
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-birthday">Birthday *</label>
-                    <input type="date" name="prenatal-birthday" id="prenatal-birthday" required>
+                    <input type="date" name="prenatal-birthday" id="prenatal-birthday" value="<?php echo isset($_GET['bday']) ? $_GET['bday'] : ''; ?>" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-street">Street Address *</label>
-                    <input type="text" name="prenatal-street" id="prenatal-street" required>
+                    <input type="text" name="prenatal-street" id="prenatal-street" value="<?php echo isset($_GET['address']) ? $_GET['address'] : ''; ?>" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-barangay">Barangay *</label>
-                    <input type="text" name="prenatal-barangay" id="prenatal-barangay" required>
+                    <input type="text" name="prenatal-barangay" id="prenatal-barangay" value="<?php echo isset($_GET['barangay']) ? $_GET['barangay'] : ''; ?>" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-city">City *</label>
-                    <input type="text" name="prenatal-city" id="prenatal-city" required>
+                    <input type="text" name="prenatal-city" id="prenatal-city" value="<?php echo isset($_GET['city']) ? $_GET['city'] : ''; ?>" required>
                 </div>
                 <div class="add-prenatal__form-item">
                     <label for="prenatal-contact">Phone Number</label>
-                    <input type="number" name="prenatal-contact" id="prenatal-contact" maxlength="11" min="1">
+                    <input type="number" name="prenatal-contact" id="prenatal-contact" maxlength="11" min="1" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : ''; ?>">
                 </div>
 
 

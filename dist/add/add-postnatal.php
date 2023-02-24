@@ -160,15 +160,15 @@ hide_content_forms();
             <form action="../includes/add_query.php" method="POST" class="add-postnatal__form">
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-email">Username (optional)</label>
-                    <input type="text" name="postnatal-email" id="postnatal-email">
+                    <input type="text" name="postnatal-email" id="postnatal-email" value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-lname">Last Name *</label>
-                    <input type="text" name="postnatal-lname" id="postnatal-lname" required>
+                    <input type="text" name="postnatal-lname" id="postnatal-lname" value="<?php echo isset($_GET['lname']) ? $_GET['lname'] : ''; ?>" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-fname">First Name *</label>
-                    <input type="text" name="postnatal-fname" id="postnatal-fname" required>
+                    <input type="text" name="postnatal-fname" id="postnatal-fname" value="<?php echo isset($_GET['fname']) ? $_GET['fname'] : ''; ?>" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-mname">Middle Name</label>
@@ -176,23 +176,23 @@ hide_content_forms();
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-birthday">Birthday *</label>
-                    <input type="date" name="postnatal-birthday" id="postnatal-birthday" required>
+                    <input type="date" name="postnatal-birthday" id="postnatal-birthday" value="<?php echo isset($_GET['bday']) ? $_GET['bday'] : ''; ?>" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-street">Street Address *</label>
-                    <input type="text" name="postnatal-street" id="postnatal-street" required>
+                    <input type="text" name="postnatal-street" id="postnatal-street" value="<?php echo isset($_GET['address']) ? $_GET['address'] : ''; ?>" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-barangay">Barangay *</label>
-                    <input type="text" name="postnatal-barangay" id="postnatal-barangay" required>
+                    <input type="text" name="postnatal-barangay" id="postnatal-barangay" value="<?php echo isset($_GET['barangay']) ? $_GET['barangay'] : ''; ?>" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-city">City *</label>
-                    <input type="text" name="postnatal-city" id="postnatal-city" required>
+                    <input type="text" name="postnatal-city" id="postnatal-city" value="<?php echo isset($_GET['city']) ? $_GET['city'] : ''; ?>" required>
                 </div>
                 <div class="add-postnatal__form-item">
                     <label for="postnatal-contact">Phone Number</label>
-                    <input type="number" name="postnatal-contact" id="postnatal-contact" maxlength="11" min="0">
+                    <input type="number" name="postnatal-contact" id="postnatal-contact" maxlength="11" min="0" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : ''; ?>">
                 </div>
 
 
