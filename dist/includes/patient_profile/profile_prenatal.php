@@ -89,7 +89,7 @@
                 </ul>
                 <ul class="patient-profile__item" role="list">
                     <li class="patient-profile__barangay">
-                        <span class="patient-profile__category">Registered Email</span>
+                        <span class="patient-profile__category">Registered Username</span>
                         <?= $patient['prenatal_email']; ?>
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
