@@ -200,8 +200,8 @@
                                 $email = $user['default_email'];
                             ?>
                                 <div class="edit-bhw__form-item">
-                                    <label for="bhw-contact">New Email *</label>
-                                    <input type="email" name="bhw-email" id="bhw-contact" value="" required>
+                                    <label for="bhw-contact">New Username *</label>
+                                    <input type="text" name="bhw-email" id="bhw-contact" value="" required>
                                 </div>
                             <?php
                             }
@@ -209,8 +209,8 @@
                                 $email = $user['user_email'];
                             ?>
                                 <div class="edit-bhw__form-item">
-                                    <label for="bhw-contact">Email *</label>
-                                    <input type="email" name="bhw-email" id="bhw-contact" value="<?= $user['user_email']; ?>" required>
+                                    <label for="bhw-contact">Username *</label>
+                                    <input type="text" name="bhw-email" id="bhw-contact" value="<?= $user['user_email']; ?>" required>
                                 </div>
                             <?php
                             }

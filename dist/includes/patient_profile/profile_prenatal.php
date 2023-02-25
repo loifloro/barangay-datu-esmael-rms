@@ -89,7 +89,7 @@
                 </ul>
                 <ul class="patient-profile__item" role="list">
                     <li class="patient-profile__barangay">
-                        <span class="patient-profile__category">Registered Email</span>
+                        <span class="patient-profile__category">Registered Username</span>
                         <?= $patient['prenatal_email']; ?>
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
@@ -97,7 +97,8 @@
                         <?php 
                             $password_date = $patient['birthdate'];
                             $year_date = date('Y', strtotime($password_date));
-                            $password =  strtolower($patient['firstname']. $patient['lastname'] . $year_date .'_prenatal');
+                            $lastname_space = strtolower(str_replace(" ", "", $patient['lastname'])); // remove space
+                            $password =  $lastname_space . $year_date .'-pre';
                         ?>
                         <?= $password; ?>
                     </li>
@@ -115,6 +116,11 @@
 <h2 class="medical-history__title">
     Medical History
 </h2>
+
+<button type="submit" class="btn-green btn-change btn-restore" onclick="window.location.href = 'add/add-prenatal.php?fname=<?=$patient['firstname'];?>&lname=<?=$patient['lastname'];?>&phone=<?=$patient['phone_num'];?>&bday=<?=$patient['birthdate'];?>&sex=<?=$patient['sex'];?>&date_added=<?=$patient['prenatal_date'];?>&address=<?=$patient['street_address'];?>&city=<?=$patient['city'];?>&barangay=<?=$patient['barangay'];?>&username=<?=$patient['prenatal_email'];?>'">
+    <p>Add Service</p>
+</button>
+
 <section class="history">
     <section class="medical-history">
         <div class="medical-history__card">

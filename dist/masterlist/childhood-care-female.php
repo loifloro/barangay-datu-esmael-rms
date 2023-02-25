@@ -227,7 +227,7 @@ hide_content_forms();
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page - 1) * 02;
+            $start_from = ($page - 1) * $num_per_page;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM target_childcare_female LIMIT $start_from, $num_per_page"; // WHERE archive_label=''

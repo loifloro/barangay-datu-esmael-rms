@@ -90,7 +90,7 @@
                 </ul>
                 <ul class="patient-profile__item" role="list">
                     <li class="patient-profile__barangay">
-                        <span class="patient-profile__category">Registered Email</span>
+                        <span class="patient-profile__category">Registered Username</span>
                         <?= $patient['search_destroy_email']; ?>
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
@@ -98,7 +98,8 @@
                         <?php 
                             $password_date = $patient['birthdate'];
                             $year_date = date('Y', strtotime($password_date));
-                            $password =  strtolower($patient['owner_fname']. $patient['owner_lname'] . $year_date .'_searchdestroy');
+                            $lastname_space = strtolower(str_replace(" ", "", $patient['owner_lname'])); // remove space
+                            $password =  $lastname_space . $year_date .'-sd';
                         ?>
                         <?= $password; ?>
                     </li>
@@ -116,6 +117,11 @@
 <h2 class="medical-history__title">
     Medical History
 </h2>
+
+<button type="submit" class="btn-green btn-change btn-restore" onclick="window.location.href = 'add/add-search_destroy.php?fname=<?=$patient['owner_fname'];?>&lname=<?=$patient['owner_lname'];?>&phone=<?=$patient['phone_num'];?>&bday=<?=$patient['birthdate'];?>&sex=<?=$patient['sex'];?>&date_added=<?=$patient['search_destroy_date'];?>&address=<?=$patient['address'];?>&city=<?=$patient['city'];?>&barangay=<?=$patient['barangay'];?>&username=<?=$patient['search_destroy_email'];?>'">
+    <p>Add Service</p>
+</button>
+
 <section class="history">
     <section class="medical-history">
         <div class="medical-history__card">

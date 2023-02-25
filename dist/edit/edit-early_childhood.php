@@ -173,8 +173,8 @@ hide_content_forms();
                             <input type="date" name="early_childhood-added_date" id="early_childhood-clinic" value="<?= $patient['early_childhood_date']; ?>">
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <label for="early_childhood-email">Email</label>
-                            <input type="email" name="early_childhood-email" id="early_childhood-email" value="<?= $patient['early_childhood_email']; ?>">
+                            <label for="early_childhood-email">Username (optional)</label>
+                            <input type="text" name="early_childhood-email" id="early_childhood-email" value="<?= $patient['early_childhood_email']; ?>">
                         </div>
                         <div class="edit-early_childhood__form-item">
                             <label for="early_childhood-clinic">Clinic/Health Center</label>

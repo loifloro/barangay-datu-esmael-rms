@@ -158,8 +158,8 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-early_childhood__form">
                 <div class="add-early_childhood__form-item">
-                    <label for="early_childhood-email">Email</label>
-                    <input type="email" name="early_childhood-email" id="early_childhood-email">
+                    <label for="early_childhood-email">Username (optional)</label>
+                    <input type="text" name="early_childhood-email" id="early_childhood-email" value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-clinic">Clinic/Health Center</label>
@@ -167,15 +167,15 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-street">Street Address *</label>
-                    <input type="text" name="early_childhood-street" id="early_childhood-barangay" required>
+                    <input type="text" name="early_childhood-street" id="early_childhood-barangay" value="<?php echo isset($_GET['address']) ? $_GET['address'] : ''; ?>" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-barangay">Barangay *</label>
-                    <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" required>
+                    <input type="text" name="early_childhood-barangay" id="early_childhood-barangay" value="<?php echo isset($_GET['barangay']) ? $_GET['barangay'] : ''; ?>" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-city">City *</label>
-                    <input type="text" name="early_childhood-city" id="early_childhood-barangay" required>
+                    <input type="text" name="early_childhood-city" id="early_childhood-barangay" value="<?php echo isset($_GET['city']) ? $_GET['city'] : ''; ?>" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-purol">Purol/Sitio</label>
@@ -183,7 +183,7 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-childfname">Child First Name *</label>
-                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname" required>
+                    <input type="text" name="early_childhood-childfname" id="early_childhood-childname" value="<?php echo isset($_GET['fname']) ? $_GET['fname'] : ''; ?>" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-childmname">Child Middle Name</label>
@@ -191,7 +191,7 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-childlname">Child Last Name *</label>
-                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname" required>
+                    <input type="text" name="early_childhood-childlname" id="early_childhood-childname" value="<?php echo isset($_GET['lname']) ? $_GET['lname'] : ''; ?>" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-hospital">Hospital</label>
@@ -205,11 +205,11 @@ hide_content_forms();
                     <label for="early_childhood-sex">Sex *</label>
                     <div class="add-early_childhood__form--role-item">
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex-male" value="Male" required>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex-male" value="Male" <?php if (isset($_GET['sex']) && $_GET['sex'] == 'Male') echo 'checked'; ?> required>
                             <label for="early_childhood-sex-male">Male</label>
                         </div>
                         <div class="add-early_childhood__form-item">
-                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex-female" value="Female" required>
+                            <input type="radio" name="early_childhood-sex" id="early_childhood-sex-female" value="Female" <?php if (isset($_GET['sex']) && $_GET['sex'] == 'Female') echo 'checked'; ?> required>
                             <label for="early_childhood-sex-female">Female</label>
                         </div>
                     </div>
@@ -270,7 +270,7 @@ hide_content_forms();
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-contact">Phone Number</label>
-                    <input type="number" name="early_childhood-father-contact" id="early_childhood-father-contact" maxlength="11" min="1">
+                    <input type="number" name="early_childhood-father-contact" id="early_childhood-father-contact" maxlength="11" min="1" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : ''; ?>">
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-father-education">Educational Attainment</label>
@@ -298,7 +298,7 @@ hide_content_forms();
 
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-child-birthdate">Birthdate *</label>
-                    <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" required>
+                    <input type="date" name="early_childhood-child-birthdate" id="early_childhood-child-birthdate" value="<?php echo isset($_GET['bday']) ? $_GET['bday'] : ''; ?>" required>
                 </div>
                 <div class="add-early_childhood__form-item">
                     <label for="early_childhood-gestational">Gestational Age of Birth (weeks)</label>

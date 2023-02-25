@@ -488,7 +488,7 @@ hide_content();
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page - 1) * 02;
+            $start_from = ($page - 1) * $num_per_page;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM deworming WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -681,7 +681,7 @@ hide_content();
                     $page = 1;
                 }
                 $num_per_page = 9;
-                $start_from = ($page - 1) * 02;
+                $start_from = ($page - 1) * $num_per_page;
                 // END OF PAGINATION COUNTER
 
                 $query = "SELECT * FROM consultation WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -856,7 +856,7 @@ hide_content();
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page - 1) * 02;
+            $start_from = ($page - 1) * $num_per_page;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM prenatal WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -958,11 +958,14 @@ hide_content();
                         <a href='services.php?page_prenatal=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+                
                 <!-- End of Query -->
 
                 <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
@@ -1028,7 +1031,7 @@ hide_content();
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page - 1) * 02;
+            $start_from = ($page - 1) * $num_per_page;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM postnatal WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -1133,11 +1136,14 @@ hide_content();
                         <a href='services.php?page_postnatal=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+        
                 <!-- End of Query -->
                 <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
                     <p>Add</p>
@@ -1202,7 +1208,7 @@ hide_content();
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page - 1) * 02;
+            $start_from = ($page - 1) * $num_per_page;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM search_destroy WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -1379,7 +1385,7 @@ hide_content();
                 $page = 1;
             }
             $num_per_page = 9;
-            $start_from = ($page - 1) * 02;
+            $start_from = ($page - 1) * $num_per_page;
             // END OF PAGINATION COUNTER
 
             $query = "SELECT * FROM early_childhood WHERE archive_label='' LIMIT $start_from, $num_per_page";
@@ -1481,11 +1487,14 @@ hide_content();
                         <a href='services.php?page_earlychildhood=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+            
                 <!-- End of Query -->
 
                 <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">

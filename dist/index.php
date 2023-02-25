@@ -89,8 +89,8 @@
                 include_once "includes/functions.php";
                 forgot_password();
                 ?>
-                <label for="contact-num">Email address:</label>
-                <input id='contact-num' class="login__contact" type="email" name="username">
+                <label for="contact-num">Username:</label>
+                <input id='contact-num' class="login__contact" type="text" name="username">
                 <label for="password">Password:</label>
                 <div class="password">
                     <input type="password" class="password__bar__input" id='password' min="8" name="password" /><!--  

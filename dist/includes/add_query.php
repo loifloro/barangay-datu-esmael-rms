@@ -51,8 +51,8 @@ if (isset($_POST['save_deworming'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
-
-    $password =  strtolower($firstname. $lastname . $year_date .'_deworming');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-deworm';
     $encrypted_pwd = md5($password);
 
     $query = "INSERT INTO deworming 
@@ -124,7 +124,8 @@ if (isset($_POST['save_consultation'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($firstname. $lastname . $year_date .'_consultation');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-consul';
     $encrypted_pwd = md5($password);
 
 
@@ -213,11 +214,9 @@ if (isset($_POST['save_prenatal'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($firstname. $lastname . $year_date .'_prenatal');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-pre';
     $encrypted_pwd = md5($password);
-
-    $password2 = strtolower($firstname. $lastname . $year_date .'_postnatal');
-    $encrypted_pwd2 = md5($password2);
 
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
 
@@ -234,22 +233,6 @@ if (isset($_POST['save_prenatal'])) {
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
-
-        // QUERY TO MAKE COPY OF PRENATAL TO POSTNATAL
-        $post_query = "INSERT INTO postnatal 
-                        (postnatal_date, lastname, firstname, middlename, age, sex, birthdate, street_address, 
-                        barangay, city, phone_num, blood_pressure, weight, height, gravida, preterm, last_menstrual, 
-                        edc, aog, fetal_heart, fetal_heart_tones, presentation, a, p, label, symptoms, 
-                        postnatal_password, postnatal_email) 
-                        VALUES 
-                        ('$prenatal_date', '$lastname', '$firstname', '$middlename', '$age', 'Female', '$birthdate', '$street_add', 
-                        '$barangay', '$city', '$phone_num', '$blood_pressure', '$weight', '$height', '$gravida', '$preterm', '$lmp', 
-                        '$edc', '$aog', '$fh', '$fht', '$presentation', '$abnormal', '$prescriptions', 'Postnatal', '$symptoms', 
-                        '$encrypted_pwd2', '$email')";
-
-        $post_query_run = mysqli_query($conn, $post_query);
-
-        if ($post_query_run) {
             // QUERY TO RECENT UPDATE PRENATAL
             $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
             $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
@@ -268,46 +251,16 @@ if (isset($_POST['save_prenatal'])) {
                                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                                 VALUES 
                                 ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
-                                '$date', '$time', '$patient_fname', '$patient_lname', 'Postnatal')";
+                                '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
-                // QUERY TO RECENT UPDATE POSTNATAL
-                $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
-                $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
-                $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
-
-                // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-                $date = date('Y-m-d');
-                $time = date('H:i:s');
-
-                $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
-                $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
-
-
-                $query3 = "INSERT INTO recent_activity 
-                                    (reasons, user_fname, user_lname, user_role, changes_label, 
-                                    date_edit, time_edit, patient_fname, patient_lname, record_name)
-                                    VALUES 
-                                    ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
-                                    '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
-
-                $query_run3 = mysqli_query($conn, $query3);
-                if ($query_run3) {
                     header("Location: ../services.php?service=prenatal&status=success");
                     exit(0);
-                }
-                //END OF QUERY 
                 //END OF QUERY
             }
-        }
 
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
     } else {
-        // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services.php?status=error");
         exit(0);
     }
@@ -353,7 +306,8 @@ if (isset($_POST['save_postnatal'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($firstname. $lastname . $year_date .'_postnatal');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-post';
     $encrypted_pwd = md5($password);
 
     $email = mysqli_real_escape_string($conn, $_POST['postnatal-email']);
@@ -397,13 +351,8 @@ if (isset($_POST['save_postnatal'])) {
             header("Location: ../services.php?service=postnatal&status=success");
             exit(0);
         }
-        //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
+        
     } else {
-        // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services.php?status=error");
         exit(0);
     }
@@ -435,7 +384,8 @@ if (isset($_POST['save_search_destroy'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($owner_fname. $owner_lname . $year_date .'_searchdestroy');
+    $lastname_space = strtolower(str_replace(" ", "", $owner_lname)); // remove space
+    $password =  $lastname_space . $year_date .'-sd';
     $encrypted_pwd = md5($password);
 
 
@@ -594,7 +544,8 @@ if (isset($_POST['save_early_childhood'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($child_fname. $child_lname . $year_date .'_earlychildhood');
+    $lastname_space = strtolower(str_replace(" ", "", $child_lname)); // remove space
+    $password =  $lastname_space . $year_date .'-ec';
     $encrypted_pwd = md5($password);
 
 

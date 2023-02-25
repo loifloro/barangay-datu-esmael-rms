@@ -91,7 +91,7 @@
                 </ul>
                 <ul class="patient-profile__item" role="list">
                     <li class="patient-profile__barangay">
-                        <span class="patient-profile__category">Registered Email</span>
+                        <span class="patient-profile__category">Registered Username</span>
                         <?= $patient['early_childhood_email']; ?>
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
@@ -99,7 +99,8 @@
                         <?php 
                             $password_date = $patient['child_birthdate'];
                             $year_date = date('Y', strtotime($password_date));
-                            $password =  strtolower($patient['child_fname']. $patient['child_lname'] . $year_date .'_earlychildhood');
+                            $lastname_space = strtolower(str_replace(" ", "", $patient['child_lname'])); // remove space
+                            $password =  $lastname_space . $year_date .'-ec';
                         ?>
                         <?= $password; ?>
                     </li>
@@ -117,6 +118,11 @@
 <h2 class="medical-history__title">
     Medical History
 </h2>
+
+<button type="submit" class="btn-green btn-change btn-restore" onclick="window.location.href = 'add/add-early_childhood.php?fname=<?=$patient['child_fname'];?>&lname=<?=$patient['child_lname'];?>&phone=<?=$patient['phone_num'];?>&bday=<?=$patient['child_birthdate'];?>&sex=<?=$patient['sex'];?>&date_added=<?=$patient['early_childhood_date'];?>&address=<?=$patient['street_address'];?>&city=<?=$patient['city'];?>&barangay=<?=$patient['barangay'];?>&username=<?=$patient['early_childhood_email'];?>'">
+    <p>Add Service</p>
+</button>
+
 <section class="history">
     <section class="medical-history">
         <div class="medical-history__card">
