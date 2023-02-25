@@ -351,13 +351,8 @@ if (isset($_POST['save_postnatal'])) {
             header("Location: ../services.php?service=postnatal&status=success");
             exit(0);
         }
-        //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
+        
     } else {
-        // $_SESSION['message'] = "Student Not Created";
         header("Location: ../services.php?status=error");
         exit(0);
     }
