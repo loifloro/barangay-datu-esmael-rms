@@ -85,7 +85,8 @@ if (isset($_POST['edit_deworming'])) {
     $email = mysqli_real_escape_string($conn, $_POST['deworming-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($firstname. $lastname . $year_date .'_deworming');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-deworm';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE deworming SET deworming_date='$deworming_date', lastname = '$lastname', firstname = '$firstname', 
@@ -164,7 +165,8 @@ if (isset($_POST['edit_consultation'])) {
     $email = mysqli_real_escape_string($conn, $_POST['consultation-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($firstname. $lastname . $year_date .'_consultation');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-consul';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE consultation SET consultation_date = '$consultation_date', lastname = '$lastname', 
@@ -256,7 +258,8 @@ if (isset($_POST['edit_prenatal'])) {
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($firstname. $lastname . $year_date .'_prenatal');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-pre';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE prenatal SET prenatal_date = '$prenatal_date', lastname = '$lastname', firstname = '$firstname', 
@@ -348,7 +351,8 @@ if (isset($_POST['edit_postnatal'])) {
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($firstname. $lastname . $year_date .'_postnatal');
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date .'-post';
     $encrypted_pwd = md5($password);
     
     $query = "UPDATE postnatal SET postnatal_date = '$postnatal_date', lastname = '$lastname', firstname = '$firstname', 
@@ -428,7 +432,8 @@ if (isset($_POST['edit_search_destroy'])) {
     $email = mysqli_real_escape_string($conn, $_POST['search_destroy-email']);
     $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($owner_fname. $owner_lname . $year_date .'_searchdestroy');
+    $lastname_space = strtolower(str_replace(" ", "", $owner_lname)); // remove space
+    $password =  $lastname_space . $year_date .'-sd';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE search_destroy SET search_destroy_date = '$search_destroy_date',
@@ -587,7 +592,8 @@ if (isset($_POST['edit_early_childhood'])) {
 
     $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
     $year_date = date('Y', strtotime($password_date));
-    $password =  strtolower($child_fname. $child_lname . $year_date .'_earlychildhood');
+    $lastname_space = strtolower(str_replace(" ", "", $child_lname)); // remove space
+    $password =  $lastname_space . $year_date .'-ec';
     $encrypted_pwd = md5($password);
 
     $email = mysqli_real_escape_string($conn, $_POST['early_childhood-email']);

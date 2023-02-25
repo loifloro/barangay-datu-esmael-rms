@@ -97,7 +97,8 @@
                         <?php 
                             $password_date = $patient['birthdate'];
                             $year_date = date('Y', strtotime($password_date));
-                            $password =  strtolower($patient['firstname']. $patient['lastname'] . $year_date .'_prenatal');
+                            $lastname_space = strtolower(str_replace(" ", "", $patient['lastname'])); // remove space
+                            $password =  $lastname_space . $year_date .'-pre';
                         ?>
                         <?= $password; ?>
                     </li>

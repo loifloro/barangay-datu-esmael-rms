@@ -99,7 +99,8 @@
                         <?php 
                             $password_date = $patient['child_birthdate'];
                             $year_date = date('Y', strtotime($password_date));
-                            $password =  strtolower($patient['child_fname']. $patient['child_lname'] . $year_date .'_earlychildhood');
+                            $lastname_space = strtolower(str_replace(" ", "", $patient['child_lname'])); // remove space
+                            $password =  $lastname_space . $year_date .'-ec';
                         ?>
                         <?= $password; ?>
                     </li>

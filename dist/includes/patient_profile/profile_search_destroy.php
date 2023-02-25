@@ -98,7 +98,8 @@
                         <?php 
                             $password_date = $patient['birthdate'];
                             $year_date = date('Y', strtotime($password_date));
-                            $password =  strtolower($patient['owner_fname']. $patient['owner_lname'] . $year_date .'_searchdestroy');
+                            $lastname_space = strtolower(str_replace(" ", "", $patient['owner_lname'])); // remove space
+                            $password =  $lastname_space . $year_date .'-sd';
                         ?>
                         <?= $password; ?>
                     </li>
