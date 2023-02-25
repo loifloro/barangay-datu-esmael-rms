@@ -958,11 +958,14 @@ hide_content();
                         <a href='services.php?page_prenatal=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+                
                 <!-- End of Query -->
 
                 <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
@@ -1133,11 +1136,14 @@ hide_content();
                         <a href='services.php?page_postnatal=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+        
                 <!-- End of Query -->
                 <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
                     <p>Add</p>
@@ -1481,11 +1487,14 @@ hide_content();
                         <a href='services.php?page_earlychildhood=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
                 <?php
                     }
+                    ?>
+                    </div>
+                    <?php
                     //END OF PAGINATION
                 }
 
                 ?>
-                </div>
+            
                 <!-- End of Query -->
 
                 <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">
