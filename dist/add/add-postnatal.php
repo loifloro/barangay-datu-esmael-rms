@@ -331,7 +331,7 @@ hide_content_forms();
                 <hr>
 
                 <div class="add-postnatal__form-btn">
-                    <button type="submit" class="btn-green btn-add" name="save_postnatal" ">
+                    <button type="submit" class="btn-green btn-add" name="save_postnatal">
                         Add
                     </button>
                     <button type=" button" class="btn-red btn-cancel" onclick="confirmReset(form)"> <!--added type and onclick-->
