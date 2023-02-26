@@ -2265,7 +2265,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: none;
   box-sizing: border-box;
   margin-top: 2rem;
-  overflow: hidden;
 }
 .masterlist__table__row {
   display: grid;
