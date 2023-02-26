@@ -51,9 +51,9 @@
 
                 <ul class="patient-profile__item " role="list">
                     <?php
-                        // CONVERT DATE TO MM-DD-YY
-                        $deworm_bdate = new DateTime($patient['birthdate']);
-                        $new_deworm_bdate = $deworm_bdate->format("m-d-Y");
+                    // CONVERT DATE TO MM-DD-YY
+                    $deworm_bdate = new DateTime($patient['birthdate']);
+                    $new_deworm_bdate = $deworm_bdate->format("m-d-Y");
                     ?>
                     <li class="patient-profile__last-modified">
                         <span class="patient-profile__category">Birthday</span>
@@ -64,9 +64,9 @@
                         <?= $patient['sex']; ?>
                     </li>
                     <?php
-                        // CONVERT DATE TO MM-DD-YY
-                        $deworm_date = new DateTime($patient['deworming_date']);
-                        $new_deworm_date = $deworm_date->format("m-d-Y");
+                    // CONVERT DATE TO MM-DD-YY
+                    $deworm_date = new DateTime($patient['deworming_date']);
+                    $new_deworm_date = $deworm_date->format("m-d-Y");
                     ?>
                     <li class="patient-profile__last-date-added">
                         <span class="patient-profile__category">Date Added</span>
@@ -94,11 +94,11 @@
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
-                        <?php 
-                            $password_date = $patient['birthdate'];
-                            $year_date = date('Y', strtotime($password_date));
-                            $lastname_space = strtolower(str_replace(" ", "", $patient['lastname'])); // remove space
-                            $password =  $lastname_space . $year_date .'-deworm';
+                        <?php
+                        $password_date = $patient['birthdate'];
+                        $year_date = date('Y', strtotime($password_date));
+                        $lastname_space = strtolower(str_replace(" ", "", $patient['lastname'])); // remove space
+                        $password =  $lastname_space . $year_date . '-deworm';
                         ?>
                         <?= $password; ?>
                     </li>
@@ -112,19 +112,21 @@
     ?>
 </section>
 
-<!-- Medical History -->
-<h2 class="medical-history__title">
-    Medical History
-</h2>
-
-<button type="submit" class="btn-green btn-change btn-restore" onclick="window.location.href = 'add/add-deworming.php?fname=<?=$patient['firstname'];?>&lname=<?=$patient['lastname'];?>&phone=<?=$patient['phone_num'];?>&bday=<?=$patient['birthdate'];?>&sex=<?=$patient['sex'];?>&date_added=<?=$patient['deworming_date'];?>&address=<?=$patient['street_address'];?>&city=<?=$patient['city'];?>&barangay=<?=$patient['barangay'];?>&username=<?=$patient['deworming_email'];?>'">
-    <p>Add Service</p>
-</button>
 
 
-       
+
 <section class="history">
     <section class="medical-history">
+        <!-- Medical History -->
+        <div class="medical-history__title">
+            <h2 class="">
+                Medical History
+            </h2>
+
+            <button class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['firstname'] ?>' , '<?= $patient['lastname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $new_deworm_bdate; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['street_address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay'] ?>' , '<?= $patient['deworming_email']; ?>')">
+                <p>Add Service</p>
+            </button>
+        </div>
         <div class="medical-history__card">
             <ul class="medical-history__header medical-history__card__row" role="list">
                 <li class="medical-history__item">
@@ -173,7 +175,7 @@
                             if (isset($_GET['label'])) {
                                 $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
                                 $changes_label = $recent3['label'];
-                                $date=$recent3['deworming_date'];
+                                $date = $recent3['deworming_date'];
 
                                 //DEWORMING
                                 if (($changes_label == "Deworming") and (isset($_GET['id']))) {
@@ -279,9 +281,9 @@
                             <!-- End for Modal Link -->
                         </li>
                         <?php
-                            // CONVERT DATE TO MM-DD-YY
-                            $deworm_ldate = new DateTime($recent3['deworming_date']);
-                            $new_deworm_ldate = $deworm_ldate->format("m-d-Y");
+                        // CONVERT DATE TO MM-DD-YY
+                        $deworm_ldate = new DateTime($recent3['deworming_date']);
+                        $new_deworm_ldate = $deworm_ldate->format("m-d-Y");
                         ?>
                         <li class="medical-history__item medical-history__service__date-availed">
                             <?= $new_deworm_ldate; ?>
@@ -292,7 +294,7 @@
                             if (isset($_GET['label'])) {
                                 $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
                                 $changes_label = $recent3['label'];
-                                $date=$recent3['deworming_date'];
+                                $date = $recent3['deworming_date'];
 
                                 //DEWORMING
                                 if (($changes_label == "Deworming") and (isset($_GET['id']))) {
@@ -438,11 +440,11 @@
 
                         $query_run2 = mysqli_query($conn, $query2);
                         if (mysqli_num_rows($query_run2) > 0) {
-                            foreach ($query_run2 as $recent) { 
+                            foreach ($query_run2 as $recent) {
                                 // CONVERT DATE TO MM-DD-YY
                                 $deworm_rdate = new DateTime($recent['date_edit']);
                                 $new_deworm_rdate = $deworm_ldate->format("m-d-Y");
-                        
+
                     ?>
                                 <span class="edit-history__editor p-bold">
                                     <?= $recent['user_fname'] . ' ' . $recent['user_lname'] . ' ' . $recent['changes_label']; ?>

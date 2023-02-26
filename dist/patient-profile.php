@@ -219,6 +219,7 @@ if (mysqli_num_rows($query_run2) > 0) {
             <path class='d-spinner d-spinner__one' d='M32.2942065,0 L64.5884131,0 C70.0451992,0 75.290683,0.385899921 80.3248924,1.15770478 L0,178.25 L0,0 L32.2942065,0 L32.2942065,0 Z' />
         </svg>
     </div>
+
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
@@ -277,8 +278,8 @@ if (mysqli_num_rows($query_run2) > 0) {
                         <path d="M13,14H9a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2ZM17,4H15.82A3,3,0,0,0,13,2H11A3,3,0,0,0,8.18,4H7A3,3,0,0,0,4,7V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V7A3,3,0,0,0,17,4ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm8,14a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V7A1,1,0,0,1,7,6H8V7A1,1,0,0,0,9,8h6a1,1,0,0,0,1-1V6h1a1,1,0,0,1,1,1Zm-3-9H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z" />
                     </svg>
                     <p class="sidebar__caption">Masterlist</p>
+                </li>
             </a>
-            </li>
             <li class="sidebar__item sidebar__item--margin-top" id="setting_sidebar"> <!--href link added-->
                 <a href="user-profile.php" class="sidebar__link">
                     <svg alt='Profile' role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" viewBox="0 0 32 32">
