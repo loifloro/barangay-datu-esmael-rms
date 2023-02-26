@@ -1,8 +1,8 @@
 <?php
 session_start();
 include 'includes/connection.php';
-$position=$_SESSION['position'];
-if(($position=='Barangay Health Worker' || !isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])){
+$position = $_SESSION['position'];
+if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
@@ -51,6 +51,9 @@ if(($position=='Barangay Health Worker' || !isset($_SESSION['account_id']) || !i
                         </svg>
                     </button>
                 </form>
+            </li>
+            <li class="sidebar__title">
+                Brgy. Datu Esmael Patient Record System
             </li>
             <li class="sidebar__item">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->

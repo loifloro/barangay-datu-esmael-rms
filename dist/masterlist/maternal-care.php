@@ -47,6 +47,9 @@ hide_content_forms();
                     </button>
                 </form>
             </li>
+            <li class="sidebar__title">
+                Brgy. Datu Esmael Patient Record System
+            </li>
             <li class="sidebar__item">
                 <a href="../dashboard.php" class="sidebar__link">
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -293,7 +296,7 @@ hide_content_forms();
                     <ul class="masterlist__table__row masterlist__info" role="list">
 
                         <li class="masterlist__name p-bold">
-                                <?= $patient['firstname'] . ' ' . $patient['lastname']; ?>
+                            <?= $patient['firstname'] . ' ' . $patient['lastname']; ?>
                         </li>
                         <li class="masterlist__date">
                             <?= $patient['date_registered']; ?>
@@ -354,32 +357,32 @@ hide_content_forms();
                     <?php
                     }
                     //END OF PAGINATION
-            } else {
+                } else {
+                    ?>
+                    <script>
+                        Swal.fire({
+                            toast: true,
+                            position: 'top-right',
+                            icon: 'info',
+                            iconColor: 'white',
+                            title: 'No record found',
+                            customClass: {
+                                popup: 'no-record'
+                            },
+                            showConfirmButton: false,
+                            timer: 2000,
+                            timerProgressBar: true,
+                        })
+                    </script>
+                <?php
+                }
                 ?>
-                <script>
-                    Swal.fire({
-                        toast: true,
-                        position: 'top-right',
-                        icon: 'info',
-                        iconColor: 'white',
-                        title: 'No record found',
-                        customClass: {
-                            popup: 'no-record'
-                        },
-                        showConfirmButton: false,
-                        timer: 2000,
-                        timerProgressBar: true,
-                    })
-                </script>
-            <?php
-            }
-            ?>
-            <!-- END QUERY -->
+                <!-- END QUERY -->
 
-        </div>
-        <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = '../add/add-maternal_care.php'">
-            <p>Add</p>
-        </button>
+                </div>
+                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = '../add/add-maternal_care.php'">
+                    <p>Add</p>
+                </button>
     </main>
     <script src="../js/app.js"></script>
     <?php

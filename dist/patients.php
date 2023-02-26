@@ -60,6 +60,9 @@ hide_content();
                     </button>
                 </form>
             </li>
+            <li class="sidebar__title">
+                Brgy. Datu Esmael Patient Record System
+            </li>
             <li class="sidebar__item">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -416,7 +419,7 @@ hide_content();
                                 </button>
                             </li>
                         </ul>
-                <?php
+                    <?php
                     }
                     //PAGINATION
                     $pr_query = "SELECT * FROM deworming";
@@ -426,23 +429,23 @@ hide_content();
                     $total_page = ceil($total_record / $num_per_page);
                     ?>
                     <!-- <div class="pagination"> -->
-                        <?php
-                        if ($page > 1) {
-                        ?>
-                            <a href='patients.php?page_deworming=<?php echo ($page - 1) ?>&deworming' class="pagination_previous">Previous</a>
-                        <?php
-                        }
-                        for ($i = 1; $i <= $total_page; $i++) {
-                        ?>
-                            <a href='patients.php?page_deworming=<?php echo $i; ?>&deworming' class="pagination_number"><?php echo $i; ?></a>
-                        <?php
-                        }
-                        if ($page < $total_page) {
-                        ?>
-                            <a href='patients.php?page_deworming=<?php echo ($page + 1) ?>&deworming' class="pagination_next">Next</a>
-                        <?php
-                        }
-                        //END OF PAGINATION
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='patients.php?page_deworming=<?php echo ($page - 1) ?>&deworming' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='patients.php?page_deworming=<?php echo $i; ?>&deworming' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='patients.php?page_deworming=<?php echo ($page + 1) ?>&deworming' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -555,7 +558,7 @@ hide_content();
                                 </button>
                             </li>
                         </ul>
-                <?php
+                    <?php
                     }
                     //PAGINATION
                     $pr_query = "SELECT * FROM consultation";
@@ -565,23 +568,23 @@ hide_content();
                     $total_page = ceil($total_record / $num_per_page);
                     ?>
                     <!-- <div class="pagination"> -->
-                        <?php
-                        if ($page > 1) {
-                        ?>
-                            <a href='patients.php?page_consultation=<?php echo ($page - 1) ?>&consultation' class="pagination_previous">Previous</a>
-                        <?php
-                        }
-                        for ($i = 1; $i <= $total_page; $i++) {
-                        ?>
-                            <a href='patients.php?page_consultation=<?php echo $i; ?>&consultation' class="pagination_number"><?php echo $i; ?></a>
-                        <?php
-                        }
-                        if ($page < $total_page) {
-                        ?>
-                            <a href='patients.php?page_consultation=<?php echo ($page + 1) ?>&consultation' class="pagination_next">Next</a>
-                        <?php
-                        }
-                        //END OF PAGINATION
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='patients.php?page_consultation=<?php echo ($page - 1) ?>&consultation' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='patients.php?page_consultation=<?php echo $i; ?>&consultation' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='patients.php?page_consultation=<?php echo ($page + 1) ?>&consultation' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -694,7 +697,7 @@ hide_content();
                                 </button>
                             </li>
                         </ul>
-                <?php
+                    <?php
                     }
                     //PAGINATION
                     $pr_query = "SELECT * FROM prenatal";
@@ -704,23 +707,23 @@ hide_content();
                     $total_page = ceil($total_record / $num_per_page);
                     ?>
                     <!-- <div class="pagination"> -->
-                        <?php
-                        if ($page > 1) {
-                        ?>
-                            <a href='patients.php?page_prenatal=<?php echo ($page - 1) ?>&prenatal' class="pagination_previous">Previous</a>
-                        <?php
-                        }
-                        for ($i = 1; $i <= $total_page; $i++) {
-                        ?>
-                            <a href='patients.php?page_prenatal=<?php echo $i; ?>&prenatal' class="pagination_number"><?php echo $i; ?></a>
-                        <?php
-                        }
-                        if ($page < $total_page) {
-                        ?>
-                            <a href='patients.php?page_prenatal=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
-                        <?php
-                        }
-                        //END OF PAGINATION
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='patients.php?page_prenatal=<?php echo ($page - 1) ?>&prenatal' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='patients.php?page_prenatal=<?php echo $i; ?>&prenatal' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='patients.php?page_prenatal=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -833,7 +836,7 @@ hide_content();
                                 </button>
                             </li>
                         </ul>
-                <?php
+                    <?php
                     }
                     //PAGINATION
                     $pr_query = "SELECT * FROM postnatal";
@@ -843,23 +846,23 @@ hide_content();
                     $total_page = ceil($total_record / $num_per_page);
                     ?>
                     <!-- <div class="pagination"> -->
-                        <?php
-                        if ($page > 1) {
-                        ?>
-                            <a href='patients.php?page_postnatal=<?php echo ($page - 1) ?>&postnatal' class="pagination_previous">Previous</a>
-                        <?php
-                        }
-                        for ($i = 1; $i <= $total_page; $i++) {
-                        ?>
-                            <a href='patients.php?page_postnatal=<?php echo $i; ?>&postnatal' class="pagination_number"><?php echo $i; ?></a>
-                        <?php
-                        }
-                        if ($page < $total_page) {
-                        ?>
-                            <a href='patients.php?page_postnatal=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
-                        <?php
-                        }
-                        //END OF PAGINATION
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='patients.php?page_postnatal=<?php echo ($page - 1) ?>&postnatal' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='patients.php?page_postnatal=<?php echo $i; ?>&postnatal' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='patients.php?page_postnatal=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -972,7 +975,7 @@ hide_content();
                                 </button>
                             </li>
                         </ul>
-                <?php
+                    <?php
                     }
                     //PAGINATION
                     $pr_query = "SELECT * FROM search_destroy";
@@ -982,23 +985,23 @@ hide_content();
                     $total_page = ceil($total_record / $num_per_page);
                     ?>
                     <!-- <div class="pagination"> -->
-                        <?php
-                        if ($page > 1) {
-                        ?>
-                            <a href='patients.php?page_searchdestroy=<?php echo ($page - 1) ?>&searchdestroy' class="pagination_previous">Previous</a>
-                        <?php
-                        }
-                        for ($i = 1; $i <= $total_page; $i++) {
-                        ?>
-                            <a href='patients.php?page_searchdestroy=<?php echo $i; ?>&searchdestroy' class="pagination_number"><?php echo $i; ?></a>
-                        <?php
-                        }
-                        if ($page < $total_page) {
-                        ?>
-                            <a href='patients.php?page_searchdestroy=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
-                        <?php
-                        }
-                        //END OF PAGINATION
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='patients.php?page_searchdestroy=<?php echo ($page - 1) ?>&searchdestroy' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='patients.php?page_searchdestroy=<?php echo $i; ?>&searchdestroy' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='patients.php?page_searchdestroy=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->
@@ -1111,7 +1114,7 @@ hide_content();
                                 </button>
                             </li>
                         </ul>
-                <?php
+                    <?php
                     }
                     //PAGINATION
                     $pr_query = "SELECT * FROM early_childhood";
@@ -1121,23 +1124,23 @@ hide_content();
                     $total_page = ceil($total_record / $num_per_page);
                     ?>
                     <!-- <div class="pagination"> -->
-                        <?php
-                        if ($page > 1) {
-                        ?>
-                            <a href='patients.php?page_earlychildhood=<?php echo ($page - 1) ?>&earlychildhood' class="pagination_previous">Previous</a>
-                        <?php
-                        }
-                        for ($i = 1; $i <= $total_page; $i++) {
-                        ?>
-                            <a href='patients.php?page_earlychildhood=<?php echo $i; ?>&earlychildhood' class="pagination_number"><?php echo $i; ?></a>
-                        <?php
-                        }
-                        if ($page < $total_page) {
-                        ?>
-                            <a href='patients.php?page_earlychildhood=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
-                        <?php
-                        }
-                        //END OF PAGINATION
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='patients.php?page_earlychildhood=<?php echo ($page - 1) ?>&earlychildhood' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='patients.php?page_earlychildhood=<?php echo $i; ?>&earlychildhood' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='patients.php?page_earlychildhood=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
                 }
                 ?>
                 <!--End of Query -->

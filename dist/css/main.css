@@ -373,6 +373,7 @@ input[type=range] {
 }
 
 .modal {
+  z-index: 50 !important;
   max-width: 100vw !important;
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25) !important;
   padding: unset !important;
@@ -387,6 +388,7 @@ input[type=range] {
 }
 
 .blocker {
+  z-index: 100 !important;
   background: rgba(236, 252, 242, 0.75) !important;
 }
 
@@ -1213,19 +1215,26 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   color: #909087;
 }
 
+.scroll-down header {
+  transform: translate3d(0, -100%, 0);
+}
+
 .navbar {
   height: 5rem;
   position: -webkit-sticky;
-  position: sticky;
+  position: fixed;
   top: 0;
   z-index: 1;
   background: #ffffff;
+  width: 85%;
+  left: 15%;
+  transition: all 300ms ease-in-out;
 }
 
 .navigation {
   display: flex;
   align-items: center;
-  padding-block: 2rem;
+  padding-top: 2rem;
   box-sizing: border-box;
 }
 @media (max-width: 30rem) {
@@ -1235,6 +1244,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .navigation__title {
   margin-right: auto;
+  margin-left: 1.5rem;
 }
 .navigation__search {
   margin-right: 1.25rem;
@@ -1437,6 +1447,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   min-height: calc(100vh - 50px);
   margin: 1.25rem;
   box-sizing: border-box;
+  z-index: 2;
   border-radius: 1.5vw;
   background: #fbfbfb;
   width: 13rem;
@@ -1459,7 +1470,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .sidebar__list {
   display: flex;
   flex-direction: column;
-  margin-top: 3.12rem;
   width: calc(100% - 2rem);
   -webkit-padding-start: unset;
   padding-inline-start: unset;
@@ -1468,6 +1478,13 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .sidebar__list {
     width: 100%;
   }
+}
+.sidebar__title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  line-height: 1.1;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 }
 .sidebar__line {
   border-width: 100%;
@@ -1518,7 +1535,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   background: #ecfcf2;
   font-weight: 600;
 }
-.sidebar__item:hover path, .sidebar__item:focus path {
+.sidebar__item:hover path,
+.sidebar__item:hover circle, .sidebar__item:focus path,
+.sidebar__item:focus circle {
   fill: #034a23;
 }
 .sidebar__item:hover .sidebar__caption, .sidebar__item:focus .sidebar__caption {
@@ -1532,7 +1551,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline-block;
   vertical-align: middle;
 }
-.sidebar__icon path {
+.sidebar__icon path,
+.sidebar__icon circle {
   fill: #414134;
 }
 .sidebar__link {
@@ -3022,7 +3042,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .grid .navbar,
 .grid main {
-  padding-right: 5vw;
+  padding-right: 3vw;
   padding-left: 1rem;
 }
 

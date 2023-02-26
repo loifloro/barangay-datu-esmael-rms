@@ -87,6 +87,9 @@ if (mysqli_num_rows($query_run2) > 0) {
                     </button>
                 </form>
             </li>
+            <li class="sidebar__title">
+                Brgy. Datu Esmael Patient Record System
+            </li>
             <li class="sidebar__item" id="dashboard_sidebar">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

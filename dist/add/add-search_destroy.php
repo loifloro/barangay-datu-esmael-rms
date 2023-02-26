@@ -47,6 +47,9 @@ hide_content_forms();
                     </button>
                 </form>
             </li>
+            <li class="sidebar__title">
+                Brgy. Datu Esmael Patient Record System
+            </li>
             <li class="sidebar__item">
                 <a href="../dashboard.php" class="sidebar__link">
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -160,15 +163,15 @@ hide_content_forms();
             <form action="../includes/add_query.php" method="POST" class="add-search_destroy__form">
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-email">Username (optional)</label>
-                    <input type="text" name="search_destroy-email" id="search_destroy-email"  value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
+                    <input type="text" name="search_destroy-email" id="search_destroy-email" value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-barangay">Name of Barangay *</label>
-                    <input type="text" name="search_destroy-barangay" id="search_destroy-barangay"  value="<?php echo isset($_GET['barangay']) ? $_GET['barangay'] : ''; ?>" required>
+                    <input type="text" name="search_destroy-barangay" id="search_destroy-barangay" value="<?php echo isset($_GET['barangay']) ? $_GET['barangay'] : ''; ?>" required>
                 </div>
                 <div class="add-search_destroy__form-item"> <!--added-->
                     <label for="search_destroy-city">City *</label>
-                    <input type="text" name="search_destroy-city" id="search_destroy-barangay"  value="<?php echo isset($_GET['city']) ? $_GET['city'] : ''; ?>" required>
+                    <input type="text" name="search_destroy-city" id="search_destroy-barangay" value="<?php echo isset($_GET['city']) ? $_GET['city'] : ''; ?>" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-purok">Purok/Block Coverage *</label>
@@ -192,7 +195,7 @@ hide_content_forms();
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-owner_fname">Owner First Name *</label>
-                    <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner"  value="<?php echo isset($_GET['fname']) ? $_GET['fname'] : ''; ?>" required>
+                    <input type="text" name="search_destroy-owner_fname" id="search_destroy-owner" value="<?php echo isset($_GET['fname']) ? $_GET['fname'] : ''; ?>" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-owner_mname">Owner Middle Name</label>
@@ -200,11 +203,11 @@ hide_content_forms();
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-owner_lname">Owner Last Name *</label>
-                    <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner"  value="<?php echo isset($_GET['lname']) ? $_GET['lname'] : ''; ?>" required>
+                    <input type="text" name="search_destroy-owner_lname" id="search_destroy-owner" value="<?php echo isset($_GET['lname']) ? $_GET['lname'] : ''; ?>" required>
                 </div>
                 <div class="add-search_destroy__form-item">
                     <label for="search_destroy-date">Birthdate *</label>
-                    <input type="date" name="search_destroy-bdate" id="search_destroy-date"  value="<?php echo isset($_GET['bday']) ? $_GET['bday'] : ''; ?>" required>
+                    <input type="date" name="search_destroy-bdate" id="search_destroy-date" value="<?php echo isset($_GET['bday']) ? $_GET['bday'] : ''; ?>" required>
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
                     <label for="search_destroy-sex">Gender *</label>
