@@ -1,3 +1,26 @@
+const body = document.body;
+let lastScroll = 0;
+
+window.addEventListener("scroll", () => {
+  const currentScroll = window.pageYOffset;
+  if (currentScroll <= 0) {
+    body.classList.remove("scroll-up");
+    return;
+  }
+
+  if (currentScroll > lastScroll && !body.classList.contains("scroll-down")) {
+    body.classList.remove("scroll-up");
+    body.classList.add("scroll-down");
+  } else if (
+    currentScroll < lastScroll &&
+    body.classList.contains("scroll-down")
+  ) {
+    body.classList.remove("scroll-down");
+    body.classList.add("scroll-up");
+  }
+  lastScroll = currentScroll;
+});
+
 const navMenu = document.getElementById("hamburger-menu");
 const sideBar = document.getElementById("sidebar");
 navMenu.addEventListener("click", () => {
@@ -69,7 +92,7 @@ function passwordToggle(id, hide, show) {
   }
 }
 
-// 'Add Button' on the navbar
+// 'Add Record/Button' on the navbar
 const navBar = document.getElementById("nav-btn");
 navBar.addEventListener("click", () => {
   const { value: service } = Swal.fire({
@@ -113,9 +136,145 @@ navBar.addEventListener("click", () => {
   });
 });
 
+// 'Add Record/Button' on the profile page
+function addNewRecord(
+  firstname,
+  lastname,
+  phone,
+  birthday,
+  sex,
+  street,
+  city,
+  barangay,
+  username
+) {
+  const { value: service } = Swal.fire({
+    icon: "question",
+    title: "Select a service",
+    input: "select",
+    inputOptions: {
+      deworming: "Deworming",
+      consultation: "Consultation",
+      childhood: "Childhood Care",
+      prenatal: "Pre-natal",
+      postnatal: "Post-natal",
+      searchDestroy: "Search and destroy",
+    },
+    showCancelButton: true,
+    inputValidator: (value) => {
+      return new Promise((resolve) => {
+        if (value === "deworming") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-deworming.php?fname=" +
+            firstname +
+            "&lname=" +
+            lastname +
+            "&phone=" +
+            phone +
+            "&bday=" +
+            birthday +
+            "&sex=" +
+            sex +
+            "&address=" +
+            street +
+            "&city=" +
+            city +
+            "&barangay=" +
+            barangay +
+            "&username=" +
+            username;
+        } else if (value === "consultation") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-consultation.php?fname=" +
+            firstname +
+            "&lname=" +
+            lastname +
+            "&phone=" +
+            phone +
+            "&bday=" +
+            birthday +
+            "&sex=" +
+            sex +
+            "&address=" +
+            street +
+            "&city=" +
+            city +
+            "&barangay=" +
+            barangay +
+            "&username=" +
+            username;
+        } else if (value === "childhood") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-early_childhood.php?fname=" +
+            firstname +
+            "&lname=" +
+            lastname +
+            "&phone=" +
+            phone +
+            "&bday=" +
+            birthday +
+            "&sex=" +
+            sex +
+            "&address=" +
+            street +
+            "&city=" +
+            city +
+            "&barangay=" +
+            barangay +
+            "&username=" +
+            username;
+        } else if (value === "prenatal") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-prenatal.php?fname=" +
+            firstname +
+            "&lname=" +
+            lastname +
+            "&phone=" +
+            phone +
+            "&bday=" +
+            birthday +
+            "&sex=" +
+            sex +
+            "&address=" +
+            street +
+            "&city=" +
+            city +
+            "&barangay=" +
+            barangay +
+            "&username=" +
+            username;
+        } else if (value === "postnatal") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-postnatal.php?fname=" +
+            firstname +
+            "&lname=" +
+            lastname +
+            "&phone=" +
+            phone +
+            "&bday=" +
+            birthday +
+            "&sex=" +
+            sex +
+            "&address=" +
+            street +
+            "&city=" +
+            city +
+            "&barangay=" +
+            barangay +
+            "&username=" +
+            username;
+        } else if (value === "searchDestroy") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php";
+        }
+      });
+    },
+  });
+}
+
 function forgotPassword() {
   const { value: email } = Swal.fire({
-    title: "Input email address",
+    title: "Input username",
     input: "text",
     inputLabel: "Your email address",
     inputPlaceholder: "Ex. elle@cvsu.com",
@@ -308,8 +467,8 @@ function addUser() {
   Swal.fire({
     title: "Add new user",
     text: "Please fill out all input input fields",
-    html: ` <input type="email" name="bhw-contact" id="bhw-contact" class="swal2-input" required placeholder='Default email'>
-                        <input type="password" name="bhw-pass" id="bhw-password" maxlength="11" min="1" class="swal2-input" required placeholder='Default password'>
+    html: ` <input type="text" name="bhw-contact" id="bhw-contact" class="swal2-input" required placeholder='Default email'>
+                        <input type="password" name="bhw-pass" id="bhw-password"  class="swal2-input" required placeholder='Default password'>
                         <select class="swal2-input" name="report__service" id="role" required>
                             <option selected disabled> Choose a role </option>
                             <option value="Barangay Health Worker"> Barangay Health Worker </option>
@@ -324,10 +483,9 @@ function addUser() {
       const defaultPassword =
         Swal.getPopup().querySelector("#bhw-password").value;
       const role = Swal.getPopup().querySelector("#role").value;
-
       if (!defaultUsername || !defaultPassword || !role) {
         Swal.showValidationMessage(`Please complete fields`);
-      } else if (password.length < 8) {
+      } else if (defaultPassword.length < 8) {
         Swal.showValidationMessage(`Password lenght is too short`);
       }
       return {
