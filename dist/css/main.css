@@ -4218,6 +4218,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     max-width: 19rem;
   }
 }
+.login__title {
+  font-size: clamp(1.19rem, 0.4rem + 2vw, 1.6rem);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
 .login__title, .login__desc {
   text-align: center;
 }
