@@ -265,7 +265,24 @@ function addNewRecord(
             username;
         } else if (value === "searchDestroy") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php";
+            "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php?fname=" +
+            firstname +
+            "&lname=" +
+            lastname +
+            "&phone=" +
+            phone +
+            "&bday=" +
+            birthday +
+            "&sex=" +
+            sex +
+            "&address=" +
+            street +
+            "&city=" +
+            city +
+            "&barangay=" +
+            barangay +
+            "&username=" +
+            username;
         }
       });
     },
