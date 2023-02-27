@@ -193,6 +193,17 @@ input {
     scroll-behavior: auto !important;
   }
 }
+:root {
+  --black-1: #212529;
+  --black-2: #414134;
+  --black-3: #909087;
+  --white-1: #ffffff;
+  --white-2: #fbfbfb;
+  --white-3: #f0f0f0;
+  --green-1: #034a23;
+  --active-green: #ecfcf2;
+}
+
 /* ----------------------------------------------------------------------------------------------------
 Super Form Reset
 A couple of things to watch out for:
@@ -237,7 +248,7 @@ button + svg {
 }
 
 label {
-  color: #414134;
+  color: var(--black-2);
 }
 
 /* Box Sizing Reset
@@ -268,7 +279,7 @@ select {
   padding-left: 0.5rem;
   font-weight: 600;
   height: 2.5rem;
-  background: #f0f0f0;
+  background: var(--white-3);
   border-radius: 0.5vw;
   letter-spacing: 0.05rem;
   transition: all ease 600ms;
@@ -302,12 +313,12 @@ input[type=week]:active,
 input[type=week]:focus,
 select:active,
 select:focus {
-  outline: #034a23 solid 1px;
-  background: #ffffff;
+  outline: var(--green-1) solid 1px;
+  background: var(--white-1);
 }
 
 textarea {
-  background: #f0f0f0;
+  background: var(--white-3);
   border-radius: 0.5vw;
   letter-spacing: 0.05rem;
   padding: 0.5rem;
@@ -316,8 +327,8 @@ textarea {
   width: 50%;
 }
 textarea:active, textarea:focus {
-  outline: #034a23 solid 1px;
-  background: #ffffff;
+  outline: var(--green-1) solid 1px;
+  background: var(--white-1);
 }
 @media (max-width: 45rem) {
   textarea {
@@ -331,7 +342,7 @@ input[type=checkbox],
 input[type=radio] {
   width: 0.8rem;
   height: 0.8rem;
-  accent-color: #034a23;
+  accent-color: var(--green-1);
 }
 
 /* Placeholder
@@ -363,7 +374,7 @@ form {
 }
 
 input[type=range] {
-  accent-color: #034a23;
+  accent-color: var(--green-1);
   width: 100%;
 }
 @media (max-width: 48.1rem) {
@@ -398,7 +409,7 @@ input[type=range] {
 
 .swal2-confirm.swal2-styled {
   background-color: unset !important;
-  background: #034a23 !important;
+  background: var(--green-1) !important;
 }
 .swal2-confirm.swal2-styled:focus {
   box-shadow: 0 0 0 3px #87ffb3 !important;
@@ -413,22 +424,22 @@ input[type=range] {
 }
 
 .toast.swal2-icon-success {
-  color: #ffffff;
-  background-color: #034a23 !important;
+  color: var(--white-1);
+  background-color: var(--green-1) !important;
 }
 
 .logout.swal2-icon-success {
-  color: #ffffff;
+  color: var(--white-1);
   background-color: #730808 !important;
 }
 
 .toast.swal2-icon-error {
-  color: #ffffff;
+  color: var(--white-1);
   background-color: #730808 !important;
 }
 
 .no-record.swal2-icon-info {
-  color: #ffffff;
+  color: var(--white-1);
   background-color: #730808 !important;
 }
 
@@ -468,7 +479,7 @@ h1,
 .h1 {
   font-size: clamp(2rem, 1rem + 2vw, 2.45rem);
   font-weight: 700;
-  color: #212529;
+  color: var(--black-1);
   line-height: 1;
 }
 
@@ -476,7 +487,7 @@ h2,
 .h2 {
   font-size: clamp(1.6rem, 0.6rem + 2vw, 1.9rem);
   font-weight: 700;
-  color: #212529;
+  color: var(--black-1);
   line-height: 1.2;
 }
 
@@ -502,7 +513,7 @@ p,
 .p {
   font-size: 1rem;
   font-weight: 400;
-  color: #414134;
+  color: var(--black-2);
 }
 
 button {
@@ -514,7 +525,7 @@ a,
 .view-profile__btn {
   font-size: 0.8rem;
   transition: all ease-in-out 600ms;
-  color: #034a23;
+  color: var(--green-1);
 }
 a:hover,
 .back__btn:hover,
@@ -552,8 +563,8 @@ button.btn-print {
 button.btn-green {
   /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
   /* Button Animations */
-  background-color: #034a23;
-  color: #ffffff;
+  background-color: var(--green-1);
+  color: var(--white-1);
   display: inline-block;
   vertical-align: middle;
   transform: perspective(1px) translateZ(0);
@@ -571,24 +582,24 @@ button.btn-green svg {
   width: 1.1rem;
 }
 button.btn-green svg path {
-  fill: #ffffff;
+  fill: var(--white-1);
 }
 button.btn-green p {
   display: inline;
   font: inherit;
-  color: #ffffff;
+  color: var(--white-1);
 }
 button.btn-green:focus, button.btn-green:hover, button.btn-green:active {
-  color: #034a23;
+  color: var(--green-1);
 }
 button.btn-green:focus p, button.btn-green:hover p, button.btn-green:active p {
-  color: #034a23;
+  color: var(--green-1);
 }
 button.btn-green:focus svg path, button.btn-green:hover svg path, button.btn-green:active svg path {
-  fill: #034a23;
+  fill: var(--green-1);
 }
 button.btn-green:before {
-  background: #ecfcf2;
+  background: var(--active-green);
   border-radius: 0.5vw;
   content: "";
   position: absolute;
@@ -605,13 +616,13 @@ button.btn-green:before {
 }
 button.btn-green:hover:before, button.btn-green:focus:before, button.btn-green:active:before {
   transform: scaleX(1);
-  color: #034a23;
+  color: var(--green-1);
 }
 button.btn-red {
   /* @mixin button-animation ($bg, $color, $hover-text, $hover-background) */
   /* Button Animations */
-  background-color: #ecfcf2;
-  color: #034a23;
+  background-color: var(--active-green);
+  color: var(--green-1);
   display: inline-block;
   vertical-align: middle;
   transform: perspective(1px) translateZ(0);
@@ -629,21 +640,21 @@ button.btn-red svg {
   width: 1.1rem;
 }
 button.btn-red svg path {
-  fill: #034a23;
+  fill: var(--green-1);
 }
 button.btn-red p {
   display: inline;
   font: inherit;
-  color: #034a23;
+  color: var(--green-1);
 }
 button.btn-red:focus, button.btn-red:hover, button.btn-red:active {
-  color: #ffffff;
+  color: var(--white-1);
 }
 button.btn-red:focus p, button.btn-red:hover p, button.btn-red:active p {
-  color: #ffffff;
+  color: var(--white-1);
 }
 button.btn-red:focus svg path, button.btn-red:hover svg path, button.btn-red:active svg path {
-  fill: #ffffff;
+  fill: var(--white-1);
 }
 button.btn-red:before {
   background: #730808;
@@ -663,7 +674,7 @@ button.btn-red:before {
 }
 button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:before {
   transform: scaleX(1);
-  color: #034a23;
+  color: var(--green-1);
 }
 
 .delete-icon,
@@ -693,18 +704,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline;
 }
 .sort-icon path {
-  fill: #909087;
+  fill: var(--black-3);
 }
 .sort-icon:hover, .sort-icon:focus, .sort-icon:active {
   cursor: pointer;
 }
 .sort-icon:hover path, .sort-icon:focus path, .sort-icon:active path {
-  fill: #414134;
+  fill: var(--black-2);
 }
 
 .delete-icon path,
 .archive-icon path {
-  fill: #909087;
+  fill: var(--black-3);
 }
 .delete-icon:hover, .delete-icon:focus, .delete-icon:active,
 .archive-icon:hover,
@@ -720,23 +731,23 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 
 .edit-icon path {
-  fill: #909087;
+  fill: var(--black-3);
 }
 .edit-icon:hover, .edit-icon:focus, .edit-icon:active {
   cursor: pointer;
 }
 .edit-icon:hover path, .edit-icon:focus path, .edit-icon:active path {
-  fill: #034a23;
+  fill: var(--green-1);
 }
 
 .password-show path {
-  fill: #212529;
+  fill: var(--black-1);
 }
 .password-show:hover, .password-show:focus, .password-show:active {
   cursor: pointer;
 }
 .password-show:hover path, .password-show:focus path, .password-show:active path {
-  fill: #034a23;
+  fill: var(--green-1);
 }
 
 .password-hide {
@@ -747,7 +758,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   cursor: pointer;
 }
 .password-hide:hover path, .password-hide:focus path, .password-hide:active path {
-  stroke: #034a23;
+  stroke: var(--green-1);
 }
 
 .password-icon--hide {
@@ -765,8 +776,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   border-radius: 0.5vw;
   height: 2.5rem;
   display: block;
-  background: #034a23;
-  color: #ffffff;
+  background: var(--green-1);
+  color: var(--white-1);
   font-size: 1em;
   transition: all 0.4s;
   cursor: pointer;
@@ -784,8 +795,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .js .input-file:focus + .input-file-trigger,
 .js .input-file-trigger:hover,
 .js .input-file-trigger:focus {
-  background: #ecfcf2;
-  color: #034a23;
+  background: var(--active-green);
+  color: var(--green-1);
 }
 
 .file-return {
@@ -859,9 +870,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .services__card {
   display: grid;
   align-content: flex-end;
-  background: #ffffff;
+  background: var(--white-1);
   border-radius: 1vw;
-  border: 3px solid #ecfcf2;
+  border: 3px solid var(--active-green);
   padding: 1rem;
   max-width: 18rem;
   height: 10rem;
@@ -921,15 +932,15 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 
 .recent-updates__card {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: 1.75rem;
   box-sizing: border-box;
 }
 .recent-updates__card .editor__details {
-  color: #212529;
+  color: var(--black-1);
   line-height: 1.2;
   text-align: justify;
   margin-bottom: 1rem;
@@ -948,21 +959,21 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 
 .patient-profile__card {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: 1.5rem 2rem;
   box-sizing: border-box;
-  color: #212529;
+  color: var(--black-1);
   width: 100%;
   margin-bottom: 2rem;
 }
 @media (max-width: 48.1rem) {
   .patient-profile__card {
-    background: #ffffff;
+    background: var(--white-1);
     box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-    border: #ecfcf2 1px solid;
+    border: var(--active-green) 1px solid;
     border-radius: 1vw;
     padding: 1.5rem 1rem;
     box-sizing: border-box;
@@ -1006,13 +1017,13 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .patient-profile__category {
   display: block;
   font-size: 0.8rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .patient-profile__name {
   margin-bottom: 0;
 }
 .patient-profile__contact {
-  color: #909087;
+  color: var(--black-3);
 }
 
 .medical-history__service__date-availed {
@@ -1020,9 +1031,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .medical-history__card {
   overflow: hidden;
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -1040,7 +1051,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-inline-start: unset;
   padding: 1rem 1.5rem;
   margin-block: 0;
-  background: #fbfbfb;
+  background: var(--white-2);
   align-items: center;
 }
 @media (max-width: 48.1rem) {
@@ -1049,19 +1060,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .medical-history__card ul:nth-child(2n+1) {
-  background: #ffffff;
+  background: var(--white-1);
 }
 .medical-history__header {
-  color: #414134;
+  color: var(--black-2);
 }
 .medical-history a {
   font: unset;
 }
 
 .edit-history__card {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -1070,7 +1081,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-history__header {
   background: #207647;
   padding: 1rem 1.5rem;
-  color: #ffffff;
+  color: var(--white-1);
   vertical-align: middle;
 }
 .edit-history__header svg {
@@ -1089,20 +1100,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding-inline-start: unset;
   margin-block: auto;
   padding: 0.5rem;
-  color: #414134;
+  color: var(--black-2);
 }
 .edit-history hr {
   margin-block: 1.5rem;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
 }
 .edit-history__editor {
-  color: #034a23;
+  color: var(--green-1);
 }
 
 .backup__card {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -1118,46 +1129,46 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-block: 0;
 }
 .backup__attributes {
-  color: #909087;
+  color: var(--black-3);
 }
 .backup__info {
-  background: #fbfbfb;
-  color: #414134;
+  background: var(--white-2);
+  color: var(--black-2);
 }
 .backup__name {
-  color: #212529;
+  color: var(--black-1);
 }
 .backup__status--available {
   font-size: 0.8rem;
-  color: #034a23;
-  background: #ecfcf2;
+  color: var(--green-1);
+  background: var(--active-green);
   padding: 0.3rem 1rem;
   border-radius: 100vw;
 }
 .backup__status--deleted {
   font-size: 0.8rem;
-  color: #ffffff;
+  color: var(--white-1);
   background: #730808;
   padding: 0.3rem 1rem;
   border-radius: 100vw;
 }
 
 .user-profile__card {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: 1.5rem 2rem;
   box-sizing: border-box;
-  color: #212529;
+  color: var(--black-1);
   width: 100%;
   margin-bottom: 2rem;
 }
 @media (max-width: 48.1rem) {
   .user-profile__card {
-    background: #ffffff;
+    background: var(--white-1);
     box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-    border: #ecfcf2 1px solid;
+    border: var(--active-green) 1px solid;
     border-radius: 1vw;
     padding: 1.5rem 1rem;
     box-sizing: border-box;
@@ -1206,13 +1217,13 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .user-profile__category {
   display: block;
   font-size: 0.8rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .user-profile__name {
   margin-bottom: 0;
 }
 .user-profile__contact {
-  color: #909087;
+  color: var(--black-3);
 }
 
 @media (min-width: 30.1rem) {
@@ -1269,9 +1280,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .navigation__search {
   margin-right: 1.25rem;
-  background: #fbfbfb;
+  background: var(--white-2);
   border-radius: 0.5vw;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
 }
 @media (max-width: 30.1rem) {
   .navigation__search {
@@ -1285,8 +1296,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-right: unset;
 }
 .navigation__search:hover, .navigation__search:focus, .navigation__search:active {
-  outline: #034a23 solid 1px;
-  background: #ffffff;
+  outline: var(--green-1) solid 1px;
+  background: var(--white-1);
 }
 .navigation__search__bar {
   background: none !important;
@@ -1363,14 +1374,14 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: 0.3rem;
   width: 1.8rem;
   height: 1.8rem;
-  stroke: #909087;
+  stroke: var(--black-3);
   fill: none;
   transition: all ease 600ms;
 }
 .navigation__search__icon:hover, .navigation__search__icon:focus, .navigation__search__icon:active {
   cursor: pointer;
-  background-color: #034a23;
-  stroke: #ffffff;
+  background-color: var(--green-1);
+  stroke: var(--white-1);
   fill: transparent;
   width: 2rem;
   height: 2rem;
@@ -1421,7 +1432,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   position: absolute;
   height: 0.3rem;
   width: 100%;
-  background: #034a23;
+  background: var(--green-1);
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -1470,11 +1481,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   box-sizing: border-box;
   z-index: 2;
   border-radius: 1.5vw;
-  background: #fbfbfb;
+  background: var(--white-2);
   width: 13rem;
 }
 .sidebar > * {
-  color: #414134;
+  color: var(--black-2);
 }
 @media (max-width: 80.1rem) {
   .sidebar {
@@ -1516,7 +1527,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .sidebar__line {
   border-width: 100%;
-  color: #909087;
+  color: var(--black-3);
   margin-left: 0;
   margin-right: 0;
 }
@@ -1542,7 +1553,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .sidebar__item--active {
-  background: #f0f0f0;
+  background: var(--white-3);
 }
 .sidebar__item--active .sidebar__caption {
   font-weight: 600;
@@ -1560,16 +1571,16 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .sidebar__item:hover, .sidebar__item:focus {
   cursor: pointer;
-  background: #ecfcf2;
+  background: var(--active-green);
   font-weight: 600;
 }
 .sidebar__item:hover path,
 .sidebar__item:hover circle, .sidebar__item:focus path,
 .sidebar__item:focus circle {
-  fill: #034a23;
+  fill: var(--green-1);
 }
 .sidebar__item:hover .sidebar__caption, .sidebar__item:focus .sidebar__caption {
-  color: #034a23;
+  color: var(--green-1);
   font-weight: 600;
 }
 .sidebar__icon {
@@ -1581,7 +1592,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .sidebar__icon path,
 .sidebar__icon circle {
-  fill: #414134;
+  fill: var(--black-2);
 }
 .sidebar__link {
   all: unset;
@@ -1657,9 +1668,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .patient__table,
 .search-results__table {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -1725,20 +1736,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .patient__table ul:nth-child(2n+1),
 .search-results__table ul:nth-child(2n+1) {
-  background: #ffffff;
+  background: var(--white-1);
 }
 .patient__attributes,
 .search-results__attributes {
-  color: #909087;
+  color: var(--black-3);
 }
 .patient__info,
 .search-results__info {
-  background: #fbfbfb;
-  color: #414134;
+  background: var(--white-2);
+  color: var(--black-2);
 }
 .patient__name,
 .search-results__name {
-  color: #212529;
+  color: var(--black-1);
 }
 .patient__name a,
 .search-results__name a {
@@ -1753,8 +1764,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .patient__availed-service--deworming,
 .search-results__availed-service--deworming {
   font-size: 0.8rem;
-  color: #034a23;
-  background: #ecfcf2;
+  color: var(--green-1);
+  background: var(--active-green);
   padding: 0.3rem 0.8rem;
   border-radius: 100vw;
 }
@@ -1777,8 +1788,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .patient__availed-service--consultation,
 .search-results__availed-service--consultation {
   font-size: 0.8rem;
-  color: #ecfcf2;
-  background: #034a23;
+  color: var(--active-green);
+  background: var(--green-1);
   padding: 0.3rem 0.8rem;
   border-radius: 100vw;
 }
@@ -1786,9 +1797,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .backup__table {
   display: none;
   margin-top: 2rem;
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -1841,29 +1852,29 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .backup__table ul:nth-child(2n+1) {
-  background: #ffffff;
+  background: var(--white-1);
 }
 .backup__attributes {
-  color: #909087;
+  color: var(--black-3);
   font-size: 0.85rem;
 }
 .backup__info {
-  background: #fbfbfb;
-  color: #414134;
+  background: var(--white-2);
+  color: var(--black-2);
 }
 .backup__name {
-  color: #212529;
+  color: var(--black-1);
 }
 .backup__status--available {
   font-size: 0.8rem;
-  color: #034a23;
-  background: #ecfcf2;
+  color: var(--green-1);
+  background: var(--active-green);
   padding: 0.3rem 1rem;
   border-radius: 100vw;
 }
 .backup__status--deleted {
   font-size: 0.8rem;
-  color: #ffffff;
+  color: var(--white-1);
   background: #730808;
   padding: 0.3rem 1rem;
   border-radius: 100vw;
@@ -1878,9 +1889,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .bhw-account__table {
   margin-block: 1rem;
   overflow: hidden;
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -1925,17 +1936,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   justify-self: center;
 }
 .bhw-account__table ul:nth-child(2n+1) {
-  background: #ffffff;
+  background: var(--white-1);
 }
 .bhw-account__header {
-  color: #909087;
+  color: var(--black-3);
 }
 .bhw-account__info {
-  background: #fbfbfb;
-  color: #414134;
+  background: var(--white-2);
+  color: var(--black-2);
 }
 .bhw-account__name {
-  color: #212529;
+  color: var(--black-1);
 }
 .bhw-account__attributes__item {
   display: flex;
@@ -1947,9 +1958,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .services__table {
   display: none;
   margin-block: 2rem;
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -2008,20 +2019,20 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-top: 1rem;
 }
 .services__table ul:nth-child(2n+1) {
-  background: #ffffff;
+  background: var(--white-1);
 }
 .services__header {
-  color: #909087 !important;
+  color: var(--black-3) !important;
   font-size: 0.85rem;
   border-radius: 1vw;
 }
 .services__info {
-  background: #fbfbfb;
+  background: var(--white-2);
   overflow: hidden;
-  color: #414134;
+  color: var(--black-2);
 }
 .services__name, .services__attributes__item {
-  color: #212529;
+  color: var(--black-1);
 }
 .services__name > *, .services__attributes__item > * {
   vertical-align: middle;
@@ -2050,9 +2061,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 
 .recent-update__table {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -2096,23 +2107,23 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__table ul:nth-child(2n+1) {
-  background: #ffffff;
+  background: var(--white-1);
 }
 .recent-update__attributes {
-  color: #909087;
+  color: var(--black-3);
 }
 .recent-update__header {
-  color: #909087 !important;
+  color: var(--black-3) !important;
   font-size: 0.85rem;
   border-radius: 1vw;
 }
 .recent-update__info {
-  background: #fbfbfb;
+  background: var(--white-2);
   overflow: hidden;
-  color: #414134;
+  color: var(--black-2);
 }
 .recent-update__attributes__item {
-  color: #909087;
+  color: var(--black-3);
 }
 .recent-update__attributes__item > * {
   vertical-align: middle;
@@ -2125,7 +2136,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   letter-spacing: 0.2px;
 }
 .recent-update__details .name {
-  color: #414134;
+  color: var(--black-2);
   font-weight: 500;
 }
 .recent-update__details .update-activity {
@@ -2140,11 +2151,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .update-activity--delete {
-  color: #ffffff;
+  color: var(--white-1);
   background: #730808;
 }
 .recent-update__details .update-activity--edited {
-  color: #ffffff;
+  color: var(--white-1);
   background: #ff7b00;
 }
 @media (max-width: 48.1rem) {
@@ -2154,17 +2165,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .update-activity--added {
-  color: #ffffff;
-  background: #034a23;
+  color: var(--white-1);
+  background: var(--green-1);
 }
 @media (max-width: 48.1rem) {
   .recent-update__details .update-activity--added {
-    color: #034a23;
+    color: var(--green-1);
     background: none;
   }
 }
 .recent-update__details .update-activity--restore {
-  color: #ffffff;
+  color: var(--white-1);
   background: #207647;
 }
 @media (max-width: 48.1rem) {
@@ -2174,7 +2185,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .update-activity--archived {
-  color: #ffffff;
+  color: var(--white-1);
   background: #007f5f;
 }
 @media (max-width: 48.1rem) {
@@ -2184,7 +2195,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .edit-patient {
-  color: #212529;
+  color: var(--black-1);
   font-weight: 600;
 }
 .recent-update__details .service {
@@ -2200,7 +2211,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .service--deworming {
-  color: #ffffff;
+  color: var(--white-1);
   background: #730808;
 }
 @media (max-width: 48.1rem) {
@@ -2210,7 +2221,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .service--childhood {
-  color: #ffffff;
+  color: var(--white-1);
   background: #ff7b00;
 }
 @media (max-width: 48.1rem) {
@@ -2220,7 +2231,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .service--prenatal {
-  color: #ffffff;
+  color: var(--white-1);
   background: #104911;
 }
 @media (max-width: 48.1rem) {
@@ -2230,7 +2241,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .service--postnatal {
-  color: #ffffff;
+  color: var(--white-1);
   background: #e71d36;
 }
 @media (max-width: 48.1rem) {
@@ -2240,7 +2251,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__details .service--search {
-  color: #ffffff;
+  color: var(--white-1);
   background: #28947f;
 }
 @media (max-width: 48.1rem) {
@@ -2265,7 +2276,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__role .role--bhw {
-  color: #ffffff;
+  color: var(--white-1);
   background: #e71d36;
 }
 @media (max-width: 48.1rem) {
@@ -2275,7 +2286,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .recent-update__role .role--chn {
-  color: #ffffff;
+  color: var(--white-1);
   background: #893302;
 }
 @media (max-width: 48.1rem) {
@@ -2286,9 +2297,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 
 .masterlist__table {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -2330,17 +2341,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .masterlist__table ul:nth-child(2n+1) {
-  background: #ffffff;
+  background: var(--white-1);
 }
 .masterlist__attributes {
-  color: #909087;
+  color: var(--black-3);
 }
 .masterlist__info {
-  background: #fbfbfb;
-  color: #414134;
+  background: var(--white-2);
+  color: var(--black-2);
 }
 .masterlist__name {
-  color: #212529;
+  color: var(--black-1);
 }
 .masterlist__name a {
   font: unset;
@@ -2378,7 +2389,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .deworming-reports table,
 .deworming-reports td,
 .deworming-reports th {
-  border: 2px solid #ecfcf2;
+  border: 2px solid var(--active-green);
 }
 .deworming-reports__table {
   width: 100%;
@@ -2388,16 +2399,16 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .deworming-reports__table__header {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .deworming-reports__table thead > tr > th {
   font-weight: 300;
 }
 
 .deworming-report__table {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -2412,17 +2423,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-block: 0;
 }
 .deworming-report__header {
-  color: #909087;
+  color: var(--black-3);
 }
 .deworming-report__item {
-  background: #fbfbfb;
+  background: var(--white-2);
   border-radius: 0 0 1vw 1vw;
 }
 
 .search-and-destroy__record__table {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: none;
   box-sizing: border-box;
@@ -2437,10 +2448,10 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-block: 0;
 }
 .search-and-destroy__record__header {
-  color: #909087;
+  color: var(--black-3);
 }
 .search-and-destroy__record__item {
-  background: #fbfbfb;
+  background: var(--white-2);
   border-radius: 0 0 1vw 1vw;
 }
 .search-and-destroy__report {
@@ -2449,24 +2460,24 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .search-and-destroy__report__title {
   text-align: center;
-  color: #212529;
+  color: var(--black-1);
   font-weight: 600;
 }
 .search-and-destroy__report__summary {
   -webkit-padding-start: unset;
   padding-inline-start: unset;
-  color: #414134;
+  color: var(--black-2);
   font-size: 0.9rem;
 }
 .search-and-destroy__report__summary--value {
-  color: #212529;
+  color: var(--black-1);
   font-weight: 700;
   font-size: initial;
 }
 .search-and-destroy__report table,
 .search-and-destroy__report td,
 .search-and-destroy__report th {
-  border: 2px solid #ecfcf2;
+  border: 2px solid var(--active-green);
 }
 .search-and-destroy__report__table {
   width: 100%;
@@ -2475,7 +2486,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .search-and-destroy__report__table__header {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .search-and-destroy__report__table thead > tr > th {
   font-weight: 300;
@@ -2490,7 +2501,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   line-height: 1.6;
 }
 .search-and-destroy__report__table td {
-  color: #414134;
+  color: var(--black-2);
 }
 .search-and-destroy__report__table--date {
   width: 15% !important;
@@ -2502,7 +2513,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .prenatal__report__title {
   text-align: center;
-  color: #212529;
+  color: var(--black-1);
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1.1;
@@ -2579,7 +2590,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .consultation__report__title {
   text-align: center;
-  color: #212529;
+  color: var(--black-1);
   font-weight: 600;
   text-transform: uppercase;
   line-height: 1.1;
@@ -2643,7 +2654,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-bottom: 4rem;
 }
 .early__childhood__report__title > * {
-  color: #212529;
+  color: var(--black-1);
   font-weight: 600;
   line-height: 1.1;
 }
@@ -2665,7 +2676,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .early__childhood__report table,
 .early__childhood__report td,
 .early__childhood__report th {
-  border: 2px solid #ecfcf2;
+  border: 2px solid var(--active-green);
   border-collapse: collapse;
 }
 .early__childhood__report__table {
@@ -2675,7 +2686,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .early__childhood__report__table__header {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .early__childhood__report__table thead > tr > th {
   font-weight: 300;
@@ -2688,7 +2699,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   line-height: 1.6;
 }
 .early__childhood__report__table td {
-  color: #414134;
+  color: var(--black-2);
 }
 .early__childhood__report__table .width-10 {
   width: 10%;
@@ -2706,10 +2717,10 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 
 .value {
-  color: #212529;
+  color: var(--black-1);
   font-weight: 600;
   font-size: 1.2rem;
-  border-bottom: 1px solid #212529;
+  border-bottom: 1px solid var(--black-1);
   padding-bottom: 2px;
 }
 
@@ -3113,7 +3124,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     font-size: 10pt !important;
   }
   .value {
-    border-bottom: 1pt solid #212529;
+    border-bottom: 1pt solid var(--black-1);
   }
   .doh-image {
     width: 1in !important;
@@ -3215,7 +3226,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-child_care-female__form hr,
 .add-maternal_care__form hr {
   margin-block: 1.5rem;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
 }
 .add-deworming__form p,
 .add-consultation__form p,
@@ -3712,7 +3723,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-maternal_care__form-item .three-input label,
 .add-maternal_care__form-item .two-input label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
   text-align: center;
   margin-right: unset;
 }
@@ -4028,7 +4039,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-child_care-female__form-doses label,
 .add-maternal_care__form-doses label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .add-deworming__form-doses .checkbox-label,
 .add-consultation__form-doses .checkbox-label,
@@ -4040,7 +4051,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-child_care-female__form-doses .checkbox-label,
 .add-maternal_care__form-doses .checkbox-label {
   font-size: unset;
-  color: #414134;
+  color: var(--black-2);
 }
 .add-deworming__form-doses .dose-title,
 .add-consultation__form-doses .dose-title,
@@ -4077,7 +4088,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-child_care-female__form-doses .dose-indication,
 .add-maternal_care__form-doses .dose-indication {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
   max-width: 70%;
 }
 .add-deworming__form-doses--checkbox,
@@ -4228,7 +4239,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .add-user__form hr {
   margin-block: 1.5rem;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
   margin-inline: unset;
 }
 .add-user__form-btn {
@@ -4248,9 +4259,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .login__card {
   max-width: 60rem;
   width: 26rem;
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: 3rem;
   box-sizing: border-box;
@@ -4295,12 +4306,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .login .password {
   display: flex;
   width: 100%;
-  background: #f0f0f0;
+  background: var(--white-3);
   border-radius: 0.5vw;
 }
 .login .password:hover, .login .password:focus, .login .password:active {
-  outline: #034a23 solid 1px;
-  background: #ffffff;
+  outline: var(--green-1) solid 1px;
+  background: var(--white-1);
 }
 .login .password__bar__input {
   display: inline;
@@ -4417,7 +4428,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .dashboard .reports__input label {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .dashboard .reports__date {
   display: flex;
@@ -4439,9 +4450,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   width: 8.5rem;
 }
 .dashboard .reports__card {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: 2rem;
   box-sizing: border-box;
@@ -4458,11 +4469,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .dashboard .reports__card__accordion__title {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #212529;
+  color: var(--black-1);
   display: flex;
 }
 .dashboard .reports__card__accordion__title:hover {
-  color: #034a23;
+  color: var(--green-1);
   cursor: pointer;
 }
 .dashboard .reports__card__accordion__title::after {
@@ -4471,7 +4482,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   margin-left: auto;
 }
 .dashboard .reports__card__accordion--expand .reports__card__accordion__title {
-  color: #034a23;
+  color: var(--green-1);
   font-weight: 900;
 }
 .dashboard .reports__card__accordion--expand .reports__card__accordion__content {
@@ -4586,7 +4597,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-profile__form hr {
   margin-block: 1.5rem;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
 }
 .edit-profile__form p {
   margin-bottom: 2rem;
@@ -4683,7 +4694,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-profile__form-item .three-input label,
 .edit-profile__form-item .two-input label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
   text-align: center;
   margin-right: unset;
 }
@@ -4791,11 +4802,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-profile__form-doses label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .edit-profile__form-doses .checkbox-label {
   font-size: unset;
-  color: #414134;
+  color: var(--black-2);
 }
 .edit-profile__form-doses .dose-title {
   margin-bottom: unset;
@@ -4808,7 +4819,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-profile__form-doses .dose-indication {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
   max-width: 70%;
 }
 .edit-profile__form-doses--checkbox {
@@ -4887,7 +4898,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-bhw__form hr {
   margin-block: 1.5rem;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
 }
 .edit-bhw__form p {
   margin-bottom: 2rem;
@@ -4984,7 +4995,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-bhw__form-item .three-input label,
 .edit-bhw__form-item .two-input label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
   text-align: center;
   margin-right: unset;
 }
@@ -5092,11 +5103,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-bhw__form-doses label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .edit-bhw__form-doses .checkbox-label {
   font-size: unset;
-  color: #414134;
+  color: var(--black-2);
 }
 .edit-bhw__form-doses .dose-title {
   margin-bottom: unset;
@@ -5109,7 +5120,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-bhw__form-doses .dose-indication {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
   max-width: 70%;
 }
 .edit-bhw__form-doses--checkbox {
@@ -5159,12 +5170,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-bhw .password {
   display: flex;
   width: 100%;
-  background: #f0f0f0;
+  background: var(--white-3);
   border-radius: 0.5vw;
 }
 .edit-bhw .password:hover, .edit-bhw .password:focus, .edit-bhw .password:active {
-  outline: #034a23 solid 1px;
-  background: #ffffff;
+  outline: var(--green-1) solid 1px;
+  background: var(--white-1);
 }
 .edit-bhw .password__bar__input {
   display: inline;
@@ -5183,12 +5194,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-bhw .password {
   display: flex;
   width: 50%;
-  background: #f0f0f0;
+  background: var(--white-3);
   border-radius: 0.5vw;
 }
 .edit-bhw .password:hover, .edit-bhw .password:focus, .edit-bhw .password:active {
-  outline: #034a23 solid 1px;
-  background: #ffffff;
+  outline: var(--green-1) solid 1px;
+  background: var(--white-1);
 }
 .edit-bhw .password__bar__input {
   display: inline;
@@ -5300,7 +5311,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female__form hr,
 .edit-maternal_care__form hr {
   margin-block: 1.5rem;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
 }
 .edit-deworming__form p,
 .edit-consultation__form p,
@@ -5797,7 +5808,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-maternal_care__form-item .three-input label,
 .edit-maternal_care__form-item .two-input label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
   text-align: center;
   margin-right: unset;
 }
@@ -6113,7 +6124,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female__form-doses label,
 .edit-maternal_care__form-doses label {
   font-size: 0.75rem;
-  color: #909087;
+  color: var(--black-3);
 }
 .edit-deworming__form-doses .checkbox-label,
 .edit-consultation__form-doses .checkbox-label,
@@ -6125,7 +6136,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female__form-doses .checkbox-label,
 .edit-maternal_care__form-doses .checkbox-label {
   font-size: unset;
-  color: #414134;
+  color: var(--black-2);
 }
 .edit-deworming__form-doses .dose-title,
 .edit-consultation__form-doses .dose-title,
@@ -6162,7 +6173,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female__form-doses .dose-indication,
 .edit-maternal_care__form-doses .dose-indication {
   font-size: 0.85rem;
-  color: #909087;
+  color: var(--black-3);
   max-width: 70%;
 }
 .edit-deworming__form-doses--checkbox,
@@ -6293,7 +6304,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .backup hr {
   width: 100%;
   height: 0.2rem;
-  background-color: #f0f0f0;
+  background-color: var(--white-3);
   border: none;
   z-index: -1;
   margin: 0;
@@ -6308,11 +6319,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .backup__list__item {
   font-size: 1rem;
   font-weight: 600;
-  color: #909087;
+  color: var(--black-3);
   margin-right: 3rem;
 }
 .backup__list__item--active, .backup__list__item:hover, .backup__list__item:focus {
-  color: #034a23;
+  color: var(--green-1);
   cursor: pointer;
 }
 .backup__list__item--active::after, .backup__list__item:hover::after, .backup__list__item:focus::after {
@@ -6320,7 +6331,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: block;
   width: 100%;
   height: 0.2rem;
-  background-color: #034a23;
+  background-color: var(--green-1);
   position: relative;
   top: 0.4rem;
 }
@@ -6337,7 +6348,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 
 .user-profile hr {
   margin-block: 1.5rem;
-  border: 1px solid #f0f0f0;
+  border: 1px solid var(--white-3);
 }
 .user-profile__desc {
   margin-top: -0.3rem;
@@ -6362,7 +6373,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .user-profile__password__form .password {
   display: flex;
   width: 50%;
-  background: #f0f0f0;
+  background: var(--white-3);
   border-radius: 0.5vw;
 }
 @media (max-width: 48.1rem) {
@@ -6371,8 +6382,8 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .user-profile__password__form .password:hover, .user-profile__password__form .password:focus, .user-profile__password__form .password:active {
-  outline: #034a23 solid 1px;
-  background: #ffffff;
+  outline: var(--green-1) solid 1px;
+  background: var(--white-1);
 }
 .user-profile__password__form .password__bar__input {
   display: inline;
@@ -6422,18 +6433,18 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .user-profile__backup__form .backup-title {
-  color: #212529;
+  color: var(--black-1);
   font-size: 1.2rem;
   font-weight: 700;
 }
 .user-profile__backup__form label {
-  color: #909087;
+  color: var(--black-3);
 }
 
 .services hr {
   width: 100%;
   height: 0.2rem;
-  background-color: #f0f0f0;
+  background-color: var(--white-3);
   border: none;
   z-index: -1;
   margin: 0;
@@ -6460,11 +6471,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .services__list__item {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #909087;
+  color: var(--black-3);
   margin-right: 3rem;
 }
 .services__list__item--active, .services__list__item:hover, .services__list__item:focus {
-  color: #034a23;
+  color: var(--green-1);
   cursor: pointer;
 }
 .services__list__item--active::after, .services__list__item:hover::after, .services__list__item:focus::after {
@@ -6472,7 +6483,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: block;
   width: 100%;
   height: 0.2rem;
-  background-color: #034a23;
+  background-color: var(--green-1);
   position: relative;
   top: 0.4rem;
 }
@@ -6489,7 +6500,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .services .patient hr {
   width: 100%;
   height: 0.2rem;
-  background-color: #f0f0f0;
+  background-color: var(--white-3);
   border: none;
   z-index: -1;
   margin: 0;
@@ -6533,9 +6544,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: block;
 }
 .services .reports__card {
-  background: #ffffff;
+  background: var(--white-1);
   box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
-  border: #ecfcf2 1px solid;
+  border: var(--active-green) 1px solid;
   border-radius: 1vw;
   padding: 2rem;
   box-sizing: border-box;
