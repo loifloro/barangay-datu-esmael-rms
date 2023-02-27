@@ -21,7 +21,7 @@
     <?php
     }
     ?>
-    
+
     <?php
     include "../dist/includes/connection.php";
     if (isset($_GET['id'])) {
@@ -51,9 +51,9 @@
 
                 <ul class="patient-profile__item " role="list">
                     <?php
-                        // CONVERT DATE TO MM-DD-YY
-                        $postnatal_bdate = new DateTime($patient['birthdate']);
-                        $new_postnatal_bdate = $postnatal_bdate->format("m-d-Y");
+                    // CONVERT DATE TO MM-DD-YY
+                    $postnatal_bdate = new DateTime($patient['birthdate']);
+                    $new_postnatal_bdate = $postnatal_bdate->format("m-d-Y");
                     ?>
                     <li class="patient-profile__last-modified">
                         <span class="patient-profile__category">Birthday</span>
@@ -64,9 +64,9 @@
                         <?= $patient['sex']; ?>
                     </li>
                     <?php
-                        // CONVERT DATE TO MM-DD-YY
-                        $postnatal_date = new DateTime($patient['postnatal_date']);
-                        $new_postnatal_date = $postnatal_date->format("m-d-Y");
+                    // CONVERT DATE TO MM-DD-YY
+                    $postnatal_date = new DateTime($patient['postnatal_date']);
+                    $new_postnatal_date = $postnatal_date->format("m-d-Y");
                     ?>
                     <li class="patient-profile__last-date-added">
                         <span class="patient-profile__category">Date Added</span>
@@ -94,11 +94,11 @@
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
-                        <?php 
-                            $password_date = $patient['birthdate'];
-                            $year_date = date('Y', strtotime($password_date));
-                            $lastname_space = strtolower(str_replace(" ", "", $patient['lastname'])); // remove space
-                            $password =  $lastname_space . $year_date .'-post';
+                        <?php
+                        $password_date = $patient['birthdate'];
+                        $year_date = date('Y', strtotime($password_date));
+                        $lastname_space = strtolower(str_replace(" ", "", $patient['lastname'])); // remove space
+                        $password =  $lastname_space . $year_date . '-post';
                         ?>
                         <?= $password; ?>
                     </li>
@@ -112,17 +112,19 @@
     ?>
 </section>
 
-<!-- Medical History -->
-<h2 class="medical-history__title">
-    Medical History
-</h2>
-
-<button type="submit" class="btn-green btn-change btn-restore" onclick="window.location.href = 'add/add-postnatal.php?fname=<?=$patient['firstname'];?>&lname=<?=$patient['lastname'];?>&phone=<?=$patient['phone_num'];?>&bday=<?=$patient['birthdate'];?>&sex=<?=$patient['sex'];?>&date_added=<?=$patient['postnatal_date'];?>&address=<?=$patient['street_address'];?>&city=<?=$patient['city'];?>&barangay=<?=$patient['barangay'];?>&username=<?=$patient['postnatal_email'];?>'">
-    <p>Add Service</p>
-</button>
 
 <section class="history">
     <section class="medical-history">
+        <div class="medical-history__title">
+            <!-- Medical History -->
+            <h2 class="">
+                Medical History
+            </h2>
+
+            <button class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['firstname'] ?>' , '<?= $patient['lastname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['birthdate'];; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['street_address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay'] ?>' , '<?= $patient['postnatal_email']; ?>')">
+                <p>Add Service</p>
+            </button>
+        </div>
         <div class="medical-history__card">
             <ul class="medical-history__header medical-history__card__row" role="list">
                 <li class="medical-history__item">
@@ -172,7 +174,7 @@
                             if (isset($_GET['label'])) {
                                 $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
                                 $changes_label = $recent3['label'];
-                                $date=$recent3['deworming_date'];
+                                $date = $recent3['deworming_date'];
 
                                 //DEWORMING
                                 if (($changes_label == "Deworming") and (isset($_GET['id']))) {
@@ -278,9 +280,9 @@
                             <!-- End for Modal Link -->
                         </li>
                         <?php
-                            // CONVERT DATE TO MM-DD-YY
-                            $post_ldate = new DateTime($recent3['deworming_date']);
-                            $new_post_ldate = $post_ldate->format("m-d-Y");
+                        // CONVERT DATE TO MM-DD-YY
+                        $post_ldate = new DateTime($recent3['deworming_date']);
+                        $new_post_ldate = $post_ldate->format("m-d-Y");
                         ?>
                         <li class="medical-history__item medical-history__service__date-availed">
                             <?= $new_post_ldate; ?>
@@ -291,7 +293,7 @@
                             if (isset($_GET['label'])) {
                                 $patient_label = mysqli_real_escape_string($conn, $_GET['label']);
                                 $changes_label = $recent3['label'];
-                                $date=$recent3['deworming_date'];
+                                $date = $recent3['deworming_date'];
 
                                 //DEWORMING
                                 if (($changes_label == "Deworming") and (isset($_GET['id']))) {

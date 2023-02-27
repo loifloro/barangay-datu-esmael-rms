@@ -4,12 +4,12 @@
 
 // Breakpoints map
 $breakpoints: (
-  // 'small': 480px,
-  "small": 30rem,
+  // 'small': 481px,
+  "small": 30.1rem,
   // "medium": 770px,
-  "medium": 48rem,
+  "medium": 48.1rem,
   // "large": 1280px,
-  "large": 80rem
+  "large": 80.1rem
 ) !default;
 
 @media (max-width: map-get($breakpoints, "large")) {

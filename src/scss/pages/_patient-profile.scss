@@ -5,13 +5,22 @@
     display: grid;
     grid-template-columns: auto 30%;
     -moz-column-gap: 3%;
-         column-gap: 3%;
-    row-gap: 3%;
+    column-gap: 3%;
+    row-gap: 3vh;
     margin-bottom: 3rem;
 
     @media (max-width: map-get($breakpoints, "medium")) {
       // Medium smartphone
       grid-template-columns: unset;
     }
+  }
+  button {
+    margin-block: 0.5rem;
+  }
+
+  .medical-history__title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 }

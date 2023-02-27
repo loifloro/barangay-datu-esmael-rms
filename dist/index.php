@@ -27,10 +27,10 @@
         <div class="login__card">
             <form action="login.php" class="login__form" onsubmit="return validation()" method="POST">
                 <h1 class="login__title">
-                    Welcome Back
+                    Brgy. Datu Esmael Patient Record System
                 </h1>
                 <p class="login__desc">
-                    Exclusive only for Patients and Barangay Health Workers of Brgy. Datu Esmael
+                    Exclusive only for <b>Patients</b> and <b>Barangay Health Workers</b> of Brgy. Datu Esmael
                 </p>
 
                 <!-- Error Display -->

@@ -60,8 +60,7 @@ hide_content();
         <ul role="list" class="sidebar__list">
             <li class="sidebar__item sidebar__item--search">
                 <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
-                    <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" />
-                    <!--  
+                    <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
                 --><button type="submit" name="search_btn" class="navigation__search__btn">
                         <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
                             <rect width="256" height="256" fill="none" />
@@ -70,6 +69,9 @@ hide_content();
                         </svg>
                     </button>
                 </form>
+            </li>
+            <li class="sidebar__title">
+                Brgy. Datu Esmael Patient Record System
             </li>
             <li class="sidebar__item">
                 <a href="dashboard.php" class="sidebar__link">
@@ -123,10 +125,11 @@ hide_content();
             <li class="sidebar__item sidebar__item--margin-top">
                 <!--href link added-->
                 <a href="user-profile.php" class="sidebar__link">
-                    <svg alt="Settings" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M21.32,9.55l-1.89-.63.89-1.78A1,1,0,0,0,20.13,6L18,3.87a1,1,0,0,0-1.15-.19l-1.78.89-.63-1.89A1,1,0,0,0,13.5,2h-3a1,1,0,0,0-.95.68L8.92,4.57,7.14,3.68A1,1,0,0,0,6,3.87L3.87,6a1,1,0,0,0-.19,1.15l.89,1.78-1.89.63A1,1,0,0,0,2,10.5v3a1,1,0,0,0,.68.95l1.89.63-.89,1.78A1,1,0,0,0,3.87,18L6,20.13a1,1,0,0,0,1.15.19l1.78-.89.63,1.89a1,1,0,0,0,.95.68h3a1,1,0,0,0,.95-.68l.63-1.89,1.78.89A1,1,0,0,0,18,20.13L20.13,18a1,1,0,0,0,.19-1.15l-.89-1.78,1.89-.63A1,1,0,0,0,22,13.5v-3A1,1,0,0,0,21.32,9.55ZM20,12.78l-1.2.4A2,2,0,0,0,17.64,16l.57,1.14-1.1,1.1L16,17.64a2,2,0,0,0-2.79,1.16l-.4,1.2H11.22l-.4-1.2A2,2,0,0,0,8,17.64l-1.14.57-1.1-1.1L6.36,16A2,2,0,0,0,5.2,13.18L4,12.78V11.22l1.2-.4A2,2,0,0,0,6.36,8L5.79,6.89l1.1-1.1L8,6.36A2,2,0,0,0,10.82,5.2l.4-1.2h1.56l.4,1.2A2,2,0,0,0,16,6.36l1.14-.57,1.1,1.1L17.64,8a2,2,0,0,0,1.16,2.79l1.2.4ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                    <svg alt='Profile' role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" viewBox="0 0 32 32">
+                        <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
+                        <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption">Settings</p>
+                    <p class="sidebar__caption">Name</p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -298,13 +301,13 @@ hide_content();
             <li class="services__list__item" id='services__list__item--deworming' onclick="services(event, 'Deworming' , '<?= $serviceRow ?>')">
                 <!-- START DEWORMING COUNT -->
                 <?php
-                    $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
-                    $result = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($result)) {
+                $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
                 ?>
-                Deworming (<?php echo $row['count(*)']; ?>)
+                    Deworming (<?php echo $row['count(*)']; ?>)
                 <?php
-                    }
+                }
                 ?>
                 <!-- END -->
             </li>
@@ -320,13 +323,13 @@ hide_content();
             <li class="services__list__item" id='services__list__item--consultation' onclick="services(event, 'Consultation', '<?= $serviceRow ?>')">
                 <!-- START CONSULTATION COUNT -->
                 <?php
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
-                    $result = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($result)) {
+                $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
                 ?>
-                Consultation (<?php echo $row['count(*)']; ?>)
+                    Consultation (<?php echo $row['count(*)']; ?>)
                 <?php
-                    }
+                }
                 ?>
                 <!-- END -->
             </li>
@@ -342,13 +345,13 @@ hide_content();
             <li class="services__list__item" id='services__list__item--prenatal' onclick="services(event, 'Pre-Natal' , '<?= $serviceRow ?>')">
                 <!-- START PRENATAL COUNT -->
                 <?php
-                    $query = "SELECT count(*) FROM prenatal WHERE archive_label=''";
-                    $result = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($result)) {
+                $query = "SELECT count(*) FROM prenatal WHERE archive_label=''";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
                 ?>
-                Pre-Natal (<?php echo $row['count(*)']; ?>)
+                    Pre-Natal (<?php echo $row['count(*)']; ?>)
                 <?php
-                    }
+                }
                 ?>
                 <!-- END -->
             </li>
@@ -364,13 +367,13 @@ hide_content();
             <li class="services__list__item" id='services__list__item--postnatal' onclick="services(event, 'Post-Natal' , '<?= $serviceRow ?>')">
                 <!-- START POSTNATAL COUNT -->
                 <?php
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label=''";
-                    $result = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($result)) {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label=''";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
                 ?>
-                Post-Natal (<?php echo $row['count(*)']; ?>)
+                    Post-Natal (<?php echo $row['count(*)']; ?>)
                 <?php
-                    }
+                }
                 ?>
                 <!-- END -->
             </li>
@@ -386,13 +389,13 @@ hide_content();
             <li class="services__list__item" id='services__list__item--search' onclick="services(event, 'Search-and-Destroy' , '<?= $serviceRow ?>')">
                 <!-- START SEARCH DESTROY COUNT -->
                 <?php
-                    $query = "SELECT count(*) FROM search_destroy WHERE archive_label=''";
-                    $result = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($result)) {
+                $query = "SELECT count(*) FROM search_destroy WHERE archive_label=''";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
                 ?>
-                Search and Destroy (<?php echo $row['count(*)']; ?>)
+                    Search and Destroy (<?php echo $row['count(*)']; ?>)
                 <?php
-                    }
+                }
                 ?>
                 <!-- END -->
             </li>
@@ -408,13 +411,13 @@ hide_content();
             <li class="services__list__item" id='services__list__item--childhood' onclick="services(event, 'Childhood-Care' , '<?= $serviceRow ?>')">
                 <!-- START EARLY CHILDHOOD COUNT -->
                 <?php
-                    $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
-                    $result = mysqli_query($conn, $query);
-                    while ($row = mysqli_fetch_array($result)) {
+                $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
                 ?>
-                Childhood Care (<?php echo $row['count(*)']; ?>)
+                    Childhood Care (<?php echo $row['count(*)']; ?>)
                 <?php
-                    }
+                }
                 ?>
                 <!-- END -->
             </li>
@@ -600,21 +603,21 @@ hide_content();
                     if ($page < $total_page) {
                     ?>
                         <a href='services.php?page_deworming=<?php echo ($page + 1) ?>&deworming' class="pagination_next">Next</a>
-                
-                <?php
+
+                    <?php
                     }
                     ?>
-                    </div>
-                    <?php
-                    //END OF PAGINATION
-                }
+                </div>
+            <?php
+                //END OF PAGINATION
+            }
 
-                ?>
-                
-                <!-- <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a> -->
-                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
-                    <p>Add</p>
-                </button>
+            ?>
+
+            <!-- <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a> -->
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
+                <p>Add</p>
+            </button>
         </div>
 
 
@@ -784,7 +787,7 @@ hide_content();
                         if ($page < $total_page) {
                         ?>
                             <a href='services.php?page_consultation=<?php echo ($page + 1) ?>&consultation' class="pagination_next">Next</a>
-                        <?php
+                    <?php
                         }
                         //END OF PAGINATION
 
@@ -956,21 +959,21 @@ hide_content();
                     if ($page < $total_page) {
                     ?>
                         <a href='services.php?page_prenatal=<?php echo ($page + 1) ?>&prenatal' class="pagination_next">Next</a>
-                <?php
+                    <?php
                     }
                     ?>
-                    </div>
-                    <?php
-                    //END OF PAGINATION
-                }
+                </div>
+            <?php
+                //END OF PAGINATION
+            }
 
-                ?>
-                
-                <!-- End of Query -->
+            ?>
 
-                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
-                    <p>Add</p>
-                </button>
+            <!-- End of Query -->
+
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
+                <p>Add</p>
+            </button>
         </div>
         <!-- End Tab for Pre-Natal -->
 
@@ -1134,20 +1137,20 @@ hide_content();
                     if ($page < $total_page) {
                     ?>
                         <a href='services.php?page_postnatal=<?php echo ($page + 1) ?>&postnatal' class="pagination_next">Next</a>
-                <?php
+                    <?php
                     }
                     ?>
-                    </div>
-                    <?php
-                    //END OF PAGINATION
-                }
+                </div>
+            <?php
+                //END OF PAGINATION
+            }
 
-                ?>
-        
-                <!-- End of Query -->
-                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
-                    <p>Add</p>
-                </button>
+            ?>
+
+            <!-- End of Query -->
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
+                <p>Add</p>
+            </button>
         </div>
         <!-- End Tab for Post-Natal -->
 
@@ -1243,9 +1246,9 @@ hide_content();
                     }
                 }
                 foreach ($query_run as $patient) {
-                     // CONVERT DATE TO MM-DD-YY
-                     $sd_date = new DateTime($patient['date_visit']);
-                     $new_sd_date = $sd_date->format("m-d-Y");
+                    // CONVERT DATE TO MM-DD-YY
+                    $sd_date = new DateTime($patient['date_visit']);
+                    $new_sd_date = $sd_date->format("m-d-Y");
             ?>
 
                     <ul class="services__table__row services__info" role="list">
@@ -1308,22 +1311,22 @@ hide_content();
                     if ($page < $total_page) {
                     ?>
                         <a href='services.php?page_searchdestroy=<?php echo ($page + 1) ?>&searchdestroy' class="pagination_next">Next</a>
-                <?php
+                    <?php
                     }
                     ?>
-                    </div>
-                    <?php
-                    //END OF PAGINATION
-                }
+                </div>
+            <?php
+                //END OF PAGINATION
+            }
 
-                ?>
-                
+            ?>
 
-                <!-- End of Query -->
-                <!-- <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a> -->
-                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-search_destroy.php'">
-                    <p>Add</p>
-                </button>
+
+            <!-- End of Query -->
+            <!-- <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a> -->
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-search_destroy.php'">
+                <p>Add</p>
+            </button>
 
         </div>
         <!-- End Tab for Search and Destroy -->
@@ -1485,21 +1488,21 @@ hide_content();
                     if ($page < $total_page) {
                     ?>
                         <a href='services.php?page_earlychildhood=<?php echo ($page + 1) ?>&earlychildhood' class="pagination_next">Next</a>
-                <?php
+                    <?php
                     }
                     ?>
-                    </div>
-                    <?php
-                    //END OF PAGINATION
-                }
+                </div>
+            <?php
+                //END OF PAGINATION
+            }
 
-                ?>
-            
-                <!-- End of Query -->
+            ?>
 
-                <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">
-                    <p>Add</p>
-                </button>
+            <!-- End of Query -->
+
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">
+                <p>Add</p>
+            </button>
         </div>
         <!-- End Tab for Search and Destroy -->
 

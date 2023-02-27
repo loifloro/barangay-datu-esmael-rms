@@ -714,7 +714,7 @@
   &__table {
     @include card(none);
     margin-top: 2rem;
-    overflow: hidden;
+    // overflow: hidden;
 
     &__row {
       display: grid;
