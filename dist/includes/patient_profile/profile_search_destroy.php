@@ -122,7 +122,7 @@
                 Medical History
             </h2>
 
-            <button id="add_service_bt" class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['owner_fname'] ?>' , '<?= $patient['owner_lname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['birthdate'];; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['street_address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay'] ?>' , '<?= $patient['search_destroy_email']; ?>')">
+            <button id="add_service_bt" class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['owner_fname'] ?>' , '<?= $patient['owner_lname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['birthdate']; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay']; ?>' , '<?= $patient['search_destroy_email']; ?>')">
                 <p>Add Service</p>
             </button>
         </div>
