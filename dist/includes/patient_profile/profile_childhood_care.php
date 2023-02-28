@@ -38,7 +38,7 @@
                     <li class="patient-profile__img">
                         <img class="" src="./assets/img/patient-profile.svg" alt="">
                     </li>
-                    <li class="patient-profile__id patient-profile__category">
+                    <li class="patient-profile__id patient-profile__category" id="patient_profile_id">
                         #<?= $patient['early_childhood_id']; ?>
                     </li>
                     <li class="patient-profile__name h5">
@@ -123,7 +123,7 @@
             <h2 class="">
                 Medical History
             </h2>
-            <button class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['child_fname'] ?>' , '<?= $patient['child_lname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['child_birthdate'];; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['street_address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay'] ?>' , '<?= $patient['early_childhood_email']; ?>')">
+            <button id="add_service_bt" class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['child_fname'] ?>' , '<?= $patient['child_lname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['child_birthdate'];; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['street_address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay'] ?>' , '<?= $patient['early_childhood_email']; ?>')">
                 <p>Add Service</p>
             </button>
         </div>
