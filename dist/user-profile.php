@@ -332,7 +332,7 @@ hide_content();
                             </button>
                         </li>
                         <li class="bhw-account__attributes__item">
-                            Email
+                            Username
                             <!-- BUTTON FOR NAME -->
                             <button type="submit" name="bhw_email" value="2">
                                 <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

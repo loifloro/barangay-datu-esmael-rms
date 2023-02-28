@@ -484,7 +484,7 @@ function addUser() {
   Swal.fire({
     title: "Add new user",
     text: "Please fill out all input input fields",
-    html: ` <input type="text" name="bhw-contact" id="bhw-contact" class="swal2-input" required placeholder='Default email'>
+    html: ` <input type="text" name="bhw-contact" id="bhw-contact" class="swal2-input" required placeholder='Default username'>
                         <input type="password" name="bhw-pass" id="bhw-password"  class="swal2-input" required placeholder='Default password'>
                         <select class="swal2-input" name="report__service" id="role" required>
                             <option selected disabled> Choose a role </option>
