@@ -72,7 +72,7 @@
                 <th>FIRST NAME</th>
                 <th>MIDDLE NAME</th>
                 <th>AGE</th>
-                <th>GENDER</th>
+                <th>SEX</th>
                 <th>BIRTHDAY</th>
                 <th>ADDRESS</th>
                 <th>SIGNATURE</th>

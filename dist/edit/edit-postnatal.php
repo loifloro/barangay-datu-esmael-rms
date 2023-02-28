@@ -359,8 +359,8 @@ hide_content_forms();
                             <label for="edit-reason-mispelled">Mispelled Name</label>
                         </div>
                         <div class="edit-prenatal__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Gender" required>
-                            <label for="edit-reason-gender">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
+                            <label for="edit-reason-gender">Incorrect Sex</label>
                         </div>
                         <div class="edit-prenatal__form-item--reason">
                             <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>

@@ -192,7 +192,7 @@ hide_content_forms();
                             <input type="text" name="consultation-mname" id="consultation-mname" value="<?= $patient['middlename']; ?>">
                         </div>
                         <div class="edit-consultation__form-item edit-consultation__form-item--radio">
-                            <label for="consultation-sex">Gender *</label>
+                            <label for="consultation-sex">Sex *</label>
                             <div class="edit-consultation__form--role-item">
                                 <div class="edit-consultation__form-item">
                                     <input type="radio" name="consultation-sex" id="consultation-sex-male" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required>
@@ -284,8 +284,8 @@ hide_content_forms();
                             <label for="edit-reason-mispelled">Mispelled Name</label>
                         </div>
                         <div class="edit-consultation__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Gender" required>
-                            <label for="edit-reason-gender">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
+                            <label for="edit-reason-gender">Incorrect Sex</label>
                         </div>
                         <div class="edit-consultation__form-item--reason">
                             <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>

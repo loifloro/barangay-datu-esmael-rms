@@ -196,7 +196,7 @@ hide_content_forms();
                             <input type="number" name="deworming-phone_num" id="deworming-age" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">
                         </div>
                         <div class="edit-deworming__form-item edit-deworming__form-item--radio">
-                            <label for="deworming-sex">Gender *</label>
+                            <label for="deworming-sex">Sex *</label>
                             <div class="edit-deworming__form--role-item">
                                 <div class="edit-deworming__form-item">
                                     <input type="radio" name="deworming-sex" id="deworming-sex-male" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required>
@@ -242,8 +242,8 @@ hide_content_forms();
                             <label for="edit-reason-mispelled">Mispelled Name</label>
                         </div>
                         <div class="edit-deworming__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Gender" required>
-                            <label for="edit-reason-gender">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
+                            <label for="edit-reason-gender">Incorrect Sex</label>
                         </div>
                         <div class="edit-deworming__form-item--reason">
                             <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>

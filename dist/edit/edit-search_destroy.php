@@ -223,7 +223,7 @@ hide_content_forms();
                             <input type="date" name="search_destroy-bdate" id="search_destroy-date" value="<?= $patient['birthdate']; ?>" required>
                         </div>
                         <div class="edit-deworming__form-item add-deworming__form-item--radio">
-                            <label for="deworming-sex">Gender</label>
+                            <label for="deworming-sex">Sex</label>
                             <div class="add-deworming__form--role-item">
                                 <div class="add-deworming__form-item">
                                     <input type="radio" name="search_destroy-sex" id="search_destroy-sex-male" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?>>
@@ -281,8 +281,8 @@ hide_content_forms();
                             <label for="edit-reason-mispelled">Mispelled Name</label>
                         </div>
                         <div class="edit-search_destroy__form-item--reason">
-                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Gender" required>
-                            <label for="edit-reason-gender">Incorrect Gender</label>
+                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
+                            <label for="edit-reason-gender">Incorrect Sex</label>
                         </div>
                         <div class="edit-search_destroy__form-item--reason">
                             <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>

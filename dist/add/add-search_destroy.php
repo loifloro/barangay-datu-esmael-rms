@@ -211,7 +211,7 @@ hide_content_forms();
                     <input type="date" name="search_destroy-bdate" id="search_destroy-date" value="<?php echo isset($_GET['bday']) ? $_GET['bday'] : ''; ?>" required>
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
-                    <label for="search_destroy-sex">Gender *</label>
+                    <label for="search_destroy-sex">Sex *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
                             <input type="radio" name="search_destroy-sex" id="search_destroy-sex-male" value="Male" <?php if (isset($_GET['sex']) && $_GET['sex'] == 'Male') echo 'checked'; ?> required> <!--Nilagyan ko Value para masave sa database-->

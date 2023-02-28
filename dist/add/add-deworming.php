@@ -191,7 +191,7 @@ hide_content_forms();
                     <input type="number" name="deworming-phone_num" id="deworming-age" maxlength="11" min="1" value="<?php echo isset($_GET['phone']) ? $_GET['phone'] : ''; ?>">
                 </div>
                 <div class="add-deworming__form-item add-deworming__form-item--radio">
-                    <label for="deworming-sex">Gender *</label>
+                    <label for="deworming-sex">Sex *</label>
                     <div class="add-deworming__form--role-item">
                         <div class="add-deworming__form-item">
                             <input type="radio" name="deworming-sex" id="deworming-sex-male" value="Male" <?php if (isset($_GET['sex']) && $_GET['sex'] == 'Male') echo 'checked'; ?> required> <!--Nilagyan ko Value para masave sa database-->

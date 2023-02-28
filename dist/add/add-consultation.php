@@ -179,7 +179,7 @@ hide_content_forms();
                     <input type="text" name="consultation-mname" id="consultation-mname">
                 </div>
                 <div class="add-consultation__form-item add-consultation__form-item--radio">
-                    <label for="consultation-sex">Gender *</label>
+                    <label for="consultation-sex">Sex *</label>
                     <div class="add-consultation__form--role-item">
                         <div class="add-consultation__form-item">
                             <input type="radio" name="consultation-sex" id="consultation-sex-male" value="Male" <?php if (isset($_GET['sex']) && $_GET['sex'] == 'Male') echo 'checked'; ?> required>
