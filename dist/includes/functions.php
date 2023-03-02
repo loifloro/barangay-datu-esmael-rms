@@ -74,6 +74,14 @@ function hide_patient_deworming()
                     display: none;
                 }
 
+                #add_service_bt{
+                    display: none;
+                }
+
+                #patient_profile_id{
+                    display: none;
+                }
+
                 #edit-profile {
                     display: none;
                 }
@@ -144,6 +152,14 @@ function hide_patient_consultation()
                 }
 
                 .back__btn {
+                    display: none;
+                }
+
+                #add_service_bt{
+                    display: none;
+                }
+
+                #patient_profile_id{
                     display: none;
                 }
 
@@ -220,6 +236,14 @@ function hide_patient_prenatal()
                     display: none;
                 }
 
+                #add_service_bt{
+                    display: none;
+                }
+
+                #patient_profile_id{
+                    display: none;
+                }
+
                 #edit-profile {
                     display: none;
                 }
@@ -290,6 +314,14 @@ function hide_patient_postnatal()
                 }
 
                 .back__btn {
+                    display: none;
+                }
+
+                #add_service_bt{
+                    display: none;
+                }
+
+                #patient_profile_id{
                     display: none;
                 }
 
@@ -366,6 +398,14 @@ function hide_patient_search_destroy()
                     display: none;
                 }
 
+                #add_service_bt{
+                    display: none;
+                }
+
+                #patient_profile_id{
+                    display: none;
+                }
+
                 #edit-profile {
                     display: none;
                 }
@@ -436,6 +476,14 @@ function hide_patient_childhood()
                 }
 
                 .back__btn {
+                    display: none;
+                }
+
+                #add_service_bt{
+                    display: none;
+                }
+
+                #patient_profile_id{
                     display: none;
                 }
 
