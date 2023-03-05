@@ -303,6 +303,27 @@ hide_content();
                         <p>Backup</p>
                     </button>
                 </div>
+                <div class="user-profile__backup__form">
+                    <label for="patient-password">
+                        <p class="backup-title">CSV</p>
+                        Choose what information to download first and then click the CSV button to download the file in you're local computer.
+                    </label>
+                    <select name="csv_record" id="report__service" required>
+                        <option value="deworming"> Deworming </option>
+                        <option value="consultation"> Consultation </option>
+                        <option value="prenatal"> Pre-natal </option>
+                        <option value="postnatal"> Post-natal </option>
+                        <option value="search_destroy"> Search and Destroy </option>
+                        <option value="early_childhood"> Childhood Care </option>
+                        <option value="target_maternal"> Target Maternal Care </option>
+                        <option value="target_childcare_male"> Target Childcare Male </option>
+                        <option value="target_childcare_female"> Target Childcare Female </option>
+                    </select>
+                    <button type="submit" class="btn-green btn-change btn-restore" name="csv_database" onclick="return  confirm('Do you want to create a backup?')">
+                        <p>CSV</p>
+                    </button>
+                </div>
+                <div class="reports__input">
             </form>
         </section>
 

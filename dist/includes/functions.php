@@ -838,4 +838,58 @@ if (isset($_GET['changepassword']) && isset($_GET['newpass']) && isset($_GET['em
     }
 }
 
+//CSV format file
+if(isset($_POST['csv_database']) && isset($_POST['csv_record'])){
+
+    // Database connection parameters
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "patient_record_system";
+
+    // Create connection
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Check connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    $table_record = mysqli_real_escape_string($conn, $_POST['csv_record']);;
+
+    // SQL query to fetch data from database
+    $sql = "SELECT * FROM $table_record";
+    $result = $conn->query($sql);
+
+    // Create CSV file
+    $filename = "$table_record.csv";
+    $file = fopen($filename, 'w');
+
+    // Write column headers to CSV file
+    $fields = mysqli_fetch_fields($result);
+    $column_headers = array();
+    foreach ($fields as $field) {
+        $column_headers[] = $field->name;
+    }
+    fputcsv($file, $column_headers);
+
+    // Write data to CSV file
+    while ($row = mysqli_fetch_assoc($result)) {
+        fputcsv($file, $row);
+    }
+
+    // Close file and database connection
+    fclose($file);
+    $conn->close();
+
+    // Download CSV file
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename="'.$filename.'";');
+    header('Pragma: no-cache');
+    readfile($filename);
+
+    // Delete the file from main folder
+    unlink($filename);
+    exit;
+}
 ?>
