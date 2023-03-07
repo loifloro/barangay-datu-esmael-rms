@@ -309,6 +309,7 @@ hide_content();
                         Choose what information to download first and then click the CSV button to download the file in you're local computer.
                     </label>
                     <select name="csv_record" id="report__service" required>
+                        <option value="all"> All </option>
                         <option value="deworming"> Deworming </option>
                         <option value="consultation"> Consultation </option>
                         <option value="prenatal"> Pre-natal </option>

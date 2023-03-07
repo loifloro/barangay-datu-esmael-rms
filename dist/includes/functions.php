@@ -847,6 +847,7 @@ if(isset($_POST['csv_database']) && isset($_POST['csv_record'])){
     $password = "";
     $dbname = "patient_record_system";
 
+    $current_date = date('Y-m-d');
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -857,39 +858,84 @@ if(isset($_POST['csv_database']) && isset($_POST['csv_record'])){
 
     $table_record = mysqli_real_escape_string($conn, $_POST['csv_record']);;
 
-    // SQL query to fetch data from database
-    $sql = "SELECT * FROM $table_record";
-    $result = $conn->query($sql);
+    if($table_record != 'all'){
+        // SQL query to fetch data from database
+        $sql = "SELECT * FROM $table_record";
+        $result = $conn->query($sql);
 
-    // Create CSV file
-    $filename = "$table_record.csv";
-    $file = fopen($filename, 'w');
+        // Create CSV file
+        $filename = "$table_record-$current_date.csv";
+        $file = fopen($filename, 'w');
 
-    // Write column headers to CSV file
-    $fields = mysqli_fetch_fields($result);
-    $column_headers = array();
-    foreach ($fields as $field) {
-        $column_headers[] = $field->name;
+        // Write column headers to CSV file
+        $fields = mysqli_fetch_fields($result);
+        $column_headers = array();
+        foreach ($fields as $field) {
+            $column_headers[] = $field->name;
+        }
+        fputcsv($file, $column_headers);
+
+        // Write data to CSV file
+        while ($row = mysqli_fetch_assoc($result)) {
+            fputcsv($file, $row);
+        }
+
+        // Close file and database connection
+        fclose($file);
+        $conn->close();
+
+        // Download CSV file
+        header('Content-Type: text/csv');
+        header('Content-Disposition: attachment; filename="'.$filename.'";');
+        header('Pragma: no-cache');
+        readfile($filename);
+
+        // Delete the file from main folder
+        unlink($filename);
+        exit;
     }
-    fputcsv($file, $column_headers);
 
-    // Write data to CSV file
-    while ($row = mysqli_fetch_assoc($result)) {
-        fputcsv($file, $row);
+    else{
+        // Tables to download
+        $tables = array('deworming', 'consultation', 'prenatal', 'postnatal', 'search_destroy', 'early_childhood',
+                        'target_maternal', 'target_childcare_male', 'target_childcare_female');
+
+        // Create a new zip archive
+        $zip = new ZipArchive();
+        $zip_file = 'patient-record_' . date('Y-m-d') . '.zip';
+        if ($zip->open($zip_file, ZipArchive::CREATE) !== true) {
+            die('Unable to create zip archive');
+        }
+
+        // Loop through each table and add it to the zip archive
+        foreach ($tables as $table) {
+            $filename = $table . ".csv";
+            $handle = fopen($filename, "w");
+            $result = $conn->query("SELECT * FROM $table");
+            while ($row = $result->fetch_assoc()) {
+                fputcsv($handle, $row);
+            }
+            fclose($handle);
+            $zip->addFile($filename);
+        }
+
+        // close the ZIP file
+        $zip->close();
+
+        // send the zip file as a download to the user
+        header("Content-type: application/zip");
+        header("Content-Disposition: attachment; filename=$zip_file");
+        header("Content-length: " . filesize($zip_file));
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        readfile("$zip_file");
+
+        // delete the CSV and ZIP files from the server
+        foreach ($tables as $table) {
+            $filename = $table . ".csv";
+            unlink($filename);
+        }
+        unlink($zip_file);
     }
-
-    // Close file and database connection
-    fclose($file);
-    $conn->close();
-
-    // Download CSV file
-    header('Content-Type: text/csv');
-    header('Content-Disposition: attachment; filename="'.$filename.'";');
-    header('Pragma: no-cache');
-    readfile($filename);
-
-    // Delete the file from main folder
-    unlink($filename);
-    exit;
 }
 ?>
