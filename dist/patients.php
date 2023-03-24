@@ -241,7 +241,7 @@ hide_content();
                 $result = mysqli_query($conn, $query);
                 while ($row = mysqli_fetch_array($result)) {
                 ?>
-                    <li class="services__list__item services__list__item--active" onclick="patient(event, 'Deworming' , <?php echo $row['count(*)']; ?>)">
+                    <li class="services__list__item services__list__item--active" id="services__list__item--deworming" onclick="patient(event, 'Deworming' , <?php echo $row['count(*)']; ?>)">
                         <!-- COUNT DEWORMING -->
                         <!-- END COUNT DEWORMING -->
                         Deworming (<?php echo $row['count(*)']; ?>)
@@ -254,7 +254,7 @@ hide_content();
                     $result = mysqli_query($conn, $query);
                     while ($row = mysqli_fetch_array($result)) {
                     ?>
-                        <li class="services__list__item" onclick="patient(event, 'Consultation', <?php echo $row['count(*)']; ?> )">
+                        <li class="services__list__item" id="services__list__item--consultation" onclick="patient(event, 'Consultation', <?php echo $row['count(*)']; ?> )">
                             <!-- COUNT CONSULTATION -->
                             <!-- END COUNT CONSULTATION -->
                             Consultation (<?php echo $row['count(*)']; ?>)
@@ -267,7 +267,7 @@ hide_content();
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
-                            <li class="services__list__item" onclick="patient(event, 'Pre-Natal', <?php echo $row['count(*)']; ?>)">
+                            <li class="services__list__item services__list__item--prenatal" onclick="patient(event, 'Pre-Natal', <?php echo $row['count(*)']; ?>)">
                                 <!-- PRENATAL COUNT -->
                                 Pre-Natal (<?php echo $row['count(*)']; ?>)
                             <?php
@@ -279,7 +279,7 @@ hide_content();
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_array($result)) {
                             ?>
-                                <li class="services__list__item" onclick="patient(event, 'Post-Natal', <?php echo $row['count(*)']; ?>)">
+                                <li class="services__list__item" id="services__list__item--postnatal" onclick="patient(event, 'Post-Natal', <?php echo $row['count(*)']; ?>)">
                                     <!-- COUNT POSTNATAL -->
                                     Post-Natal (<?php echo $row['count(*)']; ?>)
                                 <?php
@@ -291,7 +291,7 @@ hide_content();
                                 $result = mysqli_query($conn, $query);
                                 while ($row = mysqli_fetch_array($result)) {
                                 ?>
-                                    <li class="services__list__item" onclick="patient(event, 'Search and Destroy', <?php echo $row['count(*)']; ?>)">
+                                    <li class="services__list__item " id="services__list__item--search" onclick="patient(event, 'Search and Destroy', <?php echo $row['count(*)']; ?>)">
                                         <!--  COUNT S/D -->
                                         Search and Destroy (<?php echo $row['count(*)']; ?>)
                                     <?php
@@ -303,7 +303,7 @@ hide_content();
                                     $result = mysqli_query($conn, $query);
                                     while ($row = mysqli_fetch_array($result)) {
                                     ?>
-                                        <li class="services__list__item" onclick="patient(event, 'Childhood Care', <?php echo $row['count(*)']; ?>)">
+                                        <li class="services__list__item" id="services__list__item--childhood" onclick="patient(event, 'Childhood Care', <?php echo $row['count(*)']; ?>)">
                                             <!-- COUNT EC -->
                                             Childhood Care (<?php echo $row['count(*)']; ?>)
                                         <?php
@@ -1179,42 +1179,42 @@ hide_content();
     if (isset($_POST['deworming_sort_name']) ||  isset($_POST['deworming_sort_sex']) || isset($_POST['deworming_sort_date_availed']) || isset($_GET['deworming'])) {
     ?>
         <script>
-            patient(event, 'Deworming');
+            servicesClick('services__list__item--deworming');
         </script>
     <?php
     }
     if (isset($_POST['consultation_sort_name']) || isset($_POST['consultation_sort_sex']) || isset($_POST['consultation_sort_date_availed']) || isset($_GET['consultation'])) {
     ?>
         <script>
-            patient(event, 'Consultation');
+            servicesClick('services__list__item--consultation');
         </script>
     <?php
     }
     if (isset($_POST['prenatal_sort_name']) || isset($_POST['prenatal_sort_sex']) || isset($_POST['prenatal_sort_date_availed']) || isset($_GET['prenatal'])) {
     ?>
         <script>
-            patient(onclick, 'Pre-Natal');
+            servicesClick('services__list__item--prenatal');
         </script>
     <?php
     }
     if (isset($_POST['postnatal_sort_name']) || isset($_POST['postnatal_sort_sex']) || isset($_POST['postnatal_sort_date_availed']) || isset($_GET['postnatal'])) {
     ?>
         <script>
-            patient(event, 'Post-Natal');
+            servicesClick('services__list__item--postnatal');
         </script>
     <?php
     }
     if (isset($_POST['search_sort_name']) || isset($_POST['search_sort_status']) || isset($_POST['search_sort_sex']) || isset($_POST['search_sort_date_availed']) || isset($_GET['searchdestroy'])) {
     ?>
         <script>
-            patient(event, 'Search and Destroy');
+            servicesClick('services__list__item--search');
         </script>
     <?php
     }
     if (isset($_POST['early_sort_name']) || isset($_POST['early_sort_date_availed']) || isset($_POST['early_sort_sex']) || isset($_POST['early_sort_date_availed']) || isset($_GET['earlychildhood'])) {
     ?>
         <script>
-            patient(event, 'Childhood Care');
+            servicesClick('services__list__item--childhood');
         </script>
     <?php
     }
