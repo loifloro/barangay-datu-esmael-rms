@@ -16,7 +16,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="../css/main.css">
-    <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Add Target Client list for Child Care Female</title>
 </head>
@@ -97,7 +97,7 @@ if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isse
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">

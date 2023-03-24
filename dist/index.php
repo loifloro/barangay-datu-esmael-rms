@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
 
     <link rel="stylesheet" href="./css/main.css">
-    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Brgy. Datu Esmael Patient Record Management System</title>
 </head>
