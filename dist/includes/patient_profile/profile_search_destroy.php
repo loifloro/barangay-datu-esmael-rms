@@ -39,9 +39,6 @@
                     <li class="patient-profile__img">
                         <img class="" src="./assets/img/patient-profile.svg" alt="">
                     </li>
-                    <li class="patient-profile__id patient-profile__category" id="patient_profile_id">
-                        #<?= $patient['search_destroy_id']; ?>
-                    </li>
                     <li class="patient-profile__name h5">
                         <?= $patient['owner_fname'] . ' ' . $patient['owner_lname']; ?> <!--Test if displays the fname and lname-->
                     </li>

@@ -38,9 +38,6 @@
                     <li class="patient-profile__img">
                         <img class="" src="./assets/img/patient-profile.svg" alt="">
                     </li>
-                    <li class="patient-profile__id patient-profile__category" id="patient_profile_id">
-                        #<?= $patient['postnatal_id']; ?>
-                    </li>
                     <li class="patient-profile__name h5">
                         <?= $patient['firstname'] . " " . $patient['lastname']; ?>
                     </li>
