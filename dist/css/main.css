@@ -6353,6 +6353,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .user-profile__desc {
   margin-top: -0.3rem;
 }
+.user-profile .user-profile__columns > * {
+  display: block;
+  margin-left: auto;
+  margin-top: 1rem;
+}
 .user-profile__password__form {
   width: 80%;
   margin-bottom: 3rem;
@@ -6439,6 +6444,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .user-profile__backup__form label {
   color: var(--black-3);
+}
+
+.csv__services {
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+@media (max-width: 48.1rem) {
+  .csv__services {
+    max-width: unset;
+    width: 100%;
+    margin-top: 2rem;
+  }
 }
 
 .services hr {
