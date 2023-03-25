@@ -301,7 +301,7 @@ if (isset($_GET['restore'])) {
                     (reasons, user_fname, user_lname, user_role, changes_label, 
                     date_edit, time_edit, patient_fname, patient_lname, record_name)
                     VALUES 
-                    ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
+                    ('Restore Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                     '$date', '$time', '$patient_fname', '$patient_lname', 'Deworming')";
 
             $query_run2 = mysqli_query($conn, $query2);
@@ -335,7 +335,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
+                ('Restore Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Consultation')";
 
             $query_run2 = mysqli_query($conn, $query2);
@@ -369,7 +369,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
+                ('Restore Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
 
             $query_run2 = mysqli_query($conn, $query2);
@@ -403,7 +403,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
+                ('Restore Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Postnatal')";
 
             $query_run2 = mysqli_query($conn, $query2);
@@ -437,7 +437,7 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
+                ('Restore Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Search/Destroy')";
 
             $query_run2 = mysqli_query($conn, $query2);
@@ -471,12 +471,46 @@ if (isset($_GET['restore'])) {
                 (reasons, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
+                ('Restore Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Childhood Care')";
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
                 header("Location: ../services.php?restore&service=childhood");
+                exit(0);
+            }
+            //END OF QUERY
+        }
+    }
+
+    // OTHER RESTORE
+    if (isset($_GET['other-service'])) {
+        $early_childhood_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $early_childhood_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $early_childhood_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+
+        $query = "UPDATE other_service SET archive_label = ' ' WHERE id='$early_childhood_id'";
+        $query_run = mysqli_query($conn, $query);
+        if ($query_run) {
+            // QUERY TO RECENT UPDATE EARLY CHILDHOOD 
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+
+            $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('Restore Record', '$user_fname', '$user_lname', '$user_role', 'restored', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Other Service')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if ($query_run2) {
+                header("Location: ../services.php?restore&service=otherservices");
                 exit(0);
             }
             //END OF QUERY
@@ -664,6 +698,37 @@ if (isset($_GET['delete'])) { //
                     VALUES 
                     ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
                     '$date', '$time', '$patient_fname', '$patient_lname', 'Childhood Care')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if ($query_run2) {
+                header("Location: ../archive.php?deleted");
+                exit(0);
+            }
+            //END OF QUERY
+        }
+    }
+    //DELETE OTHER SERVICES
+    if (isset($_GET['other-service'])) {
+        $early_childhood_id = mysqli_real_escape_string($conn, $_GET['id']);
+
+        $query = "DELETE FROM other_service WHERE id='$early_childhood_id'";
+        $query_run = mysqli_query($conn, $query);
+        if ($query_run) {
+            // QUERY TO RECENT UPDATE SEARCH AND DESTROY
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+
+            $query2 = "INSERT INTO recent_activity 
+                    (reasons, user_fname, user_lname, user_role, changes_label, 
+                    date_edit, time_edit, patient_fname, patient_lname, record_name)
+                    VALUES 
+                    ('Deleted Record', '$user_fname', '$user_lname', '$user_role', 'deleted', 
+                    '$date', '$time', '$patient_fname', '$patient_lname', 'Other Service')";
 
             $query_run2 = mysqli_query($conn, $query2);
             if ($query_run2) {
