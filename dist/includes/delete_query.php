@@ -239,6 +239,42 @@ if (isset($_GET['archive'])) {
             header("Location: ../services.php?archive=error&service=childhood");
         }
     }
+
+    // OTHER SERVICES ARCHIVING
+    if (isset($_GET['other-service'])) {
+        $other_id = mysqli_real_escape_string($conn, $_GET['id']);
+        $other_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+        $other_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+
+        $query = "UPDATE other_service SET archive_label = 'archived' WHERE id='$other_id'";
+        $query_run = mysqli_query($conn, $query);
+        if ($query_run) {
+            // QUERY TO RECENT UPDATE EARLY CHILDHOOD 
+            $user_fname = mysqli_real_escape_string($conn, $_GET['userFirstName']);
+            $user_lname = mysqli_real_escape_string($conn, $_GET['userLastName']);
+            $user_role = mysqli_real_escape_string($conn, $_GET['userRole']);
+            $date = date('Y-m-d');
+            $time = date('H:i:s');
+            $patient_fname = mysqli_real_escape_string($conn, $_GET['patientFirstName']);
+            $patient_lname = mysqli_real_escape_string($conn, $_GET['patientLastName']);
+            $title = mysqli_real_escape_string($conn, $_POST['others-title']);
+            $query2 = "INSERT INTO recent_activity 
+                (reasons, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('Archive Record', '$user_fname', '$user_lname', '$user_role', 'archived', 
+                '$date', '$time', '$patient_fname', '$patient_lname', 'Other Services')";
+
+            $query_run2 = mysqli_query($conn, $query2);
+            if ($query_run2) {
+                header("Location: ../services.php?archive&service=otherservice");
+                exit(0);
+            }
+            //END OF QUERY
+        } else {
+            header("Location: ../services.php?archive=error&service=otherservice");
+        }
+    }
 }
 
 if (isset($_GET['restore'])) {
