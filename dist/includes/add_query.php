@@ -65,7 +65,7 @@ if (isset($_POST['save_others'])) {
               service_name, description, result, prescription) 
               VALUES 
               ('$others_date', '$lastname', '$firstname', '$middlename', '$age', '$sex', '$birthdate', 
-              '$street_add', '$barangay', '$city', '$phone_num', '$title', '$encrypted_pwd', '$email',
+              '$street_add', '$barangay', '$city', '$phone_num', 'Other Services', '$encrypted_pwd', '$email',
               '$title', '$description', '$result', '$prescription')";
 
     $query_run = mysqli_query($conn, $query);

@@ -93,7 +93,7 @@ if (isset($_POST['edit_other'])) {
     $query = "UPDATE other_service SET service_date='$others_date', service_email='$email', 
     lastname='$lastname', firstname='$firstname', middlename='$middlename',
     age='$age', sex='$sex', bdate='$birthdate', address='$street_add', barangay='$barangay',
-    city='$city', phone_num='$phone_num', label='$title', service_password='$encrypted_pwd',
+    city='$city', phone_num='$phone_num', label='Other Services', service_password='$encrypted_pwd',
     service_email='$email', service_name='$title', description='$description', result='$result',
     prescription='$prescription' WHERE id='$other_id'"; 
 
