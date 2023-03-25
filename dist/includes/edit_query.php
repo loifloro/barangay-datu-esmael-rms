@@ -57,6 +57,82 @@ if (isset($_POST['edit_bhw'])) {
     }
 }
 
+// ADD NEW SERVICE
+if (isset($_POST['edit_other'])) {
+    $other_id = mysqli_real_escape_string($conn, $_POST['other_id']);
+    $others_date = date('Y-m-d'); //new date initialization
+    $title = mysqli_real_escape_string($conn, $_POST['others-title']);
+    $email = mysqli_real_escape_string($conn, $_POST['others-username']);
+    $lastname = mysqli_real_escape_string($conn, $_POST['others-lname']);
+    $firstname = mysqli_real_escape_string($conn, $_POST['others-fname']);
+    $middlename = mysqli_real_escape_string($conn, $_POST['others-mname']);
+
+    //convert bdate to age
+    $dateOfBirth = mysqli_real_escape_string($conn, $_POST['others-birthday']);
+    $today = date("Y-m-d");
+    $diff = date_diff(date_create($dateOfBirth), date_create($today));
+    $age = $diff->format('%y');
+
+    $sex = mysqli_real_escape_string($conn, $_POST['others-sex']);
+    $birthdate = mysqli_real_escape_string($conn, $_POST['others-birthday']);
+    $street_add = mysqli_real_escape_string($conn, $_POST['others-street']);
+    $barangay = mysqli_real_escape_string($conn, $_POST['others-barangay']);
+    $city = mysqli_real_escape_string($conn, $_POST['others-city']);
+    $phone_num = mysqli_real_escape_string($conn, $_POST['others-phone_num']);
+
+    $description = mysqli_real_escape_string($conn, $_POST['others-description']);
+    $result = mysqli_real_escape_string($conn, $_POST['others-results']);
+    $prescription = mysqli_real_escape_string($conn, $_POST['others-prescription']);
+
+    $password_date = mysqli_real_escape_string($conn, $_POST['others-birthday']);
+    $year_date = date('Y', strtotime($password_date));
+    $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
+    $password =  $lastname_space . $year_date . $title;
+    $encrypted_pwd = md5($password);
+
+    $query = "UPDATE other_service SET service_date='$others_date', service_email='$email', 
+    lastname='$lastname', firstname='$firstname', middlename='$middlename',
+    age='$age', sex='$sex', bdate='$birthdate', address='$street_add', barangay='$barangay',
+    city='$city', phone_num='$phone_num', label='$title', service_password='$encrypted_pwd',
+    service_email='$email', service_name='$title', description='$description', result='$result',
+    prescription='$prescription' WHERE id='$other_id'"; 
+
+    $query_run = mysqli_query($conn, $query);
+    if ($query_run) {
+
+        // QUERY TO RECENT UPDATE OTHER SERVICE
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+
+        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
+
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['others-fname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['others-lname']);
+
+        $title = mysqli_real_escape_string($conn, $_POST['others-title']);
+
+        $query2 = "INSERT INTO recent_activity 
+                (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
+                date_edit, time_edit, patient_fname, patient_lname, record_name)
+                VALUES 
+                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                '$date', '$time', '$patient_fname', '$patient_lname', '$title')";
+
+        $query_run2 = mysqli_query($conn, $query2);
+        if ($query_run2) {
+            header("Location: ../services.php?edited=success&service=otherservices");
+            exit(0);
+        }
+        //END OF QUERY
+    } else {
+        header("Location: ../services.php?status=error");
+        exit(0);
+    }
+}
 
 
 // EDIT DEWORMING RECORD
