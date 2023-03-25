@@ -421,6 +421,29 @@ hide_content();
                 ?>
                 <!-- END -->
             </li>
+
+            <?php
+            $query = "SELECT * FROM other_service WHERE archive_label=''";
+            $query_run = mysqli_query($conn, $query);
+            if (mysqli_num_rows($query_run) == 0) {
+                $serviceRow = 0;
+            } else {
+                $serviceRow = 1;
+            }
+            ?>
+            <li class="services__list__item" id='services__list__item--other' onclick="services(event, 'Other-services' , '<?= $serviceRow ?>')">
+                <!-- START EARLY CHILDHOOD COUNT -->
+                <?php
+                $query = "SELECT count(*) FROM other_service WHERE archive_label=''";
+                $result = mysqli_query($conn, $query);
+                while ($row = mysqli_fetch_array($result)) {
+                ?>
+                    Others (<?php echo $row['count(*)']; ?>)
+                <?php
+                }
+                ?>
+                <!-- END -->
+            </li>
         </ul>
         <!-- end of TABS event initialization -->
         <hr class="services__list--hr">
@@ -1506,6 +1529,181 @@ hide_content();
         </div>
         <!-- End Tab for Search and Destroy -->
 
+
+        <!-- Start Tab for Other Services -->
+        <div class="services__table" id="Other-services">
+            <!-- START OF FORM ACTION -->
+            <form action="" method="POST">
+                <ul class="services__table__row services__header" role="list">
+                    <li class="services__attributes__item">
+                        <p>Name</p>
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="other_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Service
+                        <!-- BUTTON FOR MOTHER NAME -->
+                        <button type="submit" name="other_service" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Sex
+                        <!-- BUTTON FOR Age -->
+                        <button type="submit" name="other_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="services__attributes__item">
+                        Date Availed
+                        <!-- BUTTON FOR DATE AVAILED -->
+                        <button type="submit" name="other_date_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li>
+
+                    </li>
+                </ul>
+            </form>
+            <!-- END OF FORM -->
+
+            <!-- To be put in the loop -->
+            <?php
+            //PAGINATION COUNTER
+            if (isset($_GET['page_other'])) {
+                $page = $_GET['page_other'];
+            } else {
+                $page = 1;
+            }
+            $num_per_page = 9;
+            $start_from = ($page - 1) * $num_per_page;
+            // END OF PAGINATION COUNTER
+
+            $query = "SELECT * FROM other_service WHERE archive_label='' LIMIT $start_from, $num_per_page";
+            $query_run = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['other_name'])) {
+                    $sort_id = $_POST['other_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM other_service WHERE archive_label='' ORDER BY firstname LIMIT $start_from, $num_per_page";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['other_service'])) {
+                    $sort_id = $_POST['other_service'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM other_service WHERE archive_label='' ORDER BY service_name LIMIT $start_from, $num_per_page";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['other_sex'])) {
+                    $sort_id = $_POST['other_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM other_service WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['other_date_availed'])) {
+                    $sort_id = $_POST['other_date_availed'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM other_service WHERE archive_label='' ORDER BY service_date LIMIT $start_from, $num_per_page";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                foreach ($query_run as $patient) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $ec_date = new DateTime($patient['service_date']);
+                    $new_ec_date = $ec_date->format("m-d-Y");
+            ?>
+                    <ul class="services__table__row services__info" role="list">
+                        <li class="services__name p-bold">
+                           <?= $patient['firstname'] . ' ' . $patient['lastname']; ?></a>
+                        </li>
+                        <li class="services__num">
+                            <?= $patient['service_name']; ?>
+                        </li>
+                        <li class="services__sex">
+                            <?= $patient['sex']; ?>
+                        </li>
+                        <li class="services__date--availed">
+                            <?= $new_ec_date; ?>
+                        </li>
+                        <li class="services__option">
+                            <button type="button" onclick="confirmArchive('other-service' ,'<?= $patient['id']; ?>' , '<?= $patient['firstname']; ?>' , '<?= $patient['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
+                                <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
+                                </svg>
+                            </button>
+                            <button type="button" onclick="window.location.href = `./edit/edit-other_services.php?id=<?= $patient['id']; ?>`">
+                                <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
+                                    <defs>
+                                        <clipPath id="a">
+                                            <rect width="64" height="64" />
+                                        </clipPath>
+                                    </defs>
+                                    <g clip-path="url(#a)">
+                                        <path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z" />
+                                    </g>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                <?php
+                }
+                //PAGINATION
+                $pr_query = "SELECT * FROM other_service";
+                $pr_result = mysqli_query($conn, $pr_query);
+                $total_record = mysqli_num_rows($pr_result);
+
+                $total_page = ceil($total_record / $num_per_page);
+
+                ?>
+                <div class="pagination">
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='services.php?page_other=<?php echo ($page - 1) ?>&otherservices' class="pagination_previous">Previous</a>
+
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='services.php?page_other=<?php echo $i; ?>&otherservices' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='services.php?page_other=<?php echo ($page + 1) ?>&otherservices' class="pagination_next">Next</a>
+                    <?php
+                    }
+                    ?>
+                </div>
+            <?php
+                //END OF PAGINATION
+            }
+
+            ?>
+
+            <!-- End of Query -->
+
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-other_services.php'">
+                <p>Add</p>
+            </button>
+        </div>
+        <!-- End Tab for Search and Destroy -->
+
         <hr id="services__hr">
 
     </main>
@@ -1655,6 +1853,13 @@ hide_content();
         </script>
     <?php
     }
+    if (isset($_POST['other_name']) || isset($_POST['other_service']) || isset($_POST['other_sex']) || isset($_POST['other_date_availed']) || isset($_GET['otherservices'])) {
+        ?>
+            <script>
+                servicesClick('services__list__item--other');
+            </script>
+        <?php
+        }
     ?>
     <script>
         var loader = document.getElementById("loader");
