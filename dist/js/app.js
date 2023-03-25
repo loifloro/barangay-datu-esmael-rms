@@ -106,6 +106,7 @@ navBar.addEventListener("click", () => {
       prenatal: "Pre-natal",
       postnatal: "Post-natal",
       searchDestroy: "Search and destroy",
+      otherService: "Other service",
       // 'icecream': 'Ice cream'
     },
     // inputPlaceholder: 'Select a fruit',
@@ -130,6 +131,9 @@ navBar.addEventListener("click", () => {
         } else if (value === "searchDestroy") {
           window.location.href =
             "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php";
+        } else if (value === "otherService") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-other_services.php";
         }
       });
     },
