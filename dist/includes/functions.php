@@ -570,7 +570,8 @@ function total_patient()
                 (select count(*) FROM early_childhood WHERE archive_label='') +
                 (select count(*) FROM postnatal WHERE archive_label='') +
                 (select count(*) FROM prenatal WHERE archive_label='') +
-                (select count(*) FROM search_destroy WHERE archive_label='')
+                (select count(*) FROM search_destroy WHERE archive_label='') +
+                (select count(*) FROM other_service WHERE archive_label='')
                 As total";
     $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_array($result)) {
@@ -600,7 +601,9 @@ function total_result()
                         (select count(*) FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
                                   LIKE '%$value%') +
                         (select count(*) FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                                  LIKE '%$value%')
+                                  LIKE '%$value%') +
+                        (select count(*) FROM other_service WHERE CONCAT(firstname,lastname,service_date,sex,phone_num, service_name) 
+                        LIKE '%$value%')
                         As totalvalue";
         $result = mysqli_query($conn, $query);
         while ($row = mysqli_fetch_array($result)) {
