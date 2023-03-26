@@ -242,7 +242,11 @@ if (mysqli_num_rows($query_run2) > 0) {
                                   UNION ALL
                                   SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label, early_childhood_email
                                   FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label, early_childhood_email) 
-                                  LIKE '%$filtervalues%' 
+                                  LIKE '%$filtervalues%'
+                                  UNION ALL
+                                  SELECT id, firstname, lastname, service_date, sex, phone_num, label, service_email
+                                  FROM other_service WHERE CONCAT(firstname,lastname,service_date,sex,phone_num, label, service_email) 
+                                  LIKE '%$filtervalues%'
                                   ";
                     $query_run = mysqli_query($conn, $query);
                     if (mysqli_num_rows($query_run) > 0) {
