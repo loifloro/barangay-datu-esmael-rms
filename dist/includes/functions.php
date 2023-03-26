@@ -531,6 +531,88 @@ function hide_patient_childhood()
         }
     }
 }
+
+//HIDE CONTENT FOR OTHER PATIENT ACCESS
+function hide_patient_others()
+{
+    include 'includes/connection.php';
+    $query = "SELECT * FROM other_service WHERE id = '" . $_SESSION['account_id'] . "'";
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        foreach ($query_run as $user) {
+            $position = $user['label'];
+        }
+        if ($position == 'Other Services') {
+        ?>
+            <style type="text/css">
+                .bhw-account {
+                    display: none;
+                }
+
+                .user-profile__backup {
+                    display: none;
+                }
+
+                .navigation__search {
+                    display: none;
+                }
+
+                .back__btn {
+                    display: none;
+                }
+
+                #add_service_bt{
+                    display: none;
+                }
+
+                #patient_profile_id{
+                    display: none;
+                }
+
+                #edit-profile {
+                    display: none;
+                }
+
+                #nav-btn {
+                    display: none;
+                }
+
+                #masterlist_sidebar {
+                    display: none;
+                }
+
+                #backup_sidebar {
+                    display: none;
+                }
+
+                #dashboard_sidebar {
+                    display: none;
+                }
+
+                #patient_sidebar {
+                    display: none;
+                }
+
+                #line_sidebar {
+                    display: none;
+                }
+
+                #services_sidebar {
+                    display: none;
+                }
+
+                #setting_sidebar {
+                    display: none;
+                }
+
+                #generated_password{
+                    display: none;
+                }
+            </style>
+        <?php
+        }
+    }
+}
 // HIDE CONTENT FOR ADD AND EDIT FORMS
 function hide_content_forms()
 {

@@ -20,6 +20,8 @@ $query = "SELECT label, deworming_email FROM deworming WHERE deworming_email='$e
     SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$email'
     UNION
     SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$email'
+    UNION
+    SELECT label, service_email FROM other_service WHERE service_email='$email'
     ";
 $query_run = mysqli_query($conn, $query);
 if (mysqli_num_rows($query_run) > 0) {
@@ -52,6 +54,11 @@ if (mysqli_num_rows($query_run) > 0) {
         if ($patient['label'] == 'Early Childhood') {
             include_once "includes/functions.php";
             hide_patient_childhood();
+            $input_search = $patient['deworming_email'];
+        }
+        if ($patient['label'] == 'Other Services') {
+            include_once "includes/functions.php";
+            hide_patient_others();
             $input_search = $patient['deworming_email'];
         }
     }
