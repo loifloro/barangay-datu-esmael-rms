@@ -56,7 +56,7 @@ if (isset($_POST['save_others'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['others-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date . $title;
+    $password =  $lastname_space . $year_date . '-os';
     $encrypted_pwd = md5($password);
 
     $query = "INSERT INTO other_service 

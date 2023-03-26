@@ -57,7 +57,7 @@ if (isset($_POST['edit_bhw'])) {
     }
 }
 
-// ADD NEW SERVICE
+// EDIT NEW SERVICE
 if (isset($_POST['edit_other'])) {
     $other_id = mysqli_real_escape_string($conn, $_POST['other_id']);
     $others_date = date('Y-m-d'); //new date initialization
@@ -87,7 +87,7 @@ if (isset($_POST['edit_other'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['others-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date . $title;
+    $password =  $lastname_space . $year_date . '-os';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE other_service SET service_date='$others_date', service_email='$email', 
