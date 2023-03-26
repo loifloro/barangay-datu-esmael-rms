@@ -1801,6 +1801,21 @@ hide_content();
                 servicesClick('services__list__item--postnatal');
             </script>
         <?php
+        } else if ($_GET['service'] === 'otherservices') {
+            $query = "SELECT * FROM other_service";
+            $query_run = mysqli_query($conn, $query);
+            if (mysqli_num_rows($query_run) == 0) {
+            ?>
+                <script>
+                    noRecord();
+                </script>
+            <?php
+            }
+            ?>
+            <script>
+                servicesClick('services__list__item--other');
+            </script>
+        <?php
         }
     } else {
         ?>

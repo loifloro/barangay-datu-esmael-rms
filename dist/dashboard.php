@@ -301,6 +301,24 @@ hide_content();
                         total record
                     </p>
                 </div>
+                <div class="services__card services__card--prenatal" onclick="window.location.href = './services.php?service=otherservices'">
+                    <p class="services__card-title">
+                        Other
+                    </p>
+                    <p class="services__card-visits">
+                        <!-- COUNT DEWORMING -->
+                        <?php
+                        $query = "SELECT count(*) FROM other_service;";
+                        $result = mysqli_query($conn, $query);
+                        while ($row = mysqli_fetch_array($result)) {
+                        ?>
+                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
+                        <?php
+                        }
+                        ?>
+                        total record
+                    </p>
+                </div>
             </section>
         </section>
 
