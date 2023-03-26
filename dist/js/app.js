@@ -163,6 +163,7 @@ function addNewRecord(
       prenatal: "Pre-natal",
       postnatal: "Post-natal",
       searchDestroy: "Search and destroy",
+      otherService: "Other service",
     },
     showCancelButton: true,
     inputValidator: (value) => {
@@ -270,6 +271,26 @@ function addNewRecord(
         } else if (value === "searchDestroy") {
           window.location.href =
             "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php?fname=" +
+            firstname +
+            "&lname=" +
+            lastname +
+            "&phone=" +
+            phone +
+            "&bday=" +
+            birthday +
+            "&sex=" +
+            sex +
+            "&address=" +
+            street +
+            "&city=" +
+            city +
+            "&barangay=" +
+            barangay +
+            "&username=" +
+            username;
+        } else if (value === "otherService") {
+          window.location.href =
+            "/barangay-datu-esmael-rms/dist/add/add-other_services.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
