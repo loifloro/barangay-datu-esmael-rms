@@ -202,6 +202,24 @@ if (mysqli_num_rows($query_run2) > 0) {
                 }
             }
         }
+
+        //Other Services
+        if (($patient_label == "Other Services") and (isset($_GET['id']))) {
+            $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+            $query = "SELECT * FROM other_service WHERE id='$patient_id'";
+            $query_run = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+                $patient = mysqli_fetch_array($query_run);
+                if (isset($_GET['fname']) && isset($_GET['lname'])) {
+                    $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                    $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                    if ($patient['firstname'] == $patient_fname && $patient['lastname'] == $patient_lname) {
+                        $patient_tab = $patient['firstname'] . ' ' . $patient['lastname'];
+                    }
+                }
+            }
+        }
     ?>
         <title><?= $patient_tab; ?></title>
     <?php
@@ -412,6 +430,17 @@ if (mysqli_num_rows($query_run2) > 0) {
                 if (mysqli_num_rows($query_run) > 0) {
                     $patient = mysqli_fetch_array($query_run);
                     include('includes/patient_profile/profile_childhood_care.php');
+                }
+            }
+            //OTHER SERVICE
+            if (($patient_label == "Other Services") and (isset($_GET['id']))) {
+                $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                $query = "SELECT * FROM other_service WHERE id='$patient_id'";
+                $query_run = mysqli_query($conn, $query);
+
+                if (mysqli_num_rows($query_run) > 0) {
+                    $patient = mysqli_fetch_array($query_run);
+                    include('includes/patient_profile/profile_other_service.php');
                 }
             }
         }
