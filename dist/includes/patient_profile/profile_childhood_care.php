@@ -142,29 +142,33 @@
             $filtervalues = $patient['child_fname'];
             $filtervalues2 = $patient['child_lname'];
             $query3 = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
-                                      FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%'
-                                      UNION ALL
-                                      SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
-                                      FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%'
-                                      UNION ALL
-                                      SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
-                                      FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
-                                      UNION ALL
-                                      SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
-                                      FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
-                                      UNION ALL
-                                      SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
-                                      FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%'
-                                      UNION ALL
-                                      SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
-                                      FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                                      LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%'
-                                      ";
+                FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
+                LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                UNION ALL
+                SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
+                FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
+                LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%'
+                UNION ALL
+                SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
+                FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
+                LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                UNION ALL
+                SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
+                FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
+                LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                UNION ALL
+                SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
+                FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
+                LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                UNION ALL
+                SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
+                FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
+                LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%'
+                UNION ALL
+                SELECT id, firstname, lastname, service_date, sex, phone_num, label
+                FROM other_service WHERE CONCAT(firstname,lastname,service_date,sex,phone_num, label) 
+                LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,service_date,sex,phone_num, label)  LIKE '%$filtervalues2%'
+                ";
             $query_run3 = mysqli_query($conn, $query3);
             if (mysqli_num_rows($query_run3) > 0) {
                 foreach ($query_run3 as $recent3) {
@@ -274,8 +278,38 @@
                                     include('includes/reports/early__childhood.php');
                                 }
 
+                                 //OTHER SERVICE
+                                 if (($changes_label == "Other Services") and (isset($_GET['id']))) {
+                                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                                    $patient_fname = $_GET['fname'];
+                                    $patient_lname = $_GET['lname'];
+                                    $query = "SELECT * FROM other_service WHERE firstname='$patient_fname' AND lastname='$patient_lname' AND service_date='$date'";
+                                    $query_run = mysqli_query($conn, $query);
+
+                                    if (mysqli_num_rows($query_run) > 0) {
+                                        foreach ($query_run as $patient) {
+                                            $patient_link = $patient['id'];
+                                            $modalLink = "#other_service_report" . $patient_link;
+                                        }
+                                    }
+                                    include('includes/reports/other_service.php');
+                                }
+
+                                if($recent3['label'] == "Other Services"){
+                                    $query = "SELECT * FROM other_service WHERE firstname='$patient_fname' AND lastname='$patient_lname' AND service_date='$date'";
+                                    $query_run = mysqli_query($conn, $query);
+                                    if (mysqli_num_rows($query_run) > 0) {
+                                        foreach ($query_run as $patient) {
+                                            $label = $patient['service_name'];
+                                            $new_label = $label;
+                                        }
+                                    }
+                                } else{
+                                    $new_label = $recent3['label'];
+                                }
+
                             ?>
-                                <a href="<?= $modalLink; ?>" rel="modal:open"><?= $recent3['label']; ?> </a>
+                                <a href="<?= $modalLink; ?>" rel="modal:open"><?= $new_label; ?> </a>
                             <?php
                             }
                             ?>
@@ -382,6 +416,23 @@
                                         foreach ($query_run as $early) {
                                             $patient_link = $early['early_childhood_id'];
                                             $link = "edit/edit-early_childhood.php?id=" . $patient_link;
+                                        }
+                                    }
+                                }
+                            
+                                //OTHER SERVICE
+                                if (($changes_label == "Other Services") and (isset($_GET['id']))) {
+                                    $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                                    $patient_fname = $_GET['fname'];
+                                    $patient_lname = $_GET['lname'];
+                                    $query = "SELECT * FROM other_service WHERE firstname='$patient_fname' AND lastname='$patient_lname'
+                                    AND service_date='$date'";
+                                    $query_run = mysqli_query($conn, $query);
+
+                                    if (mysqli_num_rows($query_run) > 0) {
+                                        foreach ($query_run as $early) {
+                                            $patient_link = $early['id'];
+                                            $link = "edit/edit-other_services.php?id=" . $patient_link;
                                         }
                                     }
                                 }

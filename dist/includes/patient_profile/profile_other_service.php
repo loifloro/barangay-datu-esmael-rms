@@ -421,7 +421,7 @@
                                 }
 
                                 //OTHER SERVICE
-                                if (($patient_label == "Other Services") and (isset($_GET['id']))) {
+                                if (($changes_label == "Other Services") and (isset($_GET['id']))) {
                                     $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
                                     $patient_fname = $_GET['fname'];
                                     $patient_lname = $_GET['lname'];
