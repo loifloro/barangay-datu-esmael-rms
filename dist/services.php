@@ -1629,7 +1629,8 @@ hide_content();
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                           <?= $patient['firstname'] . ' ' . $patient['lastname']; ?></a>
+                        <a href="#other_service_report<?= $patient['id']; ?>" rel="modal:open"><?= $patient['firstname'] . ' ' . $patient['lastname']; ?></a>
+                        <?php include('./includes/reports/other_service.php'); ?>
                         </li>
                         <li class="services__num">
                             <?= $patient['service_name']; ?>
