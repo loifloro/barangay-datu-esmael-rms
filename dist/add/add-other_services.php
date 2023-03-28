@@ -168,7 +168,7 @@ hide_content_forms();
             <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
                 <div class="add-deworming__form-item">
                     <label for="deworming-lname">Service Title</label>
-                    <input type="text" name="others-title" id="deworming-email" value="<?php echo isset($_GET['username']) ? $_GET['username'] : ''; ?>">
+                    <input type="text" name="others-title" id="deworming-email" value="">
                 </div>
                 <div class="add-deworming__form-item">
                     <label for="deworming-lname">Username (optional)</label>
