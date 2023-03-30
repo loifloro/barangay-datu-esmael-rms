@@ -125,7 +125,7 @@
 if (isset($_GET['report__date'])) {
 ?>
     <!-- Consultation daily reports -->
-    <div class="modal deworming-reports" id="consultation-daily-reports">
+    <div class="modal deworming-reports" id="other-daily-reports">
         <h4 class="consultation__report__title">
             City Government of Dasmariñas <br> City Health Office II
         </h4>
@@ -134,7 +134,7 @@ if (isset($_GET['report__date'])) {
         </p>
 
         <h4 class="deworming-reports__title">
-            Consultation reports
+            Other Services Reports
         </h4>
         <div class="deworming-reports__details">
             <p class="deworming-reports__brgy">
@@ -177,18 +177,18 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label=''";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM consultation WHERE consultation_date = '$date'";
+                    $query = "SELECT count(*) FROM other_service WHERE service_date = '$date'";
                     $result = mysqli_query($conn, $query);
                 }
                 else{
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2'";
                     $result = mysqli_query($conn, $query);
                 }
         }
@@ -206,18 +206,18 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male'";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male' AND consultation_date = '$date'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date = '$date'";
                     $result = mysqli_query($conn, $query);
                 }
                 else{
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Male' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date >= '$date' AND service_date <= '$date2'";
                     $result = mysqli_query($conn, $query);
                 }
         }
@@ -234,18 +234,18 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female'";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female' AND consultation_date = '$date'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date = '$date'";
                     $result = mysqli_query($conn, $query);
                 }
                 else{
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND sex='Female' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date >= '$date' AND service_date <= '$date2'";
                     $result = mysqli_query($conn, $query);
                 }
         }
@@ -260,6 +260,57 @@ if (isset($_GET['report__date'])) {
         ?>
         <!-- Query End -->
 
+        <!-- OIHER SERVICS -->
+        <br>
+        <p class="dewroming-reports__total p-bold">
+            Total No. of Patient Based on Services:
+        </p>
+        <?php
+            include 'includes/connection.php';
+            if (isset($_GET['report__date'])) {
+                $date = mysqli_real_escape_string($conn, $_GET['report__date']);
+                $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+                    if($date == $date && $date2 == ''){
+                        $query_service = "SELECT * FROM other_service WHERE archive_label='' AND service_date = '$date' GROUP BY service_name";
+                        $result_service = mysqli_query($conn, $query_service);
+                    }
+                    else{
+                        $query_service = "SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' GROUP BY service_name";
+                        $result_service = mysqli_query($conn, $query_service);
+                    }
+            
+
+            $query_service = "SELECT * FROM other_service WHERE archive_label='' GROUP BY service_name";
+            $result_service = mysqli_query($conn, $query_service);
+            if (mysqli_num_rows($result_service) > 0) {
+                foreach ($result_service as $service) {
+                    $service_nm= $service['service_name'];
+                    
+                    if($date == $date && $date2 == ''){
+                        $query_count = "SELECT service_name, count(*) AS count FROM other_service WHERE archive_label='' AND service_date = '$date' AND service_name='$service_nm' HAVING count > 0";
+                        $result_count = mysqli_query($conn, $query_count);
+                    }
+                    else{
+                        $query_count = "SELECT service_name, count(*) AS count FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_nm' HAVING count > 0";
+                        $result_count = mysqli_query($conn, $query_count);
+                    }
+                    while ($row = mysqli_fetch_array($result_count)) {
+                        if($service_nm == 0){
+                            
+                        }
+                        ?>
+                            <p class="dewroming-reports__total">
+                            Total no. of <?= $service_nm; ?> Patient: <?php echo $row['count']; ?>
+                            </p>
+                        <?php
+                    }
+                }
+            }
+        }
+        ?>
+        <!-- END -->
+
+
         <table class="deworming-reports__table">
             <thead>
                 <tr>
@@ -268,6 +319,7 @@ if (isset($_GET['report__date'])) {
                     <th>ADDRESS</th>
                     <th>AGE</th>
                     <th>SEX</th>
+                    <th>SERVICES</th>
                 </tr>
             </thead>
             <?php
@@ -276,11 +328,11 @@ if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
                 $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                     if($date == $date && $date2 == ''){
-                        $query = "SELECT * FROM consultation WHERE archive_label='' AND consultation_date = '$date'";
+                        $query = "SELECT * FROM other_service WHERE archive_label='' AND service_date = '$date'";
                         $query_run = mysqli_query($conn, $query);
                     }
                     else{
-                        $query = "SELECT * FROM consultation WHERE archive_label='' AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+                        $query = "SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2'";
                         $query_run = mysqli_query($conn, $query);
                     }
             }
@@ -288,15 +340,16 @@ if (isset($_GET['report__date'])) {
             if (mysqli_num_rows($query_run) > 0) {
                 foreach ($query_run as $patient) {
                     // CONVERT DATE TO MM-DD-YY
-                    $d_date = new DateTime($patient['consultation_date']);
+                    $d_date = new DateTime($patient['service_date']);
                     $new_consul_date = $d_date->format("m-d-Y");
             ?>
                     <tr>
                         <td> <?= $new_consul_date; ?> </td>
                         <td> <?= $patient['firstname']; ?> <?= $patient['middlename']; ?> <?= $patient['lastname']; ?> </td>
-                        <td> <?= $patient['street_address'] . ' ' . $patient['barangay']; ?> </td>
+                        <td> <?= $patient['address'] . ' ' . $patient['barangay']; ?> </td>
                         <td> <?= $patient['age']; ?> </td>
                         <td> <?= $patient['sex']; ?> </td>
+                        <td> <?= $patient['service_name']; ?> </td>
                     </tr>
             <?php
                 }
@@ -309,18 +362,18 @@ if (isset($_GET['report__date'])) {
         </p>
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13 AND consultation_date = '$date'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date = '$date'";
                     $result = mysqli_query($conn, $query);
                 }
                 else{
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=1 AND age<=13 AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date >= '$date' AND service_date <= '$date2'";
                     $result = mysqli_query($conn, $query);
                 }
         }
@@ -328,7 +381,7 @@ if (isset($_GET['report__date'])) {
         while ($row = mysqli_fetch_array($result)) {
         ?>
             <p class="dewroming-reports__total">
-                Age 1-13 y/o: <?php echo $row['count(*)']; ?>
+                Age 1-12 y/o: <?php echo $row['count(*)']; ?>
             </p>
         <?php
         }
@@ -337,18 +390,18 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=13 AND age<=19";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22 AND consultation_date = '$date'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=13 AND age<=19 AND service_date = '$date'";
                     $result = mysqli_query($conn, $query);
                 }
                 else{
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=14 AND age<=22 AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=13 AND age<=19 AND service_date >= '$date' AND service_date <= '$date2'";
                     $result = mysqli_query($conn, $query);
                 }
         }
@@ -356,7 +409,7 @@ if (isset($_GET['report__date'])) {
         while ($row = mysqli_fetch_array($result)) {
         ?>
             <p class="dewroming-reports__total">
-                Age 14-22 y/o: <?php echo $row['count(*)']; ?>
+                Age 13-19 y/o: <?php echo $row['count(*)']; ?>
             </p>
         <?php
         }
@@ -365,18 +418,18 @@ if (isset($_GET['report__date'])) {
 
         <!-- Query Start -->
         <?php
-        $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=23";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20";
         $result = mysqli_query($conn, $query);
 
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
                 if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=23 AND consultation_date = '$date'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date = '$date'";
                     $result = mysqli_query($conn, $query);
                 }
                 else{
-                    $query = "SELECT count(*) FROM consultation WHERE archive_label='' AND age>=23 AND consultation_date >= '$date' AND consultation_date <= '$date2'";
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date >= '$date' AND service_date <= '$date2'";
                     $result = mysqli_query($conn, $query);
                 }
         }
@@ -384,7 +437,7 @@ if (isset($_GET['report__date'])) {
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="dewroming-reports__total">
-            Age 23-up y/o: <?php echo $row['count(*)']; ?>
+            Age 20-up y/o: <?php echo $row['count(*)']; ?>
         </p>
     <?php
     }
@@ -398,11 +451,11 @@ if (isset($_GET['report__date'])) {
         $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
 
         if($date2 == ''){
-            $query = "SELECT count(*) FROM consultation WHERE consultation_date ='$date'";
+            $query = "SELECT count(*) FROM other_service WHERE service_date ='$date'";
             $result = mysqli_query($conn, $query);
         }
         else{
-            $query = "SELECT count(*) FROM consultation WHERE consultation_date >='$date' AND consultation_date <='$date2'";
+            $query = "SELECT count(*) FROM other_service WHERE service_date >='$date' AND service_date <='$date2'";
             $result = mysqli_query($conn, $query);
         }
         
@@ -430,7 +483,9 @@ if (isset($_GET['report__date'])) {
                       UNION ALL
                       SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$mail'
                       UNION ALL
-                      SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$mail'";
+                      SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$mail'
+                      UNION ALL
+                      SELECT label, service_email FROM other_service WHERE service_email='$mail'";
              $query_run = mysqli_query($conn, $query);
              if (mysqli_num_rows($query_run) == 1) {
                 $row = mysqli_fetch_assoc($query_run);
@@ -443,7 +498,7 @@ if (isset($_GET['report__date'])) {
                 }
                 else{
                     ?>
-                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['consultation_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
+                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
                             Save as PDF
                         </button>
                     <?php
