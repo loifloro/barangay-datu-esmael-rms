@@ -111,7 +111,7 @@ hide_content();
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -230,6 +230,16 @@ hide_content();
                     <?php
                     }
                     ?>
+                    <!-- COUNT EC -->
+                    <?php
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="Other-service">Others (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -310,18 +320,18 @@ hide_content();
                                     }
                                         ?>
                                         </li>
-                                    <?php
-                                    $query = "SELECT count(*) FROM other_service WHERE archive_label=''";
-                                    $result = mysqli_query($conn, $query);
-                                    while ($row = mysqli_fetch_array($result)) {
-                                    ?>
-                                        <li class="services__list__item" onclick="patient(event, 'Other-service', <?php echo $row['count(*)']; ?>)">
-                                            <!--  COUNT S/D -->
-                                            Others (<?php echo $row['count(*)']; ?>)
                                         <?php
-                                    }
+                                        $query = "SELECT count(*) FROM other_service WHERE archive_label=''";
+                                        $result = mysqli_query($conn, $query);
+                                        while ($row = mysqli_fetch_array($result)) {
                                         ?>
-                                        </li>
+                                            <li class="services__list__item" onclick="patient(event, 'Other-service', <?php echo $row['count(*)']; ?>)">
+                                                <!--  COUNT S/D -->
+                                                Others (<?php echo $row['count(*)']; ?>)
+                                            <?php
+                                        }
+                                            ?>
+                                            </li>
             </ul>
             <!-- end of TABS event initialization -->
             <hr class="services__list--hr">
@@ -1159,7 +1169,7 @@ hide_content();
                 <!--End of Query -->
             </div>
             <!-- End Tab for Early Childhood -->
-            
+
             <!-- Start Tab for Other Services -->
             <div class="patient__table" id="Other-service">
                 <!-- SORT QUERY -->
@@ -1346,12 +1356,12 @@ hide_content();
     <?php
     }
     if (isset($_POST['other_name']) || isset($_POST['other_date']) || isset($_POST['other_sex']) || isset($_GET['otherservices'])) {
-        ?>
-            <script>
-                patient(event, 'Other-service');
-            </script>
-        <?php
-        }
+    ?>
+        <script>
+            patient(event, 'Other-service');
+        </script>
+    <?php
+    }
     ?>
     <script>
         var loader = document.getElementById("loader");

@@ -129,7 +129,7 @@ hide_content();
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -456,6 +456,7 @@ hide_content();
             <option value="services__list__item--postnatal">Postnatal</option>
             <option value="services__list__item--childhood">Early childhood Care</option>
             <option value="services__list__item--search">Search and destroy</option>
+            <option value="services__list__item--other">Other</option>
         </select>
 
         <!-- Start Tab for Deworming -->
@@ -1629,8 +1630,8 @@ hide_content();
             ?>
                     <ul class="services__table__row services__info" role="list">
                         <li class="services__name p-bold">
-                        <a href="#other_service_report<?= $patient['id']; ?>" rel="modal:open"><?= $patient['firstname'] . ' ' . $patient['lastname']; ?></a>
-                        <?php include('./includes/reports/other_service.php'); ?>
+                            <a href="#other_service_report<?= $patient['id']; ?>" rel="modal:open"><?= $patient['firstname'] . ' ' . $patient['lastname']; ?></a>
+                            <?php include('./includes/reports/other_service.php'); ?>
                         </li>
                         <li class="services__num">
                             <?= $patient['service_name']; ?>
@@ -1801,7 +1802,7 @@ hide_content();
             <script>
                 servicesClick('services__list__item--postnatal');
             </script>
-        <?php
+            <?php
         } else if ($_GET['service'] === 'otherservices') {
             $query = "SELECT * FROM other_service";
             $query_run = mysqli_query($conn, $query);
@@ -1870,12 +1871,12 @@ hide_content();
     <?php
     }
     if (isset($_POST['other_name']) || isset($_POST['other_service']) || isset($_POST['other_sex']) || isset($_POST['other_date_availed']) || isset($_GET['otherservices'])) {
-        ?>
-            <script>
-                servicesClick('services__list__item--other');
-            </script>
-        <?php
-        }
+    ?>
+        <script>
+            servicesClick('services__list__item--other');
+        </script>
+    <?php
+    }
     ?>
     <script>
         var loader = document.getElementById("loader");
