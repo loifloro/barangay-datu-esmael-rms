@@ -76,6 +76,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             UNION ALL
             SELECT early_childhood_email, early_childhood_password, phone_num, early_childhood_id, label FROM early_childhood 
             WHERE early_childhood_email='$username' AND early_childhood_password='$encrypted_pwd'
+            UNION ALL
+            SELECT service_email, service_password, phone_num, id, label FROM other_service 
+            WHERE service_email='$username' AND service_password='$encrypted_pwd'
             ";
 
             $result = mysqli_query($conn, $sql);
@@ -115,6 +118,10 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                         SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label, early_childhood_email, early_childhood_password 
                         FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label, early_childhood_email, early_childhood_password) 
                         LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label, early_childhood_email, early_childhood_password) LIKE '%$filtervalues2%'
+                        UNION ALL
+                        SELECT id, firstname, lastname, service_date, sex, phone_num, label, service_email, service_password 
+                        FROM other_service WHERE CONCAT(firstname,lastname,service_date,sex,phone_num, label, service_email, service_password) 
+                        LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,service_date,sex,phone_num, label, service_email, service_password) LIKE '%$filtervalues2%'
                         ";
 
                     $query_run = mysqli_query($conn, $query);

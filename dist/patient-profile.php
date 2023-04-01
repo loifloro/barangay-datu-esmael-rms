@@ -20,6 +20,8 @@ $query = "SELECT label, deworming_email FROM deworming WHERE deworming_email='$e
     SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$email'
     UNION
     SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$email'
+    UNION
+    SELECT label, service_email FROM other_service WHERE service_email='$email'
     ";
 $query_run = mysqli_query($conn, $query);
 if (mysqli_num_rows($query_run) > 0) {
@@ -52,6 +54,11 @@ if (mysqli_num_rows($query_run) > 0) {
         if ($patient['label'] == 'Early Childhood') {
             include_once "includes/functions.php";
             hide_patient_childhood();
+            $input_search = $patient['deworming_email'];
+        }
+        if ($patient['label'] == 'Other Services') {
+            include_once "includes/functions.php";
+            hide_patient_others();
             $input_search = $patient['deworming_email'];
         }
     }
@@ -198,6 +205,24 @@ if (mysqli_num_rows($query_run2) > 0) {
                     $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
                     if ($patient['child_fname'] == $patient_fname && $patient['child_lname'] == $patient_lname) {
                         $patient_tab = $patient['child_fname'] . ' ' . $patient['child_lname'];
+                    }
+                }
+            }
+        }
+
+        //Other Services
+        if (($patient_label == "Other Services") and (isset($_GET['id']))) {
+            $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+            $query = "SELECT * FROM other_service WHERE id='$patient_id'";
+            $query_run = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($query_run) > 0) {
+                $patient = mysqli_fetch_array($query_run);
+                if (isset($_GET['fname']) && isset($_GET['lname'])) {
+                    $patient_fname = mysqli_real_escape_string($conn, $_GET['fname']);
+                    $patient_lname = mysqli_real_escape_string($conn, $_GET['lname']);
+                    if ($patient['firstname'] == $patient_fname && $patient['lastname'] == $patient_lname) {
+                        $patient_tab = $patient['firstname'] . ' ' . $patient['lastname'];
                     }
                 }
             }
@@ -412,6 +437,17 @@ if (mysqli_num_rows($query_run2) > 0) {
                 if (mysqli_num_rows($query_run) > 0) {
                     $patient = mysqli_fetch_array($query_run);
                     include('includes/patient_profile/profile_childhood_care.php');
+                }
+            }
+            //OTHER SERVICE
+            if (($patient_label == "Other Services") and (isset($_GET['id']))) {
+                $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
+                $query = "SELECT * FROM other_service WHERE id='$patient_id'";
+                $query_run = mysqli_query($conn, $query);
+
+                if (mysqli_num_rows($query_run) > 0) {
+                    $patient = mysqli_fetch_array($query_run);
+                    include('includes/patient_profile/profile_other_service.php');
                 }
             }
         }

@@ -292,6 +292,19 @@ if (mysqli_num_rows($query_run) > 0) {
                     ?>
                     <!-- END -->
                 </li>
+                <li class="services__list__item" id='services__list__item--other' onclick="services(event, 'Other-service' , '<?= $serviceRow ?>' , 'backup')">
+                    <!-- START CHILDHOOD CARE COUNT -->
+                    <?php
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label='archived'";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        Others (<?php echo $row['count(*)']; ?>)
+                    <?php
+                    }
+                    ?>
+                    <!-- END -->
+                </li>
             </ul>
 
             <hr class="services__list--hr">
@@ -1063,6 +1076,132 @@ if (mysqli_num_rows($query_run) > 0) {
             }
             ?>
         </div>
+
+        <!-- OTHER SERVICE SECTION -->
+        <div class="backup__table" id="Other-service">
+            <!-- SORT QUERY -->
+            <form action="" method="POST">
+                <ul class="backup__table__row backup__attributes" role="list">
+                    <li class="backup__attributes__item">
+                        Name
+                        <!-- BUTTON FOR NAME -->
+                        <button type="submit" name="other_name" value="1">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Service
+                        <!-- BUTTON FOR CONTACT -->
+                        <button type="submit" name="other_service" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Sex
+                        <!-- BUTTON FOR SEX -->
+                        <button type="submit" name="other_sex" value="3">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Date Availed
+                        <!-- BUTTON FOR DATE -->
+                        <button type="submit" name="other_date" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
+                    </li>
+                    <li class="backup__attributes__item">
+                        Status
+                    </li>
+                    <li class="backup__attributes__item"></li>
+                </ul>
+            </form>
+            <!-- END OF SORT -->
+
+            <!-- To be put in the loop -->
+            <?php
+            $query = "SELECT * FROM other_service WHERE archive_label = 'archived'";
+            $query_run = mysqli_query($conn, $query);
+            if (mysqli_num_rows($query_run) > 0) {
+                if (isset($_POST['other_name'])) {
+                    $sort_id = $_POST['other_name'];
+                    if ($sort_id == 1) {
+                        $query = "SELECT * FROM other_service WHERE archive_label = 'archived' ORDER BY firstname";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['other_service'])) {
+                    $sort_id = $_POST['other_service'];
+                    if ($sort_id == 2) {
+                        $query = "SELECT * FROM other_service WHERE archive_label = 'archived' ORDER BY service_name";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['other_sex'])) {
+                    $sort_id = $_POST['other_sex'];
+                    if ($sort_id == 3) {
+                        $query = "SELECT * FROM other_service WHERE archive_label = 'archived' ORDER BY sex";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                if (isset($_POST['other_date'])) {
+                    $sort_id = $_POST['other_date'];
+                    if ($sort_id == 4) {
+                        $query = "SELECT * FROM other_service  WHERE archive_label = 'archived' ORDER BY service_date";
+                        $query_run = mysqli_query($conn, $query);
+                    }
+                }
+                foreach ($query_run as $archive) {
+                    // CONVERT DATE TO MM-DD-YY
+                    $ec_date = new DateTime($archive['service_date']);
+                    $new_ec_date = $ec_date->format("m-d-Y");
+            ?>
+                    <ul class="backup__table__row backup__info" role="list">
+                        <li class="backup__name p-bold">
+                            <?= $archive['firstname'] . ' ' . $archive['lastname']; ?>
+                        </li>
+                        <li class="backup__num">
+                            <?= $archive['service_name']; ?>
+                        </li>
+                        <li class="backup__sex">
+                            <?= $archive['sex']; ?>
+                        </li>
+                        <li class="backup__date--availed">
+                            <?= $new_ec_date; ?>
+                        </li>
+
+                        <li class="backup__status">
+                            <span class="backup__status--deleted">Archived</span>
+                            <!-- <span class="backup__status--available">Available</span> -->
+                        </li>
+                        <li class="backup__option">
+                            <!-- RESTORE BUTTON -->
+                            <button type="button" onclick="confirmRestore('other-service' ,'<?= $archive['id']; ?>' , '<?= $archive['firstname']; ?>' , '<?= $archive['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
+                                <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                    <path d="M21.92,11.6C19.9,6.91,16.1,4,12,4S4.1,6.91,2.08,11.6a1,1,0,0,0,0,.8C4.1,17.09,7.9,20,12,20s7.9-2.91,9.92-7.6A1,1,0,0,0,21.92,11.6ZM12,18c-3.17,0-6.17-2.29-7.9-6C5.83,8.29,8.83,6,12,6s6.17,2.29,7.9,6C18.17,15.71,15.17,18,12,18ZM12,8a4,4,0,1,0,4,4A4,4,0,0,0,12,8Zm0,6a2,2,0,1,1,2-2A2,2,0,0,1,12,14Z" />
+                                </svg>
+                            </button>
+                            <!-- DELETE BUTTON -->
+                            <button type="button" name="delete_other" onclick="confirmDelete('other-service' , '<?= $archive['id']; ?>', '<?= $archive['firstname']; ?>' , '<?= $archive['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
+                                <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z" />
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+            <?php
+                }
+            }
+            ?>
+        </div>
     </main>
     <script src="./js/app.js"></script>
     <?php
@@ -1126,6 +1265,13 @@ if (mysqli_num_rows($query_run) > 0) {
         </script>
     <?php
     }
+    if (isset($_POST['other_name']) || isset($_POST['other_service']) || isset($_POST['other_sex']) || isset($_POST['other_date'])) {
+        ?>
+            <script>
+                servicesClick('services__list__item--other');
+            </script>
+        <?php
+        }
     ?>
     <script>
         var loader = document.getElementById("loader");

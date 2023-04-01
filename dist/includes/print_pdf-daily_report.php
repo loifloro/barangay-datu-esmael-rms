@@ -209,6 +209,36 @@ if ($label == 'Early Childhood'){
     $dompdf->stream($date_show.$date_show2.'early_childhood.pdf',['Attachment'=>false]);
 }
 
+if ($label == 'Other Services'){
+    
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT * FROM other_service WHERE archive_label='' AND service_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2'");
+    }
+
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-daily_reports/other_services_reports-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'landscape');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    $dompdf->stream($date_show.$date_show2.'other_services.pdf',['Attachment'=>false]);
+}
+
 //MASTERLIST SERVICES
 
 

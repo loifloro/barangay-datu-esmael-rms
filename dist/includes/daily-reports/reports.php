@@ -25,6 +25,7 @@
                     <option value="Post-natal"> Post-natal </option>
                     <option value="Search and Destroy"> Search and Destroy </option>
                     <option value="Childhood Care"> Childhood Care </option>
+                    <option value="Other Services"> Other Services </option>
 
                 </select>
             </div>
@@ -67,6 +68,8 @@
                 include 'search-destroy.php';
             } elseif ($report_service == 'Childhood Care') {
                 include 'early-childhood.php';
+            } elseif ($report_service == 'Other Services') {
+                include 'other_services.php';
             }
         } else {
             include 'deworming.php';

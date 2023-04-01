@@ -26,10 +26,11 @@
     include "../dist/includes/connection.php";
     if (isset($_GET['id'])) {
         $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
-        $query = "SELECT * FROM prenatal WHERE prenatal_id='$patient_id'";
+        $query = "SELECT * FROM other_service WHERE id='$patient_id'";
         $query_run = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($query_run) > 0) {
+
             $patient = mysqli_fetch_array($query_run);
     ?>
             <ul class="patient-profile__list" role="list">
@@ -39,10 +40,10 @@
                         <img class="" src="./assets/img/patient-profile.svg" alt="">
                     </li>
                     <li class="patient-profile__id patient-profile__category" id="patient_profile_id">
-                        #<?= $patient['prenatal_id']; ?>
+                        #<?= $patient['id']; ?>
                     </li>
                     <li class="patient-profile__name h5">
-                        <?= $patient['firstname'] . " " . $patient['lastname']; ?>
+                        <?= $patient['firstname'] . ' ' . $patient['lastname']; ?> <!--Test if displays the fname and lname-->
                     </li>
                     <li class="patient-profile__contact">
                         <?= $patient['phone_num']; ?>
@@ -56,27 +57,27 @@
                     </li>
                     <?php
                     // CONVERT DATE TO MM-DD-YY
-                    $prenatal_date = new DateTime($patient['prenatal_date']);
-                    $new_prenatal_date = $prenatal_date->format("m-d-Y");
+                    $sd_date = new DateTime($patient['service_date']);
+                    $new_sd_date = $sd_date->format("m-d-Y");
                     ?>
                     <li class="patient-profile__last-date-added">
                         <span class="patient-profile__category">Date Added</span>
-                        <?= $new_prenatal_date; ?>
+                        <?= $new_sd_date; ?>
                     </li>
                     <?php
                     // CONVERT DATE TO MM-DD-YY
-                    $prenatal_bdate = new DateTime($patient['birthdate']);
-                    $new_prenatal_bdate = $prenatal_bdate->format("m-d-Y");
+                    $sd_bdate = new DateTime($patient['bdate']);
+                    $new_sd_bdate = $sd_bdate->format("m-d-Y");
                     ?>
                     <li class="patient-profile__last-modified">
                         <span class="patient-profile__category">Birthday</span>
-                        <?= $new_prenatal_bdate; ?>
+                        <?= $new_sd_bdate; ?>
                     </li>
                 </ul>
                 <ul class="patient-profile__item" role="list">
                     <li class="patient-profile__street">
                         <span class="patient-profile__category">Street Address</span>
-                        <?= $patient['street_address']; ?>
+                        <?= $patient['address']; ?>
                     </li>
                     <li class="patient-profile__last-city">
                         <span class="patient-profile__category">City</span>
@@ -90,15 +91,15 @@
                 <ul class="patient-profile__item" role="list">
                     <li class="patient-profile__barangay">
                         <span class="patient-profile__category">Registered Username</span>
-                        <?= $patient['prenatal_email']; ?>
+                        <?= $patient['service_email']; ?>
                     </li>
                     <li class="patient-profile__barangay" id="generated_password">
                         <span class="patient-profile__category">Generated Password</span>
                         <?php
-                        $password_date = $patient['birthdate'];
+                        $password_date = $patient['bdate'];
                         $year_date = date('Y', strtotime($password_date));
                         $lastname_space = strtolower(str_replace(" ", "", $patient['lastname'])); // remove space
-                        $password =  $lastname_space . $year_date . '-pre';
+                        $password =  $lastname_space . $year_date . '-os';
                         ?>
                         <?= $password; ?>
                     </li>
@@ -112,16 +113,16 @@
     ?>
 </section>
 
+<!-- Medical History -->
 
 <section class="history">
     <section class="medical-history">
-        <!-- Medical History -->
         <div class="medical-history__title">
             <h2 class="">
                 Medical History
             </h2>
 
-            <button id="add_service_bt" class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['firstname'] ?>' , '<?= $patient['lastname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['birthdate'];; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['street_address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay'] ?>' , '<?= $patient['prenatal_email']; ?>')">
+            <button id="add_service_bt" class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['firstname'] ?>' , '<?= $patient['lastname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['bdate']; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay']; ?>' , '<?= $patient['service_email']; ?>')">
                 <p>Add Service</p>
             </button>
         </div>
@@ -192,8 +193,8 @@
                                             $patient_id = $patient['deworming_id'];
                                             $modalLink = "#deworming-modal" . $patient_id;
                                         }
+                                        include 'includes/reports/deworming.php';
                                     }
-                                    include 'includes/reports/deworming.php';
                                 }
 
                                 //C0NSULTATION
@@ -223,9 +224,9 @@
                                         foreach ($query_run as $patient) {
                                             $patient_link = $patient['prenatal_id'];
                                             $modalLink = "#prenatal__report" . $patient_link;
-                                            include('includes/reports/prenatal.php');
                                         }
                                     }
+                                    include('includes/reports/prenatal.php');
                                 }
 
                                 //POSTNATAL
@@ -239,9 +240,9 @@
                                         foreach ($query_run as $patient) {
                                             $patient_link = $patient['postnatal_id'];
                                             $modalLink = "#postnatal__report" . $patient_link;
-                                            include('includes/reports/postnatal.php');
                                         }
                                     }
+                                    include('includes/reports/postnatal.php');
                                 }
 
                                 //SEARCH AND DESTROY
@@ -315,11 +316,11 @@
                         </li>
                         <?php
                         // CONVERT DATE TO MM-DD-YY
-                        $pre_ldate = new DateTime($recent3['deworming_date']);
-                        $new_pre_ldate = $pre_ldate->format("m-d-Y");
+                        $sd_ldate = new DateTime($recent3['deworming_date']);
+                        $new_sd_ldate = $sd_ldate->format("m-d-Y");
                         ?>
                         <li class="medical-history__item medical-history__service__date-availed">
-                            <?= $new_pre_ldate; ?>
+                            <?= $new_sd_ldate; ?>
                         </li>
                         <li class="medical-history__item medical-history__btn">
                             <!-- START QUERY FOR EDIT SERVICES-->
@@ -492,15 +493,15 @@
                         if (mysqli_num_rows($query_run2) > 0) {
                             foreach ($query_run2 as $recent) {
                                 // CONVERT DATE TO MM-DD-YY
-                                $pre_rdate = new DateTime($recent['date_edit']);
-                                $new_pre_rdate = $pre_rdate->format("m-d-Y");
+                                $sd_rdate = new DateTime($recent['date_edit']);
+                                $new_sd_rdate = $sd_rdate->format("m-d-Y");
                     ?>
                                 <span class="edit-history__editor p-bold">
                                     <?= $recent['user_fname'] . ' ' . $recent['user_lname'] . ' ' . $recent['changes_label']; ?>
                                 </span>
                                 <span class="edit-history edit-history__action p-bold"><?= $recent['patient_fname'] . ' ' . $recent['patient_lname']; ?> </span>
                                 <span class="edit-history__subject"><?= $recent['record_name']; ?> record</span> on
-                                <span class="edit-history__date"><?= $new_pre_rdate; ?></span>
+                                <span class="edit-history__date"><?= $new_sd_rdate; ?></span>
                                 <hr>
                     <?php
                             }

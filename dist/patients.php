@@ -111,7 +111,7 @@ hide_content();
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -230,6 +230,16 @@ hide_content();
                     <?php
                     }
                     ?>
+                    <!-- COUNT EC -->
+                    <?php
+                    $query = "SELECT count(*) FROM other_service WHERE archive_label=''";
+                    $result = mysqli_query($conn, $query);
+                    while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <option value="Other-service">Others (<?php echo $row['count(*)']; ?>)</option>
+                    <?php
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -310,6 +320,18 @@ hide_content();
                                     }
                                         ?>
                                         </li>
+                                        <?php
+                                        $query = "SELECT count(*) FROM other_service WHERE archive_label=''";
+                                        $result = mysqli_query($conn, $query);
+                                        while ($row = mysqli_fetch_array($result)) {
+                                        ?>
+                                            <li class="services__list__item" onclick="patient(event, 'Other-service', <?php echo $row['count(*)']; ?>)">
+                                                <!--  COUNT S/D -->
+                                                Others (<?php echo $row['count(*)']; ?>)
+                                            <?php
+                                        }
+                                            ?>
+                                            </li>
             </ul>
             <!-- end of TABS event initialization -->
             <hr class="services__list--hr">
@@ -1148,6 +1170,145 @@ hide_content();
             </div>
             <!-- End Tab for Early Childhood -->
 
+            <!-- Start Tab for Other Services -->
+            <div class="patient__table" id="Other-service">
+                <!-- SORT QUERY -->
+                <form action="" method="POST">
+                    <ul class="patient__table__row patient__attributes" role="list">
+                        <li class="patient__attributes__item">
+                            Name
+                            <!-- BUTTON FOR NAME -->
+                            <button type="submit" name="other_name" value="1">
+                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="patient__attributes__item">
+                            Date Availed
+                            <!-- SORT DATE AVAILED -->
+                            <button type="submit" name="other_date" value="2">
+                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="patient__attributes__item">
+                            Sex
+                            <!-- BUTTON FOR SEX -->
+                            <button type="submit" name="other_sex" value="3">
+                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="patient__attributes__item">
+                            Services Availed
+                        </li>
+                    </ul>
+                </form>
+                <!-- END OF SORT -->
+
+                <!-- To be put in the loop -->
+                <!-- Start Query -->
+                <?php
+                //PAGINATION COUNTER
+                if (isset($_GET['page_other'])) {
+                    $page = $_GET['page_other'];
+                } else {
+                    $page = 1;
+                }
+                $num_per_page = 9;
+                $start_from = ($page - 1) * $num_per_page;
+                // END OF PAGINATION COUNTER
+
+                $query = "SELECT * FROM other_service WHERE archive_label='' LIMIT $start_from, $num_per_page";
+                $query_run = mysqli_query($conn, $query);
+                if (mysqli_num_rows($query_run) > 0) {
+                    if (isset($_POST['other_name'])) {
+                        $sort_id = $_POST['other_name'];
+                        if ($sort_id == 1) {
+                            $query = "SELECT * FROM other_service WHERE archive_label='' ORDER BY firstname LIMIT $start_from, $num_per_page";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['other_date'])) {
+                        $sort_id = $_POST['other_date'];
+                        if ($sort_id == 2) {
+                            $query = "SELECT * FROM other_service WHERE archive_label='' ORDER BY service_date LIMIT $start_from, $num_per_page";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    if (isset($_POST['other_sex'])) {
+                        $sort_id = $_POST['other_sex'];
+                        if ($sort_id == 3) {
+                            $query = "SELECT * FROM other_service WHERE archive_label='' ORDER BY sex LIMIT $start_from, $num_per_page";
+                            $query_run = mysqli_query($conn, $query);
+                        }
+                    }
+                    foreach ($query_run as $patient) {
+                        // CONVERT DATE TO MM-DD-YY
+                        $ec_date = new DateTime($patient['service_date']);
+                        $new_ec_date = $ec_date->format("m-d-Y");
+                ?>
+                        <ul class="patient__table__row patient__info" role="list">
+
+                            <li class="patient__name p-bold">
+                                <a href="patient-profile.php?id=<?= $patient['id'] ?>&label=<?= $patient['label']; ?>&fname=<?= $patient['firstname']; ?>&lname=<?= $patient['lastname']; ?>">
+                                    <?= $patient['firstname'] . ' ' . $patient['lastname'] ?>
+                                </a>
+                            </li>
+                            <li class="patient__num">
+                                <?= $new_ec_date; ?> <!--Date Registered-->
+                            </li>
+                            <li class="patient__sex">
+                                <?= $patient['sex']; ?> <!--Patient Sex-->
+                            </li>
+                            <li class="patient__availed-service">
+                                <span class="patient__availed-service--deworming"><?= $patient['service_name']; ?></span>
+                                <!-- <span class="patient__availed-service--prenatal">Prenatal</span> -->
+                            </li>
+                            <li class="patient__option">
+                                <button type="button" onclick="confirmArchive('other-service' ,'<?= $patient['id']; ?>' , '<?= $patient['firstname']; ?>' , '<?= $patient['lastname']; ?>' , '<?= $user['firstname']; ?>' , '<?= $user['lastname']; ?>' , '<?= $user['position']; ?>')">
+                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                    <?php
+                    }
+                    //PAGINATION
+                    $pr_query = "SELECT * FROM other_service";
+                    $pr_result = mysqli_query($conn, $pr_query);
+                    $total_record = mysqli_num_rows($pr_result);
+
+                    $total_page = ceil($total_record / $num_per_page);
+                    ?>
+                    <!-- <div class="pagination"> -->
+                    <?php
+                    if ($page > 1) {
+                    ?>
+                        <a href='patients.php?page_other=<?php echo ($page - 1) ?>&otherservices' class="pagination_previous">Previous</a>
+                    <?php
+                    }
+                    for ($i = 1; $i <= $total_page; $i++) {
+                    ?>
+                        <a href='patients.php?page_other=<?php echo $i; ?>&otherservices' class="pagination_number"><?php echo $i; ?></a>
+                    <?php
+                    }
+                    if ($page < $total_page) {
+                    ?>
+                        <a href='patients.php?page_other=<?php echo ($page + 1) ?>&otherservices' class="pagination_next">Next</a>
+                <?php
+                    }
+                    //END OF PAGINATION
+                }
+                ?>
+                <!--End of Query -->
+            </div>
+            <!-- End Tab for Early Childhood -->
+
         </section>
     </main>
     <script src="./js/app.js"></script>
@@ -1191,6 +1352,13 @@ hide_content();
     ?>
         <script>
             patient(event, 'Childhood Care');
+        </script>
+    <?php
+    }
+    if (isset($_POST['other_name']) || isset($_POST['other_date']) || isset($_POST['other_sex']) || isset($_GET['otherservices'])) {
+    ?>
+        <script>
+            patient(event, 'Other-service');
         </script>
     <?php
     }
