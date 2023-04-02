@@ -26,7 +26,7 @@
       // Small smartphone
       grid-template-columns: unset;
       justify-content: unset;
-      width: 100vw;
+      // width: 100vw;
     }
   }
 
@@ -52,7 +52,7 @@
       // Small smartphone
       grid-template-columns: unset;
       justify-content: unset;
-      width: 100vw;
+      // width: 100vw;
     }
   }
 
@@ -72,7 +72,8 @@
 
     @media (max-width: map-get($breakpoints, "medium")) {
       // Medium smartphone
-      max-width: calc(100% - 2rem);
+      // max-width: calc(100% - 2rem);
+      max-width: unset;
     }
 
     @media (max-width: map-get($breakpoints, "small")) {
@@ -188,6 +189,10 @@
       // Medium smartphone
       @include card(1.5rem 1rem);
     }
+  }
+
+  &__id {
+    display: none;
   }
 
   &__item,
@@ -454,6 +459,10 @@
     display: block;
     font-size: 0.8rem;
     color: $black-3;
+  }
+
+  &__id {
+    display: none;
   }
 
   &__name {

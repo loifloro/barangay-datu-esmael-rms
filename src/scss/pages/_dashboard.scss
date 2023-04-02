@@ -34,7 +34,7 @@
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
       grid-column: unset;
-      max-width: 90%;
+      // max-width: 90%;
     }
 
     &__desc {
@@ -55,7 +55,7 @@
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
-      max-width: 90%;
+      // max-width: 90%;
     }
 
     hr {
@@ -256,7 +256,7 @@
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
-      max-width: 90%;
+      // max-width: 90%;
     }
   }
 }

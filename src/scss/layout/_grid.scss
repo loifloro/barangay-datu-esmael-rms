@@ -55,5 +55,9 @@
 
     padding-right: 3vw;
     padding-left: 1rem;
+
+    @media (max-width: map-get($breakpoints, "small")) {
+      padding-inline: 1.5rem;
+    }
   }
 }
