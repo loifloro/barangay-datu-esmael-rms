@@ -24,7 +24,7 @@ hide_content_forms();
     <link rel="stylesheet" href="../css/main.css">
     <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
 
-    <title>Add New Services</title>
+    <title>Add Record</title>
 </head>
 
 <body class="grid">
@@ -102,7 +102,7 @@ hide_content_forms();
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -159,7 +159,7 @@ hide_content_forms();
                 <a href="#" onclick="backAlert()">Back</a>
             </p>
             <h2 class="add-deworming__title">
-                Add New Services
+                Add New Record
             </h2>
             <p class="add-deworming__desc">
                 Fill out necessary information to complete the process
@@ -167,7 +167,7 @@ hide_content_forms();
 
             <form action="../includes/add_query.php" method="POST" class="add-deworming__form">
                 <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Service Title</label>
+                    <label for="deworming-lname">Service Name</label>
                     <input type="text" name="others-title" id="deworming-email" value="">
                 </div>
                 <div class="add-deworming__form-item">
@@ -228,10 +228,10 @@ hide_content_forms();
                 <hr>
 
                 <h2 class="add-deworming__title">
-                Findings
+                    Findings
                 </h2>
                 <p class="add-deworming__desc">
-                Fill out necessary information to complete the process
+                    Fill out necessary information to complete the process
                 </p>
 
                 <div class="add-deworming__form-item">

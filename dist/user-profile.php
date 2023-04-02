@@ -114,7 +114,7 @@ hide_content();
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -308,21 +308,25 @@ hide_content();
                         <p class="backup-title">CSV</p>
                         Choose what information to download first and then click the CSV button to download the file in you're local computer.
                     </label>
-                    <select name="csv_record" id="report__service" required>
-                        <option value="all"> All </option>
-                        <option value="deworming"> Deworming </option>
-                        <option value="consultation"> Consultation </option>
-                        <option value="prenatal"> Pre-natal </option>
-                        <option value="postnatal"> Post-natal </option>
-                        <option value="search_destroy"> Search and Destroy </option>
-                        <option value="early_childhood"> Childhood Care </option>
-                        <option value="target_maternal"> Target Maternal Care </option>
-                        <option value="target_childcare_male"> Target Childcare Male </option>
-                        <option value="target_childcare_female"> Target Childcare Female </option>
-                    </select>
-                    <button type="submit" class="btn-green btn-change btn-restore" name="csv_database" onclick="return  confirm('Do you want to create a backup?')">
-                        <p>CSV</p>
-                    </button>
+                    <div class="user-profile__columns">
+                        <select name="csv_record" id="report__service" class="csv__services" required>
+                            <option selected disabled>Select a service</option>
+                            <option value="all"> All </option>
+                            <option value="deworming"> Deworming </option>
+                            <option value="consultation"> Consultation </option>
+                            <option value="prenatal"> Pre-natal </option>
+                            <option value="postnatal"> Post-natal </option>
+                            <option value="search_destroy"> Search and Destroy </option>
+                            <option value="early_childhood"> Childhood Care </option>
+                            <option value="target_maternal"> Target Maternal Care </option>
+                            <option value="target_childcare_male"> Target Childcare Male </option>
+                            <option value="target_childcare_female"> Target Childcare Female </option>
+                        </select>
+                        <button type="submit" class="btn-green btn-change btn-restore" name="csv_database" onclick="return  confirm('Do you want to create a backup?')">
+                            <p>Download</p>
+                        </button>
+                    </div>
+                </div>
                 </div>
                 <div class="reports__input">
             </form>
