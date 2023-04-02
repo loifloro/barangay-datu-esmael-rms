@@ -9,6 +9,12 @@
     @include title-above;
   }
 
+  .user-profile__columns > * {
+    display: block;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+
   &__password {
     &__form {
       width: 80%;
@@ -129,5 +135,18 @@
         color: $black-3;
       }
     }
+  }
+}
+
+.csv__services {
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+
+  @media (max-width: map-get($breakpoints, "medium")) {
+    // Medium smartphone
+    max-width: unset;
+    width: 100%;
+    margin-top: 2rem;
   }
 }
