@@ -907,6 +907,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   background-size: 60%;
   background-repeat: no-repeat;
 }
+.services__card--other {
+  background: url(../assets/img/other.svg);
+  background-position: right 10% bottom 45%;
+  background-size: 50%;
+  background-repeat: no-repeat;
+}
 .services__card--deworming {
   background: url(../assets/img/deworming.svg);
   background-position: right 10% bottom 45%;

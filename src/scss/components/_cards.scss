@@ -114,6 +114,13 @@
       background-repeat: no-repeat;
     }
 
+    &--other {
+      background: url(../assets/img/other.svg);
+      background-position: right 10% bottom 45%;
+      background-size: 50%;
+      background-repeat: no-repeat;
+    }
+
     &--deworming {
       background: url(../assets/img/deworming.svg);
       background-position: right 10% bottom 45%;
