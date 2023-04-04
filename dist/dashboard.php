@@ -290,7 +290,7 @@ hide_content();
                     <p class="services__card-visits">
                         <!-- COUNT DEWORMING -->
                         <?php
-                        $query = "SELECT count(*) FROM postnatal;";
+                        $query = "SELECT count(*) FROM postnatal WHERE archive_label='';";
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
@@ -308,7 +308,7 @@ hide_content();
                     <p class="services__card-visits">
                         <!-- COUNT DEWORMING -->
                         <?php
-                        $query = "SELECT count(*) FROM other_service;";
+                        $query = "SELECT count(*) FROM other_service WHERE archive_label='';";
                         $result = mysqli_query($conn, $query);
                         while ($row = mysqli_fetch_array($result)) {
                         ?>
