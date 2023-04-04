@@ -76,13 +76,13 @@
                 include 'deworming.php';
             } elseif ($report_service == "Consultation") {
                 include 'consultation.php';
-            } elseif ($report_service == 'Pre-natal') {
+            } elseif ($report_service == 'Prenatal') {
                 include 'prenatal.php';
-            } elseif ($report_service == 'Post-natal') {
+            } elseif ($report_service == 'Postnatal') {
                 include 'postnatal.php';
             } elseif ($report_service == 'Search and Destroy') {
                 include 'search-destroy.php';
-            } elseif ($report_service == 'Childhood Care') {
+            } elseif ($report_service == 'Early Childhood') {
                 include 'early-childhood.php';
             } else {
                 include 'other_services.php';
