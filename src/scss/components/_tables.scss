@@ -152,6 +152,30 @@
     padding: 0.3rem 0.8rem;
     border-radius: 100vw;
   }
+
+  &__availed-service--search {
+    font-size: 0.8rem;
+    color: $white-2;
+    background: #28947f;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100vw;
+  }
+
+  &__availed-service--childhood {
+    font-size: 0.8rem;
+    color: $white-2;
+    background: #ff7b00;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100vw;
+  }
+
+  &__availed-service--others {
+    font-size: 0.8rem;
+    color: $white-2;
+    background: #893302;
+    padding: 0.3rem 0.8rem;
+    border-radius: 100vw;
+  }
 }
 
 .backup {
@@ -450,6 +474,7 @@
   &__table {
     @include card(none);
     overflow: hidden;
+    margin-top: 2rem;
 
     &__row {
       display: grid;

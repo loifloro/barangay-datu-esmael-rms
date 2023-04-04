@@ -138,7 +138,7 @@ if (mysqli_num_rows($query_run2) > 0) {
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -263,7 +263,24 @@ if (mysqli_num_rows($query_run2) > 0) {
                                     <?= $search['sex']; ?>
                                 </li>
                                 <li class="search-results__availed-service">
-                                    <span class="search-results__availed-service--deworming"><?= $search['label']; ?></span>
+                                    <?php
+                                    $service = $search['label'];
+                                    if ($service == 'Deworming') {
+                                        echo "<span class=\"search-results__availed-service--deworming\"> $service </span>";
+                                    } else if ($service == 'Prenatal') {
+                                        echo "<span class=\"search-results__availed-service--prenatal\">  $service </span>";
+                                    } else if ($service == 'Consultation') {
+                                        echo "<span class=\"search-results__availed-service--consultation\">  $service </span>";
+                                    } else if ($service == 'Postnatal') {
+                                        echo "<span class=\"search-results__availed-service--postnatal\">  $service </span>";
+                                    } else if ($service == 'Search and Destroy') {
+                                        echo "<span class=\"search-results__availed-service--search\">  $service </span>";
+                                    } else if ($service == 'Early Childhood') {
+                                        echo "<span class=\"search-results__availed-service--childhood\">  $service </span>";
+                                    } else {
+                                        echo "<span class=\"search-results__availed-service--others\">  $service </span>";
+                                    }
+                                    ?>
                                     <!-- <span class="search-results__availed-service--prenatal">Prenatal</span> -->
                                 </li>
                                 <li class="search-results__option">

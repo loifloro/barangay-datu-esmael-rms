@@ -843,7 +843,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .services__card-list {
     grid-template-columns: unset;
     justify-content: unset;
-    width: 100vw;
   }
 }
 .services__card-masterlist {
@@ -864,7 +863,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .services__card-masterlist {
     grid-template-columns: unset;
     justify-content: unset;
-    width: 100vw;
   }
 }
 .services__card {
@@ -880,7 +878,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 @media (max-width: 48.1rem) {
   .services__card {
-    max-width: calc(100% - 2rem);
+    max-width: unset;
   }
 }
 .services__card--consultation {
@@ -907,6 +905,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   background: url(../assets/img/pre-natal.svg);
   background-position: right 10% bottom 45%;
   background-size: 60%;
+  background-repeat: no-repeat;
+}
+.services__card--other {
+  background: url(../assets/img/other.svg);
+  background-position: right 10% bottom 45%;
+  background-size: 50%;
   background-repeat: no-repeat;
 }
 .services__card--deworming {
@@ -978,6 +982,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     padding: 1.5rem 1rem;
     box-sizing: border-box;
   }
+}
+.patient-profile__id {
+  display: none;
 }
 .patient-profile__item, .patient-profile__list {
   -webkit-padding-start: unset;
@@ -1218,6 +1225,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: block;
   font-size: 0.8rem;
   color: var(--black-3);
+}
+.user-profile__id {
+  display: none;
 }
 .user-profile__name {
   margin-bottom: 0;
@@ -1793,6 +1803,30 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: 0.3rem 0.8rem;
   border-radius: 100vw;
 }
+.patient__availed-service--search,
+.search-results__availed-service--search {
+  font-size: 0.8rem;
+  color: var(--white-2);
+  background: #28947f;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100vw;
+}
+.patient__availed-service--childhood,
+.search-results__availed-service--childhood {
+  font-size: 0.8rem;
+  color: var(--white-2);
+  background: #ff7b00;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100vw;
+}
+.patient__availed-service--others,
+.search-results__availed-service--others {
+  font-size: 0.8rem;
+  color: var(--white-2);
+  background: #893302;
+  padding: 0.3rem 0.8rem;
+  border-radius: 100vw;
+}
 
 .backup__table {
   display: none;
@@ -2068,6 +2102,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: none;
   box-sizing: border-box;
   overflow: hidden;
+  margin-top: 2rem;
 }
 .recent-update__table__row {
   display: grid;
@@ -3083,6 +3118,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .grid main {
   padding-right: 3vw;
   padding-left: 1rem;
+}
+@media (max-width: 30.1rem) {
+  .grid .navbar,
+  .grid main {
+    padding-inline: 1.5rem;
+  }
 }
 
 @page {
@@ -4356,7 +4397,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 @media (max-width: 30.1rem) {
   .dashboard .services {
     grid-column: unset;
-    max-width: 90%;
   }
 }
 .dashboard .services__desc {
@@ -4365,11 +4405,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 @media (max-width: 48.1rem) {
   .dashboard .reports {
     width: 100%;
-  }
-}
-@media (max-width: 30.1rem) {
-  .dashboard .reports {
-    max-width: 90%;
   }
 }
 .dashboard .reports hr {
@@ -4538,12 +4573,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     width: 100%;
   }
 }
-@media (max-width: 30.1rem) {
-  .dashboard .recent-updates {
-    max-width: 90%;
-  }
-}
-
 .patient-profile .history {
   display: grid;
   grid-template-columns: auto 30%;
@@ -6353,6 +6382,11 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .user-profile__desc {
   margin-top: -0.3rem;
 }
+.user-profile .user-profile__columns > * {
+  display: block;
+  margin-left: auto;
+  margin-top: 1rem;
+}
 .user-profile__password__form {
   width: 80%;
   margin-bottom: 3rem;
@@ -6441,6 +6475,19 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   color: var(--black-3);
 }
 
+.csv__services {
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+}
+@media (max-width: 48.1rem) {
+  .csv__services {
+    max-width: unset;
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
 .services hr {
   width: 100%;
   height: 0.2rem;
@@ -6469,7 +6516,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   }
 }
 .services__list__item {
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 600;
   color: var(--black-3);
   margin-right: 3rem;
