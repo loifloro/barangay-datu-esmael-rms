@@ -8,6 +8,7 @@ $id = $_GET['id'];
 $date = $_GET['date'];
 $date2 = $_GET['date2'];
 
+
 // CONVERT DATE TO MM-DD-YY
 $date_pdf = new DateTime($date);
 $new_date_pdf = $date_pdf->format("m-d-Y");
@@ -210,12 +211,12 @@ if ($label == 'Early Childhood'){
 }
 
 if ($label == 'Other Services'){
-    
+    $service_name = $_GET['service_name'];
     if($date == $date && $date2 == ''){
-        $sql = mysqli_query($conn,"SELECT * FROM other_service WHERE archive_label='' AND service_date='$date'");
+        $sql = mysqli_query($conn,"SELECT * FROM other_service WHERE archive_label='' AND service_date='$date' AND service_name='$service_name'");
     }
     else{
-        $sql = mysqli_query($conn,"SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2'");
+        $sql = mysqli_query($conn,"SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'");
     }
 
     $patient = mysqli_fetch_assoc($sql);

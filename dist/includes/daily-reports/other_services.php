@@ -11,12 +11,13 @@
     if (isset($_GET['sort__date'])) {
         $date = mysqli_real_escape_string($conn, $_GET['report__date']);
         $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+        $service_name = mysqli_real_escape_string($conn, $_GET['report__service']);
             if($date == $date && $date2 == ''){
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND service_date = '$date'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND service_date = '$date' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
             else{
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
     }
@@ -38,12 +39,13 @@
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            $service_name = mysqli_real_escape_string($conn, $_GET['report__service']);
             if($date == $date && $date2 == ''){
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date = '$date'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date = '$date' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
             else{
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date >= '$date' AND service_date <= '$date2'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date >= '$date' AND service_date <= '$date2' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
         }
@@ -69,12 +71,13 @@
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            $service_name = mysqli_real_escape_string($conn, $_GET['report__service']);
             if($date == $date && $date2 == ''){
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date = '$date'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date = '$date' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
             else{
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date >= '$date' AND service_date <= '$date2'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date >= '$date' AND service_date <= '$date2' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
         }
@@ -99,12 +102,13 @@
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            $service_name = mysqli_real_escape_string($conn, $_GET['report__service']);
             if($date == $date && $date2 == ''){
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date = '$date'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date = '$date' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
             else{
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date >= '$date' AND service_date <= '$date2'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date >= '$date' AND service_date <= '$date2' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
         }
@@ -129,12 +133,13 @@
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            $service_name = mysqli_real_escape_string($conn, $_GET['report__service']);
             if($date == $date && $date2 == ''){
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=13 AND age<=19 AND service_date = '$date'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=13 AND age<=19 AND service_date = '$date' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
             else{
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=13 AND age<=19 AND service_date >= '$date' AND service_date <= '$date2'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=13 AND age<=19 AND service_date >= '$date' AND service_date <= '$date2' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
         }
@@ -159,12 +164,13 @@
         if (isset($_GET['sort__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
+            $service_name = mysqli_real_escape_string($conn, $_GET['report__service']);
             if($date == $date && $date2 == ''){
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date = '$date'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date = '$date' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
             else{
-                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date >= '$date' AND service_date <= '$date2'";
+                $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date >= '$date' AND service_date <= '$date2' AND service_name = '$service_name'";
                 $result = mysqli_query($conn, $query);
             }
         }
