@@ -278,10 +278,17 @@ if (mysqli_num_rows($query_run2) > 0) {
                                     } else if ($service == 'Early Childhood') {
                                         echo "<span class=\"search-results__availed-service--childhood\">  $service </span>";
                                     } else {
-                                        echo "<span class=\"search-results__availed-service--others\">  $service </span>";
+                                            $query = "SELECT * FROM other_service WHERE firstname='$search[firstname]' AND lastname='$search[lastname]'"; 
+                                            $query_run = mysqli_query($conn, $query);
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $patient) {
+                                                    $label = $patient['service_name'];
+                                                    $new_label = $label;
+                                                }
+                                            }
+                                            echo "<span class=\"search-results__availed-service--others\">  $new_label </span>";
                                     }
                                     ?>
-                                    <!-- <span class="search-results__availed-service--prenatal">Prenatal</span> -->
                                 </li>
                                 <li class="search-results__option">
                                     <p class="view-profile__btn">
