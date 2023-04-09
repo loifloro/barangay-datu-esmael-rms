@@ -74,11 +74,11 @@ function hide_patient_deworming()
                     display: none;
                 }
 
-                #add_service_bt{
+                #add_service_bt {
                     display: none;
                 }
 
-                #patient_profile_id{
+                #patient_profile_id {
                     display: none;
                 }
 
@@ -118,7 +118,7 @@ function hide_patient_deworming()
                     display: none;
                 }
 
-                #generated_password{
+                #generated_password {
                     display: none;
                 }
             </style>
@@ -155,11 +155,11 @@ function hide_patient_consultation()
                     display: none;
                 }
 
-                #add_service_bt{
+                #add_service_bt {
                     display: none;
                 }
 
-                #patient_profile_id{
+                #patient_profile_id {
                     display: none;
                 }
 
@@ -199,7 +199,7 @@ function hide_patient_consultation()
                     display: none;
                 }
 
-                #generated_password{
+                #generated_password {
                     display: none;
                 }
             </style>
@@ -236,11 +236,11 @@ function hide_patient_prenatal()
                     display: none;
                 }
 
-                #add_service_bt{
+                #add_service_bt {
                     display: none;
                 }
 
-                #patient_profile_id{
+                #patient_profile_id {
                     display: none;
                 }
 
@@ -280,7 +280,7 @@ function hide_patient_prenatal()
                     display: none;
                 }
 
-                #generated_password{
+                #generated_password {
                     display: none;
                 }
             </style>
@@ -317,11 +317,11 @@ function hide_patient_postnatal()
                     display: none;
                 }
 
-                #add_service_bt{
+                #add_service_bt {
                     display: none;
                 }
 
-                #patient_profile_id{
+                #patient_profile_id {
                     display: none;
                 }
 
@@ -361,7 +361,7 @@ function hide_patient_postnatal()
                     display: none;
                 }
 
-                #generated_password{
+                #generated_password {
                     display: none;
                 }
             </style>
@@ -398,11 +398,11 @@ function hide_patient_search_destroy()
                     display: none;
                 }
 
-                #add_service_bt{
+                #add_service_bt {
                     display: none;
                 }
 
-                #patient_profile_id{
+                #patient_profile_id {
                     display: none;
                 }
 
@@ -442,7 +442,7 @@ function hide_patient_search_destroy()
                     display: none;
                 }
 
-                #generated_password{
+                #generated_password {
                     display: none;
                 }
             </style>
@@ -479,11 +479,11 @@ function hide_patient_childhood()
                     display: none;
                 }
 
-                #add_service_bt{
+                #add_service_bt {
                     display: none;
                 }
 
-                #patient_profile_id{
+                #patient_profile_id {
                     display: none;
                 }
 
@@ -523,7 +523,7 @@ function hide_patient_childhood()
                     display: none;
                 }
 
-                #generated_password{
+                #generated_password {
                     display: none;
                 }
             </style>
@@ -561,11 +561,11 @@ function hide_patient_others()
                     display: none;
                 }
 
-                #add_service_bt{
+                #add_service_bt {
                     display: none;
                 }
 
-                #patient_profile_id{
+                #patient_profile_id {
                     display: none;
                 }
 
@@ -605,7 +605,7 @@ function hide_patient_others()
                     display: none;
                 }
 
-                #generated_password{
+                #generated_password {
                     display: none;
                 }
             </style>
@@ -774,7 +774,7 @@ function forgot_password()
                                     }
                                 }
                             }).then((result) => {
-                                window.location.href = '/barangay-datu-esmael-rms/dist/includes/functions.php?changepassword&newpass=' + result.value.newPassword + '&email=<?= $user_email ?>' + '&id=<?= $user_id ?>';
+                                window.location.href = '/includes/functions.php?changepassword&newpass=' + result.value.newPassword + '&email=<?= $user_email ?>' + '&id=<?= $user_id ?>';
                                 // Please enter here what URL 
                             })
                         }
@@ -924,7 +924,7 @@ if (isset($_GET['changepassword']) && isset($_GET['newpass']) && isset($_GET['em
 }
 
 //CSV format file
-if(isset($_POST['csv_database']) && isset($_POST['csv_record'])){
+if (isset($_POST['csv_database']) && isset($_POST['csv_record'])) {
 
     // Database connection parameters
     $servername = "localhost";
@@ -943,7 +943,7 @@ if(isset($_POST['csv_database']) && isset($_POST['csv_record'])){
 
     $table_record = mysqli_real_escape_string($conn, $_POST['csv_record']);;
 
-    if($table_record != 'all'){
+    if ($table_record != 'all') {
         // SQL query to fetch data from database
         $sql = "SELECT * FROM $table_record";
         $result = $conn->query($sql);
@@ -971,19 +971,19 @@ if(isset($_POST['csv_database']) && isset($_POST['csv_record'])){
 
         // Download CSV file
         header('Content-Type: text/csv');
-        header('Content-Disposition: attachment; filename="'.$filename.'";');
+        header('Content-Disposition: attachment; filename="' . $filename . '";');
         header('Pragma: no-cache');
         readfile($filename);
 
         // Delete the file from main folder
         unlink($filename);
         exit;
-    }
-
-    else{
+    } else {
         // Tables to download
-        $tables = array('deworming', 'consultation', 'prenatal', 'postnatal', 'search_destroy', 'early_childhood',
-                        'target_maternal', 'target_childcare_male', 'target_childcare_female');
+        $tables = array(
+            'deworming', 'consultation', 'prenatal', 'postnatal', 'search_destroy', 'early_childhood',
+            'target_maternal', 'target_childcare_male', 'target_childcare_female'
+        );
 
         // Create a new zip archive
         $zip = new ZipArchive();

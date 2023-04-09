@@ -23,7 +23,7 @@
     ?>
 
     <?php
-    include "../dist/includes/connection.php";
+    include "./includes/connection.php";
     if (isset($_GET['id'])) {
         $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
         $query = "SELECT * FROM other_service WHERE id='$patient_id'";
@@ -294,7 +294,7 @@
                                     include('includes/reports/other_service.php');
                                 }
 
-                                if($recent3['label'] == "Other Services"){
+                                if ($recent3['label'] == "Other Services") {
                                     $query = "SELECT * FROM other_service WHERE firstname='$patient_fname' AND lastname='$patient_lname' AND service_date='$date'";
                                     $query_run = mysqli_query($conn, $query);
                                     if (mysqli_num_rows($query_run) > 0) {
@@ -303,7 +303,7 @@
                                             $new_label = $label;
                                         }
                                     }
-                                } else{
+                                } else {
                                     $new_label = $recent3['label'];
                                 }
 

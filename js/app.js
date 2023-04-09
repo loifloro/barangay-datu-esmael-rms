@@ -41,7 +41,7 @@ function backAlert() {
   }).then(function (result) {
     if (result.isConfirmed) {
       return (window.location.href =
-        "/barangay-datu-esmael-rms/dist/services.php");
+        "./services.php");
     }
   });
 }
@@ -115,25 +115,25 @@ navBar.addEventListener("click", () => {
       return new Promise((resolve) => {
         if (value === "deworming") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-deworming.php";
+            "./add/add-deworming.php";
         } else if (value === "consultation") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-consultation.php";
+            "./add/add-consultation.php";
         } else if (value === "childhood") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-early_childhood.php";
+            "./add/add-early_childhood.php";
         } else if (value === "prenatal") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-prenatal.php";
+            "./add/add-prenatal.php";
         } else if (value === "postnatal") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-postnatal.php";
+            "./add/add-postnatal.php";
         } else if (value === "searchDestroy") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php";
+            "./add/add-search_destroy.php";
         } else if (value === "otherService") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-other_services.php";
+            "./add/add-other_services.php";
         }
       });
     },
@@ -170,7 +170,7 @@ function addNewRecord(
       return new Promise((resolve) => {
         if (value === "deworming") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-deworming.php?fname=" +
+            "./add/add-deworming.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -190,7 +190,7 @@ function addNewRecord(
             username;
         } else if (value === "consultation") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-consultation.php?fname=" +
+            "./add/add-consultation.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -210,7 +210,7 @@ function addNewRecord(
             username;
         } else if (value === "childhood") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-early_childhood.php?fname=" +
+            "./add/add-early_childhood.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -230,7 +230,7 @@ function addNewRecord(
             username;
         } else if (value === "prenatal") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-prenatal.php?fname=" +
+            "./add/add-prenatal.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -250,7 +250,7 @@ function addNewRecord(
             username;
         } else if (value === "postnatal") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-postnatal.php?fname=" +
+            "./add/add-postnatal.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -270,7 +270,7 @@ function addNewRecord(
             username;
         } else if (value === "searchDestroy") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-search_destroy.php?fname=" +
+            "./add/add-search_destroy.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -290,7 +290,7 @@ function addNewRecord(
             username;
         } else if (value === "otherService") {
           window.location.href =
-            "/barangay-datu-esmael-rms/dist/add/add-other_services.php?fname=" +
+            "./add/add-other_services.php?fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -326,7 +326,7 @@ function forgotPassword() {
       Swal.fire(`Entered email address: ` + email.value).then(
         () =>
           (window.location.href =
-            "/barangay-datu-esmael-rms/dist/index.php?email=" + email.value)
+            "./index.php?email=" + email.value)
       );
     }
   });
@@ -341,7 +341,7 @@ function logoutAlert() {
     showCancelButton: true,
   }).then(function (result) {
     if (result.isConfirmed) {
-      window.location.href = "/barangay-datu-esmael-rms/dist/logout.php";
+      window.location.href = "./logout.php";
     }
   });
 }
@@ -441,7 +441,7 @@ function confirmArchive(
     if (result.isConfirmed) {
       // form.submit();
       window.location.href =
-        "/barangay-datu-esmael-rms/dist/includes/delete_query.php?" +
+        "./includes/delete_query.php?" +
         "archive&" +
         service +
         "&id=" +
@@ -482,7 +482,7 @@ function confirmRestore(
     if (result.isConfirmed) {
       // form.submit();
       window.location.href =
-        "/barangay-datu-esmael-rms/dist/includes/delete_query.php?" +
+        "./includes/delete_query.php?" +
         "restore&" +
         service +
         "&id=" +
@@ -538,7 +538,7 @@ function addUser() {
     },
   }).then((result) => {
     window.location.href =
-      "/barangay-datu-esmael-rms/dist/includes/add_query.php?save_bhw&bhw-contact=" +
+      "./includes/add_query.php?save_bhw&bhw-contact=" +
       result.value.defaultUsername +
       "&bhw-pass=" +
       result.value.defaultPassword +
@@ -564,7 +564,7 @@ function confirmDelete(
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href =
-        "/barangay-datu-esmael-rms/dist/includes/delete_query.php?" +
+        "./includes/delete_query.php?" +
         "delete&" +
         service +
         "&id=" +
@@ -625,7 +625,7 @@ function confirmDeleteUser(position, accountId) {
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href =
-        "/barangay-datu-esmael-rms/dist/includes/delete_query.php?" +
+        "./includes/delete_query.php?" +
         "delete_bhw&" +
         "&position=" +
         position +
