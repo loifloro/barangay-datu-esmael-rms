@@ -95,7 +95,7 @@
     </p>
 
     <h4 class="deworming-reports__title">
-        Other Services reports
+        <?= $service_name; ?> Reports
     </h4>
     <div class="deworming-reports__details">
         <p class="deworming-reports__brgy">
@@ -124,11 +124,11 @@
     <!-- Query Start -->
     <?php
     if($date == $date && $date2 == ''){
-        $query = "SELECT count(*) FROM other_service WHERE service_date = '$date'";
+        $query = "SELECT count(*) FROM other_service WHERE service_date = '$date' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
     else{
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
 
@@ -146,11 +146,11 @@
     <!-- Query Start -->
     <?php
     if($date == $date && $date2 == ''){
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date = '$date'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date = '$date' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
     else{
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date >= '$date' AND service_date <= '$date2'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Male' AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
 
@@ -167,11 +167,11 @@
     <!-- Query Start -->
     <?php
     if($date == $date && $date2 == ''){
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date = '$date'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date = '$date' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
     else{
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date >= '$date' AND service_date <= '$date2'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND sex='Female' AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
 
@@ -185,53 +185,6 @@
     ?>
     <!-- Query End -->
 
-   <!-- OIHER SERVICS -->
-   <br>
-        <p class="dewroming-reports__total p-bold">
-            Total No. of Patient Based on Services:
-        </p>
-        <?php
-                    if($date == $date && $date2 == ''){
-                        $query_service = "SELECT * FROM other_service WHERE archive_label='' AND service_date = '$date' GROUP BY service_name";
-                        $result_service = mysqli_query($conn, $query_service);
-                    }
-                    else{
-                        $query_service = "SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' GROUP BY service_name";
-                        $result_service = mysqli_query($conn, $query_service);
-                    }
-            
-
-            $query_service = "SELECT * FROM other_service WHERE archive_label='' GROUP BY service_name";
-            $result_service = mysqli_query($conn, $query_service);
-            if (mysqli_num_rows($result_service) > 0) {
-                foreach ($result_service as $service) {
-                    $service_nm= $service['service_name'];
-                    
-                    if($date == $date && $date2 == ''){
-                        $query_count = "SELECT service_name, count(*) AS count FROM other_service WHERE archive_label='' AND service_date = '$date' AND service_name='$service_nm' HAVING count > 0";
-                        $result_count = mysqli_query($conn, $query_count);
-                    }
-                    else{
-                        $query_count = "SELECT service_name, count(*) AS count FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_nm' HAVING count > 0";
-                        $result_count = mysqli_query($conn, $query_count);
-                    }
-                    while ($row = mysqli_fetch_array($result_count)) {
-                        if($service_nm == 0){
-                            
-                        }
-                        ?>
-                            <p class="dewroming-reports__total">
-                            Total no. of <?= $service_nm; ?> Patient: <?php echo $row['count']; ?>
-                            </p>
-                        <?php
-                    }
-                }
-            }
-        ?>
-        <!-- END -->
-
-
-
     <table class="deworming-reports__table">
         <thead>
             <tr>
@@ -240,16 +193,15 @@
                 <th>ADDRESS</th>
                 <th>AGE</th>
                 <th>SEX</th>
-                <th>SERVICES</th>
             </tr>
         </thead>
         <?php
         if($date == $date && $date2 == ''){
-            $query = "SELECT * FROM other_service WHERE archive_label='' AND service_date = '$date'";
+            $query = "SELECT * FROM other_service WHERE archive_label='' AND service_date = '$date' AND service_name='$service_name'";
             $query_run = mysqli_query($conn, $query);
         }
         else{
-            $query = "SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2'";
+            $query = "SELECT * FROM other_service WHERE archive_label='' AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'";
             $query_run = mysqli_query($conn, $query);
         }
 
@@ -266,7 +218,6 @@
                     <td> <?= $patient['address'] . ' ' . $patient['barangay']; ?> </td>
                     <td> <?= $patient['age']; ?> </td>
                     <td> <?= $patient['sex']; ?> </td>
-                    <td> <?= $patient['service_name']; ?> </td>
                 </tr>
         <?php
             }
@@ -280,11 +231,11 @@
     <!-- Query Start -->
     <?php
     if($date == $date && $date2 == ''){
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date = '$date'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date = '$date' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
     else{
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date >= '$date' AND service_date <= '$date2'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=1 AND age<=12 AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
 
@@ -301,11 +252,11 @@
     <!-- Query Start -->
     <?php
     if($date == $date && $date2 == ''){
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=14 AND age<=19 AND service_date = '$date'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=14 AND age<=19 AND service_date = '$date'AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
     else{
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=14 AND age<=19 AND service_date >= '$date' AND service_date <= '$date2'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=14 AND age<=19 AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
 
@@ -313,7 +264,7 @@
     while ($row = mysqli_fetch_array($result)) {
     ?>
         <p class="deworming-reports__total">
-            Age 14-19 y/o: <span> <?php echo $row['count(*)']; ?> </span>
+            Age 13-19 y/o: <span> <?php echo $row['count(*)']; ?> </span>
         </p>
     <?php
     }
@@ -323,11 +274,11 @@
     <!-- Query Start -->
     <?php
     if($date == $date && $date2 == ''){
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date = '$date'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date = '$date' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
     else{
-        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date >= '$date' AND service_date <= '$date2'";
+        $query = "SELECT count(*) FROM other_service WHERE archive_label='' AND age>=20 AND service_date >= '$date' AND service_date <= '$date2' AND service_name='$service_name'";
         $result = mysqli_query($conn, $query);
     }
 

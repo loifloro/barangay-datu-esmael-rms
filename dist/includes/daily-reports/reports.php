@@ -18,15 +18,31 @@
                         <option selected value="<?= $_GET['report__service'] ?>"> <?= $_GET['report__service'] ?> </option>
                     <?php
                     }
-                    ?>
-                    <option value="Deworming"> Deworming </option>
-                    <option value="Consultation"> Consultation </option>
-                    <option value="Pre-natal"> Pre-natal </option>
-                    <option value="Post-natal"> Post-natal </option>
-                    <option value="Search and Destroy"> Search and Destroy </option>
-                    <option value="Childhood Care"> Childhood Care </option>
-                    <option value="Other Services"> Other Services </option>
 
+                    $query = "SELECT label FROM deworming GROUP BY label
+                              UNION ALL
+                              SELECT label FROM consultation GROUP BY label
+                              UNION ALL
+                              SELECT label FROM prenatal GROUP BY label
+                              UNION ALL
+                              SELECT label FROM postnatal GROUP BY label
+                              UNION ALL
+                              SELECT label FROM search_destroy GROUP BY label
+                              UNION ALL
+                              SELECT label FROM early_childhood GROUP BY label
+                              UNION ALL
+                              SELECT service_name FROM other_service GROUP BY service_name"; 
+                    $query_run = mysqli_query($conn, $query);
+                    if (mysqli_num_rows($query_run) > 0) {
+                        foreach ($query_run as $label) {
+                            $old_label = $label['label'];
+                            $new_label = $old_label;
+                            ?>
+                                 <option value="<?= $new_label; ?>"> <?php echo $new_label; ?> </option>
+                            <?php
+                        }
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -60,15 +76,15 @@
                 include 'deworming.php';
             } elseif ($report_service == "Consultation") {
                 include 'consultation.php';
-            } elseif ($report_service == 'Pre-natal') {
+            } elseif ($report_service == 'Prenatal') {
                 include 'prenatal.php';
-            } elseif ($report_service == 'Post-natal') {
+            } elseif ($report_service == 'Postnatal') {
                 include 'postnatal.php';
             } elseif ($report_service == 'Search and Destroy') {
                 include 'search-destroy.php';
-            } elseif ($report_service == 'Childhood Care') {
+            } elseif ($report_service == 'Early Childhood') {
                 include 'early-childhood.php';
-            } elseif ($report_service == 'Other Services') {
+            } else {
                 include 'other_services.php';
             }
         } else {
