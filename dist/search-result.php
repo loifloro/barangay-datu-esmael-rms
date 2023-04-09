@@ -36,7 +36,7 @@ if (mysqli_num_rows($query_run2) > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
-    <script src="../node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Search results</title>
 </head>
@@ -278,15 +278,15 @@ if (mysqli_num_rows($query_run2) > 0) {
                                     } else if ($service == 'Early Childhood') {
                                         echo "<span class=\"search-results__availed-service--childhood\">  $service </span>";
                                     } else {
-                                            $query = "SELECT * FROM other_service WHERE firstname='$search[firstname]' AND lastname='$search[lastname]'"; 
-                                            $query_run = mysqli_query($conn, $query);
-                                            if (mysqli_num_rows($query_run) > 0) {
-                                                foreach ($query_run as $patient) {
-                                                    $label = $patient['service_name'];
-                                                    $new_label = $label;
-                                                }
+                                        $query = "SELECT * FROM other_service WHERE firstname='$search[firstname]' AND lastname='$search[lastname]'";
+                                        $query_run = mysqli_query($conn, $query);
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $patient) {
+                                                $label = $patient['service_name'];
+                                                $new_label = $label;
                                             }
-                                            echo "<span class=\"search-results__availed-service--others\">  $new_label </span>";
+                                        }
+                                        echo "<span class=\"search-results__availed-service--others\">  $new_label </span>";
                                     }
                                     ?>
                                 </li>

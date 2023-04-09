@@ -20,10 +20,9 @@ hide_content_forms();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
 
-    <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="../css/main.css">
-    <script src="/barangay-datu-esmael-rms/node_modules/sweetalert2/dist/sweetalert2.all.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>Edit Services</title>
 </head>
 
@@ -102,7 +101,7 @@ hide_content_forms();
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
                         <circle cx="16" cy="11" r="4.97" />
                     </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname'];?></p>
+                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
                 </a>
             </li>
             <li class="sidebar__item" onclick="logoutAlert()">
@@ -177,133 +176,133 @@ hide_content_forms();
                     if (mysqli_num_rows($query_run) > 0) {
                         $patient = mysqli_fetch_array($query_run);
                 ?>
-                <input type="hidden" name="other_id" value="<?= $patient['id']; ?>">
-                <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Service Title</label>
-                    <input type="text" name="others-title" id="deworming-email" value="<?= $patient['service_name']; ?>">
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Username (optional)</label>
-                    <input type="text" name="others-username" id="deworming-email" value="<?= $patient['service_email']; ?>">
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Last Name *</label>
-                    <input type="text" name="others-lname" id="deworming-lname" value="<?= $patient['lastname']; ?>" required>
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-fname">First Name *</label>
-                    <input type="text" name="others-fname" id="deworming-fname" value="<?= $patient['firstname']; ?>" required>
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-mname">Middle Name</label>
-                    <input type="text" name="others-mname" id="deworming-mname" value="<?= $patient['middlename']; ?>">
-                </div>
-                <div class="add-deworming__form-item"> <!--added input box-->
-                    <label for="deworming-phone_num">Phone Number</label>
-                    <input type="number" name="others-phone_num" id="deworming-age" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">
-                </div>
-                <div class="add-deworming__form-item add-deworming__form-item--radio">
-                    <label for="deworming-sex">Sex *</label>
-                    <div class="add-deworming__form--role-item">
+                        <input type="hidden" name="other_id" value="<?= $patient['id']; ?>">
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="others-sex" id="deworming-sex-male" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required> <!--Nilagyan ko Value para masave sa database-->
-                            <label for="deworming-sex-male">Male</label>
+                            <label for="deworming-lname">Service Title</label>
+                            <input type="text" name="others-title" id="deworming-email" value="<?= $patient['service_name']; ?>">
                         </div>
                         <div class="add-deworming__form-item">
-                            <input type="radio" name="others-sex" id="deworming-sex-female" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?> required>
-                            <label for="deworming-sex-female">Female</label>
+                            <label for="deworming-lname">Username (optional)</label>
+                            <input type="text" name="others-username" id="deworming-email" value="<?= $patient['service_email']; ?>">
                         </div>
-                    </div>
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-birthday">Birthday *</label>
-                    <input type="date" name="others-birthday" id="deworming-birthday" value="<?= $patient['bdate']; ?>" required>
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-street">Street Address *</label>
-                    <input type="text" name="others-street" id="deworming-street" value="<?= $patient['address']; ?>" required>
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-barangay">Barangay</label>
-                    <input type="text" name="others-barangay" id="deworming-barangay" value="<?= $patient['barangay']; ?>">
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-city">City</label>
-                    <input type="text" name="others-city" id="deworming-city" value="<?= $patient['city']; ?>">
-                </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-lname">Last Name *</label>
+                            <input type="text" name="others-lname" id="deworming-lname" value="<?= $patient['lastname']; ?>" required>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-fname">First Name *</label>
+                            <input type="text" name="others-fname" id="deworming-fname" value="<?= $patient['firstname']; ?>" required>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-mname">Middle Name</label>
+                            <input type="text" name="others-mname" id="deworming-mname" value="<?= $patient['middlename']; ?>">
+                        </div>
+                        <div class="add-deworming__form-item"> <!--added input box-->
+                            <label for="deworming-phone_num">Phone Number</label>
+                            <input type="number" name="others-phone_num" id="deworming-age" maxlength="11" min="1" value="<?= $patient['phone_num']; ?>">
+                        </div>
+                        <div class="add-deworming__form-item add-deworming__form-item--radio">
+                            <label for="deworming-sex">Sex *</label>
+                            <div class="add-deworming__form--role-item">
+                                <div class="add-deworming__form-item">
+                                    <input type="radio" name="others-sex" id="deworming-sex-male" value="Male" <?= ($patient['sex'] == 'Male') ? 'checked' : '' ?> required> <!--Nilagyan ko Value para masave sa database-->
+                                    <label for="deworming-sex-male">Male</label>
+                                </div>
+                                <div class="add-deworming__form-item">
+                                    <input type="radio" name="others-sex" id="deworming-sex-female" value="Female" <?= ($patient['sex'] == 'Female') ? 'checked' : '' ?> required>
+                                    <label for="deworming-sex-female">Female</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-birthday">Birthday *</label>
+                            <input type="date" name="others-birthday" id="deworming-birthday" value="<?= $patient['bdate']; ?>" required>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-street">Street Address *</label>
+                            <input type="text" name="others-street" id="deworming-street" value="<?= $patient['address']; ?>" required>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-barangay">Barangay</label>
+                            <input type="text" name="others-barangay" id="deworming-barangay" value="<?= $patient['barangay']; ?>">
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-city">City</label>
+                            <input type="text" name="others-city" id="deworming-city" value="<?= $patient['city']; ?>">
+                        </div>
 
 
 
 
 
-                <!-- Divider -->
-                <hr>
+                        <!-- Divider -->
+                        <hr>
 
-                <h2 class="add-deworming__title">
-                Findings
-                </h2>
-                <p class="add-deworming__desc">
-                Fill out necessary information to complete the process
-                </p>
+                        <h2 class="add-deworming__title">
+                            Findings
+                        </h2>
+                        <p class="add-deworming__desc">
+                            Fill out necessary information to complete the process
+                        </p>
 
-                <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Description</label>
-                    <textarea name="others-description" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['description']; ?></textarea>
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Results</label>
-                    <textarea name="others-results" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['result']; ?></textarea>
-                </div>
-                <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Prescriptions</label>
-                    <textarea name="others-prescription" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['prescription']; ?></textarea>
-                </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-lname">Description</label>
+                            <textarea name="others-description" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['description']; ?></textarea>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-lname">Results</label>
+                            <textarea name="others-results" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['result']; ?></textarea>
+                        </div>
+                        <div class="add-deworming__form-item">
+                            <label for="deworming-lname">Prescriptions</label>
+                            <textarea name="others-prescription" id="consultation-symptoms" cols="27" rows="10" required><?= $patient['prescription']; ?></textarea>
+                        </div>
 
-                <!-- Divider -->
-                <hr id='reason'>
+                        <!-- Divider -->
+                        <hr id='reason'>
 
-                <h2 class="edit-deworming__reason">
-                    Reason
-                </h2>
-                <p class="edit-deworming__reason-desc">
-                    Fill out necessary info *
-                </p>
+                        <h2 class="edit-deworming__reason">
+                            Reason
+                        </h2>
+                        <p class="edit-deworming__reason-desc">
+                            Fill out necessary info *
+                        </p>
 
-                <!-- Radio Buttons -->
+                        <!-- Radio Buttons -->
 
-                <div class="edit-deworming__form-item--reason">
-                    <input type="radio" name="edit-reason" id="edit-reason-mispelled" value="Mispelled Name" required>
-                    <label for="edit-reason-mispelled">Mispelled Name</label>
-                </div>
-                <div class="edit-deworming__form-item--reason">
-                    <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
-                    <label for="edit-reason-gender">Incorrect Sex</label>
-                </div>
-                <div class="edit-deworming__form-item--reason">
-                    <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>
-                    <label for="edit-reason-bdate">Incorrect Birthdate</label>
-                </div>
-                <div class="edit-deworming__form-item--reason">
-                    <input type="radio" name="edit-reason" id="edit-reason-address" value="Wrong Address" required>
-                    <label for="edit-reason-address">Wrong Address</label>
-                </div>
-                <div class="edit-deworming__form-item--reason">
-                    <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
-                    <label for="patient-others">Others: </label>
-                    <input type="text" name="patient-others" id="patient-others">
-                </div>
+                        <div class="edit-deworming__form-item--reason">
+                            <input type="radio" name="edit-reason" id="edit-reason-mispelled" value="Mispelled Name" required>
+                            <label for="edit-reason-mispelled">Mispelled Name</label>
+                        </div>
+                        <div class="edit-deworming__form-item--reason">
+                            <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
+                            <label for="edit-reason-gender">Incorrect Sex</label>
+                        </div>
+                        <div class="edit-deworming__form-item--reason">
+                            <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>
+                            <label for="edit-reason-bdate">Incorrect Birthdate</label>
+                        </div>
+                        <div class="edit-deworming__form-item--reason">
+                            <input type="radio" name="edit-reason" id="edit-reason-address" value="Wrong Address" required>
+                            <label for="edit-reason-address">Wrong Address</label>
+                        </div>
+                        <div class="edit-deworming__form-item--reason">
+                            <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
+                            <label for="patient-others">Others: </label>
+                            <input type="text" name="patient-others" id="patient-others">
+                        </div>
 
-                <!-- Divider -->
-                <hr>
+                        <!-- Divider -->
+                        <hr>
 
-                <div class="edit-deworming__form-btn">
-                    <button type="submit" class="btn-green btn-save" name="edit_other">
-                        Save
-                    </button>
-                    <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->
-                        Cancel
-                    </button>
-                </div>
+                        <div class="edit-deworming__form-btn">
+                            <button type="submit" class="btn-green btn-save" name="edit_other">
+                                Save
+                            </button>
+                            <button type="button" class="btn-red btn-cancel" onclick="backAlert()"> <!--added type and onclick-->
+                                Cancel
+                            </button>
+                        </div>
                 <?php
                     } else {
                         echo "<h4>No Such Id Found</h4>";
