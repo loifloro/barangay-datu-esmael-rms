@@ -26,16 +26,32 @@ if (isset($_POST['edit_bhw'])) {
     $query = "UPDATE account_information SET 
               firstname='$fname', lastname='$lname', middlename='$mname', sex='$sex', phone_num='$phone_num', 
               birthday='$birthday', street_add='$street_add', barangay='$barangay', city='$city', 
-              password='$encrypted_pwd', date_modified='$date_modified', user_email='$email', 
+              date_modified='$date_modified', user_email='$email', 
               default_email='' WHERE account_id='$account_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
         if ($password == '' && $cpassword == '') {
-            echo "<script>alert('Enter Password Please!');</script>";
-        } else if ($password != $cpassword) {
-            echo "<script>alert('Password Mismatch!');</script>";
-        } else {
+            echo "<script>alert('Profile Edited!'); window.location.href = '../user-profile.php';</script>";
+            exit;
+        } else if ($cpassword == null){
+            echo "<script>alert('Please Input Confirm Password!'); window.location.href = '../edit/edit-bhw.php?id=$account_id';</script>";
+            exit;
+        } else if ($password == null) {
+            echo "<script>alert('Please Input New Password!'); window.location.href = '../edit/edit-bhw.php?id=$account_id';</script>";
+            exit;
+        } elseif ($password != $cpassword && $cpassword != $password){
+            echo "<script>alert('Password Mismatch!'); window.location.href = '../edit/edit-bhw.php?id=$account_id';</script>";
+            exit;
+        } elseif ($password == $cpassword && $cpassword == $password){
+            $query_pass = "UPDATE account_information SET password='$encrypted_pwd' WHERE account_id='$account_id'";
+            $query_pass_run = mysqli_query($conn, $query_pass);
+            if ($query_pass_run) {
+                echo "<script>alert('Password Changed!'); window.location.href = '../user-profile.php';</script>";
+                exit;
+            }
+        }
+         else {
             // QUERY FOR FORGOT PASSWORD
             $security_question = mysqli_real_escape_string($conn, $_POST['bhw-security-question']);
             $security_answer = mysqli_real_escape_string($conn, $_POST['bhw-security-question-answer']);
