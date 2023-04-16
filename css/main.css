@@ -374,6 +374,7 @@ form {
 }
 
 input[type=range] {
+  pointer-events: none;
   accent-color: var(--green-1);
   width: 100%;
 }
