@@ -626,3 +626,21 @@ function confirmDeleteUser(position, accountId) {
     }
   });
 }
+
+function confirmEditUser(accountId) {
+  Swal.fire({
+    icon: "question",
+    title: "Confirm edit user",
+    text: "Do you want to edit this account?",
+    showCancelButton: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href =
+        "./edit/edit-bhw.php?" +
+        "id=" +
+        accountId;
+    } else {
+      return Swal.close();
+    }
+  });
+}
