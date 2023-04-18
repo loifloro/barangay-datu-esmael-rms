@@ -62,9 +62,7 @@
             } elseif ($report_service == 'Maternal Care') {
                 include 'maternal-care.php';
             }
-        } else {
-            include 'childcare-female.php';
-        }
+        } 
         ?>
 
         <!-- <button type="submit" name="sort__date" class="btn-green btn-add services__btn" required>

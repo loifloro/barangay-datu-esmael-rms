@@ -40,8 +40,7 @@ function backAlert() {
     confirmButtonColor: "#FBFBFB",
   }).then(function (result) {
     if (result.isConfirmed) {
-      return (window.location.href =
-        "./services.php");
+      return (window.location.href = "./services.php");
     }
   });
 }
@@ -114,26 +113,19 @@ navBar.addEventListener("click", () => {
     inputValidator: (value) => {
       return new Promise((resolve) => {
         if (value === "deworming") {
-          window.location.href =
-            "./add/add-deworming.php";
+          window.location.href = "/add/add-deworming.php";
         } else if (value === "consultation") {
-          window.location.href =
-            "./add/add-consultation.php";
+          window.location.href = "/add/add-consultation.php";
         } else if (value === "childhood") {
-          window.location.href =
-            "./add/add-early_childhood.php";
+          window.location.href = "/add/add-early_childhood.php";
         } else if (value === "prenatal") {
-          window.location.href =
-            "./add/add-prenatal.php";
+          window.location.href = "/add/add-prenatal.php";
         } else if (value === "postnatal") {
-          window.location.href =
-            "./add/add-postnatal.php";
+          window.location.href = "/add/add-postnatal.php";
         } else if (value === "searchDestroy") {
-          window.location.href =
-            "./add/add-search_destroy.php";
+          window.location.href = "/add/add-search_destroy.php";
         } else if (value === "otherService") {
-          window.location.href =
-            "./add/add-other_services.php";
+          window.location.href = "/add/add-other_services.php";
         }
       });
     },
@@ -324,9 +316,7 @@ function forgotPassword() {
   }).then(function (email) {
     if (email.isConfirmed) {
       Swal.fire(`Entered email address: ` + email.value).then(
-        () =>
-          (window.location.href =
-            "./index.php?email=" + email.value)
+        () => (window.location.href = "./index.php?email=" + email.value)
       );
     }
   });

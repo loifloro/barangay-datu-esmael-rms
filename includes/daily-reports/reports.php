@@ -16,7 +16,7 @@
                     <?php
                     if (isset($_GET['report__service'])) {  ?>
                         <option selected value="<?= $_GET['report__service'] ?>"> <?= $_GET['report__service'] ?> </option>
-                    <?php
+                        <?php
                     }
 
                     $query = "SELECT label FROM deworming GROUP BY label
@@ -31,15 +31,15 @@
                               UNION ALL
                               SELECT label FROM early_childhood GROUP BY label
                               UNION ALL
-                              SELECT service_name FROM other_service GROUP BY service_name"; 
+                              SELECT service_name FROM other_service GROUP BY service_name";
                     $query_run = mysqli_query($conn, $query);
                     if (mysqli_num_rows($query_run) > 0) {
                         foreach ($query_run as $label) {
                             $old_label = $label['label'];
                             $new_label = $old_label;
-                            ?>
-                                 <option value="<?= $new_label; ?>"> <?php echo $new_label; ?> </option>
-                            <?php
+                        ?>
+                            <option value="<?= $new_label; ?>"> <?php echo $new_label; ?> </option>
+                    <?php
                         }
                     }
                     ?>
@@ -69,6 +69,7 @@
             </button>
         </div>
 
+
         <?php
         if (isset($_GET['report__service'])) {
             $report_service = $_GET['report__service'];
@@ -87,10 +88,7 @@
             } else {
                 include 'other_services.php';
             }
-        } else {
-            include 'deworming.php';
         }
-
         ?>
 
 

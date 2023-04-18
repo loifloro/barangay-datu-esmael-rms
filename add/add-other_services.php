@@ -234,15 +234,15 @@ hide_content_forms();
                 </p>
 
                 <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Description</label>
+                    <label for="deworming-lname">Description *</label>
                     <textarea name="others-description" id="consultation-symptoms" cols="27" rows="10" required></textarea>
                 </div>
                 <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Results</label>
+                    <label for="deworming-lname">Results *</label>
                     <textarea name="others-results" id="consultation-symptoms" cols="27" rows="10" required></textarea>
                 </div>
                 <div class="add-deworming__form-item">
-                    <label for="deworming-lname">Prescriptions</label>
+                    <label for="deworming-lname">Prescriptions *</label>
                     <textarea name="others-prescription" id="consultation-symptoms" cols="27" rows="10" required></textarea>
                 </div>
 

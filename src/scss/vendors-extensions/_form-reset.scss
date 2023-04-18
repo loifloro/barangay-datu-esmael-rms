@@ -156,6 +156,7 @@ form {
 }
 
 input[type="range"] {
+  pointer-events: none;
   accent-color: $green;
   width: 100%;
 
