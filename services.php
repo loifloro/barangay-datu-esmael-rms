@@ -641,7 +641,7 @@ hide_content();
             ?>
 
             <!-- <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a> -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=deworming'">
                 <p>Add</p>
             </button>
         </div>
@@ -664,14 +664,12 @@ hide_content();
 
                     <li class="services__attributes__item">
                         Age
-                        <form action="" method="POST">
-                            <!-- BUTTON FOR AGE -->
-                            <button type="submit" name="consultation_sort_age" value="2">
-                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                                </svg>
-                            </button>
-                        </form>
+                        <!-- BUTTON FOR AGE -->
+                        <button type="submit" name="consultation_sort_age" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="services__attributes__item">
                         Sex
@@ -686,14 +684,12 @@ hide_content();
                     </li>
                     <li class="services__attributes__item">
                         Date Availed
-                        <form action="" method="POST">
-                            <!-- BUTTON FOR DATE AVAILED -->
-                            <button type="submit" name="consultation_sort_date_availed" value="4">
-                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                                </svg>
-                            </button>
-                        </form>
+                        <!-- BUTTON FOR DATE AVAILED -->
+                        <button type="submit" name="consultation_sort_date_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li>
 
@@ -822,7 +818,7 @@ hide_content();
                     ?>
                     </div>
                     <!-- End of Query -->
-                    <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-consultation.php'">
+                    <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=consultation'">
                         <p>Add</p>
                     </button>
         </div>
@@ -997,7 +993,7 @@ hide_content();
 
             <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=prenatal'">
                 <p>Add</p>
             </button>
         </div>
@@ -1174,7 +1170,7 @@ hide_content();
             ?>
 
             <!-- End of Query -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=postnatal'">
                 <p>Add</p>
             </button>
         </div>
@@ -1350,7 +1346,7 @@ hide_content();
 
             <!-- End of Query -->
             <!-- <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a> -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-search_destroy.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=search-and-destroy'">
                 <p>Add</p>
             </button>
 
@@ -1526,7 +1522,7 @@ hide_content();
 
             <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=early-childhood'">
                 <p>Add</p>
             </button>
         </div>
@@ -1702,7 +1698,7 @@ hide_content();
 
             <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-other_services.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=others'">
                 <p>Add</p>
             </button>
         </div>
