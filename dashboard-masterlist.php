@@ -173,7 +173,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
 
             <!-- Cards -->
             <section class="services__card-masterlist">
-                <div class="services__card services__card--childhood-male" onclick="window.location.href = './masterlist/maternal-care.php'">
+                <div class="services__card services__card--childhood-male" onclick="window.location.href = 'masterlist.php?maternal-care'">
                     <p class="services__card-title">
                         Maternal Care
                     </p>
@@ -190,7 +190,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
                     total record
                     </p>
                 </div>
-                <div class="services__card services__card--childhood-female" onclick="window.location.href = './masterlist/childhood-care-female.php'">
+                <div class="services__card services__card--childhood-female" onclick="window.location.href = 'masterlist.php?childhood-female'">
                     <p class="services__card-title">
                         Childhood Care (Female)
                     </p>
@@ -207,7 +207,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
                     total record
                     </p>
                 </div>
-                <div class="services__card services__card--maternal" onclick="window.location.href = './masterlist/childhood-care-male.php'">
+                <div class="services__card services__card--maternal" onclick="window.location.href = 'masterlist.php?childhood-male'">
                     <p class="services__card-title">
                         Childhood Care (Male)
                     </p>
