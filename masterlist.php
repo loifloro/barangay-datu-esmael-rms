@@ -209,8 +209,18 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
                     title: 'Error when editing',
                 })
             </script>
-    <?php
+        <?php
         }
+    }
+    if (isset($_GET['deleted'])) {
+        ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Deleted Succesfully',
+            })
+        </script>
+    <?php
     }
     ?>
 
