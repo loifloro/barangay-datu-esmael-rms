@@ -554,7 +554,7 @@ function confirmDelete(
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href =
-        "./includes/delete_query.php?" +
+        "includes/delete_query.php?" +
         "delete&" +
         service +
         "&id=" +
@@ -615,7 +615,7 @@ function confirmDeleteUser(position, accountId) {
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href =
-        "./includes/delete_query.php?" +
+        "includes/delete_query.php?" +
         "delete_bhw&" +
         "&position=" +
         position +
