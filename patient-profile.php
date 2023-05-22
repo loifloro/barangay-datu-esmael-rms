@@ -237,7 +237,7 @@ if (mysqli_num_rows($query_run2) > 0) {
     <!-- END QUERY FOR DISPLAYING TITLE TAB -->
 </head>
 
-<body class="grid">
+<body class="grid" id="grid">
     <div class="loader" id="loader">
         <svg width='150px' height='179px' version='1.1' xmlns='http://www.w3.org/2000/svg'>
             <path class='d-spinner d-spinner__four' d='M144.421372,121.923755 C143.963266,123.384111 143.471366,124.821563 142.945674,126.236112 C138.856723,137.238783 133.098899,146.60351 125.672029,154.330576 C118.245158,162.057643 109.358082,167.978838 99.0105324,172.094341 C89.2149248,175.990321 78.4098994,178.04219 66.5951642,178.25 L0,178.25 L144.421372,121.923755 L144.421372,121.923755 Z' />
@@ -461,9 +461,11 @@ if (mysqli_num_rows($query_run2) > 0) {
     <script src="./js/app.js"></script>
     <script>
         var loader = document.getElementById("loader");
+        var grid = document.getElementById("grid");
 
         window.addEventListener("load", () => {
             loader.style.display = "none";
+            grid.style.overflow = "unset";
         });
     </script>
 </body>
