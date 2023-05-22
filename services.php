@@ -588,7 +588,7 @@ hide_content();
                             </button>
                             <!-- END OF ARCHIVING -->
 
-                            <button type="button" onclick="window.location.href = `./edit/edit-deworming.php?id=<?= $patient['deworming_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=deworming&id=<?= $patient['deworming_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -768,7 +768,7 @@ hide_content();
                                         <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                     </svg>
                                 </button>
-                                <button type="button" onclick="window.location.href = `./edit/edit-consultation.php?id=<?= $patient['consultation_id']; ?>`">
+                                <button type="button" onclick="window.location.href = `edit-record.php?service=consultation&id=<?= $patient['consultation_id']; ?>`">
                                     <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                         <defs>
                                             <clipPath id="a">
@@ -942,7 +942,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-prenatal.php?id=<?= $patient['prenatal_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=prenatal&id=<?= $patient['prenatal_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1119,7 +1119,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-postnatal.php?id=<?= $patient['postnatal_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=postnatal&id=<?= $patient['postnatal_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1292,7 +1292,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-search_destroy.php?id=<?= $patient['search_destroy_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=search-and-destroy&id=<?= $patient['search_destroy_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1470,7 +1470,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-early_childhood.php?id=<?= $patient['early_childhood_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=early-childhood&id=<?= $patient['early_childhood_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1646,7 +1646,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-other_services.php?id=<?= $patient['id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=others&id=<?= $patient['id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">

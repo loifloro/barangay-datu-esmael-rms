@@ -231,7 +231,7 @@ hide_content();
                         <ul class="user-profile__item__btn" role="list">
                             <!-- Buttons -->
                             <li class="user-profile__btn">
-                                <button type="submit" class="btn-green btn-save" onclick="window.location.href = 'edit/edit-bhw.php?id=<?= $user['account_id']; ?>'">
+                                <button type="submit" class="btn-green btn-save" onclick="window.location.href = 'edit-record.php?bhw&id=<?= $user['account_id']; ?>'">
                                     <span>
                                         <!-- <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M6 34.5V42h7.5l22.13-22.13-7.5-7.5L6 34.5zm35.41-20.41c.78-.78.78-2.05 0-2.83l-4.67-4.67c-.78-.78-2.05-.78-2.83 0l-3.66 3.66 7.5 7.5 3.66-3.66z"/><path fill="none" d="M0 0h48v48H0z"/></svg> -->
                                         <svg xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
@@ -462,18 +462,18 @@ hide_content();
                                     </span>
                                 </button>
                                 <button type="submit" name="edit_bhw" onclick="return confirmEditUser('<?= $patient['account_id']; ?>')">
-                                <svg id="edit-profile" class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
-                                    <defs>
-                                        <clipPath id="a">
-                                            <rect width="64" height="64" />
-                                        </clipPath>
-                                    </defs>
-                                    <g clip-path="url(#a)">
-                                        <path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z" />
-                                    </g>
-                                </svg>
+                                    <svg id="edit-profile" class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
+                                        <defs>
+                                            <clipPath id="a">
+                                                <rect width="64" height="64" />
+                                            </clipPath>
+                                        </defs>
+                                        <g clip-path="url(#a)">
+                                            <path d="M43.926 8.803L49.563 3.167C51.118 1.611 53.643 1.611 55.199 3.167L60.835 8.803C62.39 10.358 62.382 12.876 60.817 14.421L55.146 20.022C54.624 20.537 53.78 20.535 53.261 20.016L43.926 10.681C43.408 10.163 43.408 9.321 43.926 8.803zM42.048 12.56L51.441 21.954C51.96 22.472 51.96 23.314 51.441 23.833L15.276 59.998C15.017 60.257 14.511 60.51 14.148 60.562L4.285 61.971C2.834 62.178 1.823 61.168 2.031 59.716L3.44 49.853C3.492 49.49 3.744 48.985 4.003 48.726L40.169 12.56C40.687 12.042 41.529 12.042 42.048 12.56z" />
+                                        </g>
+                                    </svg>
                                 </button>
-                                    
+
                                 <!--End Button-->
                             </li>
                         </ul>
@@ -491,6 +491,43 @@ hide_content();
     </main>
     <script src="./js/app.js"></script>
     <?php
+    if (isset($_GET['edited'])) {
+        if (isset($_GET['edited']) == 'success') { ?>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'success',
+                    iconColor: 'white',
+                    title: 'Profile updated',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                })
+            </script>
+        <?php
+        } else { ?>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'error',
+                    iconColor: 'white',
+                    title: 'Error editing account',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                })
+            </script>
+        <?php
+        }
+    }
     if (isset($_GET['success'])) { ?>
         <script>
             Swal.fire({
