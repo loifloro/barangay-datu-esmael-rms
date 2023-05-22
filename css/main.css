@@ -1271,7 +1271,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 @media (max-width: 80.1rem) {
   .navbar {
     left: 6rem;
-    width: calc(100vw - 6rem);
   }
 }
 @media (max-width: 30.1rem) {
@@ -1279,7 +1278,6 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     z-index: 2;
     height: 4rem;
     left: 0;
-    width: 100%;
   }
 }
 
@@ -1632,14 +1630,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 @media (max-width: 80.1rem) {
   .sidebar__caption {
-    opacity: 0;
-    visibility: hidden;
+    display: none;
   }
 }
 @media (max-width: 30.1rem) {
   .sidebar__caption {
-    opacity: unset;
-    visibility: unset;
+    display: unset;
   }
 }
 .sidebar--mobile {

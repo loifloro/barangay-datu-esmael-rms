@@ -34,7 +34,7 @@
   @media (max-width: map-get($breakpoints, "large")) {
     // Small smartphone
     left: 6rem;
-    width: calc(100vw - 6rem);
+    // width: calc(100vw - 6rem);
   }
 
   @media (max-width: map-get($breakpoints, "small")) {
@@ -42,7 +42,7 @@
     z-index: 2;
     height: 4rem;
     left: 0;
-    width: 100%;
+    // width: 100%;
   }
 }
 
