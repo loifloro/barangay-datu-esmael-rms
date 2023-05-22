@@ -29,6 +29,7 @@
   width: 85%;
   left: 15%;
   transition: all 300ms ease-in-out;
+  all: unset;
 
   @media (max-width: map-get($breakpoints, "large")) {
     // Small smartphone
@@ -58,7 +59,7 @@
 
   &__title {
     margin-right: auto;
-    margin-left: 1.5rem;
+    font-weight: 700;
 
     @media (max-width: map-get($breakpoints, "small")) {
       margin-left: unset;
