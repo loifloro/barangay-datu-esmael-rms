@@ -29,7 +29,7 @@ hide_content();
     if (mysqli_num_rows($query_run) > 0) {
         foreach ($query_run as $user) {
     ?>
-            <title><?= $user['firstname'] . ' ' . $user['lastname']; ?></title>
+            <title><?= $user['firstname'] . ' ' . $user['lastname']; ?> | Brgy. Datu Esmael Patient Record System</title>
     <?php
         }
     } else {
@@ -138,7 +138,7 @@ hide_content();
             </div>
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
-                Services
+                User Profile
             </h1>
             <form class="navigation__search" action="search-result.php" method="GET">
                 <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
@@ -275,7 +275,7 @@ hide_content();
                 <div class="user-profile__backup__form">
                     <label for="patient-password">
                         <p class="backup-title">Upload</p>
-                        Click the button to download in you're local file the backup of the database system.
+                        Click the button to download in your local file the backup of the database system.
                     </label>
                     <div class="btn-section">
                         <div class="input-file-container">

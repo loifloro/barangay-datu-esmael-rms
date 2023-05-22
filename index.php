@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Brgy. Datu Esmael Patient Record Management System</title>
+    <title>Login | Brgy. Datu Esmael Patient Record Management System</title>
 </head>
 
 <body class="login">

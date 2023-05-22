@@ -22,7 +22,7 @@ hide_content();
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Recent Update</title>
+    <title>Recent Update | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
 <body class="grid" id="grid">

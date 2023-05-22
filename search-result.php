@@ -38,7 +38,7 @@ if (mysqli_num_rows($query_run2) > 0) {
     <link rel="stylesheet" href="./css/main.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <title>Search results</title>
+    <title>Search results | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
 <body class="grid" id="grid">
