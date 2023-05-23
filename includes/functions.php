@@ -811,6 +811,11 @@ if (isset($_POST['backup_database'])) {
     $password = "";
     $database_name = "patient_record_system";
 
+    $host = "localhost";
+    $username = "id20499505_root";
+    $password = "Putangina--00";
+    $database_name = "id20499505_patient_record_system";
+
     // Get connection object and set the charset
     $conn = mysqli_connect($host, $username, $password, $database_name);
     $conn->set_charset("utf8");

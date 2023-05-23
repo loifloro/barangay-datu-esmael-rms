@@ -98,7 +98,7 @@ if (isset($_POST['save_others'])) {
         }
         //END OF QUERY
     } else {
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=otherservices&status=error");
         exit(0);
     }
 }
