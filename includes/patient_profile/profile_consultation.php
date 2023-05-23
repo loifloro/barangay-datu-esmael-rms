@@ -339,7 +339,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $deworm) {
                                             $patient_id = $deworm['deworming_id'];
-                                            $link = "edit/edit-deworming.php?id=" . $patient_id;
+                                            $link = "edit-record.php?service=deworming&id=" . $patient_id;
                                         }
                                     }
                                 }
@@ -354,7 +354,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $consul) {
                                             $patient_id = $consul['consultation_id'];
-                                            $link = "edit/edit-consultation.php?id=" . $patient_id;
+                                            $link = "edit-record.php?service=consultation&id=" . $patient_id;
                                         }
                                     }
                                 }
@@ -369,7 +369,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $pre) {
                                             $patient_link = $pre['prenatal_id'];
-                                            $link = "edit/edit-prenatal.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=prenatal&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -384,7 +384,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $post) {
                                             $patient_link = $post['postnatal_id'];
-                                            $link = "edit/edit-postnatal.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=postnatal&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -399,7 +399,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $search_des) {
                                             $patient_link = $search_des['search_destroy_id'];
-                                            $link = "edit/edit-search_destroy.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=search-and-destroy&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -414,7 +414,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $early) {
                                             $patient_link = $early['early_childhood_id'];
-                                            $link = "edit/edit-early_childhood.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=early-childhood&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -431,7 +431,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $early) {
                                             $patient_link = $early['id'];
-                                            $link = "edit/edit-other_services.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=others&id=" . $patient_link;
                                         }
                                     }
                                 }
