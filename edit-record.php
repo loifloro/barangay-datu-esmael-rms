@@ -2,10 +2,13 @@
 session_start();
 include 'includes/connection.php';
 $position = $_SESSION['position'];
-if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])) {
+if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
+
+include_once "includes/functions.php";
+hide_content_forms();
 
 $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
 $query_run = mysqli_query($conn, $query);
