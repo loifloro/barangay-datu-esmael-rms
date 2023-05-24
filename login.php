@@ -14,7 +14,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = validate($_POST['username']);
     $password = validate($_POST['password']);
     $encrypted_pwd = md5($password);
-    
+
     if (empty($username)) { /*if else statement for validation*/
         header("Location: index.php?error=User email is required"); /*Error Alert*/
         exit();
@@ -40,8 +40,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 $_SESSION['account_id'] = $row['account_id'];
                 $_SESSION['position'] = $row['position'];
 
-                $id=$row['account_id'];
-                header("Location: edit/edit-bhw.php?id=".$id); /*Redirect to this page if successful*/
+                $id = $row['account_id'];
+                header("Location: edit-record.php?bhw&id=" . $id); /*Redirect to this page if successful*/
                 exit();
             }
 
@@ -55,11 +55,9 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                 header("Location: dashboard.php?success"); /*Redirect to this page if successful*/
                 exit();
             }
-        } 
-        
-        else {
+        } else {
             //QUERY FOR PATIENTS
-            $sql= "SELECT deworming_email, deworming_password, phone_num, deworming_id, label FROM deworming 
+            $sql = "SELECT deworming_email, deworming_password, phone_num, deworming_id, label FROM deworming 
             WHERE deworming_email='$username' AND deworming_password='$encrypted_pwd'
             UNION ALL
             SELECT consultation_email, consultation_password, phone_number, consultation_id, label FROM consultation 
@@ -85,17 +83,17 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
             if (mysqli_num_rows($result) == 1) {
                 $row = mysqli_fetch_assoc($result);
 
-                    if ($row['deworming_password'] == $encrypted_pwd && $row['deworming_email'] == $username){
-                        $_SESSION['phone_num'] = $row['phone_num'];
-                        $_SESSION['user_email'] = $row['deworming_email'];
-                        $_SESSION['firstname'] = $row['firstname'];
-                        $_SESSION['deworming_id'] = $row['deworming_id'];
-                        $_SESSION['account_id'] = $row['deworming_id'];
-                        $_SESSION['label'] = $row['label'];
-                        
-                        $filtervalues = $row['deworming_email'];
-                        $filtervalues2 = $row['password'];
-                        $query = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label, deworming_email, deworming_password 
+                if ($row['deworming_password'] == $encrypted_pwd && $row['deworming_email'] == $username) {
+                    $_SESSION['phone_num'] = $row['phone_num'];
+                    $_SESSION['user_email'] = $row['deworming_email'];
+                    $_SESSION['firstname'] = $row['firstname'];
+                    $_SESSION['deworming_id'] = $row['deworming_id'];
+                    $_SESSION['account_id'] = $row['deworming_id'];
+                    $_SESSION['label'] = $row['label'];
+
+                    $filtervalues = $row['deworming_email'];
+                    $filtervalues2 = $row['password'];
+                    $query = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label, deworming_email, deworming_password 
                         FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num,label, deworming_email, deworming_password) 
                         LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label, deworming_email, deworming_password) LIKE '%$filtervalues2%'
                         UNION ALL
@@ -127,20 +125,19 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
                     $query_run = mysqli_query($conn, $query);
                     if (mysqli_num_rows($query_run) > 0) {
                         foreach ($query_run as $search) {
-                            $id=$search['deworming_id'];
-                            $label=$search['label'];
-                            $fname=$search['firstname'];
-                            $lname=$search['lastname'];
+                            $id = $search['deworming_id'];
+                            $label = $search['label'];
+                            $fname = $search['firstname'];
+                            $lname = $search['lastname'];
                         }
                     }
 
-                        header("Location: patient-profile.php?id=$id&label=$label&fname=$fname&lname=$lname&success"); /*Redirect to this page if successful*/
-                        exit();
-                    } 
-                    else {
-                        header("Location: index.php?error=No patient"); /*Error Alert*/
-                        exit();
-                    }
+                    header("Location: patient-profile.php?id=$id&label=$label&fname=$fname&lname=$lname&success"); /*Redirect to this page if successful*/
+                    exit();
+                } else {
+                    header("Location: index.php?error=No patient"); /*Error Alert*/
+                    exit();
+                }
             }
         }
     }

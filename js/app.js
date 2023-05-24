@@ -635,7 +635,7 @@ function confirmEditUser(accountId) {
     showCancelButton: true,
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href = "./edit/edit-bhw.php?" + "id=" + accountId;
+      window.location.href = "edit-record.php?bhw&" + "id=" + accountId;
     } else {
       return Swal.close();
     }
