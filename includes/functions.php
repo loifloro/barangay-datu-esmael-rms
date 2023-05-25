@@ -774,7 +774,7 @@ function forgot_password()
                                     }
                                 }
                             }).then((result) => {
-                                window.location.href = '/includes/functions.php?changepassword&newpass=' + result.value.newPassword + '&email=<?= $user_email ?>' + '&id=<?= $user_id ?>';
+                                window.location.href = 'includes/functions.php?changepassword&newpass=' + result.value.newPassword + '&email=<?= $user_email ?>' + '&id=<?= $user_id ?>';
                                 // Please enter here what URL 
                             })
                         }

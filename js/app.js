@@ -310,8 +310,8 @@ function forgotPassword() {
   const { value: email } = Swal.fire({
     title: "Input username",
     input: "text",
-    inputLabel: "Your email address",
-    inputPlaceholder: "Ex. elle@cvsu.com",
+    inputLabel: "Your username",
+    inputPlaceholder: "Ex. adminuser",
     showCancelButton: true,
   }).then(function (email) {
     if (email.isConfirmed) {
