@@ -10,7 +10,7 @@
             Fill out necessary information to complete the process
         </p>
 
-        <form action="../includes/edit_query.php" method='POST' class="edit-child_care-female__form"> <!--form action and method added-->
+        <form action="includes/edit_query.php" method='POST' class="edit-child_care-female__form"> <!--form action and method added-->
 
             <!-- <div class="edit-child_care-female__form-item">
                     <label for="child_care-male-number">No.</label>

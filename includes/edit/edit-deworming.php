@@ -11,7 +11,7 @@
             Fill out necessary information to complete the process
         </p>
 
-        <form action="../includes/edit_query.php" method='POST' class="edit-deworming__form" id='edit-deworming-form'>
+        <form action="includes/edit_query.php" method='POST' class="edit-deworming__form" id='edit-deworming-form'>
 
             <?php
             if (isset($_GET['id'])) {

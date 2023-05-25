@@ -4,7 +4,7 @@
             <a href="#" onclick="backAlert()">Back</a>
         </p>
         <h2 class="add-child_care-female__title">
-            Add Target Client list for Child Care Male
+            Add Target Client list for Child Care Female
         </h2>
         <p class="add-child_care-female__desc">
             Fill out necessary information to complete the process
