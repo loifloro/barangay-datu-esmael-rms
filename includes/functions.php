@@ -642,6 +642,64 @@ function hide_content_forms()
         }
     }
 }
+
+function hide_content_bhw_noname()
+{
+    include 'includes/connection.php';
+    $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        foreach ($query_run as $user) {
+            $position = $user['position'];
+            $name = $user['firstname'];
+        }
+        if ($position == 'Barangay Health Worker' && $name == '-') {
+?>
+            <style type="text/css">
+                .bhw-account {
+                    display: none;
+                }
+                .user-profile__backup {
+                    display: none;
+                }
+                #archive-profile {
+                    display: none;
+                }
+                #masterlist_sidebar {
+                    display: none;
+                }
+                #backup_sidebar {
+                    display: none;
+                }
+                #dashboard_active{
+                    display: none;
+                }
+                #patient_active{
+                    display: none;
+                }
+                #patient_user_profile{
+                    display: none;
+                }
+                #services_active{
+                    display: none;
+                }
+                #hr_active{
+                    display: none;
+                }
+            </style>
+        <?php
+        }
+        if ($position == 'City Health Nurse') {
+        ?>
+            <style type="text/css">
+                #archive-profile {
+                    display: none;
+                }
+            </style>
+        <?php
+        }
+    }
+}
 // TOTAL PATIENTS IN PATIENT.PHP
 function total_patient()
 {
