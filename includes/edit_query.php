@@ -20,6 +20,9 @@ if (isset($_POST['edit_bhw'])) {
     $cpassword = mysqli_real_escape_string($conn, $_POST['bhw-confirm-new-password']);
     $encrypted_pwd = md5($password);
 
+    $bhw_security_question = mysqli_real_escape_string($conn, $_POST['bhw-security-question']);
+    $bhw_security_question_answer = mysqli_real_escape_string($conn, $_POST['bhw-security-question-answer']);
+
     $date_modified = date('Y-m-d H:i:s');
     $email = mysqli_real_escape_string($conn, $_POST['bhw-email']);
 
@@ -27,7 +30,8 @@ if (isset($_POST['edit_bhw'])) {
               firstname='$fname', lastname='$lname', middlename='$mname', sex='$sex', phone_num='$phone_num', 
               birthday='$birthday', street_add='$street_add', barangay='$barangay', city='$city', 
               date_modified='$date_modified', user_email='$email', 
-              default_email='' WHERE account_id='$account_id'";
+              default_email='', security_question='$bhw_security_question', security_answer ='$bhw_security_question_answer'
+               WHERE account_id='$account_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
