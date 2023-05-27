@@ -24,15 +24,13 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
     <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
+    <script src="./js/jquerymodal.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <!-- Remember to include jQuery :) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-    <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <title>
         <?php
@@ -236,15 +234,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
     ?>
 
     <script src="./js/app.js"></script>
-    <script>
-        var loader = document.getElementById("loader");
-        var grid = document.getElementById("grid");
 
-        window.addEventListener("load", () => {
-            loader.style.display = "none";
-            grid.style.overflow = "unset";
-        });
-    </script>
 </body>
 
 </html>

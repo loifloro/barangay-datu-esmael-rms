@@ -582,15 +582,7 @@ hide_content();
         </script>
     <?php
     } ?>
-    <script>
-        var loader = document.getElementById("loader");
-        var grid = document.getElementById("grid");
 
-        window.addEventListener("load", () => {
-            loader.style.display = "none";
-            grid.style.overflow = "unset";
-        });
-    </script>
 </body>
 
 </html>

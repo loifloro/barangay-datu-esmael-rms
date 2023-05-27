@@ -1,8 +1,18 @@
+const loader = document.getElementById("loader");
+var grid = document.getElementById("grid");
+
+window.addEventListener("load", () => {
+  loader.style.display = "none";
+  grid.style.overflow = "auto";
+  loader.style.top = window.pageYOffset + "px";
+});
+
 const body = document.body;
 let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
+  loader.style.top = window.pageYOffset + "px";
   if (currentScroll <= 0) {
     body.classList.remove("scroll-up");
     return;

@@ -1273,15 +1273,7 @@ if (mysqli_num_rows($query_run) > 0) {
     <?php
     }
     ?>
-    <script>
-        var loader = document.getElementById("loader");
-        var grid = document.getElementById("grid");
 
-        window.addEventListener("load", () => {
-            loader.style.display = "none";
-            grid.style.overflow = "unset";
-        });
-    </script>
 </body>
 
 </html>
