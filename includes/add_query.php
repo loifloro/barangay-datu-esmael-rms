@@ -93,12 +93,12 @@ if (isset($_POST['save_others'])) {
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../services.php?service=deworming&status=success");
+            header("Location: ../services.php?service=otherservices&status=success");
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=otherservices&status=error");
         exit(0);
     }
 }
@@ -128,7 +128,7 @@ if (isset($_POST['save_deworming'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-deworm';
+    $password =  $lastname_space . $year_date . '-deworm';
     $encrypted_pwd = md5($password);
 
     $query = "INSERT INTO deworming 
@@ -167,7 +167,7 @@ if (isset($_POST['save_deworming'])) {
         }
         //END OF QUERY
     } else {
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=deworming&status=error");
         exit(0);
     }
 }
@@ -201,7 +201,7 @@ if (isset($_POST['save_consultation'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-consul';
+    $password =  $lastname_space . $year_date . '-consul';
     $encrypted_pwd = md5($password);
 
 
@@ -245,7 +245,7 @@ if (isset($_POST['save_consultation'])) {
             exit(0);
         }
     } else {
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=consultation&status=error");
         exit(0);
     }
 }
@@ -291,7 +291,7 @@ if (isset($_POST['save_prenatal'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-pre';
+    $password =  $lastname_space . $year_date . '-pre';
     $encrypted_pwd = md5($password);
 
     $email = mysqli_real_escape_string($conn, $_POST['prenatal-email']);
@@ -309,35 +309,34 @@ if (isset($_POST['save_prenatal'])) {
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
-            // QUERY TO RECENT UPDATE PRENATAL
-            $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
-            $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
-            $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
+        // QUERY TO RECENT UPDATE PRENATAL
+        $user_fname = mysqli_real_escape_string($conn, $_POST['user_fname']);
+        $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
+        $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-            // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-            $date = date('Y-m-d');
-            $time = date('H:i:s');
+        // $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
+        $date = date('Y-m-d');
+        $time = date('H:i:s');
 
-            $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
-            $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
+        $patient_fname = mysqli_real_escape_string($conn, $_POST['prenatal-fname']);
+        $patient_lname = mysqli_real_escape_string($conn, $_POST['prenatal-lname']);
 
 
-            $query2 = "INSERT INTO recent_activity 
+        $query2 = "INSERT INTO recent_activity 
                                 (reasons, user_fname, user_lname, user_role, changes_label, 
                                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                                 VALUES 
                                 ('New Record', '$user_fname', '$user_lname', '$user_role', 'added', 
                                 '$date', '$time', '$patient_fname', '$patient_lname', 'Prenatal')";
 
-            $query_run2 = mysqli_query($conn, $query2);
-            if ($query_run2) {
-                    header("Location: ../services.php?service=prenatal&status=success");
-                    exit(0);
-                //END OF QUERY
-            }
-
+        $query_run2 = mysqli_query($conn, $query2);
+        if ($query_run2) {
+            header("Location: ../services.php?service=prenatal&status=success");
+            exit(0);
+            //END OF QUERY
+        }
     } else {
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=prenatal&status=error");
         exit(0);
     }
 }
@@ -383,7 +382,7 @@ if (isset($_POST['save_postnatal'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['postnatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-post';
+    $password =  $lastname_space . $year_date . '-post';
     $encrypted_pwd = md5($password);
 
     $email = mysqli_real_escape_string($conn, $_POST['postnatal-email']);
@@ -427,9 +426,8 @@ if (isset($_POST['save_postnatal'])) {
             header("Location: ../services.php?service=postnatal&status=success");
             exit(0);
         }
-        
     } else {
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=postnatal&status=error");
         exit(0);
     }
 }
@@ -461,7 +459,7 @@ if (isset($_POST['save_search_destroy'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $owner_lname)); // remove space
-    $password =  $lastname_space . $year_date .'-sd';
+    $password =  $lastname_space . $year_date . '-sd';
     $encrypted_pwd = md5($password);
 
 
@@ -507,7 +505,7 @@ if (isset($_POST['save_search_destroy'])) {
         //END OF QUERY
 
     } else {
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=search-destroystatus=error");
         exit(0);
     }
 }
@@ -621,7 +619,7 @@ if (isset($_POST['save_early_childhood'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $child_lname)); // remove space
-    $password =  $lastname_space . $year_date .'-ec';
+    $password =  $lastname_space . $year_date . '-ec';
     $encrypted_pwd = md5($password);
 
 
@@ -689,13 +687,9 @@ if (isset($_POST['save_early_childhood'])) {
             exit(0);
         }
         //END OF QUERY
-
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
     } else {
         // $_SESSION['message'] = "Student Not Created";
-        header("Location: ../services.php?status=error");
+        header("Location: ../services.php?service=childhood&status=error");
         exit(0);
     }
 }
@@ -805,12 +799,12 @@ if (isset($_POST['add_maternal_list'])) { //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/maternal-care.php?status=success");
+            header("Location: ../masterlist.php?maternal-care&status=success");
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/maternal-care.php?status==error");
+        header("Location: ../masterlist.php?maternal-care&status=error");
         exit(0);
     }
 }
@@ -946,12 +940,12 @@ if (isset($_POST['add_childcare_male'])) { //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/childhood-care-male.php?status=success"); //temporary destination
+            header("Location: ../masterlist.php?childhood-male&status=success"); //temporary destination
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/childhood-care-male.php?status=error"); //will change depending on the name of the services page
+        header("Location: ../masterlist.php?childhood-male&status=error"); //will change depending on the name of the services page
         exit(0);
     }
 }
@@ -1088,12 +1082,12 @@ if (isset($_POST['add_childcare_female'])) { //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/childhood-care-female.php?status=success");
+            header("Location: ../masterlist.php?childhood-female&status=success");
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/childhood-care-female.php?status=error");
+        header("Location: ../masterlist.php?childhood-female&status=error");
         exit(0);
     }
 }

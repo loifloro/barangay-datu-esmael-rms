@@ -20,6 +20,9 @@ if (isset($_POST['edit_bhw'])) {
     $cpassword = mysqli_real_escape_string($conn, $_POST['bhw-confirm-new-password']);
     $encrypted_pwd = md5($password);
 
+    $bhw_security_question = mysqli_real_escape_string($conn, $_POST['bhw-security-question']);
+    $bhw_security_question_answer = mysqli_real_escape_string($conn, $_POST['bhw-security-question-answer']);
+
     $date_modified = date('Y-m-d H:i:s');
     $email = mysqli_real_escape_string($conn, $_POST['bhw-email']);
 
@@ -27,31 +30,35 @@ if (isset($_POST['edit_bhw'])) {
               firstname='$fname', lastname='$lname', middlename='$mname', sex='$sex', phone_num='$phone_num', 
               birthday='$birthday', street_add='$street_add', barangay='$barangay', city='$city', 
               date_modified='$date_modified', user_email='$email', 
-              default_email='' WHERE account_id='$account_id'";
+              default_email='', security_question='$bhw_security_question', security_answer ='$bhw_security_question_answer'
+               WHERE account_id='$account_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
         if ($password == '' && $cpassword == '') {
-            echo "<script>alert('Profile Edited!'); window.location.href = '../user-profile.php';</script>";
+            header("Location: ../user-profile.php?edited=success");
             exit;
-        } else if ($cpassword == null){
-            echo "<script>alert('Please Input Confirm Password!'); window.location.href = '../edit/edit-bhw.php?id=$account_id';</script>";
+        } else if ($cpassword == null) {
+            header("Location: ../edit-record.php?bhw&id=$account_id&error=Input Confirm Password!");
+            // echo "<script>alert('Please Input Confirm Password!'); window.location.href = '../edit-record.php?bhw&id=$account_id';</script>";
             exit;
         } else if ($password == null) {
-            echo "<script>alert('Please Input New Password!'); window.location.href = '../edit/edit-bhw.php?id=$account_id';</script>";
+            header("Location: ../edit-record.php?bhw&id=$account_id&error=Input New Password!");
+            // echo "<script>alert('Please Input New Password!'); window.location.href = '../edit-record.php?bhw&id=$account_id';</script>";
             exit;
-        } elseif ($password != $cpassword && $cpassword != $password){
-            echo "<script>alert('Password Mismatch!'); window.location.href = '../edit/edit-bhw.php?id=$account_id';</script>";
+        } elseif ($password != $cpassword && $cpassword != $password) {
+            header("Location: ../edit-record.php?bhw&id=$account_id&error=Password Mismatch!");
+            // echo "<script>alert('Password Mismatch!'); window.location.href = '../edit-record.php?bhw&id=$account_id';</script>";
             exit;
-        } elseif ($password == $cpassword && $cpassword == $password){
+        } elseif ($password == $cpassword && $cpassword == $password) {
             $query_pass = "UPDATE account_information SET password='$encrypted_pwd' WHERE account_id='$account_id'";
             $query_pass_run = mysqli_query($conn, $query_pass);
             if ($query_pass_run) {
-                echo "<script>alert('Password Changed!'); window.location.href = '../user-profile.php';</script>";
+                header("Location: ../user-profile.php?edited=success");
+                // echo "<script>alert('Password Changed!'); window.location.href = '../user-profile.php';</script>";
                 exit;
             }
-        }
-         else {
+        } else {
             // QUERY FOR FORGOT PASSWORD
             $security_question = mysqli_real_escape_string($conn, $_POST['bhw-security-question']);
             $security_answer = mysqli_real_escape_string($conn, $_POST['bhw-security-question-answer']);
@@ -111,7 +118,7 @@ if (isset($_POST['edit_other'])) {
     age='$age', sex='$sex', bdate='$birthdate', address='$street_add', barangay='$barangay',
     city='$city', phone_num='$phone_num', label='Other Services', service_password='$encrypted_pwd',
     service_email='$email', service_name='$title', description='$description', result='$result',
-    prescription='$prescription' WHERE id='$other_id'"; 
+    prescription='$prescription' WHERE id='$other_id'";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {
@@ -153,7 +160,7 @@ if (isset($_POST['edit_other'])) {
 
 // EDIT DEWORMING RECORD
 if (isset($_POST['edit_deworming'])) {
-    
+
     $deworming_date = mysqli_real_escape_string($conn, $_POST['deworming-date']);
     $deworming_id = mysqli_real_escape_string($conn, $_POST['deworming_id']);
     $lastname = mysqli_real_escape_string($conn, $_POST['deworming-lname']);
@@ -178,7 +185,7 @@ if (isset($_POST['edit_deworming'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['deworming-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-deworm';
+    $password =  $lastname_space . $year_date . '-deworm';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE deworming SET deworming_date='$deworming_date', lastname = '$lastname', firstname = '$firstname', 
@@ -258,7 +265,7 @@ if (isset($_POST['edit_consultation'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['consultation-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-consul';
+    $password =  $lastname_space . $year_date . '-consul';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE consultation SET consultation_date = '$consultation_date', lastname = '$lastname', 
@@ -351,7 +358,7 @@ if (isset($_POST['edit_prenatal'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-pre';
+    $password =  $lastname_space . $year_date . '-pre';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE prenatal SET prenatal_date = '$prenatal_date', lastname = '$lastname', firstname = '$firstname', 
@@ -444,9 +451,9 @@ if (isset($_POST['edit_postnatal'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['prenatal-birthday']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $lastname)); // remove space
-    $password =  $lastname_space . $year_date .'-post';
+    $password =  $lastname_space . $year_date . '-post';
     $encrypted_pwd = md5($password);
-    
+
     $query = "UPDATE postnatal SET postnatal_date = '$postnatal_date', lastname = '$lastname', firstname = '$firstname', 
             middlename = '$middlename', age = '$age', birthdate = '$birthdate', street_address = '$street_add', 
             barangay = '$barangay', city = '$city', phone_num = '$phone_num', blood_pressure = '$blood_pressure', 
@@ -525,7 +532,7 @@ if (isset($_POST['edit_search_destroy'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['search_destroy-bdate']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $owner_lname)); // remove space
-    $password =  $lastname_space . $year_date .'-sd';
+    $password =  $lastname_space . $year_date . '-sd';
     $encrypted_pwd = md5($password);
 
     $query = "UPDATE search_destroy SET search_destroy_date = '$search_destroy_date',
@@ -685,7 +692,7 @@ if (isset($_POST['edit_early_childhood'])) {
     $password_date = mysqli_real_escape_string($conn, $_POST['early_childhood-child-birthdate']);
     $year_date = date('Y', strtotime($password_date));
     $lastname_space = strtolower(str_replace(" ", "", $child_lname)); // remove space
-    $password =  $lastname_space . $year_date .'-ec';
+    $password =  $lastname_space . $year_date . '-ec';
     $encrypted_pwd = md5($password);
 
     $email = mysqli_real_escape_string($conn, $_POST['early_childhood-email']);
@@ -772,7 +779,7 @@ if (isset($_POST['edit_maternal_list'])) //no page yet for this query
     $today = date("Y-m-d");
     $diff = date_diff(date_create($dateOfBirth), date_create($today));
     $age = $diff->format('%y');
-    
+
     $birthday = mysqli_real_escape_string($conn, $_POST['maternal_care-birthday']);
     $lmp = mysqli_real_escape_string($conn, $_POST['maternal_care-lmp']);
 
@@ -864,12 +871,12 @@ if (isset($_POST['edit_maternal_list'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/maternal-care.php?edited=success"); //temporary destination
+            header("Location: ../masterlist.php?maternal-care&edited=success"); //temporary destination
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/maternal-care.php?edited=error"); //will change depending on the name of the services page
+        header("Location: ../masterlist.php?maternal-care&edited=error"); //will change depending on the name of the services page
         exit(0);
     }
 }
@@ -1013,12 +1020,12 @@ if (isset($_POST['edit_childcare_male'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/childhood-care-male.php?edited=success");
+            header("Location: ../masterlist.php?childhood-male&edited=success");
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/childhood-care-male.php?edited=error");
+        header("Location: ../masterlist.php?childhood-male&edited=error");
         exit(0);
     }
 }
@@ -1163,12 +1170,12 @@ if (isset($_POST['edit_childcare_female'])) //no page yet for this query
 
         $query_run2 = mysqli_query($conn, $query2);
         if ($query_run2) {
-            header("Location: ../masterlist/childhood-care-female.php?edited=success");
+            header("Location: ../masterlist.php?childhood-female&edited=success");
             exit(0);
         }
         //END OF QUERY
     } else {
-        header("Location: ../masterlist/childhood-care-female.php?edited=error");
+        header("Location: ../masterlist.php?childhood-female&edited=error");
         exit(0);
     }
 }

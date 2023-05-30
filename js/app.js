@@ -1,8 +1,18 @@
+const loader = document.getElementById("loader");
+var grid = document.getElementById("grid");
+
+window.addEventListener("load", () => {
+  loader.style.display = "none";
+  grid.style.overflow = "auto";
+  loader.style.top = window.pageYOffset + "px";
+});
+
 const body = document.body;
 let lastScroll = 0;
 
 window.addEventListener("scroll", () => {
   const currentScroll = window.pageYOffset;
+  loader.style.top = window.pageYOffset + "px";
   if (currentScroll <= 0) {
     body.classList.remove("scroll-up");
     return;
@@ -113,19 +123,19 @@ navBar.addEventListener("click", () => {
     inputValidator: (value) => {
       return new Promise((resolve) => {
         if (value === "deworming") {
-          window.location.href = "/add/add-deworming.php";
+          window.location.href = "add-record.php?service=deworming";
         } else if (value === "consultation") {
-          window.location.href = "/add/add-consultation.php";
+          window.location.href = "add-record.php?service=consultation";
         } else if (value === "childhood") {
-          window.location.href = "/add/add-early_childhood.php";
+          window.location.href = "add-record.php?service=early-childhood";
         } else if (value === "prenatal") {
-          window.location.href = "/add/add-prenatal.php";
+          window.location.href = "add-record.php?service=prenatal";
         } else if (value === "postnatal") {
-          window.location.href = "/add/add-postnatal.php";
+          window.location.href = "add-record.php?service=postnatal";
         } else if (value === "searchDestroy") {
-          window.location.href = "/add/add-search_destroy.php";
+          window.location.href = "add-record.php?service=search-and-destroy";
         } else if (value === "otherService") {
-          window.location.href = "/add/add-other_services.php";
+          window.location.href = "add-record.php?service=others";
         }
       });
     },
@@ -162,7 +172,7 @@ function addNewRecord(
       return new Promise((resolve) => {
         if (value === "deworming") {
           window.location.href =
-            "./add/add-deworming.php?fname=" +
+            "add-record.php?service=deworming&fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -182,7 +192,7 @@ function addNewRecord(
             username;
         } else if (value === "consultation") {
           window.location.href =
-            "./add/add-consultation.php?fname=" +
+            "add-record.php?service=consultation&fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -202,7 +212,7 @@ function addNewRecord(
             username;
         } else if (value === "childhood") {
           window.location.href =
-            "./add/add-early_childhood.php?fname=" +
+            "add-record.php?service=early-childhood&fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -222,7 +232,7 @@ function addNewRecord(
             username;
         } else if (value === "prenatal") {
           window.location.href =
-            "./add/add-prenatal.php?fname=" +
+            "add-record.php?service=prenatal&fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -242,7 +252,7 @@ function addNewRecord(
             username;
         } else if (value === "postnatal") {
           window.location.href =
-            "./add/add-postnatal.php?fname=" +
+            "add-record.php?service=postnatal&fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -262,7 +272,7 @@ function addNewRecord(
             username;
         } else if (value === "searchDestroy") {
           window.location.href =
-            "./add/add-search_destroy.php?fname=" +
+            "add-record.php?service=search-and-destroy&fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -282,7 +292,7 @@ function addNewRecord(
             username;
         } else if (value === "otherService") {
           window.location.href =
-            "./add/add-other_services.php?fname=" +
+            "add-record.php?service=others&fname=" +
             firstname +
             "&lname=" +
             lastname +
@@ -310,8 +320,8 @@ function forgotPassword() {
   const { value: email } = Swal.fire({
     title: "Input username",
     input: "text",
-    inputLabel: "Your email address",
-    inputPlaceholder: "Ex. elle@cvsu.com",
+    inputLabel: "Your username",
+    inputPlaceholder: "Ex. adminuser",
     showCancelButton: true,
   }).then(function (email) {
     if (email.isConfirmed) {
@@ -554,7 +564,7 @@ function confirmDelete(
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href =
-        "./includes/delete_query.php?" +
+        "includes/delete_query.php?" +
         "delete&" +
         service +
         "&id=" +
@@ -615,7 +625,7 @@ function confirmDeleteUser(position, accountId) {
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href =
-        "./includes/delete_query.php?" +
+        "includes/delete_query.php?" +
         "delete_bhw&" +
         "&position=" +
         position +
@@ -635,10 +645,7 @@ function confirmEditUser(accountId) {
     showCancelButton: true,
   }).then((result) => {
     if (result.isConfirmed) {
-      window.location.href =
-        "./edit/edit-bhw.php?" +
-        "id=" +
-        accountId;
+      window.location.href = "edit-record.php?bhw&" + "id=" + accountId;
     } else {
       return Swal.close();
     }

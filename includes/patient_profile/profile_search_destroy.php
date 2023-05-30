@@ -141,31 +141,31 @@
             $filtervalues2 = $patient['owner_lname'];
             $query3 = "SELECT deworming_id, firstname, lastname, deworming_date, sex, phone_num, label 
                     FROM deworming WHERE CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,deworming_date,sex,phone_num, label) LIKE '%$filtervalues2%' AND archive_label=''
                     UNION ALL
                     SELECT consultation_id, firstname, lastname, consultation_date, sex, phone_number, label 
                     FROM consultation WHERE CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%'
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,consultation_date,sex,phone_number, label) LIKE '%$filtervalues2%' AND archive_label=''
                     UNION ALL
                     SELECT prenatal_id, firstname, lastname, prenatal_date, sex, phone_num, label 
                     FROM prenatal WHERE CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,prenatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' AND archive_label=''
                     UNION ALL
                     SELECT postnatal_id, firstname, lastname, postnatal_date, sex, phone_num, label 
                     FROM postnatal WHERE CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,postnatal_date,sex,phone_num, label) LIKE '%$filtervalues2%' AND archive_label=''
                     UNION ALL
                     SELECT search_destroy_id, owner_fname, owner_lname, search_destroy_date, sex, phone_num, label 
                     FROM search_destroy WHERE CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%'
+                    LIKE '%$filtervalues%' AND CONCAT(owner_fname,owner_lname,search_destroy_date,sex,phone_num, label) LIKE '%$filtervalues2%' AND archive_label=''
                     UNION ALL
                     SELECT early_childhood_id, child_fname, child_lname, early_childhood_date, sex, phone_num, label 
                     FROM early_childhood WHERE CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%'
+                    LIKE '%$filtervalues%' AND CONCAT(child_fname,child_lname,early_childhood_date,sex,phone_num, label)  LIKE '%$filtervalues2%' AND archive_label=''
                     UNION ALL
                     SELECT id, firstname, lastname, service_date, sex, phone_num, label
                     FROM other_service WHERE CONCAT(firstname,lastname,service_date,sex,phone_num, label) 
-                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,service_date,sex,phone_num, label)  LIKE '%$filtervalues2%'
+                    LIKE '%$filtervalues%' AND CONCAT(firstname,lastname,service_date,sex,phone_num, label)  LIKE '%$filtervalues2%' AND archive_label=''
                     ";
 
             $query_run3 = mysqli_query($conn, $query3);
@@ -340,7 +340,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $deworm) {
                                             $patient_id = $deworm['deworming_id'];
-                                            $link = "edit/edit-deworming.php?id=" . $patient_id;
+                                            $link = "edit-record.php?service=deworming&id=" . $patient_id;
                                         }
                                     }
                                 }
@@ -355,7 +355,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $consul) {
                                             $patient_id = $consul['consultation_id'];
-                                            $link = "edit/edit-consultation.php?id=" . $patient_id;
+                                            $link = "edit-record.php?service=consultation&id=" . $patient_id;
                                         }
                                     }
                                 }
@@ -370,7 +370,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $pre) {
                                             $patient_link = $pre['prenatal_id'];
-                                            $link = "edit/edit-prenatal.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=prenatal&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -385,7 +385,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $post) {
                                             $patient_link = $post['postnatal_id'];
-                                            $link = "edit/edit-postnatal.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=postnatal&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -400,7 +400,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $search_des) {
                                             $patient_link = $search_des['search_destroy_id'];
-                                            $link = "edit/edit-search_destroy.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=search-and-destroy&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -415,7 +415,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $early) {
                                             $patient_link = $early['early_childhood_id'];
-                                            $link = "edit/edit-early_childhood.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=early-childhood&id=" . $patient_link;
                                         }
                                     }
                                 }
@@ -432,7 +432,7 @@
                                     if (mysqli_num_rows($query_run) > 0) {
                                         foreach ($query_run as $early) {
                                             $patient_link = $early['id'];
-                                            $link = "edit/edit-other_services.php?id=" . $patient_link;
+                                            $link = "edit-record.php?service=others&id=" . $patient_link;
                                         }
                                     }
                                 }

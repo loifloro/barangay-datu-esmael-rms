@@ -24,20 +24,18 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
     <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
+    <script src="./js/jquerymodal.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
     <!-- Remember to include jQuery :) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
-    <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
-    <title>Masterlist</title>
+    <title>Masterlist | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
-<body class="grid">
+<body class="grid" id="grid">
     <div class="loader" id="loader">
         <svg width='150px' height='179px' version='1.1' xmlns='http://www.w3.org/2000/svg'>
             <path class='d-spinner d-spinner__four' d='M144.421372,121.923755 C143.963266,123.384111 143.471366,124.821563 142.945674,126.236112 C138.856723,137.238783 133.098899,146.60351 125.672029,154.330576 C118.245158,162.057643 109.358082,167.978838 99.0105324,172.094341 C89.2149248,175.990321 78.4098994,178.04219 66.5951642,178.25 L0,178.25 L144.421372,121.923755 L144.421372,121.923755 Z' />
@@ -173,7 +171,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
 
             <!-- Cards -->
             <section class="services__card-masterlist">
-                <div class="services__card services__card--childhood-male" onclick="window.location.href = './masterlist/maternal-care.php'">
+                <div class="services__card services__card--childhood-male" onclick="window.location.href = 'masterlist.php?maternal-care'">
                     <p class="services__card-title">
                         Maternal Care
                     </p>
@@ -190,7 +188,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
                     total record
                     </p>
                 </div>
-                <div class="services__card services__card--childhood-female" onclick="window.location.href = './masterlist/childhood-care-female.php'">
+                <div class="services__card services__card--childhood-female" onclick="window.location.href = 'masterlist.php?childhood-female'">
                     <p class="services__card-title">
                         Childhood Care (Female)
                     </p>
@@ -207,7 +205,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
                     total record
                     </p>
                 </div>
-                <div class="services__card services__card--maternal" onclick="window.location.href = './masterlist/childhood-care-male.php'">
+                <div class="services__card services__card--maternal" onclick="window.location.href = 'masterlist.php?childhood-male'">
                     <p class="services__card-title">
                         Childhood Care (Male)
                     </p>
@@ -253,13 +251,7 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
         </section>
     </main>
     <script src="./js/app.js"></script>
-    <script>
-        var loader = document.getElementById("loader");
 
-        window.addEventListener("load", () => {
-            loader.style.display = "none";
-        });
-    </script>
 </body>
 
 </html>

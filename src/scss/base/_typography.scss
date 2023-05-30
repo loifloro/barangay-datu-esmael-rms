@@ -4,7 +4,7 @@
 
 @use "../abstracts" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Poppins:ital,wght@0,500;0,600;0,700;1,300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Poppins:ital,wght@0,500;0,600;0,700;1,300&display=swap");
 
 body {
   font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma", sans-serif;
@@ -57,7 +57,7 @@ p,
 }
 
 button {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 a,
@@ -75,4 +75,23 @@ a,
 
 .gray {
   font-size: 0.8rem;
+}
+
+label::-moz-selection {
+  background-color: $green;
+  color: $white-1;
+}
+
+h1::-moz-selection,
+h2::-moz-selection,
+h3::-moz-selection,
+h4::-moz-selection,
+h5::-moz-selection,
+h6::-moz-selection,
+p::-moz-selection,
+li::-moz-selection,
+span::-moz-selection,
+label::selection {
+  background-color: $green;
+  color: $white-1;
 }

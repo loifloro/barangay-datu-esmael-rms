@@ -1,14 +1,26 @@
 <?php
 session_start();
 include 'includes/connection.php';
+$position = $_SESSION['position'];
+$name = $_SESSION['firstname'];
 if ((!isset($_SESSION['account_id']) || !isset($_SESSION['phone_num'])) || !isset($_SESSION['position'])) {
     header("Location: index.php?error=You are not logged in"); /*Redirect to this page if successful*/
     exit();
 }
-//FUNCTION TO HIDE CONTENT BASED ON USER LEVEL
+
 include_once "includes/functions.php";
-hide_content();
-//END OF FUNCTION
+hide_content_forms();
+hide_content_bhw_noname();
+
+$query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+$query_run = mysqli_query($conn, $query);
+if (mysqli_num_rows($query_run) > 0) {
+    foreach ($query_run as $user) {
+        $user['firstname'];
+        $user['lastname'];
+        $user['position'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +43,36 @@ hide_content();
     <script src="./js/jquerymodal.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
-    <title>Dashboard | Brgy. Datu Esmael Patient Record System</title>
+    <title>
+        <?php
+        if (isset($_GET['service'])) {
+            $service = $_GET['service'];
+            if ($service == "deworming") {
+                echo 'Edit Deworming Record';
+            } elseif ($service == "consultation") {
+                echo 'Edit Consultation Record';
+            } elseif ($service == 'prenatal') {
+                echo 'Edit Prenatal Record';
+            } elseif ($service == 'postnatal') {
+                echo 'Edit Postnatal Record';
+            } elseif ($service == 'search-and-destroy') {
+                echo 'Edit Search and Destroy Record';
+            } elseif ($service == 'early-childhood') {
+                echo 'Edit Early Childhood Care and Development Care';
+            } else if ($service == 'others') {
+                echo 'Edit Record';
+            } else if ($service == 'maternal-care') {
+                echo 'Edit Target Client list for Maternal Care';
+            } else if ($service == 'childcare-male') {
+                echo 'Edit Target Client list for Child Care Male';
+            } else if ($service == 'childcare-female') {
+                echo 'Edit Target Client list for Child Care Female';
+            }
+        } else if (isset($_GET['bhw'])) {
+            echo 'Edit Barangay Health Worker';
+        }
+        ?>
+    </title>
 </head>
 
 <body class="grid" id="grid">
@@ -44,27 +85,6 @@ hide_content();
         </svg>
     </div>
 
-    <?php
-    if (isset($_GET['success'])) {
-    ?>
-        <script>
-            Swal.fire({
-                toast: true,
-                position: 'top-right',
-                icon: 'success',
-                iconColor: 'white',
-                title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
-                customClass: {
-                    popup: 'toast'
-                },
-                showConfirmButton: false,
-                timer: 2000,
-                timerProgressBar: true,
-            })
-        </script>
-    <?php
-    }
-    ?>
 
     <!-- Sidebar -->
     <aside role="navigation" class="sidebar" id="sidebar">
@@ -84,7 +104,7 @@ hide_content();
             <li class="sidebar__title">
                 Brgy. Datu Esmael Patient Record System
             </li>
-            <li class="sidebar__item sidebar__item--active">
+            <li class="sidebar__item" id="dashboard_active">
                 <a href="dashboard.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z" />
@@ -92,7 +112,7 @@ hide_content();
                     <p class="sidebar__caption">Dashboard</p>
                 </a>
             </li>
-            <li class="sidebar__item">
+            <li class="sidebar__item" id="patient_active">
                 <a href="patients.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M12.3,12.22A4.92,4.92,0,0,0,14,8.5a5,5,0,0,0-10,0,4.92,4.92,0,0,0,1.7,3.72A8,8,0,0,0,1,19.5a1,1,0,0,0,2,0,6,6,0,0,1,12,0,1,1,0,0,0,2,0A8,8,0,0,0,12.3,12.22ZM9,11.5a3,3,0,1,1,3-3A3,3,0,0,1,9,11.5Zm9.74.32A5,5,0,0,0,15,3.5a1,1,0,0,0,0,2,3,3,0,0,1,3,3,3,3,0,0,1-1.5,2.59,1,1,0,0,0-.5.84,1,1,0,0,0,.45.86l.39.26.13.07a7,7,0,0,1,4,6.38,1,1,0,0,0,2,0A9,9,0,0,0,18.74,11.82Z" />
@@ -110,8 +130,8 @@ hide_content();
                     <p class="sidebar__caption">Archive</p>
                 </a>
             </li>
-            <hr class="sidebar__line" />
-            <li class="sidebar__item">
+            <hr class="sidebar__line" id="hr_active" />
+            <li class="sidebar__item sidebar__item--active" id="services_active">
                 <a href="services.php" class="sidebar__link"> <!--href link added-->
                     <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM17,9H15V7a1,1,0,0,0-1-1H10A1,1,0,0,0,9,7V9H7a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H9v2a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V15h2a1,1,0,0,0,1-1V10A1,1,0,0,0,17,9Zm-1,4H14a1,1,0,0,0-1,1v2H11V14a1,1,0,0,0-1-1H8V11h2a1,1,0,0,0,1-1V8h2v2a1,1,0,0,0,1,1h2Z" />
@@ -128,7 +148,7 @@ hide_content();
                     <p class="sidebar__caption">Masterlist</p>
                 </a>
             </li>
-            <li class="sidebar__item sidebar__item--margin-top"> <!--href link added-->
+            <li class="sidebar__item sidebar__item--margin-top" id="patient_user_profile"> <!--href link added-->
                 <a href="user-profile.php" class="sidebar__link">
                     <svg alt='Profile' role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" viewBox="0 0 32 32">
                         <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
@@ -158,7 +178,7 @@ hide_content();
             </div>
             <h1 class="navigation__title h3">
                 <!-- This would change depending on the URL or the current page  -->
-                Dashboard
+                Services
             </h1>
             <form class="navigation__search" action="search-result.php" method="GET">
                 <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name" /><!--  
@@ -183,171 +203,35 @@ hide_content();
     </header>
 
     <!-- Contents -->
-    <main class="dashboard">
+    <?php
+    if (isset($_GET['service'])) {
+        $service = $_GET['service'];
+        if ($service == "deworming") {
+            include 'includes/edit/edit-deworming.php';
+        } elseif ($service == "consultation") {
+            include 'includes/edit/edit-consultation.php';
+        } elseif ($service == 'prenatal') {
+            include 'includes/edit/edit-prenatal.php';
+        } elseif ($service == 'postnatal') {
+            include 'includes/edit/edit-postnatal.php';
+        } elseif ($service == 'search-and-destroy') {
+            include 'includes/edit/edit-search_destroy.php';
+        } elseif ($service == 'early-childhood') {
+            include 'includes/edit/edit-early_childhood.php';
+        } else if ($service == 'others') {
+            include 'includes/edit/edit-other_services.php';
+        } else if ($service == 'maternal-care') {
+            include 'includes/edit/edit-maternal_care.php';
+        } else if ($service == 'childcare-male') {
+            include 'includes/edit/edit-child_care-male.php';
+        } else if ($service == 'childcare-female') {
+            include 'includes/edit/edit-child_care-female.php';
+        }
+    } else if (isset($_GET['bhw'])) {
+        include 'includes/edit/edit-bhw.php';
+    }
+    ?>
 
-        <!-- Services -->
-        <section class="services">
-            <h2 class="services__title">
-                Services
-            </h2>
-            <p class="services__description">
-                6 services are currently available
-            </p>
-
-            <!-- Cards -->
-            <section class="services__card-list">
-                <div class="services__card services__card--consultation" onclick="window.location.href = './services.php?service=consultation'">
-                    <p class="services__card-title">
-                        Consultation
-                    </p>
-                    <p class="services-card-visits">
-                        <!-- COUNT CONSULTATION -->
-                        <?php
-                        $query = "SELECT count(*) FROM consultation WHERE archive_label=''";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
-                        <?php
-                        }
-                        ?>
-                        total record
-                    </p>
-                </div>
-                <div class="services__card services__card--childhood" onclick="window.location.href = './services.php?service=childhood'">
-                    <p class="services__card-title">
-                        Childhood Care
-                    </p>
-                    <p class="services-card-visits">
-                        <!-- COUNT EARLY CHILDHOOD -->
-                        <?php
-                        $query = "SELECT count(*) FROM early_childhood WHERE archive_label=''";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
-                        <?php
-                        }
-                        ?>
-                        total record
-                    </p>
-                </div>
-                <div class="services__card services__card--prenatal" onclick="window.location.href = './services.php?service=prenatal'">
-                    <p class="services__card-title">
-                        Pre-natal
-                    </p>
-                    <p class="services-card-visits">
-                        <!-- COUNT PRENATAL -->
-                        <?php
-                        $query = "SELECT count(*) FROM prenatal WHERE archive_label=''";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
-                        <?php
-                        }
-                        ?>
-                        total record
-                    </p>
-                </div>
-                <div class="services__card services__card--deworming" onclick="window.location.href = './services.php?service=deworming'">
-                    <p class="services__card-title">
-                        Deworming
-                    </p>
-                    <p class="services-card-visits">
-                        <!-- COUNT DEWORMING -->
-                        <?php
-                        $query = "SELECT count(*) FROM deworming WHERE archive_label=''";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
-                        <?php
-                        }
-                        ?>
-                        total record
-                    </p>
-                </div>
-                <div class="services__card services__card--searchdestroy" onclick="window.location.href = './services.php?service=search-destroy'">
-                    <p class="services__card-title">
-                        Search and Destroy
-                    </p>
-                    <p class="services__card-visits">
-                        <!-- COUNT DEWORMING -->
-                        <?php
-                        $query = "SELECT count(*) FROM search_destroy WHERE archive_label=''";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
-                        <?php
-                        }
-                        ?>
-                        total record
-                    </p>
-                </div>
-                <div class="services__card services__card--prenatal" onclick="window.location.href = './services.php?service=postnatal'">
-                    <p class="services__card-title">
-                        Post-natal
-                    </p>
-                    <p class="services__card-visits">
-                        <!-- COUNT DEWORMING -->
-                        <?php
-                        $query = "SELECT count(*) FROM postnatal WHERE archive_label='';";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
-                        <?php
-                        }
-                        ?>
-                        total record
-                    </p>
-                </div>
-                <div class="services__card services__card--other" onclick="window.location.href = './services.php?service=otherservices'">
-                    <p class="services__card-title">
-                        Other
-                    </p>
-                    <p class="services__card-visits">
-                        <!-- COUNT DEWORMING -->
-                        <?php
-                        $query = "SELECT count(*) FROM other_service WHERE archive_label='';";
-                        $result = mysqli_query($conn, $query);
-                        while ($row = mysqli_fetch_array($result)) {
-                        ?>
-                            <span class="services__card-visits--number h1"><?php echo $row['count(*)']; ?></span>
-                        <?php
-                        }
-                        ?>
-                        total record
-                    </p>
-                </div>
-            </section>
-        </section>
-
-        <?php include './includes/daily-reports/reports.php' ?>
-
-        <!-- Recent Updates -->
-        <section class="recent-updates">
-            <h4 class="recent-updates__title">
-                Recent Updates
-            </h4>
-            <div class="recent-updates__card">
-                <div class="editor">
-                    <img class="editor__img" src="" alt="">
-                    <!-- Start Query -->
-                    <?php
-                    include_once "includes/functions.php";
-                    recent_update();
-                    ?>
-                    <!-- End Query -->
-                </div>
-                <p class="recent-updates__btn">
-                    <a href="recent-update.php" class="recent-updates__btn">View All</a>
-                </p>
-            </div>
-        </section>
-    </main>
 
     <script src="./js/app.js"></script>
 

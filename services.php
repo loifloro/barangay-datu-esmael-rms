@@ -40,15 +40,16 @@ hide_content();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
 
     <!-- jQuery Modal -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
+    <script src="./js/jquerymodal.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
-    <title>Services</title>
+    <title>Services | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
 
 
-<body class="grid">
+<body class="grid" id="grid">
     <div class="loader" id="loader">
         <svg width='150px' height='179px' version='1.1' xmlns='http://www.w3.org/2000/svg'>
             <path class='d-spinner d-spinner__four' d='M144.421372,121.923755 C143.963266,123.384111 143.471366,124.821563 142.945674,126.236112 C138.856723,137.238783 133.098899,146.60351 125.672029,154.330576 C118.245158,162.057643 109.358082,167.978838 99.0105324,172.094341 C89.2149248,175.990321 78.4098994,178.04219 66.5951642,178.25 L0,178.25 L144.421372,121.923755 L144.421372,121.923755 Z' />
@@ -588,7 +589,7 @@ hide_content();
                             </button>
                             <!-- END OF ARCHIVING -->
 
-                            <button type="button" onclick="window.location.href = `./edit/edit-deworming.php?id=<?= $patient['deworming_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=deworming&id=<?= $patient['deworming_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -641,7 +642,7 @@ hide_content();
             ?>
 
             <!-- <a href="#deworming-reports" rel="modal:open" class="view-report"> View report</a> -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-deworming.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=deworming'">
                 <p>Add</p>
             </button>
         </div>
@@ -664,14 +665,12 @@ hide_content();
 
                     <li class="services__attributes__item">
                         Age
-                        <form action="" method="POST">
-                            <!-- BUTTON FOR AGE -->
-                            <button type="submit" name="consultation_sort_age" value="2">
-                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                                </svg>
-                            </button>
-                        </form>
+                        <!-- BUTTON FOR AGE -->
+                        <button type="submit" name="consultation_sort_age" value="2">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li class="services__attributes__item">
                         Sex
@@ -686,14 +685,12 @@ hide_content();
                     </li>
                     <li class="services__attributes__item">
                         Date Availed
-                        <form action="" method="POST">
-                            <!-- BUTTON FOR DATE AVAILED -->
-                            <button type="submit" name="consultation_sort_date_availed" value="4">
-                                <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
-                                </svg>
-                            </button>
-                        </form>
+                        <!-- BUTTON FOR DATE AVAILED -->
+                        <button type="submit" name="consultation_sort_date_availed" value="4">
+                            <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16.29,14.29,12,18.59l-4.29-4.3a1,1,0,0,0-1.42,1.42l5,5a1,1,0,0,0,1.42,0l5-5a1,1,0,0,0-1.42-1.42ZM7.71,9.71,12,5.41l4.29,4.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42l-5-5a1,1,0,0,0-1.42,0l-5,5A1,1,0,0,0,7.71,9.71Z" />
+                            </svg>
+                        </button>
                     </li>
                     <li>
 
@@ -772,7 +769,7 @@ hide_content();
                                         <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                     </svg>
                                 </button>
-                                <button type="button" onclick="window.location.href = `./edit/edit-consultation.php?id=<?= $patient['consultation_id']; ?>`">
+                                <button type="button" onclick="window.location.href = `edit-record.php?service=consultation&id=<?= $patient['consultation_id']; ?>`">
                                     <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                         <defs>
                                             <clipPath id="a">
@@ -822,7 +819,7 @@ hide_content();
                     ?>
                     </div>
                     <!-- End of Query -->
-                    <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-consultation.php'">
+                    <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=consultation'">
                         <p>Add</p>
                     </button>
         </div>
@@ -946,7 +943,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-prenatal.php?id=<?= $patient['prenatal_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=prenatal&id=<?= $patient['prenatal_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -997,7 +994,7 @@ hide_content();
 
             <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-prenatal.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=prenatal'">
                 <p>Add</p>
             </button>
         </div>
@@ -1123,7 +1120,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-postnatal.php?id=<?= $patient['postnatal_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=postnatal&id=<?= $patient['postnatal_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1174,7 +1171,7 @@ hide_content();
             ?>
 
             <!-- End of Query -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-postnatal.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=postnatal'">
                 <p>Add</p>
             </button>
         </div>
@@ -1296,7 +1293,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-search_destroy.php?id=<?= $patient['search_destroy_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=search-and-destroy&id=<?= $patient['search_destroy_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1350,7 +1347,7 @@ hide_content();
 
             <!-- End of Query -->
             <!-- <a href="#search-and-destroy__report" rel="modal:open" class="view-report"> View report</a> -->
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-search_destroy.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=search-and-destroy'">
                 <p>Add</p>
             </button>
 
@@ -1474,7 +1471,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-early_childhood.php?id=<?= $patient['early_childhood_id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=early-childhood&id=<?= $patient['early_childhood_id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1526,7 +1523,7 @@ hide_content();
 
             <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-early_childhood.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=early-childhood'">
                 <p>Add</p>
             </button>
         </div>
@@ -1650,7 +1647,7 @@ hide_content();
                                     <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
                                 </svg>
                             </button>
-                            <button type="button" onclick="window.location.href = `./edit/edit-other_services.php?id=<?= $patient['id']; ?>`">
+                            <button type="button" onclick="window.location.href = `edit-record.php?service=others&id=<?= $patient['id']; ?>`">
                                 <svg class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                     <defs>
                                         <clipPath id="a">
@@ -1702,7 +1699,7 @@ hide_content();
 
             <!-- End of Query -->
 
-            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add/add-other_services.php'">
+            <button type="submit" class="btn-green btn-add services__btn" onclick="window.location.href = 'add-record.php?service=others'">
                 <p>Add</p>
             </button>
         </div>
@@ -1880,13 +1877,7 @@ hide_content();
     <?php
     }
     ?>
-    <script>
-        var loader = document.getElementById("loader");
 
-        window.addEventListener("load", () => {
-            loader.style.display = "none";
-        });
-    </script>
 </body>
 
 </html>

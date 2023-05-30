@@ -175,8 +175,7 @@
 
     @media (max-width: map-get($breakpoints, "large")) {
       // Large screensizes: monitors, laptops
-      opacity: 0;
-      visibility: hidden;
+      display: none;
     }
 
     @media (max-width: map-get($breakpoints, "medium")) {
@@ -185,8 +184,7 @@
 
     @media (max-width: map-get($breakpoints, "small")) {
       // Small smartphone
-      opacity: unset;
-      visibility: unset;
+      display: unset;
     }
   }
 

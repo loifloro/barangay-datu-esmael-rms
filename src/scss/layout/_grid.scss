@@ -8,6 +8,7 @@
   grid-template-areas:
     "sidebar navbar"
     "sidebar main";
+  overflow: hidden;
 
   @media (max-width: map-get($breakpoints, "large")) {
     // Large screensizes: monitors, laptops

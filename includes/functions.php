@@ -616,7 +616,7 @@ function hide_patient_others()
 // HIDE CONTENT FOR ADD AND EDIT FORMS
 function hide_content_forms()
 {
-    include '../includes/connection.php';
+    include 'includes/connection.php';
     $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
     $query_run = mysqli_query($conn, $query);
     if (mysqli_num_rows($query_run) > 0) {
@@ -635,6 +635,64 @@ function hide_content_forms()
                 }
 
                 #backup_sidebar {
+                    display: none;
+                }
+            </style>
+        <?php
+        }
+    }
+}
+
+function hide_content_bhw_noname()
+{
+    include 'includes/connection.php';
+    $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        foreach ($query_run as $user) {
+            $position = $user['position'];
+            $name = $user['firstname'];
+        }
+        if ($position == 'Barangay Health Worker' && $name == '-') {
+?>
+            <style type="text/css">
+                .bhw-account {
+                    display: none;
+                }
+                .user-profile__backup {
+                    display: none;
+                }
+                #archive-profile {
+                    display: none;
+                }
+                #masterlist_sidebar {
+                    display: none;
+                }
+                #backup_sidebar {
+                    display: none;
+                }
+                #dashboard_active{
+                    display: none;
+                }
+                #patient_active{
+                    display: none;
+                }
+                #patient_user_profile{
+                    display: none;
+                }
+                #services_active{
+                    display: none;
+                }
+                #hr_active{
+                    display: none;
+                }
+            </style>
+        <?php
+        }
+        if ($position == 'City Health Nurse') {
+        ?>
+            <style type="text/css">
+                #archive-profile {
                     display: none;
                 }
             </style>
@@ -774,7 +832,7 @@ function forgot_password()
                                     }
                                 }
                             }).then((result) => {
-                                window.location.href = '/includes/functions.php?changepassword&newpass=' + result.value.newPassword + '&email=<?= $user_email ?>' + '&id=<?= $user_id ?>';
+                                window.location.href = 'includes/functions.php?changepassword&newpass=' + result.value.newPassword + '&email=<?= $user_email ?>' + '&id=<?= $user_id ?>';
                                 // Please enter here what URL 
                             })
                         }
@@ -810,6 +868,11 @@ if (isset($_POST['backup_database'])) {
     $username = "root";
     $password = "";
     $database_name = "patient_record_system";
+
+    // $host = "localhost";
+    // $username = "id20499505_root";
+    // $password = "Putangina--00";
+    // $database_name = "id20499505_patient_record_system";
 
     // Get connection object and set the charset
     $conn = mysqli_connect($host, $username, $password, $database_name);

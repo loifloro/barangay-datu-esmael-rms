@@ -745,10 +745,10 @@ if (isset($_GET['delete'])) { //
         $query_run = mysqli_query($conn, $query);
 
         if ($query_run) {
-            header("Location: ../masterlist/maternal-care.php?deleted");
+            header("Location: ../masterlist.php?maternal-care&deleted");
             exit(0);
         } else {
-            header("Location: ../masterlist/maternal-care.php?error");
+            header("Location: ../masterlist.php?maternal-care&error");
         }
     }
 
@@ -759,10 +759,10 @@ if (isset($_GET['delete'])) { //
         $query_run = mysqli_query($conn, $query);
 
         if ($query_run) {
-            header("Location: ../masterlist/childhood-care-male.php?deleted");
+            header("Location: ../masterlist.php?childhood-male&deleted");
             exit(0);
         } else {
-            header("Location: ../masterlist/childhood-care-male.php?error");
+            header("Location: ../masterlist.php?childhood-male&error");
         }
     }
 
@@ -773,10 +773,10 @@ if (isset($_GET['delete'])) { //
         $query_run = mysqli_query($conn, $query);
 
         if ($query_run) {
-            header("Location: ../masterlist/childhood-care-female.php?deleted");
+            header("Location: ../masterlist.php?childhood-female&deleted");
             exit(0);
         } else {
-            header("Location: ../masterlist/childhood-care-female.php?error");
+            header("Location: ../masterlist.php?childhood-female&error");
         }
     }
 }

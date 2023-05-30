@@ -350,6 +350,10 @@
     -moz-column-gap: 0.5rem;
     column-gap: 0.5rem;
   }
+
+  &__option > * {
+    margin-right: 1rem;
+  }
 }
 
 .services {
