@@ -4316,10 +4316,26 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 
 .login {
   background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+  position: relative;
   display: grid;
-  place-content: center;
+  grid-template-rows: auto 1rem;
+}
+.login main {
+  justify-self: center;
+  align-self: center;
+}
+.login::before {
+  content: " ";
+  position: absolute;
+  background-image: url("../assets/img/cvsu.png");
+  background-position: 110% 150%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.25;
 }
 .login__card {
+  position: relative;
   max-width: 60rem;
   width: 26rem;
   background: var(--white-1);
@@ -4390,6 +4406,15 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline;
   margin-left: auto !important;
   margin-right: 0.5rem;
+}
+.login .credits {
+  align-self: end;
+  justify-self: center;
+  margin-inline: 1rem;
+  text-align: center;
+}
+.login .credits__developers {
+  font-size: 0.8rem;
 }
 
 .dashboard {

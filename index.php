@@ -115,6 +115,11 @@
             </form>
         </div>
     </main>
+    <footer class="credits">
+        <p class="credits__developers">
+            &#169 2023 | Developed by <a href="">John Lois Floro</a> and <a href="">Arianne Quimpo</a>
+        </p>
+    </footer>
 
     <script src="./js/app.js"></script>
 
