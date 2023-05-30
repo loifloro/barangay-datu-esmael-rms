@@ -1,0 +1,43 @@
+@use "../abstracts" as *;
+
+.recent-update__legend {
+  //   margin-left: auto;
+  //   width: -webkit-fit-content;
+  //   width: -moz-fit-content;
+  //   width: fit-content;
+
+  &__title {
+    font-style: italic;
+    font-weight: 700;
+    font-size: clamp(1.12rem, 0.2rem + 2vw, 1.25rem);
+    letter-spacing: 0.5px;
+    color: $black-1;
+  }
+
+  &__item {
+    margin-left: 0.8rem;
+  }
+
+  .legend {
+    &__title {
+      display: inline;
+      font-weight: 600;
+    }
+    &__chn {
+      color: $white-1;
+      background: #893302;
+      border-radius: 100vw;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.8rem;
+      margin-inline: 0.2rem;
+    }
+    &__bhw {
+      color: $white-1;
+      background: #e71d36;
+      border-radius: 100vw;
+      font-size: 0.8rem;
+      padding: 0.2rem 0.8rem;
+      margin-inline: 0.2rem;
+    }
+  }
+}

@@ -478,7 +478,7 @@
   &__table {
     @include card(none);
     overflow: hidden;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 
     &__row {
       display: grid;

@@ -2122,7 +2122,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: none;
   box-sizing: border-box;
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 .recent-update__table__row {
   display: grid;
@@ -6662,6 +6662,37 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .services .reports__card btn {
   width: 9.5rem;
+}
+
+.recent-update__legend__title {
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.12rem, 0.2rem + 2vw, 1.25rem);
+  letter-spacing: 0.5px;
+  color: var(--black-1);
+}
+.recent-update__legend__item {
+  margin-left: 0.8rem;
+}
+.recent-update__legend .legend__title {
+  display: inline;
+  font-weight: 600;
+}
+.recent-update__legend .legend__chn {
+  color: var(--white-1);
+  background: #893302;
+  border-radius: 100vw;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  margin-inline: 0.2rem;
+}
+.recent-update__legend .legend__bhw {
+  color: var(--white-1);
+  background: #e71d36;
+  border-radius: 100vw;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  margin-inline: 0.2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

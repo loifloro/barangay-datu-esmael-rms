@@ -148,6 +148,20 @@ hide_content();
 
     <!-- Contents -->
     <main class="recent-update">
+
+        <div class="recent-update__legend--container">
+            <div class="recent-update__legend" id="legend">
+                <h3 class="recent-update__legend__title">Roles legend:</h3>
+                <div class="recent-update__legend__item">
+                    <p class="legend__title">City Health Nurse</p>
+                    <span class="legend__chn"> CHN </span>
+                </div>
+                <div class="recent-update__legend__item">
+                    <p class="legend__title">Barangay Health Worker</p>
+                    <span class="legend__bhw"> BHW </span>
+                </div>
+            </div>
+        </div>
         <div class="recent-update__table">
             <form action="" method="POST">
                 <ul class="recent-update__table__row recent-update__attributes" role="list">
@@ -276,7 +290,8 @@ hide_content();
                         Other Reason
                     </li> -->
                         <li class="recent-update__role">
-                            <span class="<?= $class_role; ?>"><?= $display_role; ?> </span>
+                            <a href="#legend"> <span class="<?= $class_role; ?>"><?= $display_role; ?> </span>
+                            </a>
                             <!-- <span class="recent-update__status--available">Available</span> -->
                         </li>
                     </ul>
