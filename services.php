@@ -32,248 +32,93 @@ hide_content();
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
-    <link rel="stylesheet" href="./css/main.css" />
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- Remember to include jQuery :) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-
-    <!-- jQuery Modal -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
     <script src="./js/jquerymodal.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="./js/datatable.js"></script>
 
     <title>Services | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
-
-
-<body class="grid" id="grid">
-    <div class="loader" id="loader">
-        <svg width='150px' height='179px' version='1.1' xmlns='http://www.w3.org/2000/svg'>
-            <path class='d-spinner d-spinner__four' d='M144.421372,121.923755 C143.963266,123.384111 143.471366,124.821563 142.945674,126.236112 C138.856723,137.238783 133.098899,146.60351 125.672029,154.330576 C118.245158,162.057643 109.358082,167.978838 99.0105324,172.094341 C89.2149248,175.990321 78.4098994,178.04219 66.5951642,178.25 L0,178.25 L144.421372,121.923755 L144.421372,121.923755 Z' />
-            <path class='d-spinner d-spinner__three' d='M149.033408,92.6053108 C148.756405,103.232477 147.219069,113.005232 144.421372,121.923755 L0,178.25 L139.531816,44.0158418 C140.776016,46.5834381 141.913968,49.2553065 142.945674,52.0314515 C146.681818,62.0847774 148.711047,73.2598899 149.033408,85.5570717 L149.033408,92.6053108 L149.033408,92.6053108 Z' />
-            <path class='d-spinner d-spinner__two' d='M80.3248924,1.15770478 C86.9155266,2.16812827 93.1440524,3.83996395 99.0105324,6.17322306 C109.358082,10.2887257 118.245158,16.2099212 125.672029,23.9369874 C131.224984,29.7143944 135.844889,36.4073068 139.531816,44.0158418 L0,178.25 L80.3248924,1.15770478 L80.3248924,1.15770478 Z' />
-            <path class='d-spinner d-spinner__one' d='M32.2942065,0 L64.5884131,0 C70.0451992,0 75.290683,0.385899921 80.3248924,1.15770478 L0,178.25 L0,0 L32.2942065,0 L32.2942065,0 Z' />
-        </svg>
-    </div>
-    <!-- Sidebar -->
-    <aside role="navigation" class="sidebar" id="sidebar">
-        <ul role="list" class="sidebar__list">
-            <li class="sidebar__item sidebar__item--search">
-                <form class="navigation__search navigation__search--mobile" action="search-result.php" method="GET">
-                    <input type="text" name="search_input" class="navigation__search__bar navigation__search__bar--mobile" placeholder="Search patient last name" /><!--  
-                --><button type="submit" name="search_btn" class="navigation__search__btn">
-                        <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
-                            <rect width="256" height="256" fill="none" />
-                            <circle cx="115.997" cy="116" r="84" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
-                            <line x1="175.391" x2="223.991" y1="175.4" y2="224.001" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
-                        </svg>
-                    </button>
-                </form>
-            </li>
-            <li class="sidebar__title">
-                Brgy. Datu Esmael Patient Record System
-            </li>
-            <li class="sidebar__item">
-                <a href="dashboard.php" class="sidebar__link">
-                    <!--href link added-->
-                    <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M20,8h0L14,2.74a3,3,0,0,0-4,0L4,8a3,3,0,0,0-1,2.26V19a3,3,0,0,0,3,3H18a3,3,0,0,0,3-3V10.25A3,3,0,0,0,20,8ZM14,20H10V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm5-1a1,1,0,0,1-1,1H16V15a3,3,0,0,0-3-3H11a3,3,0,0,0-3,3v5H6a1,1,0,0,1-1-1V10.25a1,1,0,0,1,.34-.75l6-5.25a1,1,0,0,1,1.32,0l6,5.25a1,1,0,0,1,.34.75Z" />
-                    </svg>
-                    <p class="sidebar__caption">Dashboard</p>
-                </a>
-            </li>
-            <li class="sidebar__item">
-                <a href="patients.php" class="sidebar__link">
-                    <!--href link added-->
-                    <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12.3,12.22A4.92,4.92,0,0,0,14,8.5a5,5,0,0,0-10,0,4.92,4.92,0,0,0,1.7,3.72A8,8,0,0,0,1,19.5a1,1,0,0,0,2,0,6,6,0,0,1,12,0,1,1,0,0,0,2,0A8,8,0,0,0,12.3,12.22ZM9,11.5a3,3,0,1,1,3-3A3,3,0,0,1,9,11.5Zm9.74.32A5,5,0,0,0,15,3.5a1,1,0,0,0,0,2,3,3,0,0,1,3,3,3,3,0,0,1-1.5,2.59,1,1,0,0,0-.5.84,1,1,0,0,0,.45.86l.39.26.13.07a7,7,0,0,1,4,6.38,1,1,0,0,0,2,0A9,9,0,0,0,18.74,11.82Z" />
-                    </svg>
-                    <p class="sidebar__caption">Patient</p>
-                </a>
-            </li>
-
-            <li class="sidebar__item" id="backup_sidebar">
-                <!--added ID-->
-                <a href="archive.php" class="sidebar__link">
-                    <!--href link added-->
-                    <svg alt="Backup" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1H8.62a1,1,0,0,0,0-2H6.22A8,8,0,1,1,4,12a1,1,0,0,0-2,0A10,10,0,1,0,12,2Zm0,6a1,1,0,0,0-1,1v3a1,1,0,0,0,1,1h2a1,1,0,0,0,0-2H13V9A1,1,0,0,0,12,8Z" />
-                    </svg>
-                    <p class="sidebar__caption">Archive</p>
-                </a>
-            </li>
-            <hr class="sidebar__line" />
-            <li class="sidebar__item sidebar__item--active">
-                <a href="services.php" class="sidebar__link">
-                    <!--href link added-->
-                    <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M19,2H5A3,3,0,0,0,2,5V19a3,3,0,0,0,3,3H19a3,3,0,0,0,3-3V5A3,3,0,0,0,19,2Zm1,17a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H19a1,1,0,0,1,1,1ZM17,9H15V7a1,1,0,0,0-1-1H10A1,1,0,0,0,9,7V9H7a1,1,0,0,0-1,1v4a1,1,0,0,0,1,1H9v2a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V15h2a1,1,0,0,0,1-1V10A1,1,0,0,0,17,9Zm-1,4H14a1,1,0,0,0-1,1v2H11V14a1,1,0,0,0-1-1H8V11h2a1,1,0,0,0,1-1V8h2v2a1,1,0,0,0,1,1h2Z" />
-                    </svg>
-                    <p class="sidebar__caption">Services</p>
-                </a>
-            </li>
-            <li class="sidebar__item" id="masterlist_sidebar">
-                <!--added id-->
-                <a href="dashboard-masterlist.php" class="sidebar__link">
-                    <!--href link added-->
-                    <svg alt="Masterlist" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M13,14H9a1,1,0,0,0,0,2h4a1,1,0,0,0,0-2ZM17,4H15.82A3,3,0,0,0,13,2H11A3,3,0,0,0,8.18,4H7A3,3,0,0,0,4,7V19a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V7A3,3,0,0,0,17,4ZM10,5a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V6H10Zm8,14a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V7A1,1,0,0,1,7,6H8V7A1,1,0,0,0,9,8h6a1,1,0,0,0,1-1V6h1a1,1,0,0,1,1,1Zm-3-9H9a1,1,0,0,0,0,2h6a1,1,0,0,0,0-2Z" />
-                    </svg>
-                    <p class="sidebar__caption">Masterlist</p>
-                </a>
-            </li>
-            <li class="sidebar__item sidebar__item--margin-top">
-                <!--href link added-->
-                <a href="user-profile.php" class="sidebar__link">
-                    <svg alt='Profile' role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" viewBox="0 0 32 32">
-                        <path d="M16,0.5C7.45001,0.5,0.5,7.45001,0.5,16S7.45001,31.5,16,31.5S31.5,24.54999,31.5,16S24.54999,0.5,16,0.5z M26.54999,22.67999C24.39001,19.59998,20.44,17.64001,16,17.64001s-8.40002,1.95996-10.53998,5.06C4.22998,20.76001,3.5,18.45996,3.5,16C3.5,9.10999,9.10999,3.5,16,3.5S28.5,9.10999,28.5,16C28.5,18.45996,27.78003,20.75,26.54999,22.67999z" />
-                        <circle cx="16" cy="11" r="4.97" />
-                    </svg>
-                    <p class="sidebar__caption"><?php echo $_SESSION['firstname']; ?></p>
-                </a>
-            </li>
-            <li class="sidebar__item" onclick="logoutAlert()">
-                <a href="#" class="sidebar__link">
-                    <!--href link added-->
-                    <svg alt="Logout" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M4,12a1,1,0,0,0,1,1h7.59l-2.3,2.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l4-4a1,1,0,0,0,.21-.33,1,1,0,0,0,0-.76,1,1,0,0,0-.21-.33l-4-4a1,1,0,1,0-1.42,1.42L12.59,11H5A1,1,0,0,0,4,12ZM17,2H7A3,3,0,0,0,4,5V8A1,1,0,0,0,6,8V5A1,1,0,0,1,7,4H17a1,1,0,0,1,1,1V19a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V16a1,1,0,0,0-2,0v3a3,3,0,0,0,3,3H17a3,3,0,0,0,3-3V5A3,3,0,0,0,17,2Z" />
-                    </svg>
-                    <p class="sidebar__caption">Logout</p>
-                </a>
-            </li>
-        </ul>
-    </aside>
-
-    <!-- Nav Bar -->
-    <header class="navbar">
-        <nav class="navigation">
-            <div id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <h1 class="navigation__title h3">
-                <!-- This would change depending on the URL or the current page  -->
-                Services
-            </h1>
-            <form class="navigation__search" action="search-result.php" method="GET">
-                <input type="text" name="search_input" class="navigation__search__bar" placeholder="Search patient last name" />
-                <!--  
-                --><button type="submit" name="search_btn" class="navigation__search__btn">
-                    <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
-                        <rect width="256" height="256" fill="none" />
-                        <circle cx="115.997" cy="116" r="84" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
-                        <line x1="175.391" x2="223.991" y1="175.4" y2="224.001" stroke-linecap="round" stroke-linejoin="round" stroke-width="24" />
-                    </svg>
-                </button>
-            </form>
-
-            <button id="nav-btn" class="navigation__btn btn-green">
-                <p>Add Record</p>
-                <svg class="add-icon navigation__btn__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 512 512" viewBox="0 0 512 512">
-                    <path fill="#231f20" d="M468.3,212.7H305.2v-169c0-24.2-19.6-43.8-43.8-43.8c-24.2,0-43.8,19.6-43.8,43.8v169h-174 C19.6,212.7,0,232.3,0,256.5c0,24.2,19.6,43.8,43.8,43.8h174v168c0,24.2,19.6,43.8,43.8,43.8c24.2,0,43.8-19.6,43.8-43.8v-168h163.1 c24.2,0,43.8-19.6,43.8-43.8C512,232.3,492.5,212.7,468.3,212.7z" />
-                </svg>
-            </button>
-        </nav>
-    </header>
-
+<?php
+if (isset($_GET['status'])) {
+    if ($_GET['status'] == 'success') {
+?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Added Succesfully',
+            })
+        </script>
     <?php
-    if (isset($_GET['status'])) {
-        if ($_GET['status'] == 'success') {
+    } elseif ($_GET['status'] == 'error') {
     ?>
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Added Succesfully',
-                })
-            </script>
-        <?php
-        } elseif ($_GET['status'] == 'error') {
-        ?>
-            <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error when adding',
-                })
-            </script>
-        <?php
-        }
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error when adding',
+            })
+        </script>
+    <?php
     }
+}
 
-    if (isset($_GET['edited'])) {
-        if ($_GET['edited'] == 'success') {
-        ?>
-            <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Edited Succesfully',
-                })
-            </script>
-        <?php
-        } elseif ($_GET['status'] == 'error') {
-        ?>
-            <script>
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Error when adding',
-                })
-            </script>
-        <?php
-        }
+if (isset($_GET['edited'])) {
+    if ($_GET['edited'] == 'success') {
+    ?>
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Edited Succesfully',
+            })
+        </script>
+    <?php
+    } elseif ($_GET['status'] == 'error') {
+    ?>
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Error when adding',
+            })
+        </script>
+    <?php
     }
+}
 
-    if (isset($_GET['archive'])) {
-        if ($_GET['archive'] == 'error') {
-        ?>
-            <script>
-                Swal.fire({
-                    toast: true,
-                    position: 'top-right',
-                    icon: 'error',
-                    iconColor: 'white',
-                    title: 'Error archiving!',
-                    customClass: {
-                        popup: 'toast'
-                    },
-                    showConfirmButton: false,
-                    timer: 4000,
-                    timerProgressBar: true,
-                })
-            </script>
-        <?php
-        } else {
-        ?>
-            <script>
-                Swal.fire({
-                    toast: true,
-                    position: 'top-right',
-                    icon: 'success',
-                    iconColor: 'white',
-                    title: 'Archived succesfully!',
-                    customClass: {
-                        popup: 'toast'
-                    },
-                    showConfirmButton: false,
-                    timer: 4000,
-                    timerProgressBar: true,
-                })
-            </script>
-        <?php
-        }
-    }
-
-    if (isset($_GET['restore'])) {
-        ?>
+if (isset($_GET['archive'])) {
+    if ($_GET['archive'] == 'error') {
+    ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'error',
+                iconColor: 'white',
+                title: 'Error archiving!',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
+    } else {
+    ?>
         <script>
             Swal.fire({
                 toast: true,
                 position: 'top-right',
                 icon: 'success',
                 iconColor: 'white',
-                title: 'Restored succesfully!',
+                title: 'Archived succesfully!',
                 customClass: {
                     popup: 'toast'
                 },
@@ -284,10 +129,36 @@ hide_content();
         </script>
     <?php
     }
+}
+
+if (isset($_GET['restore'])) {
+    ?>
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-right',
+            icon: 'success',
+            iconColor: 'white',
+            title: 'Restored succesfully!',
+            customClass: {
+                popup: 'toast'
+            },
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+        })
+    </script>
+<?php
+}
+?>
+
+<body class="grid" id="grid">
+    <?php
+    include './includes/loader.php';
+    include './includes/sidebar/services.php';
+    include './includes/navbar/services.php'
     ?>
 
-
-    <!-- End of Scripting -->
     <!-- Contents -->
     <main class="services">
         <!-- TABS event initialization-->
@@ -647,6 +518,486 @@ hide_content();
             </button>
         </div>
 
+        <table id="example" class="display" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Tiger Nixon</td>
+                    <td>System Architect</td>
+                    <td>Edinburgh</td>
+                    <td>61</td>
+                    <td>2011-04-25</td>
+                    <td>$320,800</td>
+                </tr>
+                <tr>
+                    <td>Garrett Winters</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>63</td>
+                    <td>2011-07-25</td>
+                    <td>$170,750</td>
+                </tr>
+                <tr>
+                    <td>Ashton Cox</td>
+                    <td>Junior Technical Author</td>
+                    <td>San Francisco</td>
+                    <td>66</td>
+                    <td>2009-01-12</td>
+                    <td>$86,000</td>
+                </tr>
+                <tr>
+                    <td>Cedric Kelly</td>
+                    <td>Senior Javascript Developer</td>
+                    <td>Edinburgh</td>
+                    <td>22</td>
+                    <td>2012-03-29</td>
+                    <td>$433,060</td>
+                </tr>
+                <tr>
+                    <td>Airi Satou</td>
+                    <td>Accountant</td>
+                    <td>Tokyo</td>
+                    <td>33</td>
+                    <td>2008-11-28</td>
+                    <td>$162,700</td>
+                </tr>
+                <tr>
+                    <td>Brielle Williamson</td>
+                    <td>Integration Specialist</td>
+                    <td>New York</td>
+                    <td>61</td>
+                    <td>2012-12-02</td>
+                    <td>$372,000</td>
+                </tr>
+                <tr>
+                    <td>Herrod Chandler</td>
+                    <td>Sales Assistant</td>
+                    <td>San Francisco</td>
+                    <td>59</td>
+                    <td>2012-08-06</td>
+                    <td>$137,500</td>
+                </tr>
+                <tr>
+                    <td>Rhona Davidson</td>
+                    <td>Integration Specialist</td>
+                    <td>Tokyo</td>
+                    <td>55</td>
+                    <td>2010-10-14</td>
+                    <td>$327,900</td>
+                </tr>
+                <tr>
+                    <td>Colleen Hurst</td>
+                    <td>Javascript Developer</td>
+                    <td>San Francisco</td>
+                    <td>39</td>
+                    <td>2009-09-15</td>
+                    <td>$205,500</td>
+                </tr>
+                <tr>
+                    <td>Sonya Frost</td>
+                    <td>Software Engineer</td>
+                    <td>Edinburgh</td>
+                    <td>23</td>
+                    <td>2008-12-13</td>
+                    <td>$103,600</td>
+                </tr>
+                <tr>
+                    <td>Jena Gaines</td>
+                    <td>Office Manager</td>
+                    <td>London</td>
+                    <td>30</td>
+                    <td>2008-12-19</td>
+                    <td>$90,560</td>
+                </tr>
+                <tr>
+                    <td>Quinn Flynn</td>
+                    <td>Support Lead</td>
+                    <td>Edinburgh</td>
+                    <td>22</td>
+                    <td>2013-03-03</td>
+                    <td>$342,000</td>
+                </tr>
+                <tr>
+                    <td>Charde Marshall</td>
+                    <td>Regional Director</td>
+                    <td>San Francisco</td>
+                    <td>36</td>
+                    <td>2008-10-16</td>
+                    <td>$470,600</td>
+                </tr>
+                <tr>
+                    <td>Haley Kennedy</td>
+                    <td>Senior Marketing Designer</td>
+                    <td>London</td>
+                    <td>43</td>
+                    <td>2012-12-18</td>
+                    <td>$313,500</td>
+                </tr>
+                <tr>
+                    <td>Tatyana Fitzpatrick</td>
+                    <td>Regional Director</td>
+                    <td>London</td>
+                    <td>19</td>
+                    <td>2010-03-17</td>
+                    <td>$385,750</td>
+                </tr>
+                <tr>
+                    <td>Michael Silva</td>
+                    <td>Marketing Designer</td>
+                    <td>London</td>
+                    <td>66</td>
+                    <td>2012-11-27</td>
+                    <td>$198,500</td>
+                </tr>
+                <tr>
+                    <td>Paul Byrd</td>
+                    <td>Chief Financial Officer (CFO)</td>
+                    <td>New York</td>
+                    <td>64</td>
+                    <td>2010-06-09</td>
+                    <td>$725,000</td>
+                </tr>
+                <tr>
+                    <td>Gloria Little</td>
+                    <td>Systems Administrator</td>
+                    <td>New York</td>
+                    <td>59</td>
+                    <td>2009-04-10</td>
+                    <td>$237,500</td>
+                </tr>
+                <tr>
+                    <td>Bradley Greer</td>
+                    <td>Software Engineer</td>
+                    <td>London</td>
+                    <td>41</td>
+                    <td>2012-10-13</td>
+                    <td>$132,000</td>
+                </tr>
+                <tr>
+                    <td>Dai Rios</td>
+                    <td>Personnel Lead</td>
+                    <td>Edinburgh</td>
+                    <td>35</td>
+                    <td>2012-09-26</td>
+                    <td>$217,500</td>
+                </tr>
+                <tr>
+                    <td>Jenette Caldwell</td>
+                    <td>Development Lead</td>
+                    <td>New York</td>
+                    <td>30</td>
+                    <td>2011-09-03</td>
+                    <td>$345,000</td>
+                </tr>
+                <tr>
+                    <td>Yuri Berry</td>
+                    <td>Chief Marketing Officer (CMO)</td>
+                    <td>New York</td>
+                    <td>40</td>
+                    <td>2009-06-25</td>
+                    <td>$675,000</td>
+                </tr>
+                <tr>
+                    <td>Caesar Vance</td>
+                    <td>Pre-Sales Support</td>
+                    <td>New York</td>
+                    <td>21</td>
+                    <td>2011-12-12</td>
+                    <td>$106,450</td>
+                </tr>
+                <tr>
+                    <td>Doris Wilder</td>
+                    <td>Sales Assistant</td>
+                    <td>Sydney</td>
+                    <td>23</td>
+                    <td>2010-09-20</td>
+                    <td>$85,600</td>
+                </tr>
+                <tr>
+                    <td>Angelica Ramos</td>
+                    <td>Chief Executive Officer (CEO)</td>
+                    <td>London</td>
+                    <td>47</td>
+                    <td>2009-10-09</td>
+                    <td>$1,200,000</td>
+                </tr>
+                <tr>
+                    <td>Gavin Joyce</td>
+                    <td>Developer</td>
+                    <td>Edinburgh</td>
+                    <td>42</td>
+                    <td>2010-12-22</td>
+                    <td>$92,575</td>
+                </tr>
+                <tr>
+                    <td>Jennifer Chang</td>
+                    <td>Regional Director</td>
+                    <td>Singapore</td>
+                    <td>28</td>
+                    <td>2010-11-14</td>
+                    <td>$357,650</td>
+                </tr>
+                <tr>
+                    <td>Brenden Wagner</td>
+                    <td>Software Engineer</td>
+                    <td>San Francisco</td>
+                    <td>28</td>
+                    <td>2011-06-07</td>
+                    <td>$206,850</td>
+                </tr>
+                <tr>
+                    <td>Fiona Green</td>
+                    <td>Chief Operating Officer (COO)</td>
+                    <td>San Francisco</td>
+                    <td>48</td>
+                    <td>2010-03-11</td>
+                    <td>$850,000</td>
+                </tr>
+                <tr>
+                    <td>Shou Itou</td>
+                    <td>Regional Marketing</td>
+                    <td>Tokyo</td>
+                    <td>20</td>
+                    <td>2011-08-14</td>
+                    <td>$163,000</td>
+                </tr>
+                <tr>
+                    <td>Michelle House</td>
+                    <td>Integration Specialist</td>
+                    <td>Sydney</td>
+                    <td>37</td>
+                    <td>2011-06-02</td>
+                    <td>$95,400</td>
+                </tr>
+                <tr>
+                    <td>Suki Burks</td>
+                    <td>Developer</td>
+                    <td>London</td>
+                    <td>53</td>
+                    <td>2009-10-22</td>
+                    <td>$114,500</td>
+                </tr>
+                <tr>
+                    <td>Prescott Bartlett</td>
+                    <td>Technical Author</td>
+                    <td>London</td>
+                    <td>27</td>
+                    <td>2011-05-07</td>
+                    <td>$145,000</td>
+                </tr>
+                <tr>
+                    <td>Gavin Cortez</td>
+                    <td>Team Leader</td>
+                    <td>San Francisco</td>
+                    <td>22</td>
+                    <td>2008-10-26</td>
+                    <td>$235,500</td>
+                </tr>
+                <tr>
+                    <td>Martena Mccray</td>
+                    <td>Post-Sales support</td>
+                    <td>Edinburgh</td>
+                    <td>46</td>
+                    <td>2011-03-09</td>
+                    <td>$324,050</td>
+                </tr>
+                <tr>
+                    <td>Unity Butler</td>
+                    <td>Marketing Designer</td>
+                    <td>San Francisco</td>
+                    <td>47</td>
+                    <td>2009-12-09</td>
+                    <td>$85,675</td>
+                </tr>
+                <tr>
+                    <td>Howard Hatfield</td>
+                    <td>Office Manager</td>
+                    <td>San Francisco</td>
+                    <td>51</td>
+                    <td>2008-12-16</td>
+                    <td>$164,500</td>
+                </tr>
+                <tr>
+                    <td>Hope Fuentes</td>
+                    <td>Secretary</td>
+                    <td>San Francisco</td>
+                    <td>41</td>
+                    <td>2010-02-12</td>
+                    <td>$109,850</td>
+                </tr>
+                <tr>
+                    <td>Vivian Harrell</td>
+                    <td>Financial Controller</td>
+                    <td>San Francisco</td>
+                    <td>62</td>
+                    <td>2009-02-14</td>
+                    <td>$452,500</td>
+                </tr>
+                <tr>
+                    <td>Timothy Mooney</td>
+                    <td>Office Manager</td>
+                    <td>London</td>
+                    <td>37</td>
+                    <td>2008-12-11</td>
+                    <td>$136,200</td>
+                </tr>
+                <tr>
+                    <td>Jackson Bradshaw</td>
+                    <td>Director</td>
+                    <td>New York</td>
+                    <td>65</td>
+                    <td>2008-09-26</td>
+                    <td>$645,750</td>
+                </tr>
+                <tr>
+                    <td>Olivia Liang</td>
+                    <td>Support Engineer</td>
+                    <td>Singapore</td>
+                    <td>64</td>
+                    <td>2011-02-03</td>
+                    <td>$234,500</td>
+                </tr>
+                <tr>
+                    <td>Bruno Nash</td>
+                    <td>Software Engineer</td>
+                    <td>London</td>
+                    <td>38</td>
+                    <td>2011-05-03</td>
+                    <td>$163,500</td>
+                </tr>
+                <tr>
+                    <td>Sakura Yamamoto</td>
+                    <td>Support Engineer</td>
+                    <td>Tokyo</td>
+                    <td>37</td>
+                    <td>2009-08-19</td>
+                    <td>$139,575</td>
+                </tr>
+                <tr>
+                    <td>Thor Walton</td>
+                    <td>Developer</td>
+                    <td>New York</td>
+                    <td>61</td>
+                    <td>2013-08-11</td>
+                    <td>$98,540</td>
+                </tr>
+                <tr>
+                    <td>Finn Camacho</td>
+                    <td>Support Engineer</td>
+                    <td>San Francisco</td>
+                    <td>47</td>
+                    <td>2009-07-07</td>
+                    <td>$87,500</td>
+                </tr>
+                <tr>
+                    <td>Serge Baldwin</td>
+                    <td>Data Coordinator</td>
+                    <td>Singapore</td>
+                    <td>64</td>
+                    <td>2012-04-09</td>
+                    <td>$138,575</td>
+                </tr>
+                <tr>
+                    <td>Zenaida Frank</td>
+                    <td>Software Engineer</td>
+                    <td>New York</td>
+                    <td>63</td>
+                    <td>2010-01-04</td>
+                    <td>$125,250</td>
+                </tr>
+                <tr>
+                    <td>Zorita Serrano</td>
+                    <td>Software Engineer</td>
+                    <td>San Francisco</td>
+                    <td>56</td>
+                    <td>2012-06-01</td>
+                    <td>$115,000</td>
+                </tr>
+                <tr>
+                    <td>Jennifer Acosta</td>
+                    <td>Junior Javascript Developer</td>
+                    <td>Edinburgh</td>
+                    <td>43</td>
+                    <td>2013-02-01</td>
+                    <td>$75,650</td>
+                </tr>
+                <tr>
+                    <td>Cara Stevens</td>
+                    <td>Sales Assistant</td>
+                    <td>New York</td>
+                    <td>46</td>
+                    <td>2011-12-06</td>
+                    <td>$145,600</td>
+                </tr>
+                <tr>
+                    <td>Hermione Butler</td>
+                    <td>Regional Director</td>
+                    <td>London</td>
+                    <td>47</td>
+                    <td>2011-03-21</td>
+                    <td>$356,250</td>
+                </tr>
+                <tr>
+                    <td>Lael Greer</td>
+                    <td>Systems Administrator</td>
+                    <td>London</td>
+                    <td>21</td>
+                    <td>2009-02-27</td>
+                    <td>$103,500</td>
+                </tr>
+                <tr>
+                    <td>Jonas Alexander</td>
+                    <td>Developer</td>
+                    <td>San Francisco</td>
+                    <td>30</td>
+                    <td>2010-07-14</td>
+                    <td>$86,500</td>
+                </tr>
+                <tr>
+                    <td>Shad Decker</td>
+                    <td>Regional Director</td>
+                    <td>Edinburgh</td>
+                    <td>51</td>
+                    <td>2008-11-13</td>
+                    <td>$183,000</td>
+                </tr>
+                <tr>
+                    <td>Michael Bruce</td>
+                    <td>Javascript Developer</td>
+                    <td>Singapore</td>
+                    <td>29</td>
+                    <td>2011-06-27</td>
+                    <td>$183,000</td>
+                </tr>
+                <tr>
+                    <td>Donna Snider</td>
+                    <td>Customer Support</td>
+                    <td>New York</td>
+                    <td>27</td>
+                    <td>2011-01-25</td>
+                    <td>$112,000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
+                </tr>
+            </tfoot>
+        </table>
 
         <!-- Start Tab for Consultation -->
         <div class="services__table" id="Consultation">
@@ -1877,6 +2228,14 @@ hide_content();
     <?php
     }
     ?>
+
+
+    <!-- Datatables -->
+    <script>
+        $(document).ready(function() {
+            $("#example").DataTable();
+        });
+    </script>
 
 </body>
 

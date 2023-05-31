@@ -41,6 +41,28 @@ if (mysqli_num_rows($query_run2) > 0) {
     <title>Search results | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
+<?php
+if (isset($_GET['success'])) {
+?>
+    <script>
+        Swal.fire({
+            toast: true,
+            position: 'top-right',
+            icon: 'success',
+            iconColor: 'white',
+            title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
+            customClass: {
+                popup: 'toast'
+            },
+            showConfirmButton: false,
+            timer: 4000,
+            timerProgressBar: true,
+        })
+    </script>
+<?php
+}
+?>
+
 <body class="grid" id="grid">
     <div class="loader" id="loader">
         <svg width='150px' height='179px' version='1.1' xmlns='http://www.w3.org/2000/svg'>
@@ -51,27 +73,6 @@ if (mysqli_num_rows($query_run2) > 0) {
         </svg>
     </div>
     <!-- Sidebar -->
-    <?php
-    if (isset($_GET['success'])) {
-    ?>
-        <script>
-            Swal.fire({
-                toast: true,
-                position: 'top-right',
-                icon: 'success',
-                iconColor: 'white',
-                title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
-                customClass: {
-                    popup: 'toast'
-                },
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-            })
-        </script>
-    <?php
-    }
-    ?>
 
     <aside role="navigation" class="sidebar" id="sidebar">
         <ul role="list" class="sidebar__list">
