@@ -7,7 +7,7 @@ $label = $_GET['label'];
 $id = $_GET['id'];
 $date = $_GET['date'];
 $date2 = $_GET['date2'];
-
+$username = $_GET['userName'];
 
 // CONVERT DATE TO MM-DD-YY
 $date_pdf = new DateTime($date);

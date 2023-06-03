@@ -14,6 +14,16 @@ if (isset($_GET['report__date'])) {
         <h4 class="deworming-reports__title">
             Target Client List for Childcare Male Reports
         </h4>
+        <?php
+            $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+            $query_run = mysqli_query($conn, $query);
+            if (mysqli_num_rows($query_run) > 0) {
+                foreach ($query_run as $user) {
+                    $user_name= $user['firstname'].' '.$user['lastname'];
+                }
+            }   
+        ?>
+        <p>Prepared by: <?php echo $user_name; ?></p>
         <div class="deworming-reports__details">
             <p class="deworming-reports__brgy">
                 Name of Barangay: Datu Esmael
@@ -733,7 +743,7 @@ if (isset($_GET['report__date'])) {
             }
             else{
             ?>
-                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['target_childcare_male_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
+                <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['target_childcare_male_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>&&userName=<?= $user_name ?>')">
                     Save as PDF
                 </button>
             <?php

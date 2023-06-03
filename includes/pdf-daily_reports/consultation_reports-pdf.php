@@ -97,6 +97,7 @@
     <h4 class="deworming-reports__title">
         Consultation reports
     </h4>
+    <p>Prepared by: <?php echo $username; ?></p>
     <div class="deworming-reports__details">
         <p class="deworming-reports__brgy">
             Name of Barangay: Datu Esmael

@@ -120,7 +120,7 @@
             <?php
         }
         ?>
-
+    <p>Prepared by: <?php echo $username; ?></p>
     <ul class="search-and-destroy__report__summary" role="list">
         <li class="search-and-destroy__report__summary__item">Name of Barangay Visited:
             <span class="search-and-destroy__report__summary--value">

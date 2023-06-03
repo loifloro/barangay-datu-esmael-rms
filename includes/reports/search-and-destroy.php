@@ -189,7 +189,16 @@
     } 
     ?>
     <!-- End Date Query -->
-
+    <?php
+        $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+        $query_run = mysqli_query($conn, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $user) {
+                $user_name= $user['firstname'].' '.$user['lastname'];
+            }
+        }   
+    ?>
+    <p>Prepared by: <?php echo $user_name; ?></p>
     <ul class="search-and-destroy__report__summary" role="list">
         <li class="search-and-destroy__report__summary__item">Name of Barangay Visited:
             <span class="search-and-destroy__report__summary--value">
@@ -435,7 +444,7 @@
                     }
                     else{
                         ?>
-                            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['search_destroy_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
+                            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['search_destroy_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>&&userName=<?= $user_name ?>')">
                                 Save as PDF
                             </button>
                         <?php
