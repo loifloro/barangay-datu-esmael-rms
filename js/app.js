@@ -350,7 +350,7 @@ function servicesClick(servicesName) {
   document.getElementById(servicesName).click();
 }
 
-//default display first item
+// default display first item
 // document.getElementsByClassName('services__list__item')[0].click()
 function services(evt, servicesName, rows, page) {
   var i, services__table, services__list__item;

@@ -1,5 +1,9 @@
 @use "../abstracts" as *;
 
+#deworming__services_wrapper {
+  // display: none;
+}
+
 .patient__table {
   display: none;
 }
@@ -478,7 +482,7 @@
   &__table {
     @include card(none);
     overflow: hidden;
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 
     &__row {
       display: grid;

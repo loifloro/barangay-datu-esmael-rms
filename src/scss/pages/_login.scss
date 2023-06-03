@@ -7,10 +7,29 @@
 .login {
   // background: $active-green;
   background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+  position: relative;
   display: grid;
-  place-content: center;
+  // place-content: center;
+  grid-template-rows: auto 1rem;
+
+  main {
+    justify-self: center;
+    align-self: center;
+  }
+
+  &::before {
+    content: " ";
+    position: absolute;
+    background-image: url("../assets/img/cvsu.png");
+    background-position: 110% 150%;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    opacity: 0.25;
+  }
 
   &__card {
+    position: relative;
     max-width: 60rem;
     width: 26rem;
 
@@ -109,6 +128,16 @@
         margin-left: auto !important;
         margin-right: 0.5rem;
       }
+    }
+  }
+
+  .credits {
+    align-self: end;
+    justify-self: center;
+    margin-inline: 1rem;
+    text-align: center;
+    &__developers {
+      font-size: 0.8rem;
     }
   }
 }

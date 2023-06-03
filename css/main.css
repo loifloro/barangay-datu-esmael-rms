@@ -444,6 +444,112 @@ input[type=range] {
   background-color: #730808 !important;
 }
 
+table.dataTable {
+  background: var(--white-1);
+  box-shadow: 2px 4px 15px rgba(171, 189, 207, 0.25);
+  border: #ecfcf2 1px solid;
+  border-radius: 1vw;
+  padding: none;
+  box-sizing: border-box;
+}
+
+table.dataTable thead th,
+table.dataTable tfoot th {
+  color: var(--black-3) !important;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+table.dataTable thead th,
+table.dataTable thead td,
+table.dataTable tfoot th,
+table.dataTable tfoot td,
+table.dataTable tbody th,
+table.dataTable tbody td {
+  padding: 1rem;
+  border-bottom: #ecfcf2 1px solid;
+  border-top: #ecfcf2 1px solid;
+}
+
+table.dataTable.row-border tbody th,
+table.dataTable.row-border tbody td,
+table.dataTable.display tbody th,
+table.dataTable.display tbody td {
+  border-top: unset;
+}
+
+table.dataTable.display tbody td {
+  color: var(--black-1);
+}
+
+table.dataTable tbody tr td a {
+  font: unset;
+  font-weight: 600;
+  color: #207647;
+}
+
+.dataTables_wrapper {
+  margin-block: 2rem;
+}
+
+.dataTables_wrapper > * {
+  margin-block: 0.5rem;
+}
+
+.dataTables_wrapper .dataTables_length label,
+.dataTables_wrapper .dataTables_info,
+.dataTables_wrapper .dataTables_filter label {
+  font-size: 0.85rem;
+  color: var(--black-2);
+  vertical-align: bottom;
+}
+
+.dataTables_wrapper .dataTables_length select {
+  font-weight: 600;
+  height: 2.5rem;
+  background: var(--white-2);
+  border-radius: 0.5vw;
+  letter-spacing: 0.05rem;
+  transition: all ease 600ms;
+}
+.dataTables_wrapper .dataTables_length select:hover, .dataTables_wrapper .dataTables_length select:active {
+  outline: #034a23 solid 1px;
+  background: var(--white-1);
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border-radius: 0.5vw;
+  border: 1px solid var(--white-3);
+  padding: unset;
+  padding-left: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  height: 2.5rem;
+  background: var(--white-2);
+  letter-spacing: 0.05rem;
+  transition: all ease 600ms;
+  display: inline;
+}
+.dataTables_wrapper .dataTables_filter input:hover, .dataTables_wrapper .dataTables_filter input:active {
+  outline: #034a23 solid 1px;
+  background: var(--white-1);
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  border-radius: 0.5vw;
+  border: 1px solid var(--white-3);
+  font-weight: 600;
+  font-size: 1rem;
+  height: 2.5rem;
+  background: var(--white-2);
+  letter-spacing: 0.05rem;
+  transition: all ease 600ms;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover, .dataTables_wrapper .dataTables_paginate .paginate_button.current:active {
+  outline: #034a23 solid 1px;
+  background: var(--white-1);
+}
+
 /**
  * Set up a decent box model on the root element
  */
@@ -2122,7 +2228,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   padding: none;
   box-sizing: border-box;
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
 }
 .recent-update__table__row {
   display: grid;
@@ -4316,10 +4422,26 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 
 .login {
   background-image: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+  position: relative;
   display: grid;
-  place-content: center;
+  grid-template-rows: auto 1rem;
+}
+.login main {
+  justify-self: center;
+  align-self: center;
+}
+.login::before {
+  content: " ";
+  position: absolute;
+  background-image: url("../assets/img/cvsu.png");
+  background-position: 110% 150%;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  opacity: 0.25;
 }
 .login__card {
+  position: relative;
   max-width: 60rem;
   width: 26rem;
   background: var(--white-1);
@@ -4390,6 +4512,15 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: inline;
   margin-left: auto !important;
   margin-right: 0.5rem;
+}
+.login .credits {
+  align-self: end;
+  justify-self: center;
+  margin-inline: 1rem;
+  text-align: center;
+}
+.login .credits__developers {
+  font-size: 0.8rem;
 }
 
 .dashboard {
@@ -6662,6 +6793,37 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .services .reports__card btn {
   width: 9.5rem;
+}
+
+.recent-update__legend__title {
+  font-style: italic;
+  font-weight: 700;
+  font-size: clamp(1.12rem, 0.2rem + 2vw, 1.25rem);
+  letter-spacing: 0.5px;
+  color: var(--black-1);
+}
+.recent-update__legend__item {
+  margin-left: 0.8rem;
+}
+.recent-update__legend .legend__title {
+  display: inline;
+  font-weight: 600;
+}
+.recent-update__legend .legend__chn {
+  color: var(--white-1);
+  background: #893302;
+  border-radius: 100vw;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  margin-inline: 0.2rem;
+}
+.recent-update__legend .legend__bhw {
+  color: var(--white-1);
+  background: #e71d36;
+  border-radius: 100vw;
+  font-size: 0.8rem;
+  padding: 0.2rem 0.8rem;
+  margin-inline: 0.2rem;
 }
 
 /*# sourceMappingURL=main.css.map */

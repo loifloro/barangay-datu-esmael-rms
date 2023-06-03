@@ -17,19 +17,11 @@ if (($position == 'Barangay Health Worker' || !isset($_SESSION['account_id']) ||
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
     <link rel="stylesheet" href="./css/main.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- Remember to include jQuery :) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-
-    <!-- jQuery Modal -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script> -->
-    <script src="./js/jquerymodal.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
 
-    <!-- Remember to include jQuery :) -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="./js/jquerymodal.js"></script>
 
 
     <title>
