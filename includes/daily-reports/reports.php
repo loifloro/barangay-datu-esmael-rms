@@ -43,6 +43,7 @@
                         }
                     }
                     ?>
+                            <option value="All"> All </option>
                 </select>
             </div>
 
@@ -85,7 +86,9 @@
                 include 'search-destroy.php';
             } elseif ($report_service == 'Early Childhood') {
                 include 'early-childhood.php';
-            } else {
+            } elseif ($report_service == 'All') {
+                include 'all.php';
+            } else{
                 include 'other_services.php';
             }
         }
