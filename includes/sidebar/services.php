@@ -16,7 +16,7 @@
         <li class="sidebar__title">
             Brgy. Datu Esmael Patient Record System
         </li>
-        <li class="sidebar__item">
+        <li class="sidebar__item" id="dashboard_active">
             <a href="dashboard.php" class="sidebar__link">
                 <!--href link added-->
                 <svg alt="Home" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -25,7 +25,7 @@
                 <p class="sidebar__caption">Dashboard</p>
             </a>
         </li>
-        <li class="sidebar__item">
+        <li class="sidebar__item" id="patient_active">
             <a href="patients.php" class="sidebar__link">
                 <!--href link added-->
                 <svg alt="Patient" role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -45,8 +45,8 @@
                 <p class="sidebar__caption">Archive</p>
             </a>
         </li>
-        <hr class="sidebar__line" />
-        <li class="sidebar__item sidebar__item--active">
+        <hr class="sidebar__line" id="hr_active" />
+        <li class="sidebar__item sidebar__item--active" id="services_active">
             <a href="services.php" class="sidebar__link">
                 <!--href link added-->
                 <svg alt="Services" role="listitem" class="sidebar__icon" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -65,7 +65,7 @@
                 <p class="sidebar__caption">Masterlist</p>
             </a>
         </li>
-        <li class="sidebar__item sidebar__item--margin-top">
+        <li class="sidebar__item sidebar__item--margin-top" id="patient_user_profile">
             <!--href link added-->
             <a href="user-profile.php" class="sidebar__link">
                 <svg alt='Profile' role="listitem" class="sidebar__icon" xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 32 32" viewBox="0 0 32 32">
