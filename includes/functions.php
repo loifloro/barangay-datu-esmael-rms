@@ -121,6 +121,9 @@ function hide_patient_deworming()
                 #generated_password {
                     display: none;
                 }
+                .edit-history{
+                    display: none;
+                }
             </style>
         <?php
         }
