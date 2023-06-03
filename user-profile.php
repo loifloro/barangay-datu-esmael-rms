@@ -254,7 +254,7 @@ hide_content();
                             </button>
                         </li>
                         <li class="bhw-account__attributes__item">
-                            Sex
+                            Status
                             <!-- BUTTON FOR NAME -->
                             <button type="submit" name="bhw_sex" value="3">
                                 <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -281,7 +281,7 @@ hide_content();
                 <!-- To be put in the loop -->
                 <?php
                 include 'includes/connection.php';
-                $query = "SELECT * FROM account_information WHERE position = 'Barangay Health Worker'";
+                $query = "SELECT * FROM account_information WHERE position != 'Administrator'";
                 $query_run = mysqli_query($conn, $query);
 
                 if (mysqli_num_rows($query_run) > 0) {
@@ -334,19 +334,24 @@ hide_content();
                                 <?= $email; ?>
                             </li>
                             <li class="bhw-account__sex">
-                                <?= $patient['sex']; ?>
+                                <?= $patient['status'] ?>
                             </li>
                             <li class="bhw-account__date--availed">
                                 <?= $new_bhw_added_date; ?>
                             </li>
                             <li class="bhw-account__option">
                                 <!-- Buttons -->
-                                <button type="submit" name="delete_bhw" onclick="return confirmDeleteUser('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')">
+                                <button type="submit" name="inactive_account" onclick="return confirmDeactivateStatus('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')">
                                     <span>
                                         <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                             <path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z" />
                                         </svg>
                                     </span>
+                                </button>
+                                <button type="submit" name="active_account" onclick="return confirmActivateStatus('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')">
+                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
+                                    </svg>
                                 </button>
                                 <button type="submit" name="edit_bhw" onclick="return confirmEditUser('<?= $patient['account_id']; ?>')">
                                     <svg id="edit-profile" class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
@@ -360,6 +365,7 @@ hide_content();
                                         </g>
                                     </svg>
                                 </button>
+
 
                                 <!--End Button-->
                             </li>
