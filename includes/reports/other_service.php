@@ -126,11 +126,23 @@ if (isset($_GET['report__date'])) {
 ?>
     <!-- Consultation daily reports -->
     <div class="modal deworming-reports" id="other-daily-reports">
+    <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
+    <?php
+        $query = "SELECT * FROM account_information WHERE position='Admin'";
+        $query_run= mysqli_query($conn, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $user) {
+                $barangay_name = $user['barangay_name'];
+                $city_name = $user['city_name'];
+            }
+        }
+    ?>
+
         <h4 class="consultation__report__title">
-            City Government of Dasmariñas <br> City Health Office II
+            City Government of <?= $city_name; ?> <br> City Health Office II
         </h4>
         <p class="consultation__report__city">
-            City of Dasmariñas, Cavite
+            City of <?= $city_name; ?>
         </p>
 
         <h4 class="deworming-reports__title">
@@ -154,7 +166,7 @@ if (isset($_GET['report__date'])) {
         <p>Prepared by: <?php echo $user_name; ?></p>
         <div class="deworming-reports__details">
             <p class="deworming-reports__brgy">
-                Name of Barangay: Datu Esmael
+                Name of Barangay: <?= $barangay_name;?>
             </p>
             <!-- Query Start -->
             <?php
