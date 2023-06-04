@@ -80,6 +80,9 @@ function hide_content_nurse()
                 #deactive_user{
                     display: none;
                 }
+                #register_city_section{
+                    display: none;
+                }
             </style>
         <?php
         }

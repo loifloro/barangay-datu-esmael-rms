@@ -149,12 +149,12 @@ hide_content_nurse();
 
 
 
-        <section class="user-profile__backup">
+        <section class="user-profile__backup" id="register_city_section">
             <h2 class="user-profile__title">
-                Registered Barangay
+                Registered City and Barangay
             </h2>
             <p class="user-profile__desc">
-                You can change the barangay name here
+                You can change the barangay and city name here
             </p>
             <form action="./includes/edit_query.php" method="POST">
             <div class="user-profile__backup__form" id="upload_user">
