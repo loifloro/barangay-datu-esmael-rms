@@ -149,7 +149,34 @@ hide_content_nurse();
 
 
 
+        <section class="user-profile__backup">
+            <h2 class="user-profile__title">
+                Registered Barangay
+            </h2>
+            <p class="user-profile__desc">
+                You can change the barangay name here
+            </p>
+            <form action="./includes/edit_query.php" method="POST">
+            <div class="user-profile__backup__form" id="upload_user">
+                    <label for="patient-password">
+                        <p class="backup-title">Barangay Name</p>
+                    </label>
+                    <input type="text" name='barangay_name' value="<?= $user['barangay_name']; ?>">
+                    <label for="patient-password">
+                        <p class="backup-title">City Name</p>
+                    </label>
+                    <input type="text" name='city_name' value="<?= $user['city_name']; ?>">
+                    <input type="hidden" name="user_id" value="<?= $user['account_id']; ?>">
 
+                    <div class="btn-section">
+                        <div class="input-file-container">
+                            <button type="submit" class="btn-green btn-change btn-restore" name="change_barangay" onclick="return  confirm('Do you want to change the registered barangay?')">
+                                <p>Change</p>
+                            </button>
+                        </div>
+                    </div>
+            </form>
+        </section>
         <hr>
         <section class="user-profile__backup">
             <h2 class="user-profile__title">
