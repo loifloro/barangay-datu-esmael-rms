@@ -102,11 +102,22 @@
 </head>
 
 <div id="prenatal__report<?= $patient['prenatal_id']; ?>" class="modal prenatal__report">
+    <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
+    <?php
+        $query = "SELECT * FROM account_information WHERE position='Admin'";
+        $query_run= mysqli_query($conn, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $user) {
+                $barangay_name = $user['barangay_name'];
+                $city_name = $user['city_name'];
+            }
+        }
+    ?>
     <h4 class="prenatal__report__title">
-        City Government of Dasmariñas <br> City Health Office II
+        City Government of <?=$city_name;?> <br> City Health Office II
     </h4>
     <p class="prenatal__report__city">
-        City of Dasmariñas, Cavite
+        City of <?=$city_name;?>
     </p>
 
 
