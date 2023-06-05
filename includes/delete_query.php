@@ -7,8 +7,8 @@ if (isset($_GET['inactive_account'])) {
     $user_position = mysqli_real_escape_string($conn, $_GET['position']);
     $user_id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    if ($user_position == 'City Health Nurse') {
-        $query = "UPDATE account_information SET status='inactive' WHERE account_id='$user_id'";
+    if ($user_position == 'Admin') {
+        $query = "UPDATE account_information SET status='Inactive' WHERE account_id='$user_id'";
         $query_run = mysqli_query($conn, $query);
         if ($query_run) {
             header("Location: ../user-profile.php?deleted");
@@ -28,8 +28,8 @@ if (isset($_GET['active_account'])) {
     $user_position = mysqli_real_escape_string($conn, $_GET['position']);
     $user_id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    if ($user_position == 'City Health Nurse') {
-        $query = "UPDATE account_information SET status='active' WHERE account_id='$user_id'";
+    if ($user_position == 'Admin') {
+        $query = "UPDATE account_information SET status='Active' WHERE account_id='$user_id'";
         $query_run = mysqli_query($conn, $query);
         if ($query_run) {
             header("Location: ../user-profile.php?deleted");
