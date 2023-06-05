@@ -146,35 +146,39 @@ hide_content_nurse();
                 <!-- End of Query -->
                     </ul>
         </section>
-
-
-
+        <hr>
         <section class="user-profile__backup" id="register_city_section">
             <h2 class="user-profile__title">
-                Registered City and Barangay
+                Location
             </h2>
             <p class="user-profile__desc">
                 You can change the barangay and city name here
             </p>
             <form action="./includes/edit_query.php" method="POST">
-            <div class="user-profile__backup__form" id="upload_user">
+                <div class="user-profile__backup__form" id="upload_user">
                     <label for="patient-password">
                         <p class="backup-title">Barangay Name</p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, hic.
                     </label>
-                    <input type="text" name='barangay_name' value="<?= $user['barangay_name']; ?>">
-                    <label for="patient-password">
-                        <p class="backup-title">City Name</p>
-                    </label>
-                    <input type="text" name='city_name' value="<?= $user['city_name']; ?>">
-                    <input type="hidden" name="user_id" value="<?= $user['account_id']; ?>">
+                    <div class="user-profile__columns">
 
-                    <div class="btn-section">
-                        <div class="input-file-container">
-                            <button type="submit" class="btn-green btn-change btn-restore" name="change_barangay" onclick="return  confirm('Do you want to change the registered barangay?')">
-                                <p>Change</p>
-                            </button>
-                        </div>
+                        <input type="text" name='barangay_name' value="<?= $user['barangay_name']; ?>">
                     </div>
+                </div>
+                <div class="user-profile__backup__form" id="upload_user">
+                    <label for="patient-password">
+                        <p class="backup-title">Municipality / City Name</p>
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, hic.
+                    </label>
+                    <div class="user-profile__columns">
+
+                        <input type="text" name='city_name' value="<?= $user['city_name']; ?>">
+                        <input type="hidden" name="user_id" value="<?= $user['account_id']; ?>">
+                        <button type="submit" class="btn-green btn-change btn-restore" name="change_barangay" onclick="return  confirm('Do you want to change the registered barangay?')">
+                            <p>Change</p>
+                        </button>
+                    </div>
+                </div>
             </form>
         </section>
         <hr>
@@ -242,12 +246,10 @@ hide_content_nurse();
                         </button>
                     </div>
                 </div>
-                </div>
-                <div class="reports__input">
             </form>
         </section>
-
         <hr>
+
         <section class="bhw-account">
             <h2 class="bhw-profile__title">
                 BHW
@@ -282,7 +284,7 @@ hide_content_nurse();
                             </button>
                         </li>
                         <li class="bhw-account__attributes__item">
-                            Status
+                            Active Status
                             <!-- BUTTON FOR NAME -->
                             <button type="submit" name="bhw_sex" value="3">
                                 <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -291,7 +293,7 @@ hide_content_nurse();
                             </button>
                         </li>
                         <li class="bhw-account__attributes__item">
-                            Date Availed
+                            Date Created
                             <!-- BUTTON FOR NAME -->
                             <button type="submit" name="bhw_date" value="4">
                                 <svg class='sort-icon' viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -361,26 +363,24 @@ hide_content_nurse();
                             <li class="bhw-account__num">
                                 <?= $email; ?>
                             </li>
-                            <li class="bhw-account__sex">
-                                <?= $patient['status'] ?>
+                            <li class="bhw-account__status">
+                                <?php
+                                if ($patient['status'] === 'Active') {
+                                ?>
+                                    <input type="checkbox" name="" id="active_user" checked onclick="confirmDeactivateStatus('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')">
+                                <?php
+                                } else {
+                                ?>
+                                    <input type="checkbox" name="" id="deactive_user" onclick="confirmActivateStatus('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')">
+                                <?php
+                                }
+                                ?>
+                                <p> <?= $patient["status"] ?> </p>
                             </li>
                             <li class="bhw-account__date--availed">
                                 <?= $new_bhw_added_date; ?>
                             </li>
                             <li class="bhw-account__option">
-                                <!-- Buttons -->
-                                <button type="submit" name="inactive_account" id="edit_user" onclick="return confirmDeactivateStatus('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')">
-                                    <span>
-                                        <svg class='delete-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                            <path d="M3.389 7.113L4.49 18.021c.061.461 2.287 1.977 5.51 1.979 3.225-.002 5.451-1.518 5.511-1.979l1.102-10.908C14.929 8.055 12.412 8.5 10 8.5c-2.41 0-4.928-.445-6.611-1.387zm9.779-5.603l-.859-.951C11.977.086 11.617 0 10.916 0H9.085c-.7 0-1.061.086-1.392.559l-.859.951C4.264 1.959 2.4 3.15 2.4 4.029v.17C2.4 5.746 5.803 7 10 7c4.198 0 7.601-1.254 7.601-2.801v-.17c0-.879-1.863-2.07-4.433-2.519zM12.07 4.34L11 3H9L7.932 4.34h-1.7s1.862-2.221 2.111-2.522c.19-.23.384-.318.636-.318h2.043c.253 0 .447.088.637.318.248.301 2.111 2.522 2.111 2.522h-1.7z" />
-                                        </svg>
-                                    </span>
-                                </button>
-                                <button type="submit" name="active_account" id="active_user" onclick="return confirmActivateStatus('<?= $user['position']; ?>' , '<?= $patient['account_id']; ?>')">
-                                    <svg class='archive-icon' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                        <path d="M18.521 1.478a1 1 0 0 0-1.414 0L1.48 17.107a1 1 0 1 0 1.414 1.414L18.52 2.892a1 1 0 0 0 0-1.414zM3.108 13.498l2.56-2.56A4.18 4.18 0 0 1 5.555 10c0-2.379 1.99-4.309 4.445-4.309.286 0 .564.032.835.082l1.203-1.202A12.645 12.645 0 0 0 10 4.401C3.44 4.4 0 9.231 0 10c0 .423 1.057 2.09 3.108 3.497zm13.787-6.993l-2.562 2.56c.069.302.111.613.111.935 0 2.379-1.989 4.307-4.444 4.307-.284 0-.56-.032-.829-.081l-1.204 1.203c.642.104 1.316.17 2.033.17 6.56 0 10-4.833 10-5.599 0-.424-1.056-2.09-3.105-3.495z" />
-                                    </svg>
-                                </button>
                                 <button type="submit" name="edit_bhw" id="deactive_user" onclick="return confirmEditUser('<?= $patient['account_id']; ?>')">
                                     <svg id="edit-profile" class='edit-icon' xmlns="http://www.w3.org/2000/svg" width="64pt" height="64pt" viewBox="0 0 64 64" style="isolation:isolate">
                                         <defs>
@@ -475,6 +475,42 @@ hide_content_nurse();
                 icon: 'success',
                 iconColor: 'white',
                 title: 'Deleted successfully',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
+    }
+    if (isset($_GET['deactivated'])) { ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Deactivated successfully',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
+    }
+    if (isset($_GET['activated'])) { ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Activated successfully',
                 customClass: {
                     popup: 'toast'
                 },

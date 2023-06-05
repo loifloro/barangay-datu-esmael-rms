@@ -11,10 +11,10 @@ if (isset($_GET['inactive_account'])) {
         $query = "UPDATE account_information SET status='Inactive' WHERE account_id='$user_id'";
         $query_run = mysqli_query($conn, $query);
         if ($query_run) {
-            header("Location: ../user-profile.php?deleted");
+            header("Location: ../user-profile.php?deactivated#bhw-account__table");
             exit(0);
         } else {
-            header("Location: ../user-profile.php?error");
+            header("Location: ../user-profile.php?error#bhw-account__table");
         }
     }
     if ($user_position == 'Barangay Health Worker') {
@@ -32,10 +32,10 @@ if (isset($_GET['active_account'])) {
         $query = "UPDATE account_information SET status='Active' WHERE account_id='$user_id'";
         $query_run = mysqli_query($conn, $query);
         if ($query_run) {
-            header("Location: ../user-profile.php?deleted");
+            header("Location: ../user-profile.php?activated#bhw-account__table");
             exit(0);
         } else {
-            header("Location: ../user-profile.php?error");
+            header("Location: ../user-profile.php?error#bhw-account__table");
         }
     }
     if ($user_position == 'Barangay Health Worker') {

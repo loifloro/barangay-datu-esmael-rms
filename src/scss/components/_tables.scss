@@ -291,7 +291,7 @@
       display: grid;
       align-items: center;
       // grid-template-columns: repeat(5, minmax(80px, 1fr));
-      grid-template-columns: auto 20% 10% 15% 15%;
+      grid-template-columns: auto 15% 15% 15% 15%;
       -moz-column-gap: 1rem;
       column-gap: 1rem;
       -webkit-padding-start: unset;
@@ -357,6 +357,13 @@
 
   &__option > * {
     margin-right: 1rem;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    -moz-column-gap: 0.5rem;
+    column-gap: 0.5rem;
   }
 }
 

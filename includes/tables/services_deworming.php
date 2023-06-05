@@ -13,15 +13,21 @@
         $query = "SELECT * FROM deworming WHERE archive_label=''";
         $query_run = mysqli_query($conn, $query);
         foreach ($query_run as $patient) {
-            echo
-            "<tr>
-                <td><a href='#deworming-modal{$patient['deworming_id']}'>{$patient['firstname']} {$patient['lastname']}</a></td>
-                <td>{$patient['age']}</td>
-                <td>{$patient['sex']}</td>
+            $deworm_date = new DateTime($patient['deworming_date']);
+            $new_deworm_date = $deworm_date->format("m-d-Y");
+
+            $deworm_bdate = new DateTime($patient['birthdate']);
+            $new_deworm_bdate = $deworm_bdate->format("m-d-Y");
+        ?>
+            <tr>
+                <td> <a href="#deworming-modal<?= $patient['deworming_id']; ?>" rel="modal:open"><?= $patient['firstname'] . " " . $patient['lastname']; ?></a></td>
+                <td><?= $patient['age']; ?></td>
+                <td><?= $patient['sex']; ?></td>
+                <td><?= $new_deworm_date; ?></td>
                 <td></td>
-                <td></td>
-            </tr>";
-            // include('includes/reports/deworming.php');
+
+            </tr>
+        <?php
         }
 
         ?>
@@ -36,3 +42,4 @@
         </tr>
     </tfoot>
 </table>
+<?php include('./includes/reports/deworming.php'); ?>
