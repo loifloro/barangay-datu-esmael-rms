@@ -38,11 +38,11 @@
             <div class="reports__date">
                 <div class="reports__form__date">
                     <label for="report__date">Date From </label>
-                    <input type="date" name="report__date" id="report__date" required value="<?= $date; ?>">
+                    <input type="date" name="report__date" id="date__from" required value="<?= $date; ?>" onchange="datePicker()">
                 </div>
-                <div class="reports__form__date">
+                <div class=" reports__form__date">
                     <label for="report__date">Date To </label>
-                    <input type="date" name="report__date2" id="report__date" value="<?= $date2; ?>">
+                    <input type="date" name="report__date2" id="date__to" value="<?= $date2; ?>" disabled>
                 </div>
             </div>
 
@@ -62,7 +62,7 @@
             } elseif ($report_service == 'Maternal Care') {
                 include 'maternal-care.php';
             }
-        } 
+        }
         ?>
 
         <!-- <button type="submit" name="sort__date" class="btn-green btn-add services__btn" required>
