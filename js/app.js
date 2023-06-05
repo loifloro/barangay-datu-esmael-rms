@@ -31,6 +31,18 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
+// Date Pickers
+function datePicker() {
+  const datePickerFrom = document.getElementById("date__from");
+  const datePickerTo = document.getElementById("date__to");
+
+  // dashboardDatePickerFrom.addEventListener("change", () => {
+  datePickerTo.removeAttribute("disabled");
+  datePickerTo.setAttribute("min", datePickerFrom.value);
+  // });
+}
+
+// Menu
 const navMenu = document.getElementById("hamburger-menu");
 const sideBar = document.getElementById("sidebar");
 navMenu.addEventListener("click", () => {
