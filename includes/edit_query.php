@@ -2,6 +2,19 @@
 session_start();
 include "connection.php";
 
+//CHANGE BARANGAY NAME
+if(isset($_POST['change_barangay'])){
+    $account_id = mysqli_real_escape_string($conn, $_POST['user_id']);
+    $barangay_name = mysqli_real_escape_string($conn, $_POST['barangay_name']);
+    $city_name = mysqli_real_escape_string($conn, $_POST['city_name']);
+
+    $query ="UPDATE account_information SET barangay_name='$barangay_name', city_name='$city_name' WHERE account_id='$account_id'";
+    $query_run= mysqli_query($conn, $query);
+    if($query_run){
+        header("Location: ../user-profile.php");
+    }
+}
+
 // EDIT PROFILE
 if (isset($_POST['edit_bhw'])) {
     $account_id = mysqli_real_escape_string($conn, $_POST['account_id']);

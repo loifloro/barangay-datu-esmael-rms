@@ -1,3 +1,6 @@
+<?php
+include './includes/connection.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,15 +20,24 @@
     <?php
     include './includes/loader.php';
     ?>
-
+    <?php
+        $query = "SELECT * FROM account_information WHERE position='Admin'";
+        $query_run= mysqli_query($conn, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $user) {
+                $barangay_name = $user['barangay_name'];
+            }
+        }
+    ?>
     <main>
         <div class="login__card">
             <form action="login.php" class="login__form" onsubmit="return validation()" method="POST">
+                
                 <h1 class="login__title">
-                    Brgy. Datu Esmael Patient Record System
+                    Brgy. <?= $barangay_name ?> Patient Record System
                 </h1>
                 <p class="login__desc">
-                    Exclusive only for <b>Patients</b> and <b>Barangay Health Workers</b> of Brgy. Datu Esmael
+                    Exclusive only for <b>Patients</b> and <b>Barangay Health Workers</b> of Brgy. <?= $barangay_name ?>
                 </p>
 
                 <!-- Error Display -->

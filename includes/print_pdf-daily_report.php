@@ -7,7 +7,7 @@ $label = $_GET['label'];
 $id = $_GET['id'];
 $date = $_GET['date'];
 $date2 = $_GET['date2'];
-
+$username = $_GET['userName'];
 
 // CONVERT DATE TO MM-DD-YY
 $date_pdf = new DateTime($date);
@@ -332,4 +332,60 @@ if ($label == 'Target Childcare Female'){
 
     // Output the generated PDF to Browser
     $dompdf->stream($date_show.$date_show2.'target_childcare_female.pdf',['Attachment'=>false]);
+}
+
+if ($label == 'All'){
+
+    if($date == $date && $date2 == ''){
+        $sql = mysqli_query($conn,"SELECT deworming_id, deworming_date, firstname, lastname, label FROM deworming WHERE deworming_date='$date'
+        UNION ALL
+        SELECT consultation_id, consultation_date, firstname, lastname, label FROM consultation WHERE consultation_date='$date'
+        UNION ALL
+        SELECT prenatal_id, prenatal_date, firstname, lastname, label FROM prenatal WHERE prenatal_date='$date'
+        UNION ALL
+        SELECT postnatal_id, postnatal_date, firstname, lastname, label FROM postnatal WHERE postnatal_date='$date'
+        UNION ALL
+        SELECT early_childhood_id, early_childhood_date, child_fname, child_lname, label FROM early_childhood WHERE early_childhood_date='$date'
+        UNION ALL
+        SELECT search_destroy_id, search_destroy_date, owner_fname, owner_lname, label FROM search_destroy WHERE search_destroy_date='$date'
+        UNION ALL
+        SELECT id, service_date, firstname, lastname, label FROM other_service WHERE service_date='$date'");
+    }
+    else{
+        $sql = mysqli_query($conn,"SELECT deworming_id, deworming_date, firstname, lastname, label FROM deworming WHERE deworming_date >='$date' AND deworming_date <='$date2'
+        UNION ALL
+        SELECT consultation_id, consultation_date, firstname, lastname, label FROM consultation WHERE consultation_date >='$date' AND consultation_date <='$date2'
+        UNION ALL
+        SELECT prenatal_id, prenatal_date, firstname, lastname, label FROM prenatal WHERE prenatal_date >='$date' AND prenatal_date <='$date2'
+        UNION ALL
+        SELECT postnatal_id, postnatal_date, firstname, lastname, label FROM postnatal WHERE postnatal_date >='$date' AND postnatal_date <='$date2'
+        UNION ALL
+        SELECT early_childhood_id, early_childhood_date, child_fname, child_lname, label FROM early_childhood WHERE early_childhood_date >='$date' AND early_childhood_date <='$date2'
+        UNION ALL
+        SELECT search_destroy_id, search_destroy_date, owner_fname, owner_lname, label FROM search_destroy WHERE search_destroy_date >='$date' AND search_destroy_date <='$date2'
+        UNION ALL
+        SELECT id, service_date, firstname, lastname, label FROM other_service WHERE service_date >='$date' AND service_date <='$date2'");
+    }
+
+    $patient = mysqli_fetch_assoc($sql);
+
+    // instantiate and use the dompdf class
+    $dompdf = new Dompdf();
+    ob_start();
+    require('./pdf-daily_reports/all_reports-pdf.php');
+    $html =ob_get_contents();
+    ob_get_clean();
+
+    $dompdf->loadHtml($html);
+
+    // (Optional) Setup the paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to Browser
+    
+    $dompdf->stream($date_show.$date_show2.'all_services.pdf',['Attachment'=>false]);
+   
 }

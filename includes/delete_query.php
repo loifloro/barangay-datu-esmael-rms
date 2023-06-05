@@ -2,16 +2,36 @@
 session_start();
 include "connection.php";
 
-//DELETE BHW ACCOUNT
-if (isset($_GET['delete_bhw'])) {
+//DEACTIVATE ACCOUNT
+if (isset($_GET['inactive_account'])) {
     $user_position = mysqli_real_escape_string($conn, $_GET['position']);
     $user_id = mysqli_real_escape_string($conn, $_GET['id']);
 
-    if ($user_position == 'City Health Nurse') {
-        $query = "DELETE FROM account_information WHERE account_id='$user_id'";
+    if ($user_position == 'Admin') {
+        $query = "UPDATE account_information SET status='Inactive' WHERE account_id='$user_id'";
         $query_run = mysqli_query($conn, $query);
         if ($query_run) {
-            // echo "<script>alert('Successfully Deleted!');document.location='../user-profile.php'</script>";
+            header("Location: ../user-profile.php?deleted");
+            exit(0);
+        } else {
+            header("Location: ../user-profile.php?error");
+        }
+    }
+    if ($user_position == 'Barangay Health Worker') {
+        echo "<script>alert('Sorry only admin can delete account');document.location='../user-profile.php'</script>";
+        exit(0);
+    }
+}
+
+//ACTIVATE ACCOUNT
+if (isset($_GET['active_account'])) {
+    $user_position = mysqli_real_escape_string($conn, $_GET['position']);
+    $user_id = mysqli_real_escape_string($conn, $_GET['id']);
+
+    if ($user_position == 'Admin') {
+        $query = "UPDATE account_information SET status='Active' WHERE account_id='$user_id'";
+        $query_run = mysqli_query($conn, $query);
+        if ($query_run) {
             header("Location: ../user-profile.php?deleted");
             exit(0);
         } else {

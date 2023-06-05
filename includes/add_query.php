@@ -13,9 +13,9 @@ if (isset($_GET['save_bhw'])) {
     $date_added = date('Y-m-d H:i:s');
 
     $query = "INSERT INTO account_information 
-              (firstname, default_email, password, sex, position, date_registered) 
+              (firstname, default_email, password, sex, position, date_registered, status) 
               VALUES 
-              ('-', '$user_email', '$encrypted_pwd', '-', '$position', '$date_added')";
+              ('-', '$user_email', '$encrypted_pwd', '-', '$position', '$date_added', 'Active')";
 
     $query_run = mysqli_query($conn, $query);
     if ($query_run) {

@@ -1,9 +1,20 @@
 <div id="prenatal__report<?= $patient['prenatal_id']; ?>" class="modal prenatal__report">
+    <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
+    <?php
+        $query = "SELECT * FROM account_information WHERE position='Admin'";
+        $query_run= mysqli_query($conn, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $user) {
+                $barangay_name = $user['barangay_name'];
+                $city_name = $user['city_name'];
+            }
+        }
+    ?>
     <h4 class="prenatal__report__title">
-        City Government of Dasmariñas <br> City Health Office II
+        City Government of <?=$city_name;?> <br> City Health Office II
     </h4>
     <p class="prenatal__report__city">
-        City of Dasmariñas, Cavite
+        City of <?=$city_name;?>
     </p>
 
 
@@ -217,19 +228,41 @@ if (isset($_GET['report__date'])) {
 ?>
     <!-- Postnatal daily reports -->
     <div class="modal deworming-reports" id="prenatal-daily-reports">
+        <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
+        <?php
+            $query = "SELECT * FROM account_information WHERE position='Admin'";
+            $query_run= mysqli_query($conn, $query);
+            if (mysqli_num_rows($query_run) > 0) {
+                foreach ($query_run as $user) {
+                    $barangay_name = $user['barangay_name'];
+                    $city_name = $user['city_name'];
+                }
+            }
+        ?>
+
         <h4 class="consultation__report__title">
-            City Government of Dasmariñas <br> City Health Office II
+            City Government of <?= $city_name; ?> <br> City Health Office II
         </h4>
         <p class="consultation__report__city">
-            City of Dasmariñas, Cavite
+            City of <?= $city_name; ?>
         </p>
 
         <h4 class="deworming-reports__title">
             Prenatal reports
         </h4>
+        <?php
+            $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+            $query_run = mysqli_query($conn, $query);
+            if (mysqli_num_rows($query_run) > 0) {
+                foreach ($query_run as $user) {
+                    $user_name= $user['firstname'].' '.$user['lastname'];
+                }
+            }   
+        ?>
+        <p>Prepared by: <?php echo $user_name; ?></p>
         <div class="deworming-reports__details">
             <p class="deworming-reports__brgy">
-                Name of Barangay: Datu Esmael
+                Name of Barangay: <?= $barangay_name; ?>
             </p>
             <!-- Query Start -->
             <?php
@@ -473,7 +506,7 @@ if (isset($_GET['report__date'])) {
                     }
                     else{
                         ?>
-                            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['prenatal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>')">
+                            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['prenatal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>&&userName=<?= $user_name ?>')">
                                 Save as PDF
                             </button>
                         <?php

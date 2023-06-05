@@ -13,8 +13,17 @@
                 </button>
             </form>
         </li>
+        <?php
+            $query = "SELECT * FROM account_information WHERE position='Admin'";
+            $query_run= mysqli_query($conn, $query);
+            if (mysqli_num_rows($query_run) > 0) {
+                foreach ($query_run as $user) {
+                    $barangay_name = $user['barangay_name'];
+                }
+            }
+        ?>
         <li class="sidebar__title">
-            Brgy. Datu Esmael Patient Record System
+            Brgy. <?= $barangay_name; ?> Patient Record System
         </li>
         <li class="sidebar__item">
             <a href="dashboard.php" class="sidebar__link"> <!--href link added-->

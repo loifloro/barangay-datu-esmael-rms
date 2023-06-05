@@ -22,7 +22,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         header("Location: index.php?error=Password is required"); /*Error Alert*/
         exit();
     } else {
-        $sql = "SELECT * FROM account_information WHERE user_email='$username' AND password='$encrypted_pwd' OR default_email='$username'";
+        $sql = "SELECT * FROM account_information WHERE user_email='$username' AND status='active' AND password='$encrypted_pwd' OR default_email='$username'";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) == 0) {

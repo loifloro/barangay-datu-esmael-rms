@@ -45,6 +45,50 @@ function hide_content()
         }
     }
 }
+
+// HIDE CONTENT FOR CITY NURSE
+function hide_content_nurse()
+{
+    include 'includes/connection.php';
+    $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        foreach ($query_run as $user) {
+            $position = $user['position'];
+        }
+        if ($position == 'City Health Nurse') {
+?>
+            <style type="text/css">
+                #upload_user{
+                    display: none;
+                }
+                #backup_user{
+                    display: none;
+                }
+                #restore_user{
+                    display: none;
+                }
+                #account_user{
+                    display: none;
+                }
+                #edit_user{
+                    display: none;
+                }
+                #active_user{
+                    display: none;
+                }
+                #deactive_user{
+                    display: none;
+                }
+                #register_city_section{
+                    display: none;
+                }
+            </style>
+        <?php
+        }
+    }
+}
+
 //HIDE CONTENT FOR DEWORMING PATIENT ACCESS
 function hide_patient_deworming()
 {
@@ -119,6 +163,9 @@ function hide_patient_deworming()
                 }
 
                 #generated_password {
+                    display: none;
+                }
+                .edit-history{
                     display: none;
                 }
             </style>

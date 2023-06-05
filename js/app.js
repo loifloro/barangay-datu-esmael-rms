@@ -616,17 +616,38 @@ fileInput.addEventListener("change", function (event) {
   the_return.innerHTML = this.value;
 });
 
-function confirmDeleteUser(position, accountId) {
+function confirmDeactivateStatus(position, accountId) {
   Swal.fire({
     icon: "question",
-    title: "Confirm delete user",
-    text: "Do you want to permanently remove this account?",
+    title: "Account Deactivation",
+    text: "Do you want to deactivate this account?",
     showCancelButton: true,
   }).then((result) => {
     if (result.isConfirmed) {
       window.location.href =
         "includes/delete_query.php?" +
-        "delete_bhw&" +
+        "inactive_account&" +
+        "&position=" +
+        position +
+        "&id=" +
+        accountId;
+    } else {
+      return Swal.close();
+    }
+  });
+}
+
+function confirmActivateStatus(position, accountId) {
+  Swal.fire({
+    icon: "question",
+    title: "Account Activation",
+    text: "Do you want to activate this account?",
+    showCancelButton: true,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      window.location.href =
+        "includes/delete_query.php?" +
+        "active_account&" +
         "&position=" +
         position +
         "&id=" +
