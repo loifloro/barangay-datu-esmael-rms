@@ -1,4 +1,4 @@
-<section class="patient-profile__card">
+<section class="patient-profile__card" id="patient-profile__card">
     <!-- START QUERY -->
     <?php
     if (isset($_GET['success'])) {
@@ -116,7 +116,7 @@
 
 
 
-<section class="history">
+<section class="history hidden" id="history">
     <section class="medical-history">
         <!-- Medical History -->
         <div class="medical-history__title">

@@ -684,3 +684,22 @@ function confirmEditUser(accountId) {
     }
   });
 }
+
+function patientProfileView(show) {
+  const profile = document.getElementById("patient-profile__card");
+  const history = document.getElementById("history");
+  const profileTitle = document.getElementById("profileTitle");
+  const historyTitle = document.getElementById("historyTitle");
+
+  if (show === "profile") {
+    historyTitle.classList.remove("patient-profile__title--active");
+    profile.classList.remove("hidden");
+    history.classList.add("hidden");
+    profileTitle.classList.add("patient-profile__title--active");
+  } else {
+    profileTitle.classList.remove("patient-profile__title--active");
+    historyTitle.classList.add("patient-profile__title--active");
+    history.classList.remove("hidden");
+    profile.classList.add("hidden");
+  }
+}

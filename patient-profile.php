@@ -251,7 +251,8 @@ if (mysqli_num_rows($query_run2) > 0) {
             <a href="patients.php">Back</a>
         </p>
         <h2 class="patient-profile__title">
-            Profile
+            <a onclick="patientProfileView('profile')" class="patient-profile__title--active" id='profileTitle'>Profile</a>
+            <a onclick="patientProfileView('history')" id='historyTitle'>Medical History</a>
         </h2>
 
         <?php
