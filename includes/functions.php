@@ -57,30 +57,37 @@ function hide_content_nurse()
             $position = $user['position'];
         }
         if ($position == 'City Health Nurse') {
-?>
+        ?>
             <style type="text/css">
-                #upload_user{
+                #upload_user {
                     display: none;
                 }
-                #backup_user{
+
+                #backup_user {
                     display: none;
                 }
-                #restore_user{
+
+                #restore_user {
                     display: none;
                 }
-                #account_user{
+
+                #account_user {
                     display: none;
                 }
-                #edit_user{
+
+                #edit_user {
                     display: none;
                 }
-                #active_user{
+
+                #active_user {
                     display: none;
                 }
-                #deactive_user{
+
+                #deactive_user {
                     display: none;
                 }
-                #register_city_section{
+
+                #register_city_section {
                     display: none;
                 }
             </style>
@@ -165,8 +172,13 @@ function hide_patient_deworming()
                 #generated_password {
                     display: none;
                 }
-                .edit-history{
+
+                .edit-history {
                     display: none;
+                }
+
+                .history {
+                    grid-template-columns: unset !important;
                 }
             </style>
         <?php
@@ -249,6 +261,14 @@ function hide_patient_consultation()
                 #generated_password {
                     display: none;
                 }
+
+                .edit-history {
+                    display: none;
+                }
+
+                .history {
+                    grid-template-columns: unset !important;
+                }
             </style>
         <?php
         }
@@ -329,6 +349,14 @@ function hide_patient_prenatal()
 
                 #generated_password {
                     display: none;
+                }
+
+                .edit-history {
+                    display: none;
+                }
+
+                .history {
+                    grid-template-columns: unset !important;
                 }
             </style>
         <?php
@@ -411,6 +439,14 @@ function hide_patient_postnatal()
                 #generated_password {
                     display: none;
                 }
+
+                .edit-history {
+                    display: none;
+                }
+
+                .history {
+                    grid-template-columns: unset !important;
+                }
             </style>
         <?php
         }
@@ -492,6 +528,14 @@ function hide_patient_search_destroy()
                 #generated_password {
                     display: none;
                 }
+
+                .edit-history {
+                    display: none;
+                }
+
+                .history {
+                    grid-template-columns: unset !important;
+                }
             </style>
         <?php
         }
@@ -572,6 +616,14 @@ function hide_patient_childhood()
 
                 #generated_password {
                     display: none;
+                }
+
+                .edit-history {
+                    display: none;
+                }
+
+                .history {
+                    grid-template-columns: unset !important;
                 }
             </style>
         <?php
@@ -655,6 +707,14 @@ function hide_patient_others()
                 #generated_password {
                     display: none;
                 }
+
+                .edit-history {
+                    display: none;
+                }
+
+                .history {
+                    grid-template-columns: unset !important;
+                }
             </style>
         <?php
         }
@@ -701,36 +761,45 @@ function hide_content_bhw_noname()
             $name = $user['firstname'];
         }
         if ($position == 'Barangay Health Worker' && $name == '-') {
-?>
+        ?>
             <style type="text/css">
                 .bhw-account {
                     display: none;
                 }
+
                 .user-profile__backup {
                     display: none;
                 }
+
                 #archive-profile {
                     display: none;
                 }
+
                 #masterlist_sidebar {
                     display: none;
                 }
+
                 #backup_sidebar {
                     display: none;
                 }
-                #dashboard_active{
+
+                #dashboard_active {
                     display: none;
                 }
-                #patient_active{
+
+                #patient_active {
                     display: none;
                 }
-                #patient_user_profile{
+
+                #patient_user_profile {
                     display: none;
                 }
-                #services_active{
+
+                #services_active {
                     display: none;
                 }
-                #hr_active{
+
+                #hr_active {
                     display: none;
                 }
             </style>
