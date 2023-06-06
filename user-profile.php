@@ -158,7 +158,7 @@ hide_content_nurse();
                 <div class="user-profile__backup__form" id="upload_user">
                     <label for="patient-password">
                         <p class="backup-title">Barangay Name</p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, hic.
+                        Update the Barangay Name to change all names of Barangay in forms, reports and entire system
                     </label>
                     <div class="user-profile__columns">
 
@@ -168,7 +168,7 @@ hide_content_nurse();
                 <div class="user-profile__backup__form" id="upload_user">
                     <label for="patient-password">
                         <p class="backup-title">Municipality / City Name</p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, hic.
+                        Update the Barangay Name to change all names of Barangay in forms, reports and entire system
                     </label>
                     <div class="user-profile__columns">
 
@@ -194,11 +194,11 @@ hide_content_nurse();
                 <div class="user-profile__backup__form" id="upload_user">
                     <label for="patient-password">
                         <p class="backup-title">Upload</p>
-                        Click the button to download in your local file the backup of the database system.
+                        Click the button to select in your local file the backup of the database system.
                     </label>
                     <div class="btn-section">
                         <div class="input-file-container">
-                            <label tabindex="0" for="my-file" class="input-file-trigger">Select a file...</label>
+                            <label tabindex="0" for="my-file" class="input-file-trigger">Upload</label>
                             <input class="input-file" id="my-file" type="file" accept=".sql" name='filename'>
                         </div>
                         <p class="file-return"></p>
