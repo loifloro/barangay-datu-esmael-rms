@@ -1,5 +1,5 @@
 <head>
-  <title><?= $patient['firstname'].' '.$patient['lastname']; ?> Consultation Record</title>
+    <title><?= $patient['firstname'] . ' ' . $patient['lastname']; ?> Consultation Record</title>
 </head>
 
 <!-- INTERNAL CSS -->
@@ -82,20 +82,20 @@
 <div id="consultation__report<?= $patient['consultation_id']; ?>" class="modal consultation__report">
     <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
     <?php
-        $query = "SELECT * FROM account_information WHERE position='Admin'";
-        $query_run= mysqli_query($conn, $query);
-        if (mysqli_num_rows($query_run) > 0) {
-            foreach ($query_run as $user) {
-                $barangay_name = $user['barangay_name'];
-                $city_name = $user['city_name'];
-            }
+    $query = "SELECT * FROM account_information WHERE position='Admin'";
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        foreach ($query_run as $user) {
+            $barangay_name = $user['barangay_name'];
+            $city_name = $user['city_name'];
         }
+    }
     ?>
     <h4 class="consultation__report__title">
-        City Government of <?=$city_name;?> <br> City Health Office II
+        City Government of <?= $city_name; ?> <br> City Health Office II
     </h4>
     <p class="consultation__report__city">
-        City of <?=$city_name;?>
+        City of <?= $city_name; ?>
     </p>
 
     <h5 class="consultation__report__title consultation__report__patient-record">
@@ -143,7 +143,7 @@
 
     <div class="padding-left">
         <p class="consultation__report__symptom">
-            <abbr title="Symptoms">S></abbr>
+            <abbr title="Symptoms">Symptoms></abbr>
             <span class="value">
                 <?= $patient['symptoms']; ?>
             </span>
@@ -155,7 +155,7 @@
 
         <div class="consultation__report__bmi">
             <p class="consultation__report__bmi__item">
-                <abbr title="O">O> BP</abbr>
+                <abbr title="O">Observation> Blood pressure</abbr>
                 <span class="value">
                     <?= $patient['blood_pressure']; ?>
                     mmHg
@@ -163,7 +163,7 @@
 
             </p>
             <p class="consultation__report__bmi__item--weight">
-                <abbr title="Weight">WT:</abbr>
+                <abbr title="Weight">Weight:</abbr>
                 <span class="value">
                     <?= $patient['weight']; ?>
                     kg
@@ -171,13 +171,13 @@
             </p>
         </div>
         <p class="prenatal__report__a">
-            <abbr title="">A> </abbr>
+            <abbr title="">Abnormalities> </abbr>
             <span class="value">
                 <?= $patient['abnormal']; ?>
             </span>
         </p>
         <p class="prenatal__report__p">
-            <abbr title="">P> </abbr>
+            <abbr title="">Prescription> </abbr>
             <span class="value">
                 <?= $patient['prescriptions']; ?>
             </span>
