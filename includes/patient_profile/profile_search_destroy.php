@@ -462,6 +462,8 @@
             ?>
             <!-- End of Query for Medical History -->
         </div>
+        <?php include 'includes/data-tables/search-destroy.php'; ?>
+
     </section>
 
     <section class="edit-history">
