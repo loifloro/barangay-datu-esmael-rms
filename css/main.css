@@ -494,7 +494,7 @@ table.dataTable tbody tr td a {
 }
 
 .dataTables_wrapper {
-  margin-block: 2rem;
+  margin-block: 0.5rem;
 }
 
 .dataTables_wrapper > * {
@@ -539,6 +539,11 @@ table.dataTable tbody tr td a {
   outline: #034a23 solid 1px;
   background: var(--white-1);
 }
+@media (max-width: 48.1rem) {
+  .dataTables_wrapper .dataTables_filter input {
+    width: 30vw;
+  }
+}
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
   border-radius: 0.5vw;
@@ -555,6 +560,20 @@ table.dataTable tbody tr td a {
   background: var(--white-1);
 }
 
+@media screen and (max-width: 640px) {
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter {
+    display: block;
+    float: unset;
+  }
+  .dataTables_wrapper .dataTables_filter {
+    float: right;
+    text-align: right;
+  }
+  .dataTables_wrapper .dataTables_length {
+    float: left;
+  }
+}
 /**
  * Set up a decent box model on the root element
  */
