@@ -7,7 +7,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Poppins:ital,wght@0,500;0,600;0,700;1,300&display=swap");
 
 body {
-  font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma", sans-serif;
+  font-family: "Chirp", "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma",
+    sans-serif;
 }
 
 h1,
@@ -50,14 +51,16 @@ h4,
 }
 
 p,
+li,
 .p {
-  font-size: 1rem;
+  // font-size: 0.95rem;
   font-weight: 400;
+  letter-spacing: 0.2px;
   color: $black-2;
 }
 
 button {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 a,

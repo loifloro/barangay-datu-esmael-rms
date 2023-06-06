@@ -239,6 +239,7 @@ button {
   /* Browsers have different default form fonts */
   font-size: 1.12rem;
   font-family: inherit;
+  font-weight: 600;
 }
 button:hover {
   cursor: pointer;
@@ -382,6 +383,10 @@ input[type=range] {
   input[type=range] {
     display: none;
   }
+}
+
+input[type=password] {
+  font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma";
 }
 
 .modal {
@@ -578,8 +583,33 @@ a {
   text-decoration: none;
 }
 
+@font-face {
+  font-family: "Chirp";
+  src: url(../assets/chirp-regular-web.woff) format("woff");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Chirp";
+  src: url(../assets/chirp-medium-web.woff) format("woff");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Chirp";
+  src: url(../assets/chirp-medium-web.woff) format("woff");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Chirp";
+  src: url(../assets/chirp-heavy-web.woff) format("woff");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Chirp";
+  src: url(../assets/chirp-bold-web.woff) format("woff");
+  font-weight: 900;
+}
 body {
-  font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma", sans-serif;
+  font-family: "Chirp", "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma", sans-serif;
 }
 
 h1,
@@ -617,14 +647,15 @@ h4,
 }
 
 p,
+li,
 .p {
-  font-size: 1rem;
   font-weight: 400;
+  letter-spacing: 0.2px;
   color: var(--black-2);
 }
 
 button {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 a,
@@ -904,7 +935,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   display: block;
   background: #034a23;
   color: var(--white-1);
-  font-size: 1em;
+  font-size: 1.12rem;
   transition: all 0.4s;
   cursor: pointer;
   text-align: center;
@@ -1691,7 +1722,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   background: var(--white-3);
 }
 .sidebar__item--active .sidebar__caption {
-  font-weight: 600;
+  font-weight: 700;
 }
 .sidebar__item--margin-top {
   margin-top: auto;
@@ -1716,7 +1747,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .sidebar__item:hover .sidebar__caption, .sidebar__item:focus .sidebar__caption {
   color: #034a23;
-  font-weight: 600;
+  font-weight: 700;
 }
 .sidebar__icon {
   margin-inline: 1.25rem;

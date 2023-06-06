@@ -37,6 +37,7 @@ button {
   /* Browsers have different default form fonts */
   font-size: 1.12rem;
   font-family: inherit;
+  font-weight: 600;
 
   &:hover {
     cursor: pointer;
@@ -164,4 +165,8 @@ input[type="range"] {
     // Medium smartphone
     display: none;
   }
+}
+
+input[type="password"] {
+  font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma";
 }
