@@ -489,7 +489,7 @@ table.dataTable.display tbody td {
 
 table.dataTable tbody tr td a {
   font: unset;
-  font-weight: 600;
+  font-weight: 700;
   color: #207647;
 }
 
@@ -600,12 +600,12 @@ a {
 }
 @font-face {
   font-family: "Chirp";
-  src: url(../assets/chirp-heavy-web.woff) format("woff");
+  src: url(../assets/chirp-bold-web.woff) format("woff");
   font-weight: 700;
 }
 @font-face {
   font-family: "Chirp";
-  src: url(../assets/chirp-bold-web.woff) format("woff");
+  src: url(../assets/chirp-heavy-web.woff) format("woff");
   font-weight: 900;
 }
 body {
@@ -615,7 +615,7 @@ body {
 h1,
 .h1 {
   font-size: clamp(2rem, 1rem + 2vw, 2.45rem);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--black-1);
   line-height: 1;
 }
@@ -623,7 +623,7 @@ h1,
 h2,
 .h2 {
   font-size: clamp(1.6rem, 0.6rem + 2vw, 1.9rem);
-  font-weight: 700;
+  font-weight: 900;
   color: var(--black-1);
   line-height: 1.2;
 }
@@ -1722,7 +1722,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   background: var(--white-3);
 }
 .sidebar__item--active .sidebar__caption {
-  font-weight: 700;
+  font-weight: 900;
 }
 .sidebar__item--margin-top {
   margin-top: auto;
@@ -1747,7 +1747,7 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .sidebar__item:hover .sidebar__caption, .sidebar__item:focus .sidebar__caption {
   color: #034a23;
-  font-weight: 700;
+  font-weight: 900;
 }
 .sidebar__icon {
   margin-inline: 1.25rem;
