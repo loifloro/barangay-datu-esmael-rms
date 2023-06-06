@@ -462,6 +462,7 @@
             ?>
             <!-- End of Query for Medical History -->
         </div>
+        <?php include 'includes/data-tables/deworming.php'; ?>
     </section>
 
     <section class="edit-history">

@@ -462,7 +462,9 @@
             ?>
             <!-- End of Query for Medical History -->
         </div>
+        <?php include 'includes/data-tables/others.php'; ?>
     </section>
+
 
     <section class="edit-history">
         <div class="edit-history__card">

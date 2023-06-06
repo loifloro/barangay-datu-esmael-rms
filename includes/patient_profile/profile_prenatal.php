@@ -461,6 +461,8 @@
             ?>
             <!-- End of Query for Medical History -->
         </div>
+        <?php include 'includes/data-tables/prenatal.php'; ?>
+
     </section>
 
     <section class="edit-history">
