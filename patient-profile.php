@@ -231,7 +231,7 @@ if (mysqli_num_rows($query_run2) > 0) {
             }
         }
     ?>
-        <title><?= $patient_tab; ?></title>
+        <title><?= $patient_tab; ?> | Profile | Brgy. Datu Esmael Patient Record System</title>
     <?php
     }
     ?>
