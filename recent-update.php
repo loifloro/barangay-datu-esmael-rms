@@ -85,13 +85,13 @@ hide_content();
             <!-- End of Form Action -->
             <!-- Start Query for sort-->
             <?php
-            $query = "SELECT * FROM recent_activity ORDER BY date_edit DESC";
+            $query = "SELECT * FROM recent_activity ORDER BY date_edit DESC, time_edit DESC";
             $query_run = mysqli_query($conn, $query);
             if (mysqli_num_rows($query_run) > 0) {
                 if (isset($_POST['sort_details'])) {
                     $sort_id = $_POST['sort_details'];
                     if ($sort_id == 1) {
-                        $query = "SELECT * FROM recent_activity ORDER BY date_edit ASC";
+                        $query = "SELECT * FROM recent_activity ORDER BY date_edit DESC, time_edit DESC";
                         $query_run = mysqli_query($conn, $query);
                     }
                 }
