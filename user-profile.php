@@ -146,8 +146,8 @@ hide_content_nurse();
                 <!-- End of Query -->
                     </ul>
         </section>
-        <hr>
         <section class="user-profile__backup" id="register_city_section">
+            <hr>
             <h2 class="user-profile__title">
                 Location
             </h2>
@@ -180,8 +180,8 @@ hide_content_nurse();
                     </div>
                 </div>
             </form>
+            <hr>
         </section>
-        <hr>
         <section class="user-profile__backup">
             <h2 class="user-profile__title">
                 Backup
@@ -247,8 +247,8 @@ hide_content_nurse();
                     </div>
                 </div>
             </form>
+            <hr>
         </section>
-        <hr>
 
         <section class="bhw-account">
             <h2 class="bhw-profile__title">

@@ -120,9 +120,7 @@
     <section class="medical-history">
         <!-- Medical History -->
         <div class="medical-history__title">
-            <h2 class="">
-                Medical History
-            </h2>
+
             <button id="add_service_bt" class="btn-green btn-change btn-restore" onclick="addNewRecord('<?= $patient['child_fname'] ?>' , '<?= $patient['child_lname'] ?>' , '<?= $patient['phone_num']; ?>' , '<?= $patient['child_birthdate'];; ?>' ,  '<?= $patient['sex']; ?>' , '<?= $patient['street_address']; ?>' , '<?= $patient['city']; ?>' , '<?= $patient['barangay'] ?>' , '<?= $patient['early_childhood_email']; ?>')">
                 <p>Add Service</p>
             </button>
