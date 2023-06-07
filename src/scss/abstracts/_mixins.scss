@@ -68,7 +68,7 @@
   // Need to put on a mixin
   &:before {
     background: $hover-background;
-    border-radius: 0.5vw;
+    border-radius: 0.5rem;
 
     content: "";
     position: absolute;

@@ -32,11 +32,12 @@ button {
   background: none;
   line-height: 1;
   height: 2.5rem;
-  border-radius: 0.5vw;
+  border-radius: 0.5rem;
 
   /* Browsers have different default form fonts */
   font-size: 1.12rem;
   font-family: inherit;
+  font-weight: 600;
 
   &:hover {
     cursor: pointer;
@@ -82,7 +83,7 @@ select {
   font-weight: 600;
   height: 2.5rem;
   background: $white-3;
-  border-radius: 0.5vw;
+  border-radius: 0.5rem;
   letter-spacing: 0.05rem;
 
   transition: $fade;
@@ -102,7 +103,7 @@ select {
 
 textarea {
   background: $white-3;
-  border-radius: 0.5vw;
+  border-radius: 0.5rem;
   letter-spacing: 0.05rem;
   padding: 0.5rem;
   font-weight: 600;
@@ -164,4 +165,8 @@ input[type="range"] {
     // Medium smartphone
     display: none;
   }
+}
+
+input[type="password"] {
+  font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma";
 }

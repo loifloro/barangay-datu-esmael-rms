@@ -518,11 +518,6 @@ if (isset($_GET['restore'])) {
             </button>
         </div>
 
-        <?php
-        include 'includes/tables/services_deworming.php'
-        ?>
-
-
         <!-- Start Tab for Consultation -->
         <div class="services__table" id="Consultation">
             <!-- START OF FORM ACTION -->
@@ -1753,19 +1748,6 @@ if (isset($_GET['restore'])) {
     }
     ?>
 
-
-    <!-- Datatables -->
-    <script>
-        $(document).ready(function() {
-            $("#deworming__services").DataTable();
-        });
-        $('#example').dataTable({
-            "columnDefs": [{
-                "width": "30%",
-                "targets": 0
-            }]
-        });
-    </script>
 
 </body>
 

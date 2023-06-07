@@ -31,6 +31,18 @@ window.addEventListener("scroll", () => {
   lastScroll = currentScroll;
 });
 
+// Date Pickers
+function datePicker() {
+  const datePickerFrom = document.getElementById("date__from");
+  const datePickerTo = document.getElementById("date__to");
+
+  // dashboardDatePickerFrom.addEventListener("change", () => {
+  datePickerTo.removeAttribute("disabled");
+  datePickerTo.setAttribute("min", datePickerFrom.value);
+  // });
+}
+
+// Menu
 const navMenu = document.getElementById("hamburger-menu");
 const sideBar = document.getElementById("sidebar");
 navMenu.addEventListener("click", () => {
@@ -671,4 +683,23 @@ function confirmEditUser(accountId) {
       return Swal.close();
     }
   });
+}
+
+function patientProfileView(show) {
+  const profile = document.getElementById("patient-profile__card");
+  const history = document.getElementById("history");
+  const profileTitle = document.getElementById("profileTitle");
+  const historyTitle = document.getElementById("historyTitle");
+
+  if (show === "profile") {
+    historyTitle.classList.remove("patient-profile__title--active");
+    profile.classList.remove("hidden");
+    history.classList.add("hidden");
+    profileTitle.classList.add("patient-profile__title--active");
+  } else {
+    profileTitle.classList.remove("patient-profile__title--active");
+    historyTitle.classList.add("patient-profile__title--active");
+    history.classList.remove("hidden");
+    profile.classList.add("hidden");
+  }
 }

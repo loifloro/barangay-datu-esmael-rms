@@ -30,29 +30,30 @@ hide_content();
     <title>Dashboard | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
-<?php
-if (isset($_GET['success'])) {
-?>
-    <script>
-        Swal.fire({
-            toast: true,
-            position: 'top-right',
-            icon: 'success',
-            iconColor: 'white',
-            title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
-            customClass: {
-                popup: 'toast'
-            },
-            showConfirmButton: false,
-            timer: 2000,
-            timerProgressBar: true,
-        })
-    </script>
-<?php
-}
-?>
 
 <body class="grid" id="grid">
+
+    <?php
+    if (isset($_GET['success'])) {
+    ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Welcome, <?php echo $_SESSION['firstname'] ?>!',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
+    }
+    ?>
 
     <?php
     include './includes/loader.php';

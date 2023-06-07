@@ -43,7 +43,7 @@
                         }
                     }
                     ?>
-                            <option value="All"> All </option>
+                    <option value="All"> All </option>
                 </select>
             </div>
 
@@ -57,11 +57,11 @@
             <div class="reports__date">
                 <div class="reports__form__date">
                     <label for="report__date">Date From </label>
-                    <input type="date" name="report__date" id="report__date" required value="<?= $date; ?>">
+                    <input type="date" name="report__date" id="date__from" required value="<?= $date; ?>" onchange="datePicker()">
                 </div>
                 <div class="reports__form__date">
                     <label for="report__date">Date To </label>
-                    <input type="date" name="report__date2" id="report__date" value="<?= $date2; ?>">
+                    <input type="date" name="report__date2" id="date__to" value="<?= $date2; ?>" disabled>
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
                 include 'early-childhood.php';
             } elseif ($report_service == 'All') {
                 include 'all.php';
-            } else{
+            } else {
                 include 'other_services.php';
             }
         }

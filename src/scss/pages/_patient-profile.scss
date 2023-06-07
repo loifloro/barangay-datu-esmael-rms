@@ -14,13 +14,41 @@
       grid-template-columns: unset;
     }
   }
+
+  &__title {
+    color: rgba(144, 144, 135, 0.393);
+
+    & > * {
+      font: unset;
+      color: unset;
+      margin-right: 0.5rem;
+      // font-weight: 700;
+
+      &:hover {
+        color: $green;
+        text-decoration: none;
+      }
+    }
+
+    &--active {
+      font-weight: 900;
+      color: $green;
+    }
+  }
+
   button {
-    margin-block: 0.5rem;
+    // margin-block: 0.5rem;
   }
 
   .medical-history__title {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
+    -moz-column-gap: 1rem;
+    column-gap: 1rem;
   }
+}
+
+.hidden {
+  display: none !important;
 }

@@ -1,20 +1,20 @@
 <div id="postnatal__report<?= $patient['postnatal_id'] ?>" class="modal prenatal__report">
     <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
     <?php
-        $query = "SELECT * FROM account_information WHERE position='Admin'";
-        $query_run= mysqli_query($conn, $query);
-        if (mysqli_num_rows($query_run) > 0) {
-            foreach ($query_run as $user) {
-                $barangay_name = $user['barangay_name'];
-                $city_name = $user['city_name'];
-            }
+    $query = "SELECT * FROM account_information WHERE position='Admin'";
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        foreach ($query_run as $user) {
+            $barangay_name = $user['barangay_name'];
+            $city_name = $user['city_name'];
         }
+    }
     ?>
     <h4 class="prenatal__report__title">
-        City Government of <?=$city_name;?> <br> City Health Office II
+        City Government of <?= $city_name; ?> <br> City Health Office II
     </h4>
     <p class="prenatal__report__city">
-        City of <?=$city_name;?>
+        City of <?= $city_name; ?>
     </p>
 
 
@@ -76,31 +76,32 @@
 
     <div class="padding-left">
         <p class="prenatal__report__symptom">
-            <abbr title="Symptoms">S></abbr>
+            <abbr title="Symptoms">Symptoms></abbr>
             <span class="value">
                 <!-- # $patient['symptoms']; -->
             </span>
         </p>
         <div class="prenatal__report__bmi">
             <p class="prenatal__report__bmi__item">
-                <abbr title="O">O> BP</abbr>
+                <abbr title="O">Observation> Blood pressure</abbr>
                 <span class="value">
                     <?= $patient['blood_pressure']; ?>
                 </span>
                 mmHg
             </p>
             <p class="prenatal__report__bmi__item">
-                <abbr title="Weight">WT:</abbr>
+                <abbr title="Weight">Weight:</abbr>
                 <span class="value">
                     <?= $patient['weight']; ?>
                 </span>
                 kg
             </p>
             <p class="prenatal__report__bmi__item prenatal__report__bmi__item--end">
-                <abbr title="Height">H: </abbr>
+                <abbr title="Height">Height: </abbr>
                 <span class="value">
                     <?= $patient['height']; ?>
                 </span>
+                cm
             </p>
         </div>
         <div class="prenatal__report__ob">
@@ -109,13 +110,13 @@
             </h5>
             <div class="prenatal__report__ob__gp">
                 <p class="prenatal__report__ob-g">
-                    <abbr title="">G: </abbr>
+                    <abbr title="">Gravida: </abbr>
                     <span class="value">
                         <?= $patient['gravida']; ?>
                     </span>
                 </p>
                 <p class="prenatal__report__ob-p">
-                    <abbr title="">P: </abbr>
+                    <abbr title="">Preterm: </abbr>
                     <span class="value">
                         <?= $patient['preterm']; ?>
                     </span>
@@ -124,19 +125,19 @@
         </div>
         <div class="block center">
             <p class="prenatal__report__ob__lmp">
-                <abbr title="">LMP: </abbr>
+                <abbr title="">Last Menstrual Period: </abbr>
                 <span class="value">
                     <?= $patient['last_menstrual']; ?>
                 </span>
             </p>
             <p class="prenatal__report__ob__edc">
-                <abbr title="">EDC: </abbr>
+                <abbr title="">Estimated Date of Confinement: </abbr>
                 <span class="value">
                     <?= $patient['edc']; ?>
                 </span>
             </p>
             <p class="prenatal__report__ob__aog">
-                <abbr title="">AOG: </abbr>
+                <abbr title="">Assessment of Gestational Age: </abbr>
                 <span class="value">
                     <?= $patient['aog']; ?>
                 </span>
@@ -147,14 +148,14 @@
         </h5>
         <div class="prenatal__report__abdomen center">
             <p class="prenatal__report__abdomen">
-                <abbr title="">FH: </abbr>
+                <abbr title="">Fetal Heart: </abbr>
                 <span class="value">
                     <?= $patient['fetal_heart']; ?>
                 </span>
                 cm
             </p>
             <p class="prenatal__report__abdomen">
-                <abbr title="">FHT: </abbr>
+                <abbr title="">Fetal Heart Tones: </abbr>
                 <span class="value">
                     <?= $patient['fetal_heart_tones']; ?>
                 </span>
@@ -171,13 +172,13 @@
             Tetanus Toxoid Status
         </h5>
         <p class="prenatal__report__tetanus__a">
-            <abbr title="">A> </abbr>
+            <abbr title="">Abnormalities> </abbr>
             <span class="value">
                 <?= $patient['a']; ?>
             </span>
         </p>
         <p class="prenatal__report__tetanus__a">
-            <abbr title="">P> </abbr>
+            <abbr title="">Prescription> </abbr>
             <span class="value">
                 <?= $patient['p']; ?>
             </span>
@@ -188,8 +189,8 @@
         </p>
     </div>
     <?php
-            $mail = $_SESSION['user_email'];
-            $query = "SELECT position, user_email FROM account_information WHERE user_email='$mail'
+    $mail = $_SESSION['user_email'];
+    $query = "SELECT position, user_email FROM account_information WHERE user_email='$mail'
                       UNION ALL
                       SELECT label, deworming_email FROM deworming WHERE deworming_email='$mail'
                       UNION ALL
@@ -202,45 +203,44 @@
                       SELECT label, search_destroy_email FROM search_destroy WHERE search_destroy_email='$mail'
                       UNION ALL
                       SELECT label, early_childhood_email FROM early_childhood WHERE early_childhood_email='$mail'";
-             $query_run = mysqli_query($conn, $query);
-             if (mysqli_num_rows($query_run) == 1) {
-                $row = mysqli_fetch_assoc($query_run);
-                if($row['position'] == 'Barangay Health Worker'){
-                    ?>
-                        <button type="submit" class="btn-add services__btn btn-print" disabled>
-                            Save as PDF
-                        </button>
-                    <?php
-                }
-                else{
-                    ?>
-                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['postnatal_id'] ?>&&label=<?= $patient['label'] ?>')">
-                            Save as PDF
-                        </button>
-                    <?php
-                }
-            }   
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) == 1) {
+        $row = mysqli_fetch_assoc($query_run);
+        if ($row['position'] == 'Barangay Health Worker') {
+    ?>
+            <button type="submit" class="btn-add services__btn btn-print" disabled>
+                Save as PDF
+            </button>
+        <?php
+        } else {
         ?>
+            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf.php?id=<?= $patient['postnatal_id'] ?>&&label=<?= $patient['label'] ?>')">
+                Save as PDF
+            </button>
+    <?php
+        }
+    }
+    ?>
 </div>
 
 
 <!-- Postnatal daily reports -->
 <div class="modal deworming-reports" id="postnatal-daily-reports">
     <?php
-        if (isset($_GET['report__date'])) {
+    if (isset($_GET['report__date'])) {
     ?>
 
-    <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
-    <?php
+        <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
+        <?php
         $query = "SELECT * FROM account_information WHERE position='Admin'";
-        $query_run= mysqli_query($conn, $query);
+        $query_run = mysqli_query($conn, $query);
         if (mysqli_num_rows($query_run) > 0) {
             foreach ($query_run as $user) {
                 $barangay_name = $user['barangay_name'];
                 $city_name = $user['city_name'];
             }
         }
-    ?>
+        ?>
         <h4 class="consultation__report__title">
             City Government of <?= $city_name; ?> <br> City Health Office II
         </h4>
@@ -252,13 +252,13 @@
             Postnatal reports
         </h4>
         <?php
-            $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
-            $query_run = mysqli_query($conn, $query);
-            if (mysqli_num_rows($query_run) > 0) {
-                foreach ($query_run as $user) {
-                    $user_name= $user['firstname'].' '.$user['lastname'];
-                }
-            }   
+        $query = "SELECT * FROM account_information WHERE account_id = '" . $_SESSION['account_id'] . "'";
+        $query_run = mysqli_query($conn, $query);
+        if (mysqli_num_rows($query_run) > 0) {
+            foreach ($query_run as $user) {
+                $user_name = $user['firstname'] . ' ' . $user['lastname'];
+            }
+        }
         ?>
         <p>Prepared by: <?php echo $user_name; ?></p>
         <div class="deworming-reports__details">
@@ -270,32 +270,31 @@
             if (isset($_GET['report__date']) && isset($_GET['report__date2'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
                 $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                
-                if($date2 == ""){
+
+                if ($date2 == "") {
                     // CONVERT DATE TO MM-DD-YY
                     $date = new DateTime($date);
                     $new_date = $date->format("m-d-Y");
-                    ?>
-                        <div class="deworming-reports__date">
-                            Date From: <?php echo $new_date; ?>
-                        </div>
-                    <?php
-                }
-                else{
+            ?>
+                    <div class="deworming-reports__date">
+                        Date From: <?php echo $new_date; ?>
+                    </div>
+                <?php
+                } else {
                     // CONVERT DATE TO MM-DD-YY
                     $date = new DateTime($date);
                     $new_date = $date->format("m-d-Y");
 
                     $date2 = new DateTime($date2);
                     $new_date2 = $date2->format("m-d-Y");
-                    ?>
-                        <div class="deworming-reports__date">
-                            Date From: <?php echo $new_date; ?>
-                            <br>Date To: <?php echo $new_date2; ?>
-                        </div>
-                    <?php
+                ?>
+                    <div class="deworming-reports__date">
+                        Date From: <?php echo $new_date; ?>
+                        <br>Date To: <?php echo $new_date2; ?>
+                    </div>
+            <?php
                 }
-            } 
+            }
             ?>
             <!-- End Date Query -->
         </div>
@@ -307,21 +306,20 @@
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM postnatal WHERE postnatal_date = '$date'";
-                    $result = mysqli_query($conn, $query);
-                }
-                else{
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
-                    $result = mysqli_query($conn, $query);
-                }
+            if ($date == $date && $date2 == '') {
+                $query = "SELECT count(*) FROM postnatal WHERE postnatal_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            } else {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
         ?>
-        <p class="deworming-reports__brgy">
-            Total No. of Patient: <?php echo $row['count(*)']; ?>
-        </p>
+            <p class="deworming-reports__brgy">
+                Total No. of Patient: <?php echo $row['count(*)']; ?>
+            </p>
         <?php
         }
         ?>
@@ -335,14 +333,13 @@
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date = '$date'";
-                    $result = mysqli_query($conn, $query);
-                }
-                else{
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
-                    $result = mysqli_query($conn, $query);
-                }
+            if ($date == $date && $date2 == '') {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            } else {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age<=17 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -363,14 +360,13 @@
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date = '$date'";
-                    $result = mysqli_query($conn, $query);
-                }
-                else{
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
-                    $result = mysqli_query($conn, $query);
-                }
+            if ($date == $date && $date2 == '') {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            } else {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=18 AND age<=29 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -391,14 +387,13 @@
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                if($date == $date && $date2 == ''){
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date = '$date'";
-                    $result = mysqli_query($conn, $query);
-                }
-                else{
-                    $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
-                    $result = mysqli_query($conn, $query);
-                }
+            if ($date == $date && $date2 == '') {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date = '$date'";
+                $result = mysqli_query($conn, $query);
+            } else {
+                $query = "SELECT count(*) FROM postnatal WHERE archive_label='' AND age>=30 AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                $result = mysqli_query($conn, $query);
+            }
         }
 
         while ($row = mysqli_fetch_array($result)) {
@@ -426,14 +421,13 @@
             if (isset($_GET['report__date'])) {
                 $date = mysqli_real_escape_string($conn, $_GET['report__date']);
                 $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-                    if($date == $date && $date2 == ''){
-                        $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date = '$date'";
-                        $query_run = mysqli_query($conn, $query);
-                    }
-                    else{
-                        $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
-                        $query_run = mysqli_query($conn, $query);
-                    }
+                if ($date == $date && $date2 == '') {
+                    $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date = '$date'";
+                    $query_run = mysqli_query($conn, $query);
+                } else {
+                    $query = "SELECT * FROM postnatal WHERE archive_label='' AND postnatal_date >= '$date' AND postnatal_date <= '$date2'";
+                    $query_run = mysqli_query($conn, $query);
+                }
             }
 
             if (mysqli_num_rows($query_run) > 0) {
@@ -460,27 +454,24 @@
         if (isset($_GET['report__date'])) {
             $date = mysqli_real_escape_string($conn, $_GET['report__date']);
             $date2 = mysqli_real_escape_string($conn, $_GET['report__date2']);
-    
-            if($date2 == ''){
+
+            if ($date2 == '') {
                 $query = "SELECT count(*) FROM postnatal WHERE postnatal_date ='$date'";
                 $result = mysqli_query($conn, $query);
-            }
-            else{
+            } else {
                 $query = "SELECT count(*) FROM postnatal WHERE postnatal_date >='$date' AND postnatal_date <='$date2'";
                 $result = mysqli_query($conn, $query);
             }
-            
         }
 
         while ($row = mysqli_fetch_array($result)) {
-            if($row['count(*)']==0){
+            if ($row['count(*)'] == 0) {
         ?>
                 <button type="submit" class="btn-add services__btn btn-print" disabled>
                     Save as PDF
                 </button>
-        <?php
-            }
-            else{
+                <?php
+            } else {
                 $mail = $_SESSION['user_email'];
                 $query = "SELECT position, user_email FROM account_information WHERE user_email='$mail'
                         UNION ALL
@@ -498,19 +489,18 @@
                 $query_run = mysqli_query($conn, $query);
                 if (mysqli_num_rows($query_run) == 1) {
                     $row = mysqli_fetch_assoc($query_run);
-                    if($row['position'] == 'Barangay Health Worker'){
-                        ?>
-                            <button type="submit" class="btn-add services__btn btn-print" disabled>
-                                Save as PDF
-                            </button>
-                        <?php
-                    }
-                    else{
-                        ?>
-                            <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?=$patient['postnatal_id']?>&&label=<?=$patient['label']?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>&&userName=<?= $user_name ?>')">
-                                Save as PDF
-                            </button>
-                        <?php
+                    if ($row['position'] == 'Barangay Health Worker') {
+                ?>
+                        <button type="submit" class="btn-add services__btn btn-print" disabled>
+                            Save as PDF
+                        </button>
+                    <?php
+                    } else {
+                    ?>
+                        <button type="submit" class="btn-green btn-add services__btn btn-print" onclick="window.open('./includes/print_pdf-daily_report.php?id=<?= $patient['postnatal_id'] ?>&&label=<?= $patient['label'] ?>&&date=<?= $date; ?>&&date2=<?= $date2; ?>&&userName=<?= $user_name ?>')">
+                            Save as PDF
+                        </button>
+        <?php
                     }
                 }
             }
@@ -518,8 +508,7 @@
         ?>
         <!-- Query End -->
 
-        <?php
-        }
-        ?>
+    <?php
+    }
+    ?>
 </div>
-

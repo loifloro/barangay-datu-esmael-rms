@@ -1,4 +1,3 @@
-
 <style>
     .value {
         font-weight: bolder;
@@ -98,26 +97,26 @@
 </style>
 
 <head>
-  <title><?= $patient['firstname'].' '.$patient['lastname']; ?> Prenatal Record</title>
+    <title><?= $patient['firstname'] . ' ' . $patient['lastname']; ?> Prenatal Record</title>
 </head>
 
 <div id="prenatal__report<?= $patient['prenatal_id']; ?>" class="modal prenatal__report">
     <!-- QUERY FOR DYNAMIC CITY/BARANGAY -->
     <?php
-        $query = "SELECT * FROM account_information WHERE position='Admin'";
-        $query_run= mysqli_query($conn, $query);
-        if (mysqli_num_rows($query_run) > 0) {
-            foreach ($query_run as $user) {
-                $barangay_name = $user['barangay_name'];
-                $city_name = $user['city_name'];
-            }
+    $query = "SELECT * FROM account_information WHERE position='Admin'";
+    $query_run = mysqli_query($conn, $query);
+    if (mysqli_num_rows($query_run) > 0) {
+        foreach ($query_run as $user) {
+            $barangay_name = $user['barangay_name'];
+            $city_name = $user['city_name'];
         }
+    }
     ?>
     <h4 class="prenatal__report__title">
-        City Government of <?=$city_name;?> <br> City Health Office II
+        City Government of <?= $city_name; ?> <br> City Health Office II
     </h4>
     <p class="prenatal__report__city">
-        City of <?=$city_name;?>
+        City of <?= $city_name; ?>
     </p>
 
 
@@ -179,31 +178,32 @@
 
     <div class="padding-left">
         <p class="prenatal__report__symptom">
-            <abbr title="Symptoms">S></abbr>
+            <abbr title="Symptoms">Symptoms></abbr>
             <span class="value">
                 <!-- # $patient['symptoms']; -->
             </span>
         </p>
         <div class="prenatal__report__bmi">
             <p class="prenatal__report__bmi__item">
-                <abbr title="O">O> BP</abbr>
+                <abbr title="O">Observation> Blood pressure</abbr>
                 <span class="value">
                     <?= $patient['blood_pressure']; ?>
                 </span>
                 mmHg
             </p>
             <p class="prenatal__report__bmi__item">
-                <abbr title="Weight">WT:</abbr>
+                <abbr title="Weight">Weight:</abbr>
                 <span class="value">
                     <?= $patient['weight']; ?>
                 </span>
                 kg
             </p>
             <p class="prenatal__report__bmi__item prenatal__report__bmi__item--end">
-                <abbr title="Height">H: </abbr>
+                <abbr title="Height">Height: </abbr>
                 <span class="value">
                     <?= $patient['height']; ?>
                 </span>
+                cm
             </p>
         </div>
         <div class="prenatal__report__ob">
@@ -212,13 +212,13 @@
             </h5>
             <div class="prenatal__report__ob__gp">
                 <p class="prenatal__report__ob-g">
-                    <abbr title="">G: </abbr>
+                    <abbr title="">Gravida: </abbr>
                     <span class="value">
                         <?= $patient['gravida']; ?>
                     </span>
                 </p>
                 <p class="prenatal__report__ob-p">
-                    <abbr title="">P: </abbr>
+                    <abbr title="">Preterm: </abbr>
                     <span class="value">
                         <?= $patient['preterm']; ?>
                     </span>
@@ -227,19 +227,19 @@
         </div>
         <div class="block center">
             <p class="prenatal__report__ob__lmp">
-                <abbr title="">LMP: </abbr>
+                <abbr title="">Last Menstraual Period: </abbr>
                 <span class="value">
                     <?= $patient['last_menstrual']; ?>
                 </span>
             </p>
             <p class="prenatal__report__ob__edc">
-                <abbr title="">EDC: </abbr>
+                <abbr title="">Estimated Date of Confinement: </abbr>
                 <span class="value">
                     <?= $patient['edc']; ?>
                 </span>
             </p>
             <p class="prenatal__report__ob__aog">
-                <abbr title="">AOG: </abbr>
+                <abbr title="">Assessment of Gestational Age: </abbr>
                 <span class="value">
                     <?= $patient['aog']; ?>
                 </span>
@@ -250,14 +250,14 @@
         </h5>
         <div class="prenatal__report__abdomen center">
             <p class="prenatal__report__abdomen">
-                <abbr title="">FH: </abbr>
+                <abbr title="">Fetal Heart: </abbr>
                 <span class="value">
                     <?= $patient['fetal_heart']; ?>
                 </span>
                 cm
             </p>
             <p class="prenatal__report__abdomen">
-                <abbr title="">FHT: </abbr>
+                <abbr title="">Fetal Heart Tones: </abbr>
                 <span class="value">
                     <?= $patient['fetal_heart_tones']; ?>
                 </span>
@@ -274,13 +274,13 @@
             Tetanus Toxoid Status
         </h5>
         <p class="prenatal__report__tetanus__a">
-            <abbr title="">A> </abbr>
+            <abbr title="">Abonormalities> </abbr>
             <span class="value">
                 <?= $patient['a']; ?>
             </span>
         </p>
         <p class="prenatal__report__tetanus__a">
-            <abbr title="">P> </abbr>
+            <abbr title="">Prescription> </abbr>
             <span class="value">
                 <?= $patient['p']; ?>
             </span>

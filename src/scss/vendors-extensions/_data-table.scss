@@ -40,12 +40,12 @@ table.dataTable.display tbody td {
 
 table.dataTable tbody tr td a {
   font: unset;
-  font-weight: 600;
+  font-weight: 700;
   color: #207647;
 }
 
 .dataTables_wrapper {
-  margin-block: 2rem;
+  // margin-block: 0.5rem;
 }
 .dataTables_wrapper > * {
   margin-block: 0.5rem;
@@ -63,7 +63,7 @@ table.dataTable tbody tr td a {
   font-weight: 600;
   height: 2.5rem;
   background: $white-2;
-  border-radius: 0.5vw;
+  border-radius: 0.5rem;
   letter-spacing: 0.05rem;
   transition: all ease 600ms;
 
@@ -75,7 +75,7 @@ table.dataTable tbody tr td a {
 }
 
 .dataTables_wrapper .dataTables_filter input {
-  border-radius: 0.5vw;
+  border-radius: 0.5rem;
   border: 1px solid $white-3;
   padding: unset;
   padding-left: 0.5rem;
@@ -92,10 +92,15 @@ table.dataTable tbody tr td a {
     outline: #034a23 solid 1px;
     background: var(--white-1);
   }
+
+  @media (max-width: map-get($breakpoints, "medium")) {
+    // Medium smartphone
+    width: 30vw;
+  }
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button.current {
-  border-radius: 0.5vw;
+  border-radius: 0.5rem;
   border: 1px solid $white-3;
   font-weight: 600;
   font-size: 1rem;
@@ -108,5 +113,22 @@ table.dataTable tbody tr td a {
   &:active {
     outline: #034a23 solid 1px;
     background: var(--white-1);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .dataTables_wrapper .dataTables_length,
+  .dataTables_wrapper .dataTables_filter {
+    display: block;
+    float: unset;
+  }
+
+  .dataTables_wrapper .dataTables_filter {
+    float: right;
+    text-align: right;
+  }
+
+  .dataTables_wrapper .dataTables_length {
+    float: left;
   }
 }

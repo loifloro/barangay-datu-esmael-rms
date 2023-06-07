@@ -89,12 +89,16 @@ if (mysqli_num_rows($query_run2) > 0) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="./css/main.css">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script src="./js/jquerymodal.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+    <script src="./js/datatable.js"></script>
 
     <!-- START QUERY FOR DISPLAYING TITLE TAB -->
     <?php
@@ -227,7 +231,7 @@ if (mysqli_num_rows($query_run2) > 0) {
             }
         }
     ?>
-        <title><?= $patient_tab; ?></title>
+        <title><?= $patient_tab; ?> | Profile | Brgy. Datu Esmael Patient Record System</title>
     <?php
     }
     ?>
@@ -247,7 +251,8 @@ if (mysqli_num_rows($query_run2) > 0) {
             <a href="patients.php">Back</a>
         </p>
         <h2 class="patient-profile__title">
-            Profile
+            <a onclick="patientProfileView('profile')" class="patient-profile__title--active" id='profileTitle'>Profile</a>
+            <a onclick="patientProfileView('history')" id='historyTitle'>Medical History</a>
         </h2>
 
         <?php
@@ -339,7 +344,11 @@ if (mysqli_num_rows($query_run2) > 0) {
 
     </main>
     <script src="./js/app.js"></script>
-
+    <script>
+        $(document).ready(function() {
+            $('#patient-profile-table').DataTable();
+        });
+    </script>
 </body>
 
 </html>

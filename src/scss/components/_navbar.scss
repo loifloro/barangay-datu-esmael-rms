@@ -69,7 +69,7 @@
   &__search {
     margin-right: 1.25rem;
     background: $white-2;
-    border-radius: 0.5vw;
+    border-radius: 0.5rem;
     border: 1px solid $white-3;
 
     @media (max-width: map-get($breakpoints, "small")) {
