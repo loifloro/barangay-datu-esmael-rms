@@ -141,8 +141,24 @@ if (isset($_POST['edit_other'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
+
         $date = date('Y-m-d');
         $time = date('H:i:s');
 
@@ -155,7 +171,7 @@ if (isset($_POST['edit_other'])) {
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date', '$time', '$patient_fname', '$patient_lname', '$title')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -213,8 +229,23 @@ if (isset($_POST['edit_deworming'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -227,7 +258,7 @@ if (isset($_POST['edit_deworming'])) {
                             (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                             date_edit, time_edit, patient_fname, patient_lname, record_name)
                             VALUES 
-                            ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                            ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                             '$date','$time', '$patient_fname', '$patient_lname', 'Deworming')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -237,9 +268,6 @@ if (isset($_POST['edit_deworming'])) {
         }
         //END OF QUERY
 
-        // $_SESSION['message'] = "Student Created Successfully";
-        // header("Location: ../services.php");
-        // exit(0);
     } else {
         header("Location: ../services.php?status=error&service=deworming");
         exit(0);
@@ -295,8 +323,23 @@ if (isset($_POST['edit_consultation'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -309,7 +352,7 @@ if (isset($_POST['edit_consultation'])) {
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date', '$time', '$patient_fname', '$patient_lname', 'Consultation')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -389,8 +432,23 @@ if (isset($_POST['edit_prenatal'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -403,7 +461,7 @@ if (isset($_POST['edit_prenatal'])) {
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date','$time', '$patient_fname', '$patient_lname', 'Prenatal')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -483,8 +541,23 @@ if (isset($_POST['edit_postnatal'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -497,7 +570,7 @@ if (isset($_POST['edit_postnatal'])) {
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date','$time', '$patient_fname', '$patient_lname', 'Postnatal')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -563,8 +636,23 @@ if (isset($_POST['edit_search_destroy'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -577,7 +665,7 @@ if (isset($_POST['edit_search_destroy'])) {
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname','$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname','$user_lname', '$user_role', 'edited', 
                 '$date','$time', '$patient_fname', '$patient_lname', 'Search/Destroy')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -741,8 +829,23 @@ if (isset($_POST['edit_early_childhood'])) {
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -755,7 +858,7 @@ if (isset($_POST['edit_early_childhood'])) {
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date','$time', '$patient_fname', '$patient_lname', 'Childhood Care')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -865,8 +968,23 @@ if (isset($_POST['edit_maternal_list'])) //no page yet for this query
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -879,7 +997,7 @@ if (isset($_POST['edit_maternal_list'])) //no page yet for this query
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date','$time', '$patient_fname', '$patient_lname', 'Target Maternal Care')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -1014,8 +1132,23 @@ if (isset($_POST['edit_childcare_male'])) //no page yet for this query
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -1028,7 +1161,7 @@ if (isset($_POST['edit_childcare_male'])) //no page yet for this query
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date','$time', '$patient_fname', '$patient_lname', 'Target Childcare Male')";
 
         $query_run2 = mysqli_query($conn, $query2);
@@ -1164,8 +1297,23 @@ if (isset($_POST['edit_childcare_female'])) //no page yet for this query
         $user_lname = mysqli_real_escape_string($conn, $_POST['user_lname']);
         $user_role = mysqli_real_escape_string($conn, $_POST['user_role']);
 
-        $reasons = mysqli_real_escape_string($conn, $_POST['edit-reason']);
-        $patient_others = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        $selectedReasons = [];
+        if (isset($_POST['edit-reason1'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason1']);
+        }
+        if (isset($_POST['edit-reason2'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason2']);
+        }
+        if (isset($_POST['edit-reason3'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason3']);
+        }
+        if (isset($_POST['edit-reason4'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['edit-reason4']);
+        }
+        if (isset($_POST['patient-others'])) {
+            $selectedReasons[] = mysqli_real_escape_string($conn, $_POST['patient-others']);
+        }
+        $reasonString = implode(", ", $selectedReasons);
 
         $date = date('Y-m-d');
         $time = date('H:i:s');
@@ -1178,7 +1326,7 @@ if (isset($_POST['edit_childcare_female'])) //no page yet for this query
                 (reasons, other_reason, user_fname, user_lname, user_role, changes_label, 
                 date_edit, time_edit, patient_fname, patient_lname, record_name)
                 VALUES 
-                ('$reasons', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
+                ('$reasonString', '$patient_others', '$user_fname', '$user_lname', '$user_role', 'edited', 
                 '$date','$time', '$patient_fname', '$patient_lname', 'Target Childcare Female')";
 
         $query_run2 = mysqli_query($conn, $query2);
