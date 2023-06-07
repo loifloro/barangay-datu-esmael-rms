@@ -2508,6 +2508,16 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     background: none;
   }
 }
+.recent-update__role .role--admin {
+  color: var(--white-1);
+  background: #034a23;
+}
+@media (max-width: 48.1rem) {
+  .recent-update__role .role--admin {
+    color: #034a23;
+    background: none;
+  }
+}
 
 .masterlist__table {
   background: var(--white-1);
