@@ -11,7 +11,7 @@
             Fill out necessary information to complete the process
         </p>
 
-        <form action="includes/edit_query.php" method="POST" class="add-deworming__form">
+        <form action="includes/edit_query.php" method="POST" class="add-deworming__form" onsubmit="return validateForm()">
             <!-- Start Query -->
             <?php
             if (isset($_GET['id'])) {
@@ -117,19 +117,19 @@
                     <!-- Radio Buttons -->
 
                     <div class="edit-deworming__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-mispelled" value="Mispelled Name" required>
+                        <input type="checkbox" name="edit-reason1" id="edit-reason-mispelled" value="Mispelled Name">
                         <label for="edit-reason-mispelled">Mispelled Name</label>
                     </div>
                     <div class="edit-deworming__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
+                        <input type="checkbox" name="edit-reason2" id="edit-reason-gender" value="Incorrect Sex">
                         <label for="edit-reason-gender">Incorrect Sex</label>
                     </div>
                     <div class="edit-deworming__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>
+                        <input type="checkbox" name="edit-reason3" id="edit-reason-bdate" value="Incorrect Birthdate">
                         <label for="edit-reason-bdate">Incorrect Birthdate</label>
                     </div>
                     <div class="edit-deworming__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-address" value="Wrong Address" required>
+                        <input type="checkbox" name="edit-reason4" id="edit-reason-address" value="Wrong Address">
                         <label for="edit-reason-address">Wrong Address</label>
                     </div>
                     <div class="edit-deworming__form-item--reason">
@@ -172,6 +172,28 @@
             <!-- END OF QUERY -->
         </form>
     </section>
+    
+    <!-- validate checkbox -->
+    <script>
+    function validateForm() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var checked = false;
+        
+        for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            checked = true;
+            break;
+        }
+        }
+        
+        if (!checked) {
+        alert("Please select at least one checkbox.");
+        return false;
+        }
+        
+        return true;
+    }
+    </script>
 
     <section class="contents">
         <ul class="contents__list">

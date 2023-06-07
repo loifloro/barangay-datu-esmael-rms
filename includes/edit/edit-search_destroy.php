@@ -11,7 +11,7 @@
             Fill out necessary information to complete the process
         </p>
 
-        <form action="includes/edit_query.php" method="POST" class="edit-search_destroy__form">
+        <form action="includes/edit_query.php" method="POST" class="edit-search_destroy__form" onsubmit="return validateForm()">
             <?php
             if (isset($_GET['id'])) {
                 $patient_id = mysqli_real_escape_string($conn, $_GET['id']);
@@ -129,23 +129,23 @@
                     </p>
 
                     <!-- Radio Buttons -->
-                    <div class="edit-search_destroy__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-mispelled" value="Mispelled Name" required>
+                    <div class="edit-deworming__form-item--reason">
+                        <input type="checkbox" name="edit-reason1" id="edit-reason-mispelled" value="Mispelled Name">
                         <label for="edit-reason-mispelled">Mispelled Name</label>
                     </div>
-                    <div class="edit-search_destroy__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-gender" value="Incorrect Sex" required>
+                    <div class="edit-deworming__form-item--reason">
+                        <input type="checkbox" name="edit-reason2" id="edit-reason-gender" value="Incorrect Sex">
                         <label for="edit-reason-gender">Incorrect Sex</label>
                     </div>
-                    <div class="edit-search_destroy__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-bdate" value="Incorrect Birthdate" required>
+                    <div class="edit-deworming__form-item--reason">
+                        <input type="checkbox" name="edit-reason3" id="edit-reason-bdate" value="Incorrect Birthdate">
                         <label for="edit-reason-bdate">Incorrect Birthdate</label>
                     </div>
-                    <div class="edit-search_destroy__form-item--reason">
-                        <input type="radio" name="edit-reason" id="edit-reason-address" value="Wrong address" required>
-                        <label for="edit-reason-address">Wrong address</label>
+                    <div class="edit-deworming__form-item--reason">
+                        <input type="checkbox" name="edit-reason4" id="edit-reason-address" value="Wrong Address">
+                        <label for="edit-reason-address">Wrong Address</label>
                     </div>
-                    <div class="edit-search_destroy__form-item--reason">
+                    <div class="edit-deworming__form-item--reason">
                         <!-- <input type="radio" name="edit-reason" id="patient-others"> -->
                         <label for="patient-others">Others: </label>
                         <input type="text" name="patient-others" id="patient-others">
@@ -188,6 +188,28 @@
             <!-- QUERY END -->
         </form>
     </section>
+    
+    <!-- validate checkbox -->
+    <script>
+    function validateForm() {
+        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        var checked = false;
+        
+        for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i].checked) {
+            checked = true;
+            break;
+        }
+        }
+        
+        if (!checked) {
+        alert("Please select at least one checkbox.");
+        return false;
+        }
+        
+        return true;
+    }
+    </script>
 
     <section class="contents">
         <ul class="contents__list">
