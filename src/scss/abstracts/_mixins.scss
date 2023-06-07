@@ -170,6 +170,10 @@
     display: flex;
     align-items: center;
 
+    &--reason {
+      padding-left: 1rem;
+    }
+
     @media (max-width: 45rem) {
       flex-wrap: wrap;
       flex-direction: column;
