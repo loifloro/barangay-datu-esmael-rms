@@ -168,7 +168,7 @@ hide_content_nurse();
                 <div class="user-profile__backup__form" id="upload_user">
                     <label for="patient-password">
                         <p class="backup-title">Municipality / City Name</p>
-                        Update the Barangay Name to change all names of Barangay in forms, reports and entire system
+                        Update the City Name to change all names of City in forms, reports and entire system
                     </label>
                     <div class="user-profile__columns">
 
