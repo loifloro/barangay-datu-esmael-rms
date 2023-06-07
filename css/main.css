@@ -3797,6 +3797,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     padding-left: unset;
   }
 }
+.add-deworming__form-item--reason,
+.add-consultation__form-item--reason,
+.add-prenatal__form-item--reason,
+.add-postnatal__form-item--reason,
+.add-search_destroy__form-item--reason,
+.add-early_childhood__form-item--reason,
+.add-child_care-male__form-item--reason,
+.add-child_care-female__form-item--reason,
+.add-maternal_care__form-item--reason {
+  padding-left: 1rem;
+}
 @media (max-width: 45rem) {
   .add-deworming__form-item,
   .add-consultation__form-item,
@@ -4921,6 +4932,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     padding-left: unset;
   }
 }
+.edit-profile__form-item--reason {
+  padding-left: 1rem;
+}
 @media (max-width: 45rem) {
   .edit-profile__form-item {
     flex-wrap: wrap;
@@ -5221,6 +5235,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-bhw__form-item {
     padding-left: unset;
   }
+}
+.edit-bhw__form-item--reason {
+  padding-left: 1rem;
 }
 @media (max-width: 45rem) {
   .edit-bhw__form-item {
@@ -5914,6 +5931,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-maternal_care__form-item {
     padding-left: unset;
   }
+}
+.edit-deworming__form-item--reason,
+.edit-consultation__form-item--reason,
+.edit-prenatal__form-item--reason,
+.edit-postnatal__form-item--reason,
+.edit-search_destroy__form-item--reason,
+.edit-early_childhood__form-item--reason,
+.edit-child_care-male__form-item--reason,
+.edit-child_care-female__form-item--reason,
+.edit-maternal_care__form-item--reason {
+  padding-left: 1rem;
 }
 @media (max-width: 45rem) {
   .edit-deworming__form-item,
