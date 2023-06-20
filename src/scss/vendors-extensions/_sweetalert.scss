@@ -19,6 +19,14 @@
 
 .swal2-html-container {
   margin-top: unset !important;
+
+  & > * {
+    width: 80%;
+  }
+
+  select {
+    margin: 1em 2em 3px;
+  }
 }
 
 .toast.swal2-icon-success {

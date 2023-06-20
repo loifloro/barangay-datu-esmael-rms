@@ -385,10 +385,6 @@ input[type=range] {
   }
 }
 
-input[type=password] {
-  font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma";
-}
-
 .modal {
   z-index: 50 !important;
   max-width: 100vw !important;
@@ -427,6 +423,12 @@ input[type=password] {
 
 .swal2-html-container {
   margin-top: unset !important;
+}
+.swal2-html-container > * {
+  width: 80%;
+}
+.swal2-html-container select {
+  margin: 1em 2em 3px;
 }
 
 .toast.swal2-icon-success {
