@@ -3810,6 +3810,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .add-maternal_care__form-item--reason {
   padding-left: 1rem;
 }
+.add-deworming__form-item--reason input#patient-others,
+.add-consultation__form-item--reason input#patient-others,
+.add-prenatal__form-item--reason input#patient-others,
+.add-postnatal__form-item--reason input#patient-others,
+.add-search_destroy__form-item--reason input#patient-others,
+.add-early_childhood__form-item--reason input#patient-others,
+.add-child_care-male__form-item--reason input#patient-others,
+.add-child_care-female__form-item--reason input#patient-others,
+.add-maternal_care__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
+}
 @media (max-width: 45rem) {
   .add-deworming__form-item,
   .add-consultation__form-item,
@@ -4937,6 +4948,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-profile__form-item--reason {
   padding-left: 1rem;
 }
+.edit-profile__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
+}
 @media (max-width: 45rem) {
   .edit-profile__form-item {
     flex-wrap: wrap;
@@ -5240,6 +5254,9 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 }
 .edit-bhw__form-item--reason {
   padding-left: 1rem;
+}
+.edit-bhw__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
 }
 @media (max-width: 45rem) {
   .edit-bhw__form-item {
@@ -5944,6 +5961,17 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
 .edit-child_care-female__form-item--reason,
 .edit-maternal_care__form-item--reason {
   padding-left: 1rem;
+}
+.edit-deworming__form-item--reason input#patient-others,
+.edit-consultation__form-item--reason input#patient-others,
+.edit-prenatal__form-item--reason input#patient-others,
+.edit-postnatal__form-item--reason input#patient-others,
+.edit-search_destroy__form-item--reason input#patient-others,
+.edit-early_childhood__form-item--reason input#patient-others,
+.edit-child_care-male__form-item--reason input#patient-others,
+.edit-child_care-female__form-item--reason input#patient-others,
+.edit-maternal_care__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
 }
 @media (max-width: 45rem) {
   .edit-deworming__form-item,

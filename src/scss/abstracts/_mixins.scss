@@ -172,6 +172,10 @@
 
     &--reason {
       padding-left: 1rem;
+
+      input#patient-others {
+        margin-top: 0.5rem;
+      }
     }
 
     @media (max-width: 45rem) {
