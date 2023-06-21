@@ -46,113 +46,114 @@ hide_content();
     <title>Services | Brgy. Datu Esmael Patient Record System</title>
 </head>
 
-<?php
-if (isset($_GET['status'])) {
-    if ($_GET['status'] == 'success') {
-?>
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Added Succesfully',
-            })
-        </script>
-    <?php
-    } elseif ($_GET['status'] == 'error') {
-    ?>
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error when adding',
-            })
-        </script>
-    <?php
-    }
-}
-
-if (isset($_GET['edited'])) {
-    if ($_GET['edited'] == 'success') {
-    ?>
-        <script>
-            Swal.fire({
-                icon: 'success',
-                title: 'Edited Succesfully',
-            })
-        </script>
-    <?php
-    } elseif ($_GET['status'] == 'error') {
-    ?>
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: 'Error when adding',
-            })
-        </script>
-    <?php
-    }
-}
-
-if (isset($_GET['archive'])) {
-    if ($_GET['archive'] == 'error') {
-    ?>
-        <script>
-            Swal.fire({
-                toast: true,
-                position: 'top-right',
-                icon: 'error',
-                iconColor: 'white',
-                title: 'Error archiving!',
-                customClass: {
-                    popup: 'toast'
-                },
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-            })
-        </script>
-    <?php
-    } else {
-    ?>
-        <script>
-            Swal.fire({
-                toast: true,
-                position: 'top-right',
-                icon: 'success',
-                iconColor: 'white',
-                title: 'Archived succesfully!',
-                customClass: {
-                    popup: 'toast'
-                },
-                showConfirmButton: false,
-                timer: 4000,
-                timerProgressBar: true,
-            })
-        </script>
-    <?php
-    }
-}
-
-if (isset($_GET['restore'])) {
-    ?>
-    <script>
-        Swal.fire({
-            toast: true,
-            position: 'top-right',
-            icon: 'success',
-            iconColor: 'white',
-            title: 'Restored succesfully!',
-            customClass: {
-                popup: 'toast'
-            },
-            showConfirmButton: false,
-            timer: 4000,
-            timerProgressBar: true,
-        })
-    </script>
-<?php
-}
-?>
 
 <body class="grid" id="grid">
+    <?php
+    if (isset($_GET['status'])) {
+        if ($_GET['status'] == 'success') {
+    ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Added Succesfully',
+                })
+            </script>
+        <?php
+        } elseif ($_GET['status'] == 'error') {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error when adding',
+                })
+            </script>
+        <?php
+        }
+    }
+
+    if (isset($_GET['edited'])) {
+        if ($_GET['edited'] == 'success') {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Edited Succesfully',
+                })
+            </script>
+        <?php
+        } elseif ($_GET['status'] == 'error') {
+        ?>
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error when adding',
+                })
+            </script>
+        <?php
+        }
+    }
+
+    if (isset($_GET['archive'])) {
+        if ($_GET['archive'] == 'error') {
+        ?>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'error',
+                    iconColor: 'white',
+                    title: 'Error archiving!',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                })
+            </script>
+        <?php
+        } else {
+        ?>
+            <script>
+                Swal.fire({
+                    toast: true,
+                    position: 'top-right',
+                    icon: 'success',
+                    iconColor: 'white',
+                    title: 'Archived succesfully!',
+                    customClass: {
+                        popup: 'toast'
+                    },
+                    showConfirmButton: false,
+                    timer: 4000,
+                    timerProgressBar: true,
+                })
+            </script>
+        <?php
+        }
+    }
+
+    if (isset($_GET['restore'])) {
+        ?>
+        <script>
+            Swal.fire({
+                toast: true,
+                position: 'top-right',
+                icon: 'success',
+                iconColor: 'white',
+                title: 'Restored succesfully!',
+                customClass: {
+                    popup: 'toast'
+                },
+                showConfirmButton: false,
+                timer: 4000,
+                timerProgressBar: true,
+            })
+        </script>
+    <?php
+    }
+    ?>
+
     <?php
     include './includes/loader.php';
     include './includes/sidebar/services.php';
@@ -1594,7 +1595,7 @@ if (isset($_GET['restore'])) {
             }
             ?>
             <script>
-                servicesClick('deworming__Services');
+                servicesClick('services__list__item--deworming');
             </script>
             <?php
         } else if ($_GET['service'] === 'childhood') {

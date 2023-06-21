@@ -385,10 +385,6 @@ input[type=range] {
   }
 }
 
-input[type=password] {
-  font-family: "Inter", "Montserrat", "Outfit", "Poppins", "Tahoma";
-}
-
 .modal {
   z-index: 50 !important;
   max-width: 100vw !important;
@@ -427,6 +423,12 @@ input[type=password] {
 
 .swal2-html-container {
   margin-top: unset !important;
+}
+.swal2-html-container > * {
+  width: 80%;
+}
+.swal2-html-container select {
+  margin: 1em 2em 3px;
 }
 
 .toast.swal2-icon-success {
@@ -2508,6 +2510,16 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     background: none;
   }
 }
+.recent-update__role .role--admin {
+  color: var(--white-1);
+  background: #034a23;
+}
+@media (max-width: 48.1rem) {
+  .recent-update__role .role--admin {
+    color: #034a23;
+    background: none;
+  }
+}
 
 .masterlist__table {
   background: var(--white-1);
@@ -3787,6 +3799,28 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     padding-left: unset;
   }
 }
+.add-deworming__form-item--reason,
+.add-consultation__form-item--reason,
+.add-prenatal__form-item--reason,
+.add-postnatal__form-item--reason,
+.add-search_destroy__form-item--reason,
+.add-early_childhood__form-item--reason,
+.add-child_care-male__form-item--reason,
+.add-child_care-female__form-item--reason,
+.add-maternal_care__form-item--reason {
+  padding-left: 1rem;
+}
+.add-deworming__form-item--reason input#patient-others,
+.add-consultation__form-item--reason input#patient-others,
+.add-prenatal__form-item--reason input#patient-others,
+.add-postnatal__form-item--reason input#patient-others,
+.add-search_destroy__form-item--reason input#patient-others,
+.add-early_childhood__form-item--reason input#patient-others,
+.add-child_care-male__form-item--reason input#patient-others,
+.add-child_care-female__form-item--reason input#patient-others,
+.add-maternal_care__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
+}
 @media (max-width: 45rem) {
   .add-deworming__form-item,
   .add-consultation__form-item,
@@ -4911,6 +4945,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
     padding-left: unset;
   }
 }
+.edit-profile__form-item--reason {
+  padding-left: 1rem;
+}
+.edit-profile__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
+}
 @media (max-width: 45rem) {
   .edit-profile__form-item {
     flex-wrap: wrap;
@@ -5211,6 +5251,12 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-bhw__form-item {
     padding-left: unset;
   }
+}
+.edit-bhw__form-item--reason {
+  padding-left: 1rem;
+}
+.edit-bhw__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
 }
 @media (max-width: 45rem) {
   .edit-bhw__form-item {
@@ -5904,6 +5950,28 @@ button.btn-red:hover:before, button.btn-red:focus:before, button.btn-red:active:
   .edit-maternal_care__form-item {
     padding-left: unset;
   }
+}
+.edit-deworming__form-item--reason,
+.edit-consultation__form-item--reason,
+.edit-prenatal__form-item--reason,
+.edit-postnatal__form-item--reason,
+.edit-search_destroy__form-item--reason,
+.edit-early_childhood__form-item--reason,
+.edit-child_care-male__form-item--reason,
+.edit-child_care-female__form-item--reason,
+.edit-maternal_care__form-item--reason {
+  padding-left: 1rem;
+}
+.edit-deworming__form-item--reason input#patient-others,
+.edit-consultation__form-item--reason input#patient-others,
+.edit-prenatal__form-item--reason input#patient-others,
+.edit-postnatal__form-item--reason input#patient-others,
+.edit-search_destroy__form-item--reason input#patient-others,
+.edit-early_childhood__form-item--reason input#patient-others,
+.edit-child_care-male__form-item--reason input#patient-others,
+.edit-child_care-female__form-item--reason input#patient-others,
+.edit-maternal_care__form-item--reason input#patient-others {
+  margin-top: 0.5rem;
 }
 @media (max-width: 45rem) {
   .edit-deworming__form-item,

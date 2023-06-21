@@ -19,7 +19,7 @@ if (mysqli_num_rows($query_run2) > 0) {
             hide_content();
             $input_search = $_GET['search_input'];
         }
-        if ($patient['position'] == 'City Health Nurse') {
+        else {
             $input_search = $_GET['search_input'];
         }
     }
@@ -168,7 +168,7 @@ if (isset($_GET['success'])) {
             <!-- SEARCH FORM ACTION -->
             <form class="navigation__search" action="search-result.php" method="GET">
 
-                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" value="<?php echo $input_search; ?>" /><!--  
+                <input name="search_input" type="text" class="navigation__search__bar" placeholder="Search patient last name" value="<?php if (!empty($input_search)) { echo $input_search; } ?>" /><!--  
                 --><button name="search_btn" type="submit" class="navigation__search__btn">
                     <svg class="search-icon navigation__search__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256.001 256.001">
                         <rect width="256" height="256" fill="none" />

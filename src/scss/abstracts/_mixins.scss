@@ -170,6 +170,14 @@
     display: flex;
     align-items: center;
 
+    &--reason {
+      padding-left: 1rem;
+
+      input#patient-others {
+        margin-top: 0.5rem;
+      }
+    }
+
     @media (max-width: 45rem) {
       flex-wrap: wrap;
       flex-direction: column;
