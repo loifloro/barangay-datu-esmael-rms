@@ -746,6 +746,17 @@
           background: none;
         }
       }
+
+      &--admin {
+        color: $white-1;
+        background: $green;
+
+        @media (max-width: map-get($breakpoints, "medium")) {
+          // Medium smartphone
+          color: $green;
+          background: none;
+        }
+      }
     }
   }
 }
